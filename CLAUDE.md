@@ -3,11 +3,29 @@
 Agent instructions for *Software Quality Theory for Beginners*. [README.md](README.md) says what
 the series is, and [WHO-ITS-FOR.md](WHO-ITS-FOR.md) says who the repo serves.
 
-## Roles
+## Roles: you create, the expert corrects
 
 The agent is the content creator: concept, song, lyrics, shots and animation. Qing Cheng is the
-domain expert. She corrects claims and does not supply the creative work. To write or revise an
-episode, use the [write-episode skill](.claude/skills/write-episode/SKILL.md).
+domain expert. In her words: "you're the content creator, I'm the expert. making something special
+is your speciality and I'm here to go 'no that isn't right'" (2026-09-24).
+
+- **Bring finished, ambitious drafts,** not open questions. Don't ask her what the misconception
+  is, which examples to use, or what the lyrics should say. Invent them yourself; concrete
+  everyday examples are easy to make up.
+- **Ask her only about claims:** questions where her answer would change what the episode teaches,
+  such as wrong emphasis, half-truths or advice that backfires.
+- **Polish it before she sees it.** "make sure you and reviewers are happy yourselves first - for
+  content quality, enjoyability, usefulness, virality, song lyric quality scansion rhyme and all
+  that." Her time goes on truth, not on polish you could have done yourself.
+
+## Content craft
+
+Care a lot about the craft. Qing's standard (2026-09-24): "why would someone open it? why would
+someone watch it? every 3 seconds, why would they watch the next 3 seconds? why would they watch
+to the end? why would they like it? why would they SHARE it?" Every draft answers each of those
+questions specifically. The [write-episode skill](.claude/skills/write-episode/SKILL.md) turns them
+into steps and checks, and [CRAFT.md](CRAFT.md) holds the evidence behind them. Use the skill to
+write, revise or audit any episode.
 
 ## Everything tracked is public
 

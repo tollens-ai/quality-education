@@ -40,8 +40,9 @@ others. Add a rule here whenever a fix teaches one.
 - **Borrow a rhythm template.** Name a known song whose rhythm the verse follows (verse 1 of
   episode 1 is the "We Didn't Start the Fire" verse rhythm) and fit every line to it. Write the
   template in the script.
-- **Pickups only open a section.** A line that starts on an unstressed upbeat ("con-FET-ti") can
-  only be the first line. Lines that start on the downbeat ("KU-ber-NE-tes") go after it.
+- **Unstressed upbeats are fine anywhere.** The exception is a list of lines that start on the
+  downbeat: there a line that starts on an upbeat ("con-FET-ti") has to go first, or it breaks
+  the run.
 - **Match the ending stress.** Rhyme words should land with the same stress pattern: "GYM LOG"
   with "BLOG" works; "GYM LOG" with "BAK-ing BLOG" bumps. Shorter is often the fix: "Kubernetes for
   your blog" scans where "Kubernetes for your food blog" doesn't.

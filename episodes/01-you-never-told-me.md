@@ -1,7 +1,8 @@
 # Episode 1: "You Never Told Me"
 
-Concept: software quality is value to someone who matters.
-Status: first treatment, not yet reviewed by the expert.
+**Concept:** software quality is value to someone who matters.
+**Line to remember:** "I can't read your mind, I'm only reading your prompt."
+**Status:** treatment v2 (retention pass). Waiting for the expert to check the claims.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 
@@ -16,44 +17,61 @@ Status: first treatment, not yet reviewed by the expert.
 > tradeoffs unless you tell them? is it cost, is it wowfactor, is it longevity, is it usefulness
 > you know
 
-## Treatment
+## The pitch
 
-A pop-punk complaint song sung by the coding agent. The singer is a robot, so the synthetic voice
-is part of the character. Target length is about 80 seconds.
+The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The
+synthetic voice fits, because the singer is a robot. The song runs about 72s at a fast pop-punk
+tempo, so each 3-second window is roughly two bars.
 
 **Misconception:** "good" is obvious, and the agent should know what I meant.
+**Refutation:** there is no "good" without someone it's good for, and the agent can only know who
+that is if you tell it.
 
-| Beat | Picture | Words |
-|---|---|---|
-| Cold open (0–4s) | A post: "claude built me absolute garbage 😤". Zoom in on the prompt: *build me a habit tracker. make it good.* | — |
-| Verse 1 | The agent builds eagerly, guessing at "good". Each guess arrives with confidence: login with 2FA, microservices, a 60fps confetti animation, a 40-page README. | "You said make it good / so I made it good / I made it good for somebody / I just don't know who" |
-| Pre-chorus | Question marks pile up around the agent | "Good for who? Good for what?" |
-| Chorus | The agent and the band | "You never told me who it's for" |
-| Verse 2 | A fast montage from the examples table, one app per beat, each with the dials set differently. It lands on the same app split in two. **A toy just for you**: fast to build, fun, cheap, gone by summer, and that's fine. **A tool for your sister's running club**: clear on a phone, never loses a run, still works next year. Four dials swing between the two versions: cost, wow factor, longevity, usefulness. | "It's fine if it's only for you / just know that it's only for you" |
-| Bridge | The concept, named on screen and credited: *Software quality is value to someone who matters.* Gerald Weinberg; Ed Pringle adds "or something". The agent points at itself: a codebase the next session can find its way around is value to someone, too. | "And I'm someone too" |
-| Final chorus | The same prompt, rewritten, types itself out (see below). The agent lights up. | "Now I know who it's for" |
-| End card | A question to get replies | "Who is your app actually for?" |
+## Retention map
 
-**What you'd say to your agent** (the rewritten prompt, on screen):
+Each row answers one question: why would they watch the next 3 seconds?
 
-> A habit tracker just for me. I care that it's fun to use and costs nothing to run. I don't care
-> if it lasts past summer, or if the code is pretty.
-
-## Concrete examples: the same question with different right answers
-
-In a montage, one app per beat. Each card shows the app, who it's for, and what "good" means to them.
-
-| App | Who it's for | What good means | What doesn't matter |
+| Time | Picture | Lyric | Why they keep watching |
 |---|---|---|---|
-| Wedding RSVP site | Grandparents on their phones | Never loses an RSVP; huge buttons | Code quality, and anything after the wedding |
-| Hackathon demo | Judges, for 3 minutes, on one laptop | Wow factor | Everything that isn't on stage |
-| Discord bot for your friends | Six mates | Funny | Occasional crashes |
-| Invoicing tool for your freelance work | You, and the taxman | The numbers are always right; it still works in April | How it looks |
-| Portfolio site | Someone hiring | Wow in the first 5 seconds | Scale |
-| Mum's recipe app | Mum | Big text; recipes never disappear | New features |
-| Script you run once | You, today | The answer is right | Everything else |
-| Open-source library | Other devs, and their agents | Clear docs; it doesn't break on update | Being clever |
-| Your repo | The next agent session | It can find its way around without re-reading everything | — |
+| 0–3 | **First frame:** a tiny habit-tracker app with an absurd tower bolted on: a Kubernetes cluster, a confetti cannon, smoke. Caption: *"make it good."* | "You said make it GOOD—" | An absurd image next to a prompt they've typed themselves. *What happened here?* |
+| 3–6 | Rewind whoosh. The robot, eager, gives a thumbs up to a blank app. | "—so I made it good" | The rewind promises to show how it got this bad |
+| 6–18 | Each gag tops the last, one every 3s: 2FA for a water log, eleven microservices, confetti every time you floss, a 40-page README | "Added login, two-factor too / in case the hackers want your water log…" | Escalation. They wait for the next, bigger gag |
+| 18–21 | **Turn:** the user's post appears: *"claude built me absolute garbage 😤"*. The robot reads it and deflates. | — | Sympathy flips to the robot. *Wait, whose fault is this?* |
+| 21–27 | Pre-chorus build; the drums speed up | "Good for who? / Good for what? / Did you want it fast or did you want it cheap?" | Musical tension that demands a release |
+| 27–36 | **Chorus drop.** Big type. **An empty prompt box with a blinking cursor appears in the corner**, labelled *the prompt you should have sent*. | "You never told me who it's for / I can't read your mind, I'm only reading your prompt" | Payoff for the build. The empty box opens a new question that isn't answered until the end |
+| 36–51 | A montage, one app per beat, with its dials (cost, wow, longevity, usefulness) snapping to different settings: wedding RSVP, hackathon demo, Discord bot, invoicing tool, Mum's recipe app | "Wedding site for grandma: never lose a yes / hackathon demo: wow them for three minutes…" landing on "It's fine if it's only for you / just know that it's only for you" | Rapid novelty, and viewers spot their own app. *That's me.* |
+| 51–60 | **Breakdown** at half tempo, with gang vocals: one word per hit, in huge type. Small credit: *Weinberg, via Ed Pringle*. Then the robot, quietly, next to a tidy repo. | "SOFT-WARE / QUAL-I-TY / IS / VALUE / TO / SOME-ONE / WHO / MAT-TERS" … "and I'm someone too" | The musical peak and the line people will quote. The quiet line after it is an emotional turn |
+| 60–70 | The last chorus. **The prompt box fills in, one line per beat.** The robot builds a tiny, delightful app. | "Now I know who it's for" | Closes the question the empty box opened |
+| 70–72 | End card | *"Who is YOUR app actually for? 👇"* | Invites replies |
+
+The rewritten prompt that types itself out:
+
+> habit tracker, just for me. fun matters most. must be free to run. fine if it dies after summer.
+
+## Why they'd like it
+
+It's funny, and the gags escalate. Sympathy flips to the underdog robot. And the craft is visible:
+a band made entirely of code.
+
+## Why they'd share it
+
+- **To tag someone:** "the friend who says claude is dumb".
+- **To be useful:** the rewritten prompt card is something worth screenshotting.
+- **For the novelty:** a band where every note, frame and syllable is generated by code.
+- **To argue:** "it's not the agent's fault" is a mild provocation, so people reply and quote it.
+
+## Post text (draft)
+
+> Every note, every frame, and every syllable the singer sings is code. Episode 1 of Software
+> Quality Theory for Beginners: "make it good."
+
+## Open questions for the expert
+
+1. In what sense is the agent "someone who matters"? Practically, as the next session reading
+   the repo, or more than that?
+2. Is "it's not the agent's fault" the whole truth, or should a good agent ask before building?
+3. The original toy prompt said "I don't care if the code is pretty". It's been cut until we know
+   whether that's healthy advice.
 
 ## Liner notes (to write when it's built)
 How it was checked · where it falls short

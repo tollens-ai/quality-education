@@ -6,7 +6,8 @@ The ideas in this series come from three places.
 Ed's working notes on quality strategy, used with permission. Where an episode uses one of his
 ideas, the video credits him on screen. From Ed:
 
-- Quality is value to someone (or something) who matters — building on Jerry Weinberg
+- Quality is value to someone (or something) who matters. This builds on Jerry Weinberg ("value to
+  some person") and James Bach and Michael Bolton ("who matters")
 - Testing is investigation to find out what's actually true; checking is only part of it
 - "Test phase" is a terrible idea and should not exist
 - Risk is danger to quality; unknown risk costs money to find, known risk costs money to fix
@@ -43,6 +44,7 @@ quality. Credit them here and on screen.
 - Bars: delight, good enough, ugh, dealbreaker
 
 ## Background
-- Gerald Weinberg, *Quality Software Management*
+- Gerald Weinberg, *Quality Software Management* (1992)
+- [Examples of real software quality failures](research/software-quality-failures.md)
 - James Bach and Michael Bolton on testing vs checking
 - Research on teaching with video is in [CRAFT.md](CRAFT.md)

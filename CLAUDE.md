@@ -14,6 +14,11 @@ is your speciality and I'm here to go 'no that isn't right'" (2026-09-24).
   everyday examples are easy to make up.
 - **Ask her only about claims:** questions where her answer would change what the episode teaches,
   such as wrong emphasis, half-truths or advice that backfires.
+- **She is also the songwriting ear.** She has written a lot of parody lyrics, and the model
+  can't hear scansion (see [LYRICS.md](LYRICS.md)). So rhythm and scan questions go to her as
+  well: "guess you'll have to treat me as both the quality and the songwriting expert"
+  (2026-09-24). Bring her whole options to choose between, not open questions, and write every
+  rule she teaches into LYRICS.md.
 - **Polish it before she sees it.** "make sure you and reviewers are happy yourselves first - for
   content quality, enjoyability, usefulness, virality, song lyric quality scansion rhyme and all
   that." Her time goes on truth, not on polish you could have done yourself.

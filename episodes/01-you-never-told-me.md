@@ -3,7 +3,7 @@
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
-**Status:** script v5, lyrics reworked after Qing's first lyric notes. Not yet re-reviewed.
+**Status:** script v6, after Qing's second lyric notes. Under internal review.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 
@@ -68,6 +68,21 @@ Lyric notes on v4 (2026-09-24):
 > also "Now you've told me who it's for" feels... weak, as the transformation. they probably
 > haven't! As a songwriter I'd go for "So please tell me who it's for!"
 
+Lyric notes on v5 (2026-09-24):
+
+> oh I liked the first verse better when each line was talking about a different app - more
+> comedic potential for the video.
+
+> Chorus got worse, and wrong - definitely NOT the human's job to TELL YOU what can break! nobody
+> will interpret that the way you're trying to do it
+>
+> if I try to work that hook, I'd go for - "you didn't tell me who it's FOR, you didn't tell me
+> what they NEED"
+
+> new post-chorus section is the right idea but it's a little clunky and doesn't rhyme
+
+> we can tuck a tiny tollens watermark onto the corner of the video maybe
+
 
 ## Shape
 
@@ -88,7 +103,9 @@ cue times.
 - **The bots:** a Discord bot, a CI bot and "your other agent", each labelled. They appear in the bridge.
 
 **Running devices**
-- **The running app**: a gym log, the most vibecoded app there is.
+- **The user's side projects**: a gym log, a recipe blog, a habit tracker, all briefed "make it
+  good" on the same day. Verse 1 takes one per line. The gym log is the one we come back to.
+- **The Tollens mark**: tiny and low-contrast, bottom left, just above X's UI zone. Never animated.
 - **The quota meter**, top left, labelled **quota used**. It fills from green to red during verse 1 and reads 8% (green) at the end.
 - **The missing prompt**: an empty prompt box with a blinking cursor. It sits centre screen for one
   bar at the chorus, docks top right (clear of X's UI zones), flashes again during verse 2, fills in during the final chorus, and is then
@@ -99,19 +116,19 @@ cue times.
 
 | Time | Section | Picture | Lyric (lead vocal; *backing in italics*) | Why they keep watching |
 |---|---|---|---|---|
-| 0:00 | Cold open | **First frame, full width:** the post *"claude built me absolute garbage 😤"*, a real-looking **"Usage limit reached"** banner, and behind them a tiny gym log (one button: *log set*) with a smoking server tower bolted on. | **"You said make it GOOD,"** on the first beat, over a guitar crash | Their own grievance, in their own screens, with a mystery behind it |
-| 0:03 | Rewind | A VHS rewind whoosh. A blank app. The robot beams at the prompt *build me a gym log. make it good.* Quota used: 3%. | "so I made it good!" | The rewind promises to show how it went wrong |
-| 0:06 | Verse 1 | The user taps *log set*. A 2FA screen slams down, a phone buzzes with a six-digit code, a sweaty thumb hovers. | "Two-factor login just to log a set" | Gag 1: security nobody asked for, readable in one glance |
-| 0:09 | | The app splits into eleven boxes joined by wires; the one in the middle holds a single dumbbell and a counter reading *1*. | "Eleven microservices to count a rep" | Gag 2, bigger, and satire of over-engineering. The meter climbs |
-| 0:12 | | A new PB is logged and a confetti cannon fires across the whole gym. | "Confetti cannon for a new PB" | Gag 3, bigger still |
-| 0:14 | | Files multiply across the screen: `IMPLEMENTATION_SUMMARY.md`, `README_FINAL.md`, `README_FINAL_v2.md`, `TESTING_GUIDE.md`… The meter hits 100% and a tiny tombstone pops up beside it: *quota*. | "Nine summary docs. Your quota: RIP" | The in-joke they'll recognise, and the payoff of the meter |
+| 0:00 | Cold open | **First frame, full width:** the post *"claude built me absolute garbage 😤"*, a real-looking **"Usage limit reached"** banner, and behind them the user's home screen: a gym log, a recipe blog and a habit tracker, one of them smoking. | **"You said make it GOOD,"** on the first beat, over a guitar crash | Their own grievance, in their own screens, with a mystery behind it |
+| 0:03 | Rewind | A VHS rewind whoosh to this morning. The robot beams at a stack of prompts that all end the same way: *build me a gym log. make it good.* / *recipe blog pls. make it good.* / *habit tracker, make it good.* Quota used: 3%. | "so I made it good!" | The rewind promises to show how it went wrong, and the stack is every viewer's history |
+| 0:06 | Verse 1 | **Gym log.** The user taps *log set*. A 2FA screen slams down; a phone buzzes with a six-digit code; a sweaty thumb hovers. | "Two-factor login on your gym log" | Gag 1: security nobody asked for, readable in one glance |
+| 0:09 | | **Recipe blog.** One recipe for toast, served by a Kubernetes cluster that fills the screen, pods spinning up with little chef hats. | "Kubernetes for a recipe blog" | Gag 2, a new app, bigger, and the classic over-engineering meme. The meter climbs |
+| 0:12 | | **Habit tracker.** A "floss" habit is ticked and a confetti cannon fires. | "Confetti every time you floss" | Gag 3, a third app, bigger still |
+| 0:14 | | All three apps at once, buried as files multiply: `IMPLEMENTATION_SUMMARY.md`, `README_FINAL.md`, `README_FINAL_v2.md`, `TESTING_GUIDE.md`… The meter hits 100%. | "Nine summary docs, and your quota's lost" | The in-joke they'll recognise, and the payoff of the meter |
 | 0:17 | Turn | **Freeze frame, colour drained.** The post again. The robot's screen-face flickers. | *(spoken, small)* "…oh. / I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
 | 0:20 | Pre-chorus | The drums build back in. Question marks pile up. | "Good for who? *(good for who?)* / Good for what? *(good for what?)*" | A sing-along, and rising tension |
-| 0:23 | | Four dials flash up: **speed**, **cost**, **lifespan**, **wow**. | "Fast to run? Or cheap? / Dead by the end of the week?" | The tradeoffs become concrete |
-| 0:26 | **Chorus** | The full band, big type, one word per hit. **The missing prompt appears in the centre for one bar**, cursor blinking, then docks in the corner. On "BREAK", the gym log's smoking tower cracks. | "You never told me who it's FOR, / what you WANT, / what can BREAK!" | The release, plus a new open question: the empty box |
+| 0:23 | | Four dials flash up: **speed**, **lifespan**, **cost**, **wow**. On "dead", the lifespan dial spins to zero. | "Fast to run? Sturdy? Cheap? / Or dead by the end of the week?" | The tradeoffs become concrete, as a list of choices |
+| 0:26 | **Chorus** | The full band, big type. **The missing prompt appears in the centre for one bar**, cursor blinking, then docks in the corner. On "FOR", faces flash up; on "NEED", each face gets a thought bubble. | "You didn't tell me who it's FOR, / you didn't tell me what they NEED" | The release, plus a new open question: the empty box |
 | 0:29 | | Close-up. The band stops dead on "prompt". | **"I can't read your mind / I'm only reading your prompt"** | The line to remember |
-| 0:32 | Post-chorus | Two readable close-ups: a big green **"✅ All tests pass"** over a broken app, and a *best practices* checklist ticking itself (microservices ✓, 2FA ✓, README ✓). Pull back to a vast crowd of coders, the whole internet, heads down over keyboards. A sticky note reading **who's it for?** is passed hand to hand and tossed over a wall marked **PRODUCT**. | "I learned to code from all of you *(whoa-oh)* / and you said 'users? That's product's job' *(whoa-oh)*" | The biggest shot in the video, and a habit they recognise from real teams. Not knowing is normal, and it's inherited |
-| 0:36 | | Last beat: the robot catches the sticky note mid-air and holds it up, the largest text in the shot. The ✅ close-up flashes once more. | "But you can't write it, you can't test it *(whoa-oh)* / if you don't know who it's for *(whoa-oh)*" | The deep point, said plainly: who it's for is part of building *and* testing, not a handoff |
+| 0:32 | Post-chorus | Two readable close-ups: a big green **"✅ All tests pass"** over a broken app, and a *best practices* checklist ticking itself (microservices ✓, 2FA ✓, README ✓). Pull back to a vast crowd of coders, the whole internet, heads down over keyboards. A sticky note reading **who's it for?** is passed hand to hand and tossed over a wall marked **PRODUCT**. | "I learned to code from all of you *(whoa-oh)* / "The users? That's what product's for" *(whoa-oh)*" | The biggest shot in the video, and a habit they recognise from real teams. Not knowing is normal, and it's inherited |
+| 0:36 | | Last beat: the robot catches the sticky note mid-air and holds it up, the largest text in the shot. The ✅ close-up flashes once more. | "But you can't build it right, can't test it through *(whoa-oh)* / unless you know who it's for *(whoa-oh)*" | The deep point, said plainly: who it's for is part of building *and* testing, not a handoff |
 | 0:41 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. Dials: wow high, lifespan low. | "Launch demo? Wow them fast" | New example |
 | 0:44 | | A pricing page and a "your data" padlock. Dials: lifespan high. | "Paying users? Make it last" | *Which one am I?* |
 | 0:47 | | A group chat, everyone laughing at the bot. Dials: wow high, cost low. | "Bot for the chat? Just make it fun" | |
@@ -120,7 +137,7 @@ cue times.
 | 0:56 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
 | 1:02 | Bridge | Quiet. The robot looks at its own code. Small credit: *agents as stakeholders: Ed Pringle* | "I'm someone too / I'm debugging this with you" | The emotional turn: the agent is on the team. It climbs from the last verse: you're someone, so am I |
 | 1:05 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it?" / gang vocal, in huge type on screen: **"THEM TOO!"** | A warm, new idea in one bar |
-| 1:07 | **Final chorus** | The full band. Split screen, 1:07–1:15: the robot sings up at the empty box; **the missing prompt fills in, one line per bar,** above; the robot builds below. The last line lands just before the hold. | "So please tell me who it's FOR, / what you WANT, / what can BREAK!" | Closes the open question from the chorus: the plea is in the song, the answer is in the picture |
+| 1:07 | **Final chorus** | The full band. Split screen, 1:07–1:15: the robot sings up at the empty box; **the missing prompt fills in, one line per bar,** above; the robot builds below. The last line lands just before the hold. | "So please tell me who it's FOR, / please tell me what they NEED" | Closes the open question from the chorus: the plea is in the song, the answer is in the picture |
 | 1:12 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. Quota used: 8%, green. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
 | 1:15 | Hold | **The finished prompt, full screen, for 4 seconds.** Small credit on the comments line: *Martin Davidson*. | The last chord rings out; the song ends about 1:19, and the video loops cleanly back to the first frame. No end card | The screenshot. Ending on the lesson, not a logo, keeps it feeling like teaching |
 
@@ -196,13 +213,17 @@ craft is visible: a band made entirely of code.
   - the end card cut: it read as marketing. The reply prompt moves into the post text
   - series renamed *Software Quality Theory 101*: "for Beginners" talked down to people who ship
 
+- **Expert lyric notes, round 2 (2026-09-24):** verse 1 back to one app per line (more for the
+  picture to play with); "fast to run, sturdy, cheap" goes in the pre-chorus as a list of
+  tradeoffs; "what can break" dropped, since it wrongly made failure the user's job to name;
+  chorus rebuilt on Qing's hook ("who it's FOR / what they NEED"); post-chorus rhymed; a tiny
+  Tollens mark in the corner in place of the end card.
+
 ## Open questions for the expert
 
 1. **"I didn't ask."** Is it right for the robot to own part of the blame? Bach & Bolton say
    the operator bears responsibility, and an agent that gold-plates rather than asking is still
    exercising poor judgement.
-2. **Tollens credit.** With no end card, the video carries no Tollens mark, which departs from
-   WHO-ITS-FOR.md. Is the Tollens name in the repo and the account enough?
 
 ## Liner notes (to write when it's built)
 How it was checked · where it falls short

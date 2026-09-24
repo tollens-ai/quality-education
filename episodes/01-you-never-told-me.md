@@ -88,7 +88,7 @@ Lyric notes on v5 (2026-09-24):
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
 voice is part of the character. Tempo is about 170 bpm, so one bar is about 1.4s. The song is
-about 84 seconds, in 9:16. The times below are approximate; the synthesised song sets the exact
+about 96 seconds, in 9:16. The times below are approximate; the synthesised song sets the exact
 cue times.
 
 - **Misconception:** "good" is obvious, and the agent should know what I meant.
@@ -106,10 +106,11 @@ cue times.
 - **The user's side projects**: a gym log, a blog, a habit tracker, all briefed "make it
   good" on the same day. Verse 1 takes one per line. The gym log is the one we come back to.
 - **The Tollens mark**: tiny and low-contrast, top left under the quota meter. Never animated.
-- **The quota meter**, top left, labelled **quota used**. It fills from green to red during verse 1, resets with a *new session* tick at the final chorus, and reads 8% (green) at the end.
-- **The missing prompt**: an empty prompt box with a blinking cursor. It sits centre screen for one
-  bar at the chorus, docks top right (clear of X's UI zones), flashes again during verse 2, fills in during the final chorus, and is then
-  held full screen.
+- **The quota meter**, top left, labelled **quota used**. It fills from green to red during verse 1, resets with a *new session* tick at the final pre-chorus, and reads 8% (green) at the end.
+- **The missing prompt**: an empty prompt box with a blinking cursor. It appears centre screen at
+  the first pre-chorus, docks top right (clear of X's UI zones), flashes during verse 2, twitches
+  in the second pre-chorus, starts typing at the final pre-chorus, fills in during the final
+  chorus, and is then held full screen.
 - **Captions**: a word-by-word wipe of the lead vocal only, inside the X safe zone.
 
 ## Script
@@ -121,26 +122,32 @@ cue times.
 | 0:06 | Verse 1 | **Habit tracker.** A "floss" habit is ticked and a confetti cannon fires. Dial flash: **wow** maxed. | "Confetti every time you floss" | Gag 1: small and silly, and its pickup beat launches the verse |
 | 0:09 | | **Gym log.** The user taps *log set*. A 2FA screen slams down; a phone buzzes with a six-digit code; a sweaty thumb hovers. Dial flash: **sturdy** maxed. | "2FA on your gym log" | Gag 2, a new app and bigger: security nobody asked for, readable in one glance |
 | 0:12 | | **Blog.** One post, *hello world*, served by a server cluster that fills the screen, pods spinning up by the dozen. Dial flash: **speed** maxed. | "Kubernetes for your blog" | Gag 3, the biggest, and the classic over-engineering meme. The meter climbs |
-| 0:15 | | The robot splits into twelve subagents, each with a clock face, busy round the clock across all three apps. Each one leaves a `SUMMARY.md` behind (`IMPLEMENTATION_SUMMARY.md`, `README_FINAL_v2.md`, `DONE_FINAL.md`…). The meter hits 100% and a generic **usage limit reached** banner drops. Dial flash: **cost** maxed. | "Twelve subagents round the clock. / Did I do it wrong? / Oops, your quota's gone!" | The rhyme lands on "clock", then the line breaks the pattern and trails off into the turn. What actually burns quota, with the summary-file in-joke kept in the picture |
-| 0:18 | Turn | **Freeze frame, colour drained, two bars at most.** The post again. The robot's screen-face flickers. Its words are captioned large, so the silence reads on mute. | *(spoken, small)* "Guess I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
-| 0:20 | Pre-chorus | The drums build back in. Question marks pile up. | "Good for who? *(good for who?)* / Good for what? *(good for what?)*" | A sing-along, and rising tension |
-| 0:23 | | The four dials from verse 1 line up: **speed**, **sturdy**, **cost**, **wow**. Each one swings as it's sung. | "Fast to run? Sturdy? Cheap? / Wow for a week, or built to keep?" | The gags come back as choices. Every dial is legitimate, including a week of wow |
-| 0:26 | **Chorus** | The full band, big type. **The missing prompt appears in the centre for one bar**, cursor blinking, then docks in the corner. On "FOR": the flosser, the gym-goer, the blog reader. On "WANT", each gets a thought bubble: *fun!*, *just log it*, *just read it*. | "You didn't tell me who it's FOR *(who's it for?)* / you didn't tell me what they WANT *(what they want?)*" | The release, plus a new open question: the empty box |
-| 0:29 | | Close-up. The band stops dead on "prompt". | **"I can't read your mind / I'm only reading your prompt"** | The line to remember |
-| 0:32 | Post-chorus | A big green **"✅ All tests pass"** over the broken blog. Pull back to a vast crowd of coders, the whole internet, heads down over keyboards. A sticky note reading **who's it for?** is passed hand to hand and tossed over a wall marked **PRODUCT TEAM**. | "I learned to code from all of you *(whoa-oh)* / and most left the users at product's door *(whoa-oh)*" | The biggest shot in the video, and a habit they recognise from real teams. Not knowing is normal, and it's inherited |
-| 0:36 | | The robot catches the sticky note mid-air and holds it up, the largest text in the shot. On "test", the ✅ flashes once more and cracks. | "But what you build and test won't do *(whoa-oh)* / unless you ask who it's for *(whoa-oh)*" | The deep point, said plainly: who it's for is part of building *and* testing. "Ask" echoes the robot's own "I didn't ask" |
-| 0:41 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. Dials: wow high, sturdy low. | "Product demo? Wow them fast" | New example. Seven syllables on the downbeat, like "Paying users? Make it last" |
-| 0:44 | | A pricing page and a "your data" padlock. Dials: sturdy high. | "Paying users? Make it last" | *Which one am I?* |
-| 0:47 | | A group chat, everyone crying with laughter at the bot. Dials: wow high, cost low. | "Group chat bot? Just make 'em laugh" | |
-| 0:50 | | A laptop at 3am, a countdown reading *due 9am*. Dials: everything low except "works once, in the demo". | "Uni project? Make it pass" | A fourth card, the one students will tag each other on |
-| 0:53 | | The gym log, small and alone. A spotlight finds the user's hand on the phone; a card with *their* face joins the others. | "Just for you, for fun? / Then you're the one!" | Back to our story, rhymed like "Did I do it wrong? / Oops, your quota's gone!". A solo project still has someone who matters: you. Permission, not scolding |
-| 0:56 | | The missing prompt flashes, still empty. The cards fan out, each with a different face, and the camera pushes into the faces as the drums drop to half-time. | *(spoken, small)* "There's always someone." | Mirrors "Guess I didn't ask." and hands straight to the breakdown's "someone who matters". The open question comes back |
-| 0:59 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
-| 1:05 | Bridge | Quiet. The robot looks at its own code. Small credit: *someone or something who matters: Ed Pringle* | "I'm someone too / I'm debugging this with you" (two bars, no more) | The emotional turn: the agent is on the team. It climbs from the last verse: you're someone, so am I |
-| 1:08 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it?" / gang vocal, in huge type on screen: **"THEM TOO!"** | A warm, new idea in one bar |
-| 1:10 | **Final chorus** | The full band. The quota meter ticks over: *new session*. Split screen, 1:10–1:18: the robot sings up at the empty box; **the missing prompt fills in, one line per bar,** above; the robot builds below. The last line lands just before the hold. | "So please tell me who it's FOR *(who's it for?)* / please tell me what they WANT *(what they want?)*" | Closes the open question from the chorus: the plea is in the song, the answer is in the picture |
-| 1:15 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. Quota used: 8%, green. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
-| 1:18 | Hold | **The finished prompt, full screen, for 3 seconds, cursor still blinking.** Small credit beside the comments line: *why, not what: Martin Davidson*. | The last chord cuts straight into the opening guitar crash, so the loop reads as after, then before: the full prompt, then "make it good". No end card | The screenshot. Ending on the lesson, not a logo, keeps it feeling like teaching |
+| 0:15 | | The robot splits into twelve subagents, each with a clock face, busy round the clock across all three apps. Each one leaves a `SUMMARY.md` behind (`IMPLEMENTATION_SUMMARY.md`, `README_FINAL_v2.md`, `DONE_FINAL.md`…). Dial flash: **cost** maxed. | "Twelve subagents round the clock" | Gag 4, and what actually burns quota. The summary-file in-joke stays in the picture |
+| 0:18 | | The subagents freeze and look up. The meter hits 100% and a generic **usage limit reached** banner drops. | "Did I do it wrong? / Oops, your quota's gone!" | The pattern breaks; the payoff of the meter |
+| 0:21 | Turn | **Freeze frame, colour drained, two bars at most.** The post again. The robot's screen-face flickers. Its words are captioned large, so the silence reads on mute. | *(spoken, small)* "Guess I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
+| 0:23 | **Pre-chorus** | The drums build back in. **The missing prompt appears in the centre**, cursor blinking. On "FOR", the flosser, the gym-goer and the blog reader flash up; on "WANT", each gets a thought bubble: *fun!*, *just log it*, *just read it*. | "You didn't tell me who it's FOR, / you didn't tell me what they WANT" | Rising tension, and a new open question: the empty box |
+| 0:26 | | Close-up on the robot. The band stops dead on "prompt"; one beat of silence. The box docks top right. | **"I can't read your mind / I'm only reading your prompt"** | The line to remember, then a held breath |
+| 0:29 | **Chorus** | Everything crashes back in. Huge type, one word per hit, question marks raining. | "GOOD FOR WHO-O-O? *(who-o-o?)* / GOOD FOR WHA-A-AT? *(wha-a-at?)*" | The release, and the sing-along. It answers the cold open's "make it GOOD" with the right question |
+| 0:32 | | The four dials from verse 1 line up: **speed**, **sturdy**, **cost**, **wow**. Each swings as it's sung. | "Fast to run, sturdy or cheap? / Wow for a week or built to keep?" | The gags come back as choices. Every setting is legitimate, including a week of wow |
+| 0:35 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. Dials: wow high, sturdy low. | "Product demo? Wow them fast" | New example, in the verse 1 rhythm |
+| 0:38 | | A pricing page and a "your data" padlock. Dials: sturdy high. | "Paying users? Make it last" | *Which one am I?* |
+| 0:41 | | A group chat, everyone crying with laughter at the bot. Dials: wow high, cost low. | "Group chat bot? Just make 'em laugh" | |
+| 0:44 | | A laptop at 3am, a countdown reading *due 9am*. Dials: everything low except "works once, in the demo". | "Uni project? Make it pass" | A fourth card, the one students will tag each other on |
+| 0:47 | | The gym log, small and alone. A spotlight finds the user's hand on the phone; a card with *their* face joins the others. | "Just for you, for fun? / Then you're the one!" | Back to our story, rhymed like "Did I do it wrong? / Oops, your quota's gone!". A solo project still has someone who matters: you |
+| 0:50 | | The cards fan out, each with a different face; the missing prompt flashes, still empty. | *(spoken, small)* "There's always someone." | Mirrors "Guess I didn't ask." and hands on to the pre-chorus: someone, then *who* |
+| 0:52 | **Pre-chorus 2** | The faces from the cards fill the screen, each with its own thought bubble. | "You didn't tell me who it's FOR, / you didn't tell me what they WANT" | Same words, new faces: now it's everyone's app |
+| 0:55 | | Same stop on "prompt". The empty box twitches: the cursor types one letter, then deletes it. | **"I can't read your mind / I'm only reading your prompt"** | The line again, and the tease that someone nearly answered |
+| 0:58 | **Chorus 2** | The crash again, bigger. | "GOOD FOR WHO-O-O? *(who-o-o?)* / GOOD FOR WHA-A-AT? *(wha-a-at?)*" | The crowd knows the words now |
+| 1:01 | | Quick cuts, one per phrase: an app still working in a train tunnel with no signal; a cracked old phone with huge text; a sandbox box labelled *eval* with an agent-shaped hole in its side. | "Works on a train, on your nan's old phone? / No agents going rogue on their own?" | New tradeoffs nobody briefs: offline, old devices, agent safety. The hole in the box is for people who follow the news |
+| 1:04 | **Bridge** | A big green **"✅ All tests pass"** over the broken blog. Pull back to a vast crowd of coders, the whole internet, heads down over keyboards. A sticky note reading **who's it for?** is passed hand to hand and tossed over a wall marked **PRODUCT TEAM**. | "I learned to code from all of you *(whoa-oh)* / and most left the users at product's door *(whoa-oh)*" | The biggest shot in the video. Why agents don't know: it's inherited, and it's normal |
+| 1:08 | | The robot catches the sticky note mid-air and holds it up, the largest text in the shot. On "test", the ✅ cracks. | "But what you build and test won't do *(whoa-oh)* / unless you ask who it's for *(whoa-oh)*" | The deep point: who it's for is part of building *and* testing |
+| 1:12 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
+| 1:18 | | The robot, quiet, looks at its own code. Then labelled bots pop up one after another, each squeezing into frame: *Muse*, *Instinct*, *Hermes*. Small credit: *someone or something who matters: Ed Pringle* | "I'm someone too, / I'm debugging this with you" / bots, one per hit: *"and me! and me! and me!"* | "Who matters" hands straight to "me too". Agents as team members, then a comic pile-up |
+| 1:21 | **Final pre-chorus** | The quota meter ticks over: *new session*. The robot sings up at the empty box, pleading. | "So please tell me who it's FOR, / please tell me what they WANT" | The plea: the viewer is asked directly |
+| 1:24 | | The stop on "prompt", and in the silence the cursor starts typing. | **"I can't read your mind / I'm only reading your prompt"** | The open question starts to close |
+| 1:27 | **Final chorus** | Split screen: **the missing prompt fills in, one line per bar,** above; the robot builds below. | "GOOD FOR WHO-O-O? *(who-o-o?)* / GOOD FOR WHA-A-AT? *(wha-a-at?)*" | Now the questions have answers on screen |
+| 1:30 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. Quota used: 8%, green. The prompt's last line lands. | "Just for you, and just for fun / Summer only, then it's done" | The robot sings back what it read: the answers, from the prompt |
+| 1:33 | Hold | **The finished prompt, full screen, for 3 seconds, cursor still blinking.** Small credit beside the comments line: *why, not what: Martin Davidson*. | The last chord cuts straight into the opening guitar crash, so the loop reads as after, then before: the full prompt, then "make it good". No end card | The screenshot. Ending on the lesson, not a logo, keeps it feeling like teaching |
 
 ## The prompt, before and after
 
@@ -253,9 +260,20 @@ craft is visible: a band made entirely of code.
   ("Just for you, for fun? / Then you're the one!"), then one spoken line into the next section
   ("There's always someone."). A uni project card added so each verse has four examples.
 
+- **Structure rejig (2026-09-24, with Qing):** pre-chorus and chorus swapped. "Good for
+  who-o-o? Good for wha-a-at?" is now the chorus and repeats three times; its second half changes
+  each time and adds information (tradeoffs the gags showed; tradeoffs nobody briefs; the answers
+  from the prompt). "You didn't tell me…" plus the locked line is the pre-chorus, with the band
+  stopping dead on "prompt" before each chorus. Form: verse, pre-chorus, chorus twice, then a
+  bridge (the old post-chorus), the breakdown, "I'm someone too" with the bots, and the final
+  pre-chorus and chorus.
+
 ## Open questions for the expert
 
-1. **"I didn't ask."** Is it right for the robot to own part of the blame? Bach & Bolton say
+1. **Muse, Instinct and Hermes.** Are these your agents, and are you happy to name them on screen
+   in a public video? The fallback is generic labels (a Discord bot, a CI bot, *your other
+   agent*).
+2. **"I didn't ask."** Is it right for the robot to own part of the blame? Bach & Bolton say
    the operator bears responsibility, and an agent that gold-plates rather than asking is still
    exercising poor judgement.
 

@@ -19,6 +19,9 @@ correction here applies to every episode.
   basics. So most viewers won't know this yet, and that's normal. Software was getting worse for
   its users long before Claude. The agents learned from that code. Future agents may know better;
   these videos help towards that. Illustrate with real examples. (2026-09-24)
+- **Who it's for is part of the engineering, not a handoff to product.** Many engineers treated
+  users as product's job and concentrated on the code. You can't write, or test, quality software
+  without thinking about who it's for. (2026-09-24)
 - **Mission:** unenshittifying the software of tomorrow. (2026-09-24)
 - **Cost-effectiveness is a quality tradeoff.** "I want this done without blowing my quota" is a
   legitimate part of what good means. (2026-09-24)

@@ -47,6 +47,10 @@ others. Add a rule here whenever a fix teaches one.
 - **Unstressed upbeats are fine anywhere.** The exception is a list of lines that start on the
   downbeat: there a line that starts on an upbeat ("con-FET-ti") has to go first, or it breaks
   the run.
+- **At patter speed, keep the template and let a stress bend.** "2FA on your gym log" in
+  straight eighths puts the stress on "your". Squeezing "on your" into sixteenths to fix it broke
+  the "Fire" rhythm; sung that fast, the bent stress goes by unnoticed and the rhythm carries the
+  line (Qing, 2026-09-24).
 - **Match the ending stress.** Rhyme words should land with the same stress pattern: "GYM LOG"
   with "BLOG" works; "GYM LOG" with "BAK-ing BLOG" bumps. Shorter is often the fix: "Kubernetes for
   your blog" scans where "Kubernetes for your food blog" doesn't.

@@ -78,9 +78,9 @@ export const lead = part('lead', [
 
   // Verse 1
   [5, 'FET ti EV ry TIME you FLOSS .', VERSE_PITCH[0]],
-  [6, 'TWO eff AY on·your GYM . LOG .', 'F4 F4 F4 D4 D4 F4 D4'],
+  [6, 'TWO eff AY on YOUR gym LOG .', VERSE_PITCH[1]],
   [7, 'KOO ber NET eez for your BLOG .', VERSE_PITCH[2]],
-  [8, 'TWELVE . SUB a·gents ROUND the CLOCK .', VERSE_PITCH[3]],
+  [8, 'TWELVE sub A gents ROUND the CLOCK .', VERSE_PITCH[3]],
   [9, 'did I do it WRONG ~ ~ ~', 'Eb4 D4 C4 C4 G4'],
   [10, 'OOPS your QUO ta\'s GONE ~ ~ ~', 'Eb5 C4 Bb3 G4 F4'],
   [12, '. . . . . . . you', 'G4'],

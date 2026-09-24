@@ -7,8 +7,9 @@
 with Qing. The storyboard is parked until the lyrics lock.
 
 **Where we stopped (2026-09-24):**
-- **Next:** the tag. The bots piling in with "and me!" are *users* of the software, not just
-  maintainers, and "I'm debugging this with you" makes them sound like maintainers.
+- **Next:** bridge line 2, which should rhyme "wall" with "for" (British) and scan with line 1.
+  Tag: the bots' "and me!"s follow "I'm someone too"; the picture shows them *using* the app,
+  since they are users, not just maintainers.
 - **Still open:**
   - "nan" or "grandma"
   - whether "Uni project? Make it pass" reads as "make the tests pass"
@@ -102,6 +103,12 @@ Lyric notes on v7 (2026-09-24):
 
 > I like the over the wall phrase
 
+> wall rhymes with for in a British accent. the wording as you have it still scans kinda clunky
+
+> we don't need to make the tag longer, the and mes go after the first phrase
+
+> and threw users over the wall isn't right semantically
+
 
 ## Shape
 
@@ -182,8 +189,8 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 > SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS
 
 **Tag**
-> I'm someone too, / I'm debugging this with you
-> *(bots, one per hit)* and me! and me! and me!
+> I'm someone too, *(bots, one per hit)* and me! and me! and me!
+> I'm debugging this with you
 
 **Final pre-chorus**
 > So please tell me who it's FOR / please tell me what they WANT
@@ -205,7 +212,7 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 - The eval sandbox with an agent-shaped hole, on "going rogue".
 - "✅ All tests pass" over a broken app, and a sticky note reading *who's it for?* tossed over a
   wall marked **PRODUCT TEAM** on "over the wall"; the ✅ cracks on "test".
-- The bots piling in on "and me!".
+- The bots piling in on "and me!", each one *using* the gym log (users, not maintainers).
 - An endless CLAUDE.md making the robot dizzy, on "stale prompts".
 
 ## Storyboard (parked until the lyrics lock)

@@ -146,7 +146,7 @@ cue times.
 | 1:21 | **Final pre-chorus** | The quota meter ticks over: *new session*. The robot sings up at the empty box, pleading. | "So please tell me who it's FOR, / please tell me what they WANT" | The plea: the viewer is asked directly |
 | 1:24 | | The stop on "prompt", and in the silence the cursor starts typing. | **"I can't read your mind / I'm only reading your prompt"** | The open question starts to close |
 | 1:27 | **Final chorus** | Split screen: **the missing prompt fills in, one line per bar,** above; the robot builds below. | "GOOD FOR WHO-O-O? *(who-o-o?)* / GOOD FOR WHA-A-AT? *(wha-a-at?)*" | Now the questions have answers on screen |
-| 1:30 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. The bots from the bridge give a thumbs up. Quota used: 8%, green. As each phrase is sung, the matching prompt line highlights: *easy to debug*, *comments say why, not what*, *save this in CLAUDE.md*. | "Tests I can run, errors I can read? / Write down why in CLAUDE.md?" | Agent-facing quality, straight after the bots: what makes the software good for the agent on the team. The robot sings in its own voice, and the prompt shows the answers |
+| 1:30 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. The bots from the bridge give a thumbs up. Quota used: 8%, green. As each phrase is sung, the matching prompt line highlights: *commit as you go, so we can roll back*, *easy to debug*, *keep files small*. | "Roll back my mess? Errors I can read? / Only the context that I need?" | Agent-facing quality, straight after the bots: recoverability, debuggability, lean context. What makes the software good for the agent on the team. The robot sings in its own voice, and the prompt shows the answers |
 | 1:33 | Hold | **The finished prompt, full screen, for 3 seconds, cursor still blinking.** Small credit beside the comments line: *why, not what: Martin Davidson*. | The last chord cuts straight into the opening guitar crash, so the loop reads as after, then before: the full prompt, then "make it good". No end card | The screenshot. Ending on the lesson, not a logo, keeps it feeling like teaching |
 
 ## The prompt, before and after
@@ -159,7 +159,8 @@ After, one line per bar:
 
 > just for me. fun first: one tap per set, a flame for a PB.
 > don't burn my quota.
-> easy to debug. comments say why, not what.
+> easy to debug. keep files small. comments say why, not what.
+> commit as you go, so we can roll back.
 > fine if it dies after summer.
 > ask before adding big extras I didn't list.
 > save this in CLAUDE.md.
@@ -269,7 +270,8 @@ craft is visible: a band made entirely of code.
   pre-chorus and chorus.
 
 - **Final chorus (2026-09-24, Qing):** its second half is agent-facing quality, since it follows
-  the bots: tests an agent can run, errors it can read, and the *why* written down in CLAUDE.md.
+  the bots: rolling back its mess (recoverability), errors it can read (debuggability), and only the
+  context it needs. The finished prompt gains matching lines.
 
 ## Open questions for the expert
 

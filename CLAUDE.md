@@ -1,6 +1,6 @@
 # Working in this repo
 
-Agent instructions for *Software Quality Theory for Beginners*. [README.md](README.md) says what
+Agent instructions for *Software Quality Theory 101*. [README.md](README.md) says what
 the series is, and [WHO-ITS-FOR.md](WHO-ITS-FOR.md) says who the repo serves.
 
 ## Roles: you create, the expert corrects

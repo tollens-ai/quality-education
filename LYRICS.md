@@ -26,6 +26,10 @@ others. Add a rule here whenever a fix teaches one.
   it's usually the right one.
 
 ## Rhythm
+- **Budget syllables to the slot.** See the song-fit limits in the
+  [write-episode skill](.claude/skills/write-episode/SKILL.md): at 170 bpm, a 3-second row holds
+  8 to 12 sung syllables. Pop-punk wants strong end rhymes; the tag is the one place a half rhyme
+  is fine.
 - **Borrow a rhythm template.** Name a known song whose rhythm the verse follows (verse 1 of
   episode 1 is the "We Didn't Start the Fire" verse rhythm) and fit every line to it. Write the
   template in the script.

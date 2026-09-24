@@ -45,7 +45,8 @@ is the worked example of the finished shape.
    A 3-second row (about 2 bars) fits 8–12 sung syllables, and a 2-second row fits 6–8. More than
    that blurs in a formant voice, and the word-by-word captions can't be read in time. For the
    synthetic singer, prefer short words, open vowels and few consonant clusters. Rhyme like the
-   genre does: pop-punk needs strong end rhymes.
+   genre does: pop-punk needs strong end rhymes. The fuller rules, with worked examples, are in
+   [LYRICS.md](../../../LYRICS.md).
 
 4. **Write the retention map.** Fill a table in 3-second rows: time, picture, lyric, and *why they
    keep watching*. Use the checks below. Make up plenty of concrete, recognisable examples as you

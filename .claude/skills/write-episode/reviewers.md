@@ -24,7 +24,7 @@ from a first script to "ready" in three rounds. Its *Review log* shows what each
 
 **Songwriter.** A professional songwriter in the episode's genre. Review scansion against the
 time slots, rhyme (including internal rhyme), singability for the synthetic voice, hooks and genre
-feel. Point out clunky, cringe or try-hard lines. Return a full rewritten lyric sheet with the same
+feel, applying [LYRICS.md](../../../LYRICS.md). Point out clunky, cringe or try-hard lines. Return a full rewritten lyric sheet with the same
 sections, timings and teaching content, and syllable counts marked on each line.
 
 **Short-form editor.** Someone who has grown educational and developer accounts on X, TikTok and
@@ -34,7 +34,7 @@ Shorts, reviewing against CRAFT.md. Cover:
 - whether the payoff and the open loop work
 - the moments people would clip, screenshot or quote-tweet, and what they'd say
 - cringe risk
-- the post text and end card
+- the post text, and whether the ending loops cleanly (the series uses no end card)
 - length
 
 Return the top 5 changes ranked by impact, each with a concrete rewrite.
@@ -71,5 +71,11 @@ Use these as prompts for your own first read, before any reviewer sees the draft
   contradicts the Martin Davidson source it was based on.
 - **Credits that imply endorsement.** A credit line placed near a claim can suggest the credited
   people endorse that claim.
+- **Lines that are misheard when sung.** "That's what product's for" was heard as "that's what
+  *the* product's for", which reverses the point. A quote sung by the lead sounds like the singer's
+  own view.
+- **Credits given to the wrong person.** The bridge credited Ed Pringle for agents as team members,
+  which is Qing's point; Ed's is "someone *or something*". Check each credit against SOURCES.md
+  and CANON.md.
 - **Text on screen too small or too brief to read on a phone.** Hold the payoff full screen long
   enough to screenshot.

@@ -1,0 +1,229 @@
+{
+ "_about": "The lead's lyric lines in order, for the prosody check. Times come from walking the score's syllables. `group` names lines that should share a rhythm; a trailing ! means they must share it exactly.",
+ "lines": [
+  [
+   "you said make it good",
+   "intro"
+  ],
+  [
+   "so I made it good",
+   "intro"
+  ],
+  [
+   "confetti every time you floss",
+   "verse-list!"
+  ],
+  [
+   "2fa on your gym log",
+   "verse-list!"
+  ],
+  [
+   "kubernetes for your blog",
+   "verse-list!"
+  ],
+  [
+   "twelve subagents round the clock",
+   "verse-list!"
+  ],
+  [
+   "did I do it wrong",
+   "verse-tag"
+  ],
+  [
+   "oops your quota's gone",
+   "verse-tag"
+  ],
+  [
+   "you didn't tell me who it's for",
+   "pre"
+  ],
+  [
+   "you didn't tell me what they want",
+   "pre"
+  ],
+  [
+   "I can't read your mind",
+   "pre-b"
+  ],
+  [
+   "I'm only reading your prompt",
+   "pre-b"
+  ],
+  [
+   "good for who",
+   "hook"
+  ],
+  [
+   "good for what",
+   "hook"
+  ],
+  [
+   "fast to run sturdy or cheap",
+   "chorus-a"
+  ],
+  [
+   "wow for a week or built to keep",
+   "chorus-b"
+  ],
+  [
+   "good for who",
+   "hook"
+  ],
+  [
+   "good for what",
+   "hook"
+  ],
+  [
+   "ship it now or room to grow",
+   "chorus-a"
+  ],
+  [
+   "does what they need or steals the show",
+   "chorus-b"
+  ],
+  [
+   "product demo wow them fast",
+   "verse-list!"
+  ],
+  [
+   "paying users make it last",
+   "verse-list!"
+  ],
+  [
+   "group chat bot just make 'em laugh",
+   "verse-list!"
+  ],
+  [
+   "uni project make it pass",
+   "verse-list!"
+  ],
+  [
+   "just for you for fun",
+   "verse-tag"
+  ],
+  [
+   "then you're the one",
+   "verse-tag"
+  ],
+  [
+   "you didn't tell me who it's for",
+   "pre"
+  ],
+  [
+   "you didn't tell me what they want",
+   "pre"
+  ],
+  [
+   "I can't read your mind",
+   "pre-b"
+  ],
+  [
+   "I'm only reading your prompt",
+   "pre-b"
+  ],
+  [
+   "good for who",
+   "hook"
+  ],
+  [
+   "good for what",
+   "hook"
+  ],
+  [
+   "works on a train on your nan's old phone",
+   "chorus-a"
+  ],
+  [
+   "no agents going rogue on their own",
+   "chorus-b"
+  ],
+  [
+   "good for who",
+   "hook"
+  ],
+  [
+   "good for what",
+   "hook"
+  ],
+  [
+   "works for someone who can't see the screen",
+   "chorus-a"
+  ],
+  [
+   "no api keys where they'll be seen",
+   "chorus-b"
+  ],
+  [
+   "I could only learn from my training set",
+   "bridge-a"
+  ],
+  [
+   "to write the code and throw it over the wall",
+   "bridge-b"
+  ],
+  [
+   "but how do you know what to build or test",
+   "bridge-a"
+  ],
+  [
+   "if you're not thinking about who it's for",
+   "bridge-b"
+  ],
+  [
+   "I'm someone too",
+   "tag"
+  ],
+  [
+   "I'm debugging this with you",
+   "tag"
+  ],
+  [
+   "so please tell me who it's for",
+   "pre"
+  ],
+  [
+   "please tell me what they want",
+   "pre"
+  ],
+  [
+   "I can't read your mind",
+   "pre-b"
+  ],
+  [
+   "I'm only reading your prompt",
+   "pre-b"
+  ],
+  [
+   "good for who",
+   "hook"
+  ],
+  [
+   "good for what",
+   "hook"
+  ],
+  [
+   "roll back my mistakes diags I can use",
+   "chorus-a"
+  ],
+  [
+   "no stale prompts making me confused",
+   "chorus-b"
+  ],
+  [
+   "good for you",
+   "hook"
+  ],
+  [
+   "good for that",
+   "hook"
+  ],
+  [
+   "just a toy and just for fun",
+   "chorus-a"
+  ],
+  [
+   "fine if it dies when summer's done",
+   "chorus-b"
+  ]
+ ]
+}

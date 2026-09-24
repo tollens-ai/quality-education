@@ -118,6 +118,12 @@ Bridge notes (2026-09-24):
 > the code and throw it over the wall,
 
 
+Last chorus notes (2026-09-24):
+
+> can I make it good for you good for that?
+
+> also I'll make those exclamations rather than questions
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -211,10 +217,10 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 > Roll back my mistakes? Diags I can use?
 > No stale prompts making me confused!
 
-**Last chorus** (repeat; the robot finally asks, checking the brief back)
-> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
-> Just for you and just for fun?
-> Fine if it dies when summer's done?
+**Last chorus** (repeat; the hook's questions are answered at last, Qing)
+> GOOD FOR YOU-OU-OU! GOOD FOR THA-A-AT!
+> Just for you and just for fun!
+> Fine if it dies when summer's done!
 
 **Key frames** (only the ones a lyric depends on)
 - The first frame: the "my AI built me absolute garbage 😤" post.

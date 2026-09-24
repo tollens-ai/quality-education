@@ -92,6 +92,9 @@ others. Add a rule here whenever a fix teaches one.
 - **Repeat the hook; vary the second half.** Every chorus repeats the hook. Its second half
   changes each time and moves the argument on (episode 1: the tradeoffs the gags showed, then
   the ones nobody briefs, then the agent-facing ones).
+- **The last chorus can answer the hook.** Episode 1 asks "Good for who? Good for what?" three
+  times; the last chorus answers it ("Good for you! Good for that!") and its second half turns
+  from questions to exclamations. Keep the same sounds so the singalong still works.
 - **Use standard form, and fold stray sections into it.** Verse, pre-chorus, chorus, twice, then
   bridge, breakdown and a final chorus. A section that doesn't repeat and isn't the bridge is
   usually in the wrong place: episode 1's post-chorus became its bridge.

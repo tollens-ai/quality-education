@@ -58,6 +58,12 @@ others. Add a rule here whenever a fix teaches one.
 - **Rhyme on a vowel family.** A whole verse can rhyme on one vowel: floss, log, blog, clock, wrong,
   gone. Note the accent: fast, last, laugh, pass rhyme in British English but not American. The
   synth voice's accent has to match the rhymes.
+- **Keep the idea, change the word.** When a key word is hard to rhyme or doesn't fit the rhythm
+  ("no agents going rogue"), find a plainer phrase that says the same thing and ends on an easy
+  rhyme ("won't let an agent wipe what you own").
+- **Name concrete constraints, not categories.** "Works on the Tube" teaches more than "offline
+  support". Check the concrete version doesn't just restate an earlier line ("loads before you
+  blink" is "fast to run" again).
 - **Put each idea where it belongs.** When two sections both want a line ("I'm someone too"),
   keep it in the one where it pays off, and don't let it leak into the other.
 

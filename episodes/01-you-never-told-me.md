@@ -113,7 +113,83 @@ cue times.
   chorus, and is then held full screen.
 - **Captions**: a word-by-word wipe of the lead vocal only, inside the X safe zone.
 
-## Script
+## Lyric sheet (working)
+
+The lyrics are being worked on here. The storyboard below is **parked**: it will be rebuilt from
+this sheet once the lyrics are locked, and until then it may lag behind.
+
+**Cold open**
+> You said make it GOOD, so I made it good!
+
+**Verse 1** (the rhythm of the "We Didn't Start the Fire" verses)
+> Confetti every time you floss
+> 2FA on your gym log
+> Kubernetes for your blog
+> Twelve subagents round the clock
+> Did I do it wrong? / Oops, your quota's gone!
+> *(spoken)* Guess I didn't ask.
+
+**Pre-chorus**
+> You didn't tell me who it's FOR / you didn't tell me what they WANT
+> I can't read your mind / I'm only reading your prompt *(band stops)*
+
+**Chorus 1**
+> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
+> Fast to run, sturdy or cheap?
+> Wow for a week or built to keep?
+
+**Verse 2**
+> Product demo? Wow them fast
+> Paying users? Make it last
+> Group chat bot? Just make 'em laugh
+> Uni project? Make it pass
+> Just for you, for fun? / Then you're the one!
+> *(spoken)* There's always someone.
+
+**Pre-chorus** (as before)
+
+**Chorus 2**
+> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
+> Works on a train, on your nan's old phone?
+> No agents going rogue on their own?
+
+**Bridge** *(open: "product's door" is made up, "won't do" is weak)*
+> I learned to code from all of you *(whoa-oh)*
+> and most left the users at product's door *(whoa-oh)*
+> But what you build and test won't do *(whoa-oh)*
+> unless you ask who it's for *(whoa-oh)*
+
+**Breakdown**
+> SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS
+
+**Tag**
+> I'm someone too, / I'm debugging this with you
+> *(bots, one per hit)* and me! and me! and me!
+
+**Final pre-chorus**
+> So please tell me who it's FOR / please tell me what they WANT
+> I can't read your mind / I'm only reading your prompt
+
+**Final chorus**
+> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
+> Roll back my mistakes? Diags I can use?
+> No stale prompts making me confused!
+
+**Key frames** (only the ones a lyric depends on)
+- The first frame: the "my AI built me absolute garbage 😤" post.
+- One gag per verse 1 line, ending on the robot splitting into twelve subagents and the quota
+  meter hitting 100%.
+- The freeze on "Guess I didn't ask."
+- The empty prompt box: appears at the first pre-chorus, fills in during the final chorus, then
+  is held full screen.
+- The dials (speed, sturdy, cost, wow) at chorus 1.
+- The eval sandbox with an agent-shaped hole, on "going rogue".
+- "✅ All tests pass" over a broken app, and a sticky note reading *who's it for?* tossed over a
+  wall.
+- The bots piling in on "and me!".
+- An endless CLAUDE.md making the robot dizzy, on "stale prompts".
+
+## Storyboard (parked until the lyrics lock)
 
 | Time | Section | Picture | Lyric (lead vocal; *backing in italics*) | Why they keep watching |
 |---|---|---|---|---|

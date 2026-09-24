@@ -39,7 +39,11 @@ is the worked example of the finished shape.
    episode 1's line ("made me well up a little") is the benchmark to aim for.
    Write and revise lyrics by the rules in [LYRICS.md](../../../LYRICS.md), and add a rule there
    whenever a fix teaches one.
-   *Done when* the line to remember is quotable out of context and still true.
+   Work on the lyric sheet alone, section by section, and note only the **key frames** a line
+   depends on (a gag, a clip moment, an on-screen device). Don't storyboard yet: every lyric
+   change would throw the storyboard away (Qing, 2026-09-24).
+   *Done when* the line to remember is quotable out of context and still true, and Qing has
+   locked the lyrics.
 
    **Song-fit limits.** In 4/4, one bar lasts 240 ÷ bpm seconds; at 170 bpm that is about 1.4s.
    A 3-second row (about 2 bars) fits 8–12 sung syllables, and a 2-second row fits 6–8. More than
@@ -48,7 +52,7 @@ is the worked example of the finished shape.
    genre does: pop-punk needs strong end rhymes. The fuller rules, with worked examples, are in
    [LYRICS.md](../../../LYRICS.md).
 
-4. **Write the retention map.** Fill a table in 3-second rows: time, picture, lyric, and *why they
+4. **Write the retention map, once the lyrics are locked.** Fill a table in 3-second rows: time, picture, lyric, and *why they
    keep watching*. Use the checks below. Make up plenty of concrete, recognisable examples as you
    go; everyday vibecoder apps are easy to invent, so vary them.
    *Done when* every row has a reason to keep watching that isn't "the song continues".

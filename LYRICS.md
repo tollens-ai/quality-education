@@ -11,6 +11,10 @@ others. Add a rule here whenever a fix teaches one.
 - **Pack in as much information as possible.** Workshopping drifts towards lines that recap,
   repeat or fill. Every line should teach something new. When a repeated section's second half
   changes, use the change to introduce new ideas (new tradeoffs, say), not to recap the verse.
+- **Use the words people actually say.** Don't swap in a near-synonym just to make a rhyme work.
+  People say an agent "deleted my files", not that it "wiped what you own"; they say "keeps your
+  data safe", not "keeps your data locked". If the natural phrase won't rhyme, rebuild the line
+  around a different natural phrase.
 - **Every phrase must be a real phrase.** "Test it through" rhymes but isn't English, so listeners
   stumble on it.
 - **Say what was learned.** A line like "learned from everyone online" is weak until it says

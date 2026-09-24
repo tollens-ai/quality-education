@@ -9,8 +9,8 @@ correction here applies to every episode.
 - **Agents are people who matter**, as team members and as users. As team members, they're served
   by debuggability and maintainability. As users, it means every bot that interfaces with the
   software. (2026-09-24)
-- **Today's agents don't know what good means for you because most of the people who wrote
-  yesterday's software didn't either.** That isn't obvious, and it isn't only amateurs: serious
+- **Agents learned to code from everyone on the internet, and most of them didn't know how to do
+  quality right.** That's why today's agents don't know what good means for you. It isn't obvious, and it isn't only amateurs: serious
   quality professionals tell Qing they're shocked at the huge organisations that never grasped the
   basics. So most viewers won't know this yet, and that's normal. Software was getting worse for
   its users long before Claude. The agents learned from that code. Future agents may know better;

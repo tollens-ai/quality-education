@@ -1,4 +1,4 @@
-// Episode 1, "You Never Told Me": the song as data.
+// Episode 1's song, "Good for Who?": the song as data.
 // The grids match episodes/01-song-map.md (its grid blocks are generated from this file by
 // grids.mjs). Every section is written relative to its first bar, so the form can change
 // without renumbering. Times are sixteenths from bar 0; bar 0 holds only the opening pickup.
@@ -45,7 +45,7 @@ const at = Object.fromEntries(sections.map((s) => [s.name, s.bar]));
 const lastBar = sections.at(-1).bar + sections.at(-1).bars - 1;
 
 export const meta = {
-  title: 'You Never Told Me',
+  title: 'Good for Who?',
   bpm: 180,
   key: 'Eb',
   sampleRate: 48000,

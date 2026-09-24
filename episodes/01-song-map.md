@@ -1,4 +1,4 @@
-# Episode 1 song map: "You Never Told Me"
+# Episode 1 song map: "Good for Who?"
 
 The whole song as form, bars, chords and rhythm, worked out before any sound is generated so the
 phrasing hangs together from start to finish (Qing, 2026-09-24: "you'll need to map out the full

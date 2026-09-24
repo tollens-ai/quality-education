@@ -8,7 +8,7 @@ const events = readFileSync(eventsPath, 'utf8');
 
 const html = `<!doctype html>
 <meta charset="utf-8">
-<title>You Never Told Me: listening check</title>
+<title>Good for Who?: listening check</title>
 <style>
   body { font: 16px/1.4 system-ui, sans-serif; background: #111; color: #ddd; margin: 0; padding: 20px; }
   header { position: sticky; top: 0; background: #111; padding-bottom: 10px; z-index: 1; }

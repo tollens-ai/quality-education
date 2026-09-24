@@ -1,5 +1,7 @@
 # Episode 1: "You Never Told Me"
 
+**Song title:** "Good for Who?" (Qing, 2026-09-25: "I was gonna call it Make It Good, but Good For
+Who works"). The craft references put the title in the chorus, where the hook is.
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".

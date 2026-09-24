@@ -7,8 +7,8 @@ import { chordTrack, part } from '../lib/notation.mjs';
 
 // ---- Form --------------------------------------------------------------------------------
 
-// The pre-chorus length is still being decided (Qing: 5 "could be fun (with a hold bar for
-// anticipation!)", with arguments for 6 and 8). PC_BARS=5|6|8 renders each for comparison.
+// The pre-chorus is 6 bars: Qing compared 5, 6 and 8 by ear and chose 6 ("current one is
+// best!", 2026-09-25). PC_BARS=5|8 still renders the others.
 const PC_BARS = Number(globalThis.process?.env?.PC_BARS ?? 6);
 
 const FORM = [
@@ -296,7 +296,7 @@ const chorusChords = (b) => [
 // From the take: IV–vi–iii–IV–V, landing on V for PROMPT.
 const PRE_CHORDS = {
   5: ['Ab', 'Cm', 'Gm', 'Ab', 'Bb'],
-  6: ['Ab', 'Cm', 'Gm', 'Ab', 'Bb', 'Bb'],
+  6: ['Ab', 'Cm', globalThis.process?.env?.PC_CHORD3 ?? 'Gm', 'Ab', 'Bb', 'Bb'],
   8: ['Ab', 'Cm', 'Gm', 'Gm', 'Ab', 'Ab', 'Bb', 'Bb'],
 };
 const preChorusChords = (b) => seq(b, PRE_CHORDS[PC_BARS]);

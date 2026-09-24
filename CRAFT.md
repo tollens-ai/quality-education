@@ -24,6 +24,31 @@ come from marketers and are weak.
 11. **Format:** master 9:16, responsive layouts so 16:9 and 1:1 render from the same source; keep
     bottom ~400px and right ~140px clear of UI. Clean per-platform exports, no watermarks.
 
+12. **Music as a hook** (Qing 2026-09-24: Opus-made animated music videos, songs and raps are
+    trending on X). This fits the sound-off rule: in a music video the lyrics are the captions,
+    so the video still works on mute and works better with sound. A chorus can also carry the
+    episode's one line, like "tests pass, bug ships", so viewers remember it.
+
+    How the current trend works (examples from the Opus 5.5 launch, 2026-09-22):
+    - Opus writes the storyboard, the lyrics and a JS renderer (p5.js + p5.brush, WebGL2 or
+      Canvas2D). Each frame is drawn from the song's playback time.
+    - Headless Chrome captures the frames and ffmpeg muxes in the audio.
+    - Suno sings the vocals. Demucs separates the vocals and Whisper aligns the lyrics word by word
+      for karaoke captions.
+    - Look: painterly or pixel art, with cute recurring characters. The songs are 75–160s and
+      almost always about AI.
+    - Engagement seems to come from forkable open-source repos and "no assets, all code" framing.
+    - Examples: [PDoomVideo](https://github.com/JohnHeibel/PDoomVideo),
+      [functional-emotions-video](https://github.com/rrostt/functional-emotions-video).
+    - All-code audio has been done, vocals included (example Qing shared 2026-09-24): a pop-punk
+      band synthesised sample by sample in the browser. Guitars are Karplus–Strong strings through
+      tube-amp and cabinet models; drums are modelled drum heads and partials; the singer is a
+      formant synthesiser reading a phonetic lyric sheet. Checks: per-instrument loudness against
+      genre norms, spectrograms, and Whisper transcribing the vocal. Its own verdict: "robot with a
+      cold". Its liner notes say how it was checked and where it falls short.
+    - External synthesis (Suno, voice models) is also an option.
+    - No software-quality or rap examples found. Educational ones (history films) were not fact-checked.
+
 ## Sources
 Muller thesis notes: https://www.bobvanvliet.com/notes/designing-effective-multimedia-for-physics-education/
 Guo, Kim & Rubin 2014: https://dl.acm.org/doi/10.1145/2556325.2566239
@@ -31,6 +56,10 @@ Mayer 2021: https://www.sciencedirect.com/science/article/abs/pii/S2211368121000
 X 2023 ranking weights: https://github.com/twitter/the-algorithm-ml/blob/main/projects/home/recap/README.md
 X vertical player: https://wersm.com/x-goes-all-in-on-vertical-video-with-a-new-immersive-player/
 Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-favorite
+
+## Decided
+- Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
+- Every episode ships liner notes: how it was checked, where it falls short.
 
 ## Open decisions
 Aspect ratio master · voice (human / synthetic / text-only) · length cap · characters and running

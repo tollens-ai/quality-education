@@ -25,7 +25,7 @@ come from marketers and are weak.
 10. **Design for replies:** close on a debatable question; author replies (X ranking weighted replies
     far above watch time in the 2023 release; current weights are learned and unpublished).
 11. **Format:** master 9:16, responsive layouts so 16:9 and 1:1 render from the same source; keep
-    bottom ~400px and right ~140px clear of UI. Clean per-platform exports, no watermarks.
+    bottom ~400px and right ~140px clear of UI. Clean per-platform exports, no platform watermarks; the only mark is a tiny static Tollens logo (Qing, 2026-09-24).
 
 12. **Music as a hook** (Qing 2026-09-24: Opus-made animated music videos, songs and raps are
     trending on X). This fits the sound-off rule: in a music video the lyrics are the captions,

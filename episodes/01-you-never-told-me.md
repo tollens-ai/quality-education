@@ -211,6 +211,11 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 > Roll back my mistakes? Diags I can use?
 > No stale prompts making me confused!
 
+**Last chorus** (repeat; the robot finally asks, checking the brief back)
+> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
+> Just for you and just for fun?
+> Fine if it dies when summer's done?
+
 **Key frames** (only the ones a lyric depends on)
 - The first frame: the "my AI built me absolute garbage 😤" post.
 - One gag per verse 1 line, ending on the robot splitting into twelve subagents and the quota

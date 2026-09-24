@@ -90,6 +90,18 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
 
+## The bar for craft
+Qing shared a public example (2026-09-24) of the ambition and care we're aiming for: a creator's
+brief for an AI-made music video (Donald Jewkes on X). We don't copy its style. What carries over:
+- **Do the thinking first.** Plan composition and timing rigorously before generating anything,
+  because pieces made without that planning clash when they're put together.
+- **Build verification loops,** run them as often as needed, and check sync by measurement.
+- **Watch the whole thing several times.** Take stills at individual moments and ask whether each
+  one meets the bar; be willing to go back and redo.
+- **Treat on-screen text as the main tool for holding attention.** Lyrics are sometimes subtitles
+  and sometimes huge, and the shot is composed to leave room for them. The opening needs a strong
+  visual hook, with the words at their most present.
+
 ## Open decisions
 Aspect ratio master · voice (human / synthetic / text-only) · length cap · characters and running
 app · visual vocabulary · how much episodes reference each other · episode order (foundation vs

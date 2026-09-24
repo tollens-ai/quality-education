@@ -6,22 +6,27 @@
 **Status:** v7, work in progress. The structure is agreed and the lyrics are being worked through
 with Qing. The storyboard is parked until the lyrics lock.
 
-**Where we stopped (2026-09-24):**
-- **Next:** Qing is being more directive on the lyrics for this episode. MiniMax takes sounded
-  great but couldn't hold a repeated chorus melody, so the song will be made in code; Qing's best
-  takes are references. Chorus 1 and 2 second halves (the repeats) are drafts.
-  The chorus melody is taken from Qing's favourite take (first chorus, verbatim): E♭ major, about
-  180 bpm, a leap up to the high tonic on "who" and "what". The verse rhythm still has to be
-  set by hand, since no take got the "We Didn't Start the Fire" rhythm. Whisper misheard "Diags"
-  in every take.
+**Where we stopped (2026-09-24, night):**
+- **Now:** making the song, before any video work (Qing: "let's get to a song we're happy with
+  first before starting video"). Qing handed this over overnight to be done carefully and in an
+  order that finds problems cheaply. The order:
+  1. Song map, done: [01-song-map.md](01-song-map.md) has form, bars, chords and every syllable on
+     the grid. The first chorus is taken verbatim from Qing's favourite MiniMax take (we own the
+     rights to our MiniMax generations).
+  2. Score as code, done: `music/ep01/score.mjs`, with an audit (`audit.mjs`) and a
+     click-and-guide render and karaoke page (`guide.mjs`, `karaoke.mjs`) for the cheap
+     listening check.
+  3. In progress: an all-code singing voice (`music/voice/`), the band (`music/lib/band/`), and a
+     songwriter review of the map.
+  4. Then: the full render, the measurable checks in [MUSIC.md](../MUSIC.md), and Qing's ear.
 - **Still open:**
   - "nan" or "grandma"
   - whether "Uni project? Make it pass" reads as "make the tests pass"
-  - whether "Diags" will be understood
+  - whether "Diags" will be understood (MiniMax mispronounced it; our voice reads a phonetic
+    sheet, so that test didn't count)
   - whether to name Muse, Instinct and Hermes on screen
-- **Then:** Qing locks the lyrics, then a beat grid per section, then a review round on the
-  lyrics, then the storyboard is rebuilt from the sheet (the old one has stale timings and a
-  ~96s length estimate).
+- **Then:** Qing locks the lyrics and the song, then the storyboard is rebuilt from the song's
+  timings (the old one is stale).
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 

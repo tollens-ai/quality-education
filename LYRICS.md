@@ -95,7 +95,8 @@ others. Add a rule here whenever a fix teaches one.
 ## Process
 - **Lyrics before storyboard.** Work on the lyric sheet, noting only the key frames a line
   depends on. Rebuild the storyboard once the lyrics are locked; before that, every lyric change
-  throws storyboard work away.
+  throws storyboard work away. This applies to conversation too: lyric options come with no
+  pictures, shots or timings unless the line can't be understood without one.
 - **Bring the expert whole options.** Two or three finished lines to choose between, each with
   what it covers and what it costs, and a recommendation. Not open questions.
 

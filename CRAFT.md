@@ -52,6 +52,32 @@ come from marketers and are weak.
     - External synthesis (Suno, voice models) is also an option.
     - No software-quality or rap examples found. Educational ones (history films) were not fact-checked.
 
+## Build techniques to learn from
+
+From 16 open-source repos released around the Opus 5.5 launch. The inventory is local and not
+committed. Several of the repos state no licence, which means all rights reserved: we learn from
+them and don't copy them. We design our own style.
+
+- **Timing by "reads".** List what the viewer must understand in each shot, give each item its own
+  time, and don't overlap them. Then render contact sheets and actually look at the frames.
+  ([ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase), MIT)
+- **One event list drives sound and picture.** Because we synthesise the song, the drum hits and
+  syllables *are* the cue list for visuals and captions, so word timing is exact without an
+  alignment step. Whisper then checks that the vocal is intelligible.
+  ([claude-paper-animation](https://github.com/eeselapp/claude-paper-animation),
+  [clawd-7-8](https://github.com/tanuu5/clawd-7-8))
+- **Captions as a designed layer.** A word-by-word wipe in a band kept clear of the action,
+  inside the 9:16 safe zone. ([claude-remotion-skill](https://github.com/haidrrrry/claude-remotion-skill), MIT)
+- **A rig and emotion library for the recurring character.** Drawn key views, acted transitions
+  (anticipation, take, overshoot), and a style guide written for the subagents that each own one
+  chapter file. (ClaudeAnimationBase)
+- **Verified on-screen citations.** QR-code footnotes, tested so they scan.
+  ([curtcox/PDoomVideo](https://github.com/curtcox/PDoomVideo))
+- **Pure-code music.** Karplus–Strong strings and formant voices.
+  ([sonora](https://github.com/aaronprater146-max/sonora), MIT)
+- **Compose for 9:16 from the start.** Every repo found renders at 1920×1080, so vertical is new
+  ground and can't be done by cropping.
+
 ## Sources
 Muller thesis notes: https://www.bobvanvliet.com/notes/designing-effective-multimedia-for-physics-education/
 Guo, Kim & Rubin 2014: https://dl.acm.org/doi/10.1145/2556325.2566239

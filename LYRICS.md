@@ -8,6 +8,9 @@ others. Add a rule here whenever a fix teaches one.
 - **Rhyme and scansion serve the meaning.** The classic failure is working hard at rhyme and
   scansion until the meaning is diluted. If a line needs explaining ("put a lock on your water
   log"), rewrite it. You're allowed to add words or verses.
+- **Pack in as much information as possible.** Workshopping drifts towards lines that recap,
+  repeat or fill. Every line should teach something new. When a repeated section's second half
+  changes, use the change to introduce new ideas (new tradeoffs, say), not to recap the verse.
 - **Every phrase must be a real phrase.** "Test it through" rhymes but isn't English, so listeners
   stumble on it.
 - **Say what was learned.** A line like "learned from everyone online" is weak until it says

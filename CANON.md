@@ -12,8 +12,9 @@ correction here applies to every episode.
 - **Agents learned to code from everyone on the internet, and most of them didn't know how to do
   quality right.** That's why today's agents don't know what good means for you. What "not
   knowing" looks like is quality done as ritual: unit tests "because you're supposed to", testing
-  treated as a checklist. It isn't deliberate enshittification. Bach and Bolton have written a lot
-  about this (research pending). It isn't obvious, and it isn't only amateurs: serious
+  treated as a checklist. It isn't deliberate enshittification. Bach and Bolton: checking with no
+  purpose behind it is ritual, "to appease management". See
+  [research](research/bach-bolton-ritual-testing.md). It isn't obvious, and it isn't only amateurs: serious
   quality professionals tell Qing they're shocked at the huge organisations that never grasped the
   basics. So most viewers won't know this yet, and that's normal. Software was getting worse for
   its users long before Claude. The agents learned from that code. Future agents may know better;

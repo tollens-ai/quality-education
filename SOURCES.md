@@ -46,5 +46,5 @@ quality. Credit them here and on screen.
 ## Background
 - Gerald Weinberg, *Quality Software Management* (1992)
 - [Examples of real software quality failures](research/software-quality-failures.md)
-- James Bach and Michael Bolton on testing vs checking
+- James Bach and Michael Bolton on testing vs checking, and on ritual testing ([notes](research/bach-bolton-ritual-testing.md))
 - Research on teaching with video is in [CRAFT.md](CRAFT.md)

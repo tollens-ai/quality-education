@@ -146,7 +146,7 @@ cue times.
 | 1:21 | **Final pre-chorus** | The quota meter ticks over: *new session*. The robot sings up at the empty box, pleading. | "So please tell me who it's FOR, / please tell me what they WANT" | The plea: the viewer is asked directly |
 | 1:24 | | The stop on "prompt", and in the silence the cursor starts typing. | **"I can't read your mind / I'm only reading your prompt"** | The open question starts to close |
 | 1:27 | **Final chorus** | Split screen: **the missing prompt fills in, one line per bar,** above; the robot builds below. | "GOOD FOR WHO-O-O? *(who-o-o?)* / GOOD FOR WHA-A-AT? *(wha-a-at?)*" | Now the questions have answers on screen |
-| 1:30 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. Quota used: 8%, green. The prompt's last line lands. | "Just for you, and just for fun / Summer only, then it's done" | The robot sings back what it read: the answers, from the prompt |
+| 1:30 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. The bots from the bridge give a thumbs up. Quota used: 8%, green. As each phrase is sung, the matching prompt line highlights: *easy to debug*, *comments say why, not what*, *save this in CLAUDE.md*. | "Tests I can run, errors I can read? / Write down why in CLAUDE.md?" | Agent-facing quality, straight after the bots: what makes the software good for the agent on the team. The robot sings in its own voice, and the prompt shows the answers |
 | 1:33 | Hold | **The finished prompt, full screen, for 3 seconds, cursor still blinking.** Small credit beside the comments line: *why, not what: Martin Davidson*. | The last chord cuts straight into the opening guitar crash, so the loop reads as after, then before: the full prompt, then "make it good". No end card | The screenshot. Ending on the lesson, not a logo, keeps it feeling like teaching |
 
 ## The prompt, before and after
@@ -267,6 +267,9 @@ craft is visible: a band made entirely of code.
   stopping dead on "prompt" before each chorus. Form: verse, pre-chorus, chorus twice, then a
   bridge (the old post-chorus), the breakdown, "I'm someone too" with the bots, and the final
   pre-chorus and chorus.
+
+- **Final chorus (2026-09-24, Qing):** its second half is agent-facing quality, since it follows
+  the bots: tests an agent can run, errors it can read, and the *why* written down in CLAUDE.md.
 
 ## Open questions for the expert
 

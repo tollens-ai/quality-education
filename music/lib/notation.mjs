@@ -97,12 +97,12 @@ export function chordTrack(list) {
   return out;
 }
 
-const QUALITY = { '': [0, 4, 7], m: [0, 3, 7], '5': [0, 7], NC: [] };
+const QUALITY = { '': [0, 4, 7], m: [0, 3, 7], '5': [0, 7], sus4: [0, 5, 7], NC: [] };
 
-// 'Eb', 'Cm', 'Bb5', or a slash chord 'Eb/G' (bass note after the slash).
+// 'Eb', 'Cm', 'Bb5', 'Bbsus4', or a slash chord 'Eb/G' (bass note after the slash).
 export function chordTones(name) {
   if (name === 'NC') return { root: null, bass: null, tones: [] };
-  const m = /^([A-G](?:b|#)?)(m|5)?(?:\/([A-G](?:b|#)?))?$/.exec(name);
+  const m = /^([A-G](?:b|#)?)(m|5|sus4)?(?:\/([A-G](?:b|#)?))?$/.exec(name);
   if (!m) throw new Error(`bad chord ${name}`);
   const root = midi(`${m[1]}2`) % 12;
   const bass = m[3] ? midi(`${m[3]}2`) % 12 : root;

@@ -53,9 +53,16 @@ the map always matches what's rendered. The notes around them are hand-written.
 109 bars, about **2:26** at 180 bpm.
 <!-- /grid -->
 
-Harmony in one line: the verses and the chorus tail walk I–V–vi–IV; the pre-chorus goes
-IV–vi–iii–IV–V (from the take), landing on B♭ for PROMPT so the chorus answers on E♭. The hook is
-a question and answer on I (who) and V (what).
+Harmony (v2, after the harmony pass in [MUSIC.md](../MUSIC.md#harmony)): the verses and the
+chorus tail walk I–V–vi–IV. The pre-chorus climbs IV–vi–ii–IV–V: A♭–Cm–Fm–A♭–B♭sus4–B♭, always
+moving forward, with the sus4 under "reading your" resolving for PROMPT. The hook is a question
+and answer on I (who) and V (what). The palette's borrowed chords are used three times, each for a
+reason:
+- A♭ to A♭m, the "plagal sigh": comic in the intro ("so I made it good"), meant in the tag ("I'm
+  someone TOO").
+- D♭ (♭VII) ends the final pre-chorus, so the last chorus arrives by a new route.
+- C♭–D♭–E♭ (♭VI–♭VII–I), the fanfare, under the held high DONE: E♭ belongs to all three chords.
+`HARMONY=v1` renders the earlier plain version for comparison.
 
 ## Rhythm grids
 
@@ -111,18 +118,18 @@ and held over the bar line. The band stops dead on PROMPT.
 **Six bars** (Qing compared 5, 6 and 8 by ear on 2026-09-25: "current one is best!"). The score
 still renders the others with `PC_BARS=5|8`.
 
-**The third chord is open.** Qing isn't keen on the Gm (iii) under WANT. The alternatives render
-with `PC_CHORD3`: E♭/G (the tonic over the same G bass: brighter, and possibly what the take
-actually played), Fm (ii, building towards B♭) and B♭ (V early, then back to A♭).
+**The third chord is now Fm** (ii) in harmony v2, replacing the Gm that Qing wasn't keen on. The
+research in MUSIC.md explains why the Gm stalled: the build went strong, weak, weak before
+restarting. `PC_CHORD3` still renders alternatives (E♭/G, B♭, Gm).
 
 <!-- grid:Pre-chorus -->
 ```
 bar       1      &      2      &      3      &      4      &      chords
 b13       .      you    DID    n't    TELL   me     WHO    it's   A♭
 b14       FOR    you    DID    n't    TELL   me     WHAT   they   Cm
-b15       WANT   ~      ~      ~      ~      ~      .      I      Gm
+b15       WANT   ~      ~      ~      ~      ~      .      I      Fm
 b16       CAN'T  ~      .      .      READ   your   MIND   ~      A♭
-b17       ~      I'm    ON     ly     READ   ing    your   .      B♭
+b17       ~      I'm    ON     ly     READ   ing    your   .      B♭sus4
 b18       PROMPT ~      ~      ~      ~      ~      ~      ~      B♭
 ```
 <!-- /grid -->
@@ -186,9 +193,9 @@ b43       ONE    ~      .      .      .      .      .      .      E♭
 bar       1      &      2      &      3      &      4      &      chords
 b44       .      you    DID    n't    TELL   me     WHO    it's   A♭
 b45       FOR    you    DID    n't    TELL   me     WHAT   they   Cm
-b46       WANT   ~      ~      ~      ~      ~      .      I      Gm
+b46       WANT   ~      ~      ~      ~      ~      .      I      Fm
 b47       CAN'T  ~      .      .      READ   your   MIND   ~      A♭
-b48       ~      I'm    ON     ly     READ   ing    your   .      B♭
+b48       ~      I'm    ON     ly     READ   ing    your   .      B♭sus4
 b49       PROMPT ~      ~      ~      ~      ~      ~      ~      B♭
 ```
 <!-- /grid -->
@@ -280,7 +287,7 @@ stab each.
 <!-- grid:Tag -->
 ```
 bar       1      &      2      &      3      &      4      &      chords
-b81       SOME   one    .      TOO    ~      ~      ~      .      A♭
+b81       SOME   one    .      TOO    ~      ~      ~      .      A♭ · A♭m
 b82       .      .      .      .      .      .      .      I'm·de A♭
   bots    .      and    ME     and    ME     and    ME     .      
 b83       BUG    ging   THIS   with   .      YOU    ~      ~      B♭
@@ -297,10 +304,10 @@ It starts quiet (bass and a heartbeat kick) and builds. PLEASE lifts to B♭4.
 bar       1      &      2      &      3      &      4      &      chords
 b85       .      so     PLEASE ~      tell   me     WHO    it's   A♭
 b86       FOR    ~      PLEASE ~      tell   me     WHAT   they   Cm
-b87       WANT   ~      ~      ~      ~      ~      .      I      Gm
+b87       WANT   ~      ~      ~      ~      ~      .      I      Fm
 b88       CAN'T  ~      .      .      READ   your   MIND   ~      A♭
-b89       ~      I'm    ON     ly     READ   ing    your   .      B♭
-b90       PROMPT ~      ~      ~      ~      ~      ~      ~      B♭
+b89       ~      I'm    ON     ly     READ   ing    your   .      B♭sus4
+b90       PROMPT ~      ~      ~      ~      ~      ~      ~      D♭
 ```
 <!-- /grid -->
 
@@ -312,7 +319,7 @@ for THAT!") and DONE lifts to the high E♭.
 <!-- grid:Final chorus -->
 ```
 bar       1      &      2      &      3      &      4      &      chords
-b91       .      .      .      .      GOOD   ~      for    ~      B♭ · E♭
+b91       .      .      .      .      GOOD   ~      for    ~      D♭ · E♭
 b92       WHO    ~      ~      ~      -o     ~      ~      ~      E♭
   gang    WHO    ~      ~      ~      -o     ~      ~      ~      
 b93       -o     ~      ~      ~      GOOD   ~      for    ~      E♭
@@ -347,8 +354,8 @@ DONE rings over E♭, then a hard cut; the loop goes straight back into the intr
 <!-- grid:Outro -->
 ```
 bar       1      &      2      &      3      &      4      &      chords
-b108      ~      ~      ~      ~      .      .      .      .      E♭
-b109      .      .      .      .      .      .      .      .      E♭
+b108      ~      ~      ~      ~      ~      ~      ~      ~      C♭ · D♭
+b109      ~      ~      .      .      .      .      .      .      E♭
 ```
 <!-- /grid -->
 

@@ -11,6 +11,12 @@ import { chordTrack, part } from '../lib/notation.mjs';
 // best!", 2026-09-25). PC_BARS=5|8 still renders the others.
 const PC_BARS = Number(globalThis.process?.env?.PC_BARS ?? 6);
 
+// Harmony v2 (2026-09-25, after the MUSIC.md harmony pass); HARMONY=v1 renders the earlier
+// plain version for an A/B. v2 keeps the pre-chorus moving forward (ii, then a V sus4 under
+// "reading your"), brings back the intro's A♭–A♭m sigh under "I'm someone TOO", lifts the final
+// pre-chorus onto D♭ (♭VII), and ends on the ♭VI–♭VII–I fanfare under the held high DONE.
+const HV2 = (globalThis.process?.env?.HARMONY ?? 'v2') === 'v2';
+
 const FORM = [
   ['Intro', 4],
   ['Verse 1', 8],
@@ -228,7 +234,9 @@ export const lead = part('lead', [
       ['SUM mer\'s DONE ~ ~ ~ ~ ~', 'Ab4 Bb4 D5>Eb5'],
     ] },
   ]),
-  [at.Outro, '~ ~ ~ ~ . . . .'],
+  ...(HV2
+    ? [[at.Outro, '~ ~ ~ ~ ~ ~ ~ ~'], [at.Outro + 1, '~ ~ . . . . . .']]
+    : [[at.Outro, '~ ~ ~ ~ . . . .']]),
 ]);
 
 // ---- Spoken lines ----------------------------------------------------------------------------
@@ -291,17 +299,19 @@ export const leadGuitar = part('leadGuitar', [
 // ---- Harmony ---------------------------------------------------------------------------------
 
 const seq = (b, list) => list.map((c, i) => [b + i, c]);
-const chorusChords = (b) => [
-  [b, 'Bb Eb'],
+const chorusChords = (b, leadIn = 'Bb Eb') => [
+  [b, leadIn],
   ...[0, 8].flatMap((o) => seq(b + 1 + o, ['Eb', 'Eb', 'Bb', 'Bb', 'Cm Ab', 'Ab Eb', 'Eb Bb', 'Bb Eb'])),
 ];
 // From the take: IV–vi–iii–IV–V, landing on V for PROMPT.
 const PRE_CHORDS = {
   5: ['Ab', 'Cm', 'Gm', 'Ab', 'Bb'],
-  6: ['Ab', 'Cm', globalThis.process?.env?.PC_CHORD3 ?? 'Gm', 'Ab', 'Bb', 'Bb'],
+  6: HV2 ? ['Ab', 'Cm', globalThis.process?.env?.PC_CHORD3 ?? 'Fm', 'Ab', 'Bbsus4', 'Bb'] : ['Ab', 'Cm', 'Gm', 'Ab', 'Bb', 'Bb'],
   8: ['Ab', 'Cm', 'Gm', 'Gm', 'Ab', 'Ab', 'Bb', 'Bb'],
 };
-const preChorusChords = (b) => seq(b, PRE_CHORDS[PC_BARS]);
+// The final pre-chorus (v2) lands on D♭, ♭VII, so the last chorus arrives by a new route.
+const preChorusChords = (b, final = false) =>
+  seq(b, PRE_CHORDS[PC_BARS].map((c, i, all) => (final && HV2 && i === all.length - 1 ? 'Db' : c)));
 const verseChords = (b) => seq(b, ['Eb', 'Bb', 'Cm', 'Ab', 'Cm', 'Cm', 'Bb', 'Eb']);
 
 export const chords = chordTrack([
@@ -310,9 +320,9 @@ export const chords = chordTrack([
   ...verseChords(V2), ...preChorusChords(at['Pre-chorus 2']), ...chorusChords(at['Chorus 2']),
   ...seq(BR, ['Ab', 'Bb', 'Cm', 'Cm', 'Ab', 'Bb', 'Ab', 'Bb']),
   ...seq(BD, ['Cm', 'Ab', 'Bb', 'Cm', 'Ab', 'Bb']),
-  ...seq(TG, ['Ab', 'Ab', 'Bb', 'Bb']),
-  ...preChorusChords(at['Final pre-chorus']), ...chorusChords(at['Final chorus']),
-  ...seq(at.Outro, ['Eb', 'Eb']),
+  ...seq(TG, [HV2 ? 'Ab Abm' : 'Ab', 'Ab', 'Bb', 'Bb']), // the intro's sigh, now meant
+  ...preChorusChords(at['Final pre-chorus'], true), ...chorusChords(at['Final chorus'], HV2 ? 'Db Eb' : 'Bb Eb'),
+  ...seq(at.Outro, HV2 ? ['Cb Db', 'Eb'] : ['Eb', 'Eb']), // ♭VI–♭VII–I under the held E♭5
 ]);
 
 // ---- Arrangement -----------------------------------------------------------------------------
@@ -373,5 +383,10 @@ export const arrangement = [
   [TG + 2, TG + 3, 'quiet', { level: 0.6 }],
   ...preArr(at['Final pre-chorus'], true),
   ...chorusArr(at['Final chorus'], null),
-  [at.Outro, at.Outro + 1, 'hits', { at: [0], crash: true, cut: 28 }], // DONE rings, hard cut
+  ...(HV2
+    ? [
+      [at.Outro, at.Outro, 'hits', { at: [0, 8], crash: true }], // C♭, then D♭, under DONE
+      [at.Outro + 1, at.Outro + 1, 'hits', { at: [0], crash: true, cut: 12 }], // E♭, then the cut
+    ]
+    : [[at.Outro, at.Outro + 1, 'hits', { at: [0], crash: true, cut: 28 }]]),
 ];

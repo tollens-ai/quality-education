@@ -221,10 +221,63 @@ export const chords = chordTrack([
   ...verseChords(5), ...preChorusChords(13), ...chorusChords(21),
   ...verseChords(38), ...preChorusChords(46), ...chorusChords(54),
   ...['Ab', 'Bb', 'Cm', 'Cm', 'Ab', 'Bb', 'Ab', 'Bb'].map((c, i) => [71 + i, c]),
-  ...['Cm', 'Cm', 'Ab', 'Ab', 'Bb', 'NC'].map((c, i) => [79 + i, c]),
+  ...['Cm', 'Cm', 'Ab', 'Ab', 'Bb', 'Bb'].map((c, i) => [79 + i, c]),
   ...['Ab', 'Ab', 'Bb', 'Bb'].map((c, i) => [85 + i, c]),
   ...preChorusChords(89), ...chorusChords(97),
   [114, 'Eb'], [115, 'Eb'],
 ]);
 
 export const vocals = [...lead, ...spoken, ...gang, ...bots].sort((a, b) => a.t - b.t);
+
+// ---- Arrangement -------------------------------------------------------------------------
+// What the band does, bar by bar. Each entry is [firstBar, lastBar, feel, options].
+// Feels:
+//   hits      chord stabs at `at` (sixteenths into the bar), ringing until the next stab or `cut`
+//   drive     full band: open eighth-note power chords, bass eighths, kick–snare backbeat, crash
+//             or open hats riding eighths (choruses, intro riff)
+//   verse     palm-muted eighths, bass eighths, closed hats, backbeat (lets the patter through)
+//   tagHit    one open chord per bar, crash and kick on 1, hats in quarters
+//   stop      silence
+//   build     pre-chorus: sustained open chords, floor-tom eighths, kick quarters, rising
+//   halftime  bridge: ringing chords, kick on 1, snare on 3, ride quarters, bass half notes
+//   chug      breakdown: half-time palm-muted chugs, accents on 1 and 3 with kick and crash
+//   quiet     tag: bass whole notes, soft muted quarters, heartbeat kick
+// Options: fill = [startSixteenth, kind] in the last bar of the range (snare, toms, roll);
+//          crash = crash on the first downbeat; level = 0–1 dynamics; rise = [from, to].
+export const arrangement = [
+  [1, 1, 'hits', { at: [0, 8], crash: true }], // crash on 1, stab on GOOD
+  [2, 2, 'hits', { at: [8] }], // the droop: A♭m stab on the second GOOD
+  [3, 4, 'drive', { crash: true, fill: [8, 'snare'] }],
+  [5, 8, 'verse', { crash: true }],
+  [9, 10, 'tagHit'],
+  [11, 12, 'stop'],
+  [13, 18, 'build', { crash: true, rise: [0.5, 0.8] }],
+  [19, 19, 'build', { rise: [0.8, 1], fill: [0, 'roll'] }],
+  [20, 20, 'hits', { at: [0], cut: 4 }], // PROMPT on 1, then the band stops dead
+  [21, 21, 'hits', { at: [0], crash: true, fill: [12, 'snare'] }], // chorus lead-in
+  [22, 29, 'drive', { crash: true, fill: [8, 'snare'] }],
+  [30, 37, 'drive', { crash: true, fill: [8, 'toms'] }],
+  [38, 41, 'verse', { crash: true }],
+  [42, 43, 'tagHit'],
+  [44, 45, 'stop'],
+  [46, 51, 'build', { crash: true, rise: [0.5, 0.8] }],
+  [52, 52, 'build', { rise: [0.8, 1], fill: [0, 'roll'] }],
+  [53, 53, 'hits', { at: [0], cut: 4 }],
+  [54, 54, 'hits', { at: [0], crash: true, fill: [12, 'snare'] }],
+  [55, 62, 'drive', { crash: true, fill: [8, 'snare'] }],
+  [63, 70, 'drive', { crash: true, fill: [8, 'toms'] }],
+  [71, 76, 'halftime', { crash: true, level: 0.8 }],
+  [77, 78, 'halftime', { level: 0.9, fill: [0, 'roll'] }],
+  [79, 83, 'chug', { crash: true }],
+  [84, 84, 'hits', { at: [0], cut: 6 }],
+  [85, 85, 'quiet', { level: 0.5 }],
+  [86, 86, 'hits', { at: [4, 8, 12], level: 0.8 }], // one stab per bot: "and ME! and ME! and ME!"
+  [87, 88, 'build', { rise: [0.6, 1], fill: [8, 'roll'] }],
+  [89, 94, 'build', { crash: true, rise: [0.6, 0.9] }],
+  [95, 95, 'build', { rise: [0.9, 1], fill: [0, 'roll'] }],
+  [96, 96, 'hits', { at: [0], cut: 4 }],
+  [97, 97, 'hits', { at: [0], crash: true, fill: [12, 'snare'] }],
+  [98, 105, 'drive', { crash: true, fill: [8, 'toms'] }],
+  [106, 113, 'drive', { crash: true, level: 1 }],
+  [114, 115, 'hits', { at: [0], crash: true, cut: 28 }], // DONE rings, then a hard cut
+];

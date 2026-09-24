@@ -23,3 +23,7 @@ correction here applies to every episode.
 - **Agent-friendly and human-friendly code can differ in style.** For example, agent-friendly code
   doesn't need explanatory comments. Either way, the code must be easy to extend and debug the first
   time round. (2026-09-24)
+- **Comments:** skip comments that say *what* the code does. They go stale and agents believe
+  them. Comments that say *why* matter more than ever. Intent (purpose, who it's for, quality goals)
+  belongs in README, CLAUDE.md or AGENTS.md. Source: Martin Davidson, "No comments allowed". Qing
+  approved it for the series. (2026-09-24)

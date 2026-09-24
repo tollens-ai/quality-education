@@ -31,6 +31,9 @@ Published articles on X:
   comments go stale and mislead agents; "why" comments matter more than ever; intent belongs in
   README, CLAUDE.md or AGENTS.md
 
+Other people's views on agentic engineering are welcome when they make a relevant point about
+quality. Credit them here and on screen.
+
 ## The Tollens quality-strategy skill pack
 [tollens-ai/quality-strategy-skills](https://github.com/tollens-ai/quality-strategy-skills)
 

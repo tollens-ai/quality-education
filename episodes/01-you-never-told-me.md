@@ -87,9 +87,8 @@ a band made entirely of code.
 
 ## Open questions for the expert
 
-1. The rewritten prompt now follows Martin Davidson's "No comments allowed" (2026-03-31): no
-   comments saying *what* the code does, because stale ones mislead agents; *why* comments and
-   intent (purpose, users, quality goals) go in README/CLAUDE.md. Is that the right nuance?
+1. Should the skyline of famous failures show only organisations that got the basics wrong, and
+   save deliberate enshittification (Doctorow's sense) for later? Examples are being researched.
 
 More expert notes (2026-09-24):
 

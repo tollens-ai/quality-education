@@ -23,6 +23,10 @@ the map always matches what's rendered. The notes around them are hand-written.
 - **The verse rhythm** is the "We Didn't Start the Fire" verse: straight eighths, one line per
   bar, lines back to back. At that speed the template wins over a bent stress ("2FA on YOUR gym
   LOG", "TWELVE sub A gents").
+- **Leaps are seasoning.** The hook's leap to the high E♭ only lands if the rest of the melody
+  moves mostly by step, so E♭5 is kept for the hook, the bridge's FOR that answers it, and the
+  final DONE; "oops" takes the fifth, not the octave (Qing). `music/ep01/leaps.mjs` checks this:
+  outside the chorus, the only leap of five semitones or more is the bridge's FOR.
 - **Syncopation where the genre wants it:** key words pushed onto the `&` and held over the beat
   (the chorus's CHEAP, the tag's TOO and YOU, the bridge's SET and TEST, the intro's GOOD). The
   verse and pre-chorus stay straight, so the pushes stand out.

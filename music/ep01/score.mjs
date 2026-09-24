@@ -79,7 +79,7 @@ const PRE_TAIL = {
     ['PROMPT ~ ~ ~ ~ ~ ~ ~', 'F4'],
   ],
   6: [
-    ['WANT ~ ~ ~ ~ ~ . I', 'Bb3 Eb4'],
+    ['WANT ~ ~ ~ ~ ~ . I', 'Bb3 C4'],
     ['CAN\'T ~ . . READ your MIND ~', 'Eb4 F4 G4 F4'],
     ['~ I\'m ON ly READ ing your .', 'F4 F4 G4 F4 Eb4 Eb4'],
     ['PROMPT ~ ~ ~ ~ ~ ~ ~', 'F4'],
@@ -98,20 +98,22 @@ function preChorus(b, first, second) {
 }
 const PRE = [
   ['. you DID n\'t TELL me WHO it\'s', 'G4 G4 G4 G4 G4 Eb4 Eb4'],
-  ['FOR you DID n\'t TELL me WHAT they', 'Eb4 Eb4 Eb4 Eb4 Eb4 Eb4 Bb3 Bb3'],
+  ['FOR you DID n\'t TELL me WHAT they', 'Eb4 Eb4 Eb4 Eb4 Eb4 Eb4 D4 C4'],
 ];
 const PRE_FINAL = [
-  ['. so PLEASE ~ tell me WHO it\'s', 'G4 Bb4 G4 G4 Eb4 Eb4'],
-  ['FOR ~ PLEASE ~ tell me WHAT they', 'Eb4 Bb4 Eb4 Eb4 Bb3 Bb3'],
+  ['. so PLEASE ~ tell me WHO it\'s', 'G4 Bb4 Ab4 G4 F4 Eb4'],
+  ['FOR ~ PLEASE ~ tell me WHAT they', 'Eb4 G4 F4 Eb4 D4 C4'],
 ];
 
 // Verse list lines: the "We Didn't Start the Fire" verse, straight eighths, one line a bar.
 // Each line's contour steps up as the gags escalate, staying under the chorus.
+// Mostly steps: the hook's leap only lands if the rest of the melody doesn't leap much
+// (Qing: "it's like seasoning"). music/ep01/leaps.mjs checks the budget.
 const VERSE_PITCH = [
-  'Bb3 Bb3 Eb4 Eb4 Eb4 D4 Bb3',
+  'C4 C4 Eb4 Eb4 Eb4 D4 Bb3',
   'D4 D4 F4 D4 F4 Eb4 D4',
   'Eb4 Eb4 G4 Eb4 Eb4 D4 C4',
-  'Eb4 Eb4 Ab4 Eb4 Eb4 F4 Eb4',
+  'Eb4 F4 Ab4 G4 F4 Eb4 F4',
 ];
 
 function verse(b, lines, tag) {
@@ -132,7 +134,7 @@ const TG = at.Tag;
 
 export const lead = part('lead', [
   // Intro (cold open): the first GOOD is pushed onto the & of 2; the second droops.
-  [I - 1, '. . . . . . . you', 'Bb3'],
+  [I - 1, '. . . . . . . you', 'C4'],
   [I, 'SAID make it GOOD ~ ~ ~ .', 'Eb4 Eb4 Eb4 G4'],
   [I + 1, 'so I MADE it GOOD ~ ~ .', 'Eb4 Eb4 C4 C4 C4>B3'],
   [I + 3, '. . . . . . . con', 'Bb3'],
@@ -143,8 +145,8 @@ export const lead = part('lead', [
     'KOO ber NET eez for your BLOG .',
     'TWELVE sub A gents ROUND the CLOCK .',
   ], [
-    [4, 'did I do it WRONG ~ ~ ~', 'Eb4 D4 C4 C4 G4'],
-    [6, 'OOPS ~ . your QUO ~ ta\'s ~', 'Eb5 Bb4 G4 F4'],
+    [4, 'did I do it WRONG ~ ~ ~', 'Eb4 D4 Eb4 F4 G4'],
+    [6, 'OOPS ~ . your QUO ~ ta\'s ~', 'Bb4 G4 G4 F4'],
     [7, 'GONE ~ . . . . . .', 'Eb4'],
   ]),
 
@@ -171,7 +173,7 @@ export const lead = part('lead', [
     'GROUP chat BOT just MAKE \'em LAUGH .',
     'YOO ni PRO ject MAKE it PASS .',
   ], [
-    [4, 'JUST for YOU for FUN ~ ~ ~', 'Eb4 D4 C4 C4 G4'],
+    [4, 'JUST for YOU for FUN ~ ~ ~', 'Eb4 D4 Eb4 F4 G4'],
     [6, '. . . then YOU\'RE ~ the ~', 'Bb4 G4 F4'],
     [7, 'ONE ~ . . . . . .', 'Eb4'],
   ]),
@@ -198,7 +200,7 @@ export const lead = part('lead', [
   [BR, 'ON ly LEARN from·my TRAIN ing . SET', 'Eb4 F4 Ab4 G4 F4 Eb4 F4 Ab4'],
   [BR + 1, '~ ~ ~ ~ . . . to', 'G4'],
   [BR + 2, 'WRITE the CODE and THROW it O ver·the', 'G4 G4 Bb4 Ab4 G4 F4 Eb4 F4 F4'],
-  [BR + 3, 'WALL ~ ~ ~ . . . but', 'G4 Eb4'],
+  [BR + 3, 'WALL ~ ~ ~ . . . but', 'G4 F4'],
   [BR + 4, 'HOW do·you KNOW what·to BUILD or . TEST', 'Ab4 Ab4 G4 Ab4 Bb4 Bb4 C5 Bb4 C5'],
   [BR + 5, '~ ~ ~ ~ . . . if·you\'re', 'Bb4 Bb4'],
   [BR + 6, 'NOT ~ THINK·ing a BOUT ~ who it\'s', 'C5 C5 Bb4 Bb4 C5 Bb4 C5'],

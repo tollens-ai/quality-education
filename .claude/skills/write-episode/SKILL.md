@@ -19,7 +19,9 @@ is the worked example of the finished shape.
 
 ## Steps
 
-1. **Collect the expert's truth.** Paste Qing's notes on this concept verbatim under *Expert notes*.
+1. **Collect the expert's truth.** Read [CANON.md](../../../CANON.md) for truths already approved
+   across the series. Paste Qing's notes on this concept verbatim under *Expert notes*. When she
+   states something other episodes will rely on, add it to CANON.md too.
    Keep her words separate from your interpretation. If she hasn't given notes yet, draft from
    SOURCES.md and mark the claims you're unsure of.
    *Done when* you can state the concept in one sentence she would sign.

@@ -121,7 +121,9 @@ Bridge notes (2026-09-24):
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
-voice is part of the character. Tempo is about 170 bpm, so one bar is about 1.4s. The song is
+voice is part of the character. The voice is a girl or a girl group, British so that verse 2 rhymes
+(Qing, 2026-09-24: "will be more popular on the internet"). In a group, the bots are the other
+members: they sing the gang choruses and the "and me!"s. Tempo is about 170 bpm, so one bar is about 1.4s. The song is
 about 96 seconds, in 9:16. The times below are approximate; the synthesised song sets the exact
 cue times.
 

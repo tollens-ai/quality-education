@@ -6,7 +6,10 @@ come from marketers and are weak.
 ## Principles
 1. **Misconception first, then refute it.** Muller (Veritasium PhD): clear explanations raised
    confidence but not learning; stating then refuting the wrong belief produced learning.
-2. **Concrete before abstract** (Sanderson/3B1B). The green tick on a broken app before "Goodhart".
+2. **Concrete before abstract, and lots of concrete** (Sanderson/3B1B; Qing 2026-09-24: "every
+   concept illustrated with lots of concrete examples so that people can ground on recognisable
+   reality"). Use several everyday cases per concept, taken from what vibecoders actually build,
+   not a single tidy example.
 3. **Sound-off first.** X autoplays muted; captions are the primary track. Captions = narration;
    other on-screen text limited to highlighted keywords (resolves Mayer's redundancy principle).
 4. **First frame is the hook and the thumbnail.** Tension, not a title card.

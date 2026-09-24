@@ -88,7 +88,7 @@ Lyric notes on v5 (2026-09-24):
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
 voice is part of the character. Tempo is about 170 bpm, so one bar is about 1.4s. The song is
-about 81 seconds, in 9:16. The times below are approximate; the synthesised song sets the exact
+about 84 seconds, in 9:16. The times below are approximate; the synthesised song sets the exact
 cue times.
 
 - **Misconception:** "good" is obvious, and the agent should know what I meant.
@@ -131,15 +131,16 @@ cue times.
 | 0:36 | | The robot catches the sticky note mid-air and holds it up, the largest text in the shot. On "test", the ✅ flashes once more and cracks. | "But what you build and test won't do *(whoa-oh)* / unless you ask who it's for *(whoa-oh)*" | The deep point, said plainly: who it's for is part of building *and* testing. "Ask" echoes the robot's own "I didn't ask" |
 | 0:41 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. Dials: wow high, sturdy low. | "A launch demo? Wow them fast" | New example. Same upbeat opening as verse 1, so the ear hears the pattern return |
 | 0:44 | | A pricing page and a "your data" padlock. Dials: sturdy high. | "Paying users? Make it last" | *Which one am I?* |
-| 0:47 | | A group chat, everyone laughing at the bot. Dials: wow high, cost low. | "Bot for the group chat? Make it fun" | |
-| 0:50 | | The gym log, small and alone. A spotlight finds the user's hand on the phone; a card with *their* face joins the others. | "Just for you? Then you're the one," | Back to our story. A solo project still has someone who matters: you. Permission, not scolding |
-| 0:53 | | The missing prompt flashes, still empty. The cards fan out, each with a different face on it, and the camera pushes into the faces as the drums drop to half-time. | "and it's always someone" | Breaks the pattern like "and your quota's gone" does in verse 1, and hands straight to the breakdown's "someone who matters". The open question comes back |
-| 0:56 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
-| 1:02 | Bridge | Quiet. The robot looks at its own code. Small credit: *someone or something who matters: Ed Pringle* | "I'm someone too / I'm debugging this with you" (two bars, no more) | The emotional turn: the agent is on the team. It climbs from the last verse: you're someone, so am I |
-| 1:05 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it?" / gang vocal, in huge type on screen: **"THEM TOO!"** | A warm, new idea in one bar |
-| 1:07 | **Final chorus** | The full band. The quota meter ticks over: *new session*. Split screen, 1:07–1:15: the robot sings up at the empty box; **the missing prompt fills in, one line per bar,** above; the robot builds below. The last line lands just before the hold. | "So please tell me who it's FOR *(who's it for?)* / please tell me what they WANT *(what they want?)*" | Closes the open question from the chorus: the plea is in the song, the answer is in the picture |
-| 1:12 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. Quota used: 8%, green. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
-| 1:15 | Hold | **The finished prompt, full screen, for 3 seconds, cursor still blinking.** Small credit beside the comments line: *why, not what: Martin Davidson*. | The last chord cuts straight into the opening guitar crash, so the loop reads as after, then before: the full prompt, then "make it good". No end card | The screenshot. Ending on the lesson, not a logo, keeps it feeling like teaching |
+| 0:47 | | A group chat, everyone crying with laughter at the bot. Dials: wow high, cost low. | "Group chat bot? Just make 'em laugh" | |
+| 0:50 | | A laptop at 3am, a countdown reading *due 9am*. Dials: everything low except "works once, in the demo". | "Uni project? Make it pass" | A fourth card, the one students will tag each other on |
+| 0:53 | | The gym log, small and alone. A spotlight finds the user's hand on the phone; a card with *their* face joins the others. | "Just for you, for fun? / Then you're the one!" | Back to our story, rhymed like "Did I do it wrong? / Oops, your quota's gone!". A solo project still has someone who matters: you. Permission, not scolding |
+| 0:56 | | The missing prompt flashes, still empty. The cards fan out, each with a different face, and the camera pushes into the faces as the drums drop to half-time. | *(spoken, small)* "There's always someone." | Mirrors "Guess I didn't ask." and hands straight to the breakdown's "someone who matters". The open question comes back |
+| 0:59 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
+| 1:05 | Bridge | Quiet. The robot looks at its own code. Small credit: *someone or something who matters: Ed Pringle* | "I'm someone too / I'm debugging this with you" (two bars, no more) | The emotional turn: the agent is on the team. It climbs from the last verse: you're someone, so am I |
+| 1:08 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it?" / gang vocal, in huge type on screen: **"THEM TOO!"** | A warm, new idea in one bar |
+| 1:10 | **Final chorus** | The full band. The quota meter ticks over: *new session*. Split screen, 1:10–1:18: the robot sings up at the empty box; **the missing prompt fills in, one line per bar,** above; the robot builds below. The last line lands just before the hold. | "So please tell me who it's FOR *(who's it for?)* / please tell me what they WANT *(what they want?)*" | Closes the open question from the chorus: the plea is in the song, the answer is in the picture |
+| 1:15 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. Quota used: 8%, green. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
+| 1:18 | Hold | **The finished prompt, full screen, for 3 seconds, cursor still blinking.** Small credit beside the comments line: *why, not what: Martin Davidson*. | The last chord cuts straight into the opening guitar crash, so the loop reads as after, then before: the full prompt, then "make it good". No end card | The screenshot. Ending on the lesson, not a logo, keeps it feeling like teaching |
 
 ## The prompt, before and after
 
@@ -246,6 +247,11 @@ craft is visible: a band made entirely of code.
 - **Verse 1 ending, Qing (2026-09-24):** "Did I do it wrong? / Oops, your quota's gone! / Guess
   I didn't ask." The robot's confusion rhymes on wrong / gone with the verse's vowel, and the turn
   shrinks to one spoken line.
+
+- **Verse 2 rebuilt to mirror verse 1 (2026-09-24):** four example lines on one vowel (fast /
+  last / laugh / pass, which rhyme in a British accent), a two-line tag that rhymes with itself
+  ("Just for you, for fun? / Then you're the one!"), then one spoken line into the next section
+  ("There's always someone."). A uni project card added so each verse has four examples.
 
 ## Open questions for the expert
 

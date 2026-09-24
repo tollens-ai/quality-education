@@ -37,6 +37,8 @@ is the worked example of the finished shape.
    The singer's point of view should be surprising and should favour an underdog.
    Lines land when the underdog says a plain, fair truth with no joke attached. Qing's reaction to
    episode 1's line ("made me well up a little") is the benchmark to aim for.
+   Write and revise lyrics by the rules in [LYRICS.md](../../../LYRICS.md), and add a rule there
+   whenever a fix teaches one.
    *Done when* the line to remember is quotable out of context and still true.
 
 4. **Write the retention map.** Fill a table in 3-second rows: time, picture, lyric, and *why they

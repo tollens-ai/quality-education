@@ -121,7 +121,7 @@ cue times.
 | 0:06 | Verse 1 | **Habit tracker.** A "floss" habit is ticked and a confetti cannon fires. Dial flash: **wow** maxed. | "Confetti every time you floss" | Gag 1: small and silly, and its pickup beat launches the verse |
 | 0:09 | | **Gym log.** The user taps *log set*. A 2FA screen slams down; a phone buzzes with a six-digit code; a sweaty thumb hovers. Dial flash: **sturdy** maxed. | "2FA on your gym log" | Gag 2, a new app and bigger: security nobody asked for, readable in one glance |
 | 0:12 | | **Blog.** One post, *hello world*, served by a server cluster that fills the screen, pods spinning up by the dozen. Dial flash: **speed** maxed. | "Kubernetes for your blog" | Gag 3, the biggest, and the classic over-engineering meme. The meter climbs |
-| 0:15 | | All three apps at once, buried as nine files stack up: `IMPLEMENTATION_SUMMARY.md`, `README_FINAL.md`, `README_FINAL_v2.md`, `TESTING_GUIDE.md`, `CHANGES.md`, `NOTES.md`, `SUMMARY_2.md`, `DONE.md`, `DONE_FINAL.md`. The meter hits 100% and a generic **usage limit reached** banner drops. Dial flash: **cost** maxed. | "Nine summary docs, and what's the cost?" | The in-joke they'll recognise, and the payoff of the meter |
+| 0:15 | | The robot splits into twelve subagents, each with a clock face, busy round the clock across all three apps. Each one leaves a `SUMMARY.md` behind (`IMPLEMENTATION_SUMMARY.md`, `README_FINAL_v2.md`, `DONE_FINAL.md`…). The meter hits 100% and a generic **usage limit reached** banner drops. Dial flash: **cost** maxed. | "Twelve subagents round the clock, / and your quota's gone" | The rhyme lands on "clock", then the line breaks the pattern and trails off into the turn. What actually burns quota, with the summary-file in-joke kept in the picture |
 | 0:18 | Turn | **Freeze frame, colour drained, two bars at most.** The post again. The robot's screen-face flickers. Its words are captioned large, so the silence reads on mute. | *(spoken, small)* "…oh. / I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
 | 0:20 | Pre-chorus | The drums build back in. Question marks pile up. | "Good for who? *(good for who?)* / Good for what? *(good for what?)*" | A sing-along, and rising tension |
 | 0:23 | | The four dials from verse 1 line up: **speed**, **sturdy**, **cost**, **wow**. Each one swings as it's sung. | "Fast to run? Sturdy? Cheap? / Wow for a week, or built to keep?" | The gags come back as choices. Every dial is legitimate, including a week of wow |
@@ -234,7 +234,10 @@ craft is visible: a band made entirely of code.
   time you floss", which Qing pointed out is the "We Didn't Start the Fire" verse meter: stressed
   list lines rhymed ABBA (floss / gym log / blog / cost). "Confetti" starts on an upbeat, so it
   has to open the verse; that also restores the escalation: confetti, 2FA, Kubernetes, then the
-  docs.
+  docs. Line 4 then breaks the pattern to wind into "…oh. I didn't ask.": the rhyme lands on
+  "clock" and "your quota's gone" trails off. Summary docs don't cost much, so the lyric now blames
+  what does burn quota (subagents running round the clock); the docs stay in the picture as the
+  in-joke.
 
 ## Open questions for the expert
 

@@ -3,7 +3,7 @@
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
-**Status:** script v2, after review round 1. Round 2 is in progress.
+**Status:** script v3, after review rounds 1 and 2. A final check is in progress.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 
@@ -64,10 +64,10 @@ cue times.
   overwhelmed, and its face is a screen.
 - **The user:** only ever seen through their posts and prompts, so every viewer can stand in their
   place.
-- **The bots:** a Discord bot, a scraper and an assistant agent. They appear in the bridge.
+- **The bots:** a Discord bot, a CI bot and "your other agent", each labelled. They appear in the bridge.
 
 **Running devices**
-- **The quota meter**, top left. It drains during verse 1 and reads 8% at the end.
+- **The quota meter**, top left, labelled **quota used**. It fills from green to red during verse 1 and reads 8% (green) at the end.
 - **The missing prompt**: an empty prompt box with a blinking cursor. It sits centre screen for one
   bar at the chorus, flashes again during verse 2, fills in during the final chorus, and is then
   held full screen.
@@ -78,29 +78,29 @@ cue times.
 | Time | Section | Picture | Lyric (lead vocal; *backing in italics*) | Why they keep watching |
 |---|---|---|---|---|
 | 0:00 | Cold open | **First frame, full width:** the post *"claude built me absolute garbage 😤"*, a real-looking **"Usage limit reached"** banner, and behind them a tiny habit tracker (habit: *drink water*) with a smoking tower bolted on. | **"You said make it GOOD—"** on the first beat, over a guitar crash | Their own grievance, in their own screens, with a mystery behind it |
-| 0:03 | Rewind | A VHS rewind whoosh. A blank app. The robot beams at the prompt *build me a habit tracker. make it good.* The meter reads 3%. | "—so I made it good!" | The rewind promises to show how it went wrong |
+| 0:03 | Rewind | A VHS rewind whoosh. A blank app. The robot beams at the prompt *build me a habit tracker. make it good.* Quota used: 3%. | "—so I made it good!" | The rewind promises to show how it went wrong |
 | 0:06 | Verse 1 | A padlock slams onto the water-drop habit. | "Put a lock on your water log" | Gag 1 |
-| 0:09 | | The app splits into eleven boxes joined by wires. The robot is in sunglasses. | "Eleven services, like a boss" | Gag 2, bigger. The meter drains |
+| 0:09 | | The app splits into eleven boxes joined by wires, one with a tiny ticked box on it. | "Eleven services to tick a box" | Gag 2, bigger, and satire of over-engineering. The meter climbs |
 | 0:12 | | A "floss" habit is ticked and a confetti cannon fires. | "Confetti every time you floss" | Gag 3, bigger still |
 | 0:14 | | Files multiply across the screen: `IMPLEMENTATION_SUMMARY.md`, `README_FINAL.md`, `README_FINAL_v2.md`, `TESTING_GUIDE.md`… The meter hits 100%. | "Nine summary docs, and your quota's gone" | The in-joke they'll recognise, and the payoff of the meter |
-| 0:17 | Turn | **Freeze frame, colour drained.** The post again. The robot's screen-face flickers. | *(spoken, small)* "…oh. / I should've asked." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
+| 0:17 | Turn | **Freeze frame, colour drained.** The post again. The robot's screen-face flickers. | *(spoken, small)* "…oh. / I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
 | 0:20 | Pre-chorus | The drums build back in. Question marks pile up. | "Good for who? *(good for who?)* / Good for what? *(good for what?)*" | A sing-along, and rising tension |
 | 0:23 | | Three dials flash up: **speed**, **cost**, **lifespan**. | "Fast to run? Or cheap? / Dead by the end of the week?" | The tradeoffs become concrete |
 | 0:26 | **Chorus** | The full band, big type. **The missing prompt appears in the centre for one bar**, cursor blinking, then docks in the corner. | "You never told me who it's FOR— / or what you WANT!" | The release, plus a new open question: the empty box |
 | 0:29 | | Close-up. The band stops dead on "prompt". | **"I can't read your mind / I'm only reading your prompt"** | The line to remember |
-| 0:32 | Post-chorus | Three readable close-ups: a big green **"✅ All tests pass"** over a broken app, a checklist ticking itself, a **"100% coverage"** badge being polished. Then pull back to a vast crowd, the whole internet, busy with these rituals. A scattered handful hold up a sign: *who's it for?* | "Learned from everyone online *(whoa-oh)* / most never wondered who it's for *(whoa-oh)*" | The biggest shot in the video, and rituals they recognise. Not knowing is normal |
+| 0:32 | Post-chorus | Two readable close-ups: a big green **"✅ All tests pass"** over a broken app, and a *best practices* checklist ticking itself (microservices ✓, 2FA ✓, README ✓). Pull back to a vast crowd, the whole internet, busy with these rituals. Last beat: one person holds up a sign, the largest text in the shot: **who's it for?** | "Learned from everyone online *(whoa-oh)* / most never learned to ask who it's for *(whoa-oh)*" | The biggest shot in the video, and rituals they recognise, including the robot's own over-building. Not knowing is normal |
 | 0:38 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. | "Launch demo? Wow them fast" | New example |
 | 0:41 | | A pricing page and a "your data" padlock. | "Paying users? Make it last" | *Which one am I?* |
 | 0:44 | | A group chat, everyone laughing at the bot. | "Bot for the chat? Just make it fun" | |
 | 0:47 | | The missing prompt flashes, still empty. The cards fan out, each with a different face on it. | "Every app, a different someone" | The pattern clicks, and it's about people rather than taste. The open question comes back |
 | 0:50 | | The habit tracker, small and alone. | "Just for you? That's fine. Just say so." | Back to our story: permission, not scolding |
 | 0:53 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
-| 0:59 | Bridge | Quiet. The robot looks at its own code. Small credit: *agents as stakeholders: Ed Pringle* | "I'm someone too / I'll debug it after you" | The emotional turn: the agent is on the team |
-| 1:02 | | One by one, the bots step in beside it. | "Every bot that uses it? *(THEM TOO!)*" | A warm, new idea in one bar |
-| 1:04 | **Final chorus** | The full band. **The missing prompt fills in, one line per bar.** | "Now you've told me who it's FOR! / Now you've told me what you WANT!" | Closes the open question from the chorus |
-| 1:09 | | The robot builds a tiny, delightful tracker: one tap, a streak, a little flame. The meter reads 8%. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
-| 1:12 | Hold | **The finished prompt, full screen, for 3 seconds.** Small credit on the comments line: *Martin Davidson*. | — | The screenshot |
-| 1:15 | End card | The ∴ Tollens mark. *Software Quality Theory for Beginners · 1*. The prompt stays visible. | *(text)* **Reply with your vaguest prompt. The robot will rewrite it. 👇** | Something they want to do, and something you can reply to |
+| 0:59 | Bridge | Quiet. The robot looks at its own code. Small credit: *agents as stakeholders: Ed Pringle* | "I'm someone too / I'm debugging this with you" | The emotional turn: the agent is on the team |
+| 1:02 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it? *(THEM TOO!)*" | A warm, new idea in one bar |
+| 1:04 | **Final chorus** | The full band. Split screen: **the missing prompt fills in, one line per bar,** above; the robot builds below. | "Now you've told me who it's FOR! / Now you've told me what you WANT!" | Closes the open question from the chorus |
+| 1:09 | | The tiny, delightful tracker is finished: one tap, a streak, a little flame. Quota used: 8%, green. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
+| 1:12 | Hold | **The finished prompt, full screen, for 4 seconds.** Small credit on the comments line: *Martin Davidson*. | — | The screenshot |
+| 1:16 | End card | The ∴ Tollens mark. *Software Quality Theory for Beginners · 1*. The prompt stays visible. | *(text)* **Reply with your vaguest prompt. The robot will ask what it needs to know. 👇** | Something they want to do, and something you can reply to |
 
 ## The prompt, before and after
 
@@ -110,13 +110,12 @@ Before:
 
 After, one line per bar:
 
-> just for me.
-> fun first: one tap, streaks, a little flame.
+> just for me. fun first: one tap, streaks, a flame.
 > don't burn my quota.
 > easy to debug. comments say why, not what.
-> put who it's for in CLAUDE.md.
 > fine if it dies after summer.
-> ask me if you're unsure.
+> ask before adding anything I didn't list.
+> save this in CLAUDE.md.
 
 ## Why they'd like it
 The gags escalate, and they're the gags the audience already jokes about (summary-file spam, the
@@ -124,9 +123,9 @@ usage limit). The robot is an underdog that owns its part. The line to remember 
 craft is visible: a band made entirely of code.
 
 ## Why they'd share it
-- **To clip:** the gag run, and the "…oh. / I should've asked." freeze.
+- **To clip:** the gag run, and the "…oh. / I didn't ask." freeze.
 - **To save:** the finished prompt, held full screen.
-- **To reply:** the end card asks for their vaguest prompt, and the robot rewrites it in the replies.
+- **To reply:** the end card asks for their vaguest prompt, and in the replies the robot asks the questions it would need answered. That demonstrates the lesson.
 - **For the novelty:** every note, frame and syllable is code.
 
 ## Post text (draft)
@@ -146,13 +145,26 @@ craft is visible: a band made entirely of code.
   - the "fast" ambiguity fixed
   - credits scoped so Bach & Bolton aren't read as endorsing the agent-as-someone section
 
+- **Round 2:** a combined craft reviewer and a fact-checker. The fact-checker said it's accurate
+  enough to ship. Changes made:
+  - "never wondered" changed to "never learned to ask", in line with CANON
+  - over-building added to the ritual shot
+  - the quota meter labelled "used"
+  - "ask before adding anything I didn't list" added to the prompt, to target gold-plating
+  - the end card no longer contradicts the lesson (the robot asks rather than rewrites)
+  - the prompt fill runs split screen and is held for 4s
+  - the bridge line is clearer ("debugging this with you")
+  - the scraper swapped for a CI bot and "your other agent"
+  - "like a boss" dropped
+  - "I didn't ask", which is easier for the synth voice to sing
+
 ## Open questions for the expert
 
-1. **"I should've asked."** Is it right for the robot to own part of the blame? Bach & Bolton say
+1. **"I didn't ask."** Is it right for the robot to own part of the blame? Bach & Bolton say
    the operator bears responsibility, and an agent that gold-plates rather than asking is still
    exercising poor judgement.
-2. **End card.** "Reply with your vaguest prompt. The robot will rewrite it." commits the account to
-   replying to the first few dozen replies. Is that OK?
+2. **End card.** "Reply with your vaguest prompt. The robot will ask what it needs to know." commits
+   the account to replying to the first few dozen replies with clarifying questions. Is that OK?
 3. **Series title.** Reviewers flagged "for Beginners" as talking down to people who ship. Keep it?
 
 ## Liner notes (to write when it's built)

@@ -121,3 +121,14 @@ others. Add a rule here whenever a fix teaches one.
   - Once the synth exists, sing the grid on a click and listen.
 - **Re-read the whole sheet after every fix.** Lyrics interlock: changing one line can break a
   rhyme, a mirror in the other verse, or a callback.
+
+## Generating the song (MiniMax)
+Qing's findings from the first generations of episode 1 (2026-09-24):
+- **Generate before the lyrics lock.** A generated track is the quickest scansion check: a
+  clunky line is audible straight away.
+- **Tag sections with MiniMax's names.** Write `[Pre-Chorus]` with a hyphen; `[Pre Chorus]`, as
+  the API docs spell it, didn't work.
+- **Spell tricky words as they're said.** Acronyms and jargon ("2FA", "Kubernetes") come out wrong
+  unless they're spelled phonetically in the pasted lyrics. Keep the real spelling on the lyric
+  sheet and in the captions; only the generator's copy changes.
+- **Name the accent in the style prompt.** Verse 2 only rhymes in British English.

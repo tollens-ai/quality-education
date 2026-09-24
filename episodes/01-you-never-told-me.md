@@ -124,6 +124,8 @@ Last chorus notes (2026-09-24):
 
 > also I'll make those exclamations rather than questions
 
+> and then we'll not repeat "you", we can go... "just a toy and just for fun
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -219,7 +221,7 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 
 **Last chorus** (repeat; the hook's questions are answered at last, Qing)
 > GOOD FOR YOU-OU-OU! GOOD FOR THA-A-AT!
-> Just for you and just for fun!
+> Just a toy and just for fun!
 > Fine if it dies when summer's done!
 
 **Key frames** (only the ones a lyric depends on)

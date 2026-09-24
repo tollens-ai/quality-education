@@ -41,6 +41,12 @@ is the worked example of the finished shape.
    whenever a fix teaches one.
    *Done when* the line to remember is quotable out of context and still true.
 
+   **Song-fit limits.** In 4/4, one bar lasts 240 ÷ bpm seconds; at 170 bpm that is about 1.4s.
+   A 3-second row (about 2 bars) fits 8–12 sung syllables, and a 2-second row fits 6–8. More than
+   that blurs in a formant voice, and the word-by-word captions can't be read in time. For the
+   synthetic singer, prefer short words, open vowels and few consonant clusters. Rhyme like the
+   genre does: pop-punk needs strong end rhymes.
+
 4. **Write the retention map.** Fill a table in 3-second rows: time, picture, lyric, and *why they
    keep watching*. Use the checks below. Make up plenty of concrete, recognisable examples as you
    go; everyday vibecoder apps are easy to invent, so vary them.
@@ -60,7 +66,8 @@ is the worked example of the finished shape.
    - simulated target viewers, from a novice vibecoder to a sceptical senior engineer
    - a quality-theory fact-checker, working against CANON.md and the sources
 
-   Revise, and repeat until the reviewers find nothing significant.
+   Round structure, reusable briefs and what past rounds caught are in
+   [reviewers.md](reviewers.md). Revise, and repeat until the reviewers find nothing significant.
    *Done when* you'd be proud to show it on content quality, enjoyment, usefulness, share-ability
    and lyric craft. The expert's time goes on truth, not on polish you could have done yourself.
 

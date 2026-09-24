@@ -103,7 +103,7 @@ cue times.
 - **The bots:** a Discord bot, a CI bot and "your other agent", each labelled. They appear in the bridge.
 
 **Running devices**
-- **The user's side projects**: a gym log, a food blog, a habit tracker, all briefed "make it
+- **The user's side projects**: a gym log, a blog, a habit tracker, all briefed "make it
   good" on the same day. Verse 1 takes one per line. The gym log is the one we come back to.
 - **The Tollens mark**: tiny and low-contrast, top left under the quota meter. Never animated.
 - **The quota meter**, top left, labelled **quota used**. It fills from green to red during verse 1, resets with a *new session* tick at the final chorus, and reads 8% (green) at the end.
@@ -117,17 +117,17 @@ cue times.
 | Time | Section | Picture | Lyric (lead vocal; *backing in italics*) | Why they keep watching |
 |---|---|---|---|---|
 | 0:00 | Cold open | **First frame, full width:** the post *"my AI built me absolute garbage 😤"* fills the frame; behind it, the user's gym log, smoking. The lyric caption lands on the first downbeat. | **"You said make it GOOD,"** on the first beat, over a guitar crash | Their own grievance, in their own words, with a mystery behind it. One thing to read |
-| 0:03 | Rewind | A VHS rewind whoosh to this morning. The robot beams at a stack of prompts that all end the same way: *build me a gym log. make it good.* / *food blog pls. make it good.* / *habit tracker, make it good.* Quota used: 3%. | "so I made it good!" | The rewind promises to show how it went wrong, and the stack is every viewer's history |
+| 0:03 | Rewind | A VHS rewind whoosh to this morning. The robot beams at a stack of prompts that all end the same way: *build me a gym log. make it good.* / *blog pls. make it good.* / *habit tracker, make it good.* Quota used: 3%. | "so I made it good!" | The rewind promises to show how it went wrong, and the stack is every viewer's history |
 | 0:06 | Verse 1 | **Gym log.** The user taps *log set*. A 2FA screen slams down; a phone buzzes with a six-digit code; a sweaty thumb hovers. Dial flash: **sturdy** maxed. | "2FA on your gym log" | Gag 1: security nobody asked for, readable in one glance |
-| 0:09 | | **Food blog.** One recipe for toast, served by a server cluster that fills the screen, pods spinning up in little chef hats. Dial flash: **speed** maxed. | "Kubernetes for your food blog" | Gag 2, a new app, bigger, and the classic over-engineering meme. The meter climbs |
-| 0:12 | | **Habit tracker.** A "floss" habit is ticked and a confetti cannon fires so hard it blows the chef-hat pods off screen. Dial flash: **wow** maxed. | "Confetti every time you floss" | Gag 3, a third app, and the biggest picture |
+| 0:09 | | **Blog.** One post, *hello world*, served by a server cluster that fills the screen, pods spinning up by the dozen. Dial flash: **speed** maxed. | "Kubernetes for your blog" | Gag 2, a new app, bigger, and the classic over-engineering meme. The meter climbs |
+| 0:12 | | **Habit tracker.** A "floss" habit is ticked and a confetti cannon fires so hard it blows the pods off screen. Dial flash: **wow** maxed. | "Confetti every time you floss" | Gag 3, a third app, and the biggest picture |
 | 0:15 | | All three apps at once, buried as nine files stack up: `IMPLEMENTATION_SUMMARY.md`, `README_FINAL.md`, `README_FINAL_v2.md`, `TESTING_GUIDE.md`, `CHANGES.md`, `NOTES.md`, `SUMMARY_2.md`, `DONE.md`, `DONE_FINAL.md`. The meter hits 100% and a generic **usage limit reached** banner drops. Dial flash: **cost** maxed. | "Nine summary docs, and what's the cost?" | The in-joke they'll recognise, and the payoff of the meter |
 | 0:18 | Turn | **Freeze frame, colour drained, two bars at most.** The post again. The robot's screen-face flickers. Its words are captioned large, so the silence reads on mute. | *(spoken, small)* "…oh. / I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
 | 0:20 | Pre-chorus | The drums build back in. Question marks pile up. | "Good for who? *(good for who?)* / Good for what? *(good for what?)*" | A sing-along, and rising tension |
 | 0:23 | | The four dials from verse 1 line up: **speed**, **sturdy**, **cost**, **wow**. Each one swings as it's sung. | "Fast to run? Sturdy? Cheap? / Wow for a week, or built to keep?" | The gags come back as choices. Every dial is legitimate, including a week of wow |
-| 0:26 | **Chorus** | The full band, big type. **The missing prompt appears in the centre for one bar**, cursor blinking, then docks in the corner. On "FOR": the flosser, the gym-goer, the food blogger's reader. On "WANT", each gets a thought bubble: *fun!*, *just log it*, *the recipe, fast*. | "You didn't tell me who it's FOR *(who's it for?)* / you didn't tell me what they WANT *(what they want?)*" | The release, plus a new open question: the empty box |
+| 0:26 | **Chorus** | The full band, big type. **The missing prompt appears in the centre for one bar**, cursor blinking, then docks in the corner. On "FOR": the flosser, the gym-goer, the blog reader. On "WANT", each gets a thought bubble: *fun!*, *just log it*, *just read it*. | "You didn't tell me who it's FOR *(who's it for?)* / you didn't tell me what they WANT *(what they want?)*" | The release, plus a new open question: the empty box |
 | 0:29 | | Close-up. The band stops dead on "prompt". | **"I can't read your mind / I'm only reading your prompt"** | The line to remember |
-| 0:32 | Post-chorus | A big green **"✅ All tests pass"** over the broken food blog. Pull back to a vast crowd of coders, the whole internet, heads down over keyboards. A sticky note reading **who's it for?** is passed hand to hand and tossed over a wall marked **PRODUCT TEAM**. | "I learned to code from all of you *(whoa-oh)* / and most left the users at product's door *(whoa-oh)*" | The biggest shot in the video, and a habit they recognise from real teams. Not knowing is normal, and it's inherited |
+| 0:32 | Post-chorus | A big green **"✅ All tests pass"** over the broken blog. Pull back to a vast crowd of coders, the whole internet, heads down over keyboards. A sticky note reading **who's it for?** is passed hand to hand and tossed over a wall marked **PRODUCT TEAM**. | "I learned to code from all of you *(whoa-oh)* / and most left the users at product's door *(whoa-oh)*" | The biggest shot in the video, and a habit they recognise from real teams. Not knowing is normal, and it's inherited |
 | 0:36 | | The robot catches the sticky note mid-air and holds it up, the largest text in the shot. On "test", the ✅ flashes once more and cracks. | "But what you build and test won't do *(whoa-oh)* / unless you ask who it's for *(whoa-oh)*" | The deep point, said plainly: who it's for is part of building *and* testing. "Ask" echoes the robot's own "I didn't ask" |
 | 0:41 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. Dials: wow high, lifespan low. | "Launch demo? Wow them fast" | New example |
 | 0:44 | | A pricing page and a "your data" padlock. Dials: lifespan high. | "Paying users? Make it last" | *Which one am I?* |
@@ -232,7 +232,7 @@ craft is visible: a band made entirely of code.
 - **Expert lyric notes, round 3 (2026-09-24):** back to "WANT", which slant-rhymes with
   "prompt" and is closer to *value* than "need". Verse 1 rebuilt on the rhythm of "Confetti every
   time you floss", which Qing pointed out is the "We Didn't Start the Fire" verse meter: stressed
-  list lines in two couplets (gym log / food blog, floss / cost). Order is now 2FA, Kubernetes,
+  list lines in two couplets (gym log / blog, floss / cost). Order is now 2FA, Kubernetes,
   confetti, and the confetti shot is drawn biggest so the pictures still escalate.
 
 ## Open questions for the expert

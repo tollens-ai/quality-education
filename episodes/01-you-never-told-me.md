@@ -10,6 +10,10 @@ with Qing. The storyboard is parked until the lyrics lock.
 - **Next:** Qing is being more directive on the lyrics for this episode. MiniMax takes sounded
   great but couldn't hold a repeated chorus melody, so the song will be made in code; Qing's best
   takes are references. Chorus 1 and 2 second halves (the repeats) are drafts.
+  The chorus melody is taken from Qing's favourite take (first chorus, verbatim): E♭ major, about
+  180 bpm, a leap up to the high tonic on "who" and "what". The verse rhythm still has to be
+  set by hand, since no take got the "We Didn't Start the Fire" rhythm. Whisper misheard "Diags"
+  in every take.
 - **Still open:**
   - "nan" or "grandma"
   - whether "Uni project? Make it pass" reads as "make the tests pass"

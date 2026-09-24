@@ -129,11 +129,11 @@ cue times.
 | 0:29 | | Close-up. The band stops dead on "prompt". | **"I can't read your mind / I'm only reading your prompt"** | The line to remember |
 | 0:32 | Post-chorus | A big green **"✅ All tests pass"** over the broken blog. Pull back to a vast crowd of coders, the whole internet, heads down over keyboards. A sticky note reading **who's it for?** is passed hand to hand and tossed over a wall marked **PRODUCT TEAM**. | "I learned to code from all of you *(whoa-oh)* / and most left the users at product's door *(whoa-oh)*" | The biggest shot in the video, and a habit they recognise from real teams. Not knowing is normal, and it's inherited |
 | 0:36 | | The robot catches the sticky note mid-air and holds it up, the largest text in the shot. On "test", the ✅ flashes once more and cracks. | "But what you build and test won't do *(whoa-oh)* / unless you ask who it's for *(whoa-oh)*" | The deep point, said plainly: who it's for is part of building *and* testing. "Ask" echoes the robot's own "I didn't ask" |
-| 0:41 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. Dials: wow high, lifespan low. | "Launch demo? Wow them fast" | New example |
-| 0:44 | | A pricing page and a "your data" padlock. Dials: lifespan high. | "Paying users? Make it last" | *Which one am I?* |
+| 0:41 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. Dials: wow high, sturdy low. | "A launch demo? Wow them fast" | New example. Same upbeat opening as verse 1, so the ear hears the pattern return |
+| 0:44 | | A pricing page and a "your data" padlock. Dials: sturdy high. | "Paying users? Make it last" | *Which one am I?* |
 | 0:47 | | A group chat, everyone laughing at the bot. Dials: wow high, cost low. | "Bot for the group chat? Make it fun" | |
-| 0:50 | | The missing prompt flashes, still empty. The cards fan out, each with a different face on it. | "Every app, a different someone" | The pattern clicks, and it's about people rather than taste. The open question comes back |
-| 0:53 | | The gym log, small and alone. A spotlight finds the user's hand on the phone; a card with *their* face drops into the fan. | "Just for you? Then you're the one." | Back to our story. A solo project still has someone who matters: you. Permission, not scolding |
+| 0:50 | | The gym log, small and alone. A spotlight finds the user's hand on the phone; a card with *their* face joins the others. | "Just for you? Then you're the one," | Back to our story. A solo project still has someone who matters: you. Permission, not scolding |
+| 0:53 | | The missing prompt flashes, still empty. The cards fan out, each with a different face on it, and the camera pushes into the faces as the drums drop to half-time. | "and it's always someone" | Breaks the pattern like "and your quota's gone" does in verse 1, and hands straight to the breakdown's "someone who matters". The open question comes back |
 | 0:56 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
 | 1:02 | Bridge | Quiet. The robot looks at its own code. Small credit: *someone or something who matters: Ed Pringle* | "I'm someone too / I'm debugging this with you" (two bars, no more) | The emotional turn: the agent is on the team. It climbs from the last verse: you're someone, so am I |
 | 1:05 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it?" / gang vocal, in huge type on screen: **"THEM TOO!"** | A warm, new idea in one bar |
@@ -238,6 +238,10 @@ craft is visible: a band made entirely of code.
   "clock" and "your quota's gone" trails off. Summary docs don't cost much, so the lyric now blames
   what does burn quota (subagents running round the clock); the docs stay in the picture as the
   in-joke.
+
+- **Verse endings matched (2026-09-24):** both verses are now four pattern lines, opening on an
+  upbeat, then a short tag that breaks the pattern and hands on: "and your quota's gone" into
+  "…oh. I didn't ask.", and "and it's always someone" into the breakdown.
 
 ## Open questions for the expert
 

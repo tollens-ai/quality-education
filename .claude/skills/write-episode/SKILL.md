@@ -51,12 +51,23 @@ is the worked example of the finished shape.
    someone, something useful to save, novelty, something to argue about). Draft the post text; it
    is the first thing people read, above the video.
 
-7. **Quiz the expert on claims.** List only the questions where her answer would change the draft:
+7. **Review it yourself before the expert sees it.** Run independent reviewers in parallel, each
+   with one lens:
+   - a songwriter: scansion, rhyme, singability for the synthetic voice, hooks
+   - a short-form editor: the muted first frame, where viewers drop off, share moments, cringe
+   - simulated target viewers, from a novice vibecoder to a sceptical senior engineer
+   - a quality-theory fact-checker, working against CANON.md and the sources
+
+   Revise, and repeat until the reviewers find nothing significant.
+   *Done when* you'd be proud to show it on content quality, enjoyment, usefulness, share-ability
+   and lyric craft. The expert's time goes on truth, not on polish you could have done yourself.
+
+8. **Quiz the expert on claims.** List only the questions where her answer would change the draft:
    wrong emphasis, half-truths, advice that backfires. Cut any contested claim from the lyrics
    until she answers.
    *Done when* she has approved or corrected every claim in the lyrics and on-screen text.
 
-8. **After the build, write liner notes:** how it was checked, and where it falls short.
+9. **After the build, write liner notes:** how it was checked, and where it falls short.
 
 ## Retention checks
 

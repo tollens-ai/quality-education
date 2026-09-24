@@ -91,7 +91,8 @@ others. Add a rule here whenever a fix teaches one.
   pre-chorus so the chorus crashes in.
 - **Repeat the hook; vary the second half.** Every chorus repeats the hook. Its second half
   changes each time and moves the argument on (episode 1: the tradeoffs the gags showed, then
-  the ones nobody briefs, then the agent-facing ones).
+  the ones nobody briefs, then the agent-facing ones). Each chorus is sung twice, so each needs two second
+  halves, and the second one adds new tradeoffs rather than restating the first.
 - **The last chorus can answer the hook.** Episode 1 asks "Good for who? Good for what?" three
   times; the last chorus answers it ("Good for you! Good for that!") and its second half turns
   from questions to exclamations. Keep the same sounds so the singalong still works.

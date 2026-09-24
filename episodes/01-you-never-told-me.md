@@ -126,6 +126,8 @@ Last chorus notes (2026-09-24):
 
 > and then we'll not repeat "you", we can go... "just a toy and just for fun
 
+> I think we need the chorus repeated each time actually - so room for two more!
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -181,6 +183,9 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 > GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
 > Fast to run, sturdy or cheap?
 > Wow for a week or built to keep?
+> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
+> Ship it now or room to grow?
+> Does what they need or steals the show?
 
 **Verse 2**
 > Product demo? Wow them fast
@@ -196,6 +201,9 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 > GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
 > Works on a train, on your nan's old phone?
 > No agents going rogue on their own?
+> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
+> Works for someone who can't see the screen?
+> No API keys where they'll be seen?
 
 **Bridge**
 > I could only learn from my training set *(whoa-oh)*
@@ -219,7 +227,7 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 > Roll back my mistakes? Diags I can use?
 > No stale prompts making me confused!
 
-**Last chorus** (repeat; the hook's questions are answered at last, Qing)
+**Final chorus, second time** (the hook's questions are answered at last, Qing)
 > GOOD FOR YOU-OU-OU! GOOD FOR THA-A-AT!
 > Just a toy and just for fun!
 > Fine if it dies when summer's done!

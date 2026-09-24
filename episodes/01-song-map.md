@@ -65,7 +65,7 @@ b3-4    band riff, E♭ then B♭                  con        (pickup into verse
 b5      FET   ti    EV    ry    TIME  you   FLOSS .
 b6      TWO   eff   AY    on    YOUR  gym   LOG   .
 b7      KOO   ber   NET   eez   for   your  BLOG  .
-b8      TWELVE sub  A     gents ROUND the   CLOCK .       ← check
+b8      TWELVE sub  A     gents ROUND the   CLOCK .
 b9      did   I     do    it    WRONG ~     ~     ~
 b10     OOPS  your  QUO   ta's  GONE  ~     ~     ~
 b11-12  stop. (spoken, free) "Guess I didn't ask."   you  (pickup into pre-chorus)
@@ -74,7 +74,7 @@ b11-12  stop. (spoken, free) "Guess I didn't ask."   you  (pickup into pre-choru
 - **b6 keeps the "Fire" rhythm** in straight eighths: TWO eff AY on YOUR gym LOG. That bends
   the stress onto "your", and it works because it goes by so fast (Qing, 2026-09-24). An earlier
   draft squeezed "on your" into sixteenths to save the stress, and broke the rhythm instead.
-- **b8** follows the same rule: straight eighths, with "sub-A-gents" bent the same way. Check by ear.
+- **b8** follows the same rule: TWELVE sub A gents ROUND the CLOCK (Qing, 2026-09-24).
 - **b7** puts "for" on beat 3. At this speed it reads as patter, and Qing said it scans; flagging
   it in case.
 - One line per bar is the "Fire" rhythm, and it's what none of the MiniMax takes did: they gave

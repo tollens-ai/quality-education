@@ -3,7 +3,7 @@
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
-**Status:** script v3, after review rounds 1 and 2. A final check is in progress.
+**Status:** script v4, after three review rounds. Ready for expert review.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 
@@ -52,7 +52,7 @@ Further notes (2026-09-24):
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
 voice is part of the character. Tempo is about 170 bpm, so one bar is about 1.4s. The song is
-about 74 seconds, in 9:16. The times below are approximate; the synthesised song sets the exact
+about 78 seconds, in 9:16. The times below are approximate; the synthesised song sets the exact
 cue times.
 
 - **Misconception:** "good" is obvious, and the agent should know what I meant.
@@ -69,7 +69,7 @@ cue times.
 **Running devices**
 - **The quota meter**, top left, labelled **quota used**. It fills from green to red during verse 1 and reads 8% (green) at the end.
 - **The missing prompt**: an empty prompt box with a blinking cursor. It sits centre screen for one
-  bar at the chorus, flashes again during verse 2, fills in during the final chorus, and is then
+  bar at the chorus, docks top right (clear of X's UI zones), flashes again during verse 2, fills in during the final chorus, and is then
   held full screen.
 - **Captions**: a word-by-word wipe of the lead vocal only, inside the X safe zone.
 
@@ -85,22 +85,22 @@ cue times.
 | 0:14 | | Files multiply across the screen: `IMPLEMENTATION_SUMMARY.md`, `README_FINAL.md`, `README_FINAL_v2.md`, `TESTING_GUIDE.md`… The meter hits 100%. | "Nine summary docs, and your quota's gone" | The in-joke they'll recognise, and the payoff of the meter |
 | 0:17 | Turn | **Freeze frame, colour drained.** The post again. The robot's screen-face flickers. | *(spoken, small)* "…oh. / I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
 | 0:20 | Pre-chorus | The drums build back in. Question marks pile up. | "Good for who? *(good for who?)* / Good for what? *(good for what?)*" | A sing-along, and rising tension |
-| 0:23 | | Three dials flash up: **speed**, **cost**, **lifespan**. | "Fast to run? Or cheap? / Dead by the end of the week?" | The tradeoffs become concrete |
+| 0:23 | | Four dials flash up: **speed**, **cost**, **lifespan**, **wow**. | "Fast to run? Or cheap? / Dead by the end of the week?" | The tradeoffs become concrete |
 | 0:26 | **Chorus** | The full band, big type. **The missing prompt appears in the centre for one bar**, cursor blinking, then docks in the corner. | "You never told me who it's FOR— / or what you WANT!" | The release, plus a new open question: the empty box |
 | 0:29 | | Close-up. The band stops dead on "prompt". | **"I can't read your mind / I'm only reading your prompt"** | The line to remember |
 | 0:32 | Post-chorus | Two readable close-ups: a big green **"✅ All tests pass"** over a broken app, and a *best practices* checklist ticking itself (microservices ✓, 2FA ✓, README ✓). Pull back to a vast crowd, the whole internet, busy with these rituals. Last beat: one person holds up a sign, the largest text in the shot: **who's it for?** | "Learned from everyone online *(whoa-oh)* / most never learned to ask who it's for *(whoa-oh)*" | The biggest shot in the video, and rituals they recognise, including the robot's own over-building. Not knowing is normal |
-| 0:38 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. | "Launch demo? Wow them fast" | New example |
-| 0:41 | | A pricing page and a "your data" padlock. | "Paying users? Make it last" | *Which one am I?* |
-| 0:44 | | A group chat, everyone laughing at the bot. | "Bot for the chat? Just make it fun" | |
+| 0:38 | Verse 2 | The robot holds up cards, one per line, and each card's dials snap into place. A launch video playing on a phone. Dials: wow high, lifespan low. | "Launch demo? Wow them fast" | New example |
+| 0:41 | | A pricing page and a "your data" padlock. Dials: lifespan high. | "Paying users? Make it last" | *Which one am I?* |
+| 0:44 | | A group chat, everyone laughing at the bot. Dials: wow high, cost low. | "Bot for the chat? Just make it fun" | |
 | 0:47 | | The missing prompt flashes, still empty. The cards fan out, each with a different face on it. | "Every app, a different someone" | The pattern clicks, and it's about people rather than taste. The open question comes back |
 | 0:50 | | The habit tracker, small and alone. | "Just for you? That's fine. Just say so." | Back to our story: permission, not scolding |
 | 0:53 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
 | 0:59 | Bridge | Quiet. The robot looks at its own code. Small credit: *agents as stakeholders: Ed Pringle* | "I'm someone too / I'm debugging this with you" | The emotional turn: the agent is on the team |
-| 1:02 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it? *(THEM TOO!)*" | A warm, new idea in one bar |
-| 1:04 | **Final chorus** | The full band. Split screen: **the missing prompt fills in, one line per bar,** above; the robot builds below. | "Now you've told me who it's FOR! / Now you've told me what you WANT!" | Closes the open question from the chorus |
-| 1:09 | | The tiny, delightful tracker is finished: one tap, a streak, a little flame. Quota used: 8%, green. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
-| 1:12 | Hold | **The finished prompt, full screen, for 4 seconds.** Small credit on the comments line: *Martin Davidson*. | — | The screenshot |
-| 1:16 | End card | The ∴ Tollens mark. *Software Quality Theory for Beginners · 1*. The prompt stays visible. | *(text)* **Reply with your vaguest prompt. The robot will ask what it needs to know. 👇** | Something they want to do, and something you can reply to |
+| 1:02 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it?" / gang vocal, in huge type on screen: **"THEM TOO!"** | A warm, new idea in one bar |
+| 1:04 | **Final chorus** | The full band. Split screen, 1:04–1:12: **the missing prompt fills in, one line per bar,** above; the robot builds below. The last line lands just before the hold. | "Now you've told me who it's FOR! / Now you've told me what you WANT!" | Closes the open question from the chorus |
+| 1:09 | | In the lower half, the tiny, delightful tracker is finished: one tap, a streak, a little flame. Quota used: 8%, green. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
+| 1:12 | Hold | **The finished prompt, full screen, for 4 seconds.** Small credit on the comments line: *Martin Davidson*. | The last chord rings out; the song ends about 1:16 | The screenshot |
+| 1:16–1:18 | End card | The ∴ Tollens mark. *Software Quality Theory for Beginners · 1*. The prompt stays visible. It loops cleanly back to the first frame. | *(text)* **Reply with your vaguest prompt. The robot will ask what it needs to know. 👇** | Something they want to do, and something you can reply to |
 
 ## The prompt, before and after
 
@@ -157,6 +157,9 @@ craft is visible: a band made entirely of code.
   - the scraper swapped for a CI bot and "your other agent"
   - "like a boss" dropped
   - "I didn't ask", which is easier for the synth voice to sing
+- **Round 3:** a final cold read found only consistency fixes: a **wow** dial so fun and wow can
+  be set, per-card dial settings, the prompt fill fitted to its slot, "THEM TOO!" on screen for
+  muted viewers, the end timing and the hold audio defined, and the prompt box docked top right.
 
 ## Open questions for the expert
 

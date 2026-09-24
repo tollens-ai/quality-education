@@ -9,9 +9,12 @@ correction here applies to every episode.
 - **Agents are people who matter**, as team members and as users. As team members, they're served
   by debuggability and maintainability. As users, it means every bot that interfaces with the
   software. (2026-09-24)
-- **Today's agents don't know what good means for you because yesterday's developers mostly didn't
-  either.** The agents learned from their code. Future agents may know; these videos help towards
-  that. (2026-09-24)
+- **Today's agents don't know what good means for you because most of the people who wrote
+  yesterday's software didn't either.** That isn't obvious, and it isn't only amateurs: serious
+  quality professionals tell Qing they're shocked at the huge organisations that never grasped the
+  basics. So most viewers won't know this yet, and that's normal. Software was getting worse for
+  its users long before Claude. The agents learned from that code. Future agents may know better;
+  these videos help towards that. Illustrate with real examples. (2026-09-24)
 - **Mission:** unenshittifying the software of tomorrow. (2026-09-24)
 - **Cost-effectiveness is a quality tradeoff.** "I want this done without blowing my quota" is a
   legitimate part of what good means. (2026-09-24)

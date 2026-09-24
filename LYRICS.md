@@ -133,3 +133,7 @@ Qing's findings from the first generations of episode 1 (2026-09-24):
   unless they're spelled phonetically in the pasted lyrics. Keep the real spelling on the lyric
   sheet and in the captions; only the generator's copy changes.
 - **Name the accent in the style prompt.** Verse 2 only rhymes in British English.
+- **Outcome for episode 1:** the takes sounded great, but MiniMax couldn't be made to reuse the
+  chorus melody, and "who-o-o" was only held when spelled with extra vowels, which made it
+  mispronounce "wha-a-at". The song goes back to being made in code, where melody and vowels are
+  set exactly. Good takes serve as references for tempo, melody and which lines sing well.

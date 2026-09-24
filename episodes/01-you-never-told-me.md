@@ -7,8 +7,9 @@
 with Qing. The storyboard is parked until the lyrics lock.
 
 **Where we stopped (2026-09-24):**
-- **Next:** the bridge is drafted in Qing's wording. Qing is being more directive on the lyrics
-  for this episode. A MiniMax test track is planned as a scansion check before the lyrics lock.
+- **Next:** Qing is being more directive on the lyrics for this episode. MiniMax takes sounded
+  great but couldn't hold a repeated chorus melody, so the song will be made in code; Qing's best
+  takes are references. Chorus 1 and 2 second halves (the repeats) are drafts.
 - **Still open:**
   - "nan" or "grandma"
   - whether "Uni project? Make it pass" reads as "make the tests pass"

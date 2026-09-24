@@ -138,6 +138,84 @@ Last chorus notes (2026-09-24):
 
 > I think we need the chorus repeated each time actually - so room for two more!
 
+Making the song (2026-09-24 night to 2026-09-25):
+
+> getting some decent songs! I think we need a chorus repeat at the end, so room for an extra set
+> of chorus lyrics
+
+> yeah, it's not doing it for me unfortunately. I think we go back to you doing it! it SOUNDS
+> amazing but I need the song to be actually good. I also can't get it to hold the good for whoooo
+> reliably without using the extra vowels which means then it mispronounces whaaat.
+
+> none of them got the we didn't start the fire rhythm right unfortunately. but I've labelled them
+> with what I like about them. only the good chorus is worth keeping verbatim. I'm referring to
+> the first time of course
+
+> yeah it's as much about the rhythms as the pitches.
+
+> we own the rights to what we geerate on minimax
+
+> and yeah, you'll need to map out the full song's rhythm and chord sequences before you can go
+> into generation - we need coherent rhythmic phrasing throughout
+
+> you'll need to figure out your own "doing songs with javascript" best practices based on
+> standard music writing and songwriting and music production best practices!
+
+> obviously we can tweak things later but I have faith in you - you know what I'm going for, you
+> can figure out how to make it good. don't scrounge on effort getting it right, but try to do
+> things in the right order to spot potential issues cheaply let's get to a song we're happy with
+> first before starting video so that we can avoid wasting work though
+
+> you got Gym Log wrong in your verse grid by the way - the only way to make that line work is to
+> slightly mangle the stress on YOUR gym LOG, but it works because it's so fast
+
+> and it's TWELVE sub A gents
+
+> also I think it's good to take a slightly relaxed line 5, because you want the "guess I didn't
+> ask" etc to just run into the chorus pickup. like in my head could be like, for example
+> did I do it wrong? (5 6 7 8) Oops! 2 your QUO(3) TA's(4) GONE!(5) (GUESS I DIDn't ASK)
+
+> though what I wrote doesn't work because you need the upbeat for the prechorus
+
+> also I don't think you found the right prechorus rhythm that I liked? that's the only one where
+> it runs you didn't tell me who it's for straight into you didn't tell me what you want. and I
+> liked that because it contrasts to the chorus rhythm which is the one that needs to soar
+
+> also you can IMMEDIATELY see you've gone wrong in the bridge because your "whoa"s don't like up
+> with each other
+
+> also the complete lack of syncopation is wrong for the genre. at a minimum "some one too" would
+> be syncopated normally
+
+> oh wait, back on the verse end - one more thing is you need to give space to things like the
+> "oops!"
+>
+> also the prechorus rhythm I wanted starts on the & of 1 anyway, so there's a little more room!
+> but yeah a little spoken thing is perfect on 6 7 8 as a pickup, very classic for this style. if
+> we really had to make room we could have done 5 6 7, or 2 3 4 with a break
+
+> also I am still not sure what the right length for the pre chorus is. 4 is too short, 5 could be
+> fun (with a hold bar for anticipation!) and there's an argument for 6 and an argument for 8
+
+> current one is best! not loving the third chord in the chord progression though.
+>
+> have you gone through with, like, pop/jazz/rock harmony theory?
+
+> also I think you need to be, like, aware of the overall pattern of how much the melody jumps
+> around? we have a big jump in the chorus and for it to land properly the rest of the melody
+> can't overdo it. it's like seasoning
+
+> yeah. per the ambitiousness you can totally use harmony as part of it, it doesn't have to be
+> your bog standard basic pop song it just has to sound awesome to human ears (and there's theory
+> for that)
+
+> re:pattern of jumps it's like, the octave tonic is a waste for "oops" when the fifth would do
+> you know?
+
+> if theory research helps you should do it liberally - melody theory, production theory, lyric
+> theory (sondheim comes to mind). we can skill pack it and reuse it for future songwriting and if
+> it's in the repo other people can reuse.
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

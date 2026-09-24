@@ -14,7 +14,8 @@ others. Add a rule here whenever a fix teaches one.
 - **Use the words people actually say.** Don't swap in a near-synonym just to make a rhyme work.
   People say an agent "deleted my files", not that it "wiped what you own"; they say "keeps your
   data safe", not "keeps your data locked". If the natural phrase won't rhyme, rebuild the line
-  around a different natural phrase.
+  around a different natural phrase. Prefer the international word when it costs nothing ("works
+  on a train", not "works on the Tube").
 - **Every phrase must be a real phrase.** "Test it through" rhymes but isn't English, so listeners
   stumble on it.
 - **Say what was learned.** A line like "learned from everyone online" is weak until it says
@@ -29,6 +30,9 @@ others. Add a rule here whenever a fix teaches one.
   clock do. Blame the thing that's actually true, and keep the in-joke in the picture instead.
 - **Don't hand the viewer a job that isn't theirs.** "Tell me what can break" asked the user to
   name failures. Nobody reads it as "tell me your tradeoffs".
+- **A transformation line must be true.** "Now you've told me who it's for" claims the viewer has
+  changed, and they probably haven't. A plea ("So please tell me who it's for") is honest, and
+  the picture can show the hoped-for answer.
 - **Keep the expert's hook words.** Where a word she chose also rhymes ("want" with "prompt"),
   it's usually the right one.
 
@@ -74,6 +78,26 @@ others. Add a rule here whenever a fix teaches one.
   blink" is "fast to run" again).
 - **Put each idea where it belongs.** When two sections both want a line ("I'm someone too"),
   keep it in the one where it pays off, and don't let it leak into the other.
+
+- **The singalong question is the chorus.** The shortest, most shoutable phrase with open vowels
+  ("Good for who-o-o? Good for wha-a-at?") is the chorus, even if it was drafted as a pre-chorus.
+  The complaint that builds tension goes before it, and the band can stop dead at the end of the
+  pre-chorus so the chorus crashes in.
+- **Repeat the hook; vary the second half.** Every chorus repeats the hook. Its second half
+  changes each time and moves the argument on (episode 1: the tradeoffs the gags showed, then
+  the ones nobody briefs, then the agent-facing ones).
+- **Use standard form, and fold stray sections into it.** Verse, pre-chorus, chorus, twice, then
+  bridge, breakdown and a final chorus. A section that doesn't repeat and isn't the bridge is
+  usually in the wrong place: episode 1's post-chorus became its bridge.
+- **Mark held notes.** Write melismas the way they're sung ("who-o-o") so the synth gives them
+  several notes.
+
+## Process
+- **Lyrics before storyboard.** Work on the lyric sheet, noting only the key frames a line
+  depends on. Rebuild the storyboard once the lyrics are locked; before that, every lyric change
+  throws storyboard work away.
+- **Bring the expert whole options.** Two or three finished lines to choose between, each with
+  what it covers and what it costs, and a recommendation. Not open questions.
 
 ## Checking
 - **The model can't hear.** Stress within a word is reliable (it's dictionary knowledge).

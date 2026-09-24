@@ -8,7 +8,9 @@ correction here applies to every episode.
   (2026-09-24)
 - **Agents are people who matter**, as team members and as users. As team members, they're served
   by debuggability and maintainability. As users, it means every bot that interfaces with the
-  software. (2026-09-24)
+  software. (2026-09-24) Agent-facing quality also includes recoverability when the agent makes a
+  mistake, lean context use, and instructions that don't go stale ("no stale prompts making me
+  confused"). (2026-09-24)
 - **Agents learned to code from everyone on the internet, and most of them didn't know how to do
   quality right.** That's why today's agents don't know what good means for you. What "not
   knowing" looks like is quality done as ritual: unit tests "because you're supposed to", testing

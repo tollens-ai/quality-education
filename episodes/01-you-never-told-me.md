@@ -3,7 +3,20 @@
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
-**Status:** script v6, after Qing's second lyric notes and a fourth internal review round. Ready for expert review.
+**Status:** v7, work in progress. The structure is agreed and the lyrics are being worked through
+with Qing. The storyboard is parked until the lyrics lock.
+
+**Where we stopped (2026-09-24):**
+- **Next:** the bridge. "most left the users at product's door" is made up (the natural phrase is
+  "threw it over the wall to product"), and "what you build and test won't do" is weak.
+- **Still open:**
+  - "nan" or "grandma"
+  - whether "Uni project? Make it pass" reads as "make the tests pass"
+  - whether "Diags" will be understood
+  - whether to name Muse, Instinct and Hermes on screen
+- **Then:** Qing locks the lyrics, then a beat grid per section, then a review round on the
+  lyrics, then the storyboard is rebuilt from the sheet (the old one has stale timings and a
+  ~96s length estimate).
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 

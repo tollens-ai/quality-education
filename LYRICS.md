@@ -58,9 +58,9 @@ others. Add a rule here whenever a fix teaches one.
 - **Rhyme on a vowel family.** A whole verse can rhyme on one vowel: floss, log, blog, clock, wrong,
   gone. Note the accent: fast, last, laugh, pass rhyme in British English but not American. The
   synth voice's accent has to match the rhymes.
-- **Keep the idea, change the word.** When a key word is hard to rhyme or doesn't fit the rhythm
-  ("no agents going rogue"), find a plainer phrase that says the same thing and ends on an easy
-  rhyme ("won't let an agent wipe what you own").
+- **Hard-to-rhyme words go inside the line.** When an important word won't rhyme ("rogue"), keep
+  it and move it inside the line, where it can still take a stress. Rhyme on an easier word: "No
+  rogue agent wipes what you own?" Don't swap out the word people actually use.
 - **Name concrete constraints, not categories.** "Works on the Tube" teaches more than "offline
   support". Check the concrete version doesn't just restate an earlier line ("loads before you
   blink" is "fast to run" again).

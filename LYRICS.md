@@ -36,7 +36,8 @@ others. Add a rule here whenever a fix teaches one.
   your blog" scans where "Kubernetes for your food blog" doesn't.
 - **Line length is the first suspect.** When a line drags, cut a word before rewriting it. When it limps, count against the
   template: "Bot for the group chat? Make it fun" didn't scan; "Group chat bot? Make 'em laugh" was a
-  syllable short; "Group chat bot? Just make 'em laugh" fits the seven-syllable pattern.
+  syllable short; "Group chat bot? Just make 'em laugh" fits the seven-syllable pattern. Likewise "A
+  launch demo?" limped and "Product demo?" fits.
 
 ## Structure
 - **Verses share a shape.** If verse 1 is four example lines and then a tag, verse 2 is too.

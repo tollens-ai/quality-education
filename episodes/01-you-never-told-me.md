@@ -7,8 +7,8 @@
 with Qing. The storyboard is parked until the lyrics lock.
 
 **Where we stopped (2026-09-24):**
-- **Next:** the bridge. "most left the users at product's door" is made up (the natural phrase is
-  "threw it over the wall to product"), and "what you build and test won't do" is weak.
+- **Next:** the tag. The bots piling in with "and me!" are *users* of the software, not just
+  maintainers, and "I'm debugging this with you" makes them sound like maintainers.
 - **Still open:**
   - "nan" or "grandma"
   - whether "Uni project? Make it pass" reads as "make the tests pass"
@@ -96,6 +96,12 @@ Lyric notes on v5 (2026-09-24):
 
 > we can tuck a tiny tollens watermark onto the corner of the video maybe
 
+Lyric notes on v7 (2026-09-24):
+
+> the and me and me is after I'm someone too - the other bots are users, not just maintainers
+
+> I like the over the wall phrase
+
 
 ## Shape
 
@@ -166,11 +172,11 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 > Works on a train, on your nan's old phone?
 > No agents going rogue on their own?
 
-**Bridge** *(open: "product's door" is made up, "won't do" is weak)*
+**Bridge**
 > I learned to code from all of you *(whoa-oh)*
-> and most left the users at product's door *(whoa-oh)*
-> But what you build and test won't do *(whoa-oh)*
-> unless you ask who it's for *(whoa-oh)*
+> most threw "who's it for?" over the wall *(whoa-oh)*
+> But how do you know what to build or test *(whoa-oh)*
+> if you don't know who it's for at all? *(whoa-oh)*
 
 **Breakdown**
 > SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS
@@ -198,7 +204,7 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 - The dials (speed, sturdy, cost, wow) at chorus 1.
 - The eval sandbox with an agent-shaped hole, on "going rogue".
 - "✅ All tests pass" over a broken app, and a sticky note reading *who's it for?* tossed over a
-  wall.
+  wall marked **PRODUCT TEAM** on "over the wall"; the ✅ cracks on "test".
 - The bots piling in on "and me!".
 - An endless CLAUDE.md making the robot dizzy, on "stale prompts".
 
@@ -361,6 +367,12 @@ craft is visible: a band made entirely of code.
 - **Final chorus (2026-09-24, Qing):** its second half is agent-facing quality, since it follows
   the bots: rolling back its mistakes (recoverability), diags it can use (debuggability), and no stale
   prompts to confuse it (Qing's wording). The finished prompt gains matching lines.
+
+- **Bridge (2026-09-24, Qing):** "most threw 'who's it for?' over the wall", the phrase people
+  actually say, replaces the made-up "left the users at product's door". The second half is a
+  question that covers building and testing: "But how do you know what to build or test / if you
+  don't know who it's for at all?" The wall in the picture is marked PRODUCT TEAM, so the lyric
+  doesn't have to name product.
 
 ## Open questions for the expert
 

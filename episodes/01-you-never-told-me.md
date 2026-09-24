@@ -64,8 +64,8 @@ Each row answers one question: why would they watch the next 3 seconds?
 The rewritten prompt that types itself out:
 
 > habit tracker, just for me. fun matters most. don't blow my quota building it. keep it easy for
-> you to add features and debug; it only needs to make sense to you, not to a human reader. fine if
-> it dies after summer.
+> you to add features and debug. no comments saying what the code does; put why, and who it's
+> for, in CLAUDE.md. fine if it dies after summer.
 
 ## Why they'd like it
 
@@ -87,9 +87,9 @@ a band made entirely of code.
 
 ## Open questions for the expert
 
-1. The rewritten prompt now says "it only needs to make sense to you, not to a human reader".
-   That generalises Qing's point about explanatory comments. Is it right for a toy only the agent
-   works on?
+1. The rewritten prompt now follows Martin Davidson's "No comments allowed" (2026-03-31): no
+   comments saying *what* the code does, because stale ones mislead agents; *why* comments and
+   intent (purpose, users, quality goals) go in README/CLAUDE.md. Is that the right nuance?
 
 ## Liner notes (to write when it's built)
 How it was checked · where it falls short

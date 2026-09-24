@@ -24,6 +24,13 @@ Published articles on X:
 - *Agentic coding and the problem of oracles* (2026-02-06)
 - *Catching the wave I almost missed* (2026-02-09)
 
+## Martin Davidson's writing
+[0x4d44.substack.com](https://0x4d44.substack.com)
+
+- [No comments allowed](https://0x4d44.substack.com/p/no-comments-allowed) (2026-03-31): "what"
+  comments go stale and mislead agents; "why" comments matter more than ever; intent belongs in
+  README, CLAUDE.md or AGENTS.md
+
 ## The Tollens quality-strategy skill pack
 [tollens-ai/quality-strategy-skills](https://github.com/tollens-ai/quality-strategy-skills)
 

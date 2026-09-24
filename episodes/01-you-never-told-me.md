@@ -118,9 +118,9 @@ cue times.
 |---|---|---|---|---|
 | 0:00 | Cold open | **First frame, full width:** the post *"my AI built me absolute garbage 😤"* fills the frame; behind it, the user's gym log, smoking. The lyric caption lands on the first downbeat. | **"You said make it GOOD,"** on the first beat, over a guitar crash | Their own grievance, in their own words, with a mystery behind it. One thing to read |
 | 0:03 | Rewind | A VHS rewind whoosh to this morning. The robot beams at a stack of prompts that all end the same way: *build me a gym log. make it good.* / *blog pls. make it good.* / *habit tracker, make it good.* Quota used: 3%. | "so I made it good!" | The rewind promises to show how it went wrong, and the stack is every viewer's history |
-| 0:06 | Verse 1 | **Gym log.** The user taps *log set*. A 2FA screen slams down; a phone buzzes with a six-digit code; a sweaty thumb hovers. Dial flash: **sturdy** maxed. | "2FA on your gym log" | Gag 1: security nobody asked for, readable in one glance |
-| 0:09 | | **Blog.** One post, *hello world*, served by a server cluster that fills the screen, pods spinning up by the dozen. Dial flash: **speed** maxed. | "Kubernetes for your blog" | Gag 2, a new app, bigger, and the classic over-engineering meme. The meter climbs |
-| 0:12 | | **Habit tracker.** A "floss" habit is ticked and a confetti cannon fires so hard it blows the pods off screen. Dial flash: **wow** maxed. | "Confetti every time you floss" | Gag 3, a third app, and the biggest picture |
+| 0:06 | Verse 1 | **Habit tracker.** A "floss" habit is ticked and a confetti cannon fires. Dial flash: **wow** maxed. | "Confetti every time you floss" | Gag 1: small and silly, and its pickup beat launches the verse |
+| 0:09 | | **Gym log.** The user taps *log set*. A 2FA screen slams down; a phone buzzes with a six-digit code; a sweaty thumb hovers. Dial flash: **sturdy** maxed. | "2FA on your gym log" | Gag 2, a new app and bigger: security nobody asked for, readable in one glance |
+| 0:12 | | **Blog.** One post, *hello world*, served by a server cluster that fills the screen, pods spinning up by the dozen. Dial flash: **speed** maxed. | "Kubernetes for your blog" | Gag 3, the biggest, and the classic over-engineering meme. The meter climbs |
 | 0:15 | | All three apps at once, buried as nine files stack up: `IMPLEMENTATION_SUMMARY.md`, `README_FINAL.md`, `README_FINAL_v2.md`, `TESTING_GUIDE.md`, `CHANGES.md`, `NOTES.md`, `SUMMARY_2.md`, `DONE.md`, `DONE_FINAL.md`. The meter hits 100% and a generic **usage limit reached** banner drops. Dial flash: **cost** maxed. | "Nine summary docs, and what's the cost?" | The in-joke they'll recognise, and the payoff of the meter |
 | 0:18 | Turn | **Freeze frame, colour drained, two bars at most.** The post again. The robot's screen-face flickers. Its words are captioned large, so the silence reads on mute. | *(spoken, small)* "…oh. / I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
 | 0:20 | Pre-chorus | The drums build back in. Question marks pile up. | "Good for who? *(good for who?)* / Good for what? *(good for what?)*" | A sing-along, and rising tension |
@@ -232,8 +232,9 @@ craft is visible: a band made entirely of code.
 - **Expert lyric notes, round 3 (2026-09-24):** back to "WANT", which slant-rhymes with
   "prompt" and is closer to *value* than "need". Verse 1 rebuilt on the rhythm of "Confetti every
   time you floss", which Qing pointed out is the "We Didn't Start the Fire" verse meter: stressed
-  list lines in two couplets (gym log / blog, floss / cost). Order is now 2FA, Kubernetes,
-  confetti, and the confetti shot is drawn biggest so the pictures still escalate.
+  list lines rhymed ABBA (floss / gym log / blog / cost). "Confetti" starts on an upbeat, so it
+  has to open the verse; that also restores the escalation: confetti, 2FA, Kubernetes, then the
+  docs.
 
 ## Open questions for the expert
 

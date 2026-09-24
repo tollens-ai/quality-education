@@ -76,6 +76,12 @@ others. Add a rule here whenever a fix teaches one.
 - **Name concrete constraints, not categories.** "Works on the Tube" teaches more than "offline
   support". Check the concrete version doesn't just restate an earlier line ("loads before you
   blink" is "fast to run" again).
+- **The payoff phrase goes last, once.** In a section built to land a phrase, hold it back for
+  the final line and don't spend it earlier. Episode 1's bridge used "who's it for" in lines 2
+  and 4; now it only closes the bridge, held ("who it's fo-o-or?").
+- **Name the singer's real source, not a crowd.** "I learned to code from all of you" was limp.
+  "I could only learn from my training set" is concrete, true for an agent, and rhymes with
+  "test".
 - **Put each idea where it belongs.** When two sections both want a line ("I'm someone too"),
   keep it in the one where it pays off, and don't let it leak into the other.
 

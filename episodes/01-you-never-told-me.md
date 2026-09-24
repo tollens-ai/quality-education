@@ -7,9 +7,8 @@
 with Qing. The storyboard is parked until the lyrics lock.
 
 **Where we stopped (2026-09-24):**
-- **Next:** bridge line 2, which should rhyme "wall" with "for" (British) and scan with line 1.
-  Tag: the bots' "and me!"s follow "I'm someone too"; the picture shows them *using* the app,
-  since they are users, not just maintainers.
+- **Next:** the bridge is drafted in Qing's wording. Qing is being more directive on the lyrics
+  for this episode. A MiniMax test track is planned as a scansion check before the lyrics lock.
 - **Still open:**
   - "nan" or "grandma"
   - whether "Uni project? Make it pass" reads as "make the tests pass"
@@ -109,6 +108,15 @@ Lyric notes on v7 (2026-09-24):
 
 > and threw users over the wall isn't right semantically
 
+Bridge notes (2026-09-24):
+
+> right, who's it for was meant to be at the end. "most threw the big questions over the wall"?
+> and then how do you know what to build or test is great, and then we go back to "if you're not
+> thinking about who it's fooor".
+
+> and maybe "all of you" is limp. how about "I could only learn from my training set, to write
+> the code and throw it over the wall,
+
 
 ## Shape
 
@@ -180,10 +188,10 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 > No agents going rogue on their own?
 
 **Bridge**
-> I learned to code from all of you *(whoa-oh)*
-> most threw "who's it for?" over the wall *(whoa-oh)*
+> I could only learn from my training set *(whoa-oh)*
+> to write the code and throw it over the wall *(whoa-oh)*
 > But how do you know what to build or test *(whoa-oh)*
-> if you don't know who it's for at all? *(whoa-oh)*
+> if you're not thinking about who it's fo-o-or? *(whoa-oh)*
 
 **Breakdown**
 > SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS
@@ -210,8 +218,9 @@ this sheet once the lyrics are locked, and until then it may lag behind.
   is held full screen.
 - The dials (speed, sturdy, cost, wow) at chorus 1.
 - The eval sandbox with an agent-shaped hole, on "going rogue".
-- "✅ All tests pass" over a broken app, and a sticky note reading *who's it for?* tossed over a
-  wall marked **PRODUCT TEAM** on "over the wall"; the ✅ cracks on "test".
+- The training set as a vast crowd of coders, the whole internet. On "over the wall", code is
+  tossed over a wall and a "✅ All tests pass" lands on the far side over a broken app; the ✅
+  cracks on "test", and the sticky note *who's it for?* arrives on the held "fo-o-or".
 - The bots piling in on "and me!", each one *using* the gym log (users, not maintainers).
 - An endless CLAUDE.md making the robot dizzy, on "stale prompts".
 
@@ -380,6 +389,13 @@ craft is visible: a band made entirely of code.
   question that covers building and testing: "But how do you know what to build or test / if you
   don't know who it's for at all?" The wall in the picture is marked PRODUCT TEAM, so the lyric
   doesn't have to name product.
+
+- **Bridge rewritten (2026-09-24, Qing):** "I could only learn from my training set / to write
+  the code and throw it over the wall / But how do you know what to build or test / if you're not
+  thinking about who it's fo-o-or?" "Who it's for" now comes once, at the end, as the held
+  payoff. "Training set" replaces the limp "all of you" and is what the singer really learned
+  from (CANON: the whole internet). set / test and wall / for (British) rhyme ABAB. Qing's other
+  line 2, "most threw the big questions over the wall", is the fallback.
 
 ## Open questions for the expert
 

@@ -108,14 +108,12 @@ Each of the first two lines runs from the `&` of 1 to the next downbeat, and the
 straight after: "…WHO it's | FOR you DIDn't TELL me WHAT they | WANT". MIND is pushed onto beat 4
 and held over the bar line. The band stops dead on PROMPT.
 
-**Length still open** (Qing: 4 is too short, 5 "could be fun (with a hold bar for
-anticipation!)", and there are arguments for 6 and 8). The score renders any of them with
-`PC_BARS=5|6|8`; the grids here show 6. All three keep the run-on first two lines and end on
-PROMPT held with the band stopped:
-- **5:** "WANT . I CAN'T . READ your | MIND I'm ON-ly READ-ing your | PROMPT". Tight; PROMPT is
-  the hold bar. The song is 106 bars (2:22).
-- **6:** as below. WANT and MIND each get room.
-- **8:** the run-on first half, then long holds on WANT and MIND. The song is 115 bars (2:34).
+**Six bars** (Qing compared 5, 6 and 8 by ear on 2026-09-25: "current one is best!"). The score
+still renders the others with `PC_BARS=5|8`.
+
+**The third chord is open.** Qing isn't keen on the Gm (iii) under WANT. The alternatives render
+with `PC_CHORD3`: E♭/G (the tonic over the same G bass: brighter, and possibly what the take
+actually played), Fm (ii, building towards B♭) and B♭ (V early, then back to A♭).
 
 <!-- grid:Pre-chorus -->
 ```

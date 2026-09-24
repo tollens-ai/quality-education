@@ -122,8 +122,7 @@ cue times.
 | 1:05 | | One by one, labelled bots step in beside it: a Discord bot, a CI bot, *your other agent*. | "Every bot that uses it?" / gang vocal, in huge type on screen: **"THEM TOO!"** | A warm, new idea in one bar |
 | 1:07 | **Final chorus** | The full band. Split screen, 1:07–1:15: the robot sings up at the empty box; **the missing prompt fills in, one line per bar,** above; the robot builds below. The last line lands just before the hold. | "So please tell me who it's FOR, / what you WANT, / what can BREAK!" | Closes the open question from the chorus: the plea is in the song, the answer is in the picture |
 | 1:12 | | In the lower half, the tiny, delightful gym log is finished: one tap per set, a PB flame. Quota used: 8%, green. | **"I can't read your mind / I'm only reading your prompt"** | The same locked line, now a happy ending, because the prompt says everything |
-| 1:15 | Hold | **The finished prompt, full screen, for 4 seconds.** Small credit on the comments line: *Martin Davidson*. | The last chord rings out; the song ends about 1:19 | The screenshot |
-| 1:19–1:21 | End card | The ∴ Tollens mark. *Software Quality Theory for Beginners · 1*. The prompt stays visible. It loops cleanly back to the first frame. | *(text)* **Reply with your vaguest prompt. The robot will ask what it needs to know. 👇** | Something they want to do, and something you can reply to |
+| 1:15 | Hold | **The finished prompt, full screen, for 4 seconds.** Small credit on the comments line: *Martin Davidson*. | The last chord rings out; the song ends about 1:19, and the video loops cleanly back to the first frame. No end card | The screenshot. Ending on the lesson, not a logo, keeps it feeling like teaching |
 
 ## The prompt, before and after
 
@@ -148,13 +147,15 @@ craft is visible: a band made entirely of code.
 ## Why they'd share it
 - **To clip:** the gag run, and the "…oh. / I didn't ask." freeze.
 - **To save:** the finished prompt, held full screen.
-- **To reply:** the end card asks for their vaguest prompt, and in the replies the robot asks the questions it would need answered. That demonstrates the lesson.
+- **To reply:** the post text asks for their vaguest prompt, as a question between builders, not a call to action.
 - **For the novelty:** every note, frame and syllable is code.
 
 ## Post text (draft)
 
 > POV: you're the coding agent and the whole spec is "make it good" 🎸
 > (every note, frame and syllable in this is code)
+>
+> what's the vaguest prompt you've ever sent?
 
 ## Review log
 - **Round 1 (2026-09-24):** four reviewers: a songwriter, a short-form editor, simulated viewers,
@@ -192,15 +193,16 @@ craft is visible: a band made entirely of code.
     was treated as someone else's job. It ends on the claim that covers both writing and testing
   - "Just say so" replaced by "Then you're the one", which sets up the bridge's "I'm someone too"
   - the final chorus is a plea ("So please tell me"), and the picture shows the answer
+  - the end card cut: it read as marketing. The reply prompt moves into the post text
+  - series renamed *Software Quality Theory 101*: "for Beginners" talked down to people who ship
 
 ## Open questions for the expert
 
 1. **"I didn't ask."** Is it right for the robot to own part of the blame? Bach & Bolton say
    the operator bears responsibility, and an agent that gold-plates rather than asking is still
    exercising poor judgement.
-2. **End card.** "Reply with your vaguest prompt. The robot will ask what it needs to know." commits
-   the account to replying to the first few dozen replies with clarifying questions. Is that OK?
-3. **Series title.** Reviewers flagged "for Beginners" as talking down to people who ship. Keep it?
+2. **Tollens credit.** With no end card, the video carries no Tollens mark, which departs from
+   WHO-ITS-FOR.md. Is the Tollens name in the repo and the account enough?
 
 ## Liner notes (to write when it's built)
 How it was checked · where it falls short

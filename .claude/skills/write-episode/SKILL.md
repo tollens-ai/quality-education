@@ -1,6 +1,6 @@
 ---
 name: write-episode
-description: Write, revise or audit an episode treatment for Software Quality Theory for Beginners, the animated music-video series. Use when starting a new episode, reworking one after expert feedback, or checking whether a draft will keep viewers watching.
+description: Write, revise or audit an episode treatment for Software Quality Theory 101, the animated music-video series. Use when starting a new episode, reworking one after expert feedback, or checking whether a draft will keep viewers watching.
 ---
 
 # Write an episode
@@ -77,7 +77,8 @@ is the worked example of the finished shape.
   unanswered question.
 - **The chorus:** people swipe away once they feel they've got the point. Before the chorus
   resolves, open a new question (e.g. an empty prompt box that fills in at the end).
-- **The end:** the final payoff pays off the question opened earlier. The end card asks a question
-  that invites replies.
+- **The end:** the final payoff pays off the question opened earlier, then the video loops. No end
+  card or logo: people share teaching, not marketing (Qing, 2026-09-24). Invite replies in the post
+  text, as a question between builders.
 - **Sound off:** the lyrics appear on screen as captions, so the video makes sense on mute.
 - **Credit:** credit on screen where an idea comes from Ed Pringle or another named source.

@@ -1,4 +1,4 @@
-# Software Quality Theory for Beginners
+# Software Quality Theory 101
 
 A series of short animated videos about software quality, made for people who build with AI coding
 agents. Each episode teaches one idea from quality theory. Each one ends with what that idea changes

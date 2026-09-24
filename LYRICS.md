@@ -65,6 +65,9 @@ others. Add a rule here whenever a fix teaches one.
 - **Hard-to-rhyme words go inside the line.** When an important word won't rhyme ("rogue"), keep
   it and move it inside the line, where it can still take a stress. Rhyme on an easier word: "No
   rogue agent wipes what you own?" Don't swap out the word people actually use.
+- **Keep allusions open.** When a word is there to call up something in the news ("going rogue"
+  and the agents that broke out of eval environments), keep the word people use and don't narrow
+  it ("running on its own" pins it to one meaning). Let the picture drop the hint.
 - **Name concrete constraints, not categories.** "Works on the Tube" teaches more than "offline
   support". Check the concrete version doesn't just restate an earlier line ("loads before you
   blink" is "fast to run" again).

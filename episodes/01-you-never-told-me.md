@@ -1,7 +1,8 @@
 # Episode 1: "You Never Told Me"
 
 **Concept:** software quality is value to someone who matters.
-**Line to remember:** "I can't read your mind, I'm only reading your prompt."
+**Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
+2026-09-24, "this is ace keep it! made me well up a little".
 **Status:** treatment v3. The expert's answers are folded in; one new claim is waiting for her check.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)

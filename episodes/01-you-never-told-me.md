@@ -121,8 +121,8 @@ cue times.
 | 0:06 | Verse 1 | **Habit tracker.** A "floss" habit is ticked and a confetti cannon fires. Dial flash: **wow** maxed. | "Confetti every time you floss" | Gag 1: small and silly, and its pickup beat launches the verse |
 | 0:09 | | **Gym log.** The user taps *log set*. A 2FA screen slams down; a phone buzzes with a six-digit code; a sweaty thumb hovers. Dial flash: **sturdy** maxed. | "2FA on your gym log" | Gag 2, a new app and bigger: security nobody asked for, readable in one glance |
 | 0:12 | | **Blog.** One post, *hello world*, served by a server cluster that fills the screen, pods spinning up by the dozen. Dial flash: **speed** maxed. | "Kubernetes for your blog" | Gag 3, the biggest, and the classic over-engineering meme. The meter climbs |
-| 0:15 | | The robot splits into twelve subagents, each with a clock face, busy round the clock across all three apps. Each one leaves a `SUMMARY.md` behind (`IMPLEMENTATION_SUMMARY.md`, `README_FINAL_v2.md`, `DONE_FINAL.md`…). The meter hits 100% and a generic **usage limit reached** banner drops. Dial flash: **cost** maxed. | "Twelve subagents round the clock, / and your quota's gone" | The rhyme lands on "clock", then the line breaks the pattern and trails off into the turn. What actually burns quota, with the summary-file in-joke kept in the picture |
-| 0:18 | Turn | **Freeze frame, colour drained, two bars at most.** The post again. The robot's screen-face flickers. Its words are captioned large, so the silence reads on mute. | *(spoken, small)* "…oh. / I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
+| 0:15 | | The robot splits into twelve subagents, each with a clock face, busy round the clock across all three apps. Each one leaves a `SUMMARY.md` behind (`IMPLEMENTATION_SUMMARY.md`, `README_FINAL_v2.md`, `DONE_FINAL.md`…). The meter hits 100% and a generic **usage limit reached** banner drops. Dial flash: **cost** maxed. | "Twelve subagents round the clock. / Did I do it wrong? / Oops, your quota's gone!" | The rhyme lands on "clock", then the line breaks the pattern and trails off into the turn. What actually burns quota, with the summary-file in-joke kept in the picture |
+| 0:18 | Turn | **Freeze frame, colour drained, two bars at most.** The post again. The robot's screen-face flickers. Its words are captioned large, so the silence reads on mute. | *(spoken, small)* "Guess I didn't ask." | A visible silence. The robot owns its part, so the next beat reads as fair rather than blaming |
 | 0:20 | Pre-chorus | The drums build back in. Question marks pile up. | "Good for who? *(good for who?)* / Good for what? *(good for what?)*" | A sing-along, and rising tension |
 | 0:23 | | The four dials from verse 1 line up: **speed**, **sturdy**, **cost**, **wow**. Each one swings as it's sung. | "Fast to run? Sturdy? Cheap? / Wow for a week, or built to keep?" | The gags come back as choices. Every dial is legitimate, including a week of wow |
 | 0:26 | **Chorus** | The full band, big type. **The missing prompt appears in the centre for one bar**, cursor blinking, then docks in the corner. On "FOR": the flosser, the gym-goer, the blog reader. On "WANT", each gets a thought bubble: *fun!*, *just log it*, *just read it*. | "You didn't tell me who it's FOR *(who's it for?)* / you didn't tell me what they WANT *(what they want?)*" | The release, plus a new open question: the empty box |
@@ -162,7 +162,7 @@ usage limit). The robot is an underdog that owns its part. The line to remember 
 craft is visible: a band made entirely of code.
 
 ## Why they'd share it
-- **To clip:** the gag run, and the "…oh. / I didn't ask." freeze.
+- **To clip:** the gag run, and the "Guess I didn't ask." freeze.
 - **To save:** the finished prompt, held full screen.
 - **To reply:** the post text asks for their vaguest prompt, as a question between builders, not a call to action.
 - **For the novelty:** every note, frame and syllable is code.
@@ -242,6 +242,10 @@ craft is visible: a band made entirely of code.
 - **Verse endings matched (2026-09-24):** both verses are now four pattern lines, opening on an
   upbeat, then a short tag that breaks the pattern and hands on: "and your quota's gone" into
   "…oh. I didn't ask.", and "and it's always someone" into the breakdown.
+
+- **Verse 1 ending, Qing (2026-09-24):** "Did I do it wrong? / Oops, your quota's gone! / Guess
+  I didn't ask." The robot's confusion rhymes on wrong / gone with the verse's vowel, and the turn
+  shrinks to one spoken line.
 
 ## Open questions for the expert
 

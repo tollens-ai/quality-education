@@ -124,6 +124,14 @@ this series in particular stay here and in [LYRICS.md](LYRICS.md).
   not home. The "royal road" (IV–V–iii–vi) is a J-pop loop built to keep going, not to end, and
   it isn't a pop-punk move.
 
+## Singing voice
+- **Glide between pitches.** Ornaments and melismas slide: S-shaped transitions of roughly
+  60–120 ms, with a little preparation or overshoot, never a jump between flat plateaus. Stepped
+  pitch is what made episode 1's code voice sound unnatural (Qing, 2026-09-25: "the ornamentation
+  is very unnatural because it's not gliding between pitches"). Plot the f0 of a melisma and look.
+- **The accent has to sound like a real one.** Qing also found the code voice's accent "kinda
+  odd". A formant voice's vowels are a guess at an accent, so compare them with a real speaker's.
+
 ## Sound design (synthesis in JS)
 - **Kick:** a sine wave with a fast downward pitch sweep (about 150 → 50 Hz over 30–50 ms) and an
   amplitude decay of 200–400 ms. Add a 2–5 ms click from a noise burst or a quick filter opening

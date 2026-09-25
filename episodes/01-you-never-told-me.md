@@ -240,6 +240,9 @@ Morning of 2026-09-25:
 
 > the diff voice, not the code voice
 
+> the code voice is has two main issues, one is the account [accent] is kinda odd and the second
+> is the ornamentation is very unnatural because it's not gliding between pitches
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

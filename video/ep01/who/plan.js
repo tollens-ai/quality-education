@@ -88,6 +88,17 @@ export const HANDOFF = {
   200.74: { x: 400, y: 250, zoom: 2.2, rot: 0 },      // = frame 0, for the loop
 };
 
+// Where the lift car (its floor, y) and Clawd are at each handoff. Clawd's x is world x of its
+// feet; 'in: lift' means standing in the car (x = SHAFT.cx).
+export const LIFT_AT = { 0: BASE.floor, 50.5: floorLevel(8), 106.2: floorLevel(9), 147.56: BASE.floor, 200.74: BASE.floor };
+export const CLAWD_AT = {
+  0: { x: 400, y: BASE.floor, in: 'basement', holding: 'ticket' },
+  50.5: { x: SHAFT.cx, y: floorLevel(8), in: 'lift' },
+  106.2: { x: SHAFT.cx, y: floorLevel(9), in: 'lift' },
+  147.56: { x: SHAFT.cx, y: BASE.floor, in: 'lift' },
+  200.74: { x: 400, y: BASE.floor, in: 'basement', holding: 'ticket' },
+};
+
 // ---------- shared state, one source of truth for things that persist across sections ----------
 
 // Quota left, 0..1. Verse 1 spends it all; a new session refills it for chorus 1; the final

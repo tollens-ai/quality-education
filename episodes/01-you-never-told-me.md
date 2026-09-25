@@ -5,16 +5,17 @@ Who works"). The craft references put the title in the chorus, where the hook is
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
-**Status:** the song is locked: Qing's MiniMax take, "a consistent 8/10 good one" (2026-09-25),
-sung from her v9 copy. Next is the storyboard, built on the take's timings.
+**Status:** the song is locked (Qing's MiniMax take, "a consistent 8/10 good one", 2026-09-25);
+the teaching plan is approved; the one-shot video "Who Lives Here?" is being built.
 
 **Where we stopped (2026-09-25):** Qing picked a MiniMax take (kept locally, not in git) and the
 lyrics are locked as v9 below, with caption spelling. The take is transcribed and the captions are
 timed: [01-captions.srt](01-captions.srt), generated from `music/ep01/captions.txt`. The storyboard
 is being rebuilt as one continuous shot, following the
 [storyboard guide](../.claude/skills/write-episode/storyboard.md): the take is scored in
-`music/ep01/beats.json`. The concept funnel is down to two treatments, Fetch! and The Drop
-(see *Storyboard funnel*); Qing picks between them. The code band, code voice
+`music/ep01/beats.json`. After Qing's "too gimmicky" note, a teaching plan came first (approved),
+then a theme-first concept round chose **Who Lives Here?**; the storyboard is
+[01-storyboard.md](01-storyboard.md) and the video is being built in `video/ep01/who/`. The code band, code voice
 and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
@@ -371,6 +372,10 @@ On the teaching plan (2026-09-25):
 > are like wow opus is such a good artist
 
 > I wouldn't bother with GPT honestly. make it an opus jon
+
+> if they're already there of course you can reference them tho
+
+> it was your call to use them
 
 ## Shape
 
@@ -1111,6 +1116,26 @@ loudest choruses. Fetch! and The Drop split two–two, along the judges' lenses:
   teach "quality is how long it lasts", or they're visualisers with no lesson.
 - *The App Is the Band*: "loudness = feature count" is invisible on mute and can teach "less is
   better".
+
+**Round 2 (after "too gimmicky", 2026-09-25).** The teaching plan came first; then nine
+theme-first concepts (Opus generators with the lenses *the agent's perception*, *the people who
+matter* and *making*, two of GPT's from before, and one of mine), judged blind by three fresh Opus
+judges: an educator-artist in the Tim Blais mould, a viewer panel, and a quality-theory
+fact-checker. They applied a gimmick test first ("would this world front any other song about vague
+prompts?"), then craft carrying the ideas, second-by-second wow and feeling, the seams, truth, and
+buildability.
+
+| Concept | Viewer panel | Fact-checker | Educator-artist |
+|---|---|---|---|
+| **Who Lives Here?** (a cutaway tower block; each flat a life; gold where the build serves them) | 1st | 1st | 2nd |
+| In Good Hands (one phone passed hand to hand; value is the glow on the hand) | 2nd | 3rd | 1st |
+| Cast for Who? (a foundry; good is a fit to an imprint) | 3rd | 2nd | 3rd |
+
+**Chosen: Who Lives Here?**, with grafts from the others. The storyboard is in
+[01-storyboard.md](01-storyboard.md). Round-2 graveyard: *It's Behind You!* and *Can't Read Between
+the Lines* failed the gimmick test with two of three judges (the premise fits any vague-prompt
+song); *The Shape of Good* (mine) was "a bar chart with a crab"; *Round the Clock* had twelve labels
+at phone size; *Made to Measure* and *The Best Seat* stayed abstract.
 
 ## Old storyboard (v7 lyrics, cut-based; superseded by the one-shot funnel)
 

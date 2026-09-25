@@ -13,7 +13,8 @@ lyrics are locked as v9 below, with caption spelling. The take is transcribed an
 timed: [01-captions.srt](01-captions.srt), generated from `music/ep01/captions.txt`. The storyboard
 is being rebuilt as one continuous shot, following the
 [storyboard guide](../.claude/skills/write-episode/storyboard.md): the take is scored in
-`music/ep01/beats.json`, and a funnel of world-rule concepts is running. The code band, code voice
+`music/ep01/beats.json`. The concept funnel is down to two treatments, Fetch! and The Drop
+(see *Storyboard funnel*); Qing picks between them. The code band, code voice
 and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
@@ -860,7 +861,82 @@ Fine if it dies when summer's done!
 - The bots piling in on "and me!", each one *using* the gym log (users, not maintainers).
 - An endless CLAUDE.md making the robot dizzy, on "stale prompts".
 
-## Storyboard (parked until the lyrics lock)
+## Storyboard funnel (one shot, 2026-09-25)
+
+Run by the [storyboard guide](../.claude/skills/write-episode/storyboard.md). Working files
+(briefs, every concept, every verdict) are local in `.private/ep01-storyboard/`.
+
+**Stage 2, world-rule concepts.** Seven separate generators wrote 21 concepts, three each: six
+Opus subagents with one lens each (the song's layers as objects, the loop that accumulates,
+scale, the interface as the world, the machine or stage set, a random-seed wildcard) and one GPT
+generator with an open brief.
+
+**Blind judging.** The concepts were shuffled and stripped of names. Four fresh judges (a
+short-form editor, a panel of three target viewers, a one-shot animation director, and a GPT
+creative director) applied the five gates, ranked a top 6 and named ideas worth keeping.
+
+| Concept | Points (6 for 1st … 1 for 6th, four judges) | Top-6 lists |
+|---|---|---|
+| Fetch! (a robot pup fetches everything but the right thing, round one city block) | 15 | 4 of 4 |
+| Scroll Back Up (one chat; each pre-chorus flings back up to "make it good") | 15 | 3 |
+| The Drop (a "make it good" ball falls through a marble-run tower) | 14 | 3 |
+| Round the Block (each lap leaves a copy of the singer; the copies become the girl group) | 9 | 2 |
+
+**Pairwise knockout** of those four, by two fresh judges in opposite orders (an Opus panel and
+GPT): Fetch! won all six of its matches. The Drop and Scroll Back Up split second and third.
+Round the Block is out.
+
+**Stage 3, treatments.** Fresh writers turned each finalist into a one-page treatment with a timed
+camera path, folding in the judges' fixes and the ideas they wanted kept. Four reviews followed:
+
+| Reviewer | Pick | Runner-up |
+|---|---|---|
+| Craft panel (editor, one-shot director, muted viewer), 3-second swipe walk | The Drop | Scroll Back Up |
+| GPT judge, same walk, opposite order | Fetch! | The Drop |
+| Fact-checker | Scroll Back Up is truest to the lesson | Fetch! shares the blame best |
+| Head-to-head, target-viewer panel (fixes assumed applied) | Fetch! | |
+| Head-to-head, editor and director, opposite order | The Drop | |
+
+Scroll Back Up drops out: it parks the camera at the top of the scroll for about 70 seconds of the
+loudest choruses. Fetch! and The Drop split two–two, along the judges' lenses:
+- **Fetch!** A robot pup fetches everything but the right thing, round one city block. It has
+  the character, the best title line ("I told my AI to fetch. It brought back Kubernetes."), and
+  the fairest blame: the pup runs past the ASK button twice, then goes back and asks. Each
+  chorus returns to the same corner with a bigger pile. The risk is scale on a phone.
+- **The Drop.** The singer is a ball falling through a marble-run tower, so height is time. It
+  fits 9:16 naturally. Every pre-chorus ends in a trapdoor drop, so the seams are built into the
+  physics. The sorters escalate: 4 chutes, then 8, then 1. The risks are a long descent that
+  feels like scrolling, and a ball that can't really choose.
+
+**Fixes that apply whichever wins** (from the fact-checker):
+- **No Community Note.** A credit styled as one mimics X's real interface and implies Weinberg,
+  Bach & Bolton and Ed endorse the video. Use a plain credit in the video's own style, and end it
+  before "I'm someone too", which is Qing's point.
+- **Logos stay flat and unmodified.** The post text says the video isn't affiliated with or
+  endorsed by any company shown.
+- **The payoff brief mustn't teach a bad habit** ("skip: logins" did). It names who, what they
+  value, cost ("don't burn my quota") and lifespan.
+- **Generic pods, not the Kubernetes logo.**
+
+**Graveyard** (losing ideas and why, kept to seed later episodes):
+- *Round the Block*: a strong one-shot rule, but the lesson is thin; a weaker version of Fetch!'s
+  block loop. A judge's rescue worth keeping: each lap is a "Regenerate" from the same vague
+  prompt ("re-rolling won't fix a vague prompt").
+- *Powers of You* (a zoom out to the Moon and back): the best camera arc and seams, but "a
+  planet-scale zoom to say 'write a spec' is a bit much".
+- *Circle Line* (git log as a Tube map): the final map is poster-worthy, but it needs git
+  literacy and "who" arrives late.
+- *Guess Who It's For*: the truest metaphor, but trade-dress risk and tiny faces.
+- *Made to Measure* ("My AI made me a ballgown for leg day"): the funniest line in the pool, but
+  one room for 3:20.
+- *GOOD, From Exactly One Angle* (a sculpture that only reads GOOD from the demo angle): the
+  strongest visual contradiction, but it leans towards "quality is opinion".
+- *Powers of Time*, *The Sequencer Ring*, *The Feed Is the Score*: failed the truth gate. They
+  teach "quality is how long it lasts", or they're visualisers with no lesson.
+- *The App Is the Band*: "loudness = feature count" is invisible on mute and can teach "less is
+  better".
+
+## Old storyboard (v7 lyrics, cut-based; superseded by the one-shot funnel)
 
 | Time | Section | Picture | Lyric (lead vocal; *backing in italics*) | Why they keep watching |
 |---|---|---|---|---|

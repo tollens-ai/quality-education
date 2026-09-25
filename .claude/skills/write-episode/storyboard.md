@@ -95,6 +95,26 @@ layer on one renderer, so the cheap test is never thrown away.
 - **The song is locked, so the space bends.** Where the world rule doesn't fit a section's
   length, rescale the space, never the song.
 
+### What episode 1's funnel taught (2026-09-25)
+
+- **Run the fact-checker at the treatment stage, not only at the end.** The craft judges missed
+  every truth problem the fact-checker found in the three treatments: a credit styled as a
+  Community Note (it mimics X's real interface and implies the credited people endorse the
+  video), logos altered into characters' heads (implies endorsement, and brand rules usually
+  forbid altering marks), and payoff-brief advice that backfires ("skip: logins" on a web app).
+- **Judges split by lens, so mix the lenses.** Viewer panels favoured the likeable character and
+  the fairness of the blame; editors and directors favoured the concept whose world rule fits the
+  vertical frame and builds its seams into the physics. Neither alone is the answer: a split
+  between well-argued lenses is the point to bring the expert the pick and the runner-up.
+- **Absolute top-6 lists, then pairwise, both worked.** Round 1 (four judges ranking 21 shuffled,
+  anonymous concepts) found the same four leaders from different angles; the pairwise round then
+  separated them. Swap the A/B order between pairwise judges.
+- **Let generators write their output to a named file** in the episode's private working folder.
+  Transcribing returned text by hand into files for the judges was the slowest step.
+- **Give every stage's brief the same fact sheet.** One concept brief (requirements, song table,
+  existing ideas, gates) was reused by generators, judges and treatment writers, so every round
+  judged against the same facts.
+
 ### Model viewers (stages 6 and 7)
 
 - Gemini samples video at 1 frame per second by default and misses fast action. Raise the frame

@@ -232,6 +232,10 @@ Morning of 2026-09-25:
 > yeah, on that version is only a 1x chorus repeat and what's there is an EXCELLENT chorus first
 > half. it needs a second time bar that ties a bow on it though - just repeating won't work
 
+> so we still need to write a way of finishing it off, but you can work from that
+
+> the synthetic voice is not terrible
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

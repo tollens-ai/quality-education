@@ -236,6 +236,10 @@ Morning of 2026-09-25:
 
 > the synthetic voice is not terrible
 
+> there is the option of trying to generate it slower and speed it up at production time
+
+> the diff voice, not the code voice
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

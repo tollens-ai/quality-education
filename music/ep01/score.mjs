@@ -17,6 +17,12 @@ const PC_BARS = Number(globalThis.process?.env?.PC_BARS ?? 6);
 // pre-chorus onto D♭ (♭VII), and ends on the ♭VI–♭VII–I fanfare under the held high DONE.
 const HV2 = (globalThis.process?.env?.HARMONY ?? 'v2') === 'v2';
 
+// The chorus tail (bars 5–8 of each chorus pass, after the hook). v1 is the take's tail, which
+// sits in the verse's register, so the hook's leap carries all the chorus's lift. CHORUS_TAIL=
+// a|b|c renders the candidates (2026-09-25), which lift the tail to G4–D5 and differ in harmony
+// and where the tail peaks. See TAIL_OPTIONS below.
+const TAIL = globalThis.process?.env?.CHORUS_TAIL ?? 'v1';
+
 const FORM = [
   ['Intro', 4],
   ['Verse 1', 8],
@@ -65,14 +71,99 @@ const hook = (b, a = ['WHO', '-o', '-o'], w = ['WHAT', '-a', '-at']) => [
 
 // A chorus: the lead-in bar (crash, then "Good for"), then two eight-bar passes. Each pass
 // gives its tail (bars 5–8 of the pass). The first pass's last bar carries the next pickup.
-function chorus(b0, passes) {
+// `name` picks the chorus's words for the CHORUS_TAIL candidates; v1 uses the tails given here.
+function chorus(b0, name, passes) {
   const out = [[b0, '. . . . GOOD ~ for ~', 'F4>G4 Eb4']];
   passes.forEach(({ hookWords, tail }, i) => {
     const b = b0 + 1 + i * 8;
     out.push(...hook(b, ...(hookWords ?? [])));
-    tail.forEach((line, j) => out.push([b + 4 + j, ...line]));
+    const lines = TAIL === 'v1' ? tail : laneTail(TAIL_OPTIONS[TAIL], TAIL_WORDS[name][i]);
+    lines.forEach((line, j) => out.push([b + 4 + j, ...line]));
   });
   return out;
+}
+
+// ---- Chorus tail candidates (CHORUS_TAIL=a|b|c) ----------------------------------------------
+// One tail melody for all three choruses: each candidate gives a pitch for every eighth-note slot
+// of the four tail bars (a "lane"), and each syllable sings the pitch of the slot it starts on.
+// The words vary; the stresses sit on the same slots in every chorus (1 and 3, then 1 and a push
+// onto the & of 2 in line A; 1 and 3, a pickup on the & of 4, then 1 and 2 in line B), so the
+// tune is the same tune. The last two slots of bar 4 are the hook's own pickup, "GOOD for"
+// (F4>G4 Eb4), unchanged, so the octave leap into WHO stays exactly as it was.
+// `last` names a pass whose last bar ends the chorus differently; an option may give it explicit
+// pitches (or a whole bar) there.
+const TAIL_WORDS = {
+  c1: [
+    { bars: ['FAST . to . RUN ~ ~ ~', 'STUR dy or CHEAP ~ ~ ~ .', 'WOW . for a WEEK ~ . or', 'BUILT to KEEP ~ GOOD ~ for ~'] },
+    { bars: ['SHIP . it . NOW ~ ~ or', 'ROOM . to GROW ~ ~ ~ .', 'DOES . what they NEED ~ . or', 'STEALS the SHOW ~ ~ ~ . .'], last: 'c1' },
+  ],
+  c2: [
+    { bars: ['WORKS . on a TRAIN ~ on your', 'NAN\'S . old PHONE ~ ~ ~ .', 'NO . A gents GO ~ ~ ing', 'ROGUE on·their OWN ~ GOOD ~ for ~'] },
+    // KEYS moves to the downbeat (v1 had the weak "they'll" there), SEEN to beat 3, and "I could"
+    // stays the pickup into the bridge.
+    { bars: ['WORKS for SOME one·who CAN\'T ~ ~ ~', '. see the SCREEN ~ ~ ~ .', 'NO . ay pee EYE ~ . .', 'KEYS where they\'ll be SEEN ~ I could'] },
+  ],
+  cf: [
+    // USE is pushed onto the & of 2 like CHEAP, GROW, PHONE, SCREEN and FUN (v1 had it on 3).
+    { bars: ['ROLL back my mis TAKES ~ ~ ~', 'DI ags I·can USE ~ ~ ~ .', 'NO . STALE . PROMPTS mak·ing me con', 'FUSED ~ -u ~ GOOD ~ for ~'] }, // -u: FUSED steps down the lane before the pickup
+    { bars: ['JUST . a . TOY ~ ~ and', 'JUST . for FUN ~ ~ ~ .', 'FINE . if it DIES ~ . when', 'SUM mer\'s DONE ~ ~ ~ ~ ~'], last: 'done' },
+  ],
+};
+const lane = (s) => s.trim().split(/\s+/);
+const PICKUP = 'F4>G4 G4 Eb4 F4'; // bar 4, beats 3–4: GOOD (3), for (4), or "I could" (4, &)
+const TAIL_OPTIONS = {
+  // a, "waves": keeps the take's chords and two-chords-a-bar rhythm. Line A falls from C5 to
+  // G4; line B climbs a third higher, to D5 on WEEK, then steps down to F4 for the pickup.
+  a: {
+    chords: ['Cm Ab', 'Ab Eb', 'Eb Bb', 'Bb Eb'],
+    lanes: [
+      'C5 C5 C5 Bb4 Ab4 Ab4 Ab4 Bb4',
+      'C5 C5 Bb4 G4 G4 G4 G4 G4',
+      'Bb4 Bb4 Bb4 C5 D5 D5 D5 C5',
+      `Bb4 Ab4 F4 F4 ${PICKUP}`,
+    ],
+    last: { c1: ['STEALS the SHOW ~ -ow ~ ~ .', 'Bb4 Ab4 F4 Eb4'], done: 'Bb4 C5 D5>Eb5' },
+  },
+  // b, "sequence": IV–V–iii–vi (A♭–B♭–Gm–Cm, the "royal road") under line B singing line A's
+  // tune a step higher. The peak, D5, falls on the first word of line B every time: WOW, DOES,
+  // NO (agents), NO (API keys), NO (stale prompts), FINE.
+  b: {
+    chords: ['Ab', 'Bb', 'Gm', 'Cm Eb'],
+    lanes: [
+      'C5 C5 C5 Bb4 Ab4 Ab4 Ab4 Bb4',
+      'Bb4 Bb4 C5 Bb4 Bb4 Bb4 Bb4 Bb4',
+      'D5 D5 D5 C5 Bb4 Bb4 Bb4 C5',
+      `C5 Bb4 G4 G4 ${PICKUP}`,
+    ],
+    last: { done: 'C5 Bb4 D5>Eb5' },
+  },
+  // c, "staircase": IV–V–vi–V6 (A♭–B♭–Cm–B♭/D), the bass climbing by step into the hook's E♭.
+  // The downbeats climb A♭4–B♭4–C5–D5, and the hook's WHO completes the stair on E♭5. The peak
+  // falls on the last line's key word: BUILT, STEALS, ROGUE, KEYS, FUSED, and SUM before DONE.
+  c: {
+    chords: ['Ab', 'Bb', 'Cm', 'Bb/D Eb'],
+    lanes: [
+      'Ab4 Ab4 Ab4 Bb4 C5 C5 C5 Bb4',
+      'Bb4 Bb4 Ab4 Bb4 Bb4 Bb4 Bb4 Bb4',
+      'C5 C5 C5 Bb4 C5 C5 C5 C5',
+      `D5 C5 Bb4 Bb4 ${PICKUP}`,
+    ],
+    last: { done: 'D5 C5 D5>Eb5' },
+    doneChords: 'Bb Eb', // under DONE, plain B♭ as in v1: E♭5 over a D bass would grind
+  },
+};
+
+function laneTail(opt, { bars, last }) {
+  return bars.map((grid, j) => {
+    const special = j === 3 && last && opt.last?.[last];
+    if (special) return Array.isArray(special) ? special : [grid, special];
+    const slots = lane(opt.lanes[j]);
+    const pitches = [];
+    lane(grid).forEach((tok, i) => {
+      for (const s of tok.split('·')) if (s !== '~' && s !== '.') pitches.push(slots[i]);
+    });
+    return [grid, pitches.join(' ')];
+  });
 }
 
 // The pre-chorus, from Qing's chosen take: the first two lines run straight into each other,
@@ -158,7 +249,7 @@ export const lead = part('lead', [
 
   ...preChorus(at['Pre-chorus'], ...PRE),
 
-  ...chorus(at['Chorus 1'], [
+  ...chorus(at['Chorus 1'], 'c1', [
     { tail: [
       ['FAST . to . RUN ~ ~ ~', 'Eb4 Eb4 C4'],
       ['STUR dy or CHEAP ~ ~ ~ .', 'Eb4 Eb4 Eb4 F4'],
@@ -186,7 +277,7 @@ export const lead = part('lead', [
 
   ...preChorus(at['Pre-chorus 2'], ...PRE),
 
-  ...chorus(at['Chorus 2'], [
+  ...chorus(at['Chorus 2'], 'c2', [
     { tail: [
       ['WORKS . on a TRAIN ~ on your', 'Eb4 Eb4 Eb4 C4 C4 C4'],
       ['NAN\'S . old PHONE ~ ~ ~ .', 'Eb4 Eb4 F4'],
@@ -220,7 +311,7 @@ export const lead = part('lead', [
 
   ...preChorus(at['Final pre-chorus'], ...PRE_FINAL),
 
-  ...chorus(at['Final chorus'], [
+  ...chorus(at['Final chorus'], 'cf', [
     { tail: [
       ['ROLL back my mis TAKES ~ ~ ~', 'Eb4 Eb4 Eb4 Eb4 C4'],
       ['DI ags I can USE ~ ~ .', 'Eb4 Eb4 Eb4 Eb4 F4'],
@@ -299,10 +390,13 @@ export const leadGuitar = part('leadGuitar', [
 // ---- Harmony ---------------------------------------------------------------------------------
 
 const seq = (b, list) => list.map((c, i) => [b + i, c]);
-const chorusChords = (b, leadIn = 'Bb Eb') => [
-  [b, leadIn],
-  ...[0, 8].flatMap((o) => seq(b + 1 + o, ['Eb', 'Eb', 'Bb', 'Bb', 'Cm Ab', 'Ab Eb', 'Eb Bb', 'Bb Eb'])),
-];
+const TAIL_CHORDS = TAIL === 'v1' ? ['Cm Ab', 'Ab Eb', 'Eb Bb', 'Bb Eb'] : TAIL_OPTIONS[TAIL].chords;
+const chorusChords = (b, leadIn = 'Bb Eb', final = false) => {
+  const out = [[b, leadIn], ...[0, 8].flatMap((o) => seq(b + 1 + o, ['Eb', 'Eb', 'Bb', 'Bb', ...TAIL_CHORDS]))];
+  const done = final && TAIL !== 'v1' && TAIL_OPTIONS[TAIL].doneChords; // the bar under DONE
+  if (done) out[out.length - 1] = [b + 16, done];
+  return out;
+};
 // From the take: IV–vi–iii–IV–V, landing on V for PROMPT.
 const PRE_CHORDS = {
   5: ['Ab', 'Cm', 'Gm', 'Ab', 'Bb'],
@@ -321,7 +415,7 @@ export const chords = chordTrack([
   ...seq(BR, ['Ab', 'Bb', 'Cm', 'Cm', 'Ab', 'Bb', 'Ab', 'Bb']),
   ...seq(BD, ['Cm', 'Ab', 'Bb', 'Cm', 'Ab', 'Bb']),
   ...seq(TG, [HV2 ? 'Ab Abm' : 'Ab', 'Ab', 'Bb', 'Bb']), // the intro's sigh, now meant
-  ...preChorusChords(at['Final pre-chorus'], true), ...chorusChords(at['Final chorus'], HV2 ? 'Db Eb' : 'Bb Eb'),
+  ...preChorusChords(at['Final pre-chorus'], true), ...chorusChords(at['Final chorus'], HV2 ? 'Db Eb' : 'Bb Eb', true),
   ...seq(at.Outro, HV2 ? ['Cb Db', 'Eb'] : ['Eb', 'Eb']), // ♭VI–♭VII–I under the held E♭5
 ]);
 

@@ -154,11 +154,16 @@ Qing's findings from the first generations of episode 1 (2026-09-24):
   "Dye ags" (Diags). Splitting a compound into separate words fixes most stress errors.
 - **One sung phrase per line.** Break lines where the singer breathes ("Did I do it wrong?" /
   "Oops, your quota's gone!"), not where the rhyme scheme would put them.
-- **Mark holds with dashes** ("Good for who-----", "fo--r"). Long holds still aren't reliable;
-  extra vowels ("whooo") hold better but can distort neighbouring words. Qing is trying "ooo"
-  spellings and structures that don't depend on long holds.
+- **Don't write long holds; write rhythms the generator can deduce.** Dashes ("who-----"),
+  asterisks and extra vowels ("whooo") all failed to make MiniMax hold a note, and extra vowels
+  distorted neighbouring words. What worked: fill the space with a backing-vocal answer
+  ("Make it good for who? (ooh-ooh-ooh)"). Qing's lesson (2026-09-25): "clear rhythms that are
+  easy to deduce are better."
+- **Expect uneven takes.** Each generation gets different sections right (a good chorus on one, a
+  good verse 2 on another). Keep the best sections of each; stitching takes together in
+  production is the fallback.
 - **Name the accent in the style prompt.** Verse 2 only rhymes in British English.
-- **Outcome for episode 1:** the takes sounded great, but MiniMax couldn't be made to reuse the
-  chorus melody, and "who-o-o" was only held when spelled with extra vowels, which made it
-  mispronounce "wha-a-at". The song goes back to being made in code, where melody and vowels are
-  set exactly. Good takes serve as references for tempo, melody and which lines sing well.
+- **Outcome for episode 1:** once the song was restructured for the performer (repeated
+  pre-chorus and chorus, contrasting verses, backing vocals instead of holds), MiniMax gave
+  semi-decent takes, though no single take is good throughout. Qing is trying other services;
+  stitching the best MiniMax sections is the fallback.

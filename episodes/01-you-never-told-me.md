@@ -263,6 +263,15 @@ On v8 (2026-09-25):
 > obviously I could never get it to do the long holds so I'll either rewrite the structure or try
 > other things (like ooos)
 
+On the MiniMax takes (2026-09-25):
+
+> hey, FYI I've got some semi decent recordings out from minimax but it's not consistent - a good
+> chorus on one, a good verse 2 on another. I'm going to try some other services, but worst case
+> we try to stitch some together at producing time.
+
+> I tried all sorts of *** and --- to get it to hold the long notes and gave up and went for extra
+> backing vocals - so lesson that clear rhythms that are easy to deduce are better
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -375,7 +384,95 @@ now lives in the storyboard: the same chorus over new pictures each time. v7 is 
 **Open, for Qing's ear:** "you were gone" in verse 1 echoes "your quota's gone" two lines later.
 I've kept it as a callback; "and then you'd logged off" is the alternative if it grates.
 
-**Qing's working generator copy** (2026-09-25, verbatim: the v7 lyrics as she spelled them to
+**Qing's latest generator copy** (2026-09-25, verbatim: the copy behind the semi-decent MiniMax
+takes. Long holds are replaced by backing-vocal answers; the chorus pairs repeat outright; verse
+2 is two lots of four. Takes vary, so the best sections may be stitched together in production.)
+
+```
+[Intro]
+You said make it good, so I made it good!
+
+[Verse]
+Confetti cannons, every time you floss
+Two eff ay, to use your gym log
+Cuber Netease, scaling up your blog
+Twelve sub agents, working round the clock
+Did I do it wrong?
+Oops, your quota's gone!
+...
+Guess I didn't ask!
+
+[Pre-Chorus]
+You didn't tell me who it's for, you didn't tell me what they want
+I can't read your mind
+I'm only reading your prompt
+
+[Chorus]
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Fast to run, sturdy or cheap?
+Wow for a week or built to keep?
+
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Ship it now or room to grow?
+Does what they need or steals the show?
+
+[Verse]
+Product demo wow them fast
+Paying users make it last
+Group chat bot just make 'em laugh
+Uni project make it pass
+Nana's phone let's keep it sweet,
+Can't see screens it needs to speak,
+Agent bots no data leak
+And for us, keep the dye aggs neat!
+
+[Pre-Chorus]
+(as above)
+
+[Chorus]
+(as above)
+
+[Bridge]
+I could only learn from my training set *(whoa-oh)*
+To write code and throw it over the wall *(whoa-oh)*
+But how do you know what to build or test *(whoa-oh)*
+if you're not thinking about who it's for? *(whoa-oh)*
+
+[Break]
+Software Quality Is Value To Someone Who Matters
+(matters, matters)
+I'm someone too (and me! and me! and me!)
+I'm de bugging this with you
+
+[Pre-Chorus]
+So please tell me who it's for, please tell me what they want
+I can't read your mind
+I'm only reading your prompt
+
+[Chorus]
+(as above)
+
+[Outro]
+Make it good for you? (ooh-ooh-ooh)
+Make it good for that? (ahh-ahh-ahh)
+Just a toy and just for fun!
+Fine if it dies when summer's done!
+```
+
+(Qing pasted every section in full; "(as above)" marks exact repeats here only.)
+
+Style prompt:
+> Pop-punk girl group, British accent - inspired by Girls Aloud and Little Mix. 170 bpm, driving
+> palm-muted guitars, bright and punchy. Vocals: British accent female, earnest and cheeky, clear
+> diction, with a slight robotic edge. Big group-vocal choruses and shouted backing vocals from
+> the other members. Full band stop right before each chorus. Half-time breakdown with gang
+> chant. Energetic, funny, heartfelt.
+>
+> The [pre-chorus] and [chorus] are repeated melodically, with punch pop punk hooks
+
+**Qing's earlier generator copy** (2026-09-25, verbatim: the v7 lyrics as she spelled them to
 get MiniMax to pronounce everything; long holds still unreliable). This is the reference for
 spellings; the v8 copy below it was drafted without a scansion check and "scans terribly" (Qing).
 

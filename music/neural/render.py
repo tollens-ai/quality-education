@@ -17,6 +17,8 @@ Usage:
          [--song=SECONDS]   # also place every phrase at its offset in one song-length WAV
          [--only=a,b]       # render only these phrases
          [--mp3]            # also write an mp3 per phrase
+         [--stretch=R]      # play the phrase R times faster, pitch kept, by resampling the mel
+                            #   frames before vocoding (render slow, e.g. at 90 bpm, then R=2)
   python music/neural/render.py --bank=DIR --inspect   # print the ONNX inputs and outputs
 
 Writes <out>/<phrase>.wav (44.1 kHz mono) and <out>/manifest.json in the format that
@@ -120,6 +122,7 @@ class BigVGANVocoder:
         sys.path.insert(0, arg("bigvgan_repo", str(Path(__file__).resolve().parent.parent / "out" / "neural" / "vendor" / "BigVGAN")))
         import bigvgan
         self.torch = torch
+        torch.set_num_threads(int(arg("threads", 16)))
         from huggingface_hub import hf_hub_download
         from env import AttrDict
         # Loaded by hand: BigVGAN's from_pretrained() breaks on current huggingface_hub releases.
@@ -152,6 +155,17 @@ class BigVGANVocoder:
         with self.torch.inference_mode():
             y = self.model(self.torch.from_numpy(m.T[None].astype(np.float32)))
         return y.reshape(-1).numpy()
+
+
+def stretch_mel(mel, f0, r):
+    """Play the acoustic model's output r times faster, keeping the pitch: resample the log-mel
+    frames (and f0) in time before vocoding, so the vocoder renders the final length directly."""
+    n = mel.shape[1]
+    m = max(1, int(round(n / r)))
+    src = np.arange(m) * (n - 1) / max(1, m - 1)
+    i0 = np.floor(src).astype(int); i1 = np.minimum(i0 + 1, n - 1); u = (src - i0)[:, None]
+    out = mel[0, i0] * (1 - u) + mel[0, i1] * u
+    return out[None].astype(np.float32), np.interp(src, np.arange(n), f0).astype(np.float32)
 
 
 def write_mp3(path, y, sr, channels=1):
@@ -191,6 +205,9 @@ def main():
         ds =json.loads((ds_dir / f"{p['name']}.ds").read_text())[0]
         t0 = time.time()
         mel, f0 = bank.mel(ds, mix, float(arg("gender", 0)), float(arg("velocity", 1)), int(arg("steps", 20)), float(arg("depth", 0.6)))
+        stretch = float(arg("stretch", 1))
+        if stretch != 1:
+            mel, f0 = stretch_mel(mel, f0, stretch)
         y = voc(mel, f0).astype(np.float32)
         sf.write(out / f"{p['name']}.wav", y, bank.sr)
         if "--mp3" in sys.argv:
@@ -199,7 +216,10 @@ def main():
             i0 = int(round((ds["offset"] - index["songStart"]) * bank.sr))
             seg = y[: max(0, len(song) - i0)]
             song[i0: i0 + len(seg)] += seg
-        manifest.append(dict(name=p["name"], text=p["text"], file=f"{p['name']}.wav", spoken=False, notes=p["notes"]))
+        notes = p["notes"]
+        if stretch != 1:
+            notes = [{**n, **{k: round(n[k] / stretch, 4) for k in ("start", "vowelEnd", "end") if k in n}} for n in notes]
+        manifest.append(dict(name=p["name"], text=p["text"], file=f"{p['name']}.wav", spoken=False, notes=notes))
         print(f"{p['name']}: {len(y) / bank.sr:.2f} s in {time.time() - t0:.1f} s, peak {np.abs(y).max():.3f}", flush=True)
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1))
     if song is not None:

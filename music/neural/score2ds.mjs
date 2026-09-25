@@ -3,7 +3,7 @@
 // every phoneme duration and the whole f0 curve are written here, and the voicebank only
 // supplies the voice. render.py turns the .ds files into audio.
 //
-// Usage: node music/neural/score2ds.mjs [--set=test|lead] [--out=dir] [--bpm=N] [--cons=X] [--maxc=F] [--bath=ae]
+// Usage: node music/neural/score2ds.mjs [--set=test|lead] [--out=dir] [--bpm=N] [--cons=X] [--maxc=F] [--bath=ae] [--glide=0] [--transpose=N]
 //   --set=test  the voice test phrases (music/voice/test.mjs), one .ds per phrase (default)
 //   --set=lead  the whole lead, split into phrases at rests, with absolute offsets
 //
@@ -159,37 +159,71 @@ function schedule(notes, lead = 0.25, tail = 0.2) {
 }
 
 // ---- f0 --------------------------------------------------------------------------------------
-// Semitone curve: glides written in the score (D5>Eb5) scoop over up to 150 ms; note changes move
-// over ~70 ms, finishing on the vowel onset; long notes get late, gentle vibrato.
+// Semitone curve. Each note holds its pitch from its vowel onset; glides written in the score
+// (D5>Eb5) scoop over up to 150 ms; long notes get late, gentle vibrato.
+// Singers connect notes, so every change between notes less than a beat apart is a portamento
+// (--glide=0 restores the old hard steps): an S-curve of 60-140 ms (wider for bigger intervals,
+// and at most 45% of the shorter note), mostly before the vowel onset, so it runs through the
+// consonants. It is prepared by a small dip the other way and lands with a small overshoot that
+// settles in ~90 ms. Melisma notes ('-o') slide more slowly than syllable changes.
 const STEP = 512 / 44100;
+const GLIDE = Number(flag('glide', 1));
+// --transpose=N shifts the sung pitch by N semitones (for the render-slow-then-speed-up tests).
+const TRANSPOSE = Number(flag('transpose', 0));
 function f0Curve(notes, t0, t1) {
   const n = Math.ceil((t1 - t0) / STEP);
   const out = new Float64Array(n);
   const smooth = (x) => x * x * (3 - 2 * x);
-  for (let i = 0; i < n; i++) {
-    const t = t0 + i * STEP;
-    // The note whose span (extended back to the previous note's end) holds t.
-    let k = notes.findIndex((m) => t < m.end);
-    if (k < 0) k = notes.length - 1;
-    const m = notes[k];
+  const clamp01 = (x) => Math.min(1, Math.max(0, x));
+  // The pitch of note m at time t, ignoring its neighbours (glide-in scoop and vibrato).
+  const own = (m, t) => {
     let st = m.to;
     if (m.from !== undefined) {
       const d = Math.min(0.15, (m.end - m.start) / 2);
-      const x = Math.min(1, Math.max(0, (t - m.start) / d));
-      st = m.from + (m.to - m.from) * smooth(x);
-    }
-    const p = notes[k - 1];
-    if (p && t < m.start && m.start - p.end < 0.05) {
-      // Portamento through the consonants into this note.
-      const d = 0.07, x = Math.min(1, Math.max(0, (t - (m.start - d)) / d));
-      st = p.to + ((m.from ?? m.to) - p.to) * smooth(x);
+      st = m.from + (m.to - m.from) * smooth(clamp01((t - m.start) / d));
     }
     const held = t - m.start, dur = m.end - m.start;
     if (dur > 0.45 && held > 0.25 && t < m.end) {
       const depth = 0.22 * Math.min(1, (held - 0.25) / 0.25); // semitones
       st += depth * Math.sin(2 * Math.PI * 5.6 * (held - 0.25));
     }
-    out[i] = 440 * 2 ** ((st - 69) / 12);
+    return st;
+  };
+  // Transitions between neighbouring notes: { b (boundary = vowel onset), a, e, from, to }
+  const trans = [];
+  for (let k = 1; k < notes.length; k++) {
+    const p = notes[k - 1], m = notes[k];
+    const to = m.from ?? m.to, iv = to - p.to;
+    if (!GLIDE || m.start - p.end > 0.35 || Math.abs(iv) < 0.01) continue;
+    const short = Math.min(p.end - p.start, m.end - m.start);
+    const D = Math.min(0.45 * short, Math.min(0.14, (m.melisma ? 0.09 : 0.06) + 0.01 * Math.abs(iv)));
+    trans.push({ k, a: m.start - 0.65 * D, e: m.start + 0.35 * D, iv });
+  }
+  for (let i = 0; i < n; i++) {
+    const t = t0 + i * STEP;
+    // The note sounding at t: the last one to have started. Before a note joined to it by a
+    // transition, the previous pitch holds until the move; after a long rest, the next pitch is
+    // taken at the rest.
+    let k = 0;
+    while (k + 1 < notes.length && notes[k + 1].start <= t) k++;
+    if (k + 1 < notes.length && t >= notes[k].end && !trans.some((g) => g.k === k + 1)) k++;
+    let st = own(notes[k], t);
+    for (const g of trans) {
+      if (t >= g.a - 0.06 && t < g.a) {
+        // preparation: a small dip away from the target just before the move
+        const x = (t - (g.a - 0.06)) / 0.06;
+        st -= Math.sign(g.iv) * Math.min(0.15, 0.06 * Math.abs(g.iv)) * Math.sin(Math.PI * x);
+      } else if (t >= g.a && t < g.e) {
+        const x = (t - g.a) / (g.e - g.a);
+        const base = own(notes[g.k - 1], g.a);
+        st = base + (own(notes[g.k], Math.max(t, notes[g.k].start)) - base) * smooth(x);
+      } else if (t >= g.e && t < g.e + 0.09) {
+        // overshoot: the landing swings past the target and settles
+        const x = (t - g.e) / 0.09;
+        st += Math.sign(g.iv) * Math.min(0.3, 0.1 * Math.abs(g.iv)) * Math.sin(Math.PI * x) * (1 - x);
+      }
+    }
+    out[i] = 440 * 2 ** ((st + TRANSPOSE - 69) / 12);
   }
   return out;
 }
@@ -209,7 +243,7 @@ function phrase(name, events, text) {
     f0_seq: Array.from(f0, (x) => x.toFixed(1)).join(' '),
     f0_timestep: STEP.toFixed(12),
     // For the checks: vowel onsets and ends relative to the phrase start, with the score pitch.
-    notes: notes.map((m) => ({ text: m.text, start: +(m.start - t0).toFixed(4), vowelEnd: +(m.vowelEnd - t0).toFixed(4), midi: m.to })),
+    notes: notes.map((m) => ({ text: m.text, start: +(m.start - t0).toFixed(4), vowelEnd: +(m.vowelEnd - t0).toFixed(4), end: +(m.end - t0).toFixed(4), midi: m.to + TRANSPOSE })),
   };
 }
 

@@ -184,6 +184,16 @@ harmonics sample the formants poorly, and the equal syllable lengths leave no st
 
 ## Known weaknesses
 
+Qing's verdict after listening (2026-09-25): "the code voice has two main issues, one is the
+accent is kinda odd and the second is the ornamentation is very unnatural because it's not
+gliding between pitches." Work on this voice is paused in favour of the DiffSinger voice in
+[music/neural](../neural/README.md).
+
+- **Accent.** Qing hears it as odd. Nobody has yet worked out which vowels or consonants cause it.
+- **Ornamentation.** The pitch doesn't glide between notes. A likely cause, not yet checked by
+  ear: the f0 follower in `score.mjs` settles on each new note within a few tens of milliseconds
+  (faster still on short notes), so the line moves in steps between flat plateaus rather than
+  sliding.
 - Fast verse lines are only partly intelligible. The male voice does better, but "Twelve
   subagents" fails with both voices.
 - Held notes have rigid, evenly strong harmonics, which sounds a little buzzy and synthetic.

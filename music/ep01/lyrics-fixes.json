@@ -1,0 +1,9 @@
+{
+ "why": "Whisper stretched the first words of four hook lines back into the previous line's backing vocal ('Make' lasting 0.6-0.9 s before 'it good for what?'), so the kinetic type popped them up to a second early. 'Make it good' takes about 0.34 s wherever it's clean, so these re-anchor 'Make' and 'it' back from 'good'. Keys: line index in captions.txt order, then word index.",
+ "fixes": {
+  "13": {"0": [29.92, 30.09], "1": [30.1, 30.26]},
+  "33": {"0": [85.68, 85.85], "1": [85.86, 86.02]},
+  "37": {"0": [96.54, 96.71], "1": [96.72, 96.88]},
+  "57": {"0": [171.34, 171.51], "1": [171.52, 171.68]}
+ }
+}

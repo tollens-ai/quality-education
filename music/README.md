@@ -56,7 +56,11 @@ craft for each stage; these are the repo-specific steps.
    python music/reference/pitch.py <stem_dir>/vocals.wav take.words.json 0 <t0> <t1> <beat0> <beat>
    ```
    For the generator route, `python music/reference/captions.py captions.txt take.words.json
-   out.srt` times the caption lines (`epNN/captions.txt`) against the take. Transcribe the full
+   out.srt lyrics.json [fixes.json]` times the caption lines (`epNN/captions.txt`) against the
+   take and writes every word's timing for the kinetic lyrics. Check the word timings of the hook
+   lines: Whisper can stretch a line's first words back into the previous backing vocal, and
+   `epNN/lyrics-fixes.json` corrects those by hand (episode 1 needed four). A blanket rule
+   shortening long words is wrong: sung notes are legitimately long. Transcribe the full
    mix for this, not the vocal stem: on episode 1 the stem's transcript ran backing vocals into
    the lead's lines and misheard more words. Then `python music/reference/beats.py take.mp3
    captions.txt captions.srt epNN/beats.json` scores the take for storyboarding: bars, sections,

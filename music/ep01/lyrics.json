@@ -548,20 +548,20 @@
  },
  {
   "text": "Make it good for what? (ahh-ahh-ahh)",
-  "start": 29.4,
+  "start": 29.92,
   "end": 32.72,
   "words": [
    {
     "w": "Make",
     "backing": false,
-    "s": 29.4,
-    "e": 30.04
+    "s": 29.92,
+    "e": 30.09
    },
    {
     "w": "it",
     "backing": false,
-    "s": 30.04,
-    "e": 30.28
+    "s": 30.1,
+    "e": 30.26
    },
    {
     "w": "good",
@@ -1432,20 +1432,20 @@
  },
  {
   "text": "Make it good for what? (ahh-ahh-ahh)",
-  "start": 84.74,
+  "start": 85.68,
   "end": 88.38,
   "words": [
    {
     "w": "Make",
     "backing": false,
-    "s": 84.74,
-    "e": 84.9
+    "s": 85.68,
+    "e": 85.85
    },
    {
     "w": "it",
     "backing": false,
-    "s": 84.9,
-    "e": 86.04
+    "s": 85.86,
+    "e": 86.02
    },
    {
     "w": "good",
@@ -1622,20 +1622,20 @@
  },
  {
   "text": "Make it good for what? (ahh-ahh-ahh)",
-  "start": 95.64,
+  "start": 96.54,
   "end": 99.3,
   "words": [
    {
     "w": "Make",
     "backing": false,
-    "s": 95.64,
-    "e": 96.34
+    "s": 96.54,
+    "e": 96.71
    },
    {
     "w": "it",
     "backing": false,
-    "s": 96.34,
-    "e": 96.9
+    "s": 96.72,
+    "e": 96.88
    },
    {
     "w": "good",
@@ -2584,20 +2584,20 @@
  },
  {
   "text": "Make it good for who? (ooh-ooh-ooh)",
-  "start": 170.6,
+  "start": 171.34,
   "end": 174.12,
   "words": [
    {
     "w": "Make",
     "backing": false,
-    "s": 170.6,
-    "e": 171.5
+    "s": 171.34,
+    "e": 171.51
    },
    {
     "w": "it",
     "backing": false,
-    "s": 171.5,
-    "e": 171.7
+    "s": 171.52,
+    "e": 171.68
    },
    {
     "w": "good",

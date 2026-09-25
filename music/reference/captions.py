@@ -1,6 +1,6 @@
 """Time caption lines against a take's Whisper word timestamps and write an SRT.
 
-Usage: python music/reference/captions.py captions.txt take.words.json out.srt [lyrics.json]
+Usage: python music/reference/captions.py captions.txt take.words.json out.srt [lyrics.json [fixes.json]]
 
 With a fourth argument it also writes every caption word with its sung start and end, for kinetic
 type. Words Whisper missed get times interpolated within their line; backing-vocal words (in
@@ -96,6 +96,11 @@ def main(cap_path, words_path, out_path, lyrics_path=None):
         write_lyrics(lines, display, spans, word_times, lyrics_path)
 
 
+# Hand corrections, per episode: {line index: {word index: [start, end]}}. Loaded from a JSON file
+# given as the fifth argument; see music/ep01/lyrics-fixes.json for why they're needed.
+FIXES = {}
+
+
 def write_lyrics(lines, display, spans, word_times, path):
     out = []
     for n, (line, words) in enumerate(zip(lines, display)):
@@ -106,6 +111,10 @@ def write_lyrics(lines, display, spans, word_times, path):
             rows.append({"w": w, "backing": b and not all_backing,
                          "s": round(min(x for x, _ in t), 3) if t else None,
                          "e": round(max(y for _, y in t), 3) if t else None})
+        for i, (s_, e_) in FIXES.get(n, {}).items():
+            rows[i]["s"], rows[i]["e"] = s_, e_
+        if n in FIXES and spans[n]:
+            spans[n][0] = min(r["s"] for r in rows if not r["backing"] and r["s"] is not None)
         # Interpolate sung words Whisper missed, between their timed neighbours in the line.
         sung = [r for r in rows if not r["backing"]]
         for j, r in enumerate(sung):
@@ -123,4 +132,7 @@ def write_lyrics(lines, display, spans, word_times, path):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    if len(sys.argv) > 5:
+        raw = json.load(open(sys.argv[5]))["fixes"]
+        FIXES.update({int(k): {int(i): v for i, v in d.items()} for k, d in raw.items()})
+    main(*sys.argv[1:5])

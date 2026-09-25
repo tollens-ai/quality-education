@@ -62,6 +62,9 @@ export function draw(g, t, S) {
   g.save();
   applyCamera(g, cam);
   g.save(); guard(g, 'world', () => world.drawWorld(g, t, S, st, cam)); g.restore();
+  // The misfit builds installed at your door in verse 1 stay there until the final chorus
+  // (section D takes them down itself), so sections B and C get them from section A's drawer.
+  if ((sec === B || sec === C) && A.drawDoorBuilds) { g.save(); guard(g, 'section', () => A.drawDoorBuilds(g, t, S, st)); g.restore(); }
   g.save(); guard(g, 'section', () => sec.draw(g, t, S, st, cam)); g.restore();
   g.restore();
   g.save(); guard(g, 'atmosphere', () => world.drawAtmosphere(g, t, S, st, cam)); g.restore();

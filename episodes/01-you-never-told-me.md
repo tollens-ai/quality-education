@@ -332,6 +332,9 @@ After the funnel (2026-09-25):
 
 > the storyline should serve the theme
 
+> right, then your virality gate is bad. people won't keep watching an educational video if they
+> don't think the content is presented well. you gotta think like, Tim blais style craft
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

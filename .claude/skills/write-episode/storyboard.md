@@ -29,9 +29,15 @@ The series exists to teach (Qing, 2026-09-25: "our purpose is to be educational 
 evoke as much of our quality philosophy and educational points relevant to this lesson as
 possible"; "the storyline should serve the theme"). The world and its story are a model of the
 episode's ideas: every landmark, prop and turn teaches something from the quality philosophy.
-Retention and shareability are gates the concept must pass, not what it's chosen for. A device that
-could front any song on the same topic (a dog fetching, a marble run) is a gimmick, however well it
-packages.
+A device that could front any song on the same topic (a dog fetching, a marble run) is a gimmick,
+however well it packages.
+
+Teaching and presentation aren't a trade-off. People won't keep watching an educational video
+unless it's presented well (Qing, 2026-09-25: "you gotta think like, Tim blais style craft"). In
+A Capella Science the craft is the teaching: the form mirrors the content, every line is dense and
+correct, and the picture shows the actual idea at the moment it's sung. Experts share it because
+it's precise; newcomers stay because it's delightful. So judge concepts on how well the craft
+carries the ideas, not on teaching and virality as separate scores.
 
 ## Our costs aren't a studio's
 
@@ -71,10 +77,12 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
   fresh again, so every screening uses new subagents.
 - **Compare in pairs, not with scores.** "Which of these two would you watch to the end, and why?"
   is steadier than a 1–10 score. Run a small knockout and read the reasons, not just the winner.
-- **Teaching comes first.** Judge first how much of the teaching inventory the concept makes
-  visible, and how well its storyline carries the lesson's argument. Then Qing's six questions
-  (why open it, why watch the next 3 seconds, why watch to the end, why like it, why share it),
-  then whether it's true and buildable in code.
+- **Judge the craft that carries the ideas.** How much of the teaching inventory the concept makes
+  visible, how precisely its world and storyline mirror the lesson's argument, and whether that
+  precision is itself the delight: the thing an expert would share and a newcomer would stay for.
+  Qing's six questions (why open it, why watch the next 3 seconds, why watch to the end, why like
+  it, why share it) are answered by that craft, not by a hook bolted on. Then: is it true, and can
+  we build it in code?
 - **Notes name problems, not fixes.** The creator (you) chooses the fix, as Pixar's Braintrust
   works.
 - **Models rank; humans certify.** A model saying it laughed is not a laugh. Model viewers are a
@@ -131,8 +139,9 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
 
 - **Judging for packaging picks gimmicks.** Episode 1's first funnel led with virality and treated
   teaching as a pass/fail gate, and the winners (a robot pup fetching, a marble run) were devices
-  that carried jokes, not the philosophy. Qing sent them back as too gimmicky. Build the teaching
-  inventory first and judge teaching first.
+  that carried jokes, not the philosophy. Qing sent them back as too gimmicky. The fix isn't to
+  flip the priority but to stop splitting them: build the teaching inventory first, then judge how
+  well the craft carries the ideas.
 - **Run the fact-checker at the treatment stage, not only at the end.** The craft judges missed
   every truth problem the fact-checker found in the three treatments: a credit styled as a
   Community Note (it mimics X's real interface and implies the credited people endorse the

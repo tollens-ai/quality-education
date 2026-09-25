@@ -47,17 +47,20 @@ competing with the main read.
 ## Our costs aren't a studio's
 
 Qing (2026-09-25): "remember what's cheap and expensive and quick and slow for you isn't the same
-as for the studios". Studios judge on paper first because animation costs them weeks. For us:
+as for the studios", and then: "it's not true that just because everything is quick compared to a
+studio they're the same amount of cheap. there's still elapsed time. the whole timeline compresses
+because I'm expecting you to be done in hours".
 
-- **Cheap and fast:** words; many variants in parallel; code; re-rendering. A grey-box one-shot is
-  a camera spline plus shapes drawn from song time, so a full-length animatic costs hours.
-- **Expensive and slow:** Qing's attention (the scarcest thing); our perception (we can't hear,
-  and see video only as frames or through another model); and paper judgements, which are cheap to
-  run but weak evidence, because model judges react to prose.
-
-So move to motion early. When paper judges split between well-argued options, paper has run out
-of resolution: build each contender as a grey-box animatic on the real song and judge the moving
-picture. Show Qing short side-by-side clips of the deciding moments, not documents.
+- **Elapsed time is the budget.** The whole episode is expected in hours, so the studio's ratios
+  still hold inside that compressed timeline: text takes minutes, a grey-box animatic an hour or
+  more, finished frames longer. Start with text, and move to motion only for questions text
+  can't settle.
+- **Qing's attention is the scarcest thing.** Bring her short things she can judge in seconds.
+- **Our perception is expensive:** we can't hear, and we see video only as frames or through
+  another model.
+- **Paper judgements are fast but weak evidence,** because model judges react to prose. When
+  well-argued judges split, that's the question for a short motion test or for Qing, not for more
+  paper.
 
 ## How ideas are generated
 
@@ -100,6 +103,7 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
 |---|---|---|---|---|
 | 1 | **Score the song** | `music/epNN/beats.json`: sections, bars, lines, band stops, energy, with every 3-second window listed | Generated from the take, not typed | No |
 | 1b | **Teaching inventory** | Every idea from the quality philosophy that bears on this lesson: plain wording, source and credit, CANON-approved or not, the lyric lines it deepens, a picture seed | Read from primary sources, not summaries; ranked core / supporting / tangential | Only for ideas not yet in CANON |
+| 1c | **Teaching plan** (text) | For each part of the song: what it does in the story, what it teaches, what people come away knowing, how they should feel | Every section earns its place; the arc builds; Qing checks it | **Yes:** a one-page read |
 | 2 | **World-rule funnel** | ~20 concepts, each with a world rule, a first frame, a title line, the screenshot and the clip moment | Gates below; then a pairwise knockout down to 3 | No |
 | 3 | **Treatments** | One page each for the top 3: the world, a timed camera-path map, how each repeat changes, key moments, the ending and loop | Read cold, while the song plays, by fresh judges; pick 1. If they split, build the contenders as grey-box animatics and judge those | **Yes:** the pick and runner-up as short clips, and what they claim |
 | 4 | **Beat jobs and path map** | Every 3-second window gets a job (hook, escalate, re-engage, payoff) and a place on the camera path | No empty window; a re-engagement at each chorus return; seams planned | No |

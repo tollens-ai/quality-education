@@ -337,6 +337,13 @@ After the funnel (2026-09-25):
 
 > incredibly dense but still clear to parse
 
+> I think you should start with text. what does each part do, what does it teach, what do people
+> learn, how do you want them to feel?
+
+> it's not true that just because everything is quick compared to a studio they're the same amount
+> of cheap. there's still elapsed time. the whole timeline compresses because I'm expecting you to
+> be done in hours
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

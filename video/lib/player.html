@@ -51,7 +51,8 @@
     document.getElementById('info').textContent = `${t.toFixed(2)} s · ${S.section(t).name}`;
     requestAnimationFrame(tick);
   };
-  tick();
+  // When the renderer drives the page, it calls renderAt itself; a playback loop would repaint.
+  if (!q.get('render')) tick();
   addEventListener('keydown', e => {
     if (e.code === 'Space') { a.currentTime = t; a.paused ? a.play() : a.pause(); }
     if (e.code === 'ArrowRight') { t += S.beat; a.currentTime = t; }

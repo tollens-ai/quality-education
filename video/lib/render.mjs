@@ -39,16 +39,19 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: w + 40, height: Math.round(w * 16 / 9) + 80 } });
 page.on('pageerror', e => console.error('page error:', e.message));
 page.on('console', m => { if (m.type() === 'error') console.error('console:', m.text()); });
-const url = `http://localhost:${port}/video/lib/player.html?scene=/${args.scene}&song=/${args.song}&w=${w}`;
+const url = `http://localhost:${port}/video/lib/player.html?scene=/${args.scene}&song=/${args.song}&w=${w}&render=1`;
 await page.goto(url);
 await page.waitForFunction(() => window.ready === true, null, { timeout: 30000 });
 const duration = await page.evaluate(() => window.duration);
 const from = +(args.from || 0), to = Math.min(+(args.to || duration), duration);
 const name = path.basename(args.scene, '.js');
 
+// Draw and capture in one evaluate, so nothing can repaint the canvas in between.
 async function grab(t, type = 'png') {
-  await page.evaluate(t => window.renderAt(t), t);
-  const data = await page.evaluate(type => document.getElementById('c').toDataURL(`image/${type}`, 0.88), type);
+  const data = await page.evaluate(({ t, type }) => {
+    window.renderAt(t);
+    return document.getElementById('c').toDataURL(`image/${type}`, 0.88);
+  }, { t, type });
   return Buffer.from(data.split(',')[1], 'base64');
 }
 

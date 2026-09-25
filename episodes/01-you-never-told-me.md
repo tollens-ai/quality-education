@@ -323,8 +323,8 @@ now lives in the storyboard: the same chorus over new pictures each time. v7 is 
 > Group chat bot? Just make 'em laugh
 > Uni project? Make it pass
 > Your nan's phone? Just keep it plain
-> Commute home? It works on trains
-> Can't see the screen? Read out names
+> Rush hour home? It works on trains
+> Can't see screens? Then read out names
 > Public repo? Keys away!
 
 **Pre-chorus**, **Chorus**
@@ -407,8 +407,8 @@ Paying users? Make it last
 Group chat bot? Just make 'em laugh
 Yoo-nee project? Make it pass
 Your nan's phone? Just keep it plain
-Commute home? It works on trains
-Can't see the screen? Read out names
+Rush hour home? It works on trains
+Can't see screens? Then read out names
 Public repo? Keys away!
 
 [Pre-Chorus]

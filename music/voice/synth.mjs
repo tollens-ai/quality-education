@@ -15,9 +15,10 @@ export function synthesise(T, f0, opts = {}) {
   const out = new Float32Array(len);
   const R = rng((opts.seed ?? 1) * 104729 + 3);
   const tract = opts.tract ?? 1; // vocal-tract length scale (formants multiply by this)
+  const hi = tract * (opts.hiScale ?? 1); // speaker constants (F4 up, nasal poles/zeros) only
   // F4..F11: speaker constants. The poles above F5 stand in for the vocal tract's higher
   // resonances; without them the all-pole cascade rolls off far too steeply above ~3 kHz.
-  const Fhi = [4150, 4950, 6000, 7200, 8400, 9600, 10800, 12000].map((x) => x * tract);
+  const Fhi = [4150, 4950, 6000, 7200, 8400, 9600, 10800, 12000].map((x) => x * hi);
   const Bhi = [250, 350, 500, 650, 800, 1000, 1200, 1400];
   const NR = 3 + Fhi.length;
   const jitter = opts.jitter ?? 0.004, shimmer = opts.shimmer ?? 0.03;
@@ -36,7 +37,7 @@ export function synthesise(T, f0, opts = {}) {
     const C = -r * r, Bc = 2 * r * Math.cos(TWO_PI * F * T_);
     return [1 - Bc - C, Bc, C];
   };
-  const [npA, npB, npC] = resC(280 * tract, 100);
+  const [npA, npB, npC] = resC(280 * hi, 100);
 
   // parallel bank: constant-0dB-peak band-pass biquads (RBJ)
   const bank = BANK_F.map((f, i) => {
@@ -63,6 +64,17 @@ export function synthesise(T, f0, opts = {}) {
   const amps = new Float64Array(MAXK + 1);
   let K = 1;
   let phase = 0, jit = 1, shim = 1;
+  // Living source spectrum, opt-in (texture ~1.5; ripple 0..1). Each harmonic's level wanders
+  // slowly (~60 ms) by up to ~2 dB, more for upper harmonics; `ripple` adds open-quotient dips
+  // that drift. A fixed, smooth -6 dB/oct comb is what makes held notes buzz. Off by default:
+  // with it on, fast lines lost Whisper accuracy (see README). Its own random stream, so the
+  // other random choices stay seed-comparable.
+  const tex = opts.texture ?? 0;
+  const R2 = rng((opts.seed ?? 1) * 7717 + 5);
+  const hw = new Float64Array(MAXK + 1);
+  const rho = Math.exp(-16 / (0.06 * sr)), wsd = Math.sqrt(1 - rho * rho);
+  const rhoQ = Math.exp(-16 / (0.25 * sr));
+  let oqd = 0;
   // Closed-tract low-pass: during stop closures and nasal murmurs the sound radiates through
   // the cheeks or nose, so almost nothing above ~500 Hz survives. Two one-pole stages, mixed
   // in by the LPF track.
@@ -86,6 +98,15 @@ export function synthesise(T, f0, opts = {}) {
         amps[k] = a;
       }
       amps[1] *= 1 + h1boost;
+      if (tex > 0) {
+        oqd = rhoQ * oqd + Math.sqrt(1 - rhoQ * rhoQ) * gaussian(R2);
+        const oq = 0.6 + 0.07 * oqd, rip = 0.35 * (opts.ripple ?? 0);
+        for (let k = 1; k <= K; k++) {
+          hw[k] = rho * hw[k] + wsd * gaussian(R2);
+          const sd = 0.25 * tex * Math.min(1, k / 6);
+          amps[k] *= Math.exp(sd * hw[k]) * (1 - 0.5 * rip * (1 + Math.cos(TWO_PI * k * oq)));
+        }
+      }
     }
     // glottal source
     phase += F0 * T_;
@@ -115,7 +136,7 @@ export function synthesise(T, f0, opts = {}) {
     const nas = lerp(T.NAS, f, u);
     {
       const y = npA * x + npB * np1 + npC * np2; np2 = np1; np1 = y; x = y;
-      const [a, b, c] = resC((280 + 200 * nas) * tract, 100);
+      const [a, b, c] = resC((280 + 200 * nas) * hi, 100);
       const yz = (x - b * nz1 - c * nz2) / a; nz2 = nz1; nz1 = x; x = yz;
     }
     // cascade formants
@@ -131,7 +152,7 @@ export function synthesise(T, f0, opts = {}) {
     // nasal murmur place antiresonance
     const mur = lerp(T.MUR, f, u);
     {
-      const [a, b, c] = resC(lerp(T.FZ, f, u) * tract, 200);
+      const [a, b, c] = resC(lerp(T.FZ, f, u) * hi, 200);
       const yz = (x - b * pz1 - c * pz2) / a; pz2 = pz1; pz1 = x;
       x = x + mur * 0.85 * (yz - x);
     }

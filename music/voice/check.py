@@ -8,7 +8,7 @@ For each phrase in music/out/voice/manifest.json:
 
 Usage: python music/voice/check.py [phrase ...] [--no-whisper] [--json=out.json] [--dir=renders]
 """
-import json, re, struct, sys, zlib
+import json, os, re, struct, sys, zlib
 from pathlib import Path
 
 import numpy as np
@@ -92,7 +92,7 @@ def spectrogram(y, sr, path, fmax=10000, hop=120):
 
 def pitch_report(y, sr, notes):
     import librosa
-    f0, vf, _ = librosa.pyin(y, fmin=120, fmax=900, sr=sr, frame_length=2048, hop_length=240)
+    f0, vf, _ = librosa.pyin(y, fmin=70, fmax=900, sr=sr, frame_length=2048, hop_length=240)
     t = librosa.times_like(f0, sr=sr, hop_length=240)
     rows = []
     for n in notes:
@@ -120,7 +120,7 @@ def main():
     model = None
     if "--no-whisper" not in sys.argv:
         from faster_whisper import WhisperModel
-        model = WhisperModel("medium.en", device="cpu", compute_type="int8", cpu_threads=16)
+        model = WhisperModel("medium.en", device="cpu", compute_type="int8", cpu_threads=int(os.environ.get("WHISPER_THREADS", 16)))
     results = []
     for p in manifest:
         if args and p["name"] not in args:

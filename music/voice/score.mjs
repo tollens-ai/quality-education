@@ -101,10 +101,10 @@ const TRANS_IN = { stop: 0.03, affr: 0.03, nasal: 0.035, fric: 0.03, approx: 0.0
 const TRANS_OUT = { stop: 0.035, affr: 0.035, nasal: 0.04, fric: 0.03, approx: 0.05, h: 0.02, vowel: 0.04 };
 
 // The vowel target a consonant coarticulates with.
-function neighbourVowel(seg) {
+function neighbourVowel(seg, voice) {
   const s = seg.syl;
   if (!isVowel(s.nucleus)) return { F: [500, 1600, 2800], B: [80, 100, 160] };
-  const [a, b] = vowelTargets(s.nucleus);
+  const [a, b] = vowelTargets(s.nucleus, voice);
   return seg.pos === 'coda' ? b : a;
 }
 
@@ -121,6 +121,7 @@ export function buildTracks(segs, syls, dur, opts = {}) {
   const breath = opts.breath ?? 0.05;
   const burstGain = opts.burstGain ?? 1.6, aspGain = opts.aspGain ?? 1.8;
   const approxAV = opts.approxAV ?? 0.5;
+  const voice = opts.voice, locus = opts.locus ?? 1;
   const fi = (t) => Math.max(0, Math.min(N - 1, Math.round(t * FR)));
   const fill = (arr, t0, t1, v) => { for (let f = fi(t0); f < fi(t1); f++) arr[f] = v; };
   const fillG = (spec, t0, t1) => { for (let k = 0; k < 9; k++) fill(T.G[k], t0, t1, spec[k]); };
@@ -134,7 +135,7 @@ export function buildTracks(segs, syls, dur, opts = {}) {
     const d = g.t1 - g.t0;
     const dyn = g.syl.dyn ?? (g.syl.stress ? 1.0 : 0.8);
     if (g.kind === 'vowel') {
-      const [A, Bv] = vowelTargets(g.ph);
+      const [A, Bv] = vowelTargets(g.ph, voice);
       let tin = g.prev ? (CONS[g.prev.ph]?.tin ?? TRANS_IN[g.prev.kind]) : 0;
       let tout = g.next ? (CONS[g.next.ph]?.tin ?? TRANS_OUT[g.next.kind]) : 0;
       if (tin + tout > d) { const f = d / (tin + tout + 1e-9); tin *= f; tout *= f; }
@@ -155,8 +156,8 @@ export function buildTracks(segs, syls, dur, opts = {}) {
       // syllabic consonant (n, m, l) as nucleus: treat as a long voiced consonant
     }
     const c = CONS[g.ph];
-    const v = neighbourVowel(g);
-    let F = consonantFormants(g.ph, v, g.pos);
+    const v = neighbourVowel(g, voice);
+    let F = consonantFormants(g.ph, v, g.pos, locus);
     // Voiceless obstruents: voicing stops (coda) or starts (onset, after aspiration) while F1 is
     // still near the vowel's value, so there is no audible F1 transition. Voiced ones show it.
     if (!c.voiced && ['stop', 'affr', 'fric'].includes(c.kind)) F = [v.F[0] * 0.85, F[1], F[2]];
@@ -206,7 +207,7 @@ export function buildTracks(segs, syls, dur, opts = {}) {
         break;
       }
       case 'h': {
-        const nv = g.next && g.next.kind === 'vowel' ? vowelTargets(g.next.ph)[0] : v;
+        const nv = g.next && g.next.kind === 'vowel' ? vowelTargets(g.next.ph, voice)[0] : v;
         key(g.t0, nv.F, nv.B); key(g.t1, nv.F, nv.B);
         fill(T.AH, g.t0, g.t1, 0.28 * aspGain);
         fill(T.B1X, g.t0, g.t1, 250);
@@ -214,7 +215,11 @@ export function buildTracks(segs, syls, dur, opts = {}) {
       }
       case 'nasal': {
         key(g.t0, F, Bc); key(g.t1, F, Bc);
-        fill(T.AV, g.t0, g.t1, 0.55 * dyn);
+        fill(T.AV, g.t0, g.t1, (opts.nasalAV ?? 0.55) * dyn);
+        // anticipatory nasalisation: the velum lowers during the vowel before a nasal coda
+        const pv = g.prev && g.prev.kind === 'vowel' ? g.prev : null;
+        const nz = opts.nasalise ?? 0;
+        if (pv && nz) fill(T.NAS, Math.max(pv.t0, g.t0 - Math.min(0.08, 0.4 * (pv.t1 - pv.t0))), g.t0, nz);
         fill(T.AH, g.t0, g.t1, breath * 0.5);
         fill(T.NAS, g.t0, g.t1, 1);
         fill(T.MUR, g.t0, g.t1, 1);
@@ -286,9 +291,15 @@ export function buildTracks(segs, syls, dur, opts = {}) {
   smooth(T.NAS, 35); smooth(T.MUR, 8); smooth(T.B1X, 6); smooth(T.LPF, 4); smooth(T.VOW, 12);
   for (const a of [T.F1, T.F2, T.F3, T.B1, T.B2, T.B3]) smooth(a, 8);
   // bursts (after smoothing: they are transients)
+  // burstShape (0..1, opt-in, default 0) trades peak for length (same place spectrum, lower crest factor) and adds a
+  // 2 ms rise, so releases sound like short puffs rather than full-band clicks.
+  const bs = Math.min(1, opts.burstShape ?? 0);
   for (const b of bursts) {
-    const f0 = fi(b.t);
-    for (let f = f0; f < Math.min(N, f0 + 30); f++) T.AF[f] += b.lvl * Math.exp(-(f - f0) / (b.decay * FR));
+    const f0 = fi(b.t), lvl = b.lvl * (1 - 0.4 * bs), dec = b.decay * (1 + 0.8 * bs);
+    for (let f = f0; f < Math.min(N, f0 + (bs ? 40 : 30)); f++) {
+      const rise = bs ? Math.min(1, (f - f0 + 1) / (1 + 2 * bs)) : 1;
+      T.AF[f] += lvl * rise * Math.exp(-(f - f0) / (dec * FR));
+    }
   }
   return T;
 }

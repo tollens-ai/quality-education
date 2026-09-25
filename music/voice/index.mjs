@@ -11,8 +11,9 @@
 //     stress,      // 0 | 1 (louder, brighter)
 //     scoop,       // optional: semitones below to start from, or { semis, dur }
 //     dyn }        // optional 0..1 loudness override
-// opts: { seed, tract, breath, brightness, jitter, shimmer, vibratoRate, vibratoDepth,
-//         reverb (wet 0..1), deess (bool), dry (skip post), tail (s) }
+// opts: { voice ('female' | 'male', a preset from VOICES; later opts override it),
+//         seed, transpose (semitones), tract, breath, brightness, jitter, shimmer,
+//         vibratoRate, vibratoDepth, reverb (wet 0..1), deess (bool), dry (skip post), tail (s) }
 //
 // speakLine(words, opts) builds events for a spoken line (free timing, falling contour).
 
@@ -23,6 +24,20 @@ import { highpass, deess, reverb, normalise, removeDC } from './post.mjs';
 
 export { writeWav } from './util.mjs';
 
+// Voice presets. 'female' is the default the voice was built and tuned as.
+// 'male' is a tenor chest voice: its own vowel table (Deterding's male SSBE means, see
+// phonemes.mjs), consonant loci and upper formants scaled for a ~16% longer tract, a source
+// with less breath and a weaker fundamental (firmer glottal closure), and a narrower, slower
+// vibrato, as pop-punk leads sing almost straight tone.
+export const VOICES = {
+  female: {},
+  male: {
+    voice: 'male', transpose: -7, locus: 0.86, hiScale: 0.85,
+    breath: 0.03, h1: 0.25, tiltLo: 1200, tiltHi: 3200, jitter: 0.005, shimmer: 0.035,
+    vibratoRate: 5.2, vibratoDepth: 0.25,
+  },
+};
+
 export function singLine(events, opts = {}) {
   return renderLine(events, opts).audio;
 }
@@ -30,6 +45,7 @@ export function singLine(events, opts = {}) {
 // Same as singLine, plus the resolved syllable timing (vowel onsets/ends) for checks.
 export function renderLine(events, opts = {}) {
   const sr = 48000;
+  opts = { ...VOICES[opts.voice ?? 'female'], ...opts };
   const { syls, segs } = schedule(events, opts);
   const last = Math.max(...segs.map((s) => s.t1));
   const dur = last + (opts.tail ?? 0.8);
@@ -38,7 +54,8 @@ export function renderLine(events, opts = {}) {
   modifyHighVowels(T, f0, opts);
   let x = synthesise(T, f0, { ...opts, sr });
   removeDC(x);
-  const timing = syls.map((s) => ({ start: s.start, vowelEnd: s.vowelEnd, midi: s.midi, onsetStart: s.onsetStart }));
+  const tr = opts.transpose ?? 0; // checks compare against the sounding pitch
+  const timing = syls.map((s) => ({ start: s.start, vowelEnd: s.vowelEnd, midi: s.midi == null ? s.midi : s.midi + tr, onsetStart: s.onsetStart }));
   if (!opts.dry) {
     highpass(x, 90, sr);
     if (opts.deess !== false) deess(x, { sr });

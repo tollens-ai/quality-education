@@ -4,7 +4,7 @@ Scores the exact word and, more robustly, the heard word's onset consonant.
 Usage: python music/voice/constest.py [dir ...] [-v]   (default music/out/voice/cons)
 Prints per-config accuracy and each miss as target->heard.
 """
-import json, re, sys
+import json, os, re, sys
 from pathlib import Path
 from faster_whisper import WhisperModel
 
@@ -22,7 +22,7 @@ def onset(word):
             return ph
     return word[0] if word and word[0] not in "aeiou" else ""
 dirs = [Path(a) for a in sys.argv[1:] if not a.startswith("-")] or [HERE.parent / "out" / "voice" / "cons"]
-model = WhisperModel("medium.en", device="cpu", compute_type="int8", cpu_threads=16)
+model = WhisperModel("medium.en", device="cpu", compute_type="int8", cpu_threads=int(os.environ.get("WHISPER_THREADS", 16)))
 for d in dirs:
     man = json.loads((d / "manifest.json").read_text())
     hits, ons, misses, n = 0, 0, [], 0
@@ -32,7 +32,7 @@ for d in dirs:
         text = " ".join(s.text for s in segs).lower()
         if "-v" in sys.argv:
             print("   ", text.strip())
-        heard = re.findall(r"word is,? ([a-z']+)", text)
+        heard = re.findall(r"worl?d is,? ([a-z']+)", text)  # "world is" is a carrier mishearing, not a miss
         toks = set(re.findall(r"[a-z']+", text))
         for i, w in enumerate(clip["words"]):
             n += 1

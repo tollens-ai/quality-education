@@ -39,6 +39,13 @@ correct, and the picture shows the actual idea at the moment it's sung. Experts 
 it's precise; newcomers stay because it's delightful. So judge concepts on how well the craft
 carries the ideas, not on teaching and virality as separate scores.
 
+**Picture and lyric carry different parts of the idea.** Tim Blais: showing "exactly what I was
+singing on the screen … that's a real waste of space"; "tell part of the story with the with
+visuals and part of the story with the lyrics" ([research](../../../research/tim-blais-craft.md)).
+For every line, write what the picture adds that the words don't: the consequence, the
+counterexample, the person it's for. A shot that just illustrates the sung noun is a defect. The
+biggest idea goes on the song's emotional peak, and the hook lines get the most precise picture.
+
 The standard is "incredibly dense but still clear to parse" (Qing, 2026-09-25). Density comes
 from layers, not clutter: one main read at a time, timed to the lyric and top of a strict visual
 hierarchy, while background detail, callbacks and easter eggs reward a second watch without

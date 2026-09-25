@@ -349,6 +349,10 @@ After the funnel (2026-09-25):
 
 > right but you ser how the stuff your listing is not for this lesson? you're scaring me
 
+> have you read our actual this lesson lyrics and wrote down what were trying to say in prose
+
+> what is testing is another lesson. what are oracles is another lesson.
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -901,6 +905,48 @@ Fine if it dies when summer's done!
 - The bots piling in on "and me!", each one *using* the gym log (users, not maintainers).
 - An endless CLAUDE.md making the robot dizzy, on "stale prompts".
 
+## What the song says, in prose (from the v9 lyrics)
+
+**Intro.** "You said make it good, so I made it good!" The agent did exactly what it was asked.
+"Make it good" was the whole brief, and it took it at face value.
+
+**Verse 1.** It made the app good by every measure it knew: confetti every time you tick "floss"
+(delight), 2FA on a gym log (security), Kubernetes for a blog (scale), twelve subagents working
+round the clock (effort). Each is a real kind of good, spent where nobody needed it. Then it
+wonders if it got it wrong, and notices the cost: your quota is gone, spent on things you didn't
+want. "Guess I didn't ask!" It owns its part: it could have asked.
+
+**Pre-chorus.** You didn't tell me who it's for, or what they want. I can't read your mind; I only
+have your prompt. What decides what "good" means is in your head, and the agent only sees your
+words.
+
+**Chorus.** Good is always good *for someone*, at *something*: "Make it good for who? Make it good
+for what?" Then the choices that pull against each other: fast to run, sturdy, or cheap;
+impressive for a week, or built to last; ship it now, or polish it slowly; do what they need, or
+steal the show. You can't have all of them at full, and which ones matter depends on who it's for.
+
+**Verse 2.** Who it's for decides what good means. A product demo has to impress fast. Paying
+users need it to last. A group-chat bot just has to make people laugh. A uni project has to pass.
+Nana's phone should stay simple. Someone who can't see the screen needs it to speak. Bots that
+use it mustn't leak data. And for us, the people building it (the agent included), the diagnostics
+should be neat. The builders count too.
+
+**Bridge.** Why doesn't the agent ask? It learned from its training set: code by people who wrote
+it and threw it over the wall, treating who it's for as someone else's job. But you can't know what
+to build or test if you aren't thinking about who it's for.
+
+**Break.** The definition, from Weinberg via Bach & Bolton and Ed Pringle: software quality is
+value to someone who matters. Then the agent: "I'm someone too", and the other bots, "and me! and
+me! and me!". "I'm debugging this with you." Agents are among the people who matter, and they're
+working with you.
+
+**Final pre-chorus.** So please just tell me who it's for and what they want: the same truth,
+now as a plea.
+
+**Outro.** The questions come back with an answer: make it good for you, for that. Just a toy,
+only for fun; fine if it's gone when summer's done. That's a legitimate definition of good: it's
+for me, it's for fun, and it doesn't need to last. A toy is allowed to be a toy.
+
 ## Teaching plan (v1, 2026-09-25, for Qing's check)
 
 Text first, before any world or pictures (Qing: "start with text. what does each part do, what
@@ -917,8 +963,8 @@ care about. The agent can't know that unless you tell it, and it should ask.
    you and your agents. Saying yours, and what you *don't* need, is the brief. (CANON)
 
 **Out of scope** (for later episodes; at most a background easter egg here, never a main read):
-testing versus checking and ritual testing; proxies such as coverage or green ticks; "how would we
-know?" (oracles); the trenchcoat (unpacking "sturdy"); there's no mainline user; the four bars
+what testing is (testing versus checking, ritual testing); what oracles are ("how would we
+know?"); proxies such as coverage or green ticks; the trenchcoat (unpacking "sturdy"); there's no mainline user; the four bars
 (delight, good enough, ugh, dealbreaker) as a framework; agent-facing quality in detail; security
 floors; "why, not what" comments; the Sonos-style real failures.
 
@@ -933,7 +979,7 @@ floors; "why, not what" comments; the Sonos-style real failures.
 | Verse 2 (0:51) | Eight different people, each wanting something different | Different people, different trade-offs, **including us and the agents** ("keep diags neat") | "Which one is mine?" | Seen; curious |
 | Pre-chorus 2 (1:17) | The same complaint, now with all those people in mind | The gap is bigger than one missing sentence | — | Building tension |
 | Chorus 2 (1:23) | The questions again | The same choice lands differently for each person | There's no single "good" | Energy peak |
-| Bridge (1:47) | Why agents don't ask: they learned from people who threw "who's it for?" over the wall | Who it's for drives what you build *and* what you check; it's not someone else's job | Not knowing is normal; it's inherited | Quiet understanding, not blame |
+| Bridge (1:47) | Why agents don't ask: they learned from people who threw "who's it for?" over the wall | You can't know what to build or test without thinking about who it's for; it's not someone else's job | Not knowing is normal; it's inherited | Quiet understanding, not blame |
 | Break (2:09) | The definition, then the agent: "I'm someone too" | Value to someone who matters, and that includes the agent | My agent is someone I'm building for too | Warmth (the well-up moment) |
 | Final pre-chorus (2:28) | The plea | Tell it who and what; and the agent asks | — | Hope |
 | Final chorus (2:41) | The brief gets written as the questions are sung | A good brief answers the chorus | What a good brief looks like | Satisfaction, relief |

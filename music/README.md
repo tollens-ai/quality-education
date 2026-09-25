@@ -71,8 +71,12 @@ craft for each stage; these are the repo-specific steps.
 - **Record every correction** in the episode file verbatim, then as a rule in LYRICS.md or
   MUSIC.md if it generalises, then in a check if it can be measured.
 - **The model can't hear.** Every judgement of sound is a hypothesis until a measurement or a
-  human ear confirms it. `check/ear.py` gives an audio model's second opinion; calibrate it with a
-  question you know the answer to.
+  human ear confirms it. `check/ear.py` gives an audio model's second opinion through OpenRouter.
+  The Antigravity CLI does the same with Gemini: cut an excerpt to mp3, then from its folder run
+  `agy --model gemini-3.1-pro-high -p "Open and listen to the audio file X.mp3 ..."` (put `-p`
+  last). Calibrate every ear with a question you know the answer to. On 2026-09-25 Gemini 3.1 Pro
+  got a band stop's length right (1 s) but put it 4 s late, and heard 180 bpm as 150. Trust it
+  for broad impressions, not timings.
 
 ## Parallel work that went well
 

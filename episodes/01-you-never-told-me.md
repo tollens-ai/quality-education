@@ -344,6 +344,11 @@ After the funnel (2026-09-25):
 > of cheap. there's still elapsed time. the whole timeline compresses because I'm expecting you to
 > be done in hours
 
+> right. clearly scope the teaching plan - what's in scope for this lesson and what's for future
+> lessons. use Bolton & Bach type resources and your own examples to flesh things out
+
+> right but you ser how the stuff your listing is not for this lesson? you're scaring me
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -895,6 +900,63 @@ Fine if it dies when summer's done!
   cracks on "test", and the sticky note *who's it for?* arrives on the held "fo-o-or".
 - The bots piling in on "and me!", each one *using* the gym log (users, not maintainers).
 - An endless CLAUDE.md making the robot dizzy, on "stale prompts".
+
+## Teaching plan (v1, 2026-09-25, for Qing's check)
+
+Text first, before any world or pictures (Qing: "start with text. what does each part do, what
+does it teach, what do people learn, how do you want them to feel?").
+
+**The lesson, in one line:** "make it good" means nothing until you say who it's for and what they
+care about. The agent can't know that unless you tell it, and it should ask.
+
+**In scope: three things a viewer leaves knowing**
+1. "Good" isn't a property of the app. It's good *for someone*, at *something*. (CANON)
+2. The agent only has what you wrote. It guesses the rest, and it should have asked. The blame is
+   shared. (CANON; "Guess I didn't ask!")
+3. Different people want different trade-offs (fast, sturdy, cheap, wow, lasting), including
+   you and your agents. Saying yours, and what you *don't* need, is the brief. (CANON)
+
+**Out of scope** (for later episodes; at most a background easter egg here, never a main read):
+testing versus checking and ritual testing; proxies such as coverage or green ticks; "how would we
+know?" (oracles); the trenchcoat (unpacking "sturdy"); there's no mainline user; the four bars
+(delight, good enough, ugh, dealbreaker) as a framework; agent-facing quality in detail; security
+floors; "why, not what" comments; the Sonos-style real failures.
+
+**Section by section**
+
+| Section | What it does | What it teaches | They leave knowing | How they feel |
+|---|---|---|---|---|
+| Intro (0:00) | Sets up the misunderstanding | — | "I've typed that." | Recognition, a grin |
+| Verse 1 (0:04) | The agent over-delivers: confetti, 2FA, Kubernetes, twelve subagents | Each gag is "good" on some measure, for nobody in particular | Good at *what*, for *whom*? | Laughing, a bit caught out |
+| Pre-chorus 1 (0:21) | The agent's case: you never said | The agent only has what you wrote | It can't read my mind | "Oh. Fair." |
+| Chorus 1 (0:27) | The questions | Good for who, for what; the choices are real trade-offs | "Good" needs a who and a what | Release; singalong |
+| Verse 2 (0:51) | Eight different people, each wanting something different | Different people, different trade-offs, **including us and the agents** ("keep diags neat") | "Which one is mine?" | Seen; curious |
+| Pre-chorus 2 (1:17) | The same complaint, now with all those people in mind | The gap is bigger than one missing sentence | — | Building tension |
+| Chorus 2 (1:23) | The questions again | The same choice lands differently for each person | There's no single "good" | Energy peak |
+| Bridge (1:47) | Why agents don't ask: they learned from people who threw "who's it for?" over the wall | Who it's for drives what you build *and* what you check; it's not someone else's job | Not knowing is normal; it's inherited | Quiet understanding, not blame |
+| Break (2:09) | The definition, then the agent: "I'm someone too" | Value to someone who matters, and that includes the agent | My agent is someone I'm building for too | Warmth (the well-up moment) |
+| Final pre-chorus (2:28) | The plea | Tell it who and what; and the agent asks | — | Hope |
+| Final chorus (2:41) | The brief gets written as the questions are sung | A good brief answers the chorus | What a good brief looks like | Satisfaction, relief |
+| Outro (3:05) | A toy that's allowed to be a toy | "Fine if it's gone after summer" is a choice, not a failure | You can decide what doesn't matter | Light; permission |
+
+**The brief on screen at the end** (the answer to the chorus; short enough to read in 3 seconds):
+> **for:** me, mid-set, one sweaty hand
+> **good =** log a set in one tap · 🔥 on a PB
+> **don't need:** accounts, scale · fine if it's gone after summer
+> **cost:** don't burn my quota
+> **for you:** diags you can read · ask me if unsure
+
+**Guardrails for the pictures** (lines that could teach something subtly wrong):
+- The chorus's "or… or…" is a set of trade-offs, not a pick-one switch.
+- The 2FA gag mocks security that doesn't fit this app, not security.
+- "Make it pass" shows a student handing it in, not tests forced green.
+- "No data leak" shows the people whose data it is, not bots as a threat.
+- "Steals the show" isn't "wow is bad": wow is a legitimate thing to want.
+- "Please just tell me" isn't "a perfect prompt solves everything": the agent still asks.
+
+**For Qing:** does the scope match what you want this episode to teach? Two ideas used here aren't
+yet in CANON, both Ed's: "good has no meaning until you name who and what", and "a non-goal is a
+decision, not an oversight" (the outro). OK to use them?
 
 ## Storyboard funnel (one shot, 2026-09-25)
 

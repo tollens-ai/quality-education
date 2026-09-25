@@ -193,7 +193,7 @@ export const FONT_FILES = [
 // labelled fallback then.
 export const IMAGE_FILES = {
   openai: '.private/ep01-assets/openai-fav.svg',
-  grok: '.private/ep01-assets/grok.svg',
+  grok: '.private/ep01-assets/grok-512.png',   // the SVG has a <foreignObject>, which taints the canvas
   molty: '.private/ep01-assets/openclaw.svg',
   muse: '.private/ep01-assets/muse-logo.svg',
 };

@@ -375,6 +375,91 @@ now lives in the storyboard: the same chorus over new pictures each time. v7 is 
 **Open, for Qing's ear:** "you were gone" in verse 1 echoes "your quota's gone" two lines later.
 I've kept it as a callback; "and then you'd logged off" is the alternative if it grates.
 
+**Qing's working generator copy** (2026-09-25, verbatim: the v7 lyrics as she spelled them to
+get MiniMax to pronounce everything; long holds still unreliable). This is the reference for
+spellings; the v8 copy below it was drafted without a scansion check and "scans terribly" (Qing).
+
+```
+[Intro]
+You said make it good, so I made it good!
+
+[Verse]
+Confetti every time you floss
+Two eff ay on your gym log
+Cuber Netease for your blog
+Twelve sub agents round the clock
+Did I do it wrong?
+Oops, your quota's gone!
+Guess I didn't ask.
+
+[Pre-Chorus]
+You didn't tell me who it's for, you didn't tell me what they want
+I can't read your mind
+I'm only reading your prompt
+
+[Chorus]
+Good for who-----
+Good for what-----
+Fast to run, sturdy or cheap?
+Wow for a week or built to keep?
+Good for who-----
+Good for what-----
+Ship it now or room to grow?
+Does what they need or steals the show?
+
+[Verse]
+Product demo wow them fast
+Paying users make it last
+Group chat bot just make 'em laugh
+Uni project make it pass
+Just for you for fun?
+Then you're the one!
+There's always someone.
+
+[Pre-Chorus]
+You didn't tell me who it's for, you didn't tell me what they want
+I can't read your mind
+I'm only reading your prompt
+
+[Chorus]
+Good for who-----
+Good for what-----
+Works on a train on your nan's old phone?
+No agents going rogue on their own?
+Good for who-----
+Good for what-----
+Works for someone who can't see the screen?
+No API keys where they'll be seen?
+
+[Bridge]
+I could only learn from my training set *(whoa-oh)*
+to write code and throw it over the wall *(whoa-oh)*
+But how do you know what to build or test *(whoa-oh)*
+if you're not thinking about who it's fo--r? *(whoa-oh)*
+
+[Break]
+Software Quality Is Value To Someone Who Matters
+I'm someone too (and me! and me! and me!)
+I'm de bugging this with you
+
+[Pre-Chorus]
+So please tell me who it's for, please tell me what they want
+I can't read your mind
+I'm only reading your prompt
+
+[Chorus]
+Good for who-----
+Good for what-----
+Roll back my mistakes? Dye ags I can use?
+No stale prompts making me confused?
+Good for you-----
+Good for that-----
+Just a toy and just for fun!
+Fine if it dies when summer's done!
+
+[Outro]
+```
+
 **Generator copy** (paste this; the lyric sheet above stays the real spelling and the captions)
 
 Style prompt:

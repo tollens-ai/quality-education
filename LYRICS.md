@@ -149,6 +149,14 @@ Qing's findings from the first generations of episode 1 (2026-09-24):
 - **Spell tricky words as they're said.** Acronyms and jargon ("2FA", "Kubernetes") come out wrong
   unless they're spelled phonetically in the pasted lyrics. Keep the real spelling on the lyric
   sheet and in the captions; only the generator's copy changes.
+- **Spellings that worked** (Qing's copy for episode 1, 2026-09-25, kept in the episode file):
+  "Two eff ay" (2FA), "Cuber Netease" (Kubernetes), "Twelve sub agents", "de bugging",
+  "Dye ags" (Diags). Splitting a compound into separate words fixes most stress errors.
+- **One sung phrase per line.** Break lines where the singer breathes ("Did I do it wrong?" /
+  "Oops, your quota's gone!"), not where the rhyme scheme would put them.
+- **Mark holds with dashes** ("Good for who-----", "fo--r"). Long holds still aren't reliable;
+  extra vowels ("whooo") hold better but can distort neighbouring words. Qing is trying "ooo"
+  spellings and structures that don't depend on long holds.
 - **Name the accent in the style prompt.** Verse 2 only rhymes in British English.
 - **Outcome for episode 1:** the takes sounded great, but MiniMax couldn't be made to reuse the
   chorus melody, and "who-o-o" was only held when spelled with extra vowels, which made it

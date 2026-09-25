@@ -101,6 +101,13 @@ brief for an AI-made music video (Donald Jewkes on X). We don't copy its style. 
 - **Treat on-screen text as the main tool for holding attention.** Lyrics are sometimes subtitles
   and sometimes huge, and the shot is composed to leave room for them. The opening needs a strong
   visual hook, with the words at their most present.
+- **Aim past "good enough".** The target is a banger for the audience it's made for, and the
+  stretch goal is something better than anyone has seen. Study the best work in the form (music
+  videos, motion design) before settling on an approach, and avoid generic "AI slop" styling.
+- **Spend effort aggressively but economically.** Budget is there to be used on quality; choose
+  where it goes.
+- **Know your real capabilities and design to them.** Pick a style and a toolchain that play to
+  what the tools do well, rather than fighting their weak spots.
 
 ## Open decisions
 Aspect ratio master · voice (human / synthetic / text-only) · length cap · characters and running

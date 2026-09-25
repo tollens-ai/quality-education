@@ -52,7 +52,13 @@ is the worked example of the finished shape.
    genre does: pop-punk needs strong end rhymes. The fuller rules, with worked examples, are in
    [LYRICS.md](../../../LYRICS.md).
 
-4. **Write the retention map, once the lyrics are locked.** Fill a table in 3-second rows: time, picture, lyric, and *why they
+   **Then make the song, before any video work** (Qing, 2026-09-24: "let's get to a song we're
+   happy with first before starting video"). The song's timings drive every shot. Use the
+   [songwriting skill](../songwriting/SKILL.md) for the craft and
+   [music/README.md](../../../music/README.md) for the toolchain and order of work.
+   *Done when* Qing has heard the full mix and locked it.
+
+4. **Write the retention map, once the song is locked.** Fill a table in 3-second rows: time, picture, lyric, and *why they
    keep watching*. Use the checks below. Make up plenty of concrete, recognisable examples as you
    go; everyday vibecoder apps are easy to invent, so vary them.
    *Done when* every row has a reason to keep watching that isn't "the song continues".

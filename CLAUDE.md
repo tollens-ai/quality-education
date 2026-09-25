@@ -42,6 +42,8 @@ tracked file for a stranger to read.
 - **Local-only material**, which may be missing on a fresh clone:
   - `.private/source-paths.md`: where each source lives on Qing's workstation, and the internal
     provenance and tensions
+  - `.private/reference-briefs/ambition-brief-jewkes.md`: the ambition brief Qing shared
+    (2026-09-24), verbatim. Read it before starting a new episode; CRAFT.md summarises it.
   - `.private/inspiration/INDEX.md`: 16 open-source animation repos cloned for reference, with
     their licences. Several state no licence, so learn from them and copy nothing.
 - **Credit** every borrowed idea in [SOURCES.md](SOURCES.md) and on screen.

@@ -1,0 +1,12 @@
+# Python tools for the music checks and reference analysis (Python 3.12). The renderers
+# themselves are plain Node 22 with no dependencies.
+basic-pitch==0.4.0
+demucs==4.1.0
+faster-whisper==1.2.1
+librosa==1.0.0
+matplotlib==3.11.2
+numpy==2.5.3
+pronouncing
+pyloudnorm==0.2.0
+scipy==1.18.1
+soundfile==0.14.0

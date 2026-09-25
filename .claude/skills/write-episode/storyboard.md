@@ -39,6 +39,11 @@ correct, and the picture shows the actual idea at the moment it's sung. Experts 
 it's precise; newcomers stay because it's delightful. So judge concepts on how well the craft
 carries the ideas, not on teaching and virality as separate scores.
 
+The standard is "incredibly dense but still clear to parse" (Qing, 2026-09-25). Density comes
+from layers, not clutter: one main read at a time, timed to the lyric and top of a strict visual
+hierarchy, while background detail, callbacks and easter eggs reward a second watch without
+competing with the main read.
+
 ## Our costs aren't a studio's
 
 Qing (2026-09-25): "remember what's cheap and expensive and quick and slow for you isn't the same

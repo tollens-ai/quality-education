@@ -335,6 +335,8 @@ After the funnel (2026-09-25):
 > right, then your virality gate is bad. people won't keep watching an educational video if they
 > don't think the content is presented well. you gotta think like, Tim blais style craft
 
+> incredibly dense but still clear to parse
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

@@ -5,14 +5,14 @@ Who works"). The craft references put the title in the chorus, where the hook is
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
-**Status:** v8, restructured for a lyrics-to-song generator to perform (Qing, 2026-09-25). The
-lyric sheet below needs Qing's check; the storyboard is parked until the song locks.
+**Status:** the song is locked: Qing's MiniMax take, "a consistent 8/10 good one" (2026-09-25),
+sung from her v9 copy. Next is the storyboard, built on the take's timings.
 
-**Where we stopped (2026-09-25):** the song is being rewritten for the generator to perform (v8
-below), after the all-code and local-neural voices couldn't sing the fast lines and the melodies we
-composed ourselves didn't work (Qing: "the melodies are still kind of terrible"). Next: Qing checks
-v8's words, then generates takes; we transcribe what she picks and build the storyboard on the
-chosen take's timings. The code band, code voice and DiffSinger work stay in `music/` as tools.
+**Where we stopped (2026-09-25):** Qing picked a MiniMax take (kept locally, not in git) and the
+lyrics are locked as v9 below, with caption spelling. The take is transcribed and the captions are
+timed: [01-captions.srt](01-captions.srt), generated from `music/ep01/captions.txt`. Next: the
+storyboard, rebuilt on the take's timings; it has been parked since v8. The code band, code voice
+and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 
@@ -272,6 +272,17 @@ On the MiniMax takes (2026-09-25):
 > I tried all sorts of *** and --- to get it to hold the long notes and gave up and went for extra
 > backing vocals - so lesson that clear rhythms that are easy to deduce are better
 
+On the chosen take (2026-09-25):
+
+> hey opus! I have a like consistent 8/10 good one! let's use this.
+
+> lyrics as I wrote them (obviously write it out with our intended spelling and punctuation in our
+> captions)
+
+> lesson is that it's works _better_ if we can sudoku the lyric stress patterns MORE, to match the
+> intended phrasing - it still doesn't guarantee things but the more obviously the syllables fit
+> the easier it is for the model.
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -303,7 +314,177 @@ cue times.
   chorus, and is then held full screen.
 - **Captions**: a word-by-word wipe of the lead vocal only, inside the X safe zone.
 
-## Lyric sheet (v8, written for the performer)
+## Lyric sheet (v9, the take)
+
+The words of the chosen take, as they appear in the captions. The generator copy below them is
+Qing's, verbatim, with the phonetic spellings that got MiniMax to pronounce everything. Backing
+vocals are in italics and brackets. Everything from v8 onwards was restructured for the performer;
+v9 tightens the stress patterns within each section (LYRICS.md, "Within a section, sudoku the
+stresses harder").
+
+**Intro**
+> You said make it good, so I made it good!
+
+**Verse 1**
+> Confetti cannons every time you floss,
+> 2FA to use your gym log,
+> Kubernetes scaling up your blog,
+> twelve subagents working round the clock.
+> Did I do it wrong?
+> Oops, your quota's gone!
+> *(spoken)* Guess I didn't ask!
+
+**Pre-chorus**
+> You didn't tell me who it's for, you didn't tell me what they want.
+> I can't read your mind,
+> I'm only reading your prompt.
+
+**Chorus** (sung twice through each time)
+> Make it good for who? *(ooh-ooh-ooh)*
+> Make it good for what? *(ahh-ahh-ahh)*
+> Fast to run, or sturdy, or cheap?
+> Wow for a week, or built to keep?
+>
+> Make it good for who? *(ooh-ooh-ooh)*
+> Make it good for what? *(ahh-ahh-ahh)*
+> Ship it now, or polish it slow?
+> Does what they need, or steals the show?
+
+**Verse 2**
+> Product demo? Wow them fast.
+> Paying users? Make it last.
+> Group chat bot? Just make 'em laugh.
+> Uni project? Make it pass.
+> Nana's phone? Let's keep it sweet.
+> Can't see screens? It needs to speak.
+> Agent bots? No data leak.
+> And for us, keep diags neat!
+
+**Pre-chorus**, **Chorus**
+
+**Bridge**
+> I could only learn from my training set *(whoa-oh)*
+> to write code and throw it over the wall. *(whoa-oh)*
+> But how do you know what to build or test *(whoa-oh)*
+> if you're not thinking about who it's for?
+
+**Break**
+> Software quality is value to someone who matters
+> *(matters, matters, matters)*
+> I'm someone too! *(And me! And me! And me!)*
+> I'm debugging this with you.
+
+**Final pre-chorus**
+> So please just tell me who it's for, so please just tell me what they want.
+> I can't read your mind,
+> I'm only reading your prompt.
+
+**Chorus**
+
+**Outro**
+> Make it good for you? *(ooh-ooh-ooh)*
+> Make it good for that? *(ahh-ahh-ahh)*
+> Just a toy, and only for fun!
+> Fine if it's gone when summer's done!
+
+**Caption spelling:** 2FA, Kubernetes, subagents, diags and debugging are written as words here;
+the generator copy spells them "Two eff ay", "Cuber Netease", "sub agents", "dye aggs" and
+"de bugging". The take sings only three *whoa-oh*s in the bridge, so
+the captions do too, and it adds two ad-libs the captions leave out: "whoa" before the second
+pre-chorus (1:15) and "go, go, go" into the bridge (1:45). The break's line builds on Weinberg's definition; credit it on screen as the storyboard
+does (*Weinberg · Bach & Bolton · via Ed Pringle*).
+
+**Qing's generator copy for the take** (2026-09-25, verbatim)
+
+```
+[Intro]
+You said make it good, so I made it good!
+
+
+[Verse]
+Confetti cannons, every time you floss
+Two eff ay, to use your gym log
+Cuber Netease, scaling up your blog
+Twelve sub agents, working round the clock 
+Did I do it wrong?
+Oops, your quota's gone!
+...
+Guess I didn't ask!
+
+
+[Pre-Chorus]
+You didn't tell me who it's for, you didn't tell me what they want
+I can't read your mind
+I'm only reading your prompt
+
+
+[Chorus]
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Fast to run, or sturdy or cheap?
+Wow for a week, or built to keep?
+
+
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Ship it now, or polish it slow?
+Does what they need, or steals the show?
+
+
+[Verse]
+Product demo wow them fast
+Paying users make it last
+Group chat bot just make 'em laugh
+Uni project make it pass
+Nana's phone let's keep it sweet,
+Can't see screens it needs to speak,
+Agent bots no data leak
+And for us keep dye aggs neat!
+
+
+[Pre-Chorus]
+(as above)
+
+
+[Chorus]
+(as above)
+
+
+[Bridge]
+I could only learn from my training set *(whoa-oh)*
+To write code and throw it over the wall *(whoa-oh)*
+But how do you know what to build or test *(whoa-oh)*
+if you're not thinking about who it's for? *(whoa-oh)*
+
+
+[Break]
+Software Quality Is Value To Someone Who Matters 
+(matters, matters, matters)
+I'm someone too (and me! and me! and me!)
+I'm de bugging this with you
+
+
+[Pre-Chorus]
+So please just tell me who it's for, so please just tell me what they want
+I can't read your mind
+I'm only reading your prompt
+
+
+[Chorus]
+(as above)
+
+
+[Outro]
+Make it good for you? (ooh-ooh-ooh)
+Make it good for that? (ahh-ahh-ahh)
+Just a toy, and only for fun!
+Fine if it's gone, when summer's done!
+```
+
+(Qing pasted every section in full; "(as above)" marks exact repeats here only.) Qing didn't
+send a style prompt with this take; the last one recorded is under v8 below.
+
+## Lyric sheet (v8, superseded by v9)
 
 v8 restructures the song so a lyrics-to-song generator can perform it well (Qing, 2026-09-25):
 contrasting verses instead of verses that must match, the pre-chorus and chorus repeated word

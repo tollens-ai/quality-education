@@ -139,6 +139,24 @@ perform [...] Together that's the best"). For a lyrics-to-song generator, that m
 - **Resolution goes in an outro,** written as its own section.
 - **Let verse lines breathe.** A storytelling verse can use full sentences; word compression was
   only ever needed to fit a fixed grid.
+- **Within a section, sudoku the stresses harder.** Contrasting verses don't need to match each
+  other, but lines that answer each other inside a section should share a stress pattern and
+  syllable count exactly. The more obviously the syllables fit, the easier the generator finds
+  the phrasing. It still isn't guaranteed. Qing (2026-09-25), after the first consistent take:
+  "it works _better_ if we can sudoku the lyric stress patterns MORE, to match the intended
+  phrasing". Her edits between the semi-decent copy and that take:
+  - "So please tell me who it's for, please tell me" became "So please just tell me who it's for,
+    so please just tell me", which matches "You didn't tell me who it's for, you didn't tell me"
+    syllable for syllable.
+  - "Just a toy and just for fun! / Fine if it dies when summer's done!" became "Just a toy, and
+    only for fun! / Fine if it's gone, when summer's done!": JUST a TOY and ON-ly for FUN against
+    FINE if it's GONE when SUM-mer's DONE.
+  - "Ship it now or room to grow?" became "Ship it now, or polish it slow?", mirroring "Fast to
+    run, or sturdy or cheap?" above it.
+  - "(matters, matters)" became "(matters, matters, matters)", three hits like "and me! and me!
+    and me!".
+  - "And for us, keep the dye aggs neat!" became "And for us keep dye aggs neat!", seven syllables
+    like the rest of verse 2.
 
 ## Generating the song (MiniMax)
 Qing's findings from the first generations of episode 1 (2026-09-24):
@@ -165,5 +183,6 @@ Qing's findings from the first generations of episode 1 (2026-09-24):
 - **Name the accent in the style prompt.** Verse 2 only rhymes in British English.
 - **Outcome for episode 1:** once the song was restructured for the performer (repeated
   pre-chorus and chorus, contrasting verses, backing vocals instead of holds), MiniMax gave
-  semi-decent takes, though no single take is good throughout. Qing is trying other services;
-  stitching the best MiniMax sections is the fallback.
+  semi-decent takes, none good throughout. Tightening the stress patterns within each section
+  (see "Writing for the performer") then gave "a consistent 8/10 good one" (Qing, 2026-09-25),
+  and that take is the episode's song.

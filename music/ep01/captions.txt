@@ -1,0 +1,79 @@
+# Captions for episode 1's chosen take, one per line. Text in brackets is backing vocals:
+# shown with its line, not aligned. Regenerate the SRT with music/reference/captions.py.
+# Intro
+You said make it good, so I made it good!
+# Verse 1
+Confetti cannons every time you floss,
+2FA to use your gym log,
+Kubernetes scaling up your blog,
+twelve subagents working round the clock.
+Did I do it wrong?
+Oops, your quota's gone!
+Guess I didn't ask!
+# Pre-chorus
+You didn't tell me who it's for,
+you didn't tell me what they want.
+I can't read your mind,
+I'm only reading your prompt.
+# Chorus
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Fast to run, or sturdy, or cheap?
+Wow for a week, or built to keep?
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Ship it now, or polish it slow?
+Does what they need, or steals the show?
+# Verse 2
+Product demo? Wow them fast.
+Paying users? Make it last.
+Group chat bot? Just make 'em laugh.
+Uni project? Make it pass.
+Nana's phone? Let's keep it sweet.
+Can't see screens? It needs to speak.
+Agent bots? No data leak.
+And for us, keep diags neat!
+# Pre-chorus
+You didn't tell me who it's for,
+you didn't tell me what they want.
+I can't read your mind,
+I'm only reading your prompt.
+# Chorus
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Fast to run, or sturdy, or cheap?
+Wow for a week, or built to keep?
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Ship it now, or polish it slow?
+Does what they need, or steals the show?
+# Bridge
+I could only learn from my training set (whoa-oh)
+to write code and throw it over the wall. (whoa-oh)
+But how do you know what to build or test (whoa-oh)
+if you're not thinking about who it's for?
+# Break
+Software quality is value to someone who matters
+(matters, matters, matters)
+I'm someone too!
+(And me! And me! And me!)
+I'm debugging this with you.
+# Final pre-chorus
+So please just tell me who it's for,
+so please just tell me what they want.
+I can't read your mind,
+I'm only reading your prompt.
+# Chorus
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Fast to run, or sturdy, or cheap?
+Wow for a week, or built to keep?
+Make it good for who? (ooh-ooh-ooh)
+Make it good for what? (ahh-ahh-ahh)
+Ship it now, or polish it slow?
+Does what they need, or steals the show?
+# Outro
+Make it good for you? (ooh-ooh-ooh)
+Make it good for that? (ahh-ahh-ahh)
+Just a toy, and only for fun!
+Fine if it's gone when summer's done!

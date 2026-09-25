@@ -46,7 +46,6 @@ export async function init(S) { if (world.init) await world.init(S); }
 // each stage is guarded, and a failure prints a red label naming the module.
 function guard(g, label, fn) {
   try { fn(); } catch (e) {
-    g.restore?.();
     g.save(); g.setTransform(0.5, 0, 0, 0.5, 0, 0);
     g.fillStyle = '#f33'; g.font = '40px monospace';
     g.fillText(`${label}: ${String(e.message).slice(0, 60)}`, 40, 200 + 50 * ['state', 'camera', 'world', 'section', 'atmosphere', 'screen'].indexOf(label));

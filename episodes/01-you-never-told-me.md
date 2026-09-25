@@ -359,6 +359,14 @@ On the teaching plan (2026-09-25):
 
 > I'm happy with this. can you one shot this from here? I'll toggle your effort up
 
+> make it good, yeah? 😉
+
+> remember the visuals are going to be what wow people first more than the storyline - every
+> second is about whether people watch the next second.
+
+> also missing fr your how people feel - invested throughout! sympathetic for the characters!
+> curious about answers! etc
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -979,18 +987,30 @@ detail; security floors; "why, not what" comments; real-world failures.
 
 | Section | What it does | What it teaches | They leave knowing | How they feel |
 |---|---|---|---|---|
-| Intro (0:00) | Sets up the misunderstanding | — | "I've typed that." | Recognition, a grin |
-| Verse 1 (0:04) | The agent over-delivers: confetti, 2FA, Kubernetes, twelve subagents | Each gag is "good" on some measure, for nobody in particular | Good at *what*, for *whom*? | Laughing, a bit caught out |
-| Pre-chorus 1 (0:21) | The agent's case: you never said | The agent only has what you wrote | It can't read my mind | "Oh. Fair." |
-| Chorus 1 (0:27) | The questions | Good for who, for what; the choices are real trade-offs | "Good" needs a who and a what | Release; singalong |
-| Verse 2 (0:51) | Eight different people, each wanting something different | Different people, different trade-offs, **including us and the agents** ("keep diags neat") | "Which one is mine?" | Seen; curious |
-| Pre-chorus 2 (1:17) | The same complaint, now with all those people in mind | The gap is bigger than one missing sentence | — | Building tension |
-| Chorus 2 (1:23) | The questions again | The same choice lands differently for each person | There's no single "good" | Energy peak |
-| Bridge (1:47) | Why agents don't ask: they learned from people who threw "who's it for?" over the wall | You can't know what to build or test without thinking about who it's for; it's not someone else's job | Not knowing is normal; it's inherited | Quiet understanding, not blame |
-| Break (2:09) | The definition, then the agent: "I'm someone too" | Value to someone who matters, and that includes the agent | My agent is someone I'm building for too | Warmth (the well-up moment) |
-| Final pre-chorus (2:28) | The plea | Tell it who and what; and the agent asks | — | Hope |
-| Final chorus (2:41) | The brief gets written as the questions are sung | A good brief answers the chorus | What a good brief looks like | Satisfaction, relief |
-| Outro (3:05) | A toy that's allowed to be a toy | "Fine if it's gone after summer" is a choice, not a failure | You can decide what doesn't matter | Light; permission |
+| Intro (0:00) | Sets up the misunderstanding | — | "I've typed that." | Recognition, a grin; charmed by eager Clawd |
+| Verse 1 (0:04) | The agent over-delivers: confetti, 2FA, Kubernetes, twelve subagents | Each gag is "good" on some measure, for nobody in particular | Good at *what*, for *whom*? | Laughing at the over-builds, rooting for Clawd who's trying so hard; a wince when the quota's gone |
+| Pre-chorus 1 (0:21) | The agent's case: you never said | The agent only has what you wrote | It can't read my mind | Sympathy for both sides ("Oh. Fair."); curious: what *did* they want? |
+| Chorus 1 (0:27) | The questions | Good for who, for what; the choices are real trade-offs | "Good" needs a who and a what | Release; singalong; the question hangs open |
+| Verse 2 (0:51) | Eight different people, each wanting something different | Different people, different trade-offs, **including us and the agents** ("keep diags neat") | "Which one is mine?" | Seen; delighted by each new person |
+| Pre-chorus 2 (1:17) | The same complaint, now with all those people in mind | The gap is bigger than one missing sentence | — | Tension: the gap feels bigger, still no answer |
+| Chorus 2 (1:23) | The questions again | The same choice lands differently for each person | There's no single "good" | Energy peak; overwhelmed alongside Clawd |
+| Bridge (1:47) | Why agents don't ask: they learned from people who threw "who's it for?" over the wall | You can't know what to build or test without thinking about who it's for; it's not someone else's job | Not knowing is normal; it's inherited | Understanding, not blame; tenderness for Clawd, who only knew what it was taught |
+| Break (2:09) | The definition, then the agent: "I'm someone too" | Value to someone who matters, and that includes the agent | My agent is someone I'm building for too | Warmth: Clawd counts too (the well-up moment) |
+| Final pre-chorus (2:28) | The plea | Tell it who and what; and the agent asks | — | Hope: will they answer? |
+| Final chorus (2:41) | The brief gets written as the questions are sung | A good brief answers the chorus | What a good brief looks like | Satisfaction, relief: the answer at last |
+| Outro (3:05) | A toy that's allowed to be a toy | "Fine if it's gone after summer" is a choice, not a failure | You can decide what doesn't matter | Light; permission; a smile |
+
+**Feelings, all the way through** (Qing, 2026-09-25: "invested throughout! sympathetic for the
+characters! curious about answers!"):
+- **Invested in Clawd:** it tries so hard, gets blamed, owns its part. We want it to succeed, and
+  "I'm someone too" pays that off.
+- **Sympathetic to the user too:** they're not stupid; the answer was in their head all along.
+- **Curious:** open questions pull people forward. What did the user actually want (planted in
+  verse 1 and the pre-chorus, answered in the final chorus)? Will Clawd ask ("Guess I didn't ask!",
+  paid off in the final pre-chorus)? Who is it for (asked three times, answered in the outro)?
+- **Wowed, second by second:** "the visuals are going to be what wow people first more than the
+  storyline - every second is about whether people watch the next second." The picture itself
+  has to be a pleasure to look at, every second.
 
 **The brief on screen at the end** (the answer to the chorus; short enough to read in 3 seconds):
 > **for:** me, mid-set, one sweaty hand

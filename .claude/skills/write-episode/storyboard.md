@@ -39,6 +39,16 @@ correct, and the picture shows the actual idea at the moment it's sung. Experts 
 it's precise; newcomers stay because it's delightful. So judge concepts on how well the craft
 carries the ideas, not on teaching and virality as separate scores.
 
+**Visuals win the next second.** "the visuals are going to be what wow people first more than
+the storyline - every second is about whether people watch the next second" (Qing, 2026-09-25).
+The storyline serves the theme, but the picture itself (beautiful, surprising, satisfying motion)
+is what holds each second. A world that teaches well but looks like an infographic fails.
+
+**Feelings run through the whole video, not section by section:** viewers invested throughout,
+sympathetic to the characters, curious about the answers (Qing: "invested throughout! sympathetic
+for the characters! curious about answers!"). Plant open questions early and pay them off late;
+give the characters something to want and something to lose.
+
 **Picture and lyric carry different parts of the idea.** Tim Blais: showing "exactly what I was
 singing on the screen … that's a real waste of space"; "tell part of the story with the with
 visuals and part of the story with the lyrics" ([research](../../../research/tim-blais-craft.md)).

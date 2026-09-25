@@ -5,8 +5,8 @@ Who works"). The craft references put the title in the chorus, where the hook is
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
-**Status:** v7, work in progress. The structure is agreed and the lyrics are being worked through
-with Qing. The storyboard is parked until the lyrics lock.
+**Status:** v7. The lyrics are agreed (Qing, 2026-09-25: "all the lyrics are fine"). The song is
+being made; the storyboard is parked until the song locks.
 
 **Where we stopped (2026-09-24, night):**
 - **Now:** making the song, before any video work (Qing: "let's get to a song we're happy with
@@ -21,12 +21,9 @@ with Qing. The storyboard is parked until the lyrics lock.
   3. In progress: an all-code singing voice (`music/voice/`), the band (`music/lib/band/`), and a
      songwriter review of the map.
   4. Then: the full render, the measurable checks in [MUSIC.md](../MUSIC.md), and Qing's ear.
-- **Still open:**
-  - "nan" or "grandma"
-  - whether "Uni project? Make it pass" reads as "make the tests pass"
-  - whether "Diags" will be understood (MiniMax mispronounced it; our voice reads a phonetic
-    sheet, so that test didn't count)
-  - whether to name Muse, Instinct and Hermes on screen
+- **Lyric questions settled** (Qing, 2026-09-25: "all the lyrics are fine"): "nan" stays, "Uni
+  project? Make it pass" stays, "Diags" stays. Muse, Instinct and Hermes are named on screen,
+  shown as their mascots or logos.
 - **Then:** Qing locks the lyrics and the song, then the storyboard is rebuilt from the song's
   timings (the old one is stale).
 
@@ -218,6 +215,13 @@ Making the song (2026-09-24 night to 2026-09-25):
 > theory (sondheim comes to mind). we can skill pack it and reuse it for future songwriting and if
 > it's in the repo other people can reuse.
 
+Morning of 2026-09-25:
+
+> My main attachment is to the first half of the chorus. By all means if you think you can make
+> things better, make things better. Don't hold back on my behalf.
+
+> all the lyrics are fine. the other bots can be their mascots or logos in the animation
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -366,7 +370,7 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 | 1:04 | **Bridge** | A big green **"✅ All tests pass"** over the broken blog. Pull back to a vast crowd of coders, the whole internet, heads down over keyboards. A sticky note reading **who's it for?** is passed hand to hand and tossed over a wall marked **PRODUCT TEAM**. | "I learned to code from all of you *(whoa-oh)* / and most left the users at product's door *(whoa-oh)*" | The biggest shot in the video. Why agents don't know: it's inherited, and it's normal |
 | 1:08 | | The robot catches the sticky note mid-air and holds it up, the largest text in the shot. On "test", the ✅ cracks. | "But what you build and test won't do *(whoa-oh)* / unless you ask who it's for *(whoa-oh)*" | The deep point: who it's for is part of building *and* testing |
 | 1:12 | **Breakdown** | Half-time. Gang vocals, one word per hit, in type that fills the screen. Credit shown only during the chant: *Weinberg · Bach & Bolton · via Ed Pringle* | "SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS" | The musical peak, and the line people will quote |
-| 1:18 | | The robot, quiet, looks at its own code. Then labelled bots pop up one after another, each squeezing into frame: *Muse*, *Instinct*, *Hermes*. Small credit: *someone or something who matters: Ed Pringle* | "I'm someone too, / I'm debugging this with you" / bots, one per hit: *"and me! and me! and me!"* | "Who matters" hands straight to "me too". Agents as team members, then a comic pile-up |
+| 1:18 | | The robot, quiet, looks at its own code. Then labelled bots pop up one after another, each squeezing into frame as its own mascot or logo: *Muse*, *Instinct*, *Hermes*. Small credit: *someone or something who matters: Ed Pringle* | "I'm someone too, / I'm debugging this with you" / bots, one per hit: *"and me! and me! and me!"* | "Who matters" hands straight to "me too". Agents as team members, then a comic pile-up |
 | 1:21 | **Final pre-chorus** | The quota meter ticks over: *new session*. The robot sings up at the empty box, pleading. | "So please tell me who it's FOR, / please tell me what they WANT" | The plea: the viewer is asked directly |
 | 1:24 | | The stop on "prompt", and in the silence the cursor starts typing. | **"I can't read your mind / I'm only reading your prompt"** | The open question starts to close |
 | 1:27 | **Final chorus** | Split screen: **the missing prompt fills in, one line per bar,** above; below, the robot builds and the tiny, delightful gym log comes together: one tap per set, a PB flame. Quota used: 8%, green. | "GOOD FOR WHO-O-O? *(who-o-o?)* / GOOD FOR WHA-A-AT? *(wha-a-at?)*" | Now the questions have answers on screen |

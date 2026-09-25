@@ -47,6 +47,12 @@ craft for each stage; these are the repo-specific steps.
    ```
    Pitch is reliable to a semitone on held notes; watch for octave slips. Word times are ±0.1–0.2 s,
    so treat the rhythm as a draft for the expert to correct.
+   **Transcribe the ornaments, not just the held notes.** Scoops, falls, turns, grace notes and
+   backing echoes are much of why a take sounds good. Episode 1's first transcription kept only
+   held notes, so the chorus tail read as near-monotone, and a whole round of rewrites was aimed
+   at a problem the take didn't have (Qing: "there's vocal embellishments there that make it
+   sound much better", 2026-09-25). Before anything is built on a transcription, check it by ear
+   against the take: render it and play the two side by side.
 3. **Song map and score.** Write `epNN/score.mjs` (start from episode 1's), then generate the map's
    grids with `node music/epNN/grids.mjs --write`. Never hand-edit the grids. Keep alternatives
    behind environment switches (`HARMONY=v1`, `PC_BARS=5`) so the expert can compare them by ear.

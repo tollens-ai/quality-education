@@ -222,6 +222,13 @@ Morning of 2026-09-25:
 
 > all the lyrics are fine. the other bots can be their mascots or logos in the animation
 
+> THERE'S NOTHING WRONG WITH A Gm CHORD IT'S JUST A REALLY STUPID CADENCE
+
+> also the current one is not a faithful transcription of the Minimax recording? there's vocal
+> embellishments there that make it sound much better
+
+> I went back to listen to it and it's great
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

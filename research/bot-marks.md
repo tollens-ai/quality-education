@@ -23,4 +23,7 @@ This is not legal advice.
 - **Classic symbols** are always available: a star, sun and moon for Astra, Sol and Luna; a lyre
   for Muse; winged sandals for Hermes.
 - **The post text says** the video isn't affiliated with or endorsed by any company shown.
-- **Check with Qing** that Instinct and Muse mean Spear Street's agent and Meta's agent.
+- **Muse appears as its mascot, Jolly** (Qing, 2026-09-25: "make sure you grab the actual muse
+  mascot that guy is adorable"). Draw him faithfully rather than restyling him.
+- **Instinct has no usable mark** (Qing: "instinct doesn't have a good logo"): no mark-based
+  character; a name label at most.

@@ -320,6 +320,12 @@ After the funnel (2026-09-25):
 
 > also did you have a look at the big reference prompt?
 
+> yeah, because it's coding we could go for the claude code crab. but using the symbol is fine.
+> also make sure you grab the actual muse mascot that guy is adorable. instinct doesn't have a good
+> logo.
+
+> and yeah I didn't want the style specifics from the prompt, more the level of ambition
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

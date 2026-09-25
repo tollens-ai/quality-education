@@ -94,7 +94,7 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
    visibly changed; the band stops and the breakdown have a spatial move.
 4. **One shot, for real.** No hidden cuts, no fades to a new scene.
 5. **Buildable in code in 9:16,** with room composed for the lyrics: they're designed motion
-   graphics, not a subtitle band (see the ambition brief).
+   graphics, not a subtitle band (CRAFT.md, "The bar for craft").
 
 ### One-shot rules
 
@@ -127,11 +127,11 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
   separated them. Swap the A/B order between pairwise judges.
 - **Let generators write their output to a named file** in the episode's private working folder.
   Transcribing returned text by hand into files for the judges was the slowest step.
-- **Read the ambition brief before briefing anyone.** The concept brief put the lyrics in a
-  caption band. The ambition brief (`.private/reference-briefs/ambition-brief-jewkes.md`) says the
-  opposite: on-screen lyrics are the main tool for holding attention, as designed motion graphics,
-  huge at the hook and composed into the shot (the background quiet where the words are big). A
-  summary lost that; read the original.
+- **Read the ambition brief before briefing anyone, for its level of ambition** (not its style:
+  Qing, "I didn't want the style specifics from the prompt, more the level of ambition"). The
+  concept brief also put the lyrics in a caption band, against CRAFT.md's own rule that on-screen
+  text is the main tool for holding attention: the lyrics are designed motion graphics, huge at
+  the hook and composed into the shot, with the background quiet where the words are big.
 - **Give every stage's brief the same fact sheet.** One concept brief (requirements, song table,
   existing ideas, gates) was reused by generators, judges and treatment writers, so every round
   judged against the same facts.

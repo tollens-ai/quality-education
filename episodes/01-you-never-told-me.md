@@ -353,6 +353,8 @@ After the funnel (2026-09-25):
 
 > what is testing is another lesson. what are oracles is another lesson.
 
+> the entirety of what we're teaching this lesson is "quality is value to people who matter"
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -952,21 +954,22 @@ for me, it's for fun, and it doesn't need to last. A toy is allowed to be a toy.
 Text first, before any world or pictures (Qing: "start with text. what does each part do, what
 does it teach, what do people learn, how do you want them to feel?").
 
-**The lesson, in one line:** "make it good" means nothing until you say who it's for and what they
-care about. The agent can't know that unless you tell it, and it should ask.
-
-**In scope: three things a viewer leaves knowing**
-1. "Good" isn't a property of the app. It's good *for someone*, at *something*. (CANON)
-2. The agent only has what you wrote. It guesses the rest, and it should have asked. The blame is
-   shared. (CANON; "Guess I didn't ask!")
-3. Different people want different trade-offs (fast, sturdy, cheap, wow, lasting), including
-   you and your agents. Saying yours, and what you *don't* need, is the brief. (CANON)
+**The lesson, entire:** quality is value to people who matter (Qing, 2026-09-25: "the entirety
+of what we're teaching this lesson is 'quality is value to people who matter'"). Nothing else is
+taught. Every section unpacks that one idea:
+- **Value**: "good" is always good at *something*, and the somethings pull against each other
+  (fast, sturdy, cheap, wow, lasting). The chorus.
+- **To people**: good is always good *for someone*, and different people value different things.
+  Verse 2.
+- **Who matter**: that includes you, and the agents building with you. The break.
+- **The story that makes it land:** your agent can't know who matters to you, or what they value,
+  unless you say, and it should ask. The agent's complaint, and the brief at the end.
 
 **Out of scope** (for later episodes; at most a background easter egg here, never a main read):
 what testing is (testing versus checking, ritual testing); what oracles are ("how would we
-know?"); proxies such as coverage or green ticks; the trenchcoat (unpacking "sturdy"); there's no mainline user; the four bars
-(delight, good enough, ugh, dealbreaker) as a framework; agent-facing quality in detail; security
-floors; "why, not what" comments; the Sonos-style real failures.
+know?"); proxies such as coverage or green ticks; the trenchcoat (unpacking "sturdy"); there's no
+mainline user; the four bars (delight, good enough, ugh, dealbreaker); agent-facing quality in
+detail; security floors; "why, not what" comments; real-world failures.
 
 **Section by section**
 
@@ -1000,9 +1003,9 @@ floors; "why, not what" comments; the Sonos-style real failures.
 - "Steals the show" isn't "wow is bad": wow is a legitimate thing to want.
 - "Please just tell me" isn't "a perfect prompt solves everything": the agent still asks.
 
-**For Qing:** does the scope match what you want this episode to teach? Two ideas used here aren't
-yet in CANON, both Ed's: "good has no meaning until you name who and what", and "a non-goal is a
-decision, not an oversight" (the outro). OK to use them?
+**For Qing:** does the section-by-section plan carry the one lesson the way you want? One idea in
+it isn't yet in CANON: the outro's "fine if it's gone after summer" shown as a choice, not a
+failure (Ed: "a non-goal is a decision"). OK to show it that way?
 
 ## Storyboard funnel (one shot, 2026-09-25)
 

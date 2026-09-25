@@ -243,6 +243,11 @@ Morning of 2026-09-25:
 > the code voice is has two main issues, one is the account [accent] is kinda odd and the second
 > is the ornamentation is very unnatural because it's not gliding between pitches
 
+> also I'm sorry but the melodies are still kind of terrible. idk if it's... you're failing to
+> think about melodies and harmonies at the same time
+
+> do we need to try some other AI music generation services?
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

@@ -48,3 +48,22 @@ quality. Credit them here and on screen.
 - [Examples of real software quality failures](research/software-quality-failures.md)
 - James Bach and Michael Bolton on testing vs checking, and on ritual testing ([notes](research/bach-bolton-ritual-testing.md))
 - Research on teaching with video is in [CRAFT.md](CRAFT.md)
+
+## Episode 1: what went into the video
+- **Song:** lyrics by Qing Cheng with Claude; performed by a MiniMax generation Qing chose (we own
+  the rights to our MiniMax generations).
+- **Ideas:** quality as value to someone who matters (Weinberg; "who matters", Bach & Bolton;
+  "someone or something", Ed Pringle); agents as people who matter (Qing); "a non-goal is a
+  decision" (Ed Pringle). Credited on screen during the break.
+- **Clawd,** the Claude Code crab, is Anthropic's mascot. Its proportions were learned from John
+  Heibel's MIT-licensed [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase)
+  model sheet; the drawing code is our own.
+- **Bots appear as their owners' marks and mascots,** reproduced as provided and not restyled:
+  OpenClaw's Molty (OpenClaw Foundation), Muse's Jolly and logo (Meta), the OpenAI Blossom, Grok's
+  mark (xAI), Hermes Agent's caduceus (Nous Research). No affiliation or endorsement is implied.
+  Details and usage terms: [research/bot-marks.md](research/bot-marks.md).
+- **Fonts** (SIL Open Font License, copies in `video/fonts/`): Bricolage Grotesque, Caveat,
+  Pixelify Sans, JetBrains Mono.
+- **How it was made:** the storyboard process came from research on animation, music-video and
+  creator studios ([notes](research/studio-pre-production.md)) and on Tim Blais's A Capella Science
+  ([notes](research/tim-blais-craft.md)).

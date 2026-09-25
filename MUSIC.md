@@ -107,6 +107,16 @@ How to choose and audit chords, with the research behind it, lives in the songwr
 [references/harmony.md](.claude/skills/songwriting/references/harmony.md). The rules that govern
 this series in particular stay here and in [LYRICS.md](LYRICS.md).
 
+- **Qing's harmony verdicts are hard filters.** A chord she has rejected doesn't come back in a
+  new context without new evidence, and options that break a verdict are cut before she hears
+  them. In episode 1 that's Gm (iii): it stalled the pre-chorus, and a chorus-tail option over
+  A♭–B♭–Gm–Cm brought it back and was rejected at once (2026-09-25: "what on earth in your
+  harmonic theory analysis makes you think it's OK to end the chorus on G minor here").
+- **A section that ends must cadence.** A chorus or tail that hands on to a new section needs a
+  dominant (V, V⁶ or a ♭VII substitute) before the tonic. iii–vi–I has no dominant: with the
+  melody holding the shared third (G over Gm, Cm, E♭), the arrival sounds like the minor chord,
+  not home. The "royal road" (IV–V–iii–vi) is a J-pop loop built to keep going, not to end, and
+  it isn't a pop-punk move.
 
 ## Sound design (synthesis in JS)
 - **Kick:** a sine wave with a fast downward pitch sweep (about 150 → 50 Hz over 30–50 ms) and an

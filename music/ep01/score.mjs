@@ -19,7 +19,8 @@ const HV2 = (globalThis.process?.env?.HARMONY ?? 'v2') === 'v2';
 
 // The chorus tail (bars 5–8 of each chorus pass, after the hook). v1 is the take's tail, which
 // sits in the verse's register, so the hook's leap carries all the chorus's lift. CHORUS_TAIL=
-// a|b|c renders the candidates (2026-09-25), which lift the tail to G4–D5 and differ in harmony
+// a|c renders the candidates (2026-09-25; b, over A♭–B♭–Gm–Cm, was dropped: Qing had already
+// ruled out Gm, and it ended the chorus with no dominant), which lift the tail to G4–D5 and differ in harmony
 // and where the tail peaks. See TAIL_OPTIONS below.
 const TAIL = globalThis.process?.env?.CHORUS_TAIL ?? 'v1';
 
@@ -83,7 +84,7 @@ function chorus(b0, name, passes) {
   return out;
 }
 
-// ---- Chorus tail candidates (CHORUS_TAIL=a|b|c) ----------------------------------------------
+// ---- Chorus tail candidates (CHORUS_TAIL=a|c) ----------------------------------------------
 // One tail melody for all three choruses: each candidate gives a pitch for every eighth-note slot
 // of the four tail bars (a "lane"), and each syllable sings the pitch of the slot it starts on.
 // The words vary; the stresses sit on the same slots in every chorus (1 and 3, then 1 and a push
@@ -123,19 +124,6 @@ const TAIL_OPTIONS = {
       `Bb4 Ab4 F4 F4 ${PICKUP}`,
     ],
     last: { c1: ['STEALS the SHOW ~ -ow ~ ~ .', 'Bb4 Ab4 F4 Eb4'], done: 'Bb4 C5 D5>Eb5' },
-  },
-  // b, "sequence": IV–V–iii–vi (A♭–B♭–Gm–Cm, the "royal road") under line B singing line A's
-  // tune a step higher. The peak, D5, falls on the first word of line B every time: WOW, DOES,
-  // NO (agents), NO (API keys), NO (stale prompts), FINE.
-  b: {
-    chords: ['Ab', 'Bb', 'Gm', 'Cm Eb'],
-    lanes: [
-      'C5 C5 C5 Bb4 Ab4 Ab4 Ab4 Bb4',
-      'Bb4 Bb4 C5 Bb4 Bb4 Bb4 Bb4 Bb4',
-      'D5 D5 D5 C5 Bb4 Bb4 Bb4 C5',
-      `C5 Bb4 G4 G4 ${PICKUP}`,
-    ],
-    last: { done: 'C5 Bb4 D5>Eb5' },
   },
   // c, "staircase": IV–V–vi–V6 (A♭–B♭–Cm–B♭/D), the bass climbing by step into the hook's E♭.
   // The downbeats climb A♭4–B♭4–C5–D5, and the hook's WHO completes the stair on E♭5. The peak

@@ -229,6 +229,9 @@ Morning of 2026-09-25:
 
 > I went back to listen to it and it's great
 
+> yeah, on that version is only a 1x chorus repeat and what's there is an EXCELLENT chorus first
+> half. it needs a second time bar that ties a bow on it though - just repeating won't work
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

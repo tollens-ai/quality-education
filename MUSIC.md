@@ -112,6 +112,10 @@ this series in particular stay here and in [LYRICS.md](LYRICS.md).
   nearest chord: in episode 1 the pre-chorus Gm stalled the build (strong, weak, weak), and a
   chorus-tail option ending iii–vi–I was "a really stupid cadence". Neither is a verdict on Gm
   itself (2026-09-25: "THERE'S NOTHING WRONG WITH A Gm CHORD IT'S JUST A REALLY STUPID CADENCE").
+- **A doubled chorus needs a second-time ending.** The first pass ends open, sending the song
+  back to the hook; the second pass keeps the tune but changes its last bar or two to close
+  (Qing, 2026-09-25: "it needs a second time bar that ties a bow on it though - just repeating
+  won't work").
 - **A section that ends must cadence.** A chorus or tail that hands on to a new section needs a
   dominant (V, V⁶ or a ♭VII substitute) before the tonic. iii–vi–I has no dominant
   (Qing, 2026-09-25, on episode 1's option b: "what on earth in your harmonic theory analysis

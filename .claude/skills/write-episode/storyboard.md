@@ -23,6 +23,16 @@ too much is prohibitive".
 Our advantage is that the animatic and the final film are the same code. Fidelity rises layer by
 layer on one renderer, so the cheap test is never thrown away.
 
+## The storyline serves the theme
+
+The series exists to teach (Qing, 2026-09-25: "our purpose is to be educational so you want to
+evoke as much of our quality philosophy and educational points relevant to this lesson as
+possible"; "the storyline should serve the theme"). The world and its story are a model of the
+episode's ideas: every landmark, prop and turn teaches something from the quality philosophy.
+Retention and shareability are gates the concept must pass, not what it's chosen for. A device that
+could front any song on the same topic (a dog fetching, a marble run) is a gimmick, however well it
+packages.
+
 ## Our costs aren't a studio's
 
 Qing (2026-09-25): "remember what's cheap and expensive and quick and slow for you isn't the same
@@ -61,9 +71,10 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
   fresh again, so every screening uses new subagents.
 - **Compare in pairs, not with scores.** "Which of these two would you watch to the end, and why?"
   is steadier than a 1–10 score. Run a small knockout and read the reasons, not just the winner.
-- **The criteria are Qing's six questions:** why open it, why watch the next 3 seconds (at every
-  3 seconds), why watch to the end, why like it, why share it. Two more: is it true, and can we
-  build it in code?
+- **Teaching comes first.** Judge first how much of the teaching inventory the concept makes
+  visible, and how well its storyline carries the lesson's argument. Then Qing's six questions
+  (why open it, why watch the next 3 seconds, why watch to the end, why like it, why share it),
+  then whether it's true and buildable in code.
 - **Notes name problems, not fixes.** The creator (you) chooses the fix, as Pixar's Braintrust
   works.
 - **Models rank; humans certify.** A model saying it laughed is not a laugh. Model viewers are a
@@ -75,6 +86,7 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
 | # | Stage | Artifact | Gate | Qing |
 |---|---|---|---|---|
 | 1 | **Score the song** | `music/epNN/beats.json`: sections, bars, lines, band stops, energy, with every 3-second window listed | Generated from the take, not typed | No |
+| 1b | **Teaching inventory** | Every idea from the quality philosophy that bears on this lesson: plain wording, source and credit, CANON-approved or not, the lyric lines it deepens, a picture seed | Read from primary sources, not summaries; ranked core / supporting / tangential | Only for ideas not yet in CANON |
 | 2 | **World-rule funnel** | ~20 concepts, each with a world rule, a first frame, a title line, the screenshot and the clip moment | Gates below; then a pairwise knockout down to 3 | No |
 | 3 | **Treatments** | One page each for the top 3: the world, a timed camera-path map, how each repeat changes, key moments, the ending and loop | Read cold, while the song plays, by fresh judges; pick 1. If they split, build the contenders as grey-box animatics and judge those | **Yes:** the pick and runner-up as short clips, and what they claim |
 | 4 | **Beat jobs and path map** | Every 3-second window gets a job (hook, escalate, re-engage, payoff) and a place on the camera path | No empty window; a re-engagement at each chorus return; seams planned | No |
@@ -86,6 +98,10 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
 | 10 | **After release** | Swipe and retention curves | Each drop logged against its beat, as a hypothesis for the next episode | Summary |
 
 ### Concept gates (stage 2)
+
+0. **The world is the lesson.** Its rule, its landmarks and its story turns are ideas from the
+   teaching inventory. Test: swap in a different song on the same topic; if the world still fits
+   just as well, it's a gimmick.
 
 1. **Packages in one line and one frame.** A title line and a muted first frame carry it. MrBeast's
    rule: know the title and thumbnail before you make the video.
@@ -113,6 +129,10 @@ picture. Show Qing short side-by-side clips of the deciding moments, not documen
 
 ### What episode 1's funnel taught (2026-09-25)
 
+- **Judging for packaging picks gimmicks.** Episode 1's first funnel led with virality and treated
+  teaching as a pass/fail gate, and the winners (a robot pup fetching, a marble run) were devices
+  that carried jokes, not the philosophy. Qing sent them back as too gimmicky. Build the teaching
+  inventory first and judge teaching first.
 - **Run the fact-checker at the treatment stage, not only at the end.** The craft judges missed
   every truth problem the fact-checker found in the three treatments: a credit styled as a
   Community Note (it mimics X's real interface and implies the credited people endorse the

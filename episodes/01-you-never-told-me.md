@@ -326,6 +326,12 @@ After the funnel (2026-09-25):
 
 > and yeah I didn't want the style specifics from the prompt, more the level of ambition
 
+> idk if both of them seem too gimmicky. remember our purpose is to be educational so you want to
+> evoke as much of our quality philosophy and educational points relevant to this lesson as
+> possible
+
+> the storyline should serve the theme
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

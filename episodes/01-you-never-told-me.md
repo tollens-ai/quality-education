@@ -355,6 +355,10 @@ After the funnel (2026-09-25):
 
 > the entirety of what we're teaching this lesson is "quality is value to people who matter"
 
+On the teaching plan (2026-09-25):
+
+> I'm happy with this. can you one shot this from here? I'll toggle your effort up
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -1003,9 +1007,8 @@ detail; security floors; "why, not what" comments; real-world failures.
 - "Steals the show" isn't "wow is bad": wow is a legitimate thing to want.
 - "Please just tell me" isn't "a perfect prompt solves everything": the agent still asks.
 
-**For Qing:** does the section-by-section plan carry the one lesson the way you want? One idea in
-it isn't yet in CANON: the outro's "fine if it's gone after summer" shown as a choice, not a
-failure (Ed: "a non-goal is a decision"). OK to show it that way?
+**Approved by Qing (2026-09-25):** "I'm happy with this", including the outro's "fine if it's
+gone after summer" shown as a choice, not a failure (Ed: "a non-goal is a decision").
 
 ## Storyboard funnel (one shot, 2026-09-25)
 

@@ -1200,12 +1200,20 @@ craft is visible: a band made entirely of code.
 - **To reply:** the post text asks for their vaguest prompt, as a question between builders, not a call to action.
 - **For the novelty:** every note, frame and syllable is code.
 
-## Post text (draft)
+## Post text (draft v2, for the one-shot video)
 
-> POV: you're the coding agent and the whole spec is "make it good" 🎸
-> (every note, frame and syllable in this is code)
+> POV: you're Claude and the whole spec is "make it good" 🦀
+> good for WHO?
+>
+> a one-shot music video about the idea every prompt forgets: quality is value to people who matter
 >
 > what's the vaguest prompt you've ever sent?
+>
+> (every frame drawn in code by Claude Opus · song: our lyrics, sung by a MiniMax take · not
+> affiliated with or endorsed by any company or mascot shown)
+
+The earlier draft said "every note, frame and syllable in this is code". That was true of the
+all-code plan and isn't any more: the singing is a MiniMax generation.
 
 ## Review log
 - **Round 1 (2026-09-24):** four reviewers: a songwriter, a short-form editor, simulated viewers,

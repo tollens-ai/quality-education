@@ -255,6 +255,14 @@ Morning of 2026-09-25:
 > verse 1 we can go for a bit more of an expository storytelling approach and that means the sort
 > of word compression that we had to do to get it to fit is unnecessary
 
+On v8 (2026-09-25):
+
+> thanks, it scans terribly but I can probably try to do it from here
+
+> FYI for future reference this is what I had to get it to prounounce everything properly, and
+> obviously I could never get it to do the long holds so I'll either rewrite the structure or try
+> other things (like ooos)
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

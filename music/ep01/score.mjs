@@ -19,8 +19,8 @@ const HV2 = (globalThis.process?.env?.HARMONY ?? 'v2') === 'v2';
 
 // The chorus tail (bars 5–8 of each chorus pass, after the hook). v1 is the take's tail, which
 // sits in the verse's register, so the hook's leap carries all the chorus's lift. CHORUS_TAIL=
-// a|c renders the candidates (2026-09-25; b, over A♭–B♭–Gm–Cm, was dropped: Qing had already
-// ruled out Gm, and it ended the chorus with no dominant), which lift the tail to G4–D5 and differ in harmony
+// a|c renders the candidates (2026-09-25; b, A♭–B♭–Gm–Cm, was dropped: it ended the chorus
+// iii–vi–I, with no dominant. Qing: "a really stupid cadence"; Gm itself is fine), which lift the tail to G4–D5 and differ in harmony
 // and where the tail peaks. See TAIL_OPTIONS below.
 const TAIL = globalThis.process?.env?.CHORUS_TAIL ?? 'v1';
 

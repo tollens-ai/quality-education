@@ -21,6 +21,19 @@
   const q = new URLSearchParams(location.search);
   const scene = await import(q.get('scene'));
   const S = await loadSong(q.get('song'));
+  // Scenes may declare fonts: [[family, url, descriptors?]] and images: {name: url}. Paths are
+  // relative to the repo root. A missing image leaves S.img[name] undefined, so scenes fall back.
+  await Promise.all((scene.fonts || []).map(async ([family, url, desc]) => {
+    const f = new FontFace(family, `url(/${url})`, desc || {});
+    document.fonts.add(await f.load());
+  }));
+  S.img = {};
+  await Promise.all(Object.entries(scene.images || {}).map(([name, url]) => new Promise(res => {
+    const im = new Image();
+    im.onload = () => { S.img[name] = im; res(); };
+    im.onerror = () => res();
+    im.src = `/${url}`;
+  })));
   const c = document.getElementById('c'), g = c.getContext('2d');
   const cw = +(q.get('w') || 540);
   c.width = cw; c.height = Math.round(cw * H / W);

@@ -25,7 +25,8 @@ const out = args.out || 'video/out';
 fs.mkdirSync(out, { recursive: true });
 const w = +(args.w || 540);
 
-const types = { '.js': 'text/javascript', '.mjs': 'text/javascript', '.html': 'text/html', '.json': 'application/json', '.mp3': 'audio/mpeg' };
+const types = { '.js': 'text/javascript', '.mjs': 'text/javascript', '.html': 'text/html', '.json': 'application/json', '.mp3': 'audio/mpeg',
+  '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.ttf': 'font/ttf', '.woff2': 'font/woff2' };
 const server = http.createServer((req, res) => {
   const p = path.join(root, decodeURIComponent(new URL(req.url, 'http://x').pathname));
   if (!p.startsWith(root) || !fs.existsSync(p)) { res.writeHead(404); return res.end(); }
@@ -84,15 +85,21 @@ if (args.sheet) {
 
 if (args.video) {
   const fps = +(args.fps || 12);
+  // --frames a:b renders global frames a..b-1 (frame k is at k/fps), silent, for parallel segments
+  // that are joined later; otherwise the whole from..to range, with audio if given.
+  let f0 = Math.round(from * fps), f1 = Math.floor(to * fps);
+  if (args.frames) [f0, f1] = String(args.frames).split(':').map(Number);
+  const withAudio = args.audio && !args.frames;
   const ff = spawn(process.env.FFMPEG || 'ffmpeg', [
     '-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-',
-    ...(args.audio ? ['-ss', String(from), '-t', String(to - from), '-i', args.audio] : []),
-    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '23', ...(args.audio ? ['-c:a', 'aac', '-shortest'] : []),
+    ...(withAudio ? ['-ss', String(f0 / fps), '-t', String((f1 - f0) / fps), '-i', args.audio] : []),
+    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', String(args.crf || 20), '-preset', 'medium',
+    ...(withAudio ? ['-c:a', 'aac', '-b:a', '256k', '-shortest'] : []),
     args.video,
   ], { stdio: ['pipe', 'inherit', 'inherit'] });
-  const n = Math.floor((to - from) * fps);
+  const n = f1 - f0;
   for (let i = 0; i < n; i++) {
-    const buf = await grab(from + i / fps, 'jpeg');
+    const buf = await grab((f0 + i) / fps, 'jpeg');
     if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
     if (i % (fps * 20) === 0) console.log(`frame ${i}/${n}`);
   }

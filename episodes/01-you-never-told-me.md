@@ -5,27 +5,14 @@ Who works"). The craft references put the title in the chorus, where the hook is
 **Concept:** software quality is value to someone who matters.
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
-**Status:** v7. The lyrics are agreed (Qing, 2026-09-25: "all the lyrics are fine"). The song is
-being made; the storyboard is parked until the song locks.
+**Status:** v8, restructured for a lyrics-to-song generator to perform (Qing, 2026-09-25). The
+lyric sheet below needs Qing's check; the storyboard is parked until the song locks.
 
-**Where we stopped (2026-09-24, night):**
-- **Now:** making the song, before any video work (Qing: "let's get to a song we're happy with
-  first before starting video"). Qing handed this over overnight to be done carefully and in an
-  order that finds problems cheaply. The order:
-  1. Song map, done: [01-song-map.md](01-song-map.md) has form, bars, chords and every syllable on
-     the grid. The first chorus is taken verbatim from Qing's favourite MiniMax take (we own the
-     rights to our MiniMax generations).
-  2. Score as code, done: `music/ep01/score.mjs`, with an audit (`audit.mjs`) and a
-     click-and-guide render and karaoke page (`guide.mjs`, `karaoke.mjs`) for the cheap
-     listening check.
-  3. In progress: an all-code singing voice (`music/voice/`), the band (`music/lib/band/`), and a
-     songwriter review of the map.
-  4. Then: the full render, the measurable checks in [MUSIC.md](../MUSIC.md), and Qing's ear.
-- **Lyric questions settled** (Qing, 2026-09-25: "all the lyrics are fine"): "nan" stays, "Uni
-  project? Make it pass" stays, "Diags" stays. Muse, Instinct and Hermes are named on screen,
-  shown as their mascots or logos.
-- **Then:** Qing locks the lyrics and the song, then the storyboard is rebuilt from the song's
-  timings (the old one is stale).
+**Where we stopped (2026-09-25):** the song is being rewritten for the generator to perform (v8
+below), after the all-code and local-neural voices couldn't sing the fast lines and the melodies we
+composed ourselves didn't work (Qing: "the melodies are still kind of terrible"). Next: Qing checks
+v8's words, then generates takes; we transcribe what she picks and build the storyboard on the
+chosen take's timings. The code band, code voice and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 
@@ -248,6 +235,26 @@ Morning of 2026-09-25:
 
 > do we need to try some other AI music generation services?
 
+> Just took a very necessary shower and had a really obvious idea. If the structure of the songs
+> that we're writing doesn't work for our music generators but the music generators otherwise work
+> very well, then we should write structures of songs that they can actually perform.
+>
+> We should be treating our performers as people with their own preferences here and trying to
+> think about what we can come up with. Together that's the best.
+>
+> That means:
+> - Rather than repeating verses we go for contrasting verses and we don't have to do this
+>   [sudoku] thing.
+> - For the pre-chorus and chorus if we're going to repeat, then we just outright repeat them. We
+>   write our lyrics in such a way that we can do different storyboards for the progression
+>   rather than lyrics for the progression.
+> - If we want to have a resolution, then we need to write it as an outro.
+
+> In this case I think that the "we didn't start the fire" structure works very well for verse 2
+> and we can just do two lots of four for verse 2 rather than trying to go into that tail. For
+> verse 1 we can go for a bit more of an expository storytelling approach and that means the sort
+> of word compression that we had to do to get it to fit is unnecessary
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -279,51 +286,48 @@ cue times.
   chorus, and is then held full screen.
 - **Captions**: a word-by-word wipe of the lead vocal only, inside the X safe zone.
 
-## Lyric sheet (working)
+## Lyric sheet (v8, written for the performer)
 
-The lyrics are being worked on here. The storyboard below is **parked**: it will be rebuilt from
-this sheet once the lyrics are locked, and until then it may lag behind.
+v8 restructures the song so a lyrics-to-song generator can perform it well (Qing, 2026-09-25):
+contrasting verses instead of verses that must match, the pre-chorus and chorus repeated word
+for word, and the resolution moved to an outro. The progression the old chorus lyrics carried
+now lives in the storyboard: the same chorus over new pictures each time. v7 is in git history.
 
 **Cold open**
 > You said make it GOOD, so I made it good!
 
-**Verse 1** (the rhythm of the "We Didn't Start the Fire" verses)
-> Confetti every time you floss
-> 2FA on your gym log
-> Kubernetes for your blog
-> Twelve subagents round the clock
-> Did I do it wrong? / Oops, your quota's gone!
+**Verse 1** (storytelling: natural phrasing, no compression)
+> It was Monday and you gave me three to do:
+> a gym log, a blog, a habit tracker too.
+> Three little words, and then you were gone,
+> so I threw in every good thing I'd been trained on:
+> confetti cannons every time you floss,
+> two-factor auth before you log a set,
+> Kubernetes for a blog nobody's read yet,
+> twelve subagents working round the clock.
+> Did I do it wrong? Oops, your quota's gone!
 > *(spoken)* Guess I didn't ask.
 
-**Pre-chorus**
+**Pre-chorus** (identical every time)
 > You didn't tell me who it's FOR / you didn't tell me what they WANT
 > I can't read your mind / I'm only reading your prompt *(band stops)*
 
-**Chorus 1**
+**Chorus** (identical every time; the words of Qing's chosen take)
 > GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
 > Fast to run, sturdy or cheap?
 > Wow for a week or built to keep?
-> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
-> Ship it now or room to grow?
-> Does what they need or steals the show?
 
-**Verse 2**
+**Verse 2** ("We Didn't Start the Fire" list, two lots of four)
 > Product demo? Wow them fast
 > Paying users? Make it last
 > Group chat bot? Just make 'em laugh
 > Uni project? Make it pass
-> Just for you, for fun? / Then you're the one!
-> *(spoken)* There's always someone.
+> Your nan's phone? Just keep it plain
+> Commute home? It works on trains
+> Can't see the screen? Read out names
+> Public repo? Keys away!
 
-**Pre-chorus** (as before)
-
-**Chorus 2**
-> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
-> Works on a train, on your nan's old phone?
-> No agents going rogue on their own?
-> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
-> Works for someone who can't see the screen?
-> No API keys where they'll be seen?
+**Pre-chorus**, **Chorus**
 
 **Bridge**
 > I could only learn from my training set *(whoa-oh)*
@@ -334,23 +338,116 @@ this sheet once the lyrics are locked, and until then it may lag behind.
 **Breakdown**
 > SOFT-WARE / QUAL-I-TY / IS VAL-UE / TO SOME-ONE / WHO MAT-TERS
 
-**Tag**
+**Tag** (the bots are users too)
 > I'm someone too, *(bots, one per hit)* and me! and me! and me!
 > I'm debugging this with you
-
-**Final pre-chorus**
-> So please tell me who it's FOR / please tell me what they WANT
-> I can't read your mind / I'm only reading your prompt
-
-**Final chorus**
-> GOOD FOR WHO-O-O? GOOD FOR WHA-A-AT?
 > Roll back my mistakes? Diags I can use?
 > No stale prompts making me confused!
 
-**Final chorus, second time** (the hook's questions are answered at last, Qing)
+**Pre-chorus**, **Chorus**, **Chorus**
+
+**Outro** (the hook's questions answered at last)
 > GOOD FOR YOU-OU-OU! GOOD FOR THA-A-AT!
 > Just a toy and just for fun!
 > Fine if it dies when summer's done!
+
+**What moved, and why**
+- Verse 1 tells the story in full sentences. It keeps the four gags (floss, 2FA on the gym log,
+  Kubernetes for the blog, twelve subagents) and the verse-end freeze. "Three little words" is
+  "make it good", and "every good thing I'd been trained on" sets up the bridge's training set.
+- Verse 2 is the list. Its second four carry the old chorus 2 tail (the train, nan's phone,
+  someone who can't see the screen, API keys). "Agents going rogue" is cut for room. Verse 2's
+  old tail ("Just for you, for fun? / Then you're the one! / There's always someone") is cut:
+  "just for fun" comes back in the outro.
+- The final pre-chorus's "So please tell me" is gone; the plea is shown instead, with the cursor
+  starting to type.
+- The final chorus's tail lines (roll back, diags, stale prompts) move to the tag, where the bots
+  sing their own needs.
+
+**Open, for Qing's ear:** "you were gone" in verse 1 echoes "your quota's gone" two lines later.
+I've kept it as a callback; "and then you'd logged off" is the alternative if it grates.
+
+**Generator copy** (paste this; the lyric sheet above stays the real spelling and the captions)
+
+Style prompt:
+> British female pop-punk vocalist, bright and cheeky with a slight robotic edge. 180 bpm,
+> E-flat major. Palm-muted verse guitars, big open choruses, gang vocals, a full band stop
+> before each chorus. Verse 1 is sung storytelling; verse 2 is a rapid-fire list; spoken asides.
+> Short, punchy, energetic.
+
+Lyrics:
+```
+[Intro]
+You said make it good, so I made it good!
+
+[Verse]
+It was Monday and you gave me three to do,
+a gym log, a blog, a habit tracker too.
+Three little words, and then you were gone,
+so I threw in every good thing I'd been trained on:
+confetti cannons every time you floss,
+two-factor auth before you log a set,
+Koo-ber-net-eez for a blog nobody's read yet,
+twelve sub-agents working round the clock.
+Did I do it wrong? Oops, your quota's gone!
+(Guess I didn't ask.)
+
+[Pre-Chorus]
+You didn't tell me who it's for, you didn't tell me what they want
+I can't read your mind, I'm only reading your prompt
+
+[Chorus]
+Good for whooo? Good for what?
+Fast to run, sturdy or cheap?
+Wow for a week or built to keep?
+
+[Verse]
+Product demo? Wow them fast
+Paying users? Make it last
+Group chat bot? Just make 'em laugh
+Yoo-nee project? Make it pass
+Your nan's phone? Just keep it plain
+Commute home? It works on trains
+Can't see the screen? Read out names
+Public repo? Keys away!
+
+[Pre-Chorus]
+You didn't tell me who it's for, you didn't tell me what they want
+I can't read your mind, I'm only reading your prompt
+
+[Chorus]
+Good for whooo? Good for what?
+Fast to run, sturdy or cheap?
+Wow for a week or built to keep?
+
+[Bridge]
+I could only learn from my training set (whoa-oh)
+to write the code and throw it over the wall (whoa-oh)
+But how do you know what to build or test (whoa-oh)
+if you're not thinking about who it's for? (whoa-oh)
+Software! Quality! Is value! To someone! Who matters!
+I'm someone too (and me! and me! and me!)
+I'm debugging this with you
+Roll back my mistakes? Dye-ags I can use?
+No stale prompts making me confused!
+
+[Pre-Chorus]
+You didn't tell me who it's for, you didn't tell me what they want
+I can't read your mind, I'm only reading your prompt
+
+[Chorus]
+Good for whooo? Good for what?
+Fast to run, sturdy or cheap?
+Wow for a week or built to keep?
+Good for whooo? Good for what?
+Fast to run, sturdy or cheap?
+Wow for a week or built to keep?
+
+[Outro]
+Good for you! Good for that!
+Just a toy and just for fun!
+Fine if it dies when summer's done!
+```
 
 **Key frames** (only the ones a lyric depends on)
 - The first frame: the "my AI built me absolute garbage 😤" post.

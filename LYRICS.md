@@ -127,6 +127,19 @@ others. Add a rule here whenever a fix teaches one.
 - **Re-read the whole sheet after every fix.** Lyrics interlock: changing one line can break a
   rhyme, a mirror in the other verse, or a callback.
 
+## Writing for the performer
+Treat the performer, human or generator, as a collaborator with preferences, and write a song it
+can actually perform (Qing, 2026-09-25: "we should write structures of songs that they can actually
+perform [...] Together that's the best"). For a lyrics-to-song generator, that means:
+- **Contrasting verses.** Each verse can have its own shape and rhythm. Don't force verse 2 onto
+  verse 1's grid; that syllable-matching puzzle is what generators can't do.
+- **Repeat the pre-chorus and chorus word for word.** Carry the story's progression in the
+  pictures, not in new chorus lyrics. A generator repeats a section well; it can't reliably reuse
+  a melody under new words.
+- **Resolution goes in an outro,** written as its own section.
+- **Let verse lines breathe.** A storytelling verse can use full sentences; word compression was
+  only ever needed to fit a fixed grid.
+
 ## Generating the song (MiniMax)
 Qing's findings from the first generations of episode 1 (2026-09-24):
 - **Generate before the lyrics lock.** A generated track is the quickest scansion check: a

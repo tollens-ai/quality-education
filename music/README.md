@@ -27,6 +27,16 @@ with [`requirements.txt`](requirements.txt). Anything heavy (renders, Whisper, D
 a dev container, not on the host. Keep the exact container route for your machine out of tracked
 files.
 
+## Two routes
+
+- **The generator performs the song** (episode 1 from v8 on). Write the lyrics for the performer
+  (LYRICS.md, "Writing for the performer"), generate takes, and let the expert pick. Then use the
+  analysis tools below to get the chosen take's timings for captions and the storyboard. The code
+  band and voices aren't needed.
+- **Everything is rendered in code** (the route below). It gives exact control of melody and
+  vowels, but in episode 1 neither the code voice nor a local neural voice could sing fast lines
+  clearly, and melodies composed by a model that can't hear didn't satisfy the expert.
+
 ## Order of work
 
 Each stage is cheap to change before the next one is built on it. The songwriting skill has the

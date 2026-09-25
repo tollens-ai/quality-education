@@ -42,7 +42,10 @@ carries the ideas, not on teaching and virality as separate scores.
 **Visuals win the next second.** "the visuals are going to be what wow people first more than
 the storyline - every second is about whether people watch the next second" (Qing, 2026-09-25).
 The storyline serves the theme, but the picture itself (beautiful, surprising, satisfying motion)
-is what holds each second. A world that teaches well but looks like an infographic fails.
+is what holds each second. A world that teaches well but looks like an infographic fails. And the
+artistry is itself the wow: "the reason these are going viral is because people are like wow opus
+is such a good artist" (Qing). Aim for a distinctive artistic voice and visible mastery, the kind
+of look that makes people stop and ask how an AI drew it.
 
 **Feelings run through the whole video, not section by section:** viewers invested throughout,
 sympathetic to the characters, curious about the answers (Qing: "invested throughout! sympathetic

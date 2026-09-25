@@ -367,6 +367,9 @@ On the teaching plan (2026-09-25):
 > also missing fr your how people feel - invested throughout! sympathetic for the characters!
 > curious about answers! etc
 
+> oh and wowed by your artistry and creativity! the reason these are going viral is because people
+> are like wow opus is such a good artist
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -1008,6 +1011,8 @@ characters! curious about answers!"):
 - **Curious:** open questions pull people forward. What did the user actually want (planted in
   verse 1 and the pre-chorus, answered in the final chorus)? Will Clawd ask ("Guess I didn't ask!",
   paid off in the final pre-chorus)? Who is it for (asked three times, answered in the outro)?
+- **Wowed by the artistry:** "the reason these are going viral is because people are like wow
+  opus is such a good artist." The look itself should make people stop and say an AI made this.
 - **Wowed, second by second:** "the visuals are going to be what wow people first more than the
   storyline - every second is about whether people watch the next second." The picture itself
   has to be a pleasure to look at, every second.

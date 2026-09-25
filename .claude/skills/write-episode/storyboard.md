@@ -23,6 +23,21 @@ too much is prohibitive".
 Our advantage is that the animatic and the final film are the same code. Fidelity rises layer by
 layer on one renderer, so the cheap test is never thrown away.
 
+## Our costs aren't a studio's
+
+Qing (2026-09-25): "remember what's cheap and expensive and quick and slow for you isn't the same
+as for the studios". Studios judge on paper first because animation costs them weeks. For us:
+
+- **Cheap and fast:** words; many variants in parallel; code; re-rendering. A grey-box one-shot is
+  a camera spline plus shapes drawn from song time, so a full-length animatic costs hours.
+- **Expensive and slow:** Qing's attention (the scarcest thing); our perception (we can't hear,
+  and see video only as frames or through another model); and paper judgements, which are cheap to
+  run but weak evidence, because model judges react to prose.
+
+So move to motion early. When paper judges split between well-argued options, paper has run out
+of resolution: build each contender as a grey-box animatic on the real song and judge the moving
+picture. Show Qing short side-by-side clips of the deciding moments, not documents.
+
 ## How ideas are generated
 
 - **Separate generators, each with its own lens.** Brief several fresh subagents with the same
@@ -61,10 +76,10 @@ layer on one renderer, so the cheap test is never thrown away.
 |---|---|---|---|---|
 | 1 | **Score the song** | `music/epNN/beats.json`: sections, bars, lines, band stops, energy, with every 3-second window listed | Generated from the take, not typed | No |
 | 2 | **World-rule funnel** | ~20 concepts, each with a world rule, a first frame, a title line, the screenshot and the clip moment | Gates below; then a pairwise knockout down to 3 | No |
-| 3 | **Treatments** | One page each for the top 3: the world, a timed camera-path map, how each repeat changes, key moments, the ending and loop | Read cold, while the song plays, by fresh judges; pick 1 | **Yes:** the pick and runner-up, and what they claim (a few minutes) |
+| 3 | **Treatments** | One page each for the top 3: the world, a timed camera-path map, how each repeat changes, key moments, the ending and loop | Read cold, while the song plays, by fresh judges; pick 1. If they split, build the contenders as grey-box animatics and judge those | **Yes:** the pick and runner-up as short clips, and what they claim |
 | 4 | **Beat jobs and path map** | Every 3-second window gets a job (hook, escalate, re-engage, payoff) and a place on the camera path | No empty window; a re-engagement at each chorus return; seams planned | No |
 | 5 | **Gag room** | Several ideas per window from lens generators, then a plussing round | Each window has at least one strong idea; ranked check/X | No |
-| 6 | **Grey-box animatic** | A browser page: the real take, timed captions, grey shapes and labels, the camera moving on the path. Rendered to a low-res mp4 | Fresh model viewers give swipe points every 3 seconds; seams hold | Optional 3-minute watch |
+| 6 | **Grey-box animatic** | A browser page: the real take, the lyrics as kinetic type, grey shapes and labels, the camera moving on the path. Rendered to a low-res mp4 | Fresh model viewers give swipe points every 3 seconds; seams hold | Optional 3-minute watch |
 | 7 | **Rebuild** | Stage 6 again, two or three times | Swipe points stop moving | No |
 | 8 | **Style frames** (in parallel from stage 4) | 3 finished-look stills at the hook, a chorus and the climax, from the real code | Readable at phone size | Optional |
 | 9 | **Layered final render**, section by section | Detail added to the animatic | Timing, typos, sync against the score; contact sheets | **Yes:** the final truth watch |
@@ -78,7 +93,8 @@ layer on one renderer, so the cheap test is never thrown away.
 3. **The world rule covers the song's structure.** Repeats (each chorus return) arrive somewhere
    visibly changed; the band stops and the breakdown have a spatial move.
 4. **One shot, for real.** No hidden cuts, no fades to a new scene.
-5. **Buildable in code in 9:16,** with the caption band clear of the action.
+5. **Buildable in code in 9:16,** with room composed for the lyrics: they're designed motion
+   graphics, not a subtitle band (see the ambition brief).
 
 ### One-shot rules
 
@@ -111,6 +127,11 @@ layer on one renderer, so the cheap test is never thrown away.
   separated them. Swap the A/B order between pairwise judges.
 - **Let generators write their output to a named file** in the episode's private working folder.
   Transcribing returned text by hand into files for the judges was the slowest step.
+- **Read the ambition brief before briefing anyone.** The concept brief put the lyrics in a
+  caption band. The ambition brief (`.private/reference-briefs/ambition-brief-jewkes.md`) says the
+  opposite: on-screen lyrics are the main tool for holding attention, as designed motion graphics,
+  huge at the hook and composed into the shot (the background quiet where the words are big). A
+  summary lost that; read the original.
 - **Give every stage's brief the same fact sheet.** One concept brief (requirements, song table,
   existing ideas, gates) was reused by generators, judges and treatment writers, so every round
   judged against the same facts.

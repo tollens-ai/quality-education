@@ -124,6 +124,7 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
 - Every episode ships liner notes: how it was checked, where it falls short.
 - Episode 1 is one shot: a single continuous camera, no cuts (Qing, 2026-09-25: "I really want
   the music video to be one shot").
+- The singer is Claude (Qing, 2026-09-25: "also I want the singer to be claude!").
 - Corner marks: "@yanqingcheng" in one corner and "∴ tollens" (the Tollens logo is the therefore
   sign) in the other, very small, in the video's own font (Qing, 2026-09-25). They replace the
   single Tollens mark in principle 11.

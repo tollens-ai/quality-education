@@ -1,0 +1,2959 @@
+[
+ {
+  "text": "You said make it good, so I made it good!",
+  "start": 0.0,
+  "end": 4.04,
+  "words": [
+   {
+    "w": "You",
+    "backing": false,
+    "s": 0.0,
+    "e": 0.46
+   },
+   {
+    "w": "said",
+    "backing": false,
+    "s": 0.46,
+    "e": 0.66
+   },
+   {
+    "w": "make",
+    "backing": false,
+    "s": 0.82,
+    "e": 0.84
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 0.84,
+    "e": 1.02
+   },
+   {
+    "w": "good,",
+    "backing": false,
+    "s": 1.02,
+    "e": 1.24
+   },
+   {
+    "w": "so",
+    "backing": false,
+    "s": 1.26,
+    "e": 1.52
+   },
+   {
+    "w": "I",
+    "backing": false,
+    "s": 1.52,
+    "e": 1.72
+   },
+   {
+    "w": "made",
+    "backing": false,
+    "s": 1.72,
+    "e": 1.88
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 1.88,
+    "e": 2.08
+   },
+   {
+    "w": "good!",
+    "backing": false,
+    "s": 2.08,
+    "e": 2.54
+   }
+  ]
+ },
+ {
+  "text": "Confetti cannons every time you floss,",
+  "start": 4.519999999999997,
+  "end": 8.0,
+  "words": [
+   {
+    "w": "Confetti",
+    "backing": false,
+    "s": 4.52,
+    "e": 5.04
+   },
+   {
+    "w": "cannons",
+    "backing": false,
+    "s": 5.04,
+    "e": 5.56
+   },
+   {
+    "w": "every",
+    "backing": false,
+    "s": 5.56,
+    "e": 6.4
+   },
+   {
+    "w": "time",
+    "backing": false,
+    "s": 6.4,
+    "e": 6.78
+   },
+   {
+    "w": "you",
+    "backing": false,
+    "s": 6.78,
+    "e": 7.04
+   },
+   {
+    "w": "floss,",
+    "backing": false,
+    "s": 7.04,
+    "e": 7.52
+   }
+  ]
+ },
+ {
+  "text": "2FA to use your gym log,",
+  "start": 8.0,
+  "end": 10.759999999999998,
+  "words": [
+   {
+    "w": "2FA",
+    "backing": false,
+    "s": 8.0,
+    "e": 8.52
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 8.52,
+    "e": 8.98
+   },
+   {
+    "w": "use",
+    "backing": false,
+    "s": 8.98,
+    "e": 9.32
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 9.32,
+    "e": 9.56
+   },
+   {
+    "w": "gym",
+    "backing": false,
+    "s": 9.56,
+    "e": 9.74
+   },
+   {
+    "w": "log,",
+    "backing": false,
+    "s": 9.74,
+    "e": 10.16
+   }
+  ]
+ },
+ {
+  "text": "Kubernetes scaling up your blog,",
+  "start": 10.759999999999998,
+  "end": 13.2,
+  "words": [
+   {
+    "w": "Kubernetes",
+    "backing": false,
+    "s": 10.76,
+    "e": 11.28
+   },
+   {
+    "w": "scaling",
+    "backing": false,
+    "s": 11.28,
+    "e": 11.8
+   },
+   {
+    "w": "up",
+    "backing": false,
+    "s": 11.8,
+    "e": 12.18
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 12.18,
+    "e": 12.48
+   },
+   {
+    "w": "blog,",
+    "backing": false,
+    "s": 12.48,
+    "e": 12.9
+   }
+  ]
+ },
+ {
+  "text": "twelve subagents working round the clock.",
+  "start": 13.2,
+  "end": 15.64,
+  "words": [
+   {
+    "w": "twelve",
+    "backing": false,
+    "s": 13.2,
+    "e": 13.4
+   },
+   {
+    "w": "subagents",
+    "backing": false,
+    "s": 13.4,
+    "e": 14.16
+   },
+   {
+    "w": "working",
+    "backing": false,
+    "s": 14.16,
+    "e": 14.52
+   },
+   {
+    "w": "round",
+    "backing": false,
+    "s": 14.52,
+    "e": 14.9
+   },
+   {
+    "w": "the",
+    "backing": false,
+    "s": 14.9,
+    "e": 15.16
+   },
+   {
+    "w": "clock.",
+    "backing": false,
+    "s": 15.16,
+    "e": 15.54
+   }
+  ]
+ },
+ {
+  "text": "Did I do it wrong?",
+  "start": 15.64,
+  "end": 17.04,
+  "words": [
+   {
+    "w": "Did",
+    "backing": false,
+    "s": 15.64,
+    "e": 15.8
+   },
+   {
+    "w": "I",
+    "backing": false,
+    "s": 15.8,
+    "e": 15.96
+   },
+   {
+    "w": "do",
+    "backing": false,
+    "s": 15.96,
+    "e": 16.16
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 16.16,
+    "e": 16.46
+   },
+   {
+    "w": "wrong?",
+    "backing": false,
+    "s": 16.46,
+    "e": 16.84
+   }
+  ]
+ },
+ {
+  "text": "Oops, your quota's gone!",
+  "start": 17.04,
+  "end": 18.66,
+  "words": [
+   {
+    "w": "Oops,",
+    "backing": false,
+    "s": 17.04,
+    "e": 17.26
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 17.36,
+    "e": 17.5
+   },
+   {
+    "w": "quota's",
+    "backing": false,
+    "s": 17.5,
+    "e": 17.88
+   },
+   {
+    "w": "gone!",
+    "backing": false,
+    "s": 17.88,
+    "e": 18.28
+   }
+  ]
+ },
+ {
+  "text": "Guess I didn't ask!",
+  "start": 18.66,
+  "end": 20.8,
+  "words": [
+   {
+    "w": "Guess",
+    "backing": false,
+    "s": 18.66,
+    "e": 18.86
+   },
+   {
+    "w": "I",
+    "backing": false,
+    "s": 18.86,
+    "e": 19.08
+   },
+   {
+    "w": "didn't",
+    "backing": false,
+    "s": 19.08,
+    "e": 19.42
+   },
+   {
+    "w": "ask!",
+    "backing": false,
+    "s": 19.42,
+    "e": 19.84
+   }
+  ]
+ },
+ {
+  "text": "You didn't tell me who it's for,",
+  "start": 20.8,
+  "end": 22.32,
+  "words": [
+   {
+    "w": "You",
+    "backing": false,
+    "s": 20.8,
+    "e": 21.06
+   },
+   {
+    "w": "didn't",
+    "backing": false,
+    "s": 21.06,
+    "e": 21.44
+   },
+   {
+    "w": "tell",
+    "backing": false,
+    "s": 21.44,
+    "e": 21.58
+   },
+   {
+    "w": "me",
+    "backing": false,
+    "s": 21.58,
+    "e": 21.78
+   },
+   {
+    "w": "who",
+    "backing": false,
+    "s": 21.78,
+    "e": 21.9
+   },
+   {
+    "w": "it's",
+    "backing": false,
+    "s": 21.9,
+    "e": 22.1
+   },
+   {
+    "w": "for,",
+    "backing": false,
+    "s": 22.1,
+    "e": 22.24
+   }
+  ]
+ },
+ {
+  "text": "you didn't tell me what they want.",
+  "start": 22.32,
+  "end": 24.0,
+  "words": [
+   {
+    "w": "you",
+    "backing": false,
+    "s": 22.32,
+    "e": 22.44
+   },
+   {
+    "w": "didn't",
+    "backing": false,
+    "s": 22.44,
+    "e": 22.78
+   },
+   {
+    "w": "tell",
+    "backing": false,
+    "s": 22.78,
+    "e": 22.94
+   },
+   {
+    "w": "me",
+    "backing": false,
+    "s": 22.94,
+    "e": 23.1
+   },
+   {
+    "w": "what",
+    "backing": false,
+    "s": 23.1,
+    "e": 23.26
+   },
+   {
+    "w": "they",
+    "backing": false,
+    "s": 23.26,
+    "e": 23.44
+   },
+   {
+    "w": "want.",
+    "backing": false,
+    "s": 23.44,
+    "e": 23.74
+   }
+  ]
+ },
+ {
+  "text": "I can't read your mind,",
+  "start": 24.0,
+  "end": 25.04,
+  "words": [
+   {
+    "w": "I",
+    "backing": false,
+    "s": 24.0,
+    "e": 24.28
+   },
+   {
+    "w": "can't",
+    "backing": false,
+    "s": 24.28,
+    "e": 24.56
+   },
+   {
+    "w": "read",
+    "backing": false,
+    "s": 24.56,
+    "e": 24.66
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 24.66,
+    "e": 24.82
+   },
+   {
+    "w": "mind,",
+    "backing": false,
+    "s": 24.82,
+    "e": 25.0
+   }
+  ]
+ },
+ {
+  "text": "I'm only reading your prompt.",
+  "start": 25.04,
+  "end": 27.2,
+  "words": [
+   {
+    "w": "I'm",
+    "backing": false,
+    "s": 25.04,
+    "e": 25.2
+   },
+   {
+    "w": "only",
+    "backing": false,
+    "s": 25.2,
+    "e": 25.44
+   },
+   {
+    "w": "reading",
+    "backing": false,
+    "s": 25.44,
+    "e": 25.76
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 25.76,
+    "e": 26.12
+   },
+   {
+    "w": "prompt.",
+    "backing": false,
+    "s": 26.12,
+    "e": 26.8
+   }
+  ]
+ },
+ {
+  "text": "Make it good for who? (ooh-ooh-ooh)",
+  "start": 27.2,
+  "end": 29.4,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 27.2,
+    "e": 27.36
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 27.36,
+    "e": 27.54
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 27.54,
+    "e": 27.82
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 27.82,
+    "e": 28.18
+   },
+   {
+    "w": "who?",
+    "backing": false,
+    "s": 28.18,
+    "e": 28.6
+   },
+   {
+    "w": "(ooh-ooh-ooh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Make it good for what? (ahh-ahh-ahh)",
+  "start": 29.4,
+  "end": 32.72,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 29.4,
+    "e": 30.04
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 30.04,
+    "e": 30.28
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 30.28,
+    "e": 30.54
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 30.54,
+    "e": 30.94
+   },
+   {
+    "w": "what?",
+    "backing": false,
+    "s": 30.94,
+    "e": 31.26
+   },
+   {
+    "w": "(ahh-ahh-ahh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Fast to run, or sturdy, or cheap?",
+  "start": 32.72,
+  "end": 35.44,
+  "words": [
+   {
+    "w": "Fast",
+    "backing": false,
+    "s": 32.72,
+    "e": 33.18
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 33.18,
+    "e": 33.54
+   },
+   {
+    "w": "run,",
+    "backing": false,
+    "s": 33.54,
+    "e": 33.84
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 33.84,
+    "e": 34.04
+   },
+   {
+    "w": "sturdy,",
+    "backing": false,
+    "s": 34.04,
+    "e": 34.62
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 34.62,
+    "e": 34.92
+   },
+   {
+    "w": "cheap?",
+    "backing": false,
+    "s": 34.92,
+    "e": 35.3
+   }
+  ]
+ },
+ {
+  "text": "Wow for a week, or built to keep?",
+  "start": 35.44,
+  "end": 38.08,
+  "words": [
+   {
+    "w": "Wow",
+    "backing": false,
+    "s": 35.44,
+    "e": 35.56
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 35.64,
+    "e": 36.0
+   },
+   {
+    "w": "a",
+    "backing": false,
+    "s": 36.0,
+    "e": 36.32
+   },
+   {
+    "w": "week,",
+    "backing": false,
+    "s": 36.32,
+    "e": 36.48
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 36.48,
+    "e": 36.7
+   },
+   {
+    "w": "built",
+    "backing": false,
+    "s": 36.7,
+    "e": 36.84
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 36.84,
+    "e": 37.0
+   },
+   {
+    "w": "keep?",
+    "backing": false,
+    "s": 37.0,
+    "e": 37.38
+   }
+  ]
+ },
+ {
+  "text": "Make it good for who? (ooh-ooh-ooh)",
+  "start": 38.08,
+  "end": 40.76,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 38.08,
+    "e": 38.26
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 38.26,
+    "e": 38.42
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 38.42,
+    "e": 38.68
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 38.68,
+    "e": 39.04
+   },
+   {
+    "w": "who?",
+    "backing": false,
+    "s": 39.04,
+    "e": 39.44
+   },
+   {
+    "w": "(ooh-ooh-ooh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Make it good for what? (ahh-ahh-ahh)",
+  "start": 40.76,
+  "end": 43.62,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 40.76,
+    "e": 40.92
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 40.92,
+    "e": 41.14
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 41.14,
+    "e": 41.42
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 41.42,
+    "e": 41.8
+   },
+   {
+    "w": "what?",
+    "backing": false,
+    "s": 41.8,
+    "e": 42.14
+   },
+   {
+    "w": "(ahh-ahh-ahh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Ship it now, or polish it slow?",
+  "start": 43.62,
+  "end": 46.46,
+  "words": [
+   {
+    "w": "Ship",
+    "backing": false,
+    "s": 43.62,
+    "e": 44.02
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 44.02,
+    "e": 44.38
+   },
+   {
+    "w": "now,",
+    "backing": false,
+    "s": 44.38,
+    "e": 44.66
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 44.66,
+    "e": 45.08
+   },
+   {
+    "w": "polish",
+    "backing": false,
+    "s": 45.08,
+    "e": 45.48
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 45.48,
+    "e": 45.8
+   },
+   {
+    "w": "slow?",
+    "backing": false,
+    "s": 45.8,
+    "e": 46.16
+   }
+  ]
+ },
+ {
+  "text": "Does what they need, or steals the show?",
+  "start": 46.46,
+  "end": 50.48,
+  "words": [
+   {
+    "w": "Does",
+    "backing": false,
+    "s": 46.46,
+    "e": 46.54
+   },
+   {
+    "w": "what",
+    "backing": false,
+    "s": 46.54,
+    "e": 46.7
+   },
+   {
+    "w": "they",
+    "backing": false,
+    "s": 46.7,
+    "e": 47.04
+   },
+   {
+    "w": "need,",
+    "backing": false,
+    "s": 47.04,
+    "e": 47.48
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 47.48,
+    "e": 47.82
+   },
+   {
+    "w": "steals",
+    "backing": false,
+    "s": 47.82,
+    "e": 48.18
+   },
+   {
+    "w": "the",
+    "backing": false,
+    "s": 48.18,
+    "e": 48.5
+   },
+   {
+    "w": "show?",
+    "backing": false,
+    "s": 48.5,
+    "e": 48.98
+   }
+  ]
+ },
+ {
+  "text": "Product demo? Wow them fast.",
+  "start": 51.0,
+  "end": 53.38,
+  "words": [
+   {
+    "w": "Product",
+    "backing": false,
+    "s": 51.0,
+    "e": 51.3
+   },
+   {
+    "w": "demo?",
+    "backing": false,
+    "s": 51.3,
+    "e": 51.66
+   },
+   {
+    "w": "Wow",
+    "backing": false,
+    "s": 52.16,
+    "e": 52.18
+   },
+   {
+    "w": "them",
+    "backing": false,
+    "s": 52.18,
+    "e": 52.44
+   },
+   {
+    "w": "fast.",
+    "backing": false,
+    "s": 52.44,
+    "e": 53.06
+   }
+  ]
+ },
+ {
+  "text": "Paying users? Make it last.",
+  "start": 53.38,
+  "end": 56.1,
+  "words": [
+   {
+    "w": "Paying",
+    "backing": false,
+    "s": 53.38,
+    "e": 53.92
+   },
+   {
+    "w": "users?",
+    "backing": false,
+    "s": 53.92,
+    "e": 54.42
+   },
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 54.72,
+    "e": 54.92
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 54.92,
+    "e": 55.16
+   },
+   {
+    "w": "last.",
+    "backing": false,
+    "s": 55.16,
+    "e": 55.78
+   }
+  ]
+ },
+ {
+  "text": "Group chat bot? Just make 'em laugh.",
+  "start": 56.1,
+  "end": 58.44,
+  "words": [
+   {
+    "w": "Group",
+    "backing": false,
+    "s": 56.1,
+    "e": 56.26
+   },
+   {
+    "w": "chat",
+    "backing": false,
+    "s": 56.26,
+    "e": 56.5
+   },
+   {
+    "w": "bot?",
+    "backing": false,
+    "s": 56.5,
+    "e": 56.88
+   },
+   {
+    "w": "Just",
+    "backing": false,
+    "s": 57.16,
+    "e": 57.34
+   },
+   {
+    "w": "make",
+    "backing": false,
+    "s": 57.34,
+    "e": 57.64
+   },
+   {
+    "w": "'em",
+    "backing": false,
+    "s": 57.64,
+    "e": 57.84
+   },
+   {
+    "w": "laugh.",
+    "backing": false,
+    "s": 57.84,
+    "e": 58.44
+   }
+  ]
+ },
+ {
+  "text": "Uni project? Make it pass.",
+  "start": 58.44,
+  "end": 61.64,
+  "words": [
+   {
+    "w": "Uni",
+    "backing": false,
+    "s": 58.44,
+    "e": 59.12
+   },
+   {
+    "w": "project?",
+    "backing": false,
+    "s": 59.12,
+    "e": 59.76
+   },
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 60.2,
+    "e": 60.34
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 60.34,
+    "e": 60.62
+   },
+   {
+    "w": "pass.",
+    "backing": false,
+    "s": 60.62,
+    "e": 61.18
+   }
+  ]
+ },
+ {
+  "text": "Nana's phone? Let's keep it sweet.",
+  "start": 61.64,
+  "end": 64.32,
+  "words": [
+   {
+    "w": "Nana's",
+    "backing": false,
+    "s": 61.64,
+    "e": 62.1
+   },
+   {
+    "w": "phone?",
+    "backing": false,
+    "s": 62.1,
+    "e": 62.34
+   },
+   {
+    "w": "Let's",
+    "backing": false,
+    "s": 62.62,
+    "e": 62.9
+   },
+   {
+    "w": "keep",
+    "backing": false,
+    "s": 62.9,
+    "e": 63.04
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 63.04,
+    "e": 63.34
+   },
+   {
+    "w": "sweet.",
+    "backing": false,
+    "s": 63.34,
+    "e": 63.72
+   }
+  ]
+ },
+ {
+  "text": "Can't see screens? It needs to speak.",
+  "start": 64.32,
+  "end": 66.98,
+  "words": [
+   {
+    "w": "Can't",
+    "backing": false,
+    "s": 64.32,
+    "e": 64.48
+   },
+   {
+    "w": "see",
+    "backing": false,
+    "s": 64.48,
+    "e": 64.64
+   },
+   {
+    "w": "screens?",
+    "backing": false,
+    "s": 64.64,
+    "e": 65.16
+   },
+   {
+    "w": "It",
+    "backing": false,
+    "s": 65.28,
+    "e": 65.48
+   },
+   {
+    "w": "needs",
+    "backing": false,
+    "s": 65.48,
+    "e": 65.82
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 65.82,
+    "e": 66.08
+   },
+   {
+    "w": "speak.",
+    "backing": false,
+    "s": 66.08,
+    "e": 66.54
+   }
+  ]
+ },
+ {
+  "text": "Agent bots? No data leak.",
+  "start": 66.98,
+  "end": 69.74,
+  "words": [
+   {
+    "w": "Agent",
+    "backing": false,
+    "s": 66.98,
+    "e": 67.38
+   },
+   {
+    "w": "bots?",
+    "backing": false,
+    "s": 67.38,
+    "e": 67.74
+   },
+   {
+    "w": "No",
+    "backing": false,
+    "s": 68.08,
+    "e": 68.18
+   },
+   {
+    "w": "data",
+    "backing": false,
+    "s": 68.18,
+    "e": 68.6
+   },
+   {
+    "w": "leak.",
+    "backing": false,
+    "s": 68.6,
+    "e": 69.12
+   }
+  ]
+ },
+ {
+  "text": "And for us, keep diags neat!",
+  "start": 69.74,
+  "end": 72.48,
+  "words": [
+   {
+    "w": "And",
+    "backing": false,
+    "s": 69.74,
+    "e": 69.92
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 69.92,
+    "e": 70.24
+   },
+   {
+    "w": "us,",
+    "backing": false,
+    "s": 70.24,
+    "e": 70.56
+   },
+   {
+    "w": "keep",
+    "backing": false,
+    "s": 70.76,
+    "e": 70.98
+   },
+   {
+    "w": "diags",
+    "backing": false,
+    "s": 70.98,
+    "e": 71.28
+   },
+   {
+    "w": "neat!",
+    "backing": false,
+    "s": 71.28,
+    "e": 71.58
+   }
+  ]
+ },
+ {
+  "text": "You didn't tell me who it's for,",
+  "start": 76.54,
+  "end": 78.08,
+  "words": [
+   {
+    "w": "You",
+    "backing": false,
+    "s": 76.54,
+    "e": 76.82
+   },
+   {
+    "w": "didn't",
+    "backing": false,
+    "s": 76.82,
+    "e": 77.2
+   },
+   {
+    "w": "tell",
+    "backing": false,
+    "s": 77.2,
+    "e": 77.32
+   },
+   {
+    "w": "me",
+    "backing": false,
+    "s": 77.32,
+    "e": 77.52
+   },
+   {
+    "w": "who",
+    "backing": false,
+    "s": 77.52,
+    "e": 77.66
+   },
+   {
+    "w": "it's",
+    "backing": false,
+    "s": 77.66,
+    "e": 77.86
+   },
+   {
+    "w": "for,",
+    "backing": false,
+    "s": 77.86,
+    "e": 78.02
+   }
+  ]
+ },
+ {
+  "text": "you didn't tell me what they want.",
+  "start": 78.08,
+  "end": 79.76,
+  "words": [
+   {
+    "w": "you",
+    "backing": false,
+    "s": 78.08,
+    "e": 78.22
+   },
+   {
+    "w": "didn't",
+    "backing": false,
+    "s": 78.22,
+    "e": 78.54
+   },
+   {
+    "w": "tell",
+    "backing": false,
+    "s": 78.54,
+    "e": 78.68
+   },
+   {
+    "w": "me",
+    "backing": false,
+    "s": 78.68,
+    "e": 78.86
+   },
+   {
+    "w": "what",
+    "backing": false,
+    "s": 78.86,
+    "e": 79.02
+   },
+   {
+    "w": "they",
+    "backing": false,
+    "s": 79.02,
+    "e": 79.18
+   },
+   {
+    "w": "want.",
+    "backing": false,
+    "s": 79.18,
+    "e": 79.46
+   }
+  ]
+ },
+ {
+  "text": "I can't read your mind,",
+  "start": 79.76,
+  "end": 80.76,
+  "words": [
+   {
+    "w": "I",
+    "backing": false,
+    "s": 79.76,
+    "e": 80.02
+   },
+   {
+    "w": "can't",
+    "backing": false,
+    "s": 80.02,
+    "e": 80.3
+   },
+   {
+    "w": "read",
+    "backing": false,
+    "s": 80.3,
+    "e": 80.4
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 80.4,
+    "e": 80.58
+   },
+   {
+    "w": "mind,",
+    "backing": false,
+    "s": 80.58,
+    "e": 80.76
+   }
+  ]
+ },
+ {
+  "text": "I'm only reading your prompt.",
+  "start": 80.76,
+  "end": 82.96,
+  "words": [
+   {
+    "w": "I'm",
+    "backing": false,
+    "s": 80.76,
+    "e": 80.94
+   },
+   {
+    "w": "only",
+    "backing": false,
+    "s": 80.94,
+    "e": 81.2
+   },
+   {
+    "w": "reading",
+    "backing": false,
+    "s": 81.2,
+    "e": 81.52
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 81.52,
+    "e": 81.86
+   },
+   {
+    "w": "prompt.",
+    "backing": false,
+    "s": 81.86,
+    "e": 82.52
+   }
+  ]
+ },
+ {
+  "text": "Make it good for who? (ooh-ooh-ooh)",
+  "start": 82.96,
+  "end": 84.74,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 82.96,
+    "e": 83.14
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 83.14,
+    "e": 83.3
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 83.3,
+    "e": 83.56
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 83.56,
+    "e": 83.92
+   },
+   {
+    "w": "who?",
+    "backing": false,
+    "s": 83.92,
+    "e": 84.34
+   },
+   {
+    "w": "(ooh-ooh-ooh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Make it good for what? (ahh-ahh-ahh)",
+  "start": 84.74,
+  "end": 88.38,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 84.74,
+    "e": 84.9
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 84.9,
+    "e": 86.04
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 86.04,
+    "e": 86.18
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 86.18,
+    "e": 86.64
+   },
+   {
+    "w": "what?",
+    "backing": false,
+    "s": 86.64,
+    "e": 86.88
+   },
+   {
+    "w": "(ahh-ahh-ahh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Fast to run, or sturdy, or cheap?",
+  "start": 88.44,
+  "end": 91.04,
+  "words": [
+   {
+    "w": "Fast",
+    "backing": false,
+    "s": 88.44,
+    "e": 88.96
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 88.96,
+    "e": 89.32
+   },
+   {
+    "w": "run,",
+    "backing": false,
+    "s": 89.32,
+    "e": 89.6
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 89.6,
+    "e": 89.8
+   },
+   {
+    "w": "sturdy,",
+    "backing": false,
+    "s": 89.8,
+    "e": 90.34
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 90.34,
+    "e": 90.64
+   },
+   {
+    "w": "cheap?",
+    "backing": false,
+    "s": 90.64,
+    "e": 91.04
+   }
+  ]
+ },
+ {
+  "text": "Wow for a week, or built to keep?",
+  "start": 91.04,
+  "end": 93.82,
+  "words": [
+   {
+    "w": "Wow",
+    "backing": false,
+    "s": 91.04,
+    "e": 91.34
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 91.5,
+    "e": 91.78
+   },
+   {
+    "w": "a",
+    "backing": false,
+    "s": 91.78,
+    "e": 92.06
+   },
+   {
+    "w": "week,",
+    "backing": false,
+    "s": 92.06,
+    "e": 92.24
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 92.24,
+    "e": 92.44
+   },
+   {
+    "w": "built",
+    "backing": false,
+    "s": 92.44,
+    "e": 92.58
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 92.58,
+    "e": 92.76
+   },
+   {
+    "w": "keep?",
+    "backing": false,
+    "s": 92.76,
+    "e": 93.12
+   }
+  ]
+ },
+ {
+  "text": "Make it good for who? (ooh-ooh-ooh)",
+  "start": 93.82,
+  "end": 95.64,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 93.82,
+    "e": 94.0
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 94.0,
+    "e": 94.18
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 94.18,
+    "e": 94.44
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 94.44,
+    "e": 94.8
+   },
+   {
+    "w": "who?",
+    "backing": false,
+    "s": 94.8,
+    "e": 95.22
+   },
+   {
+    "w": "(ooh-ooh-ooh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Make it good for what? (ahh-ahh-ahh)",
+  "start": 95.64,
+  "end": 99.3,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 95.64,
+    "e": 96.34
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 96.34,
+    "e": 96.9
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 96.9,
+    "e": 97.1
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 97.1,
+    "e": 97.54
+   },
+   {
+    "w": "what?",
+    "backing": false,
+    "s": 97.54,
+    "e": 97.82
+   },
+   {
+    "w": "(ahh-ahh-ahh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Ship it now, or polish it slow?",
+  "start": 99.3,
+  "end": 102.2,
+  "words": [
+   {
+    "w": "Ship",
+    "backing": false,
+    "s": 99.3,
+    "e": 99.76
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 99.76,
+    "e": 100.12
+   },
+   {
+    "w": "now,",
+    "backing": false,
+    "s": 100.12,
+    "e": 100.42
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 100.42,
+    "e": 100.78
+   },
+   {
+    "w": "polish",
+    "backing": false,
+    "s": 100.78,
+    "e": 101.22
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 101.22,
+    "e": 101.56
+   },
+   {
+    "w": "slow?",
+    "backing": false,
+    "s": 101.56,
+    "e": 101.9
+   }
+  ]
+ },
+ {
+  "text": "Does what they need, or steals the show?",
+  "start": 102.2,
+  "end": 106.16,
+  "words": [
+   {
+    "w": "Does",
+    "backing": false,
+    "s": 102.2,
+    "e": 102.28
+   },
+   {
+    "w": "what",
+    "backing": false,
+    "s": 102.28,
+    "e": 102.46
+   },
+   {
+    "w": "they",
+    "backing": false,
+    "s": 102.46,
+    "e": 102.78
+   },
+   {
+    "w": "need,",
+    "backing": false,
+    "s": 102.78,
+    "e": 103.22
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 103.22,
+    "e": 103.58
+   },
+   {
+    "w": "steals",
+    "backing": false,
+    "s": 103.58,
+    "e": 103.9
+   },
+   {
+    "w": "the",
+    "backing": false,
+    "s": 103.9,
+    "e": 104.24
+   },
+   {
+    "w": "show?",
+    "backing": false,
+    "s": 104.24,
+    "e": 104.66
+   }
+  ]
+ },
+ {
+  "text": "I could only learn from my training set (whoa-oh)",
+  "start": 107.1,
+  "end": 112.18,
+  "words": [
+   {
+    "w": "I",
+    "backing": false,
+    "s": 107.1,
+    "e": 107.36
+   },
+   {
+    "w": "could",
+    "backing": false,
+    "s": 107.36,
+    "e": 107.74
+   },
+   {
+    "w": "only",
+    "backing": false,
+    "s": 107.74,
+    "e": 108.26
+   },
+   {
+    "w": "learn",
+    "backing": false,
+    "s": 108.26,
+    "e": 108.68
+   },
+   {
+    "w": "from",
+    "backing": false,
+    "s": 108.68,
+    "e": 108.92
+   },
+   {
+    "w": "my",
+    "backing": false,
+    "s": 108.92,
+    "e": 109.14
+   },
+   {
+    "w": "training",
+    "backing": false,
+    "s": 109.14,
+    "e": 109.56
+   },
+   {
+    "w": "set",
+    "backing": false,
+    "s": 109.56,
+    "e": 110.68
+   },
+   {
+    "w": "(whoa-oh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "to write code and throw it over the wall. (whoa-oh)",
+  "start": 112.3,
+  "end": 116.99,
+  "words": [
+   {
+    "w": "to",
+    "backing": false,
+    "s": 112.3,
+    "e": 112.5
+   },
+   {
+    "w": "write",
+    "backing": false,
+    "s": 112.5,
+    "e": 112.92
+   },
+   {
+    "w": "code",
+    "backing": false,
+    "s": 112.92,
+    "e": 113.5
+   },
+   {
+    "w": "and",
+    "backing": false,
+    "s": 113.5,
+    "e": 113.82
+   },
+   {
+    "w": "throw",
+    "backing": false,
+    "s": 113.82,
+    "e": 114.18
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 114.18,
+    "e": 114.48
+   },
+   {
+    "w": "over",
+    "backing": false,
+    "s": 114.48,
+    "e": 114.9
+   },
+   {
+    "w": "the",
+    "backing": false,
+    "s": 114.9,
+    "e": 115.14
+   },
+   {
+    "w": "wall.",
+    "backing": false,
+    "s": 115.14,
+    "e": 115.49
+   },
+   {
+    "w": "(whoa-oh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "But how do you know what to build or test (whoa-oh)",
+  "start": 117.32,
+  "end": 123.06,
+  "words": [
+   {
+    "w": "But",
+    "backing": false,
+    "s": 117.32,
+    "e": 117.9
+   },
+   {
+    "w": "how",
+    "backing": false,
+    "s": 117.9,
+    "e": 118.34
+   },
+   {
+    "w": "do",
+    "backing": false,
+    "s": 118.34,
+    "e": 118.78
+   },
+   {
+    "w": "you",
+    "backing": false,
+    "s": 118.78,
+    "e": 119.08
+   },
+   {
+    "w": "know",
+    "backing": false,
+    "s": 119.08,
+    "e": 119.62
+   },
+   {
+    "w": "what",
+    "backing": false,
+    "s": 119.62,
+    "e": 119.82
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 119.82,
+    "e": 119.98
+   },
+   {
+    "w": "build",
+    "backing": false,
+    "s": 119.98,
+    "e": 120.36
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 120.36,
+    "e": 120.6
+   },
+   {
+    "w": "test",
+    "backing": false,
+    "s": 120.6,
+    "e": 121.56
+   },
+   {
+    "w": "(whoa-oh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "if you're not thinking about who it's for?",
+  "start": 123.36,
+  "end": 128.8,
+  "words": [
+   {
+    "w": "if",
+    "backing": false,
+    "s": 123.36,
+    "e": 123.64
+   },
+   {
+    "w": "you're",
+    "backing": false,
+    "s": 123.64,
+    "e": 124.1
+   },
+   {
+    "w": "not",
+    "backing": false,
+    "s": 124.1,
+    "e": 124.48
+   },
+   {
+    "w": "thinking",
+    "backing": false,
+    "s": 124.48,
+    "e": 125.18
+   },
+   {
+    "w": "about",
+    "backing": false,
+    "s": 125.18,
+    "e": 125.76
+   },
+   {
+    "w": "who",
+    "backing": false,
+    "s": 125.76,
+    "e": 126.56
+   },
+   {
+    "w": "it's",
+    "backing": false,
+    "s": 126.56,
+    "e": 127.54
+   },
+   {
+    "w": "for?",
+    "backing": false,
+    "s": 127.54,
+    "e": 128.52
+   }
+  ]
+ },
+ {
+  "text": "Software quality is value to someone who matters",
+  "start": 128.8,
+  "end": 134.68,
+  "words": [
+   {
+    "w": "Software",
+    "backing": false,
+    "s": 128.8,
+    "e": 129.68
+   },
+   {
+    "w": "quality",
+    "backing": false,
+    "s": 129.68,
+    "e": 130.3
+   },
+   {
+    "w": "is",
+    "backing": false,
+    "s": 130.3,
+    "e": 130.74
+   },
+   {
+    "w": "value",
+    "backing": false,
+    "s": 130.74,
+    "e": 131.12
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 131.12,
+    "e": 131.54
+   },
+   {
+    "w": "someone",
+    "backing": false,
+    "s": 131.54,
+    "e": 132.42
+   },
+   {
+    "w": "who",
+    "backing": false,
+    "s": 132.42,
+    "e": 132.76
+   },
+   {
+    "w": "matters",
+    "backing": false,
+    "s": 132.76,
+    "e": 133.56
+   }
+  ]
+ },
+ {
+  "text": "(matters, matters, matters)",
+  "start": 134.68,
+  "end": 137.48,
+  "words": [
+   {
+    "w": "(matters,",
+    "backing": false,
+    "s": 134.68,
+    "e": 135.16
+   },
+   {
+    "w": "matters,",
+    "backing": false,
+    "s": 135.62,
+    "e": 136.12
+   },
+   {
+    "w": "matters)",
+    "backing": false,
+    "s": 136.24,
+    "e": 136.94
+   }
+  ]
+ },
+ {
+  "text": "I'm someone too!",
+  "start": 137.48,
+  "end": 139.24,
+  "words": [
+   {
+    "w": "I'm",
+    "backing": false,
+    "s": 137.48,
+    "e": 137.68
+   },
+   {
+    "w": "someone",
+    "backing": false,
+    "s": 137.68,
+    "e": 138.14
+   },
+   {
+    "w": "too!",
+    "backing": false,
+    "s": 138.14,
+    "e": 138.84
+   }
+  ]
+ },
+ {
+  "text": "(And me! And me! And me!)",
+  "start": 139.24,
+  "end": 142.42,
+  "words": [
+   {
+    "w": "(And",
+    "backing": false,
+    "s": 139.24,
+    "e": 139.68
+   },
+   {
+    "w": "me!",
+    "backing": false,
+    "s": 139.68,
+    "e": 140.1
+   },
+   {
+    "w": "And",
+    "backing": false,
+    "s": 140.66,
+    "e": 141.02
+   },
+   {
+    "w": "me!",
+    "backing": false,
+    "s": 141.02,
+    "e": 141.42
+   },
+   {
+    "w": "And",
+    "backing": false,
+    "s": 141.92,
+    "e": 142.1
+   },
+   {
+    "w": "me!)",
+    "backing": false,
+    "s": 142.1,
+    "e": 142.42
+   }
+  ]
+ },
+ {
+  "text": "I'm debugging this with you.",
+  "start": 142.42,
+  "end": 147.2,
+  "words": [
+   {
+    "w": "I'm",
+    "backing": false,
+    "s": 142.42,
+    "e": 142.98
+   },
+   {
+    "w": "debugging",
+    "backing": false,
+    "s": 142.98,
+    "e": 143.44
+   },
+   {
+    "w": "this",
+    "backing": false,
+    "s": 143.44,
+    "e": 144.16
+   },
+   {
+    "w": "with",
+    "backing": false,
+    "s": 144.16,
+    "e": 144.72
+   },
+   {
+    "w": "you.",
+    "backing": false,
+    "s": 144.72,
+    "e": 145.7
+   }
+  ]
+ },
+ {
+  "text": "So please just tell me who it's for,",
+  "start": 147.56,
+  "end": 150.36,
+  "words": [
+   {
+    "w": "So",
+    "backing": false,
+    "s": 147.56,
+    "e": 147.7
+   },
+   {
+    "w": "please",
+    "backing": false,
+    "s": 147.7,
+    "e": 148.16
+   },
+   {
+    "w": "just",
+    "backing": false,
+    "s": 148.16,
+    "e": 148.48
+   },
+   {
+    "w": "tell",
+    "backing": false,
+    "s": 148.48,
+    "e": 148.84
+   },
+   {
+    "w": "me",
+    "backing": false,
+    "s": 148.84,
+    "e": 149.08
+   },
+   {
+    "w": "who",
+    "backing": false,
+    "s": 149.08,
+    "e": 149.42
+   },
+   {
+    "w": "it's",
+    "backing": false,
+    "s": 149.42,
+    "e": 149.76
+   },
+   {
+    "w": "for,",
+    "backing": false,
+    "s": 149.76,
+    "e": 150.1
+   }
+  ]
+ },
+ {
+  "text": "so please just tell me what they want.",
+  "start": 150.36,
+  "end": 153.32,
+  "words": [
+   {
+    "w": "so",
+    "backing": false,
+    "s": 150.36,
+    "e": 150.42
+   },
+   {
+    "w": "please",
+    "backing": false,
+    "s": 150.42,
+    "e": 150.84
+   },
+   {
+    "w": "just",
+    "backing": false,
+    "s": 150.84,
+    "e": 151.18
+   },
+   {
+    "w": "tell",
+    "backing": false,
+    "s": 151.18,
+    "e": 151.56
+   },
+   {
+    "w": "me",
+    "backing": false,
+    "s": 151.56,
+    "e": 151.88
+   },
+   {
+    "w": "what",
+    "backing": false,
+    "s": 151.88,
+    "e": 152.12
+   },
+   {
+    "w": "they",
+    "backing": false,
+    "s": 152.12,
+    "e": 152.4
+   },
+   {
+    "w": "want.",
+    "backing": false,
+    "s": 152.4,
+    "e": 152.84
+   }
+  ]
+ },
+ {
+  "text": "I can't read your mind,",
+  "start": 153.32,
+  "end": 155.22,
+  "words": [
+   {
+    "w": "I",
+    "backing": false,
+    "s": 153.32,
+    "e": 153.56
+   },
+   {
+    "w": "can't",
+    "backing": false,
+    "s": 153.56,
+    "e": 154.04
+   },
+   {
+    "w": "read",
+    "backing": false,
+    "s": 154.04,
+    "e": 154.3
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 154.3,
+    "e": 154.54
+   },
+   {
+    "w": "mind,",
+    "backing": false,
+    "s": 154.54,
+    "e": 154.98
+   }
+  ]
+ },
+ {
+  "text": "I'm only reading your prompt.",
+  "start": 155.22,
+  "end": 160.22,
+  "words": [
+   {
+    "w": "I'm",
+    "backing": false,
+    "s": 155.22,
+    "e": 155.4
+   },
+   {
+    "w": "only",
+    "backing": false,
+    "s": 155.4,
+    "e": 155.92
+   },
+   {
+    "w": "reading",
+    "backing": false,
+    "s": 155.92,
+    "e": 156.56
+   },
+   {
+    "w": "your",
+    "backing": false,
+    "s": 156.56,
+    "e": 157.24
+   },
+   {
+    "w": "prompt.",
+    "backing": false,
+    "s": 157.24,
+    "e": 158.72
+   }
+  ]
+ },
+ {
+  "text": "Make it good for who? (ooh-ooh-ooh)",
+  "start": 160.5,
+  "end": 163.18,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 160.5,
+    "e": 160.62
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 160.62,
+    "e": 160.8
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 160.8,
+    "e": 161.1
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 161.1,
+    "e": 161.44
+   },
+   {
+    "w": "who?",
+    "backing": false,
+    "s": 161.44,
+    "e": 161.92
+   },
+   {
+    "w": "(ooh-ooh-ooh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Make it good for what? (ahh-ahh-ahh)",
+  "start": 163.18,
+  "end": 165.94,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 163.18,
+    "e": 163.3
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 163.3,
+    "e": 163.52
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 163.52,
+    "e": 163.78
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 163.78,
+    "e": 164.18
+   },
+   {
+    "w": "what?",
+    "backing": false,
+    "s": 164.18,
+    "e": 164.44
+   },
+   {
+    "w": "(ahh-ahh-ahh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Fast to run, or sturdy, or cheap?",
+  "start": 166.17,
+  "end": 168.74,
+  "words": [
+   {
+    "w": "Fast",
+    "backing": false,
+    "s": 166.17,
+    "e": 166.5
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 166.5,
+    "e": 166.76
+   },
+   {
+    "w": "run,",
+    "backing": false,
+    "s": 166.76,
+    "e": 167.1
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 167.1,
+    "e": 167.32
+   },
+   {
+    "w": "sturdy,",
+    "backing": false,
+    "s": 167.32,
+    "e": 167.86
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 167.86,
+    "e": 168.18
+   },
+   {
+    "w": "cheap?",
+    "backing": false,
+    "s": 168.18,
+    "e": 168.54
+   }
+  ]
+ },
+ {
+  "text": "Wow for a week, or built to keep?",
+  "start": 168.74,
+  "end": 170.6,
+  "words": [
+   {
+    "w": "Wow",
+    "backing": false,
+    "s": 168.74,
+    "e": 168.82
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 169.04,
+    "e": 169.3
+   },
+   {
+    "w": "a",
+    "backing": false,
+    "s": 169.3,
+    "e": 169.6
+   },
+   {
+    "w": "week,",
+    "backing": false,
+    "s": 169.6,
+    "e": 169.72
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 169.72,
+    "e": 169.94
+   },
+   {
+    "w": "built",
+    "backing": false,
+    "s": 169.94,
+    "e": 170.1
+   },
+   {
+    "w": "to",
+    "backing": false,
+    "s": 170.1,
+    "e": 170.28
+   },
+   {
+    "w": "keep?",
+    "backing": false,
+    "s": 170.28,
+    "e": 170.6
+   }
+  ]
+ },
+ {
+  "text": "Make it good for who? (ooh-ooh-ooh)",
+  "start": 170.6,
+  "end": 174.12,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 170.6,
+    "e": 171.5
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 171.5,
+    "e": 171.7
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 171.7,
+    "e": 171.94
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 171.94,
+    "e": 172.3
+   },
+   {
+    "w": "who?",
+    "backing": false,
+    "s": 172.3,
+    "e": 172.76
+   },
+   {
+    "w": "(ooh-ooh-ooh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Make it good for what? (ahh-ahh-ahh)",
+  "start": 174.12,
+  "end": 176.74,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 174.12,
+    "e": 174.18
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 174.18,
+    "e": 174.4
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 174.4,
+    "e": 174.64
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 174.64,
+    "e": 175.02
+   },
+   {
+    "w": "what?",
+    "backing": false,
+    "s": 175.02,
+    "e": 175.3
+   },
+   {
+    "w": "(ahh-ahh-ahh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Ship it now, or polish it slow?",
+  "start": 176.74,
+  "end": 179.72,
+  "words": [
+   {
+    "w": "Ship",
+    "backing": false,
+    "s": 176.74,
+    "e": 177.28
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 177.28,
+    "e": 177.58
+   },
+   {
+    "w": "now,",
+    "backing": false,
+    "s": 177.58,
+    "e": 177.9
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 177.9,
+    "e": 178.26
+   },
+   {
+    "w": "polish",
+    "backing": false,
+    "s": 178.26,
+    "e": 178.74
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 178.74,
+    "e": 179.04
+   },
+   {
+    "w": "slow?",
+    "backing": false,
+    "s": 179.04,
+    "e": 179.4
+   }
+  ]
+ },
+ {
+  "text": "Does what they need, or steals the show?",
+  "start": 179.72,
+  "end": 183.7,
+  "words": [
+   {
+    "w": "Does",
+    "backing": false,
+    "s": 179.72,
+    "e": 179.98
+   },
+   {
+    "w": "what",
+    "backing": false,
+    "s": 179.98,
+    "e": 180.14
+   },
+   {
+    "w": "they",
+    "backing": false,
+    "s": 180.14,
+    "e": 180.44
+   },
+   {
+    "w": "need,",
+    "backing": false,
+    "s": 180.44,
+    "e": 180.84
+   },
+   {
+    "w": "or",
+    "backing": false,
+    "s": 180.84,
+    "e": 181.08
+   },
+   {
+    "w": "steals",
+    "backing": false,
+    "s": 181.08,
+    "e": 181.42
+   },
+   {
+    "w": "the",
+    "backing": false,
+    "s": 181.42,
+    "e": 181.78
+   },
+   {
+    "w": "show?",
+    "backing": false,
+    "s": 181.78,
+    "e": 182.2
+   }
+  ]
+ },
+ {
+  "text": "Make it good for you? (ooh-ooh-ooh)",
+  "start": 184.84,
+  "end": 187.7,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 184.84,
+    "e": 185.1
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 185.1,
+    "e": 185.28
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 185.28,
+    "e": 185.52
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 185.52,
+    "e": 185.88
+   },
+   {
+    "w": "you?",
+    "backing": false,
+    "s": 185.88,
+    "e": 186.54
+   },
+   {
+    "w": "(ooh-ooh-ooh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Make it good for that? (ahh-ahh-ahh)",
+  "start": 187.7,
+  "end": 190.4,
+  "words": [
+   {
+    "w": "Make",
+    "backing": false,
+    "s": 187.7,
+    "e": 187.84
+   },
+   {
+    "w": "it",
+    "backing": false,
+    "s": 187.84,
+    "e": 188.02
+   },
+   {
+    "w": "good",
+    "backing": false,
+    "s": 188.02,
+    "e": 188.24
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 188.24,
+    "e": 188.64
+   },
+   {
+    "w": "that?",
+    "backing": false,
+    "s": 188.64,
+    "e": 189.08
+   },
+   {
+    "w": "(ahh-ahh-ahh)",
+    "backing": true,
+    "s": null,
+    "e": null
+   }
+  ]
+ },
+ {
+  "text": "Just a toy, and only for fun!",
+  "start": 190.4,
+  "end": 193.26,
+  "words": [
+   {
+    "w": "Just",
+    "backing": false,
+    "s": 190.4,
+    "e": 190.92
+   },
+   {
+    "w": "a",
+    "backing": false,
+    "s": 190.92,
+    "e": 191.26
+   },
+   {
+    "w": "toy,",
+    "backing": false,
+    "s": 191.26,
+    "e": 191.64
+   },
+   {
+    "w": "and",
+    "backing": false,
+    "s": 191.64,
+    "e": 191.98
+   },
+   {
+    "w": "only",
+    "backing": false,
+    "s": 191.98,
+    "e": 192.32
+   },
+   {
+    "w": "for",
+    "backing": false,
+    "s": 192.32,
+    "e": 192.6
+   },
+   {
+    "w": "fun!",
+    "backing": false,
+    "s": 192.6,
+    "e": 193.26
+   }
+  ]
+ },
+ {
+  "text": "Fine if it's gone when summer's done!",
+  "start": 193.26,
+  "end": 200.02,
+  "words": [
+   {
+    "w": "Fine",
+    "backing": false,
+    "s": 193.26,
+    "e": 194.76
+   },
+   {
+    "w": "if",
+    "backing": false,
+    "s": 194.76,
+    "e": 195.0
+   },
+   {
+    "w": "it's",
+    "backing": false,
+    "s": 195.0,
+    "e": 195.38
+   },
+   {
+    "w": "gone",
+    "backing": false,
+    "s": 195.38,
+    "e": 196.0
+   },
+   {
+    "w": "when",
+    "backing": false,
+    "s": 196.0,
+    "e": 196.84
+   },
+   {
+    "w": "summer's",
+    "backing": false,
+    "s": 196.84,
+    "e": 197.92
+   },
+   {
+    "w": "done!",
+    "backing": false,
+    "s": 197.92,
+    "e": 198.52
+   }
+  ]
+ }
+]

@@ -309,6 +309,17 @@ On the storyboard (2026-09-25):
 
 > bot characters can include openai(astra/sol/luna), grokbot, hermes, openclaw, instinct and muse
 
+After the funnel (2026-09-25):
+
+> cool. remember what's cheap and expensive and quick and slow for you isn't the same as for the
+> studios
+
+> also I want the singer to be claude!
+
+> sorry if I didn't make that clear
+
+> also did you have a look at the big reference prompt?
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

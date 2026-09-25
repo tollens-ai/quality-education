@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- Plays or renders a scene against the song.
+     player.html?scene=../ep01/fetch.js&song=../../music/ep01&audio=<mp3>&w=540
+     Space plays/pauses; ←/→ step a beat; click the bar to seek. The renderer calls renderAt(t). -->
+<meta charset="utf-8">
+<title>animatic</title>
+<style>
+  body { margin: 0; background: #111; color: #ddd; font: 14px system-ui; display: grid; place-items: center; min-height: 100vh; }
+  canvas { background: #fff; max-height: 92vh; }
+  #bar { width: 540px; height: 10px; background: #333; margin-top: 6px; cursor: pointer; }
+  #fill { height: 100%; width: 0; background: #d97757; }
+</style>
+<div>
+  <canvas id="c"></canvas>
+  <div id="bar"><div id="fill"></div></div>
+  <div id="info"></div>
+  <audio id="a"></audio>
+</div>
+<script type="module">
+  import { loadSong, frame, W, H } from './stage.js';
+  const q = new URLSearchParams(location.search);
+  const scene = await import(q.get('scene'));
+  const S = await loadSong(q.get('song'));
+  const c = document.getElementById('c'), g = c.getContext('2d');
+  const cw = +(q.get('w') || 540);
+  c.width = cw; c.height = Math.round(cw * H / W);
+  if (scene.init) await scene.init(S);
+  window.renderAt = t => frame(g, cw, t, S, scene);
+  window.duration = S.duration;
+  window.ready = true;
+  const a = document.getElementById('a');
+  if (q.get('audio')) a.src = q.get('audio');
+  let t = +(q.get('t') || 0);
+  const tick = () => {
+    if (!a.paused) t = a.currentTime;
+    renderAt(t);
+    document.getElementById('fill').style.width = `${100 * t / S.duration}%`;
+    document.getElementById('info').textContent = `${t.toFixed(2)} s · ${S.section(t).name}`;
+    requestAnimationFrame(tick);
+  };
+  tick();
+  addEventListener('keydown', e => {
+    if (e.code === 'Space') { a.currentTime = t; a.paused ? a.play() : a.pause(); }
+    if (e.code === 'ArrowRight') { t += S.beat; a.currentTime = t; }
+    if (e.code === 'ArrowLeft') { t = Math.max(0, t - S.beat); a.currentTime = t; }
+  });
+  document.getElementById('bar').onclick = e => { t = S.duration * e.offsetX / 540; a.currentTime = t; };
+</script>

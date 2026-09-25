@@ -78,6 +78,39 @@ them and don't copy them. We design our own style.
 - **Compose for 9:16 from the start.** Every repo found renders at 1920×1080, so vertical is new
   ground and can't be done by cropping.
 
+## Pre-production
+
+Research pass 2026-09-25 on how animation, music-video and creator studios catch problems early;
+the full report, with which quotes were checked, is [research/studio-pre-production.md](research/studio-pre-production.md).
+The process built from it is in the [storyboard guide](.claude/skills/write-episode/storyboard.md).
+- **A full-length rough cut on the real track, rebuilt many times, is the cheap test.** Disney
+  story artists redo reels "over and over so other departments won't have to" and screen about
+  seven times ([Kennedy](http://storystruggles.blogspot.com/2021/01/mark-kennedy-disney-story-process.html)).
+  At The Simpsons, "once it's in color, the cost of changing too much is prohibitive"
+  ([Fox](https://www.foxnews.com/story/simpsons-gets-ready-for-16th-season.amp)).
+- **Package first.** MrBeast's production guide: know the title and thumbnail before making the
+  video ([Willison](https://simonwillison.net/2024/Sep/15/how-to-succeed-in-mrbeast-production/)).
+  Paddy Galloway: a great idea "has to be easy to convey in a title thumbnail"
+  ([Creator Science](https://podcast.creatorscience.com/paddy-galloway-2/)).
+- **Many cheap concepts, few treatments.** Music-video pitching asks for a one-page concept, then
+  narrows to a few ideas before anyone writes a full treatment
+  ([guidelines PDF](https://static1.squarespace.com/static/5b9170e2c258b4ff66f30981/t/5d38e18684eee2000124c481/1564008838776/Pitching+Process+-+GUIDELINES+AND+BEST+PRACTICES+FOR+MUSIC+VIDEO+PROJECTS+(2019.07.24).pdf)).
+- **Fresh eyes, notes without authority.** Pixar's Braintrust: "early on, all of our movies
+  suck" ([Pixar Post](https://pixarpost.com/2014/03/the-pixar-braintrust-excerpt-from-ed.html)).
+- **One-shot videos turn the song's structure into the world:** one dancer group per instrument
+  ([Around the World](https://en.wikipedia.org/wiki/Around_the_World_(Daft_Punk_song))), the
+  landscape as the score, plotted on graph paper first
+  ([Star Guitar](https://en.wikipedia.org/wiki/Star_Guitar)), a loop that gains a copy each time
+  ([Come Into My World](https://beforesandafters.com/2026/03/24/olivier-gondry-on-the-making-of-kylie-minogues-come-into-my-world/)),
+  one power of ten per 10 seconds ([Powers of Ten](https://en.wikipedia.org/wiki/Powers_of_Ten_(film_series))).
+  "This Too Shall Pass" was built in gated sections, and takes failed most often at the start of a
+  chorus ([Wikipedia](https://en.wikipedia.org/wiki/This_Too_Shall_Pass_(OK_Go_song))).
+- **Model viewers are unvalidated.** Gemini samples video at 1 fps by default and loses detail in
+  fast action ([docs](https://ai.google.dev/gemini-api/docs/video-understanding)); no source
+  shows model audiences predict human retention. Use them as a smoke test.
+- **Shorts can't be A/B tested** ([YouTube](https://support.google.com/youtube/answer/13861714)),
+  so the post-release loop is a log of hypotheses, not experiments.
+
 ## Sources
 Muller thesis notes: https://www.bobvanvliet.com/notes/designing-effective-multimedia-for-physics-education/
 Guo, Kim & Rubin 2014: https://dl.acm.org/doi/10.1145/2556325.2566239
@@ -89,6 +122,13 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
 ## Decided
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
+- Episode 1 is one shot: a single continuous camera, no cuts (Qing, 2026-09-25: "I really want
+  the music video to be one shot").
+- Corner marks: "@yanqingcheng" in one corner and "∴ tollens" (the Tollens logo is the therefore
+  sign) in the other, very small, in the video's own font (Qing, 2026-09-25). They replace the
+  single Tollens mark in principle 11.
+- Real bots appear as themselves: "for the bot characters you incorporate their actual, like
+  classic symbols or logos or mascots" (Qing, 2026-09-25).
 
 ## The bar for craft
 Qing shared a public example (2026-09-24) of the ambition and care we're aiming for: a creator's

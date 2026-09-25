@@ -58,10 +58,14 @@ is the worked example of the finished shape.
    [music/README.md](../../../music/README.md) for the toolchain and order of work.
    *Done when* Qing has heard the full mix and locked it.
 
-4. **Write the retention map, once the song is locked.** Fill a table in 3-second rows: time, picture, lyric, and *why they
-   keep watching*. Use the checks below. Make up plenty of concrete, recognisable examples as you
-   go; everyday vibecoder apps are easy to invent, so vary them.
-   *Done when* every row has a reason to keep watching that isn't "the song continues".
+4. **Storyboard, once the song is locked.** Follow
+   [storyboard.md](storyboard.md): score the song, run a funnel of world-rule concepts, write
+   treatments for the best three, then give every 3-second window a job and build a grey-box
+   animatic on the real take, rebuilding it until test viewers stop finding places to swipe.
+   Make up plenty of concrete, recognisable examples as you go; everyday vibecoder apps are easy
+   to invent, so vary them.
+   *Done when* the animatic has a reason to keep watching in every 3-second window that isn't
+   "the song continues", and Qing has seen the chosen treatment.
 
 5. **Write the agent-facing takeaway.** Show the vague prompt at the start and the rewritten prompt
    at the end. The rewrite must use the concept, not just be longer.

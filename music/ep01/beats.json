@@ -1,0 +1,2013 @@
+{
+ "take": "make-it-good-chosen.mp3",
+ "duration": 200.74,
+ "bpm": 172.3,
+ "bar_seconds": 1.393,
+ "sections": [
+  {
+   "name": "Intro",
+   "start": 0.0,
+   "end": 4.04
+  },
+  {
+   "name": "Verse 1",
+   "start": 4.52,
+   "end": 20.8
+  },
+  {
+   "name": "Pre-chorus",
+   "start": 20.8,
+   "end": 27.2
+  },
+  {
+   "name": "Chorus",
+   "start": 27.2,
+   "end": 50.48
+  },
+  {
+   "name": "Verse 2",
+   "start": 51.0,
+   "end": 72.48
+  },
+  {
+   "name": "Pre-chorus",
+   "start": 76.54,
+   "end": 82.96
+  },
+  {
+   "name": "Chorus",
+   "start": 82.96,
+   "end": 106.16
+  },
+  {
+   "name": "Bridge",
+   "start": 107.1,
+   "end": 128.8
+  },
+  {
+   "name": "Break",
+   "start": 128.8,
+   "end": 147.2
+  },
+  {
+   "name": "Final pre-chorus",
+   "start": 147.56,
+   "end": 160.22
+  },
+  {
+   "name": "Chorus",
+   "start": 160.5,
+   "end": 183.7
+  },
+  {
+   "name": "Outro",
+   "start": 184.84,
+   "end": 200.02
+  }
+ ],
+ "bars": [
+  {
+   "bar": 1,
+   "t": 0.395,
+   "db": -23.8,
+   "dip": false
+  },
+  {
+   "bar": 2,
+   "t": 1.765,
+   "db": -23.4,
+   "dip": false
+  },
+  {
+   "bar": 3,
+   "t": 3.088,
+   "db": -27.6,
+   "dip": true
+  },
+  {
+   "bar": 4,
+   "t": 4.435,
+   "db": -21.2,
+   "dip": false
+  },
+  {
+   "bar": 5,
+   "t": 5.828,
+   "db": -20.8,
+   "dip": false
+  },
+  {
+   "bar": 6,
+   "t": 7.198,
+   "db": -20.2,
+   "dip": false
+  },
+  {
+   "bar": 7,
+   "t": 8.568,
+   "db": -20.1,
+   "dip": false
+  },
+  {
+   "bar": 8,
+   "t": 9.915,
+   "db": -18.0,
+   "dip": false
+  },
+  {
+   "bar": 9,
+   "t": 11.285,
+   "db": -19.4,
+   "dip": false
+  },
+  {
+   "bar": 10,
+   "t": 12.632,
+   "db": -18.4,
+   "dip": false
+  },
+  {
+   "bar": 11,
+   "t": 14.002,
+   "db": -18.8,
+   "dip": false
+  },
+  {
+   "bar": 12,
+   "t": 15.372,
+   "db": -17.9,
+   "dip": false
+  },
+  {
+   "bar": 13,
+   "t": 16.718,
+   "db": -19.4,
+   "dip": false
+  },
+  {
+   "bar": 14,
+   "t": 18.065,
+   "db": -19.6,
+   "dip": false
+  },
+  {
+   "bar": 15,
+   "t": 19.435,
+   "db": -21.1,
+   "dip": false
+  },
+  {
+   "bar": 16,
+   "t": 20.805,
+   "db": -19.2,
+   "dip": false
+  },
+  {
+   "bar": 17,
+   "t": 22.175,
+   "db": -20.9,
+   "dip": false
+  },
+  {
+   "bar": 18,
+   "t": 23.475,
+   "db": -22.5,
+   "dip": false
+  },
+  {
+   "bar": 19,
+   "t": 24.869,
+   "db": -19.5,
+   "dip": false
+  },
+  {
+   "bar": 20,
+   "t": 26.239,
+   "db": -18.7,
+   "dip": false
+  },
+  {
+   "bar": 21,
+   "t": 27.609,
+   "db": -17.8,
+   "dip": false
+  },
+  {
+   "bar": 22,
+   "t": 28.955,
+   "db": -17.5,
+   "dip": false
+  },
+  {
+   "bar": 23,
+   "t": 30.325,
+   "db": -17.1,
+   "dip": false
+  },
+  {
+   "bar": 24,
+   "t": 31.672,
+   "db": -18.7,
+   "dip": false
+  },
+  {
+   "bar": 25,
+   "t": 33.042,
+   "db": -16.8,
+   "dip": false
+  },
+  {
+   "bar": 26,
+   "t": 34.389,
+   "db": -16.8,
+   "dip": false
+  },
+  {
+   "bar": 27,
+   "t": 35.759,
+   "db": -16.4,
+   "dip": false
+  },
+  {
+   "bar": 28,
+   "t": 37.105,
+   "db": -16.2,
+   "dip": false
+  },
+  {
+   "bar": 29,
+   "t": 38.475,
+   "db": -16.2,
+   "dip": false
+  },
+  {
+   "bar": 30,
+   "t": 39.845,
+   "db": -15.6,
+   "dip": false
+  },
+  {
+   "bar": 31,
+   "t": 41.192,
+   "db": -15.9,
+   "dip": false
+  },
+  {
+   "bar": 32,
+   "t": 42.562,
+   "db": -17.5,
+   "dip": false
+  },
+  {
+   "bar": 33,
+   "t": 43.909,
+   "db": -14.8,
+   "dip": false
+  },
+  {
+   "bar": 34,
+   "t": 45.279,
+   "db": -16.2,
+   "dip": false
+  },
+  {
+   "bar": 35,
+   "t": 46.649,
+   "db": -17.1,
+   "dip": false
+  },
+  {
+   "bar": 36,
+   "t": 47.996,
+   "db": -22.0,
+   "dip": false
+  },
+  {
+   "bar": 37,
+   "t": 49.505,
+   "db": -25.6,
+   "dip": true
+  },
+  {
+   "bar": 38,
+   "t": 51.014,
+   "db": -18.2,
+   "dip": false
+  },
+  {
+   "bar": 39,
+   "t": 52.407,
+   "db": -19.5,
+   "dip": false
+  },
+  {
+   "bar": 40,
+   "t": 53.754,
+   "db": -18.5,
+   "dip": false
+  },
+  {
+   "bar": 41,
+   "t": 55.124,
+   "db": -19.1,
+   "dip": false
+  },
+  {
+   "bar": 42,
+   "t": 56.494,
+   "db": -19.3,
+   "dip": false
+  },
+  {
+   "bar": 43,
+   "t": 57.841,
+   "db": -19.3,
+   "dip": false
+  },
+  {
+   "bar": 44,
+   "t": 59.211,
+   "db": -18.3,
+   "dip": false
+  },
+  {
+   "bar": 45,
+   "t": 60.558,
+   "db": -18.4,
+   "dip": false
+  },
+  {
+   "bar": 46,
+   "t": 61.928,
+   "db": -19.0,
+   "dip": false
+  },
+  {
+   "bar": 47,
+   "t": 63.298,
+   "db": -20.8,
+   "dip": false
+  },
+  {
+   "bar": 48,
+   "t": 64.644,
+   "db": -19.1,
+   "dip": false
+  },
+  {
+   "bar": 49,
+   "t": 65.991,
+   "db": -19.7,
+   "dip": false
+  },
+  {
+   "bar": 50,
+   "t": 67.361,
+   "db": -18.2,
+   "dip": false
+  },
+  {
+   "bar": 51,
+   "t": 68.731,
+   "db": -19.5,
+   "dip": false
+  },
+  {
+   "bar": 52,
+   "t": 70.078,
+   "db": -17.3,
+   "dip": false
+  },
+  {
+   "bar": 53,
+   "t": 71.448,
+   "db": -16.9,
+   "dip": false
+  },
+  {
+   "bar": 54,
+   "t": 72.818,
+   "db": -16.1,
+   "dip": false
+  },
+  {
+   "bar": 55,
+   "t": 74.165,
+   "db": -19.1,
+   "dip": false
+  },
+  {
+   "bar": 56,
+   "t": 75.511,
+   "db": -20.1,
+   "dip": false
+  },
+  {
+   "bar": 57,
+   "t": 76.881,
+   "db": -20.8,
+   "dip": false
+  },
+  {
+   "bar": 58,
+   "t": 78.251,
+   "db": -19.4,
+   "dip": false
+  },
+  {
+   "bar": 59,
+   "t": 79.621,
+   "db": -18.5,
+   "dip": false
+  },
+  {
+   "bar": 60,
+   "t": 80.968,
+   "db": -19.1,
+   "dip": false
+  },
+  {
+   "bar": 61,
+   "t": 82.315,
+   "db": -17.9,
+   "dip": false
+  },
+  {
+   "bar": 62,
+   "t": 83.685,
+   "db": -17.0,
+   "dip": false
+  },
+  {
+   "bar": 63,
+   "t": 85.031,
+   "db": -16.7,
+   "dip": false
+  },
+  {
+   "bar": 64,
+   "t": 86.401,
+   "db": -16.9,
+   "dip": false
+  },
+  {
+   "bar": 65,
+   "t": 87.771,
+   "db": -17.8,
+   "dip": false
+  },
+  {
+   "bar": 66,
+   "t": 89.118,
+   "db": -15.6,
+   "dip": false
+  },
+  {
+   "bar": 67,
+   "t": 90.488,
+   "db": -15.5,
+   "dip": false
+  },
+  {
+   "bar": 68,
+   "t": 91.858,
+   "db": -15.8,
+   "dip": false
+  },
+  {
+   "bar": 69,
+   "t": 93.205,
+   "db": -15.4,
+   "dip": false
+  },
+  {
+   "bar": 70,
+   "t": 94.575,
+   "db": -15.8,
+   "dip": false
+  },
+  {
+   "bar": 71,
+   "t": 95.922,
+   "db": -15.8,
+   "dip": false
+  },
+  {
+   "bar": 72,
+   "t": 97.292,
+   "db": -16.3,
+   "dip": false
+  },
+  {
+   "bar": 73,
+   "t": 98.638,
+   "db": -17.2,
+   "dip": false
+  },
+  {
+   "bar": 74,
+   "t": 100.008,
+   "db": -15.8,
+   "dip": false
+  },
+  {
+   "bar": 75,
+   "t": 101.355,
+   "db": -16.4,
+   "dip": false
+  },
+  {
+   "bar": 76,
+   "t": 102.725,
+   "db": -17.4,
+   "dip": false
+  },
+  {
+   "bar": 77,
+   "t": 104.072,
+   "db": -16.2,
+   "dip": false
+  },
+  {
+   "bar": 78,
+   "t": 105.442,
+   "db": -16.2,
+   "dip": false
+  },
+  {
+   "bar": 79,
+   "t": 106.789,
+   "db": -19.8,
+   "dip": false
+  },
+  {
+   "bar": 80,
+   "t": 108.159,
+   "db": -21.3,
+   "dip": false
+  },
+  {
+   "bar": 81,
+   "t": 109.505,
+   "db": -22.2,
+   "dip": false
+  },
+  {
+   "bar": 82,
+   "t": 110.875,
+   "db": -20.4,
+   "dip": false
+  },
+  {
+   "bar": 83,
+   "t": 112.245,
+   "db": -21.6,
+   "dip": false
+  },
+  {
+   "bar": 84,
+   "t": 113.592,
+   "db": -20.9,
+   "dip": false
+  },
+  {
+   "bar": 85,
+   "t": 114.962,
+   "db": -21.3,
+   "dip": false
+  },
+  {
+   "bar": 86,
+   "t": 116.309,
+   "db": -22.7,
+   "dip": false
+  },
+  {
+   "bar": 87,
+   "t": 117.656,
+   "db": -19.0,
+   "dip": false
+  },
+  {
+   "bar": 88,
+   "t": 119.049,
+   "db": -18.4,
+   "dip": false
+  },
+  {
+   "bar": 89,
+   "t": 120.395,
+   "db": -17.6,
+   "dip": false
+  },
+  {
+   "bar": 90,
+   "t": 121.742,
+   "db": -18.4,
+   "dip": false
+  },
+  {
+   "bar": 91,
+   "t": 123.112,
+   "db": -18.7,
+   "dip": false
+  },
+  {
+   "bar": 92,
+   "t": 124.482,
+   "db": -18.9,
+   "dip": false
+  },
+  {
+   "bar": 93,
+   "t": 125.829,
+   "db": -18.8,
+   "dip": false
+  },
+  {
+   "bar": 94,
+   "t": 127.199,
+   "db": -18.2,
+   "dip": false
+  },
+  {
+   "bar": 95,
+   "t": 128.569,
+   "db": -21.7,
+   "dip": false
+  },
+  {
+   "bar": 96,
+   "t": 129.916,
+   "db": -20.5,
+   "dip": false
+  },
+  {
+   "bar": 97,
+   "t": 131.262,
+   "db": -19.8,
+   "dip": false
+  },
+  {
+   "bar": 98,
+   "t": 132.632,
+   "db": -16.8,
+   "dip": false
+  },
+  {
+   "bar": 99,
+   "t": 134.002,
+   "db": -20.2,
+   "dip": false
+  },
+  {
+   "bar": 100,
+   "t": 135.349,
+   "db": -25.0,
+   "dip": true
+  },
+  {
+   "bar": 101,
+   "t": 136.719,
+   "db": -20.0,
+   "dip": false
+  },
+  {
+   "bar": 102,
+   "t": 138.066,
+   "db": -17.4,
+   "dip": false
+  },
+  {
+   "bar": 103,
+   "t": 139.436,
+   "db": -22.5,
+   "dip": false
+  },
+  {
+   "bar": 104,
+   "t": 140.783,
+   "db": -26.4,
+   "dip": true
+  },
+  {
+   "bar": 105,
+   "t": 142.153,
+   "db": -19.5,
+   "dip": false
+  },
+  {
+   "bar": 106,
+   "t": 143.523,
+   "db": -19.9,
+   "dip": false
+  },
+  {
+   "bar": 107,
+   "t": 144.846,
+   "db": -20.1,
+   "dip": false
+  },
+  {
+   "bar": 108,
+   "t": 146.239,
+   "db": -20.5,
+   "dip": false
+  },
+  {
+   "bar": 109,
+   "t": 147.609,
+   "db": -20.7,
+   "dip": false
+  },
+  {
+   "bar": 110,
+   "t": 148.979,
+   "db": -21.2,
+   "dip": false
+  },
+  {
+   "bar": 111,
+   "t": 150.326,
+   "db": -21.4,
+   "dip": false
+  },
+  {
+   "bar": 112,
+   "t": 151.696,
+   "db": -21.1,
+   "dip": false
+  },
+  {
+   "bar": 113,
+   "t": 152.996,
+   "db": -21.3,
+   "dip": false
+  },
+  {
+   "bar": 114,
+   "t": 154.389,
+   "db": -19.4,
+   "dip": false
+  },
+  {
+   "bar": 115,
+   "t": 155.783,
+   "db": -19.6,
+   "dip": false
+  },
+  {
+   "bar": 116,
+   "t": 157.153,
+   "db": -21.9,
+   "dip": false
+  },
+  {
+   "bar": 117,
+   "t": 158.499,
+   "db": -21.7,
+   "dip": false
+  },
+  {
+   "bar": 118,
+   "t": 159.846,
+   "db": -16.7,
+   "dip": false
+  },
+  {
+   "bar": 119,
+   "t": 161.193,
+   "db": -16.0,
+   "dip": false
+  },
+  {
+   "bar": 120,
+   "t": 162.54,
+   "db": -17.0,
+   "dip": false
+  },
+  {
+   "bar": 121,
+   "t": 163.91,
+   "db": -16.6,
+   "dip": false
+  },
+  {
+   "bar": 122,
+   "t": 165.28,
+   "db": -17.7,
+   "dip": false
+  },
+  {
+   "bar": 123,
+   "t": 166.626,
+   "db": -16.3,
+   "dip": false
+  },
+  {
+   "bar": 124,
+   "t": 167.996,
+   "db": -16.7,
+   "dip": false
+  },
+  {
+   "bar": 125,
+   "t": 169.343,
+   "db": -16.4,
+   "dip": false
+  },
+  {
+   "bar": 126,
+   "t": 170.713,
+   "db": -15.4,
+   "dip": false
+  },
+  {
+   "bar": 127,
+   "t": 172.06,
+   "db": -15.8,
+   "dip": false
+  },
+  {
+   "bar": 128,
+   "t": 173.43,
+   "db": -15.8,
+   "dip": false
+  },
+  {
+   "bar": 129,
+   "t": 174.8,
+   "db": -15.2,
+   "dip": false
+  },
+  {
+   "bar": 130,
+   "t": 176.147,
+   "db": -16.0,
+   "dip": false
+  },
+  {
+   "bar": 131,
+   "t": 177.517,
+   "db": -14.9,
+   "dip": false
+  },
+  {
+   "bar": 132,
+   "t": 178.863,
+   "db": -16.0,
+   "dip": false
+  },
+  {
+   "bar": 133,
+   "t": 180.233,
+   "db": -16.4,
+   "dip": false
+  },
+  {
+   "bar": 134,
+   "t": 181.603,
+   "db": -22.2,
+   "dip": false
+  },
+  {
+   "bar": 135,
+   "t": 183.113,
+   "db": -25.4,
+   "dip": false
+  },
+  {
+   "bar": 136,
+   "t": 184.599,
+   "db": -21.8,
+   "dip": false
+  },
+  {
+   "bar": 137,
+   "t": 186.015,
+   "db": -22.4,
+   "dip": false
+  },
+  {
+   "bar": 138,
+   "t": 187.385,
+   "db": -20.7,
+   "dip": false
+  },
+  {
+   "bar": 139,
+   "t": 188.732,
+   "db": -22.2,
+   "dip": false
+  },
+  {
+   "bar": 140,
+   "t": 190.102,
+   "db": -20.3,
+   "dip": false
+  },
+  {
+   "bar": 141,
+   "t": 191.472,
+   "db": -20.4,
+   "dip": false
+  },
+  {
+   "bar": 142,
+   "t": 192.819,
+   "db": -26.5,
+   "dip": true
+  },
+  {
+   "bar": 143,
+   "t": 194.165,
+   "db": -22.8,
+   "dip": false
+  },
+  {
+   "bar": 144,
+   "t": 195.582,
+   "db": -24.1,
+   "dip": false
+  },
+  {
+   "bar": 145,
+   "t": 197.045,
+   "db": -20.9,
+   "dip": false
+  },
+  {
+   "bar": 146,
+   "t": 198.415,
+   "db": -23.2,
+   "dip": false
+  }
+ ],
+ "lines": [
+  {
+   "section": "Intro",
+   "start": 0.0,
+   "end": 4.04,
+   "text": "You said make it good, so I made it good!"
+  },
+  {
+   "section": "Verse 1",
+   "start": 4.52,
+   "end": 8.0,
+   "text": "Confetti cannons every time you floss,"
+  },
+  {
+   "section": "Verse 1",
+   "start": 8.0,
+   "end": 10.76,
+   "text": "2FA to use your gym log,"
+  },
+  {
+   "section": "Verse 1",
+   "start": 10.76,
+   "end": 13.2,
+   "text": "Kubernetes scaling up your blog,"
+  },
+  {
+   "section": "Verse 1",
+   "start": 13.2,
+   "end": 15.64,
+   "text": "twelve subagents working round the clock."
+  },
+  {
+   "section": "Verse 1",
+   "start": 15.64,
+   "end": 17.04,
+   "text": "Did I do it wrong?"
+  },
+  {
+   "section": "Verse 1",
+   "start": 17.04,
+   "end": 18.66,
+   "text": "Oops, your quota's gone!"
+  },
+  {
+   "section": "Verse 1",
+   "start": 18.66,
+   "end": 20.8,
+   "text": "Guess I didn't ask!"
+  },
+  {
+   "section": "Pre-chorus",
+   "start": 20.8,
+   "end": 22.32,
+   "text": "You didn't tell me who it's for,"
+  },
+  {
+   "section": "Pre-chorus",
+   "start": 22.32,
+   "end": 24.0,
+   "text": "you didn't tell me what they want."
+  },
+  {
+   "section": "Pre-chorus",
+   "start": 24.0,
+   "end": 25.04,
+   "text": "I can't read your mind,"
+  },
+  {
+   "section": "Pre-chorus",
+   "start": 25.04,
+   "end": 27.2,
+   "text": "I'm only reading your prompt."
+  },
+  {
+   "section": "Chorus",
+   "start": 27.2,
+   "end": 29.4,
+   "text": "Make it good for who? (ooh-ooh-ooh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 29.4,
+   "end": 32.72,
+   "text": "Make it good for what? (ahh-ahh-ahh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 32.72,
+   "end": 35.44,
+   "text": "Fast to run, or sturdy, or cheap?"
+  },
+  {
+   "section": "Chorus",
+   "start": 35.44,
+   "end": 38.08,
+   "text": "Wow for a week, or built to keep?"
+  },
+  {
+   "section": "Chorus",
+   "start": 38.08,
+   "end": 40.76,
+   "text": "Make it good for who? (ooh-ooh-ooh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 40.76,
+   "end": 43.62,
+   "text": "Make it good for what? (ahh-ahh-ahh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 43.62,
+   "end": 46.46,
+   "text": "Ship it now, or polish it slow?"
+  },
+  {
+   "section": "Chorus",
+   "start": 46.46,
+   "end": 50.48,
+   "text": "Does what they need, or steals the show?"
+  },
+  {
+   "section": "Verse 2",
+   "start": 51.0,
+   "end": 53.38,
+   "text": "Product demo? Wow them fast."
+  },
+  {
+   "section": "Verse 2",
+   "start": 53.38,
+   "end": 56.1,
+   "text": "Paying users? Make it last."
+  },
+  {
+   "section": "Verse 2",
+   "start": 56.1,
+   "end": 58.44,
+   "text": "Group chat bot? Just make 'em laugh."
+  },
+  {
+   "section": "Verse 2",
+   "start": 58.44,
+   "end": 61.64,
+   "text": "Uni project? Make it pass."
+  },
+  {
+   "section": "Verse 2",
+   "start": 61.64,
+   "end": 64.32,
+   "text": "Nana's phone? Let's keep it sweet."
+  },
+  {
+   "section": "Verse 2",
+   "start": 64.32,
+   "end": 66.98,
+   "text": "Can't see screens? It needs to speak."
+  },
+  {
+   "section": "Verse 2",
+   "start": 66.98,
+   "end": 69.74,
+   "text": "Agent bots? No data leak."
+  },
+  {
+   "section": "Verse 2",
+   "start": 69.74,
+   "end": 72.48,
+   "text": "And for us, keep diags neat!"
+  },
+  {
+   "section": "Pre-chorus",
+   "start": 76.54,
+   "end": 78.08,
+   "text": "You didn't tell me who it's for,"
+  },
+  {
+   "section": "Pre-chorus",
+   "start": 78.08,
+   "end": 79.76,
+   "text": "you didn't tell me what they want."
+  },
+  {
+   "section": "Pre-chorus",
+   "start": 79.76,
+   "end": 80.76,
+   "text": "I can't read your mind,"
+  },
+  {
+   "section": "Pre-chorus",
+   "start": 80.76,
+   "end": 82.96,
+   "text": "I'm only reading your prompt."
+  },
+  {
+   "section": "Chorus",
+   "start": 82.96,
+   "end": 84.74,
+   "text": "Make it good for who? (ooh-ooh-ooh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 84.74,
+   "end": 88.38,
+   "text": "Make it good for what? (ahh-ahh-ahh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 88.44,
+   "end": 91.04,
+   "text": "Fast to run, or sturdy, or cheap?"
+  },
+  {
+   "section": "Chorus",
+   "start": 91.04,
+   "end": 93.82,
+   "text": "Wow for a week, or built to keep?"
+  },
+  {
+   "section": "Chorus",
+   "start": 93.82,
+   "end": 95.64,
+   "text": "Make it good for who? (ooh-ooh-ooh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 95.64,
+   "end": 99.3,
+   "text": "Make it good for what? (ahh-ahh-ahh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 99.3,
+   "end": 102.2,
+   "text": "Ship it now, or polish it slow?"
+  },
+  {
+   "section": "Chorus",
+   "start": 102.2,
+   "end": 106.16,
+   "text": "Does what they need, or steals the show?"
+  },
+  {
+   "section": "Bridge",
+   "start": 107.1,
+   "end": 112.18,
+   "text": "I could only learn from my training set (whoa-oh)"
+  },
+  {
+   "section": "Bridge",
+   "start": 112.3,
+   "end": 116.99,
+   "text": "to write code and throw it over the wall. (whoa-oh)"
+  },
+  {
+   "section": "Bridge",
+   "start": 117.32,
+   "end": 123.06,
+   "text": "But how do you know what to build or test (whoa-oh)"
+  },
+  {
+   "section": "Bridge",
+   "start": 123.36,
+   "end": 128.8,
+   "text": "if you're not thinking about who it's for?"
+  },
+  {
+   "section": "Break",
+   "start": 128.8,
+   "end": 134.68,
+   "text": "Software quality is value to someone who matters"
+  },
+  {
+   "section": "Break",
+   "start": 134.68,
+   "end": 137.48,
+   "text": "(matters, matters, matters)"
+  },
+  {
+   "section": "Break",
+   "start": 137.48,
+   "end": 139.24,
+   "text": "I'm someone too!"
+  },
+  {
+   "section": "Break",
+   "start": 139.24,
+   "end": 142.42,
+   "text": "(And me! And me! And me!)"
+  },
+  {
+   "section": "Break",
+   "start": 142.42,
+   "end": 147.2,
+   "text": "I'm debugging this with you."
+  },
+  {
+   "section": "Final pre-chorus",
+   "start": 147.56,
+   "end": 150.36,
+   "text": "So please just tell me who it's for,"
+  },
+  {
+   "section": "Final pre-chorus",
+   "start": 150.36,
+   "end": 153.32,
+   "text": "so please just tell me what they want."
+  },
+  {
+   "section": "Final pre-chorus",
+   "start": 153.32,
+   "end": 155.22,
+   "text": "I can't read your mind,"
+  },
+  {
+   "section": "Final pre-chorus",
+   "start": 155.22,
+   "end": 160.22,
+   "text": "I'm only reading your prompt."
+  },
+  {
+   "section": "Chorus",
+   "start": 160.5,
+   "end": 163.18,
+   "text": "Make it good for who? (ooh-ooh-ooh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 163.18,
+   "end": 165.94,
+   "text": "Make it good for what? (ahh-ahh-ahh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 166.17,
+   "end": 168.74,
+   "text": "Fast to run, or sturdy, or cheap?"
+  },
+  {
+   "section": "Chorus",
+   "start": 168.74,
+   "end": 170.6,
+   "text": "Wow for a week, or built to keep?"
+  },
+  {
+   "section": "Chorus",
+   "start": 170.6,
+   "end": 174.12,
+   "text": "Make it good for who? (ooh-ooh-ooh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 174.12,
+   "end": 176.74,
+   "text": "Make it good for what? (ahh-ahh-ahh)"
+  },
+  {
+   "section": "Chorus",
+   "start": 176.74,
+   "end": 179.72,
+   "text": "Ship it now, or polish it slow?"
+  },
+  {
+   "section": "Chorus",
+   "start": 179.72,
+   "end": 183.7,
+   "text": "Does what they need, or steals the show?"
+  },
+  {
+   "section": "Outro",
+   "start": 184.84,
+   "end": 187.7,
+   "text": "Make it good for you? (ooh-ooh-ooh)"
+  },
+  {
+   "section": "Outro",
+   "start": 187.7,
+   "end": 190.4,
+   "text": "Make it good for that? (ahh-ahh-ahh)"
+  },
+  {
+   "section": "Outro",
+   "start": 190.4,
+   "end": 193.26,
+   "text": "Just a toy, and only for fun!"
+  },
+  {
+   "section": "Outro",
+   "start": 193.26,
+   "end": 200.02,
+   "text": "Fine if it's gone when summer's done!"
+  }
+ ],
+ "windows": [
+  {
+   "t": 0.0,
+   "db": -24.5,
+   "lines": [
+    "You said make it good, so I made it good!"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 3.0,
+   "db": -23.7,
+   "lines": [
+    "You said make it good, so I made it good!",
+    "Confetti cannons every time you floss,"
+   ],
+   "dip_bars": [
+    3
+   ],
+   "job": null
+  },
+  {
+   "t": 6.0,
+   "db": -20.4,
+   "lines": [
+    "Confetti cannons every time you floss,",
+    "2FA to use your gym log,"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 9.0,
+   "db": -19.0,
+   "lines": [
+    "2FA to use your gym log,",
+    "Kubernetes scaling up your blog,"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 12.0,
+   "db": -18.5,
+   "lines": [
+    "Kubernetes scaling up your blog,",
+    "twelve subagents working round the clock."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 15.0,
+   "db": -18.7,
+   "lines": [
+    "twelve subagents working round the clock.",
+    "Did I do it wrong?",
+    "Oops, your quota's gone!"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 18.0,
+   "db": -20.1,
+   "lines": [
+    "Oops, your quota's gone!",
+    "Guess I didn't ask!",
+    "You didn't tell me who it's for,"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 21.0,
+   "db": -20.9,
+   "lines": [
+    "You didn't tell me who it's for,",
+    "you didn't tell me what they want."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 24.0,
+   "db": -19.8,
+   "lines": [
+    "I can't read your mind,",
+    "I'm only reading your prompt."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 27.0,
+   "db": -17.7,
+   "lines": [
+    "I'm only reading your prompt.",
+    "Make it good for who? (ooh-ooh-ooh)",
+    "Make it good for what? (ahh-ahh-ahh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 30.0,
+   "db": -17.9,
+   "lines": [
+    "Make it good for what? (ahh-ahh-ahh)",
+    "Fast to run, or sturdy, or cheap?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 33.0,
+   "db": -16.5,
+   "lines": [
+    "Fast to run, or sturdy, or cheap?",
+    "Wow for a week, or built to keep?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 36.0,
+   "db": -16.4,
+   "lines": [
+    "Wow for a week, or built to keep?",
+    "Make it good for who? (ooh-ooh-ooh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 39.0,
+   "db": -15.6,
+   "lines": [
+    "Make it good for who? (ooh-ooh-ooh)",
+    "Make it good for what? (ahh-ahh-ahh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 42.0,
+   "db": -16.5,
+   "lines": [
+    "Make it good for what? (ahh-ahh-ahh)",
+    "Ship it now, or polish it slow?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 45.0,
+   "db": -16.5,
+   "lines": [
+    "Ship it now, or polish it slow?",
+    "Does what they need, or steals the show?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 48.0,
+   "db": -23.7,
+   "lines": [
+    "Does what they need, or steals the show?"
+   ],
+   "dip_bars": [
+    37
+   ],
+   "job": null
+  },
+  {
+   "t": 51.0,
+   "db": -18.8,
+   "lines": [
+    "Product demo? Wow them fast.",
+    "Paying users? Make it last."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 54.0,
+   "db": -18.9,
+   "lines": [
+    "Paying users? Make it last.",
+    "Group chat bot? Just make 'em laugh."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 57.0,
+   "db": -19.0,
+   "lines": [
+    "Group chat bot? Just make 'em laugh.",
+    "Uni project? Make it pass."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 60.0,
+   "db": -18.5,
+   "lines": [
+    "Uni project? Make it pass.",
+    "Nana's phone? Let's keep it sweet."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 63.0,
+   "db": -19.9,
+   "lines": [
+    "Nana's phone? Let's keep it sweet.",
+    "Can't see screens? It needs to speak."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 66.0,
+   "db": -19.0,
+   "lines": [
+    "Can't see screens? It needs to speak.",
+    "Agent bots? No data leak."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 69.0,
+   "db": -18.0,
+   "lines": [
+    "Agent bots? No data leak.",
+    "And for us, keep diags neat!"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 72.0,
+   "db": -17.0,
+   "lines": [
+    "And for us, keep diags neat!"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 75.0,
+   "db": -20.3,
+   "lines": [
+    "You didn't tell me who it's for,"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 78.0,
+   "db": -19.1,
+   "lines": [
+    "You didn't tell me who it's for,",
+    "you didn't tell me what they want.",
+    "I can't read your mind,",
+    "I'm only reading your prompt."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 81.0,
+   "db": -18.2,
+   "lines": [
+    "I'm only reading your prompt.",
+    "Make it good for who? (ooh-ooh-ooh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 84.0,
+   "db": -16.8,
+   "lines": [
+    "Make it good for who? (ooh-ooh-ooh)",
+    "Make it good for what? (ahh-ahh-ahh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 87.0,
+   "db": -17.2,
+   "lines": [
+    "Make it good for what? (ahh-ahh-ahh)",
+    "Fast to run, or sturdy, or cheap?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 90.0,
+   "db": -15.5,
+   "lines": [
+    "Fast to run, or sturdy, or cheap?",
+    "Wow for a week, or built to keep?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 93.0,
+   "db": -15.5,
+   "lines": [
+    "Wow for a week, or built to keep?",
+    "Make it good for who? (ooh-ooh-ooh)",
+    "Make it good for what? (ahh-ahh-ahh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 96.0,
+   "db": -16.1,
+   "lines": [
+    "Make it good for what? (ahh-ahh-ahh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 99.0,
+   "db": -16.5,
+   "lines": [
+    "Make it good for what? (ahh-ahh-ahh)",
+    "Ship it now, or polish it slow?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 102.0,
+   "db": -16.9,
+   "lines": [
+    "Ship it now, or polish it slow?",
+    "Does what they need, or steals the show?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 105.0,
+   "db": -17.3,
+   "lines": [
+    "Does what they need, or steals the show?",
+    "I could only learn from my training set (whoa-oh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 108.0,
+   "db": -21.6,
+   "lines": [
+    "I could only learn from my training set (whoa-oh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 111.0,
+   "db": -21.2,
+   "lines": [
+    "I could only learn from my training set (whoa-oh)",
+    "to write code and throw it over the wall. (whoa-oh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 114.0,
+   "db": -21.1,
+   "lines": [
+    "to write code and throw it over the wall. (whoa-oh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 117.0,
+   "db": -19.7,
+   "lines": [
+    "But how do you know what to build or test (whoa-oh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 120.0,
+   "db": -17.9,
+   "lines": [
+    "But how do you know what to build or test (whoa-oh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 123.0,
+   "db": -18.9,
+   "lines": [
+    "But how do you know what to build or test (whoa-oh)",
+    "if you're not thinking about who it's for?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 126.0,
+   "db": -18.6,
+   "lines": [
+    "if you're not thinking about who it's for?",
+    "Software quality is value to someone who matters"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 129.0,
+   "db": -20.6,
+   "lines": [
+    "Software quality is value to someone who matters"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 132.0,
+   "db": -18.2,
+   "lines": [
+    "Software quality is value to someone who matters",
+    "(matters, matters, matters)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 135.0,
+   "db": -22.6,
+   "lines": [
+    "(matters, matters, matters)",
+    "I'm someone too!"
+   ],
+   "dip_bars": [
+    100
+   ],
+   "job": null
+  },
+  {
+   "t": 138.0,
+   "db": -19.8,
+   "lines": [
+    "I'm someone too!",
+    "(And me! And me! And me!)"
+   ],
+   "dip_bars": [
+    104
+   ],
+   "job": null
+  },
+  {
+   "t": 141.0,
+   "db": -21.5,
+   "lines": [
+    "(And me! And me! And me!)",
+    "I'm debugging this with you."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 144.0,
+   "db": -20.3,
+   "lines": [
+    "I'm debugging this with you."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 147.0,
+   "db": -21.0,
+   "lines": [
+    "I'm debugging this with you.",
+    "So please just tell me who it's for,"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 150.0,
+   "db": -21.3,
+   "lines": [
+    "So please just tell me who it's for,",
+    "so please just tell me what they want."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 153.0,
+   "db": -20.1,
+   "lines": [
+    "so please just tell me what they want.",
+    "I can't read your mind,",
+    "I'm only reading your prompt."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 156.0,
+   "db": -21.0,
+   "lines": [
+    "I'm only reading your prompt."
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 159.0,
+   "db": -17.5,
+   "lines": [
+    "I'm only reading your prompt.",
+    "Make it good for who? (ooh-ooh-ooh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 162.0,
+   "db": -16.7,
+   "lines": [
+    "Make it good for who? (ooh-ooh-ooh)",
+    "Make it good for what? (ahh-ahh-ahh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 165.0,
+   "db": -17.0,
+   "lines": [
+    "Make it good for what? (ahh-ahh-ahh)",
+    "Fast to run, or sturdy, or cheap?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 168.0,
+   "db": -16.3,
+   "lines": [
+    "Fast to run, or sturdy, or cheap?",
+    "Wow for a week, or built to keep?",
+    "Make it good for who? (ooh-ooh-ooh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 171.0,
+   "db": -15.9,
+   "lines": [
+    "Make it good for who? (ooh-ooh-ooh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 174.0,
+   "db": -15.6,
+   "lines": [
+    "Make it good for who? (ooh-ooh-ooh)",
+    "Make it good for what? (ahh-ahh-ahh)",
+    "Ship it now, or polish it slow?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 177.0,
+   "db": -15.4,
+   "lines": [
+    "Ship it now, or polish it slow?",
+    "Does what they need, or steals the show?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 180.0,
+   "db": -18.4,
+   "lines": [
+    "Does what they need, or steals the show?"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 183.0,
+   "db": -23.6,
+   "lines": [
+    "Does what they need, or steals the show?",
+    "Make it good for you? (ooh-ooh-ooh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 186.0,
+   "db": -21.4,
+   "lines": [
+    "Make it good for you? (ooh-ooh-ooh)",
+    "Make it good for that? (ahh-ahh-ahh)"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 189.0,
+   "db": -20.7,
+   "lines": [
+    "Make it good for that? (ahh-ahh-ahh)",
+    "Just a toy, and only for fun!"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 192.0,
+   "db": -23.9,
+   "lines": [
+    "Just a toy, and only for fun!",
+    "Fine if it's gone when summer's done!"
+   ],
+   "dip_bars": [
+    142
+   ],
+   "job": null
+  },
+  {
+   "t": 195.0,
+   "db": -22.8,
+   "lines": [
+    "Fine if it's gone when summer's done!"
+   ],
+   "dip_bars": [],
+   "job": null
+  },
+  {
+   "t": 198.0,
+   "db": -22.7,
+   "lines": [
+    "Fine if it's gone when summer's done!"
+   ],
+   "dip_bars": [],
+   "job": null
+  }
+ ]
+}

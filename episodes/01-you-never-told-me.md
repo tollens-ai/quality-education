@@ -10,8 +10,10 @@ sung from her v9 copy. Next is the storyboard, built on the take's timings.
 
 **Where we stopped (2026-09-25):** Qing picked a MiniMax take (kept locally, not in git) and the
 lyrics are locked as v9 below, with caption spelling. The take is transcribed and the captions are
-timed: [01-captions.srt](01-captions.srt), generated from `music/ep01/captions.txt`. Next: the
-storyboard, rebuilt on the take's timings; it has been parked since v8. The code band, code voice
+timed: [01-captions.srt](01-captions.srt), generated from `music/ep01/captions.txt`. The storyboard
+is being rebuilt as one continuous shot, following the
+[storyboard guide](../.claude/skills/write-episode/storyboard.md): the take is scored in
+`music/ep01/beats.json`, and a funnel of world-rule concepts is running. The code band, code voice
 and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
@@ -283,6 +285,29 @@ On the chosen take (2026-09-25):
 > intended phrasing - it still doesn't guarantee things but the more obviously the syllables fit
 > the easier it is for the model.
 
+> Good got who is great. style prompt hasn't changed.
+
+On the storyboard (2026-09-25):
+
+> fornthe storyboard, please think about a process you can follow to spot issues and generate
+> better ideas iteratively at the earliest and cheapest point. think about how animation studios,
+> music video production studios and YouTube creator studios run, in order to achieve our ideal
+> content goals which we've already discussed. we have the who and why, we are figuring out the
+> how so you can get on with the what
+
+> and have in mind I really want the music video to be one shot - so how will you generate
+> creative ideas, and how will you assess them
+
+> worth writing down the learning too
+
+> my one requirement is that for the bot characters you incorporate their actual, like classic
+> symbols or logos or mascots
+
+> also I guess let's put very small and in line with the style of the video fontwise
+> "@yanqingcheng" in one corner and tollens with the three dots in front of it in the other corner
+
+> bot characters can include openai(astra/sol/luna), grokbot, hermes, openclaw, instinct and muse
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot
@@ -481,8 +506,8 @@ Just a toy, and only for fun!
 Fine if it's gone, when summer's done!
 ```
 
-(Qing pasted every section in full; "(as above)" marks exact repeats here only.) Qing didn't
-send a style prompt with this take; the last one recorded is under v8 below.
+(Qing pasted every section in full; "(as above)" marks exact repeats here only.) The style prompt
+is unchanged (Qing): it's recorded under v8 below.
 
 ## Lyric sheet (v8, superseded by v9)
 

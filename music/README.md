@@ -58,7 +58,9 @@ craft for each stage; these are the repo-specific steps.
    For the generator route, `python music/reference/captions.py captions.txt take.words.json
    out.srt` times the caption lines (`epNN/captions.txt`) against the take. Transcribe the full
    mix for this, not the vocal stem: on episode 1 the stem's transcript ran backing vocals into
-   the lead's lines and misheard more words.
+   the lead's lines and misheard more words. Then `python music/reference/beats.py take.mp3
+   captions.txt captions.srt epNN/beats.json` scores the take for storyboarding: bars, sections,
+   lines, energy dips and every 3-second window.
    Pitch is reliable to a semitone on held notes; watch for octave slips. Word times are ±0.1–0.2 s,
    so treat the rhythm as a draft for the expert to correct.
    **Transcribe the ornaments, not just the held notes.** Scoops, falls, turns, grace notes and

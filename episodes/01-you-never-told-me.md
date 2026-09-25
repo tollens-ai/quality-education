@@ -370,6 +370,8 @@ On the teaching plan (2026-09-25):
 > oh and wowed by your artistry and creativity! the reason these are going viral is because people
 > are like wow opus is such a good artist
 
+> I wouldn't bother with GPT honestly. make it an opus jon
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

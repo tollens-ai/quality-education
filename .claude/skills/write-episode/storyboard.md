@@ -87,9 +87,11 @@ because I'm expecting you to be done in hours".
 - **Separate generators, each with its own lens.** Brief several fresh subagents with the same
   facts and a different lens each: for a world rule, the Gondry map (one object per instrument),
   the loop that gains something each time round, the zoom, the scroll, the machine, the stage set
-  that changes around a fixed camera, a wildcard seeded with a random string. Add one generator
-  from another model family (the GPT route in the workstation's tool map). Generators never see
-  each other's work. This is the gag room with the groupthink taken out.
+  that changes around a fixed camera, a wildcard seeded with a random string. Generators never see
+  each other's work. This is the gag room with the groupthink taken out. **It's an Opus job:**
+  every generator, judge and builder is Opus (Qing, 2026-09-25: "I wouldn't bother with GPT
+  honestly. make it an opus jon"). Part of the point is that Opus made it, so vary the briefs and
+  lenses for independence rather than the model family.
 - **Many cheap concepts, few treatments.** Concepts are a few lines each. Only the best two or
   three become one-page treatments, as in music-video commissioning.
 - **Plussing, not blocking.** In the gag-room round, builders take the strongest ideas and add

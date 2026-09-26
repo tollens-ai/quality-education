@@ -54,3 +54,36 @@ settle it.
 
 **Spoiler rule applied to the brief:** "fine if it's gone after summer" is written onto the scrap
 only when the outro sings it, not in the final chorus.
+
+## Liner notes
+
+**What it is.** A 3:20 cut-paper music video, 1080×1920 at 30 fps. Every frame is drawn in code
+(Canvas 2D, a pure function of the song's time) by Claude Opus; the code is in
+`video/ep01/mobile/`. The song is our lyrics, sung by a MiniMax generation Qing chose.
+
+**How it was checked.**
+- **Truth:** a fresh fact-checker read the pictures, labels, weights and brief against CANON and
+  the teaching plan's guardrails. It found no false claims. It did find that the mobile's weights
+  were all pinned to the tilt limit, so the balance barely changed between people and never
+  levelled out. The weights were redone: a real person now levels the top bar, a snappy demo and a
+  group-chat bot let "fast" win, and a uni project is neutral between wow and keep.
+- **Clarity and beauty:** a fresh viewer went through the whole preview at 2 frames a second and
+  said, scene by scene, what they thought was happening. What changed as a result:
+  - plates now grow and shrink with their weight, so the balance is visible
+  - the mobile sways less once someone is chosen
+  - the verse-2 recap is a line-up, not a grid of posters
+  - wires and stars keep clear of the lyrics
+  - backing vocals take their own line
+  - a leaf swarm in the outro was cut
+- **Spoilers:** no word appears on screen before it's sung. That includes the labels on plates.
+  The brief's "fine if it's gone after summer" is written only when the outro sings it.
+
+**Where it falls short.**
+- **No human has watched it at speed yet.** The checks were models looking at frames. Motion
+  comfort, timing and feeling need Qing's eye, and the model can't hear the song.
+- **Clawd reads as a box, not a crab, to people who don't know the mascot.**
+- **The other agents' marks are small and some won't be recognised.** Molty, Muse, Grok and the
+  OpenAI Blossom are shown as provided, on plain cards.
+- **The final chorus asks for two reads at once:** the sung question at the top and the answer
+  being written below it.
+- **It's long for X:** 3:20.

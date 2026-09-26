@@ -105,8 +105,8 @@ function liftDoors(t) {
 // cast.ticket's printed boxes (local y of the top, and height, at s = 1).
 const ROWS = { for: [-150, 62], good: [-84, 80], dont: [0, 76], cost: [80, 44], you: [128, 56] };
 const boxY = (k, dy = 0) => LANTERN.y + LANTERN.s * (ROWS[k][0] + ROWS[k][1] / 2 + dy);
-// A push-in on one box: the box sits a little below the middle of the frame, the lyric band above.
-const onBox = (k, zoom = 2.25, dy = 0) => ({ x: LANTERN.x + 14, y: boxY(k, dy) + 150 / zoom, zoom });
+// A push-in on one box: the box sits at y ≈ 1000, below the chorus's lyric strip (110–330).
+const onBox = (k, zoom = 2.25, dy = 0) => ({ x: LANTERN.x + 14, y: boxY(k, dy) - 40 / zoom, zoom });
 // Your pen writes each box as it's sung (the pre-chorus's FOR arrives written).
 const WRITES = [['good', 163.3, 164.7], ['dont', 166.35, 167.2], ['dont', 168.85, 169.85], ['you', 170.8, 172.2], ['cost', 175.55, 176.55]];
 const lin = p => clamp01(p);
@@ -178,7 +178,7 @@ const KEYS = [
   [175.65, onBox('cost')],                            // COST: don't burn my quota
   [176.55, onBox('cost', 2.29)],
   [176.9, KG],
-  [179.3, KG],
+  [179.45, KG],
   [180.4, OUTRO],                                     // (behind the full-screen ticket)
   [184.84, OUTRO],
   [187.4, { x: 918, y: -3080, zoom: 2.05 }],          // the blind rises; one tap
@@ -234,11 +234,13 @@ export function state(t, st, S) {
   if (st.bots) st.bots = { molty: lerp(st.bots.molty, BOTS_QUIET, hush), jolly: lerp(st.bots.jolly, BOTS_QUIET, hush), hermes: lerp(st.bots.hermes, BOTS_QUIET, hush) };
   st.botWave = 0; st.botsSteady = 1;
   st.fuseLabel = 1;                                   // section C rewrote the fuse box label; it stays rewritten
-  // your PB: gold, but lit from behind (backlight()) rather than washed out
-  st.youGold = Math.min(st.youGold, 0.62);
+  // your PB: gold, but lit from behind (backlight()) rather than washed out. As "(my call)" lands the
+  // app is gone and the gold with it; your window stays warm: you're still lit.
+  const unserve = 1 - smooth(between(t, 196.6, 197.8));
+  st.youGold = Math.min(st.youGold, 0.62) * unserve;
   const you = st.flats['9R'];
   if (you) {
-    you.served = smooth(between(t, 185.9, 187.7));   // mid-set, your free thumb taps the one button
+    you.served = smooth(between(t, 185.9, 187.7)) * unserve;   // mid-set, your free thumb taps the one button
     you.gold = st.youGold;
   }
   st.dim = 0.42 * bump(between(t, 192.75, 193.45));  // every light dims a breath
@@ -314,7 +316,7 @@ function clawdAt(t, S) {
     x = lerp(HOME.x - 14, HOME.x, smooth(between(t, 159.5, 160.3)));
     const p = between(t, 157.2, 157.75);
     pose = { mood: t < 158.8 ? 'beam' : 'proud', look: -0.3, lookY: -0.8, armL: 1.1 * win(t, 155.4, 158.6, 0.4), ...(p > 0 && p < 1 ? cast.hopPose(p, 0.6) : {}) };
-  } else if (t < 179.3) {
+  } else if (t < 179.45) {
     ({ x, y, pose } = chorusClawd(t, S, bob));
   } else if (t < 184.84) {                             // (behind the ticket) walk to the landing
     const p = smooth(between(t, 180.0, 181.2));
@@ -366,13 +368,13 @@ function chorusClawd(t, S, bob) {
     pose = { mood: t < 172.55 ? 'surprise' : 'beam', look: -0.4, lookY: -1, emote: t < 172.55 ? '!' : 'heart', emoteK: backOut(between(t, 172.55, 172.85)),
       armL: 1.2 * win(t, 172.9, 174.0, 0.2), armR: 1.2 * win(t, 172.9, 174.0, 0.2), ...(h > 0 && h < 1 ? cast.hopPose(h, 0.9) : {}) };
   } else if (t < 176.74) pose = { mood: 'proud', look: 1 };                                             // the minis sit down
-  else if (t < 177.95) {                                                                                  // "kg or lb?", held up to the letterbox
+  else if (t < 178.4) {                                                                                   // "kg or lb?", held up to the letterbox
     x = HOME.x + 24 * smooth(between(t, 176.74, 177.05));
-    pose = { mood: 'determined', look: 1, armR: 1.25 * smooth(between(t, 176.74, 176.95)), holding: 'note', item: 'kg or lb?', itemHand: false, itemScale: 0.95, hop: 0.25 * bump(between(t, 177.55, 177.95)) };
-  } else if (t < 178.3) { x = HOME.x + 24; pose = { mood: 'hope', look: 1, emote: '?' }; }
+    pose = { mood: 'determined', look: 1, armR: 1.25 * smooth(between(t, 176.74, 176.95)), holding: 'note', item: 'kg or lb?', itemHand: false, itemScale: 0.95, hop: 0.25 * bump(between(t, 178.0, 178.4)) };
+  } else if (t < 178.75) { x = HOME.x + 24; pose = { mood: 'hope', look: 1, emote: '?' }; }
   else {                                                                                                  // "kg": got it
-    x = HOME.x + 24 * (1 - smooth(between(t, 179.0, 179.3)));
-    const h = between(t, 178.8, 179.1);
+    x = HOME.x + 24 * (1 - smooth(between(t, 179.2, 179.45)));
+    const h = between(t, 179.25, 179.55);
     pose = { mood: 'happy', look: 0.4, armR: 1.1, holding: 'note', item: 'kg ✓', itemHand: true, itemScale: 0.68, ...(h > 0 && h < 1 ? cast.hopPose(h, 0.4) : {}) };
   }
   if (!pose.hop && (pose.mood === 'happy' || pose.mood === 'proud')) pose.squash = (pose.squash || 0) + pleased;
@@ -384,7 +386,7 @@ function chorusClawd(t, S, bob) {
 // has it, or while it's at the lens (ticketScreen).
 function ticketWorld(t, S) {
   if (t < 153.1) return null;
-  if (t < 179.3) {                                     // let go, it floats up and stays there, glowing
+  if (t < 179.45) {                                    // let go, it floats up and stays there, glowing
     const p = between(t, 153.1, 153.8), L = lanternAt(t, S), o = { x: TICKET_OUT.x - 44, y: TICKET_OUT.y + 4 };
     const calm = t > 160.3 ? 0.35 : 1;                 // near-still while the pen writes on it
     const bp = S.beatPos(t), bobY = 5 * calm * Math.sin(Math.PI * bp * 0.5), bobR = 0.012 * calm * Math.sin(Math.PI * bp * 0.25);
@@ -409,12 +411,12 @@ function lanternAt(t, S) {
 }
 // Screen pose of the ticket when it's brought to the lens, or null.
 function ticketScreen(t, S) {
-  if (t < 179.3 || t >= 184.7) return null;
-  const lan = ticketWorld(179.29, S), cam0 = camera(179.29, S), a = toScreen(cam0, lan.x, lan.y);
+  if (t < 179.45 || t >= 184.7) return null;
+  const lan = ticketWorld(179.44, S), cam0 = camera(179.44, S), a = toScreen(cam0, lan.x, lan.y);
   const from = { x: a.x, y: a.y, s: lan.s * cam0.zoom, rot: lan.rot };
   const cam1 = camera(184.7, S), b = toScreen(cam1, PIN.x, PIN.y);
   const to = { x: b.x, y: b.y, s: PIN.s * cam1.zoom, rot: -0.05 };
-  const pin = inOut3(between(t, 179.3, 179.75)), unpin = inOut3(between(t, 183.75, 184.7));
+  const pin = inOut3(between(t, 179.45, 179.75)), unpin = inOut3(between(t, 183.75, 184.7));
   const base = unpin > 0 ? to : from, k = unpin > 0 ? 1 - unpin : pin;
   return { x: lerp(base.x, FULL.x, k), y: lerp(base.y, FULL.y, k), s: lerp(base.s, FULL.s, k), rot: lerp(base.rot, 0, k), full: k };
 }
@@ -473,7 +475,7 @@ export function draw(g, t, S, st, cam) {
     r.addColorStop(0, `rgba(255,214,150,${0.7 * a})`); r.addColorStop(1, 'rgba(255,190,110,0)');
     g.globalCompositeOperation = 'lighter'; g.fillStyle = r; g.fillRect(LB.x - 150, LB.y - 150, 300, 300);
   });
-  safe(g, () => drawHand(g, t, S, fill));
+  safe(g, () => drawHand(g, t, S, fill, false));
   const open = t >= T_OPEN && opening();
   if (open) safe(g, () => open(g, t - T1, S, st, 'world'));   // section A's frame 0, as the loop closes
   if (t > 200.28 && !open) safe(g, () => cannonAgain(g, t));
@@ -485,11 +487,12 @@ export function draw(g, t, S, st, cam) {
   });
   if (t > 194.9 && t < 196.2) safe(g, () => appFolds(g, t));
   // the end: a new ticket from another flat drops out of the chute into Clawd's nubs
+  safe(g, () => drawHand(g, t, S, fill, true));         // the notes pass in front of Clawd
   if (t > 200.12 && !open) safe(g, () => newTicket(g, t));
   // your ticket, in the world, and your pen writing on it
   const tw = ticketWorld(t, S);
   let nib = null;
-  if (tw) safe(g, () => { nib = drawTicket(g, t, tw.x, tw.y, tw.s, tw.rot, tw.flat, fill,
+  if (tw) safe(g, () => { g.globalAlpha = 1 - 0.65 * smooth(between(t, 177.0, 179.1)); nib = drawTicket(g, t, tw.x, tw.y, tw.s, tw.rot, tw.flat, fill,
     { glow: st.ticketGlow ?? ticketGlow(t), active: activeBox(t), pin: tw.pin, stamp: t > 184 ? 1 : 0 }); });
   if (t > 162.9 && t < 176.9) safe(g, () => penHand(g, t, cam, nib));
   if (t > 147.9 && t < 148.3) safe(g, () => arrivalDust(g, t));
@@ -521,8 +524,8 @@ const HAND_SPANS = [
   { kind: 'take', a: 150.62, m: 150.92, b: 151.32, pk: 0.85, rot: HAND_UP },
   { kind: 'give', a: 152.9, m: 153.1, b: 153.35, pk: 0.8, rot: HAND_ROT },
   { kind: 'tokens', a: 168.1, m: 168.85, b: 169.2, pk: 0.75, rot: HAND_ROT },
-  { kind: 'noteIn', a: 177.8, m: 177.95, b: 178.15, pk: 0.25, rot: HAND_ROT },
-  { kind: 'noteOut', a: 178.12, m: 178.3, b: 178.5, pk: 0.25, rot: HAND_ROT },
+  { kind: 'noteIn', a: 178.25, m: 178.4, b: 178.6, pk: 0.25, rot: HAND_ROT },
+  { kind: 'noteOut', a: 178.57, m: 178.75, b: 178.95, pk: 0.25, rot: HAND_ROT },
 ];
 const HAND_S = 0.9;
 function handReach(t, h) {
@@ -535,9 +538,10 @@ function handGrip(reach, rot = HAND_ROT) {
   return { x: LB.x + c * gx - sn * gy, y: LB.y + sn * gx + c * gy };
 }
 const TICKET_OUT = handGrip(0.8);                     // where your hand lets go of the written ticket
-function drawHand(g, t, S, fill) {
+function drawHand(g, t, S, fill, notes) {
   for (const h of HAND_SPANS) {
     if (t < h.a || t > h.b) continue;
+    if ((h.kind === 'noteIn' || h.kind === 'noteOut') !== notes) continue;
     const reach = handReach(t, h), held = t >= h.m;
     const pose = { reach, rot: h.rot, sweat: 0.5, chalk: 1, t, grip: 'open' };
     if (h.kind === 'take') pose.grip = held ? 'pinch' : 'open';
@@ -840,14 +844,17 @@ export function screen(g, t, S, st, cam) {
   const ts = ticketScreen(t, S);
   if (ts) safe(g, () => {
     if (ts.full > 0) { g.fillStyle = `rgba(8,11,28,${0.62 * ts.full})`; g.fillRect(0, 0, W, H); }
+    g.globalAlpha = lerp(0.35, 1, smooth(between(t, 179.45, 179.68)));
     drawTicket(g, t, ts.x, ts.y, ts.s, ts.rot, 0, ticketFill(t), { glow: 0.2 + 0.35 * ts.full, stamp: t < 179.95 ? 0 : 1, stampHit: clamp01((t - 179.95) / 0.12) });
   });
-  const calm = Math.max(win(t, 160.45, 179.35, 0.3), 0.8 * win(t, 184.84, 198.1, 0.4));   // a quiet top edge: roof, bots
+  const chorus = win(t, 160.45, 179.5, 0.3);
+  const calm = Math.max(chorus, 0.8 * win(t, 184.84, 198.1, 0.4));   // a quiet top edge: roof, bots, the corner marks
   if (calm > 0) {
     const gr = g.createLinearGradient(0, 0, 0, 420);
-    gr.addColorStop(0, `rgba(6,8,22,${0.78 * calm})`); gr.addColorStop(1, 'rgba(6,8,22,0)');
+    gr.addColorStop(0, `rgba(6,8,22,${0.92 * calm})`); gr.addColorStop(0.3, `rgba(6,8,22,${(0.78 + 0.12 * chorus) * calm})`); gr.addColorStop(1, 'rgba(6,8,22,0)');
     g.fillStyle = gr; g.fillRect(0, 0, W, 420);
   }
+  if (chorus > 0) { g.save(); g.globalAlpha = chorus; scrim(g, 110, 330, 0.9); g.restore(); }   // the chorus lyric's strip
   if (t > 195.7 && t < 198.0) safe(g, () => myCall(g, t));
   const open = t >= T_OPEN && opening();
   if (open) safe(g, () => open(g, t - T1, S, st, 'screen'));  // YOU SAID / MAKE IT GOOD, as frame 0 shows it

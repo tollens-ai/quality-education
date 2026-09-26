@@ -1327,5 +1327,39 @@ all-code plan and isn't any more: the singing is a MiniMax generation.
    the operator bears responsibility, and an agent that gold-plates rather than asking is still
    exercising poor judgement.
 
-## Liner notes (to write when it's built)
-How it was checked · where it falls short
+## Liner notes
+
+**What it is.** A 3:20 one-shot animated music video, 1080×1920 at 30 fps. Every frame is drawn in
+code (Canvas 2D, a pure function of the song's time) by Claude Opus, from
+[the storyboard](01-storyboard.md); the code is in `video/ep01/who/`. The song is our lyrics, sung
+by a MiniMax generation Qing chose.
+
+**How it was made.**
+- **Teaching first.** Qing set the lesson ("quality is value to people who matter"), approved a
+  section-by-section teaching plan, and ruled that the storyline serves the theme.
+- **Concepts, judged blind.** Nine theme-first world concepts were judged by three fresh judges
+  (craft carrying the ideas, second-by-second wow and feeling, truth). "Who Lives Here?" won, with
+  grafts from the runners-up.
+- **Built in parallel.** Six builders, one file each, on a shared plan: the world, the cast, and
+  four sections joined at fixed camera handoffs so the shot never cuts.
+- **Screened twice, then fixed.** Fresh viewers (an editor and motion designer, a target-viewer
+  panel, a quality teacher) walked contact sheets second by second looking for swipe points,
+  unreadable text, pictures that only repeat the lyric, and anything subtly wrong.
+
+**How it was checked.**
+- **Timing:** word onsets from Whisper on the take, with four hook lines corrected by hand where
+  Whisper stretched them ([lyrics-fixes.json](../music/ep01/lyrics-fixes.json)).
+- **Continuity:** every section starts and ends on the shared handoff; the loop's last frame
+  matches frame 0 to within an ordinary frame step.
+- **Rendering:** parallel segments, each verified by frame count before joining.
+- **Truth:** the final brief matches the fact-checked wording word for word; the credit is a plain
+  card, on screen 128.8–134.7 s only; the official marks appear exactly as provided.
+
+**Where it falls short.**
+- **No human has watched it at speed yet.** The screenings were models looking at frames; timing,
+  humour and feeling need Qing's eye (the model can't hear the song at all).
+- **Some text is still small on a phone:** the directory board's names and the ticket's
+  handwriting in the chorus close-ups are readable when paused, less so at full speed.
+- **Two mascots are drawn by us:** Jolly in his flat and the Hermes bot are our own cartoons; the
+  Molty art, Jolly's portrait and the name-plate marks are official. See [SOURCES.md](../SOURCES.md).
+- **It's long for X:** 3:20. A shorter cut is an open question for Qing.

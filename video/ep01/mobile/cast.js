@@ -148,7 +148,8 @@ export function layoutLine(g, line, box) {
   let rw = 0;
   for (const w of words) {
     const sz = w.backing ? size * 0.55 : size, ww = measure(g, w.w, sz);
-    if (rw + ww > box.w && rows[rows.length - 1].length) { rows.push([]); rw = 0; }
+    const prev = rows[rows.length - 1].slice(-1)[0];
+    if ((rw + ww > box.w || (w.backing && prev && !prev.backing)) && rows[rows.length - 1].length) { rows.push([]); rw = 0; }
     rows[rows.length - 1].push({ ...w, ww, sz });
     rw += ww + space;
   }

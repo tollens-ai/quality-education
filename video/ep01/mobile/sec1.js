@@ -161,9 +161,9 @@ function tabClock(g, S, t, full = true) {
     const tp = on(S, 4, 'twelve') + i * 0.045;
     const p = settle(between(t, tp, tp + 0.3));
     if (p <= 0) continue;
-    const a = i / 12 * TAU + ring, R = 385;
+    const a = i / 12 * TAU + ring, R = 400;
     const d = danceBeat(S, t, 1, i % 2 ? 0.5 : 0);
-    clawd(g, 540 + Math.cos(a) * R, 1000 + Math.sin(a) * R * 1.0 + 40, 0.62 * p,
+    clawd(g, 540 + Math.cos(a) * R, 1000 + Math.sin(a) * R * 1.0 + 40, 0.85 * p,
       { ...d, armL: 1.05 + d.armL * 0.2, armR: 1.05 + d.armR * 0.2, eyes: 'happy', seed: 100 + i, lift: 1.2 });
   }
 }
@@ -297,6 +297,14 @@ export const scenes = [
     at(g, x, y, r, 1, () => {
       paint(g, holeySheet(), PAL.clawd, { lift: 1 + f * 2, seed: 9 });
       if (f === 0) pin(g, 0, -395, PAL.black);
+    });
+    // the builds fly back and fit their holes: this is what the quota was spent on
+    const back = [[shape.star(5, 70, 30), -170, -280, 0.2], [shape.algae(170, 70, 4, 3), 170, -270, 0.5], [shape.ellipse(80, 80, 40), 150, -20, 0]];
+    back.forEach(([pts, hx, hy, hr], k) => {
+      const q = easeOut(between(t, 17.04 + k * 0.12, 17.5 + k * 0.12));
+      if (q >= 1) return;
+      const sx = [150, 900, 880][k], sy = [1500, 1400, 300][k];
+      at(g, lerp(sx, 540 + hx, q), lerp(sy, 860 + hy, q), hr + (1 - q) * 2, 1, () => paint(g, cut(`back${k}`, () => pts), PAL.clawd, { lift: 2.5 * (1 - q) + 0.2, seed: k }));
     });
     clawd(g, 190, 1780, 1.2, { eyes: t > tg ? 'sad' : 'worried', armL: -0.9, armR: -0.9, look: 0.6 });
     lyric(g, t, S.lyrics[6], { x: 540, y: 1560, w: 980, size: 104, align: 'center', accent: { gone: PAL.red } });

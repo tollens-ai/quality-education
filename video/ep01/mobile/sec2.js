@@ -68,21 +68,14 @@ function personScene(g, t, S, i, { lyrics = true } = {}) {
   const P = PEOPLE[i], li = 20 + i, L = S.lyrics[li];
   wall(g); panel(g, P.panel, { seed: 20 + i });
   at(g, 340, 1640, 0, 1, () => P.draw(g, t, S));
-  // the little mobile, top right: their value on the left, a plain counterweight on the right
+  // their value, hung on a string from the top of the plate, arriving when it's sung
   const tv = on(S, li, P.word);
   const pv = settle(between(t, tv - 0.1, tv + 0.5));
-  const tilt = -0.28 * pv + Math.sin(t * 1.2 + i) * 0.03;
-  const px = 760, py = 640;
-  g.save(); g.strokeStyle = PAL.black; g.lineWidth = 3;
-  g.beginPath(); g.moveTo(px, 150); g.lineTo(px, py); g.stroke();
-  const c = Math.cos(tilt), s = Math.sin(tilt);
-  const Lx = px - 190 * c, Ly = py - 190 * s, Rx = px + 110 * c, Ry = py + 110 * s;
-  g.lineWidth = 5; g.beginPath(); g.moveTo(Lx, Ly); g.quadraticCurveTo(px, py + 14, Rx, Ry); g.stroke();
-  g.lineWidth = 2.5; g.beginPath(); g.moveTo(Lx, Ly); g.lineTo(Lx, Ly + 80); g.moveTo(Rx, Ry); g.lineTo(Rx, Ry + 60); g.stroke();
-  g.restore();
-  at(g, Rx, Ry + 60 + 38, 0, 1, () => paint(g, cut('counter', () => shape.ellipse(38, 38, 30)), PAL.white, { lift: 2.4, seed: 4 }));
+  const px = 760, py = 700 + Math.sin(t * 1.1 + i) * 6;
   if (t >= tv - 0.1) {
-    at(g, Lx, Ly + 80 + 100 * lerp(0.6, 1, pv), Math.sin(t * 1.3) * 0.04, lerp(0.5, 1.25, pv), () => {
+    const hy = lerp(420, py, pv);
+    g.save(); g.strokeStyle = PAL.black; g.lineWidth = 3; g.beginPath(); g.moveTo(px, 150); g.lineTo(px, hy - 90); g.stroke(); g.restore();
+    at(g, px, hy, Math.sin(t * 1.3 + i) * 0.05, lerp(0.6, 1.45, pv), () => {
       valuePlate(g, P.value);
       if (t >= tv) { if (P.value === 'neat') g.translate(0, 130); labelOn(g, P.value, VALUE[P.value].dark && P.value !== 'neat' ? PAL.black : PAL.white); }
     });
@@ -100,23 +93,20 @@ function labelOn(g, text, col) {
 // The gallery: all eight plates on the wall at once, with Clawd in the middle looking round.
 function gallery(g, t, S) {
   wall(g);
-  const t0 = 72.48, cw = 324, ch = 576, gx = 27, gy = 48;
-  let k = 0;
-  for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) {
-    const x = gx + c * (cw + gx), y = gy + r * (ch + gy), idx = r * 3 + c;
-    if (idx === 4) {
-      clawd(g, x + cw / 2, y + ch * 0.72, 1.35, { eyes: 'wide', look: Math.sin((t - t0) * 1.4) * 0.9, lift: 1.4 });
-      continue;
-    }
-    const i = k++;
-    const p = settle(between(t, t0 + i * 0.14, t0 + i * 0.14 + 0.4));
-    if (p <= 0) continue;
-    g.save();
-    g.translate(x + cw / 2, y + ch / 2); g.scale(lerp(0.8, 1, p), lerp(0.8, 1, p)); g.globalAlpha *= clamp01(p * 2);
-    g.translate(-cw / 2, -ch / 2); g.scale(cw / W, ch / H);
-    personScene(g, S.lyrics[20 + i].end + 0.3, S, i, { lyrics: false });
-    g.restore();
-  }
+  const t0 = 72.48;
+  PEOPLE.forEach((P, i) => {
+    const p = settle(between(t, t0 + i * 0.12, t0 + i * 0.12 + 0.4));
+    if (p <= 0) return;
+    const x = 160 + (i % 4) * 253, y = i < 4 ? 900 : 1600;
+    at(g, x, y - 80 * (1 - p), 0, 1, () => {
+      g.globalAlpha *= clamp01(p * 2);
+      const col = P.plate || P.panel;
+      if (i === 2) paint(g, cut('mini-bubble2', () => shape.smooth([[-90, -70], [90, -70], [100, 40], [-30, 40], [-60, 90], [-50, 40], [-100, 40]], 3)), col, { lift: 1.4, seed: 5 });
+      else if (i === 7) clawd(g, 0, 0, 1.1, { eyes: 'happy', lift: 1.4 });
+      else figure(g, 0, 0, 0.72, col, { hat: i === 3 ? 'mortar' : i === 4 ? 'bun' : i === 5 ? 'phones' : null }, 'gal');
+      at(g, 0, -430, Math.sin(t * 1.2 + i) * 0.06, 0.62, () => valuePlate(g, P.value));
+    });
+  });
 }
 
 // ---------- chorus 2: the who plate becomes each person in turn ----------
@@ -155,14 +145,17 @@ export function init(S) {
     },
     labelFn: t => PEOPLE[personIdx(S, t)].name,
     labelOnFn: t => S.lyrics[LI2 + personIdx(S, t)].start,
-    labelColorFn: t => PEOPLE[personIdx(S, t)].ink, labelSize: 38, labelAt: [0, 62],
+    labelColorFn: t => PEOPLE[personIdx(S, t)].ink, labelSize: 38, labelAt: [0, 62], labelMax: 130,
     spin: t => {
       // flip the plate over as each person arrives; they swap when it's edge-on
       const sw = S.lyrics[LI2 + personIdx(S, t)].start - 0.05;
       return TAU * smooth(between(t, sw - 0.2, sw + 0.4));
     },
   };
-  MOB2 = makeMobile(chorusSpec(S, LI2, t0, t1, mass, who, true));
+  const spec = chorusSpec(S, LI2, t0, t1, mass, who, true);
+  spec.breeze = (t, i) => 0.015 * Math.sin(t * 0.8 + i * 1.9);
+  spec.turn = 0.35; spec.damping = 0.2;
+  MOB2 = makeMobile(spec);
 }
 
 export function buildScenes(S) {

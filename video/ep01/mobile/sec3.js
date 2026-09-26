@@ -9,7 +9,7 @@ import { on } from './sec1.js';
 // ---------- night ----------
 const STARS = (() => {
   const r = rng(303), s = [];
-  for (let i = 0; i < 16; i++) s.push({ x: 90 + r() * 900, y: 190 + r() * 1100, n: 5 + Math.floor(r() * 3), r: 26 + r() * 30, rot: r() * TAU, seed: i });
+  for (let i = 0; i < 16; i++) s.push({ x: 90 + r() * 900, y: 640 + r() * 700, n: 5 + Math.floor(r() * 3), r: 26 + r() * 30, rot: r() * TAU, seed: i });
   return s;
 })();
 function night(g, t) {
@@ -101,10 +101,10 @@ function credit(g, t) {
   if (p <= 0) return;
   at(g, 540, 1540, -0.015, lerp(0.9, 1, p), () => {
     g.globalAlpha *= clamp01(p * 2);
-    paint(g, cut('credit', () => shape.rect(760, 96), { amp: 1.2 }), PAL.white, { lift: 1.2, seed: 9, tex: 0.3 });
-    g.font = '600 38px Bricolage'; g.fillStyle = PAL.black; g.textAlign = 'center'; g.textBaseline = 'middle';
+    paint(g, cut('credit', () => shape.rect(960, 120), { amp: 1.2 }), PAL.white, { lift: 1.2, seed: 9, tex: 0.3 });
+    g.font = '600 48px Bricolage'; g.fillStyle = PAL.black; g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText('after Weinberg · Bach & Bolton · via Ed Pringle', 0, 2);
-    pin(g, 0, -34, PAL.red, 0.7);
+    pin(g, 0, -46, PAL.red, 0.7);
   });
 }
 
@@ -142,7 +142,7 @@ export function buildScenes(S) {
       night(g, t);
       stacks(g, t);
       for (let i = 0; i < 6; i++) {    // sheets drifting down, still arriving
-        const y = 560 + ((t - 106) * 110 + i * 190) % 700, x = 150 + hash(i + 40) * 780 + Math.sin(t + i) * 40;
+        const y = 760 + ((t - 106) * 110 + i * 190) % 560, x = 150 + hash(i + 40) * 780 + Math.sin(t + i) * 40;
         codeSheet(g, x, y, 0.7, Math.sin(t * 0.8 + i) * 0.4, 90 + i);
       }
       clawd(g, 830, 1700 - 15 * 44 - 80, 1.5, { eyes: 'slit', look: -0.3, armL: 0.9, armR: 0.9, lift: 1.8 });

@@ -117,9 +117,9 @@ export function init(S) {
   spec.breeze = (t, i) => {
     const calm = 1 - smooth(between(t, 176, 183));
     const wind = smooth(between(t, 190.4, 192)) * 0.08 * Math.sin(t * 1.4 + i * 0.7);
-    return calm * (0.06 * Math.sin(t * 0.8 + i * 1.9) + 0.03 * Math.sin(t * 1.7 + i)) + wind;
+    return calm * 0.02 * Math.sin(t * 0.8 + i * 1.9) + wind * 0.5;
   };
-  spec.y = 560; spec.plateScale = 0.86;
+  spec.y = 560; spec.plateScale = 0.86; spec.turn = 0.35; spec.damping = 0.2; spec.hookY = 0;
   // a shorter mobile, so the brief fits above it
   spec.rows.forEach(r => { r.gap *= 0.72; if (r.R.L) r.R.gap *= 0.72; });
   MOB3 = makeMobile(spec);
@@ -128,7 +128,7 @@ export function init(S) {
 // ---------- summer ----------
 function sun(g, t, p) {
   if (p <= 0) return;
-  at(g, 820, 1720 + 400 * (1 - easeOut(p)), t * 0.05, 1.1, () => paint(g, cut('sun', () => shape.star(18, 190, 160), { amp: 2 }), PAL.yellow, { lift: 1, seed: 8 }));
+  at(g, 240, 1740 + 400 * (1 - easeOut(p)), t * 0.05, 1.1, () => paint(g, cut('sun', () => shape.star(18, 190, 160), { amp: 2 }), PAL.yellow, { lift: 1, seed: 8 }));
 }
 const LEAVES = Array.from({ length: 10 }, (_, i) => ({ seed: i, x: 80 + hash(i) * 920, y: 1000 + hash(i + 3) * 800, col: [PAL.green, PAL.teal, PAL.pink][i % 3], rot: hash(i + 7) * TAU }));
 function blowAway(t, t0, i) {
@@ -184,19 +184,13 @@ export function buildScenes(S) {
       g.translate(0, 360);
       if (!b || t - tg < 2.2) drawMobile(g, MOB3, t);
       g.restore();
-      // summer leaves blow through with it
-      if (summer > 0) LEAVES.forEach(l => {
-        const bb = blowAway(t, 191, l.seed);
-        const x = l.x + (bb ? bb.dx : 0) * 0.8 + Math.sin(t * 2 + l.seed) * 20, y = l.y + (bb ? bb.dy : 0) * 0.6;
-        at(g, x, y, l.rot + (bb ? bb.rot : 0), 1, () => paint(g, cut(`leaf${l.seed}`, () => shape.algae(150, 64, 4, l.seed), { amp: 1.2 }), l.col, { lift: 2.4, seed: l.seed }));
-      });
       const cen = smooth(between(t, tg + 0.4, tg + 1.8));
       briefCard(g, t, S, 540, lerp(520, 760, cen), lerp(1, 1.04, cen));
       const li = [53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64].find((i, k, a) => t >= L(i).start - 0.05 && t < (a[k + 1] ? L(a[k + 1]).start - 0.05 : 999));
       if (li) lyric(g, t, L(li), { x: 540, y: 150, w: 980, size: 70, align: 'center', accent: { who: PAL.red, what: PAL.blue, you: PAL.blue, that: PAL.red, fun: PAL.red, summer: PAL.red } }, li);
       // Clawd joins in at "just a toy", and stays, happy with the brief it was given
       const cp = settle(between(t, 190.4, 191));
-      if (cp > 0) clawd(g, 210, 1800 + 300 * (1 - cp), 1.9, { eyes: 'happy', ...danceBeat(S, t, 0.8), look: 0.4, lift: 1.6 });
+      if (cp > 0) clawd(g, 900, 1850 + 300 * (1 - cp), 1.6, { eyes: 'happy', ...danceBeat(S, t, 0.8), look: 0.4, lift: 1.6 });
     } },
   ];
 }

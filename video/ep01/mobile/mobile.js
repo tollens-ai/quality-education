@@ -54,7 +54,7 @@ export function makeMobile(spec) {
     bars.forEach((b, i) => {
       let tg = Math.max(-0.3, Math.min(0.3, b.target(t)));
       if (spec.breeze) tg += spec.breeze(t, i);
-      const w = b.w, z = 0.12;
+      const w = b.w, z = spec.damping ?? 0.12;
       om[i] += (w * w * (tg - th[i]) - 2 * z * w * om[i]) * dt;
       th[i] += om[i] * dt;
     });
@@ -90,9 +90,11 @@ export function drawMobile(g, M, t, { alpha = 1 } = {}) {
     const sway = Math.sin(t * 1.3 + i * 1.7) * 0.03 + swing * 0.5;
     const px = x + Math.sin(sway) * hang, py = y + Math.cos(sway) * hang;
     wire(x, y, px, py - (p.top ?? 0), 1.8);
-    const yaw = Math.sin(t * 0.41 + hash(i + 9) * TAU) * 0.4 + (p.spin ? p.spin(t) : 0);
+    const yaw = Math.sin(t * 0.41 + hash(i + 9) * TAU) * 0.4 * (spec.turn ?? 1) + (p.spin ? p.spin(t) : 0);
     g.save(); g.translate(px, py); g.rotate(-sway * 0.5);
-    const s = lerp(0.5, 1, settle(gp)) * (spec.plateScale || 1);
+    // a plate's size shows its weight: what matters more is bigger
+    const heft = p.key === 'who' || p.key === 'what' ? 1 : Math.max(0.6, Math.min(1.45, 0.55 + 0.45 * Math.sqrt(Math.max(0, p.mass(t)))));
+    const s = lerp(0.5, 1, settle(gp)) * (spec.plateScale || 1) * heft;
     g.scale(Math.max(0.04, Math.abs(Math.cos(yaw))) * s, s);
     g.globalAlpha *= clamp01(gp * 3);
     p.draw(g, t);
@@ -102,7 +104,7 @@ export function drawMobile(g, M, t, { alpha = 1 } = {}) {
       g.font = `800 ${sz}px Bricolage`;
       const lw = g.measureText(label).width, [lx, ly] = p.labelAt || [0, 0];
       g.save(); g.globalAlpha *= clamp01(lp * 3); g.translate(lx, ly);
-      const ls = lerp(1.2, 1, settle(lp)); g.scale(ls, ls);
+      const fit = Math.min(1, (p.labelMax ?? 140) / lw), ls = lerp(1.2, 1, settle(lp)) * fit; g.scale(ls, ls);
       letters(g, label, -lw / 2, sz * 0.35, sz, (p.labelColorFn ? p.labelColorFn(t) : p.labelColor) || PAL.white, 0.35, i * 11);
       g.restore();
     }
@@ -112,7 +114,7 @@ export function drawMobile(g, M, t, { alpha = 1 } = {}) {
 
   // A bar pivoting at (x, y) with arms a (left) and b (right), tilted by angle; grows in.
   const bar = (x, y, a, b, ang, gp, yawSeed) => {
-    const yaw = Math.sin(t * 0.19 + yawSeed) * 0.28, fx = Math.cos(yaw);
+    const yaw = Math.sin(t * 0.19 + yawSeed) * 0.28 * (spec.turn ?? 1), fx = Math.cos(yaw);
     const c = Math.cos(ang), s = Math.sin(ang);
     const L = [x - a * c * fx * gp, y - a * s * gp], R = [x + b * c * fx * gp, y + b * s * gp];
     if (gp > 0) { wire(L[0], L[1], R[0], R[1], 4.6, x, y + 16 * gp); loop(x, y); }
@@ -123,7 +125,9 @@ export function drawMobile(g, M, t, { alpha = 1 } = {}) {
   const top = spec.who.on;
   if (t >= top) {
     const gp = grow(spec.what.on);
-    wire(spec.x, spec.y - 700, spec.x, spec.y, 2);
+    const hookY = spec.hookY ?? 330;
+    wire(spec.x, hookY, spec.x, spec.y, 2);
+    g.save(); g.strokeStyle = PAL.black; g.lineWidth = 3; g.beginPath(); g.arc(spec.x, hookY - 8, 9, Math.PI * 0.2, Math.PI * 1.8); g.stroke(); g.restore();
     const { L, R } = bar(spec.x, spec.y, spec.armL, spec.armR, th[0], gp, 1);
     hangPlate(spec.who, gp > 0 ? L[0] : spec.x, gp > 0 ? L[1] : spec.y, th[0], 0);
     // WHAT, and the trade-offs below it

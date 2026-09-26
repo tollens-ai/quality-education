@@ -130,7 +130,10 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
   Qing (2026-09-26): "I can't post anything we make here unless it's beautiful"; "both teaching
   and beauty are conditions for release. attention grabbing ness is success afterwards. I can't
   post slop on my account". A video that fails either condition doesn't ship, however well it
-  would hold attention.
+  would hold attention. Attention is still built in before release, because "you can't change it
+  after it's posted. so it's still part of the quality process. but quality is about priorities
+  and tradeoffs and making it good for people" (Qing, 2026-09-26). It's traded off below teaching
+  and beauty, never against them.
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
 - ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the

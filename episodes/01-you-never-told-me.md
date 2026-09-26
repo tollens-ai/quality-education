@@ -11,7 +11,8 @@ the teaching plan is approved. The first two videos didn't work and are archived
 [v2, "The Mobile"](../archive/ep01-video-v2/README.md). The third, "The Pier", met the bar to
 share (Qing, 2026-09-26). The fourth redraws it by hand, with the lyrics lettered into the
 pictures ([01-video.md](01-video.md)). After a second pass on the lettering and the crowds, Qing
-signed it off: "it's so good! I think it's good to go" (2026-09-26).
+signed it off: "it's so good! I think it's good to go" (2026-09-26). Qing posted it on
+2026-09-26.
 
 **Where we stopped (2026-09-26):** Qing picked a MiniMax take (kept locally, not in git) and the
 lyrics are locked as v9 below, with caption spelling. The take is transcribed and the captions are

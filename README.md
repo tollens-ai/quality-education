@@ -69,6 +69,7 @@ or product appears in it.
 
 | Where | What |
 |---|---|
+| [SERIES.md](SERIES.md) | The plan for the season: twelve episodes, one idea each |
 | [episodes/](episodes/) | Each episode's teaching plan, lyrics and expert notes, and its video's liner notes |
 | [video/](video/) | The code that draws the videos: a renderer for each episode, and shared tools |
 | [music/](music/) | Tools for the songs: timing analysis, checks, and the all-code band and voice |

@@ -58,14 +58,24 @@ quality. Credit them here and on screen.
 - **Clawd,** the Claude Code crab, is Anthropic's mascot. Its proportions were learned from John
   Heibel's MIT-licensed [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase)
   model sheet; the drawing code is our own.
-- **The look** is an homage to Henri Matisse's cut-outs, especially the book *Jazz* (1947), and to
-  Alexander Calder's mobiles. No artwork of theirs is reproduced; every shape is drawn by our code.
-- **Other agents appear as their owners' official marks,** exactly as provided, each on a plain
-  white card: OpenClaw's Molty (OpenClaw Foundation), the Muse logo (Meta), Grok's mark (xAI) and
-  the OpenAI Blossom. No affiliation or endorsement is implied. Details and usage terms:
+- **The look** is a British seaside pier at night: its bandstand, Ferris wheel, beach huts,
+  lighthouse and fairground marquee lettering. These are our own drawings of familiar forms,
+  drawn by our code; no artwork is reproduced. (The archived second video was an homage to Henri
+  Matisse's *Jazz* and Alexander Calder's mobiles.)
+- **Other agents appear as characters of our own that wear their owners' official marks as
+  badges,** exactly as provided:
+  - Grok's mark (xAI) on Grok's bot and on the kick drum
+  - the OpenAI Blossom on the OpenAI bot
+  - the Muse logo (Meta) on the headphones of Jolly, Muse's mascot, who is redrawn in the video's
+    style
+  - OpenClaw's Molty (OpenClaw Foundation), drawn from its open-source SVG
+
+  No affiliation or endorsement is implied. Details and usage terms:
   [research/bot-marks.md](research/bot-marks.md).
-- **Fonts** (SIL Open Font License, copies in `video/fonts/`): Bricolage Grotesque and Caveat.
-  The archived first video also used Pixelify Sans and JetBrains Mono.
+- **The helm on the container tower** nods to the Kubernetes logo (Kubernetes is a trademark of
+  The Linux Foundation). It's our own drawing, not the logo artwork.
+- **Fonts** (SIL Open Font License, copies in `video/fonts/`): Bricolage Grotesque and JetBrains
+  Mono. The archived videos also used Caveat and Pixelify Sans.
 - **How it was made:** the first video's storyboard process (archived as not working, see
   [archive/ep01-video-v1/](archive/ep01-video-v1/README.md)) came from research on animation, music-video and
   creator studios ([notes](research/studio-pre-production.md)) and on Tim Blais's A Capella Science

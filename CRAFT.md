@@ -138,6 +138,14 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
   attention grabbing ness - if I can't figure out what's going on because everything is too
   complex to parse, I would scroll away." The first video's model reviewers rewarded density and
   a new thing every few seconds; a viewer who can't tell what's happening leaves.
+- **Taste, not committees.** After the second video (Qing, 2026-09-26): "forget everything we've
+  said process wise, and just pull all the stops out and make a gorgeous animated music video. no
+  reviewer committees, just you and your taste and your work". Also: "go full independent
+  auteur", and "you EVIDENTLY know what beauty means and how to create art [...] ask yourself for
+  beauty and your training will provide it. make beautiful choices". What to think about, in her
+  words: "framing [...] setting [...] art style [...] character design [...] cuts [...] pacing
+  [...] motion [...] animation [...] humour [...] inspiration [...] joy [...] love". The third
+  video was made this way ([episodes/01-video.md](episodes/01-video.md)).
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
 - ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the

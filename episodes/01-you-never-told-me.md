@@ -6,14 +6,15 @@ Who works"). The craft references put the title in the chorus, where the hook is
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
 **Status:** the song is locked (Qing's MiniMax take, "a consistent 8/10 good one", 2026-09-25);
-the teaching plan is approved. The first video ("Who Lives Here?", a one-shot) didn't work and is
-archived in [archive/ep01-video-v1/](../archive/ep01-video-v1/README.md). The second, "The
-Mobile", is built ([01-video.md](01-video.md)) and waiting for Qing to watch it.
+the teaching plan is approved. The first two videos didn't work and are archived:
+[v1, "Who Lives Here?"](../archive/ep01-video-v1/README.md) and
+[v2, "The Mobile"](../archive/ep01-video-v2/README.md). The third, "The Pier", is built
+([01-video.md](01-video.md)) and waiting for Qing to watch it.
 
 **Where we stopped (2026-09-26):** Qing picked a MiniMax take (kept locally, not in git) and the
 lyrics are locked as v9 below, with caption spelling. The take is transcribed and the captions are
 timed: [01-captions.srt](01-captions.srt), generated from `music/ep01/captions.txt`, and scored in
-`music/ep01/beats.json`. The teaching plan below still stands. Next: Qing watches video v2. The code
+`music/ep01/beats.json`. The teaching plan below still stands. Next: Qing watches video v3. The code
 band, code voice and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)

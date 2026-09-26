@@ -10,8 +10,9 @@
 // turning into each trade-off, until the lift stalls at floor 8 for verse 2.
 //
 // Exports: range, camera(t, S), state(t, st, S), draw(g, t, S, st, cam) in world space, and
-// screen(g, t, S, st, cam) in screen space. BUILD_AT says where the misfit builds sit at your
-// door, for the sections that draw them later.
+// screen(g, t, S, st, cam) in screen space. drawOpening draws the opening shot (frame 0 is the
+// thumbnail and the loop's last frame); drawDoorBuilds and BUILD_AT draw the misfit builds at your
+// door for the sections after this one.
 import { smooth, easeOut, easeIn, between, lerp, clamp01, W, H } from '../../lib/stage.js';
 import * as P from './plan.js';
 import * as cast from './cast.js';
@@ -82,22 +83,22 @@ const LIFT = [
   [2.95, 0, settle],                 // launched: up to the lobby
   [3.85, 0],                         // band stop: the lobby, the directory board
   [4.62, FL(6) + 60, inOut],         // up again…
-  [4.98, FL(6) - 80, lin],           // …slowly past the kid's party (the cannon puffs confetti in)
+  [4.98, FL(6) - 80, lin],           // …slowly past Lily's party (the cannon puffs confetti in)
   [5.38, FL(9), settle],             // your floor
   [7.45, FL(9)],
   [7.88, (FL(6) + FL(7)) / 2, inOut],   // dip for the vault
   [8.05, (FL(6) + FL(7)) / 2],
-  [8.45, FL(7) - 70, lin],           // past the trader
+  [8.45, FL(7) - 70, lin],           // past Mo the trader
   [8.8, FL(9), settle],
   [10.35, FL(9)],
   [10.62, (FL(7) + FL(8)) / 2, inOut],  // dip for the pods
   [10.78, (FL(7) + FL(8)) / 2],
-  [11.1, FL(8) - 60, lin],           // past the streamer
+  [11.1, FL(8) - 60, lin],           // past Kai the streamer
   [11.4, FL(9), settle],
   [12.8, FL(9)],
   [13.15, (FL(4) + FL(5)) / 2, inOut],  // long dip for the subagents
   [13.3, (FL(4) + FL(5)) / 2],
-  [13.6, FL(5) - 60, lin],           // past the launch war room
+  [13.6, FL(5) - 60, lin],           // past the launch team
   [13.9, FL(9), settle],
   [20.8, FL(9)],
   [22.15, P.BASE.floor, easeIn],     // the fall
@@ -107,18 +108,27 @@ const LIFT = [
   [28.9, FL(4), inOut],
   [29.01, FL(4)],
   [29.26, FL(5), inOut],
-  [29.4, FL(5)],
-  [32.6, FL(5) - 160, smooth],       // tokens into the slots, a slow cruise
-  [33.84, FL(8) - 180, inOut],       // FAST: floors strobe past
-  [34.9, FL(8) - 260, easeOut],      // STURDY: heavy, slow
-  [35.4, FL(8) - 220, smooth],       // CHEAP: sags
-  [36.7, FL(9) - 20, smooth],        // WOW
-  [38.08, FL(9) - 60, smooth],       // KEEP
-  [39.6, FL(7) - 150, smooth],       // down past three open doors
+  [32.6, FL(5) - 30, smooth],        // the split: a token a word into the five slots
+  [33.15, FL(8), settle],            // FAST: three floors in half a second, to Kai (8R)
+  [33.9, FL(8)],
+  [34.62, FL(7), easeIn],            // STURDY: so heavy it sinks a floor, to the Okafors (7R)
+  [34.95, FL(7)],
+  [35.3, FL(5), easeIn],             // CHEAP: the cable slips two floors, to Sam (5R)
+  [35.44, FL(5)],
+  [35.85, FL(8), settle],            // WOW: pops up to Dev's demo (8L)
+  [36.75, FL(8)],
+  [37.35, FL(7), smooth],            // KEEP: settles at the Okafors' (7R)
+  [38.1, FL(7)],
+  [38.9, FL(9) - 60, smooth],        // up…
+  [39.6, FL(7) - 150, smooth],       // …and down past three open doors
   [40.76, FL(7) + 60, smooth],
-  [43.55, FL(5), inOut],             // SHIP: arrives half-painted at the student's floor
-  [47.82, FL(5)],
-  [48.5, FL(8), settle],             // SHOW: shoots up to the demo founder
+  [43.55, FL(5), inOut],             // SHIP: Sam (5R), due at nine
+  [45.2, FL(5)],
+  [46.35, FL(7), smooth],            // POLISH: slowly up to the Okafors (7R) while Sam taps his watch
+  [46.6, FL(7)],
+  [47.1, FL(4), inOut],              // NEED: down to Nana (4L)
+  [47.82, FL(4)],
+  [48.5, FL(8), settle],             // SHOW: shoots up to Dev (8L)
   [49.45, FL(8) - 120, smooth],      // drifts up, stalls between 8 and 9
   [50.05, FL(8) - 120],
   [50.3, FL(8), easeIn],             // clunk: back down to floor 8 for verse 2
@@ -133,29 +143,32 @@ const CAM = [
   [0, 400, 250, 2.2],
   [1.2, 402, 238, 2.32],       // push in on the ticket
   [2.05, 450, 205, 2.0],       // the lever, the launch
-  [2.95, 380, -190, 1.28],     // the lobby: the lift and the directory board
-  [3.85, 372, -200, 1.26],     // band stop: hang one beat
-  [4.62, 540, -2130, 0.74],    // rocket up: floors 5–9
-  [5.0, 550, -2200, 0.76],     // the kid's party flashes gold
-  [5.75, 680, -2960, 1.3],     // push in: the cannon is bolted on
+  [2.7, 330, -70, 1.6],        // up with the lift…
+  [3.15, 234, -150, 2.26],     // …to the lobby's board, WHO LIVES HERE (you: floor 9)
+  [3.95, 238, -154, 2.32],     // read it (band stop)
+  [4.6, 810, -1975, 1.55],     // whip up: Lily's party (6R) goes gold as the cannon passes
+  [5.05, 816, -1982, 1.62],
+  [5.75, 680, -2960, 1.3],     // your door: the cannon is bolted on
   [6.9, 690, -3000, 1.75],     // floss ✓
   [7.35, 690, -2995, 1.7],     // blast
-  [7.95, 560, -2520, 0.98],    // pull out: the dip past the trader
-  [8.5, 570, -2560, 1.0],
-  [9.3, 680, -2980, 1.4],      // the vault door
+  [7.9, 292, -2300, 1.5],      // Mo the trader (7L): the vault suits him
+  [8.45, 298, -2308, 1.58],
+  [9.3, 680, -2980, 1.4],      // your door: the vault
   [10.3, 700, -3000, 1.8],     // six digits
-  [10.8, 600, -2680, 1.05],    // pull out: past the streamer
-  [11.3, 610, -2700, 1.08],
-  [11.95, 720, -2980, 1.35],   // the pods spin up
+  [10.85, 802, -2660, 1.5],    // Kai (8R): the pods suit him
+  [11.35, 808, -2668, 1.58],
+  [11.95, 720, -2980, 1.35],   // your door: the pods spin up
   [12.8, 700, -3000, 1.8],     // hello world · 1 view
-  [13.25, 540, -1920, 0.64],   // pull right out: the launch war room
-  [13.7, 550, -1980, 0.66],
+  [13.3, 300, -1592, 1.45],    // the launch team (5L): twelve subagents suit them
+  [13.75, 305, -1600, 1.52],
   [14.4, 720, -2960, 1.15],    // twelve subagents on your landing
   [15.45, 720, -2975, 1.28],
   [16.2, 700, -3000, 1.72],    // the note
   [17.0, 700, -3000, 1.76],
-  [18.6, 695, -2995, 1.66],    // dark: a slow drift
-  [20.45, 708, -3010, 1.84],   // the bell (creep in)
+  [18.5, 698, -2992, 1.7],     // QUOTA 100% USED
+  [19.05, 704, -2968, 2.5],    // push in: the bell it doesn't ring
+  [19.85, 706, -2966, 2.66],
+  [20.4, 700, -2975, 2.3],
   [20.8, 630, -3040, 1.62],    // anticipation…
   [21.4, 560, -2650, 1.25],    // …the fall
   [21.8, 540, -1500, 1.0],
@@ -166,6 +179,12 @@ const CAM = [
   [26.25, 380, 160, 1.64],
   [27.2, 380, 160, 1.64],      // band stop: stillness
   [27.5, 470, 150, 1.7],       // the crash (from here the camera rides the lift; see RIDE)
+  [32.55, 540, -1800, 0.7],    // wide for the "or"s: floors 5–8, the car and everyone it could suit
+  [38.0, 544, -1805, 0.72],
+  [43.45, 560, -1570, 0.8],    // floors 5–7: SHIP and POLISH
+  [46.35, 560, -1575, 0.8],
+  [46.95, 500, -1212, 0.8],    // floors 4–6: NEED
+  [47.85, 500, -1215, 0.8],
   [49.5, 540, -2680, 1.3],     // the stall
   [50.5, 540, -2670, 1.4],
 ];
@@ -176,10 +195,13 @@ const camZ = monotone(CAM.map(k => k[0]), CAM.map(k => Math.log(k[3])));
 // car sits below the hook type while hooks are sung, and above the band while "or" lines are.
 const RIDE = [
   [20.8, 880, 1.62, 630], [21.3, 820, 1.3, 575], [21.8, 800, 1.0, 540], [22.15, 900, 1.45, 470],
-  [27.3, 960, 1.7, 470], [28.0, 915, 1.6, 540], [29.4, 915, 1.6, 540], [31.1, 870, 1.62, 540],
-  [32.3, 920, 1.2, 540], [32.72, 800, 1.45, 540], [38.0, 820, 1.45, 540], [38.5, 880, 1.2, 550],
-  [39.3, 900, 0.95, 555], [40.76, 900, 0.95, 555], [43.0, 880, 1.2, 560], [43.62, 800, 1.3, 560],
-  [45.1, 800, 1.35, 590], [46.9, 800, 1.2, 580], [47.8, 780, 1.0, 540], [48.6, 800, 1.05, 520],
+  [27.3, 960, 1.7, 470], [28.0, 915, 1.6, 540], [29.4, 930, 1.62, 540],
+  [29.9, 915, 1.76, 540], [32.4, 915, 1.8, 540],     // the split: close on the five slots
+  [33.0, 800, 1.0, 560], [37.8, 800, 1.0, 560],      // (the wide shots take over here)
+  [38.5, 880, 1.2, 550], [39.3, 900, 0.95, 555], [40.76, 900, 0.95, 555],
+  [41.35, 915, 1.72, 540], [43.1, 915, 1.76, 540],   // the split again
+  [43.7, 800, 1.1, 560], [47.6, 800, 1.0, 480],
+  [48.2, 800, 1.02, 470], [48.7, 810, 1.08, 480],    // SHOW: up with the car to Dev (8L)
   [49.5, 860, 1.3, 540], [50.5, 995, 1.4, 540],
 ];
 const rideT = monotone(RIDE.map(k => k[0]), RIDE.map(k => k[1]));
@@ -190,9 +212,15 @@ function ride(t) {
   const z = Math.exp(rideZ(t));
   return { x: rideX(t), y: s / 9 - 125 + (960 - rideT(t)) / z, zoom: z };
 }
-const rideW = t => Math.max(win(t, 20.85, 22.2, 0.25, 0.3), smooth(between(t, 27.3, 27.75)) * (1 - smooth(between(t, 49.9, 50.45))));
+// The "or" lines are shot wide (CAM), so each choice's resident and price stay in view.
+const WIDE = [[32.55, 38.0], [43.45, 47.85]];
+function rideW(t) {
+  let w = Math.max(win(t, 20.85, 22.2, 0.25, 0.3), smooth(between(t, 27.3, 27.75)) * (1 - smooth(between(t, 49.9, 50.45))));
+  for (const [a, b] of WIDE) w *= 1 - smooth(win(t, a, b, 0.4, 0.4));
+  return w;
+}
 // Impacts: [t, screen px].
-const SHAKES = [[7.04, 16], [9.38, 10], [11.45, 7], [13.92, 7], [17.04, 7], [22.15, 24], [27.2, 18], [34.04, 9], [48.5, 8], [50.3, 9]];
+const SHAKES = [[7.04, 16], [9.38, 10], [11.45, 7], [13.92, 7], [17.04, 7], [17.86, 14], [22.15, 24], [27.2, 18], [34.62, 12], [35.3, 10], [48.5, 8], [50.3, 9]];
 
 function stillness(t) {   // 1 in the band stops
   return Math.max(win(t, 3.1, 3.85, 0.1, 0.15), win(t, 26.3, 27.2, 0.1, 0.02), win(t, 49.5, 50.3, 0.1, 0.1));
@@ -225,7 +253,8 @@ export function camera(t, S) {
 }
 
 // ---------- the car's look, the flats, the light ----------
-const STYLES = [[0, 'plain'], [32.72, 'fast'], [34.04, 'sturdy'], [34.92, 'cheap'], [35.44, 'wow'], [36.7, 'keep'],
+// (Under WOW's gilt the car is still CHEAP: when the gilt peels it's the cheap mesh again.)
+const STYLES = [[0, 'plain'], [32.72, 'fast'], [33.9, 'sturdy'], [34.92, 'cheap'], [35.44, 'wow'], [36.25, 'cheap'], [36.75, 'keep'],
   [38.3, 'plain'], [43.62, 'ship'], [45.08, 'polish'], [46.46, 'plain'], [47.82, 'show'], [49.5, 'plain']];
 function liftStyle(t) {   // each change cross-fades from the last style (the world reads st.lift.from)
   let i = 0; while (i + 1 < STYLES.length && t >= STYLES[i + 1][0]) i++;
@@ -234,9 +263,28 @@ function liftStyle(t) {   // each change cross-fades from the last style (the wo
   if (style === 'plain' && from === 'show') p = t < 50.3 ? (flick(t) ? 0.3 : 0.9) * p : 1;   // the stall flickers the glitz off
   return { style, from, p };
 }
-// The word on the car's indicator, as it's sung.
-const LABELS = [[32.72, 'FAST'], [34.04, 'STURDY'], [34.92, 'CHEAP'], [35.44, 'WOW'], [37.0, 'KEEP'], [38.3, null],
-  [43.62, 'SHIP'], [45.08, 'POLISH'], [46.46, null], [47.04, 'NEED'], [47.82, null], [48.5, 'SHOW'], [49.5, null]];
+// The plate over the car: the choice being sung (each held about a second or more).
+const LABELS = [[32.72, 'FAST'], [33.9, 'STURDY'], [34.92, 'CHEAP'], [35.44, 'WOW'], [36.75, 'KEEP'], [38.3, null],
+  [43.62, 'SHIP'], [45.08, 'POLISH'], [46.46, null], [46.6, 'NEED'], [47.82, 'SHOW'], [49.5, null]];
+// Chorus 1: each choice suits someone (their flat goes gold and the car goes to their floor) and has a
+// price: quota spent (a tag on the plate, the tube's readout) plus its own cost gag in drawChorusFx.
+const CHOICES = [
+  { key: 'FAST', t0: 32.72, t1: 33.95, who: '8R', dq: -0.10, sv: 0.5 },    // Kai: a stream with no lag
+  { key: 'STURDY', t0: 33.9, t1: 35.1, who: '7R', dq: -0.08, sv: 0.8 },    // the Okafors: it never breaks
+  { key: 'CHEAP', t0: 34.92, t1: 36.1, who: '5R', dq: 0.03, sv: 0.3 },     // Sam: a student's budget
+  { key: 'WOW', t0: 35.44, t1: 36.75, who: '8L', dq: -0.07, sv: 0.45 },    // Dev: demo day
+  { key: 'KEEP', t0: 36.75, t1: 38.15, who: '7R', dq: -0.10, sv: 0.8 },    // the Okafors: built to last
+  { key: 'SHIP', t0: 43.62, t1: 45.1, who: '5R', dq: -0.04, sv: 0.6 },     // Sam: due at nine
+  { key: 'POLISH', t0: 45.08, t1: 46.55, who: '7R', dq: -0.09, sv: 0.8 },  // the Okafors (Sam waits)
+  { key: 'NEED', t0: 46.55, t1: 47.95, who: '4L', dq: -0.03, sv: 0.9 },    // Nana: just call Sam
+  { key: 'SHOW', t0: 47.82, t1: 49.5, who: '8L', dq: -0.07, sv: 1 },       // Dev: fireworks
+];
+const choiceEnd = c => Math.max(c.t1, c.t0 + 1.1);
+const choiceEnv = (c, t) => smooth(between(t, c.t0, c.t0 + 0.2)) * (1 - smooth(between(t, choiceEnd(c), choiceEnd(c) + 0.35)));
+// The quota through chorus 1: a new session (full), then each choice's price as it's picked. It ends
+// where plan.quota picks up for verse 2 (0.45 at 50.5).
+function chorusQuota(t) { let q = 1; for (const c of CHOICES) q += c.dq * smooth(between(t, c.t0 + 0.12, c.t0 + 0.6)); return q; }
+const orLines = t => Math.max(win(t, 32.6, 38.15, 0.25, 0.25), win(t, 43.55, 49.6, 0.25, 0.25));
 
 function doors(t) {
   let d = win(t, -1, 1.98, 0.1, 0.12);                          // open in the basement until Clawd hops in
@@ -244,7 +292,6 @@ function doors(t) {
   d = Math.max(d, win(t, 15.35, 20.62, 0.15, 0.12));            // Clawd out on your landing
   d = Math.max(d, win(t, 22.18, 27.25, 0.12, 0.08));            // the basement
   for (const o of [28.62, 28.97, 29.32]) d = Math.max(d, win(t, o, o + 0.28, 0.06, 0.1));   // a face on each "ooh"
-  d = Math.max(d, win(t, 46.95, 47.72, 0.12, 0.12));            // the student steps in
   return d;
 }
 
@@ -253,17 +300,16 @@ const SUITS = [['6R', 4.72], ['7L', 8.22], ['8R', 10.95], ['5L', 13.38]];
 const flash = (t, a) => clamp01((t - a) / 0.15) * (1 - smooth(between(t, a + 0.8, a + 1.7)));
 const AHH = [31.32, 31.84, 32.36, 42.2, 42.7, 43.2];
 const OOH = [28.62, 28.97, 29.32, 39.5, 39.9, 40.3];
-function lukewarm(t) {   // chorus 1: good for everyone, faintly
+function lukewarm(t) {   // chorus 1: good for everyone, faintly (and not at all while one is chosen)
   if (t < 31.2 || t > 50.4) return 0;
   let n = 0; for (const a of AHH.slice(0, 3)) n += smooth(between(t, a, a + 0.15));
   let v = 0.11 * n;
   for (const a of AHH) v += 0.16 * kick(t, a, 4);
-  v *= 1 - 0.8 * smooth(between(t, 46.4, 47.1));
-  return v * (1 - smooth(between(t, 49.5, 50.2)));
+  return v * (1 - 0.85 * orLines(t)) * (1 - smooth(between(t, 49.5, 50.2)));
 }
 
 function dim(t) {
-  let d = 0.22 * win(t, 3.1, 3.85, 0.08, 0.25);                  // band stop
+  let d = 0.06 * win(t, 3.1, 3.85, 0.08, 0.25);                  // band stop (light: the board must read)
   if (t >= 17.04 && t < 17.42) d = Math.max(d, flick(t) ? 0.55 : 0.12);   // power-down flicker
   d = Math.max(d, 0.62 * smooth(between(t, 17.36, 17.9)) * (1 - smooth(between(t, 20.8, 21.5))));
   d = Math.max(d, 0.3 * win(t, 21.3, 27.2, 0.5, 0.01));          // the basement
@@ -283,19 +329,26 @@ export function state(t, st, S) {
   const ly = liftY(t), sty = liftStyle(t);
   st.lift.y = ly; st.lift.style = sty.style; st.lift.from = sty.from; st.lift.styleP = sty.p; st.lift.doors = doors(t);
   if (t > 27.6 && t < 49.6) st.lift.buttons = [...Array(11).keys()].filter(i => t > 27.62 + i * 0.085);   // every floor
-  if (t > 3.0 && t < 3.9) st.directoryGlint = between(t, 3.12, 3.75);                                    // the list of who matters
+  if (t > 3.0 && t < 4.2) st.directoryGlint = between(t, 3.2, 3.9);                                     // the list of who matters
   st.letterbox = Math.max(win(t, 6.05, 7.55, 0.1, 0.15), win(t, 9.25, 10.6, 0.1, 0.15), win(t, 12.05, 13.1, 0.1, 0.15), win(t, 15.5, 15.85, 0.05, 0.1));
+  if (t >= 27.2) st.quota = chorusQuota(t);
   for (const id of Object.keys(st.flats)) { const f = st.flats[id]; f.gold = lukewarm(t); f.served = 0; }
   for (const [id, a] of SUITS) {
     const f = st.flats[id]; if (!f) continue;
     f.gold = Math.max(f.gold, flash(t, a)); f.served = Math.max(f.served, flash(t, a + 0.1));
   }
-  const out = 1 - smooth(between(t, 49.6, 50.3));
-  if (st.flats['5R']) { st.flats['5R'].gold = Math.max(st.flats['5R'].gold, smooth(between(t, 47.0, 47.3)) * out); st.flats['5R'].served = smooth(between(t, 47.1, 47.8)) * out; }
-  if (st.flats['8L']) {
-    const f = smooth(between(t, 48.45, 48.75)) * out * (t > 49.5 && !flick(t) ? 0.3 : 1);
-    st.flats['8L'].gold = Math.max(st.flats['8L'].gold, f); st.flats['8L'].served = smooth(between(t, 48.5, 49.2)) * out;
+  // verse 1: Kai (8R) is dimmed while your door (just above him) is the read; lit for his own punch-in
+  if (t > 4.6 && t < 21 && st.flats['8R']) st.flats['8R'].lit = 0.45 + 0.55 * win(t, 10.45, 11.75, 0.15, 0.25);
+  // chorus 1: who each choice suits goes gold; while the "or"s are sung everyone else dims a little
+  const spot = {};
+  for (const c of CHOICES) {
+    const f = st.flats[c.who], e = choiceEnv(c, t); if (!f || e <= 0) continue;
+    f.gold = Math.max(f.gold, e); f.served = Math.max(f.served, e * c.sv * smooth(between(t, c.t0, c.t0 + 0.8)));
+    spot[c.who] = Math.max(spot[c.who] || 0, e);
   }
+  const or = orLines(t);
+  if (or > 0) for (const id of Object.keys(st.flats)) st.flats[id].lit = Math.min(st.flats[id].lit ?? 1, 1 - 0.3 * or * (1 - (spot[id] || 0)));
+  if (t > 49.5 && t < 50.3 && st.flats['8L']) st.flats['8L'].gold *= flick(t) ? 1 : 0.3;   // the stall
   st.cutWords = smooth(between(t, 23.85, 24.5)) * (1 - smooth(between(t, 27.3, 28.2)));
   st.bulbSwing = bulb(t);
   st.dim = dim(t);
@@ -320,6 +373,8 @@ const TICKET_WALL = { x: 300, y: 190, s: 0.55 };
 const tubeTop = t => P.TUBE.y0 - (P.TUBE.y0 - P.TUBE.y1) * P.quota(t);
 
 // ---------- Clawd ----------
+const BELL_X = P.BELL.x - 61;   // where Clawd stands so its raised right nub is just under your bell
+const OPEN_TICKET = 0.78;       // the ticket's size in the opening: its words read at phone size
 function clawdPos(t) {
   const ly = liftY(t), B = P.BASE.floor;
   const hopTo = (t0, dur, x0, y0, x1, y1, hgt) => { const p = clamp01((t - t0) / dur); return { x: lerp(x0, x1, smooth(p)), y: lerp(y0, y1, p) - hgt * Math.sin(Math.PI * p) }; };
@@ -331,8 +386,10 @@ function clawdPos(t) {
     return { x: 540 - 20 * share + 34 * lean, y: ly };
   }
   if (t < 15.7) return hopTo(15.4, 0.3, 574, ly, 712, F9, 40);
-  if (t < 20.5) return { x: 712, y: F9 };
-  if (t < 20.75) return hopTo(20.5, 0.25, 712, F9, 540, ly, 40);
+  if (t < 18.66) return { x: 712, y: F9 };
+  if (t < 18.9) return hopTo(18.66, 0.24, 712, F9, BELL_X, F9, 24);   // a step toward your bell
+  if (t < 20.5) return { x: BELL_X, y: F9 };
+  if (t < 20.75) return hopTo(20.5, 0.25, BELL_X, F9, 540, ly, 40);
   if (t < 22.2) return { x: 540, y: ly - 26 * win(t, 20.95, 22.12, 0.3, 0.06) };   // floats in the free fall
   if (t < 22.5) return hopTo(22.2, 0.3, 540, B, 300, B, 50);
   if (t < 27.2) return { x: 300, y: B };
@@ -344,24 +401,24 @@ function clawdPos(t) {
 }
 
 const POSES = [
-  [0.0, { mood: 'happy', armL: 1.2, armR: 1.2, lookY: -0.4 }],               // the ticket, held up to us
+  [0.0, { mood: 'happy', armL: 1.45, armR: 1.45, lookY: -0.2 }],             // the ticket, held up to us
   [1.26, { mood: 'proud', armL: 0.2, armR: 0, salute: 1 }],                  // "so I made it good!"
   [1.62, { mood: 'determined', armR: -0.8, salute: 0, look: 0.6 }],          // yank the lever
   [1.9, { mood: 'beam', armL: 0.9, armR: 0.9, hop: 1 }],
   [2.2, { mood: 'happy', armL: 0.3, armR: 0.3, hop: 0, look: 0 }],
-  [3.1, { mood: 'hope', look: -1, lookY: -0.3, armL: 0, armR: 0 }],          // the lobby: the directory glints
+  [3.1, { mood: 'hope', look: -1, lookY: -0.3, armL: 0, armR: 0 }],          // the lobby: the directory
   [3.85, { mood: 'happy', look: 0.3, squash: 0.25 }],
-  [4.5, { mood: 'happy', look: 1, squash: 0 }],                              // the party lights up
+  [4.5, { mood: 'happy', look: 1, squash: 0 }],                              // Lily's party lights up
   [5.3, { mood: 'proud', look: 0.8, armR: 0.9, armL: 0.2 }],                 // ta-da: the cannon
   [6.1, { mood: 'happy', look: 1, armR: 0.3, armL: 0.3 }],
   [7.04, { mood: 'beam', armL: 1.3, armR: 1.3 }],                            // BLAST (Clawd loves it)
-  [7.45, { mood: 'happy', look: -0.9, armL: 0.2, armR: 0.2 }],               // the trader
+  [7.45, { mood: 'happy', look: -0.9, armL: 0.2, armR: 0.2 }],               // Mo the trader
   [8.8, { mood: 'proud', look: 1, armR: 0.9 }],
   [9.4, { mood: 'happy', look: 1, armR: 0.2, armL: 0.2 }],
-  [10.35, { mood: 'happy', look: 1, armL: 0.1, armR: 0.1 }],                 // the streamer
+  [10.35, { mood: 'happy', look: 1, armL: 0.1, armR: 0.1 }],                 // Kai the streamer
   [11.4, { mood: 'beam', look: 1, armR: 1.0, armL: 1.0 }],
   [12.2, { mood: 'happy', look: 1, armL: 0.3, armR: 0.3 }],
-  [12.78, { mood: 'determined', look: -1, armL: 0.1, armR: 0.1 }],           // the war room
+  [12.78, { mood: 'determined', look: -1, armL: 0.1, armR: 0.1 }],           // the launch team
   [13.9, { mood: 'determined', look: 1, armL: 1.1, armR: -0.2 }],            // conducting the subagents
   [14.35, { mood: 'determined', look: 0.6, armL: -0.2, armR: 1.1 }],
   [14.8, { mood: 'determined', look: 1, armL: 1.1, armR: -0.2 }],
@@ -369,9 +426,12 @@ const POSES = [
   [15.7, { mood: 'surprise', look: 0.2, lookY: -0.5, armL: 1.0, armR: 1.0 }],   // catches the note
   [16.46, { mood: 'sad', look: 0, lookY: -0.3, armL: 0.6, armR: 0.6, squash: 0.2, tear: 0.6 }],   // reads it, droops
   [17.04, { mood: 'worried', look: -1, armL: -0.4, armR: -0.4, squash: 0.3 }],  // the last token drops
-  [18.66, { mood: 'hope', look: 1, lookY: -0.8, armL: -0.3, armR: -0.2, squash: 0.1, emote: '?' }],   // your bell
-  [19.1, { mood: 'hope', look: 1, lookY: -0.8, armR: 0.8, emote: '?' }],      // the nub rises…
-  [19.8, { mood: 'sad', look: 0.4, armR: -0.4, squash: 0.25, emote: null }],  // …and drops
+  [17.86, { mood: 'sad', look: 0, lookY: 0.3, armL: -1, armR: -1, squash: 0.45, tear: 1 }],   // QUOTA 100% USED: flattened
+  [18.66, { mood: 'hope', look: 1, lookY: -1, armL: -0.3, armR: -0.2, squash: 0.05, emote: '?' }],   // "Guess": your bell
+  [19.08, { mood: 'hope', look: 1, lookY: -1, armL: -0.3, armR: 1.45, squash: -0.25, hop: 0.45, emote: null }],   // "didn't": on tiptoe, the nub nearly there…
+  [19.42, { mood: 'worried', look: 1, lookY: -1, armL: -0.3, armR: 1.4, squash: -0.22, hop: 0.42, emote: 'sweat' }],   // "ask!": frozen
+  [19.8, { mood: 'sad', look: 0, lookY: 0.5, armL: -0.7, armR: -0.8, squash: 0.3, hop: 0, emote: null }],   // …and it drops
+  [20.2, { mood: 'sad', look: -0.3, lookY: 0, armL: -0.6, armR: -0.6, squash: 0.2 }],   // a glance at us
   [20.5, { mood: 'surprise', look: 0, armL: 0.7, armR: 0.7, squash: 0 }],    // the fall
   [22.15, { mood: 'surprise', squash: 0.5, armL: 0, armR: 0 }],
   [22.35, { mood: 'determined', armL: 1.2, armR: 1.2, squash: 0, look: -0.3, lookY: -0.8 }],   // clips the ticket up
@@ -381,24 +441,28 @@ const POSES = [
   [27.2, { mood: 'determined', hop: 1, armL: 1, armR: 1, lit: 0 }],          // the crash
   [27.45, { mood: 'beam', hop: 0, armL: 0.2, armR: 0.2 }],
   [27.6, { mood: 'beam', armR: 0.6, look: 1 }],                              // every button
-  [29.4, { mood: 'determined', look: -0.5, lookY: -0.6, armL: 0.8, armR: 0.2 }],   // splits the tokens
+  [29.9, { mood: 'determined', look: -0.5, lookY: -0.6, armL: 0.8, armR: 0.2 }],   // the split: a token a word
   [31.3, { mood: 'hope', look: 0, armL: 0.2, armR: 0.2 }],
-  [32.72, { mood: 'surprise', squash: 0.35, armL: -0.3, armR: -0.3 }],       // FAST
-  [34.04, { mood: 'determined', squash: 0.15, armL: 0.6, armR: 0.6 }],       // STURDY
-  [34.92, { mood: 'happy', squash: 0, armL: 0.9, armR: 0.9 }],               // CHEAP: tokens back
-  [35.44, { mood: 'beam', armL: 1.3, armR: 1.3 }],                           // WOW
-  [36.2, { mood: 'worried', armL: 0.2, armR: 0.2 }],                         // the gilt peels
-  [36.7, { mood: 'proud', salute: 1 }],                                      // KEEP
-  [37.4, { mood: 'proud', salute: 0 }],
+  [32.72, { mood: 'surprise', squash: 0.35, armL: -0.3, armR: -0.3, look: 1 }],       // FAST (Kai, on the right)
+  [33.2, { mood: 'happy', squash: 0, look: 1, armL: 0.4, armR: 1.0 }],
+  [33.9, { mood: 'determined', squash: 0.2, armL: 0.6, armR: 0.6, look: 1 }],         // STURDY (the Okafors)
+  [34.62, { mood: 'determined', squash: 0.45, armL: 0.5, armR: 0.5, look: 1 }],       // thud
+  [34.92, { mood: 'worried', squash: -0.15, armL: 1.3, armR: 1.3, look: 0.6, emote: '!' }],   // CHEAP: the cable slips
+  [35.3, { mood: 'happy', squash: 0, armL: 0.9, armR: 0.9, look: 1, emote: null }],    // tokens back
+  [35.44, { mood: 'beam', armL: 1.3, armR: 1.3, look: -1 }],                           // WOW (Dev, on the left)
+  [36.2, { mood: 'worried', armL: 0.2, armR: 0.2, look: -0.4 }],                       // the gilt peels
+  [36.75, { mood: 'proud', salute: 1, look: 1 }],                                      // KEEP (the Okafors)
+  [37.4, { mood: 'proud', salute: 0, look: 1 }],
   [38.08, { mood: 'hope', look: 1 }],
   [39.9, { mood: 'hope', look: -1 }],
   [40.3, { mood: 'hope', look: 1 }],
-  [40.76, { mood: 'determined', look: 0 }],
-  [43.62, { mood: 'worried', look: 0 }],                                     // SHIP: half-painted
-  [45.08, { mood: 'determined', look: 1, armR: 0.5 }],                       // POLISH
-  [46.46, { mood: 'happy', look: 1, armL: 0.8, armR: 0.8 }],                 // NEED
-  [47.82, { mood: 'beam', look: -1, armL: 1.3, armR: 1.3 }],                 // SHOW
-  [49.5, { mood: 'surprise', look: 0, lookY: -0.6, armL: 0, armR: 0 }],      // the stall
+  [40.76, { mood: 'determined', look: -0.5, lookY: -0.6, armL: 0.8, armR: 0.2 }],     // the split again
+  [42.2, { mood: 'hope', look: 0, armL: 0.2, armR: 0.2 }],
+  [43.62, { mood: 'worried', look: 1 }],                                               // SHIP (Sam): half-painted
+  [45.08, { mood: 'determined', look: 1, armR: 0.5 }],                                 // POLISH (the Okafors)
+  [46.55, { mood: 'happy', look: -1, armL: 0.8, armR: 0.8 }],                          // NEED (Nana)
+  [47.82, { mood: 'beam', look: -1, armL: 1.3, armR: 1.3 }],                           // SHOW (Dev)
+  [49.5, { mood: 'surprise', look: 0, lookY: -0.6, armL: 0, armR: 0 }],                // the stall
   [50.2, { mood: 'hope', look: 0 }],
 ];
 const BASE_POSE = { look: 0, lookY: 0, mouth: 0, armL: 0, armR: 0, hop: 0, squash: 0, salute: 0, lit: 0, tear: 0 };
@@ -415,7 +479,8 @@ function poseAt(t, S) {
   if (pleased && stillness(t) < 0.5) pose.squash += 0.08 * Math.exp(-f * 5);
   else pose.squash += 0.025 * Math.sin(t * 2.6);
   if (t > 27.6 && t < 28.6) pose.armR = 0.4 + 0.5 * Math.abs(Math.sin(t * 19));    // jab, jab, jab
-  if (t > 29.5 && t < 31.1) { pose.armL = 0.5 + 0.5 * Math.sin(t * 11); pose.armR = 0.5 - 0.5 * Math.sin(t * 11); }
+  if ((t > 29.85 && t < 31.1) || (t > 40.7 && t < 41.95)) { pose.armL = 0.5 + 0.5 * Math.sin(t * 11); pose.armR = 0.5 - 0.5 * Math.sin(t * 11); }
+  if (t > 19.3 && t < 19.8) pose.armR += 0.07 * Math.sin(t * 45);                  // the nub trembles under the bell
   if (t > 35.5 && t < 36.2) { pose.armL = 1 + 0.4 * Math.sin(t * 16); pose.armR = 1 - 0.4 * Math.sin(t * 16); }   // dancing
   if (t > 45.1 && t < 46.4) pose.armR = 0.5 + 0.12 * Math.sin(t * 70);            // the polisher
   if (t > 47.9 && t < 49.4) { pose.armL = 1.1 + 0.3 * Math.sin(t * 14); pose.armR = 1.1 - 0.3 * Math.sin(t * 14); }
@@ -596,22 +661,28 @@ export function draw(g, t, S, st, cam) {
   const ly = st.lift.y, car = P.carRect(ly), B = st.builds || P.yourBuilds(t), powered = B.powered ?? 1;
   const cp = clawdPos(t), pose = poseAt(t, S);
 
-  // the band stop: the directory board glints (the list of who matters)
-  if (t > 3.0 && t < 4.1) safe(g, () => {
+  // the band stop: the directory board (the list of who matters), and a gold ring round "you", floor 9
+  if (t > 3.0 && t < 4.4) safe(g, () => {
     const r = P.DIRECTORY;
     star(g, r.x + r.w - 26, r.y + 30, 34, win(t, 3.45, 3.95, 0.08, 0.3));
     star(g, r.x + 40, r.y + r.h - 40, 20, win(t, 3.25, 3.7, 0.08, 0.25));
+    const a = win(t, 3.3, 4.35, 0.1, 0.25), p = clamp01((t - 3.3) / 0.4), ex = r.x + 219, ey = r.y + 88;
+    g.globalAlpha = a; g.strokeStyle = P.PAL.gold; g.lineWidth = 3.4; g.lineCap = 'round'; g.shadowColor = P.PAL.gold; g.shadowBlur = 10;
+    g.beginPath();
+    for (let k = 0; k <= 48; k++) { const u = k / 48 * p * 1.1, ang = -2.5 + u * Math.PI * 2, w = 1 + 0.06 * Math.sin(u * 11); g.lineTo(ex + Math.cos(ang) * 34 * w, ey + Math.sin(ang) * 13 * w); }
+    g.stroke();
+    star(g, ex + 38, ey - 16, 14, win(t, 3.62, 4.1, 0.05, 0.3));
   });
 
   // the ticket rides along on the car's back wall through verse 1
   if (t >= 1.52 && t < 22.2) safe(g, () => cast.ticket(g, car.x + 36, car.y + 64, 0.17, st.ticket, {}));
 
   // builds waiting in the car, then installed at your door
-  for (const d of DELIVER) safe(g, () => drawDelivery(g, t, d, ly, B, powered));
+  for (const d of DELIVER) if (t >= 1.52 || d.which !== 'confetti') safe(g, () => drawDelivery(g, t, d, ly, B, powered));   // (the opening draws the cannon)
   safe(g, () => drawClock(g, t, B, powered));
 
   // chorus: the car's panel, slots and indicator
-  if (t > 27.2) safe(g, () => drawCarKit(g, t, st, car));
+  if (t > 27.2) safe(g, () => drawCarKit(g, t, S, st, car, cp, cam));
 
   // the four gags at your door
   safe(g, () => drawHandGags(g, t, B, powered));
@@ -637,12 +708,13 @@ export function draw(g, t, S, st, cam) {
   // chorus residents
   safe(g, () => drawFaces(g, t, ly));
 
-  // Clawd, and the glass front over it while it rides
-  safe(g, () => cast.clawd(g, cp.x, cp.y, 1, pose));
+  // Clawd (in the opening, with the ticket held up), and the glass front over it while it rides
+  if (t < 1.52) safe(g, () => drawOpening(g, t, S, st, 'world'));
+  else safe(g, () => cast.clawd(g, cp.x, cp.y, 1, pose));
   const riding = (t > 2.08 && t < 15.4) || (t > 20.75 && t < 22.2) || t > 27.42;
   if (riding && world.drawLiftFront) safe(g, () => world.drawLiftFront(g, t, S, st, {}));
 
-  // the ticket in Clawd's nubs (intro), then clipped to the basement wall
+  // the ticket clipped to the basement wall
   safe(g, () => drawTicket(g, t, st, cp, ly));
 
   // "my AI built me absolute garbage 😤"
@@ -655,7 +727,7 @@ export function draw(g, t, S, st, cam) {
   });
 
   // chorus effects around the car
-  if (t > 27.2) safe(g, () => drawChorusFx(g, t, st, car, cp));
+  if (t > 27.2) safe(g, () => drawChorusFx(g, t, st, car, cp, cam));
 
   // confetti: the puff into the kid's party, then the blast at your letterbox
   confetti(g, t, 4.72, car.x + car.w - 20, car.y + 150, 34, -0.15, 1.3, 5, 620, 1.6);
@@ -780,17 +852,32 @@ function drawMinis(g, t, ly, B, powered) {
   if (t > 14.7 && t < 15.6) safe(g, () => card(g, P.DOOR.x + 36, P.DOOR.y - 26, 132, 34, [['SUMMARY.md ×12', `700 17px ${P.FONTS.pixel}`, P.PAL.ink]], { s: backOut((t - 14.7) / 0.25), r: 4 }));
 }
 
+// The opening shot, 0 to 4.6 s. Frame 0 is the thumbnail and the loop's last frame: Clawd holds the
+// ticket up to us ("make it good" and the empty FOR box readable at phone size) under YOU SAID / MAKE
+// IT GOOD, already landed; the words glow as they're sung, then SO I MADE IT / GOOD! lands, and GOOD!
+// holds through the band stop. layer 'world' (camera applied, after the world) draws Clawd and the
+// ticket and the cannon waiting in the car until the toss lands (t < 1.52); layer 'screen' (after the
+// atmosphere) draws the top shade and the title.
+// Section D ends the loop with the camera on plan.HANDOFF[0] and drawOpening(g, 0, S, st, layer).
+export function drawOpening(g, t, S, st, layer) {
+  if (layer === 'screen') { topShade(g, t); title(g, t, S); return; }
+  if (t >= 1.52) return;
+  const cp = clawdPos(t);
+  g.save(); cast.build(g, 'confetti', 598, liftY(t), 0.46, { powered: 1, p: 1, fire: 0 }); g.restore();   // waiting in the car
+  g.save(); cast.clawd(g, cp.x, cp.y, 1, poseAt(t, S)); g.restore();
+  // the ticket, held up to us; at "so I made it good!" it's tossed onto the car wall
+  const toss = clamp01((t - 1.26) / 0.26), car = P.carRect(liftY(t));
+  const hx = cp.x + 4, hy = cp.y - 236 + 4 * Math.sin(t * 3);
+  const x = lerp(hx, car.x + 36, inOut(toss)), y = lerp(hy, car.y + 64, inOut(toss)) - 70 * Math.sin(Math.PI * toss);
+  g.save();
+  g.translate(x, y); g.rotate(0.03 * Math.sin(t * 2.3) + toss * 0.4 * (1 - toss));
+  cast.ticket(g, 0, 0, lerp(OPEN_TICKET, 0.17, toss), {}, { glow: 0.25, who: 1 - toss, t });
+  g.restore();
+}
+
 function drawTicket(g, t, st, cp, ly) {
   const fill = st.ticket;
-  if (t < 1.52) {   // held up to us; at "so I made it good!" it's tossed onto the car wall
-    const toss = clamp01((t - 1.26) / 0.26), car = P.carRect(ly);
-    const hx = cp.x + 4, hy = cp.y - 205 + 4 * Math.sin(t * 3);
-    const x = lerp(hx, car.x + 36, inOut(toss)), y = lerp(hy, car.y + 64, inOut(toss)) - 70 * Math.sin(Math.PI * toss);
-    g.translate(x, y); g.rotate(0.03 * Math.sin(t * 2.3) + toss * 0.4 * (1 - toss));
-    cast.ticket(g, 0, 0, lerp(0.5, 0.17, toss), fill, { glow: 0.25, who: 1 - toss, t });
-    return;
-  }
-  if (t < 22.2) return;   // (on the car wall; drawn behind Clawd)
+  if (t < 22.2) return;   // (held in the opening, then on the car wall, drawn behind Clawd)
   const w = TICKET_WALL, car = P.carRect(P.BASE.floor);
   const take = clamp01((t - 22.2) / 0.28), up = clamp01((t - 22.42) / 0.36);
   let x, y, s;
@@ -815,8 +902,11 @@ function drawNote(g, t, cp) {
   cast.note(g, 0, 0, 1.25 * (0.4 + 0.6 * easeOut(fly)), text, { hand: true, font: 'hand' });
 }
 
-// The car's own kit in the chorus: every floor button, five token slots, the indicator.
-function drawCarKit(g, t, st, car) {
+// The car's own kit in the chorus: every floor button, the five slots (in the "for what?" hooks, shot
+// close so their labels read), and the plate over the car naming the choice with its price.
+const SLOTS = ['FAST', 'STURDY', 'CHEAP', 'WOW', 'LASTS'];
+const PLATE_COL = { FAST: '#7FD8FF', STURDY: '#C9CEDF', CHEAP: '#D9B98C', WOW: '#FF8FD0', KEEP: '#E7B45A', SHIP: '#FF9F43', POLISH: '#F4F7FF', NEED: P.PAL.paper, SHOW: '#FF8FD0' };
+function drawCarKit(g, t, S, st, car, cp, cam) {
   g.globalAlpha = 1 - smooth(between(t, 49.6, 50.3)) * (flick(t) ? 1 : 0.6);   // fades out through the stall
   // buttons (B, 1..10) on the right inner wall; lit one by one, all of them
   const bx = car.x + car.w - 18, by = car.y + 62;
@@ -827,64 +917,126 @@ function drawCarKit(g, t, st, car) {
     g.beginPath(); g.arc(bx, y, 5, 0, 7); g.fill(); g.stroke();
     if (lit && t < 28.8) star(g, bx, y, 10, win(t, 27.62 + i * 0.085, 27.9 + i * 0.085, 0.02, 0.2));
   }
-  // five slots across the back wall: FAST · STURDY · CHEAP · WOW · LASTS
-  if (t > 29.35) {
-    const names = ['FAST', 'STURDY', 'CHEAP', 'WOW', 'LASTS'], x0 = car.x + 18, sw = 24, gap = 5.5, sy = car.y + 20;
-    const glow = win(t, 40.76, 42.4, 0.15, 0.4);
-    for (let i = 0; i < 5; i++) {
-      const x = x0 + i * (sw + gap);
-      g.fillStyle = glow > 0 ? `rgba(255,194,61,${0.35 + 0.5 * glow})` : '#1A2044'; g.strokeStyle = P.PAL.outline; g.lineWidth = 2.5;
-      roundRect(g, x, sy, sw, 34, 4); g.fill(); g.stroke();
-      g.fillStyle = P.PAL.textDim; g.font = `700 7.5px ${P.FONTS.pixel}`; g.textAlign = 'center';
-      g.fillText(names[i], x + sw / 2, sy + 44);
-      // one token each, evenly (then more as the chorus spends)
-      const n = (t > 29.6 + i * 0.3 ? 1 : 0) + (t > 41.1 + i * 0.12 ? 1 : 0) - (i === 2 && t > 34.95 && t < 41 ? 0 : 0);
-      for (let k = 0; k < n; k++) cast.token(g, x + sw / 2, sy + 26 - k * 11, 0.38, {});
-    }
-    // tokens hop from Clawd's nub to each slot
-    for (let i = 0; i < 5; i++) {
-      const u = clamp01((t - (29.6 + i * 0.3 - 0.22)) / 0.22);
-      if (u > 0 && u < 1) { const x = lerp(car.x + car.w / 2, x0 + i * (sw + gap) + sw / 2, u), y = lerp(car.y + 170, sy + 26, u) - 40 * Math.sin(Math.PI * u); cast.token(g, x, y, 0.45, {}); }
-    }
-  }
-  // the indicator above the car: the word it's turning into, as it's sung
+  safe(g, () => drawSlots(g, t, S, car, cp));
+  // the plate over the car: the choice being sung, and its price
   let lab = null, la = 0;
   for (const [a, w] of LABELS) if (t >= a) { lab = w; la = a; }
-  if (lab) {
-    const p = backOut((t - la) / 0.22), stall = t > 49.3 ? (flick(t) ? 1 : 0.2) : 1;
-    g.save(); g.globalAlpha *= stall;
-    g.font = `800 34px ${P.FONTS.display}`;
-    const tw = g.measureText(lab).width, pw = tw + 30, ph = 46, cx = car.x + car.w / 2, cy = car.y - 42;
-    g.translate(cx, cy); g.scale(1, p);
-    const col = { FAST: '#7FD8FF', STURDY: '#C9CEDF', CHEAP: '#D9B98C', WOW: '#FF8FD0', KEEP: '#E7B45A', SHIP: '#FF9F43', POLISH: '#F4F7FF', NEED: P.PAL.paper, SHOW: '#FF8FD0' }[lab];
-    g.fillStyle = 'rgba(8,11,28,0.45)'; roundRect(g, -pw / 2 + 4, -ph / 2 + 6, pw, ph, 10); g.fill();
-    g.fillStyle = P.PAL.outline; roundRect(g, -pw / 2, -ph / 2, pw, ph, 10); g.fill();
-    g.strokeStyle = col; g.lineWidth = 4; roundRect(g, -pw / 2 + 4, -ph / 2 + 4, pw - 8, ph - 8, 7); g.stroke();
-    g.fillStyle = col; g.textAlign = 'center'; g.textBaseline = 'middle'; g.shadowColor = col; g.shadowBlur = 14;
-    g.fillText(lab, 0, 2);
-    g.restore();
+  if (!lab) return;
+  const z = cam.zoom, fs = 40 / z, stall = t > 49.3 ? (flick(t) ? 1 : 0.2) : 1;
+  const cx = car.x + car.w / 2, cy = car.y - 26 / z - fs * 0.66;
+  g.globalAlpha *= stall;
+  const peel = lab === 'WOW' ? smooth(between(t, 36.2, 36.62)) : 0;
+  if (peel > 0) plate(g, 'CHEAP', cx, cy, fs, 1, 0);   // under WOW's gilt: CHEAP
+  const pw = plate(g, lab, cx, cy, fs, backOut((t - la) / 0.22), peel);
+  const c = CHOICES.find(x => x.key === lab);
+  if (c && peel < 0.5) priceTag(g, t, cx + pw / 2 - fs * 0.25, cy + fs * 0.35, c, z, 1 - 2 * peel);
+}
+function plate(g, lab, cx, cy, fs, sy, peel) {
+  g.save();
+  g.font = `800 ${fs}px ${P.FONTS.display}`;
+  const tw = g.measureText(lab).width, pw = tw + fs * 0.8, ph = fs * 1.3, col = PLATE_COL[lab] || P.PAL.paper;
+  g.translate(cx, cy);
+  if (peel > 0) { g.translate(-pw / 2, -ph / 2); g.rotate(peel * 1.2); g.translate(pw / 2 + 30 * peel, ph / 2 + 160 * peel * peel); g.globalAlpha *= 1 - peel; }
+  g.scale(1, sy);
+  g.fillStyle = 'rgba(8,11,28,0.45)'; roundRect(g, -pw / 2 + fs * 0.1, -ph / 2 + fs * 0.15, pw, ph, fs * 0.28); g.fill();
+  g.fillStyle = P.PAL.outline; roundRect(g, -pw / 2, -ph / 2, pw, ph, fs * 0.28); g.fill();
+  g.strokeStyle = col; g.lineWidth = fs * 0.1; roundRect(g, -pw / 2 + fs * 0.12, -ph / 2 + fs * 0.12, pw - fs * 0.24, ph - fs * 0.24, fs * 0.2); g.stroke();
+  g.fillStyle = col; g.textAlign = 'center'; g.textBaseline = 'middle'; g.shadowColor = col; g.shadowBlur = fs * 0.4;
+  g.fillText(lab, 0, fs * 0.05);
+  g.restore();
+  return pw;
+}
+// A paper price tag on a string: the quota this choice spends (or saves), with a token.
+function priceTag(g, t, x, y, c, z, a = 1) {
+  const p = backOut((t - c.t0 - 0.12) / 0.25); if (p <= 0 || a <= 0) return;
+  const fs = 36 / z, txt = `${c.dq > 0 ? '+' : '−'}${Math.round(Math.abs(c.dq) * 100)}%`, col = c.dq > 0 ? '#1E8A4C' : '#C8303A';
+  g.save(); g.translate(x, y); g.rotate(0.2 + 0.07 * Math.sin(t * 3 + c.t0)); g.scale(p, p); g.globalAlpha *= a;
+  g.font = `800 ${fs}px ${P.FONTS.display}`;
+  const tw = g.measureText(txt).width, h = fs * 1.35, nose = h * 0.34, w = nose + fs * 1.15 + tw + fs * 0.35;
+  g.strokeStyle = P.PAL.paperDk; g.lineWidth = 2.5 / z; g.beginPath(); g.moveTo(-fs * 0.5, -fs * 0.45); g.quadraticCurveTo(-fs * 0.1, fs * 0.2, nose * 0.8, 0); g.stroke();
+  g.fillStyle = 'rgba(8,11,28,0.4)'; g.beginPath(); g.moveTo(4 / z, 5 / z); g.lineTo(nose + 4 / z, -h / 2 + 5 / z); g.lineTo(w + 4 / z, -h / 2 + 5 / z); g.lineTo(w + 4 / z, h / 2 + 5 / z); g.lineTo(nose + 4 / z, h / 2 + 5 / z); g.closePath(); g.fill();
+  g.fillStyle = P.PAL.paper; g.strokeStyle = P.PAL.outline; g.lineWidth = 3.5 / z;
+  g.beginPath(); g.moveTo(0, 0); g.lineTo(nose, -h / 2); g.lineTo(w, -h / 2); g.lineTo(w, h / 2); g.lineTo(nose, h / 2); g.closePath(); g.fill(); g.stroke();
+  g.fillStyle = P.PAL.outline; g.beginPath(); g.arc(nose * 0.8, 0, fs * 0.09, 0, 7); g.fill();
+  cast.token(g, nose + fs * 0.58, 0, fs * 0.027, {});
+  g.fillStyle = col; g.textAlign = 'left'; g.textBaseline = 'middle'; g.fillText(txt, nose + fs * 1.15, fs * 0.05);
+  g.restore();
+}
+// The five slots on the car's back wall: in each "Make it good for what?" Clawd flicks a token into
+// each slot, one a word (the onsets come from the lyric data). Labels 22 world px: 38 px on screen at
+// the split's zoom.
+function drawSlots(g, t, S, car, cp) {
+  const a = Math.max(win(t, 29.75, 32.9, 0.25, 0.3), win(t, 40.6, 43.75, 0.3, 0.3));
+  if (a <= 0) return;
+  const whats = lines(S).filter(l => l.start !== null && /^Make it good for what/i.test(l.text || ''));
+  const ons = whats.map(l => l.words.filter(w => !w.backing).slice(0, 5).map(w => w.s ?? l.start));
+  const x0 = car.x + 8, y0 = car.y + 12, w = 134, rh = 28, spot = (i, j) => [x0 + w - 16 - j * 17, y0 + 4 + i * rh + rh / 2];
+  const pulse = AHH.reduce((m, h) => Math.max(m, kick(t, h, 5)), 0);
+  g.globalAlpha *= a;
+  g.fillStyle = '#141A3C'; g.strokeStyle = P.PAL.outline; g.lineWidth = 3.5;
+  roundRect(g, x0, y0, w, rh * 5 + 8, 6); g.fill(); g.stroke();
+  g.font = `700 22px ${P.FONTS.pixel}`; g.textAlign = 'left'; g.textBaseline = 'middle';
+  for (let i = 0; i < 5; i++) {
+    const ry = y0 + 4 + i * rh, n = ons.filter(o => o[i] !== undefined && t >= o[i] + 0.16).length;
+    if (i) { g.fillStyle = 'rgba(255,255,255,0.1)'; g.fillRect(x0 + 6, ry, w - 12, 1.5); }
+    if (n > 0 && pulse > 0.01) { g.fillStyle = `rgba(255,194,61,${0.4 * pulse})`; g.fillRect(x0 + 3, ry + 1, w - 6, rh - 2); }
+    g.fillStyle = P.PAL.text; g.fillText(SLOTS[i], x0 + 8, ry + rh / 2 + 1);
+    for (let j = 0; j < n; j++) { const [tx, ty] = spot(i, j); cast.token(g, tx, ty, 0.5, {}); }
   }
+  // a token hops from Clawd's nub into a slot on each sung word
+  ons.forEach((o, j) => o.forEach((on, i) => {
+    const u = clamp01((t - (on - 0.04)) / 0.2); if (u <= 0 || u >= 1) return;
+    const [tx, ty] = spot(i, j), sx = cp.x + 40, sy = cp.y - 80;
+    cast.token(g, lerp(sx, tx, u), lerp(sy, ty, u) - 40 * Math.sin(Math.PI * u), 0.55, { spin: u * 2 });
+  }));
 }
 
-// Each trade-off shows its price on the car.
-function drawChorusFx(g, t, st, car, cp) {
-  const cx = car.x + car.w / 2;
-  // CHEAP: tokens fly back to Clawd
-  if (t > 34.9 && t < 35.6) for (let i = 0; i < 4; i++) {
-    const u = clamp01((t - 34.95 - i * 0.07) / 0.3);
-    if (u > 0 && u < 1) { const sx = car.x + 18 + i * 30 + 12, sy = car.y + 46; cast.token(g, lerp(sx, cp.x + (i - 1.5) * 20, u), lerp(sy, cp.y - 70, u) - 30 * Math.sin(Math.PI * u), 0.45, {}); }
+// What each choice costs, on and around the car (the quota part is on the plate's tag).
+function drawChorusFx(g, t, st, car, cp, cam) {
+  const cx = car.x + car.w / 2, z = cam.zoom;
+  // FAST: it burns tokens: glowing coins spat out under the car as it shoots up
+  if (t > 32.72 && t < 33.9) for (let i = 0; i < 16; i++) {
+    const t0 = 32.74 + i * 0.03, u = clamp01((t - t0) / 0.75); if (u <= 0 || u >= 1) continue;
+    const y0 = liftY(t0) + 8, x = cx + (hash(i + 600) - 0.5) * 130 + 40 * (hash(i + 601) - 0.5) * u, y = y0 + 160 * u + 520 * u * u;
+    g.save(); g.globalAlpha = 1 - u;
+    g.globalCompositeOperation = 'lighter';
+    const gr = g.createRadialGradient(x, y, 2, x, y, 34); gr.addColorStop(0, 'rgba(255,170,60,0.8)'); gr.addColorStop(1, 'rgba(255,120,40,0)');
+    g.fillStyle = gr; g.fillRect(x - 34, y - 34, 68, 68);
+    g.globalCompositeOperation = 'source-over';
+    cast.token(g, x, y, 0.75, { spin: t * 9 + i, powered: 1 - u });
+    g.restore();
   }
-  // WOW / SHOW: a mirror ball, and specks of light across the flats
+  // STURDY: so heavy it lands with a thud; dust puffs out at the floor
+  if (t > 34.6 && t < 35.4) for (let i = 0; i < 10; i++) {
+    const u = clamp01((t - 34.62) / 0.7), side = i % 2 ? 1 : -1, k = Math.floor(i / 2);
+    g.save(); g.globalAlpha = 0.7 * (1 - u); g.fillStyle = '#C9C3D8';
+    g.beginPath(); g.arc(cx + side * (car.w / 2 + 10 + 70 * easeOut(u) * (0.6 + 0.2 * k)), car.y + car.h - 10 - 18 * k * u, 12 + 26 * u, 0, 7); g.fill(); g.restore();
+  }
+  // CHEAP: the cable slips (sparks where it runs over the top), a panel pops off; tokens back to Clawd
+  if (t > 34.92 && t < 35.4) {
+    g.save(); g.globalCompositeOperation = 'lighter'; g.lineCap = 'round';
+    for (let i = 0; i < 14; i++) {
+      const slot = Math.floor(t * 30) + i, a = -Math.PI / 2 + (hash(slot) - 0.5) * 2.4, d = 6 + 50 * hash(slot + 1);
+      g.strokeStyle = `rgba(255,${200 + 50 * hash(slot + 2) | 0},120,${0.9 * hash(slot + 3)})`; g.lineWidth = 3;
+      g.beginPath(); g.moveTo(cx + Math.cos(a) * d, car.y - 6 + Math.sin(a) * d); g.lineTo(cx + Math.cos(a) * (d + 18), car.y - 6 + Math.sin(a) * (d + 18)); g.stroke();
+    }
+    g.restore();
+  }
+  if (t > 35.0 && t < 36.4) {   // the panel, falling away down the shaft
+    const u = clamp01((t - 35.0) / 1.2), y0 = liftY(35.0) - 150;
+    g.save(); g.translate(car.x + car.w - 20 + 30 * u, y0 + 700 * u * u); g.rotate(u * 5);
+    g.fillStyle = '#8A8F9A'; g.strokeStyle = P.PAL.outline; g.lineWidth = 3; roundRect(g, -18, -26, 36, 52, 3); g.fill(); g.stroke();
+    g.fillStyle = P.PAL.outline; for (const [bx, by] of [[-11, -19], [11, -19], [-11, 19], [11, 19]]) { g.beginPath(); g.arc(bx, by, 2.5, 0, 7); g.fill(); }
+    g.restore();
+  }
+  if (t > 35.3 && t < 35.75) for (let i = 0; i < 4; i++) {   // …and three tokens come back
+    const u = clamp01((t - 35.32 - i * 0.06) / 0.3);
+    if (u > 0 && u < 1) { const sx = car.x + 18 + i * 34, sy = car.y + 40; cast.token(g, lerp(sx, cp.x + (i - 1.5) * 22, u), lerp(sy, cp.y - 70, u) - 30 * Math.sin(Math.PI * u), 0.6, {}); }
+  }
+  // WOW / SHOW: specks of mirror-ball light across the flats
   const ball = Math.max(win(t, 35.44, 36.7, 0.18, 0.25), win(t, 47.82, 49.6, 0.18, 0.1) * (t > 49.5 ? (flick(t) ? 1 : 0) : 1));
   if (ball > 0) {
-    const bx = cx, by = car.y + lerp(-10, 58, easeOut(ball)), r = 19;
-    g.strokeStyle = '#C9CEDF'; g.lineWidth = 2; g.beginPath(); g.moveTo(bx, car.y + 4); g.lineTo(bx, by - r); g.stroke();
-    const gr = g.createRadialGradient(bx - 6, by - 6, 2, bx, by, r);
-    gr.addColorStop(0, '#FFFFFF'); gr.addColorStop(0.5, '#B9C3E6'); gr.addColorStop(1, '#5A648F');
-    g.fillStyle = gr; g.strokeStyle = P.PAL.outline; g.lineWidth = 3; g.beginPath(); g.arc(bx, by, r, 0, 7); g.fill(); g.stroke();
-    g.save(); g.beginPath(); g.arc(bx, by, r, 0, 7); g.clip();
-    for (let i = 0; i < 12; i++) { const fx = bx - r + ((i * 9 + t * 40) % (2 * r)), fy = by - r + (i % 4) * 11; g.fillStyle = `rgba(255,255,255,${0.35 + 0.5 * hash(i + Math.floor(t * 8))})`; g.fillRect(fx, fy, 6, 6); }
-    g.restore();
+    const bx = cx, by = car.y + 54;
     g.globalCompositeOperation = 'lighter';
     for (let i = 0; i < 40; i++) {
       const a = hash(i + 300) * Math.PI * 2 + t * (0.6 + 0.3 * hash(i + 301)), d = 120 + 520 * hash(i + 302);
@@ -894,48 +1046,51 @@ function drawChorusFx(g, t, st, car, cp) {
     }
     g.globalCompositeOperation = 'source-over';
   }
-  // WOW: a calendar on the car wall flips seven days, and the gilt peels
+  // WOW: a week goes by on a calendar hung off the car, and the gilt peels
   if (t > 35.5 && t < 36.95) {
-    const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'], k = Math.min(6, Math.floor((t - 35.62) / 0.12));
-    const x = car.x + 14, y = car.y + 104, a = win(t, 35.5, 36.95, 0.1, 0.2);
-    g.globalAlpha = a;
-    g.fillStyle = P.PAL.paper; g.strokeStyle = P.PAL.outline; g.lineWidth = 3; roundRect(g, x, y, 40, 44, 4); g.fill(); g.stroke();
-    g.fillStyle = '#D9534F'; g.fillRect(x + 1.5, y + 1.5, 37, 11);
-    g.fillStyle = P.PAL.ink; g.font = `700 13px ${P.FONTS.pixel}`; g.textAlign = 'center'; g.fillText(t < 35.62 ? 'MON' : days[Math.max(0, k)], x + 20, y + 34);
+    const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'], k = Math.max(0, Math.min(6, Math.floor((t - 35.62) / 0.12)));
+    const cw = 104, ch = 112, x = car.x - cw - 10, y = car.y + 24, a = win(t, 35.5, 36.95, 0.1, 0.2);
+    g.save(); g.globalAlpha = a;
+    g.strokeStyle = '#C9CEDF'; g.lineWidth = 2.5; g.beginPath(); g.moveTo(car.x, car.y + 12); g.lineTo(x + cw / 2, y + 2); g.stroke();
+    g.fillStyle = 'rgba(8,11,28,0.4)'; roundRect(g, x + 5, y + 7, cw, ch, 6); g.fill();
+    g.fillStyle = P.PAL.paper; g.strokeStyle = P.PAL.outline; g.lineWidth = 4; roundRect(g, x, y, cw, ch, 6); g.fill(); g.stroke();
+    g.fillStyle = '#D9534F'; g.fillRect(x + 2, y + 2, cw - 4, 28);
+    g.fillStyle = '#FFF6E6'; g.font = `700 20px ${P.FONTS.pixel}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('WEEK 1', x + cw / 2, y + 17);
+    g.fillStyle = P.PAL.ink; g.font = `800 44px ${P.FONTS.display}`; g.fillText(t < 35.62 ? 'MON' : days[k], x + cw / 2, y + 74);
     const fp = ((t - 35.62) / 0.12) % 1;   // the page flipping away
-    if (t > 35.62 && t < 36.46) { g.fillStyle = P.PAL.paperDk; g.globalAlpha = a * (1 - fp); g.fillRect(x + 2, y + 12 - fp * 30, 36, 30 * (1 - fp)); }
-    g.globalAlpha = 1;
+    if (t > 35.62 && t < 36.46) { g.fillStyle = P.PAL.paperDk; g.globalAlpha = a * (1 - fp); g.fillRect(x + 3, y + 32 - fp * 40, cw - 6, (ch - 36) * (1 - fp)); }
+    g.restore();
   }
-  if (t > 36.2 && t < 37.6) for (let i = 0; i < 16; i++) {   // gilt flakes
+  if (t > 36.2 && t < 37.6) for (let i = 0; i < 22; i++) {   // gilt flakes
     const u = clamp01((t - 36.22 - hash(i + 400) * 0.35) / 1.0); if (u <= 0 || u >= 1) continue;
     const x = car.x + 10 + hash(i + 401) * (car.w - 20) + 30 * Math.sin(u * 6 + i), y = car.y + 20 + hash(i + 402) * 200 + u * u * 260;
     g.save(); g.translate(x, y); g.rotate(u * 8 + i); g.fillStyle = i % 2 ? P.PAL.gold : P.PAL.goldHi; g.globalAlpha = 1 - u;
-    g.beginPath(); g.moveTo(-7, -4); g.lineTo(8, -2); g.lineTo(-2, 6); g.closePath(); g.fill(); g.restore();
+    g.beginPath(); g.moveTo(-9, -5); g.lineTo(10, -2); g.lineTo(-2, 8); g.closePath(); g.fill(); g.restore();
   }
-  // KEEP: a brass plaque, "since 2026"
+  // KEEP: a brass plaque hung under the car, "since 2026"
   const plaque = win(t, 36.9, 38.4, 0.2, 0.3);
   if (plaque > 0) {
-    g.globalAlpha = plaque;
-    card(g, cx, car.y + car.h - 26, 104, 28, [['since 2026', `700 17px ${P.FONTS.display}`, '#3B2A10']], { bg: '#E7B45A', r: 5, s: backOut((t - 36.9) / 0.25) });
-    g.globalAlpha = 1;
+    const fs = 30 / z, py = car.y + car.h + fs * 1.1;
+    g.save(); g.globalAlpha = plaque;
+    g.strokeStyle = '#8A6A2A'; g.lineWidth = 2.5 / z; g.beginPath(); g.moveTo(cx - fs * 2, car.y + car.h); g.lineTo(cx - fs * 2, py); g.moveTo(cx + fs * 2, car.y + car.h); g.lineTo(cx + fs * 2, py); g.stroke();
+    g.font = `700 ${fs}px ${P.FONTS.display}`;
+    card(g, cx, py, g.measureText('since 2026').width + fs * 1.1, fs * 1.5, [['since 2026', `700 ${fs}px ${P.FONTS.display}`, '#3B2A10']], { bg: '#E7B45A', r: 6, s: backOut((t - 36.9) / 0.25) });
+    g.restore();
   }
-  // SHIP: scaffold on, half-painted
+  // SHIP: half-painted and still wet (the world paints the car); a roller mid-stroke and a sign
   const sc = win(t, 43.62, 45.2, 0.12, 0.3);
   if (sc > 0) {
-    g.globalAlpha = sc;
-    g.fillStyle = 'rgba(200,205,220,0.55)';   // unpainted primer on the right half, a ragged wet edge
-    g.beginPath(); g.moveTo(cx + 6, car.y); for (let k = 0; k <= 10; k++) g.lineTo(cx + 6 + 8 * Math.sin(k * 1.7), car.y + k * car.h / 10); g.lineTo(car.x + car.w, car.y + car.h); g.lineTo(car.x + car.w, car.y); g.closePath(); g.fill();
-    g.strokeStyle = '#8A93AF'; g.lineWidth = 7; g.lineCap = 'butt';
-    for (const x of [car.x - 12, car.x + car.w + 12]) { g.beginPath(); g.moveTo(x, car.y - 40); g.lineTo(x, car.y + car.h + 6); g.stroke(); }
-    g.lineWidth = 5; g.strokeStyle = '#C9A16B';
-    for (const y of [car.y - 18, car.y + 118]) { g.beginPath(); g.moveTo(car.x - 22, y); g.lineTo(car.x + car.w + 22, y); g.stroke(); }
-    g.strokeStyle = '#8A93AF'; g.lineWidth = 3; g.beginPath(); g.moveTo(car.x - 12, car.y - 18); g.lineTo(car.x + car.w + 12, car.y + 118); g.stroke();
-    // the roller, mid-stroke
-    const ry = car.y + 60 + 60 * Math.sin(t * 7);
-    g.fillStyle = '#E8834F'; g.strokeStyle = P.PAL.outline; g.lineWidth = 3; roundRect(g, cx - 4, ry - 18, 18, 36, 5); g.fill(); g.stroke();
-    g.globalAlpha = 1;
+    g.save(); g.globalAlpha = sc;
+    const ry = car.y + 70 + 55 * Math.sin(t * 7);
+    g.strokeStyle = P.PAL.outline; g.lineWidth = 4; g.beginPath(); g.moveTo(cx + 40, ry); g.lineTo(cx + 62, ry + 50); g.stroke();
+    g.fillStyle = '#3E86C8'; g.strokeStyle = P.PAL.outline; g.lineWidth = 3; roundRect(g, cx + 26, ry - 22, 20, 44, 6); g.fill(); g.stroke();
+    const fs = 30 / z;
+    g.translate(car.x + car.w + fs * 2.8, car.y + 70); g.rotate(0.12 + 0.05 * Math.sin(t * 2.2));
+    g.strokeStyle = '#8A8F9A'; g.lineWidth = 2.5 / z; g.beginPath(); g.moveTo(-fs * 2.2, -fs * 1.2); g.lineTo(-fs, -fs * 0.7); g.stroke();
+    card(g, 0, 0, fs * 5.2, fs * 1.6, [['WET PAINT', `700 ${fs}px ${P.FONTS.hand}`, '#C8304A']], { bg: '#FFE36A', r: 4 });
+    g.restore();
   }
-  // POLISH: sparks off Clawd's polisher
+  // POLISH: sparks off Clawd's polisher; the price is time (a stopwatch spinning; Sam taps his watch)
   if (t > 45.1 && t < 46.45) {
     const ox = cp.x + 58, oy = cp.y - 52;
     g.globalCompositeOperation = 'lighter'; g.lineCap = 'round';
@@ -948,7 +1103,18 @@ function drawChorusFx(g, t, st, car, cp) {
     glint(g, t, car, 45.5, 0.5, 0.5);
     glint(g, t, car, 46.0, 0.4, 0.4);
   }
-  // SHOW: fireworks over the demo founder's flat
+  const sw = win(t, 45.1, 46.55, 0.15, 0.25);
+  if (sw > 0) {
+    const r = 34 / z, wx = car.x - r - 16, wy = car.y + 40 + r, a = (t - 45.1) * 9;
+    g.save(); g.globalAlpha = sw; g.translate(wx, wy); g.scale(backOut((t - 45.1) / 0.25), backOut((t - 45.1) / 0.25));
+    g.fillStyle = '#C9CEDF'; g.strokeStyle = P.PAL.outline; g.lineWidth = 3.5 / z; roundRect(g, -r * 0.22, -r * 1.35, r * 0.44, r * 0.4, 3); g.fill(); g.stroke();
+    g.fillStyle = P.PAL.paper; g.beginPath(); g.arc(0, 0, r, 0, 7); g.fill(); g.stroke();
+    g.fillStyle = 'rgba(200,48,74,0.25)'; g.beginPath(); g.moveTo(0, 0); g.arc(0, 0, r * 0.86, -Math.PI / 2, -Math.PI / 2 + (a % (Math.PI * 2))); g.closePath(); g.fill();
+    g.strokeStyle = '#C8304A'; g.lineWidth = 4 / z; g.lineCap = 'round'; g.beginPath(); g.moveTo(0, 0); g.lineTo(Math.sin(a) * r * 0.8, -Math.cos(a) * r * 0.8); g.stroke();
+    g.fillStyle = P.PAL.outline; g.beginPath(); g.arc(0, 0, 3.5 / z, 0, 7); g.fill();
+    g.restore();
+  }
+  // SHOW: fireworks over Dev's flat
   if (t > 48.4 && t < 49.6) {
     const r = P.flatRect(8, 'L');
     for (let k = 0; k < 3; k++) {
@@ -965,7 +1131,7 @@ function drawChorusFx(g, t, st, car, cp) {
   }
 }
 
-// The faces: one per "ooh", three floors leaning out, the student and the founder.
+// The faces: one per "ooh", three floors leaning out, a neighbour waiting on the polish, the founder.
 function drawFaces(g, t, ly) {
   const peek = (o, dur = 0.3) => win(t, o - 0.04, o + dur, 0.08, 0.12);
   if (t > 28.5 && t < 30) {
@@ -978,15 +1144,25 @@ function drawFaces(g, t, ly) {
     person(g, t, 'trader', 'L', 7, win(t, 39.88, 42.3, 0.2, 0.3), { mouth: 0.3 });
     person(g, t, 'party', 'R', 6, win(t, 40.28, 42.4, 0.2, 0.3), { mouth: 0.9, bob: 4 * Math.abs(Math.sin(t * 7)) });
   }
-  if (t > 44.8 && t < 48.2) {   // the student: taps their watch while Clawd polishes; steps in for NEED
-    const lean = win(t, 44.9, 47.9, 0.25, 0.25), tap = t < 46.4 ? Math.abs(Math.sin(t * 9)) : 0;
-    const inn = smooth(between(t, 46.95, 47.3)) * (1 - smooth(between(t, 47.55, 47.85)));
-    person(g, t, 'student', 'R', 5, lean + 0.9 * inn, { arm: t < 46.4 ? 1.3 + 0.25 * tap : null, watch: t < 46.4, mouth: t > 46.9 ? 0.7 : 0, glow: 1.2 * inn + 0.6 * smooth(between(t, 47.0, 47.3)) * (1 - smooth(between(t, 47.7, 48.1))) });
+  if (t > 44.8 && t < 46.8) {   // polish costs time: a neighbour on floor 5 taps their watch
+    const lean = win(t, 44.9, 46.6, 0.25, 0.25), tap = Math.abs(Math.sin(t * 9));
+    person(g, t, 'student', 'R', 5, lean, { arm: 1.3 + 0.25 * tap, watch: true });
   }
   if (t > 48.3 && t < 50.2) {   // the demo founder, thrilled
     const lean = win(t, 48.4, 49.9, 0.2, 0.3), cheer = Math.sin(t * 12);
     person(g, t, 'demo', 'L', 8, lean, { arm: 1.7 + 0.2 * cheer, arm2: 1.4 - 0.2 * cheer, mouth: 1, glow: 1 * (t > 49.5 ? (flick(t) ? 1 : 0.2) : 1) });
   }
+}
+
+// ---------- the lyric data ----------
+// Lines are found in music/ep01/lyrics.json by their words, never by hard-coded start times.
+const lines = S => S.lyrics || [];
+const lineMatching = (S, re) => lines(S).find(l => l.start !== null && re.test(l.text || '')) || null;
+// The line sung most recently at t, and the next one.
+function lineNow(S, t) {
+  const L = lines(S); let k = -1;
+  for (let i = 0; i < L.length; i++) if (L[i].start !== null && L[i].start <= t + 0.05) k = i;
+  return { l: L[k] || null, next: L.slice(k + 1).find(x => x.start !== null) || null };
 }
 
 // ---------- screen space: light that pierces the dark, speed, lyrics ----------
@@ -995,15 +1171,90 @@ function scrim(g, y0, y1, a = 0.62) {
   gr.addColorStop(0, 'rgba(8,11,28,0)'); gr.addColorStop(0.2, `rgba(8,11,28,${a})`); gr.addColorStop(0.75, `rgba(8,11,28,${a})`); gr.addColorStop(1, 'rgba(8,11,28,0)');
   g.fillStyle = gr; g.fillRect(0, y0, W, y1 - y0);
 }
-// A piece of one sung line, shown by type.huge as a line of its own until `until`.
-function piece(S, start, i0, i1, until) {
-  const l = (S.lyrics || []).find(x => x.start !== null && Math.abs(x.start - start) < 0.05);
+// Words i0..i1 of a sung line, shown by type.huge as a line of its own until `until`.
+function piece(l, i0, i1, until) {
   return { lineAt: t => (l && t >= l.start - 0.05 && t < until ? { ...l, words: l.words.slice(i0, i1), end: until } : null) };
 }
-function hugePiece(g, t, S, start, i0, i1, until, o) { type.huge(g, t, piece(S, start, i0, i1, until), { hold: 0, ...o }); }
+function hugePiece(g, t, l, i0, i1, until, o) { type.huge(g, t, piece(l, i0, i1, until), { hold: 0, ...o }); }
+
+// One row of title words in the hook style (type.huge's look), for the opening: `landed` rows are
+// already in place (frame 0 shows them); others land on their sung onsets. The word being sung glows;
+// `stay` keeps a word gold once it has landed.
+function titleRow(g, t, ws, o) {
+  if (!ws.length || (o.alpha ?? 1) <= 0) return;
+  let size = o.size;
+  g.font = `800 ${size}px ${P.FONTS.display}`;
+  const up = ws.map(w => w.w.toUpperCase());
+  let widths = up.map(u => g.measureText(u).width), space = g.measureText(' ').width * 0.9;
+  const rowW = widths.reduce((a, b) => a + b, 0) + space * (ws.length - 1), maxW = 1000 / (o.k || 1);
+  if (rowW > maxW) { const f = maxW / rowW; size *= f; widths = widths.map(x => x * f); space *= f; g.font = `800 ${size}px ${P.FONTS.display}`; }
+  const total = widths.reduce((a, b) => a + b, 0) + space * (ws.length - 1);
+  g.save(); g.translate(W / 2, o.y); g.scale(o.k || 1, o.k || 1);
+  let x = -total / 2;
+  ws.forEach((w, i) => {
+    const on = w.s ?? 0, p = o.landed ? 1 : clamp01((t - on) / 0.14);
+    if (p > 0) {
+      const k = 0.55 + 0.45 * backOut(p), cur = t >= on && t < (w.e ?? on) + 0.1, gold = cur || (o.stay && t >= on);
+      g.save();
+      g.translate(x + widths[i] / 2, -size * 0.35); g.scale(k, k); g.rotate((1 - easeOut(p)) * -0.06);
+      g.globalAlpha = Math.min(1, p * 1.6) * (o.alpha ?? 1);
+      g.textBaseline = 'alphabetic';
+      g.fillStyle = 'rgba(5,8,22,0.55)'; g.fillText(up[i], -widths[i] / 2 + size * 0.03, size * 0.4);
+      g.fillStyle = gold ? o.accent : o.color;
+      if (gold) { g.shadowColor = o.accent; g.shadowBlur = size * (cur ? 0.25 : 0.14); }
+      g.fillText(up[i], -widths[i] / 2, size * 0.35);
+      g.restore();
+    }
+    x += widths[i] + space;
+  });
+  g.restore();
+}
+// The opening title (see drawOpening): YOU SAID / MAKE IT GOOD, on frame 0; SO I MADE IT / GOOD! land as
+// sung; then GOOD! rises to the top and holds through the band stop, while the lobby's board is read.
+function title(g, t, S) {
+  const l = lineMatching(S, /^You said/i);
+  if (!l || t > 4.6) return;
+  const w = l.words.filter(x => !x.backing), C = P.PAL;
+  const rest = 1 - smooth(between(t, 2.7, 3.0)), rise = smooth(between(t, 2.75, 3.25)), last = 1 - smooth(between(t, 4.25, 4.55));
+  g.save();
+  g.globalAlpha = last;
+  scrim(g, 140, lerp(lerp(520, 930, smooth(between(t, 1.2, 1.5))), 440, rise), 0.62);
+  g.globalAlpha = 1;
+  titleRow(g, t, w.slice(0, 2), { y: 292, size: 138, landed: true, color: C.text, accent: C.gold, alpha: rest });
+  titleRow(g, t, w.slice(2, 5), { y: 430, size: 138, landed: true, color: C.text, accent: C.gold, alpha: rest });
+  titleRow(g, t, w.slice(5, 9), { y: 640, size: 112, color: '#FFD2BE', accent: C.gold, alpha: rest });
+  titleRow(g, t, w.slice(9), { y: lerp(850, 330, rise), size: 210, k: lerp(1, 0.9, rise), color: '#FFD2BE', accent: C.gold, stay: true, alpha: last });
+  g.restore();
+}
+
+// "Oops, your quota's gone!": a big red rubber stamp, QUOTA 100% USED (section D answers it with
+// the same stamp, 8% USED).
+function quotaStamp(g, t) {
+  const t0 = 17.86, a = win(t, t0, 18.85, 0.01, 0.3);
+  if (a <= 0) return;
+  const hit = clamp01((t - t0) / 0.12), k = lerp(1.8, 1, easeOut(hit)), red = '#D8322C';
+  g.save(); g.translate(540, 600); g.rotate(-0.14); g.scale(k, k);
+  g.globalAlpha = a * Math.min(1, hit * 3);
+  g.fillStyle = 'rgba(8,11,28,0.4)'; roundRect(g, -372, -140, 760, 300, 26); g.fill();
+  g.fillStyle = 'rgba(255,238,230,0.94)'; g.strokeStyle = red; g.lineWidth = 13;
+  roundRect(g, -380, -150, 760, 300, 26); g.fill(); g.stroke();
+  g.lineWidth = 5; roundRect(g, -356, -126, 712, 252, 16); g.stroke();
+  g.fillStyle = red; g.textAlign = 'center'; g.textBaseline = 'alphabetic';
+  g.font = `700 64px ${P.FONTS.pixel}`; g.fillText('QUOTA', 0, -40);
+  g.font = `700 124px ${P.FONTS.pixel}`; g.fillText('100% USED', 0, 92);
+  g.restore();
+}
+
+// The corner marks live in the top 120 px: shade it so nothing in the world competes with them.
+function topShade(g, t) {
+  const open = t < 3.2, a = open ? 0.94 : 0.55, h = open ? 270 : 200, gr = g.createLinearGradient(0, 0, 0, h);
+  gr.addColorStop(0, `rgba(6,8,22,${a})`); gr.addColorStop(0.55, `rgba(6,8,22,${a * (open ? 0.75 : 0.45)})`); gr.addColorStop(1, 'rgba(6,8,22,0)');
+  g.fillStyle = gr; g.fillRect(0, 0, W, h);
+}
 
 export function screen(g, t, S, st, cam) {
   firstErr = null;
+  if (t >= 4.6) safe(g, () => topShade(g, t));   // (the opening draws its own)
   // your doorbell, glowing in the dark, never rung
   if (t > 17.3 && t < 21.0) safe(g, () => {
     const look = 1 + 0.5 * win(t, 18.66, 20.5, 0.3, 0.3);   // brighter while Clawd looks at it
@@ -1018,8 +1269,10 @@ export function screen(g, t, S, st, cam) {
   if (t > 23.8 && t < 27.6) safe(g, () => wordLight(g, t, st, cam));
   // floors streaking past whenever the camera travels fast
   safe(g, () => streaks(g, t, S, cam));
-  // lyrics
+  // the opening title, then the lyrics
+  if (t < 4.6) safe(g, () => drawOpening(g, t, S, st, 'screen'));
   safe(g, () => lyrics(g, t, S, cam));
+  safe(g, () => quotaStamp(g, t));
   // the crash at 27.2: the lights slam on
   if (t >= 27.2 && t < 27.6) { g.fillStyle = `rgba(255,241,210,${0.45 * (1 - (t - 27.2) / 0.4)})`; g.fillRect(0, 0, W, H); }
   rethrow();
@@ -1072,38 +1325,27 @@ function streaks(g, t, S, cam) {
 
 function lyrics(g, t, S, cam) {
   const C = P.PAL;
-  if (t < 3.0) {   // the intro, huge, upper third, on the dark wall
-    const a = win(t, -1, 2.95, 0.1, 0.3);
-    g.globalAlpha = a; scrim(g, 150, t > 1.2 ? 780 : 560, 0.5); g.globalAlpha = 1;
-    hugePiece(g, t, S, 0, 0, 2, 2.95, { y: 300, size: 140 });
-    hugePiece(g, t, S, 0, 2, 5, 2.95, { y: 437, size: 140 });
-    hugePiece(g, t, S, 0, 5, 8, 2.95, { y: 604, size: 118, color: '#FFD2BE', accent: C.gold });
-    hugePiece(g, t, S, 0, 8, 10, 2.95, { y: 722, size: 118, color: '#FFD2BE', accent: C.gold });
-    return;
-  }
-  if (t < 4.45) return;   // band stop: the directory board has the frame
+  if (t < 4.47) return;   // the opening title has the frame (drawOpening)
   if (t < 23.9) { type.band(g, t, S, { y: 1330, size: t > 18.6 && t < 20.8 ? 84 : 74 }); return; }
   if (t < 27.2) {   // the line to remember, huge
-    const a = win(t, 23.9, 27.2, 0.15, 0.12);
+    const a = win(t, 23.9, 27.2, 0.15, 0.12), l1 = lineMatching(S, /^I can.t read/i), l2 = lineMatching(S, /^I.m only reading/i);
     g.globalAlpha = a; scrim(g, 110, t > 25 ? 800 : 520, 0.55); g.globalAlpha = 1;
-    hugePiece(g, t, S, 24.0, 0, 3, 27.15, { y: 260, size: 140 });
-    hugePiece(g, t, S, 24.0, 3, 5, 27.15, { y: 397, size: 140 });
-    hugePiece(g, t, S, 25.04, 0, 3, 27.15, { y: 560, size: 118, color: C.goldHi, accent: C.gold });
-    hugePiece(g, t, S, 25.04, 3, 5, 27.15, { y: 676, size: 118, color: C.goldHi, accent: C.gold });
+    hugePiece(g, t, l1, 0, 3, 27.15, { y: 260, size: 140 });
+    hugePiece(g, t, l1, 3, 5, 27.15, { y: 397, size: 140 });
+    hugePiece(g, t, l2, 0, 3, 27.15, { y: 560, size: 118, color: C.goldHi, accent: C.gold });
+    hugePiece(g, t, l2, 3, 5, 27.15, { y: 676, size: 118, color: C.goldHi, accent: C.gold });
     return;
   }
-  const hook = (start, end) => {
-    const a = win(t, start - 0.05, end, 0.12, 0.2);
+  // the hooks: each "Make it good for …" holds until the next line starts
+  const { l, next } = lineNow(S, t);
+  if (l && /^Make it good/i.test(l.text || '')) {
+    const until = next ? next.start : l.end + 0.6, a = win(t, l.start - 0.05, until, 0.12, 0.2);
     g.globalAlpha = a; scrim(g, 120, 620, 0.5); g.globalAlpha = 1;
-    hugePiece(g, t, S, start, 0, 3, end, { y: 300, size: 148 });
-    hugePiece(g, t, S, start, 3, 6, end, { y: 445, size: 148 });
-  };
-  if (t < 29.4) return hook(27.2, 29.42);
-  if (t < 32.72) return hook(29.4, 32.74);
-  if (t < 38.08) { type.band(g, t, S, { y: 1330 }); return; }
-  if (t < 40.76) return hook(38.08, 40.78);
-  if (t < 43.62) return hook(40.76, 43.64);
-  if (t < 49.7) type.band(g, t, capped(S, 48.95), { y: 1330 });   // clear before the band stop
+    hugePiece(g, t, l, 0, 3, until + 0.02, { y: 300, size: 148 });
+    hugePiece(g, t, l, 3, 6, until + 0.02, { y: 445, size: 148 });
+    return;
+  }
+  if (t < 49.7) type.band(g, t, capped(S, 48.95), { y: 1330 });   // the "or"s (clear before the band stop)
 }
 // S with the current line's end capped, so the band fades out early.
 function capped(S, end) { return { lineAt: (t, h) => { const l = S.lineAt(t, h); return l && l.end > end ? { ...l, end } : l; } }; }

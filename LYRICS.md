@@ -69,8 +69,9 @@ others. Add a rule here whenever a fix teaches one.
 - **One example per line.** Each line is a different app or person. That gives the picture more
   to play with, and it makes the pattern the point.
 - **Rhyme on a vowel family.** A whole verse can rhyme on one vowel: floss, log, blog, clock, wrong,
-  gone. Note the accent: fast, last, laugh, pass rhyme in British English but not American. The
-  synth voice's accent has to match the rhymes.
+  gone. Note the accent: fast, last, laugh, pass rhyme in British English but not American, and
+  the generator won't sing British (see *Generating the song*). Choose rhymes that work in a
+  General American pop accent.
 - **Hard-to-rhyme words go inside the line.** When an important word won't rhyme ("rogue"), keep
   it and move it inside the line, where it can still take a stress. Rhyme on an easier word: "No
   rogue agent wipes what you own?" Don't swap out the word people actually use.
@@ -180,7 +181,10 @@ Qing's findings from the first generations of episode 1 (2026-09-24):
 - **Expect uneven takes.** Each generation gets different sections right (a good chorus on one, a
   good verse 2 on another). Keep the best sections of each; stitching takes together in
   production is the fallback.
-- **Name the accent in the style prompt.** Verse 2 only rhymes in British English.
+- **Don't count on an accent.** Asking MiniMax for a British accent didn't work: it "always came
+  out sounding like a vague mix between Taylor swift and every other girl singer" (Qing,
+  2026-09-26). Write rhymes that hold in a General American pop accent, and leave the accent out
+  of the style prompt.
 - **Outcome for episode 1:** once the song was restructured for the performer (repeated
   pre-chorus and chorus, contrasting verses, backing vocals instead of holds), MiniMax gave
   semi-decent takes, none good throughout. Tightening the stress patterns within each section

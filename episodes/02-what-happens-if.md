@@ -62,6 +62,11 @@ On the talking points v2:
 > anyway, let's not make too much of point 9 - I think it's irrelevant if we just frame it as a
 > team effort before humans and AI
 
+On the accent (2026-09-26):
+
+> oh we can't really ask for a British accent, it didn't work. last time it always came. out
+> sounding like a vague mix between Taylor swift and every other girl singer
+
 ## Talking points (v2, agreed with Qing's notes above)
 
 Point 9 is folded into point 8: testing is a team effort between humans and AI, and the song
@@ -160,8 +165,9 @@ chorus repeated word for word, and the resolution in an outro. Backing vocals ar
 brackets. Stresses in capitals where the line depends on them.
 
 **Style (proposal):** Britpop-disco: four-on-the-floor, handclaps, a funky bass, bright strings.
-About 124 bpm. The same singer as episode 1: British female vocal with a slight robotic edge, so
-Clawd sounds like Clawd. The band drops out before each chorus. Half-time break with a gang
+About 124 bpm. The same kind of singer as episode 1: female pop vocal with a slight robotic edge, so
+Clawd sounds like Clawd. No accent in the prompt (the generator ignored "British" on episode 1),
+so every rhyme holds in General American. The band drops out before each chorus. Half-time break with a gang
 chant. Cheerful and smug in verse 1, then curious and delighted.
 
 **Intro**
@@ -194,7 +200,7 @@ chant. Cheerful and smug in verse 1, then curious and delighted.
 
 **Verse 2** (going to look; the finds)
 > Clocks went back? Your streak just stopped.
-> Typed a thousand? Top the lot!
+> Fat-thumbed a thousand? Top spot!
 > Two tabs open? Half got dropped.
 > Screen reader? "Button, button… what?"
 > Found one! Found two! Found three! Found four!

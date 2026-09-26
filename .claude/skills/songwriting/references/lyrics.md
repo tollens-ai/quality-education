@@ -69,8 +69,8 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   rhyme it." Put the idea or the joke on the rhyme, and keep structure words ("it", "the") off it.
   (house: *Hard-to-rhyme words go inside the line* is the fix when the key word won't rhyme.)
 - **Rhyme depends on accent.** Tom Lehrer sang "Harvard" and "discovered" in a Northeastern elite
-  accent to make them rhyme. Episode 1's verse 2 only rhymes in British English, so the voice is
-  British. (house: *Rhyme on a vowel family*, the note on accent.)
+  accent to make them rhyme. Episode 1's verse 2 only rhymes in British English, and the generator sang
+  it in a generic American pop accent anyway, so rhymes now have to hold in General American. (house: *Rhyme on a vowel family*, the note on accent.)
 - **Internal rhyme adds density without adding lines.** Rap and *Hamilton* stack rhymes within the
   line (the *Wall Street Journal* mapped *Hamilton*'s into "rhyme families"). Each rhyme marks a
   beat, which helps fast lines; a slow chorus needs only its end rhymes.

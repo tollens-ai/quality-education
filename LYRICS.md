@@ -37,6 +37,11 @@ others. Add a rule here whenever a fix teaches one.
   it's usually the right one.
 
 ## Rhythm
+- **Dense and rhyming, after Tim Blais, after Sondheim.** Qing (2026-09-26): "we have to model
+  after Tim blais, who clearly models after sondheim. dense and rhyming". Rhyme inside the lines as
+  well as at their ends, use multi-syllable rhymes where they come naturally ("comma" and
+  "drama"), and make every line carry a new fact. The songwriting skill's
+  [lyrics reference](.claude/skills/songwriting/references/lyrics.md) has the Sondheim craft.
 - **Every section rhymes.** A repeated refrain word ("…and two it was!") isn't a rhyme, and
   neither is a hook or a chant left unrhymed because it's short. Episode 2's v3 had unrhymed verse,
   pre-chorus, hook and break, and Qing's whole note was "you forgot to make it rhyme"

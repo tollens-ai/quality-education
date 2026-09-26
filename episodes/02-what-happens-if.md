@@ -3,7 +3,7 @@
 **Concept:** testing is finding out what's actually true about the product, by exploring and
 experimenting. Checking, answering yes-or-no questions you already knew to ask, is one useful
 part of it.
-**Status:** talking points and section sketch agreed (2026-09-26); lyrics v4 (v3 made to rhyme), for Qing's ear.
+**Status:** talking points and section sketch agreed (2026-09-26); lyrics v5 (dense and rhyming), for Qing's ear.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 
@@ -73,6 +73,10 @@ On lyrics v1 (2026-09-26):
 On lyrics v3 (2026-09-26):
 
 > you forgot to make it rhyme
+
+On lyrics v4 (2026-09-26):
+
+> yeah, we have to model after Tim blais, who clearly models after sondheim. dense and rhyming
 
 On the sketch (2026-09-26):
 
@@ -198,30 +202,31 @@ are listed.
 | Final pre-chorus and chorus | Word for word | The same questions, now being tested |
 | Outro | The flip ("the questions no one knows the answers to"), then the chorus's questions answered | The gym log working in the basement; the brief |
 
-## Lyric sheet (v4, for Qing's ear)
+## Lyric sheet (v5, for Qing's ear)
 
-v1 and v2 are in git history. v3 follows the section sketch above, with Qing's hook ("so
-ACTUALLY test it!", which doesn't knock checking) and fixes from the first review round.
+v5 rewrites v4 dense and rhyming, after Tim Blais, who writes after Sondheim (Qing, 2026-09-26):
+internal rhymes inside the lines, multi-syllable rhymes where they fit, and every line carrying a
+new fact. The verses are patter, in sixteenths.
 
 **Style (proposal):** Britpop-disco: four-on-the-floor, handclaps, a funky bass, bright strings.
-About 124 bpm. Female pop vocal with a slight robotic edge, as in episode 1. No accent in the
+About 124 bpm, with patter verses. Female pop vocal with a slight robotic edge. No accent in the
 prompt; British words are fine. The band drops out before each chorus. Half-time break with a
-gang chant. Smug in verse 1, then curious and delighted.
+gang chant.
 
 **Intro**
 > Two hundred tests, and every one is green!
 
-**Verse 1**
-> I checked that two was two, and that was true!
-> I made the fake say "five", and five came through!
-> I checked the fake got called: it did! Woohoo!
-> The snapshot failed? I snapped it fresh and new!
-> All of them green!
+**Verse 1** (patter)
+> I checked that two is two, and — who knew? — it's true!
+> I told a fake to say it's five, then checked it: five! Woohoo!
+> I checked the fake got called — that's all! — and called it top of the class;
+> the snapshot broke on every comma: no drama, re-snap it, pass!
+> Two hundred green, not a red to be seen!
 > Shipped it Monday, clean!
 > *(spoken)* …So why'd it break for you?
 
 **Pre-chorus**
-> Every question, yes or no; every answer, "Yes, it's true!"
+> Every question yes or no, I set it up, I saw it through.
 > I only asked the questions
 > that I knew the answers to.
 
@@ -236,33 +241,32 @@ gang chant. Smug in verse 1, then curious and delighted.
 > You tap it twice? You're on a train?
 > You drop your phone out in the rain?
 
-**Verse 2**
-> Thousand-kilo squat? Top spot!
-> Two tabs? Half the list got dropped!
-> Emoji name? Page is shot!
-> Read aloud? "Button." That's the lot!
+**Verse 2** (patter; the finds)
+> Fat-thumbed a thousand-kilo squat? Top spot! *(That's a lot!)*
+> Two tabs, two saves, and half the list? Not there. It dropped.
+> Emoji in a name? The page went blank. It stopped.
+> The screen reader says "button, button, button": all it's got.
 > Found one! Found two! Found three! Found four!
 > *(spoken)* Now they're all checks. And there's always more!
 
 **Pre-chorus**, **Chorus**
 
 **Bridge**
-> I learned from repos testing 'cause they should, *(whoa-oh)*
-> and then got marked on what would pass, *(whoa-oh)*
-> like any kid who's drilled to look as good *(whoa-oh)*
+> I learned to test from repos testing 'cause they should, *(whoa-oh)*
+> then trained on marks, and marked on what had passed, *(whoa-oh)*
+> like any kid who's drilled to look as good, *(whoa-oh)*
 > who learns the mark scheme, not the class.
 
-**Break** (half time, gang chant, then the team)
+**Break** (half time, gang chant)
 > Testing's finding out! *(finding out!)*
 > Checking's part, no doubt! *(part, no doubt!)*
 > Testing takes a crew! *(and me! and me! and me!)*
-> And what matters? That's for you!
+> And you know what matters: you!
 
 **Pre-chorus**, **Chorus** (word for word)
 
 **Outro**
-> Every question: what if? Who?
-> Every answer something new!
+> Every question: what if? Who? Every answer something new!
 > I'll go and ask the questions
 > no one knows the answers to.
 > So actually test it! *(I tested it!)*
@@ -270,41 +274,19 @@ gang chant. Smug in verse 1, then curious and delighted.
 > The wifi drops? Your stuff's still there.
 > The clocks go back? It doesn't care!
 
+**Rhymes, section by section** (all hold in General American)
+- Verse 1: two/two/knew/true, then five/five/woohoo; called/all, class/pass, comma/drama.
+- Tag: green/seen/clean, with "you" echoing verse 1's rhyme.
+- Pre-chorus: no/through/to.
+- Chorus: test it/mess with it; drops/clocks inside, black/back; twice/train/rain.
+- Verse 2: squat/spot/lot, dropped, stopped, got.
+- Bridge: should/good, passed/class; test/testing, marks/marked inside.
+- Break: out/doubt, crew/you.
+- Outro: who/new/to, there/care.
+
 **Line to remember:** "I only asked the questions that I knew the answers to."
 
-**Beat grids** (stresses in capitals; syllable counts in brackets)
-
-```
-V1   i CHECKED that TWO was TWO | and THAT was TRUE          (10)
-     i MADE the FAKE say FIVE   | and FIVE came THROUGH      (10)
-     i CHECKED the FAKE got CALLED | it DID woo-HOO          (10)
-     the SNAP-shot FAILED | i SNAPPED it FRESH and NEW       (10)
-PC   EV-ery QUES-tion YES or NO | EV-ery AN-swer YES it's TRUE   (7 | 7)
-     i ON-ly ASKED the QUES-tions THAT i KNEW the AN-swers TO    (14)
-CH   so AC-tual-ly TEST it                                   (6)
-     what HAP-pens IF you MESS with IT                       (8)
-     the WI-fi DROPS the SCREEN goes BLACK                   (8)
-     it's TWO a-M the CLOCKS go BACK                         (8)
-     you TAP it TWICE you're ON a TRAIN                      (8)
-     you DROP your PHONE out IN the RAIN                     (8)
-V2   THOU-sand KI-lo SQUAT | TOP SPOT                       (7)
-     TWO TABS | HALF the LIST got DROPPED                    (7)
-     e-MO-ji NAME | PAGE is SHOT                             (7)
-     READ a-LOUD | BUT-ton THAT'S the LOT                    (7)
-BR   i LEARNED from RE-pos TEST-ing 'CAUSE they SHOULD       (10)
-     and THEN got MARKED on WHAT would PASS                  (8)
-     like AN-y KID who's DRILLED to LOOK as GOOD             (10)
-     who LEARNS the MARK scheme NOT the CLASS                (8)
-OUT  EV-ery QUES-tion WHAT if WHO | EV-ery AN-swer SOME-thing NEW   (7 | 7)
-     i'll GO and ASK the QUES-tions NO one KNOWS the AN-swers TO (14)
-     the WI-fi DROPS your STUFF'S still THERE                (8)
-     the CLOCKS go BACK it DOES-n't CARE                     (8)
-BRK  TEST-ing's FIND-ing OUT                                 (5)
-     CHECK-ing's PART no DOUBT                               (5)
-     TEST-ing TAKES a CREW                                   (5)
-     and WHAT MAT-ters THAT'S for YOU                        (7)
-INT  two HUN-dred TESTS and EV-ery ONE is GREEN             (10, "every" as 2)
-```
+**Beat grids:** to redo for v5 once Qing's heard the direction; v4's are in git history.
 
 ## Review log
 

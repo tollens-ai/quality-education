@@ -37,7 +37,7 @@ bar and the pitfalls that made episode 1's.
 
 ## Everything tracked is public
 
-The repo is public or about to be, and it is part of a build-in-public portfolio. Write every
+The repo is public (since 2026-09-26), and it is part of a build-in-public portfolio. Write every
 tracked file for a stranger to read.
 
 - **Keep out of tracked files:** local filesystem paths, Tollens commercial strategy, and notes on
@@ -75,4 +75,4 @@ tracked file for a stranger to read.
 ## Landing
 
 Commit on `main` and push to `origin` (`tollens-ai/quality-education`). Stage only the paths you
-own. The repo stays private until Qing says to make it public.
+own. The repo is public, so everything you push, commit messages included, is published at once.

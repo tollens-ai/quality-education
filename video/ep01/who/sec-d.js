@@ -45,9 +45,13 @@ function youAt() {
   return r && Number.isFinite(r.dx) ? { phone: { x: r.dx, y: r.dy }, head: { x: r.x, y: r.y } }
     : { phone: PHONE0, head: { x: ROOM.x + 178, y: F9 - 250 } };
 }
-// Frame 0 (section A at t = 0): Clawd at CLAWD_AT[0] holding the ticket up to us.
-const F0 = { x: 400, y: P.BASE.floor, tx: 404, ty: P.BASE.floor - 205, ts: 0.5 };
-const F0_POSE = { mood: 'happy', look: 0, lookY: -0.4, mouth: 0, armL: 1.2, armR: 1.2, hop: 0, squash: 0, salute: 0, lit: 0, tear: 0 };
+// Frame 0 (section A at t = 0): Clawd at CLAWD_AT[0] holding the ticket up to us. From T_OPEN on,
+// section A's own drawOpening draws the last frames (so the loop end is its frame 0, pixel for pixel);
+// before that Clawd and the new ticket converge on its pose and placement.
+const T_OPEN = 200.5;
+const F0 = { x: 400, y: P.BASE.floor, tx: 404, ty: P.BASE.floor - 236, ts: 0.78 };
+const F0_POSE = { mood: 'happy', look: 0, lookY: -0.2, mouth: 0, armL: 1.45, armR: 1.45, hop: 0, squash: 0, salute: 0, lit: 0, tear: 0 };
+const opening = () => (A.drawOpening ? A.drawOpening : null);
 
 // Where section A left the misfit builds (fallbacks match its values).
 const BA = A.BUILD_AT || {
@@ -188,7 +192,7 @@ const KEYS = [
 
 export function camera(t, S) {
   if (t <= T0) return { ...H147 };
-  if (t >= T1) return { ...HEND };
+  if (t >= T_OPEN) return { ...HEND };               // frame 0's camera for the loop's last frames
   if (t < 147.95) {                                   // whip up the shaft with the lift
     const p = inOut3(between(t, T0, 147.95));
     const c = mixCam(H147, LAND, p);
@@ -207,7 +211,7 @@ export function camera(t, S) {
     return c;
   }
   // the dive: ride the lift down the tower, then settle into frame 0
-  const p = between(t, 198.1, 199.95), q = smooth(between(t, 198.1, T1));
+  const p = between(t, 198.1, 199.95), q = smooth(between(t, 198.1, T_OPEN));
   return {
     x: lerp(770, HEND.x, q),
     y: t < 199.95 ? liftY(t) - 190 : HEND.y,
@@ -336,9 +340,8 @@ function clawdAt(t, S) {
     pose = { mood: 'hope', look: -0.5, emote: null, ...cast.hopPose(p, 0.9) };
   } else {                                             // arms up for the new ticket: frame 0
     x = F0.x; y = F0.y;
-    const k = smooth(between(t, 200.36, 200.56));
-    pose = { ...F0_POSE, mood: k < 0.5 ? 'hope' : 'happy', armL: lerp(0.5, 1.2, k), armR: lerp(0.5, 1.2, k), squash: 0.2 * bump(between(t, 200.36, 200.5)) };
-    if (t > 200.6) pose = { ...F0_POSE };
+    const k = smooth(between(t, 200.36, 200.5));
+    pose = { ...F0_POSE, mood: k < 0.5 ? 'hope' : 'happy', armL: lerp(0.5, 1.45, k), armR: lerp(0.5, 1.45, k), squash: 0.2 * bump(between(t, 200.36, 200.48)) };
     pose.mouth = 0.35 * smooth(between(t, 200.52, T1));   // about to sing "You said make it good"
     pose.t = t - T1;                                      // section A's clock reads 0 at frame 0
     return { x, y, pose, hold: null };
@@ -433,22 +436,25 @@ function drawTicket(g, t, x, y, s, rot, flat, fill, o = {}) {
     g.save(); g.shadowColor = PAL.gold; g.shadowBlur = 14; g.strokeStyle = `rgba(255,194,61,${k})`; g.lineWidth = 3.5;
     rr(g, -142, act[0] - 2, 284, act[1] + 4, 7); g.stroke(); g.restore();
   }
-  if (o.stamp > 0) stamp(g, o.stamp, o.stampHit || 0);
+  if (o.stamp > 0) stamp(g, o.stamp, o.stampHit ?? 1);
   if (!r.nib || flat) return null;
   const c = Math.cos(rot || 0), sn = Math.sin(rot || 0);
   return { x: x + c * r.nib.x - sn * r.nib.y, y: y + sn * r.nib.x + c * r.nib.y };
 }
-// Clawd's stamp by COST: the quota used, 8% (it answers section A's "QUOTA 100% USED").
-function stamp(g, a, h) {
+// The quota stamp answers section A's red "QUOTA 100% USED" (17.9 s): the same rubber stamp, the
+// same tilt and slam, in green, 8% USED. Drawn at A's stamp size (760 × 300) scaled onto the ticket.
+function stamp(g, a, hitP) {
+  const green = '#2E8B57', k = 0.2 * lerp(1.8, 1, easeOut(hitP));
   g.save();
-  g.translate(96, 176); g.rotate(-0.14);
-  const k = 1 + 0.6 * h; g.scale(k, k);
-  g.globalAlpha *= a * (1 - 0.35 * h);
-  g.fillStyle = 'rgba(251,227,209,0.92)'; g.strokeStyle = PAL.clawd; g.lineWidth = 3.5;
-  rr(g, -54, -25, 108, 50, 7); g.fill(); g.stroke();
-  g.fillStyle = PAL.clawd; g.textAlign = 'center'; g.textBaseline = 'alphabetic';
-  g.font = `700 11px ${FONTS.pixel}`; g.fillText('QUOTA', 0, -8);
-  g.font = `700 22px ${FONTS.pixel}`; g.fillText('8% USED', 0, 15);
+  g.translate(78, 192); g.rotate(-0.14); g.scale(k, k);             // slammed on, over the bottom edge
+  g.globalAlpha *= a * Math.min(1, hitP * 3);
+  g.fillStyle = 'rgba(8,11,28,0.3)'; rr(g, -372, -140, 760, 300, 26); g.fill();
+  g.fillStyle = 'rgba(236,250,240,0.94)'; g.strokeStyle = green; g.lineWidth = 13;
+  rr(g, -380, -150, 760, 300, 26); g.fill(); g.stroke();
+  g.lineWidth = 5; rr(g, -356, -126, 712, 252, 16); g.stroke();
+  g.fillStyle = green; g.textAlign = 'center'; g.textBaseline = 'alphabetic';
+  g.font = `700 64px ${FONTS.pixel}`; g.fillText('QUOTA', 0, -40);
+  g.font = `700 124px ${FONTS.pixel}`; g.fillText('8% USED', 0, 92);
   g.restore();
 }
 
@@ -468,16 +474,18 @@ export function draw(g, t, S, st, cam) {
     g.globalCompositeOperation = 'lighter'; g.fillStyle = r; g.fillRect(LB.x - 150, LB.y - 150, 300, 300);
   });
   safe(g, () => drawHand(g, t, S, fill));
-  if (t > 200.4) safe(g, () => cannonAgain(g, t));
+  const open = t >= T_OPEN && opening();
+  if (open) safe(g, () => open(g, t - T1, S, st, 'world'));   // section A's frame 0, as the loop closes
+  if (t > 200.28 && !open) safe(g, () => cannonAgain(g, t));
   // Clawd (carrying your ticket as a placard until your hand takes it)
-  safe(g, () => {
+  if (!open) safe(g, () => {
     const pose = { ...c.pose };
     if (c.hold === 'ticket') Object.assign(pose, { holding: 'ticket', itemScale: HELD_S * backOut(between(t, 147.9, 148.12)), fill: {}, ticket: { glow: 0.15 } });
     cast.clawd(g, c.x, c.y, clawdScale(t), pose);
   });
   if (t > 194.9 && t < 196.2) safe(g, () => appFolds(g, t));
   // the end: a new ticket from another flat drops out of the chute into Clawd's nubs
-  if (t > 200.12) safe(g, () => newTicket(g, t));
+  if (t > 200.12 && !open) safe(g, () => newTicket(g, t));
   // your ticket, in the world, and your pen writing on it
   const tw = ticketWorld(t, S);
   let nib = null;
@@ -808,16 +816,16 @@ function appFolds(g, t) {
 }
 function newTicket(g, t) {
   // it slides out of the chute mouth and drops into Clawd's raised nubs: frame 0
-  const p = between(t, 200.14, 200.5);
+  const p = between(t, 200.14, 200.48);
   const from = { x: P.CHUTE_MOUTH.x + 4, y: P.CHUTE_MOUTH.y - 40 };
-  const x = lerp(from.x, F0.tx, p), y = lerp(from.y, F0.ty, easeIn(p)) + (p >= 1 ? 6 * Math.exp(-(t - 200.5) * 14) * Math.sin((t - 200.5) * 40) * (1 - between(t, 200.6, 200.7)) : 0);
-  const s = lerp(0.3, F0.ts, smooth(p)), rot = 0.35 * (1 - p) * Math.sin(p * 8);
+  const x = lerp(from.x, F0.tx, p), y = lerp(from.y, F0.ty + 4 * Math.sin((t - T1) * 3), easeIn(p));
+  const s = lerp(0.3, F0.ts, smooth(p)), rot = 0.35 * (1 - p) * Math.sin(p * 8) + 0.03 * Math.sin((t - T1) * 2.3);
   g.translate(x, y); g.rotate(rot);
   cast.ticket(g, 0, 0, s, {}, { glow: 0.25 * smooth(p), who: smooth(p), t: t - T1 });
 }
 // "make it good" again: a confetti cannon pops into the car, as at frame 0 (section A loads it).
 function cannonAgain(g, t) {
-  const k = backOut(between(t, 200.4, 200.6));
+  const k = backOut(between(t, 200.28, 200.46));
   cast.build(g, 'confetti', 598, liftY(t), 0.46 * k, { powered: 1, p: 1, fire: 0 });
 }
 
@@ -832,7 +840,7 @@ export function screen(g, t, S, st, cam) {
   const ts = ticketScreen(t, S);
   if (ts) safe(g, () => {
     if (ts.full > 0) { g.fillStyle = `rgba(8,11,28,${0.62 * ts.full})`; g.fillRect(0, 0, W, H); }
-    drawTicket(g, t, ts.x, ts.y, ts.s, ts.rot, 0, ticketFill(t), { glow: 0.2 + 0.35 * ts.full, stamp: t < 179.95 ? 0 : 1, stampHit: hit(t, 179.95, 0.16) });
+    drawTicket(g, t, ts.x, ts.y, ts.s, ts.rot, 0, ticketFill(t), { glow: 0.2 + 0.35 * ts.full, stamp: t < 179.95 ? 0 : 1, stampHit: clamp01((t - 179.95) / 0.12) });
   });
   const calm = Math.max(win(t, 160.45, 179.35, 0.3), 0.8 * win(t, 184.84, 198.1, 0.4));   // a quiet top edge: roof, bots
   if (calm > 0) {
@@ -841,7 +849,9 @@ export function screen(g, t, S, st, cam) {
     g.fillStyle = gr; g.fillRect(0, 0, W, 420);
   }
   if (t > 195.7 && t < 198.0) safe(g, () => myCall(g, t));
-  safe(g, () => lyrics(g, t, S));
+  const open = t >= T_OPEN && opening();
+  if (open) safe(g, () => open(g, t - T1, S, st, 'screen'));  // YOU SAID / MAKE IT GOOD, as frame 0 shows it
+  else safe(g, () => lyrics(g, t, S));
   rethrow();
 }
 
@@ -888,7 +898,6 @@ function topScrim(g, t, line, y0, y1) {
   g.save(); g.globalAlpha = win(t, line.start - 0.1, line.end + 0.7, 0.25); scrim(g, y0, y1, 0.5); g.restore();
 }
 function lyrics(g, t, S) {
-  if (t > 200.2) { g.save(); g.globalAlpha = smooth(between(t, 200.2, T1)); scrim(g, 150, 560, 0.5); g.restore(); }   // frame 0's
   const line = S.lineAt(t, 0.7);
   if (!line || line.start < T0 - 0.01) return;
   const s = line.start;

@@ -59,7 +59,7 @@ const clawdScale = t => CL_S + 0.2 * smooth(between(t, 83.3, 84.3));
 // At your door (the world puts door, letterbox and bell in a narrow strip beside the shaft), Clawd
 // stands just left of it and asks in writing: a "FOR: ___?" slip, shown, then slid under the door.
 const ASK_X = P.DOOR.x - 44;
-const SLIP = { pop: [78.2, 78.38], down: [78.74, 79.0], under: [79.02, 79.36] };
+const SLIP = { pop: [78.2, 78.38], down: [79.55, 79.8], under: [79.82, 80.1] };
 const CRASH = 82.96;                // chorus 2 lands
 
 // The lift's floor y over time: holds at each stop, short drops between lines, one rocket up.
@@ -227,20 +227,20 @@ const KEYS_A = [
   [75.3, { ...TICKET_CAM, ease: inOut }], [ASCENT[0], { ...TICKET_CAM, zoom: TICKET_CAM.zoom * 1.03 }],
 ];
 const KEYS_B = [
-  [ASCENT[1] + 0.02, DOOR_CAM], [79.5, { ...DOOR_CAM, zoom: 1.84, x: 800 }],
-  [80.05, BLIND_CAM], [80.72, { ...BLIND_CAM, zoom: 1.94, x: 864 }],
-  [81.25, HOLDUP_CAM], [CRASH, { ...HOLDUP_CAM, zoom: 2.02 }],
+  [ASCENT[1] + 0.02, DOOR_CAM], [80.0, { ...DOOR_CAM, zoom: 1.84, x: 800 }],
+  [80.55, BLIND_CAM], [81.05, { ...BLIND_CAM, zoom: 1.94, x: 864 }],
+  [81.55, HOLDUP_CAM], [CRASH, { ...HOLDUP_CAM, zoom: 2.02 }],
   [84.55, { ...HOOK_CAM, ease: easeOut }], [87.85, { ...HOOK_CAM, zoom: 0.385 }],
-  // "Fast to run, or sturdy, or cheap? / Wow for a week, or built to keep?": top, low, top, low, top
-  [88.38, { ...TOP, ease: easeOut }], [88.88, drift(TOP)],
-  [89.2, LOW], [89.52, drift(LOW)],
-  [89.8, TOP], [90.36, drift(TOP)],
-  [90.62, LOW], [91.52, drift(LOW, 2)],          // WOW's gold rains down past Nana
-  [91.86, TOP], [93.35, drift(TOP, 2)],
+  // "Fast to run, or sturdy, or cheap? / Wow for a week, or built to keep?": the upper floors hold
+  // through fast (Kai gold, Nana dimming at the bottom) and sturdy (the Okafors gold, Dev dark);
+  // down for cheap and WOW's gold rain past Nana; back up for Dev's WOW and keep.
+  [88.38, { ...TOP, ease: easeOut }], [90.2, drift(TOP, 2)],
+  [90.75, LOW], [91.5, drift(LOW, 2)],
+  [92.1, TOP], [93.35, drift(TOP, 2)],
   [94.0, { ...HOOK_CAM, ease: inOut }], [98.9, { ...HOOK_CAM, zoom: 0.385 }],
   // "Ship it now, or polish it slow? / Does what they need, or steals the show?"
-  [99.32, { ...MID, ease: easeOut }], [102.0, drift(MID, 2)],
-  [102.36, BASE3], [103.3, drift(BASE3)],
+  [99.32, { ...MID, ease: easeOut }], [101.85, drift(MID, 2)],
+  [102.4, BASE3], [103.1, drift(BASE3)],
   [103.85, SHOW_UP], [105.1, { ...SHOW_UP, y: SHOW_UP.y - 40, zoom: SHOW_UP.zoom * 1.03 }],
   [106.2, { ...P.HANDOFF[106.2], ease: inOut }],
 ];
@@ -408,18 +408,20 @@ function clawdNow(t, S, st) {
     x = lerp(SH.cx, ASK_X, step);
     y = FL(9);
     pose.hop = 0.5 * Math.sin(Math.PI * between(t, 78.08, 78.36));
-    const show = bump(t, SLIP.pop[0], 0.16, 0.3, 0.15), crouch = bump(t, SLIP.down[0], 0.2, 0.42, 0.2);
+    // the slip is held up to be read until it goes down to the door
+    const show = smooth(between(t, SLIP.pop[0], SLIP.pop[0] + 0.16)) * (1 - smooth(between(t, SLIP.down[0] - 0.05, SLIP.down[0] + 0.15)));
+    const crouch = bump(t, SLIP.down[0], 0.2, 0.42, 0.2);
     pose.squash = 0.34 * crouch;
     pose.armR = 1.2 * show - 0.25 * crouch;
-    pose.look = t < 79.5 ? 0.8 * step : 0.5;
-    pose.lookY = t < 79.5 ? 0.35 * crouch - 0.2 * show : 0;
-    pose.mood = t < 79.55 ? 'hope' : t < 80.9 ? 'sad' : 'hope';
-    if (t > 79.4 && t < 79.75) pose.emote = null;
-    if (t > 80.15 && t < 80.85) { pose.look = 0.9; pose.lookY = -0.5; }     // up at your shadow on the blind
-    const hold = smooth(between(t, 80.85, 81.2));
+    pose.look = t < 80.0 ? 0.8 * step : 0.5;
+    pose.lookY = t < 80.0 ? 0.35 * crouch - 0.2 * show : 0;
+    pose.mood = t < 80.1 ? 'hope' : t < 81.0 ? 'sad' : 'hope';
+    if (t > 79.9 && t < 80.25) pose.emote = null;
+    if (t > 80.25 && t < 80.95) { pose.look = 0.9; pose.lookY = -0.5; }     // up at your shadow on the blind
+    const hold = smooth(between(t, 81.0, 81.35));
     if (hold > 0) {
       pose.look = 0.3; pose.lookY = -0.6;
-      holdTicket(hold, 0.56, { glow: smooth(between(t, 81.1, 81.9)) });
+      holdTicket(hold, 0.56, { glow: smooth(between(t, 81.25, 82.0)) });
     }
   } else {
     // chorus 2: back in the car, riding the light organ, head whipping after the lights
@@ -473,7 +475,7 @@ export function draw(g, t, S, st, cam) {
   // the lobby: every neighbour's lock clicks shut as the bot opens only its own
   if (t > 67.9 && t < 69.2) safe(g, 'locks', () => drawLockPulses(g, t));
   // your door: Clawd's first written ask
-  if (t > SLIP.pop[0] && t < 80.6) safe(g, 'slip', () => drawSlip(g, t));
+  if (t > SLIP.pop[0] && t < 81.1) safe(g, 'slip', () => drawSlip(g, t));
   // Ade's phone, big: a dark screen that speaks
   if (t > 65.1 && t < 67.1) safe(g, 'speaks', () => drawSpeaks(g, t));
 
@@ -486,7 +488,7 @@ export function draw(g, t, S, st, cam) {
   if (t > 54.3 && t < 105.4) safe(g, 'vault echo', () => drawVaultEcho(g, t));
 
   // fireworks: WOW erupts out of the demo flat and its gold rains down the tower; SHOW bursts over the roof
-  if (t > 90.9 && t < 93.4) safe(g, 'erupt', () => { drawEruption(g, t, '8L', 91.04); drawEruption(g, t, '8L', 91.8); });
+  if (t > 90.9 && t < 93.6) safe(g, 'erupt', () => { drawEruption(g, t, '8L', 91.04); drawEruption(g, t, '8L', 92.0); });
   if (t > 91.0 && t < 92.2) safe(g, 'gold rain', () => drawGoldRain(g, t));
   if (t >= CRASH) safe(g, 'bubbles', () => drawCueBubbles(g, t));
   if (t > 103.5) safe(g, 'fireworks', () => drawFireworks(g, t));

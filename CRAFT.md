@@ -126,8 +126,11 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
   video". Third: "keeping attention is still a priority but not above those two" (Qing,
   2026-09-26). Retention rules, here and in the write-episode skill, rank below teaching and
   artistry.
-- **Beauty is a condition for release:** "I can't post anything we make here unless it's
-  beautiful" (Qing, 2026-09-26). A video that teaches well but isn't beautiful doesn't ship.
+- **Teaching and beauty are both conditions for release; attention is success after it.**
+  Qing (2026-09-26): "I can't post anything we make here unless it's beautiful"; "both teaching
+  and beauty are conditions for release. attention grabbing ness is success afterwards. I can't
+  post slop on my account". A video that fails either condition doesn't ship, however well it
+  would hold attention.
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
 - ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the

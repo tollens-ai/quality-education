@@ -37,20 +37,20 @@ settle it.
 
 | Time | Section | Picture |
 |---|---|---|
-| 0:00 | Intro | The wall. A torn scrap pinned up: *make it good*, in your handwriting. Clawd, cut from one orange sheet with its eyes cut out as holes, holds up its creation: a plain little gym-log app. |
-| 0:04 | Verse 1 | One tableau per line, each a plain little app buried under an over-build: confetti cannons firing *Jazz* stars and seaweed for a flossing checkbox; a huge padlock and chains on a gym log; helm wheels stacking up behind a tiny blog; twelve mini Clawds dancing a ring around a clock, like Matisse's *Dance*. Clawd cuts every piece from its own sheet of orange paper. |
-| 0:15 | "Did I do it wrong?" | All four builds on the wall at once. Clawd looks up at them. |
-| 0:17 | "quota's gone" | Clawd's sheet is lace, all holes; it flutters down. "Guess I didn't ask!": Clawd peeks through the biggest hole. |
-| 0:21 | Pre-chorus | A huge ultramarine profile, your head, fills the frame. Clawd holds up the scrap. The head is solid paper and Clawd can't see in. On "prompt" the band stops and the scrap is all there is. |
-| 0:27 | Chorus 1 | The mobile drops in from the top edge. A blank white person plate on "who", a blank disc on "what", then a plate for each kind of good as it's sung, each tipping the balance. It never settles: the "who" plate is blank. |
-| 0:51 | Verse 2 | Eight people, each a *Jazz* plate on its own colour panel, each with a small mobile weighted to what they value. On the instrumental after it, we see all eight at once: no single "good". |
-| 1:16 | Pre-chorus 2 | Back to the profile, with the eight behind Clawd: the gap is bigger now. |
-| 1:23 | Chorus 2 | The big mobile again. Its "who" plate cycles through the eight people and the balance moves for each. |
-| 1:47 | Bridge | Matisse's *Icarus* palette: deep blue, yellow stars. Clawd among towers of old paper (the training set). Paper planes thrown over a black wall. On "who it's for", Clawd climbs the stack and sees the people on the other side. |
-| 2:09 | Break | The definition pinned up word by word, the biggest type in the film, with a plain credit. "I'm someone too!": Clawd gets Icarus's red heart and hangs itself on the mobile. "And me!": the bots' official marks pinned beside it. "Debugging this with you": your blue hand and Clawd hold the scrap together. |
-| 2:28 | Final pre-chorus | The plea. Your hand turns the scrap over to its blank side and picks up a pen. |
-| 2:41 | Final chorus | Each question is answered on the scrap as it's sung, and the mobile's plates take the answers. The "who" plate becomes you, mid-set. The mobile comes to rest. |
-| 3:05 | Outro | Summer. A window onto Matisse's sea. The mobile turns in the breeze: a toy, for fun. On "gone when summer's done" the paper fades and drifts out of the window, leaving the scrap on the wall: the first frame, so it loops. |
+| 0:00 | Intro | A blue *Jazz* plate. A blank scrap is pinned up, and *make it good* writes itself in your handwriting as it's sung. Clawd, cut from orange paper with its eyes cut out as holes, stands beside its own sheet of orange paper and throws its arms up on "made it good!". |
+| 0:04 | Verse 1 | One plate per line, each a plain little app buried under an orange over-build: confetti cannons firing stars and seaweed at a flossing checkbox; a padlock and chains on a gym log; helm wheels stacking up behind a tiny blog; twelve mini Clawds dancing a ring round a clock. |
+| 0:15 | "Did I do it wrong?" | The bare wall. Clawd close up and worried, with the last confetti drifting down. |
+| 0:17 | "quota's gone" | Clawd's sheet of orange paper, now lace: every build was cut from it. It unpins and falls. "Guess I didn't ask!": Clawd peeks over the lace, sheepish. |
+| 0:21 | Pre-chorus | A huge ultramarine profile: your head, solid paper, with the lyrics inside it. Clawd holds up the scrap. On "prompt" the band stops and the scrap is all there is. |
+| 0:27 | Chorus 1 | The mobile arrives plate by plate as each word is sung: a blank person on "who", a disc on "what", then one bar per trade-off. With no "who", it hangs lopsided and never settles. |
+| 0:51 | Verse 2 | Eight people, each on their own colour plate, each with a small mobile tipped by the thing they value, labelled as it's sung. On the instrumental, all eight hang on the wall at once, with Clawd in the middle. |
+| 1:16 | Pre-chorus 2 | The profile again, pushing in slightly. |
+| 1:23 | Chorus 2 | The full mobile. Its "who" plate flips over to become each of the eight people in turn, and the bars rebalance for each. |
+| 1:47 | Bridge | Night, in Matisse's *Icarus* palette: deep blue, yellow stars. Clawd on towers of other people's code (the training set). Paper planes thrown over a black wall. On "who it's for" the wall sinks and the eight people are there, lighting up in their colours. |
+| 2:09 | Break | The definition pinned up word by word, the biggest type in the film, with a plain credit. "(matters, matters, matters)": the people pinned under it. "I'm someone too!": Clawd gets Icarus's red heart. "And me!": the other agents' official marks on white cards. "Debugging this with you": your blue hand and Clawd hold the scrap together. |
+| 2:28 | Final pre-chorus | The plea: your hand takes the scrap, turns it over to the blank side, and a pen arrives. |
+| 2:41 | Final chorus | Each question is answered on the card just after it's sung, while the mobile below takes the weights and comes to rest. The "who" plate flips to you, mid-set, labelled "me". |
+| 3:05 | Outro | Summer: the wall warms and leaves blow through. Clawd joins in on "just a toy". On "gone" the last line is written, and the mobile blows away. The brief stays, centred, with Clawd and the sun. |
 
 **Spoiler rule applied to the brief:** "fine if it's gone after summer" is written onto the scrap
 only when the outro sings it, not in the final chorus.

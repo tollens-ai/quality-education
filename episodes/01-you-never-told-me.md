@@ -17,8 +17,8 @@ signed it off: "it's so good! I think it's good to go" (2026-09-26).
 lyrics are locked as v9 below, with caption spelling. The take is transcribed and the captions are
 timed: [01-captions.srt](01-captions.srt), generated from `music/ep01/captions.txt`, and scored in
 `music/ep01/beats.json`. The teaching plan below still stands. The video is done; next is posting
-it, with the post text in step 6 of the write-episode skill. The code
-band, code voice and DiffSinger work stay in `music/` as tools.
+it. The post text isn't drafted yet (step 6 of the write-episode skill). The code band, code
+voice and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
 

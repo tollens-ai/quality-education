@@ -196,4 +196,5 @@ export const IMAGE_FILES = {
   grok: '.private/ep01-assets/grok-512.png',   // the SVG has a <foreignObject>, which taints the canvas
   molty: '.private/ep01-assets/openclaw.svg',
   muse: '.private/ep01-assets/muse-logo.svg',
+  jollyPhoto: '.private/ep01-assets/muse-og.jpg',   // Muse's official art of Jolly, for his portrait
 };

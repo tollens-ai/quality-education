@@ -727,7 +727,14 @@ function bubble(g, t, cx, cy, b, p, a) {
   // the portrait
   g.save(); rrect(g, x0 + 14, y0 + 14, pw, h - 28, 22); g.clip();
   g.fillStyle = '#E9DDC4'; g.fillRect(x0 + 14, y0 + 14, pw, h - 28);
-  try { cast.bot(g, b.id, x0 + 14 + pw / 2, y0 + h - 16, 0.6, { t, wave: 1, lit: 0, shadow: false }); } catch (e) { /* the cast is mid-change */ }
+  const photo = b.id === 'jolly' && IMG && IMG.jollyPhoto;
+  if (photo) {
+    // Jolly as Muse publishes him (a crop of the official art), not redrawn
+    const px = x0 + 14, py = y0 + 14, ph = h - 28, sw = 330, sh = sw * ph / pw;
+    g.drawImage(photo, 425, 70, sw, sh, px, py, pw, ph);
+  } else {
+    try { cast.bot(g, b.id, x0 + 14 + pw / 2, y0 + h - 16, 0.6, { t, wave: 1, lit: 0, shadow: false }); } catch (e) { /* the cast is mid-change */ }
+  }
   g.restore();
   g.strokeStyle = 'rgba(14,19,40,0.35)'; g.lineWidth = 2.5; rrect(g, x0 + 14, y0 + 14, pw, h - 28, 22); g.stroke();
   g.textAlign = 'left'; g.textBaseline = 'middle';
@@ -915,7 +922,9 @@ function peakLine(g, t) {
   }
 }
 
+let IMG = null;   // S.img, for the official art in the bots' portraits
 export function screen(g, t, S, st, cam) {
+  IMG = S.img;
   if (t >= 107.0 && t < 128.8) type.band(g, t, S, { y: 1560, size: 64, color: '#F4E7CF', accent: '#FFCF7A' });
   windowTags(g, t, cam);
   if (t >= 128.6 && t < 137.0) definition(g, t);

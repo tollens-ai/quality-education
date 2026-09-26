@@ -1576,9 +1576,10 @@ function drawTopFlat(g, t, S, st, id, f, lod) {
   roomLight(g, t, R, { lit: Math.max(0.04, on), gold: f.gold || 0 }, [[[lx + 50, -110], [lx, -140], 40]], lod, isM ? 5 : 6);
   // The mascots are drawn after the room light, so the gold sits behind them and their official
   // colours are never tinted.
-  if (on > 0.02) {
-    // quick fade-in as they arrive, then fully opaque: quiet bots are shown by the room's light,
-    // never as see-through ghosts
+  // Once they've had their moment (st.botsSteady, the final chorus on), the bots' rooms stay
+  // warm-lit but the mascots aren't drawn: they're for other apps, and this build doesn't serve them.
+  if (on > 0.02 && !st.botsSteady) {
+    // quick fade-in as they arrive, then fully opaque, never see-through
     g.save(); g.globalAlpha *= clamp01(on * 3);
     safe(g, () => cast.bot(g, isM ? 'molty' : 'jolly', lx, -30, 1.5, { wave: st.botWave ?? up, lit: on, t }));
     g.restore();
@@ -1838,11 +1839,12 @@ export function drawDirectory(g, S, st, t, x, y, s = 1, lod = 2) {
     box(g, 22, 213, Wd - 44, 36, '#2A1A12', 2.5, 5);
     g.lineWidth = 2; g.strokeStyle = '#FF9A5A'; g.strokeRect(25, 216, Wd - 50, 30);
     // written left to right as st.clawdLine rises, with a glowing cursor at the edge
-    g.font = `700 31px ${F.pixel}`;
+    // Display face, not the pixel face: Pixelify's capital C reads as an O ("OLAWD").
+    g.font = `800 31px ${F.display}`;
     const line = 'CLAWD · basement', tw = g.measureText(line).width, x0 = Wd / 2 - tw / 2, edge = x0 + tw * cl;
     if (cl > 0.001) {
       g.save(); g.beginPath(); g.rect(0, 205, edge, 52); g.clip();
-      txt(g, line, Wd / 2, 232, 31, '#FFB27A', { font: F.pixel, weight: 700 });
+      txt(g, line, Wd / 2, 232, 31, '#FFB27A', { font: F.display, weight: 800 });
       g.restore();
     }
     if (cl > 0.001 && cl < 0.999) {
@@ -1978,7 +1980,7 @@ function drawBasement(g, t, S, st, V, lod) {
   g.fillStyle = 'rgba(255,230,170,0.35)'; g.fillRect(rx - 28, Cm.y - 36, 6, 46);
   for (const [bx, by] of [[-28, -34], [28, -34], [-28, 10], [28, 10]]) circ(g, rx + bx, Cm.y + by, 2.2, '#6E4A22', 0);
   box(g, rx - 22, Cm.y - 30, 44, 14, '#2A1E10', 1.5, 2);
-  txt(g, 'TICKETS', rx, Cm.y - 22.5, 8.5, '#E0B870', { font: F.pixel, weight: 700 });
+  txt(g, 'TICKETS', rx, Cm.y - 22.5, 8.5, '#E0B870', { font: F.display, weight: 800 });
   box(g, rx - 26, Cm.y - 8, 52, 20, '#8A6A3A', 2.5, 3);
   g.fillStyle = '#0B0D18'; g.fillRect(rx - 20, Cm.y + 4, 40, 5);
   if (st.capsule && st.capsule.p != null && st.capsule.p < 0.03) glow(g, rx, Cm.y + 8, 50, PAL.lamp, 0.6);
@@ -2119,13 +2121,14 @@ function handoffSign(g, t, E, wx0, wx1, wy0, y1) {
   const hx = wc + 162, hy = wy0 - 34;
   poly(g, [hx + 12, hy, hx - 8, hy - 16, hx - 8, hy + 16], g.strokeStyle, 2.5);
   // the sign
-  const sw = 300, sh = 104, sx = wc - sw / 2, sy = py - 52;
+  const sw = 400, sh = 132, sx = wc - sw / 2, sy = py - 66;
   if (E.i === 0) { box(g, sx, sy, sw, sh, '#1E2A44', 3, 10); }
   else if (E.i === 1) { box(g, sx, sy, sw, sh, '#F6F4EC', 3, 1); g.fillStyle = 'rgba(220,210,160,0.7)'; g.fillRect(sx + 20, sy - 6, 40, 12); g.fillRect(sx + sw - 60, sy - 6, 40, 12); }
   else { box(g, sx, sy, sw, sh, '#C9A24E', 3, 4); box(g, sx + 6, sy + 6, sw - 12, sh - 12, null, 1.5, 2); for (const [bx, by] of [[10, 10], [sw - 10, 10], [10, sh - 10], [sw - 10, sh - 10]]) circ(g, sx + bx, sy + by, 3, '#8A6A2A', 1); }
   const ink = E.i === 0 ? '#FFFFFF' : E.i === 1 ? '#15161F' : '#2A1A0E', font = E.i === 1 ? F.mono : F.display;
-  txt(g, 'USERS', wc, py - 20, 40, ink, { weight: 800, font });
-  txt(g, '→ PRODUCT TEAM', wc, py + 24, 30, ink, { weight: 800, font });
+  txt(g, 'USERS', wc, py - 24, 56, ink, { weight: 800, font });
+  // the 1970s handed users to analysts; later decades to a product team
+  txt(g, E.i === 2 ? '→ ANALYSTS' : '→ PRODUCT TEAM', wc, py + 34, 44, ink, { weight: 800, font });
 }
 function drawStrata(g, t, S, st, V, lod) {
   const sv = clamp01(st.strata || 0);

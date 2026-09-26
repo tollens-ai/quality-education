@@ -975,7 +975,7 @@ function drawSlots(g, t, S, car, cp) {
   g.globalAlpha *= a;
   g.fillStyle = '#141A3C'; g.strokeStyle = P.PAL.outline; g.lineWidth = 3.5;
   roundRect(g, x0, y0, w, rh * 5 + 8, 6); g.fill(); g.stroke();
-  g.font = `700 22px ${P.FONTS.pixel}`; g.textAlign = 'left'; g.textBaseline = 'middle';
+  g.font = `800 22px ${P.FONTS.display}`; g.textAlign = 'left'; g.textBaseline = 'middle';   // Pixelify's C reads as O
   for (let i = 0; i < 5; i++) {
     const ry = y0 + 4 + i * rh, n = ons.filter(o => o[i] !== undefined && t >= o[i] + 0.16).length;
     if (i) { g.fillStyle = 'rgba(255,255,255,0.1)'; g.fillRect(x0 + 6, ry, w - 12, 1.5); }

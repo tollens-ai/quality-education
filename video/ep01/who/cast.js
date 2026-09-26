@@ -1537,7 +1537,7 @@ const PLATES = {
   openclaw: { name: 'Molty', sub: 'OpenClaw', mark: 'molty', tile: true },
   hermes: { name: 'Hermes', mark: 'caduceus' },
   instinct: { name: 'Instinct' },
-  clawd: { name: 'CLAWD', sub: 'basement', mark: 'clawd', pixel: true },
+  clawd: { name: 'CLAWD', sub: 'basement', mark: 'clawd', pixel: false },   // Pixelify's C reads as O
 };
 function glyphIcon(g, ch, cx, cy, sz, color) {
   g.save(); g.translate(cx, cy); g.fillStyle = color; g.strokeStyle = color; g.lineCap = 'round';

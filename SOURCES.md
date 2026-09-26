@@ -58,10 +58,13 @@ quality. Credit them here and on screen.
 - **Clawd,** the Claude Code crab, is Anthropic's mascot. Its proportions were learned from John
   Heibel's MIT-licensed [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase)
   model sheet; the drawing code is our own.
-- **Bots appear as their owners' marks and mascots,** reproduced as provided and not restyled:
-  OpenClaw's Molty (OpenClaw Foundation), Muse's Jolly and logo (Meta), the OpenAI Blossom, Grok's
-  mark (xAI), Hermes Agent's caduceus (Nous Research). No affiliation or endorsement is implied.
-  Details and usage terms: [research/bot-marks.md](research/bot-marks.md).
+- **Bots appear as their owners' marks and mascots.** OpenClaw's Molty (OpenClaw Foundation) is
+  its official art; Jolly's portrait is a crop of Muse's official art (Meta); the OpenAI Blossom,
+  Grok's mark (xAI) and the Muse logo appear exactly as provided on name plates. Two are our own
+  drawings: Jolly in his flat on floor 10 (a cartoon of the mascot, in the video's style) and the
+  Hermes bot, a character built on the classical caduceus ☤ that Hermes Agent (Nous Research) uses.
+  No affiliation or endorsement is implied. Details and usage terms:
+  [research/bot-marks.md](research/bot-marks.md).
 - **Fonts** (SIL Open Font License, copies in `video/fonts/`): Bricolage Grotesque, Caveat,
   Pixelify Sans, JetBrains Mono.
 - **How it was made:** the storyboard process came from research on animation, music-video and

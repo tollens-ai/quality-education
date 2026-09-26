@@ -4,7 +4,7 @@ Researched 2026-09-25 for episode 1's storyboard. "(checked)" means the quote wa
 word against the page text; "(unchecked)" means only a tool extract or search snippet was seen,
 so treat it as a paraphrase. The MrBeast quotes were checked against two public transcriptions of
 the leaked PDF, not the PDF itself. The process built from this is the
-[storyboard guide](../.claude/skills/write-episode/storyboard.md).
+[storyboard guide](../archive/ep01-video-v1/process-storyboard-guide.md), since archived as not working.
 
 **Main finding.** In all three kinds of studio, the cheap step is a full-length, low-fidelity run
 against the real audio, watched by fresh eyes and then rebuilt. For us the renderer can be the

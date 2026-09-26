@@ -67,6 +67,7 @@ quality. Credit them here and on screen.
   [research/bot-marks.md](research/bot-marks.md).
 - **Fonts** (SIL Open Font License, copies in `video/fonts/`): Bricolage Grotesque, Caveat,
   Pixelify Sans, JetBrains Mono.
-- **How it was made:** the storyboard process came from research on animation, music-video and
+- **How it was made:** the first video's storyboard process (archived as not working, see
+  [archive/ep01-video-v1/](archive/ep01-video-v1/README.md)) came from research on animation, music-video and
   creator studios ([notes](research/studio-pre-production.md)) and on Tim Blais's A Capella Science
   ([notes](research/tim-blais-craft.md)).

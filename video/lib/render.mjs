@@ -1,6 +1,6 @@
 // Render a scene to stills, a contact sheet or an mp4, in headless Chromium.
 //
-//   node video/lib/render.mjs --scene video/ep01/fetch.js --song music/ep01 \
+//   node video/lib/render.mjs --scene video/epNN/main.js --song music/ep01 \
 //     [--stills 0,3,27.2] [--sheet 3] [--video out.mp4 --audio take.mp3 --fps 12] \
 //     [--from 0 --to 200] [--w 540] [--out out/dir]
 //

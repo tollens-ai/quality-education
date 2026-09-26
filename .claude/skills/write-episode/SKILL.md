@@ -58,14 +58,12 @@ is the worked example of the finished shape.
    [music/README.md](../../../music/README.md) for the toolchain and order of work.
    *Done when* Qing has heard the full mix and locked it.
 
-4. **Storyboard, once the song is locked.** Follow
-   [storyboard.md](storyboard.md): score the song, run a funnel of world-rule concepts, write
-   treatments for the best three, then give every 3-second window a job and build a grey-box
-   animatic on the real take, rebuilding it until test viewers stop finding places to swipe.
-   Make up plenty of concrete, recognisable examples as you go; everyday vibecoder apps are easy
-   to invent, so vary them.
-   *Done when* the animatic has a reason to keep watching in every 3-second window that isn't
-   "the song continues", and Qing has seen the chosen treatment.
+4. **Make the video, once the song is locked.** The first process for this (a one-shot
+   storyboard funnel, a grey-box animatic and a parallel section build) didn't work: Qing found
+   the result dizzying, hard to follow, spoiling lyrics before they were sung, and plain rather
+   than beautiful. It is archived with its post-mortem in
+   [archive/ep01-video-v1/](../../../archive/ep01-video-v1/README.md). The replacement process
+   comes from Qing's new brief; until then, don't reuse the archived one.
 
 5. **Write the agent-facing takeaway.** Show the vague prompt at the start and the rewritten prompt
    at the end. The rewrite must use the concept, not just be longer.

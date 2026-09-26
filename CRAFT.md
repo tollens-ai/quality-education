@@ -82,7 +82,7 @@ them and don't copy them. We design our own style.
 
 Research pass 2026-09-25 on how animation, music-video and creator studios catch problems early;
 the full report, with which quotes were checked, is [research/studio-pre-production.md](research/studio-pre-production.md).
-The process built from it is in the [storyboard guide](.claude/skills/write-episode/storyboard.md).
+The process built from it (archived as not working) is in [archive/ep01-video-v1/](archive/ep01-video-v1/process-storyboard-guide.md).
 - **A full-length rough cut on the real track, rebuilt many times, is the cheap test.** Disney
   story artists redo reels "over and over so other departments won't have to" and screen about
   seven times ([Kennedy](http://storystruggles.blogspot.com/2021/01/mark-kennedy-disney-story-process.html)).
@@ -122,8 +122,9 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
 ## Decided
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
-- Episode 1 is one shot: a single continuous camera, no cuts (Qing, 2026-09-25: "I really want
-  the music video to be one shot").
+- ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the
+  continuous camera made that video dizzying. See
+  [archive/ep01-video-v1/](archive/ep01-video-v1/README.md).
 - The singer is Claude (Qing, 2026-09-25: "also I want the singer to be claude!"), as the Claude
   Code crab ("because it's coding we could go for the claude code crab. but using the symbol is
   fine").

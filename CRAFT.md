@@ -134,6 +134,10 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
   after it's posted. so it's still part of the quality process. but quality is about priorities
   and tradeoffs and making it good for people" (Qing, 2026-09-26). It's traded off below teaching
   and beauty, never against them.
+- **Clarity is what holds attention.** Qing (2026-09-26): "your reviewers were just wrong about
+  attention grabbing ness - if I can't figure out what's going on because everything is too
+  complex to parse, I would scroll away." The first video's model reviewers rewarded density and
+  a new thing every few seconds; a viewer who can't tell what's happening leaves.
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
 - ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the

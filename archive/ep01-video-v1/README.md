@@ -16,6 +16,11 @@ Then:
 
 > I think our mistake was trying to make a slop tiktok rather than an artsy music video
 
+And on the reviewers (2026-09-26, "Judy" read as "just"):
+
+> your reviewers were just wrong about attention grabbing ness - if I can't figure out what's
+> going on because everything is too complex to parse, I would scroll away.
+
 ## What's here
 
 | Path | What it was |

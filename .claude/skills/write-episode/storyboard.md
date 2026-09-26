@@ -91,7 +91,8 @@ because I'm expecting you to be done in hours".
   each other's work. This is the gag room with the groupthink taken out. **It's an Opus job:**
   every generator, judge and builder is Opus (Qing, 2026-09-25: "I wouldn't bother with GPT
   honestly. make it an opus jon"). Part of the point is that Opus made it, so vary the briefs and
-  lenses for independence rather than the model family.
+  lenses for independence rather than the model family. Work other models have already done can
+  still be referenced ("if they're already there of course you can reference them tho").
 - **Many cheap concepts, few treatments.** Concepts are a few lines each. Only the best two or
   three become one-page treatments, as in music-video commissioning.
 - **Plussing, not blocking.** In the gag-room round, builders take the strongest ideas and add

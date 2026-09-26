@@ -66,6 +66,10 @@ others. Add a rule here whenever a fix teaches one.
 - **A tag breaks the pattern to wind into the next section.** It doesn't need a full rhyme;
   echoing the verse's vowel is enough ("Did I do it wrong? / Oops, your quota's gone! / Guess I
   didn't ask.").
+- **Each example carries its own context.** Examples are heard out of context, so each line has
+  to say where it is. "2FA to use your gym log" names the app; "No signal: did it save the set?"
+  doesn't say gym, so "the set" means nothing (Qing, 2026-09-26: "the examples have to stay
+  examples and because they're out of context they have to make the context clear").
 - **One example per line.** Each line is a different app or person. That gives the picture more
   to play with, and it makes the pattern the point.
 - **Rhyme on a vowel family.** A whole verse can rhyme on one vowel: floss, log, blog, clock, wrong,
@@ -181,6 +185,8 @@ Qing's findings from the first generations of episode 1 (2026-09-24):
 - **Expect uneven takes.** Each generation gets different sections right (a good chorus on one, a
   good verse 2 on another). Keep the best sections of each; stitching takes together in
   production is the fallback.
+- **Britishisms are fine; British rhymes aren't.** Qing: "it's still my song" (2026-09-26). Keep
+  British words and idioms; just don't rely on a British vowel for a rhyme.
 - **Don't count on an accent.** Asking MiniMax for a British accent didn't work: it "always came
   out sounding like a vague mix between Taylor swift and every other girl singer" (Qing,
   2026-09-26). Write rhymes that hold in a General American pop accent, and leave the accent out

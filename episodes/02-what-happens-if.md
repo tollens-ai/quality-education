@@ -3,7 +3,7 @@
 **Concept:** testing is finding out what's actually true about the product, by exploring and
 experimenting. Checking, answering yes-or-no questions you already knew to ask, is one useful
 part of it.
-**Status:** talking points agreed (2026-09-26); lyrics v1 drafted below, for Qing's ear.
+**Status:** talking points and section sketch agreed (2026-09-26); lyrics v3 reviewed twice, for Qing's ear.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 
@@ -61,6 +61,24 @@ On the talking points v2:
 
 > anyway, let's not make too much of point 9 - I think it's irrelevant if we just frame it as a
 > team effort before humans and AI
+
+On lyrics v1 (2026-09-26):
+
+> Britishisms is fine I think, it's still my song. I don't think the reference to "the set"
+> doesn't work - like I think, like in episode one, the examples have to stay examples and because
+> they're out of context they have to make the context clear.
+
+> also are you following the process?
+
+On the sketch (2026-09-26):
+
+> right. so rather than write the song straight up why don't you sketch out what you need to sya
+> first? also I think it can't be right the chorus doesn't have the word Test or Testing in it
+
+> right but be realllly clear about which things are happening in the video (the gym stuff) and
+> which are the lyrics.
+
+> I would write the hook without the negation of checking - something like "so ACTUALLY test it!"
 
 On the accent (2026-09-26):
 
@@ -158,29 +176,45 @@ screen):
   it the map of which tests cover which code cut them to 1.82%
   ([TDAD, arXiv 2603.17973](https://arxiv.org/abs/2603.17973)).
 
-## Lyric sheet (v1, for Qing's ear)
+## What the song says, and what the video shows (sketch, with Qing's notes)
 
-Written for the performer from the start (LYRICS.md): contrasting verses, the pre-chorus and
-chorus repeated word for word, and the resolution in an outro. Backing vocals are in italics and
-brackets. Stresses in capitals where the line depends on them.
+The lyrics carry the ideas, and every example in them makes sense heard on its own. The video
+carries the gym-log story that ties the episode to episode 1. Only the pictures a line depends on
+are listed.
+
+| Section | Lyrics say | Video shows |
+|---|---|---|
+| Intro | Two hundred tests, every one green | The green report fills the screen; then your workout is gone |
+| Verse 1 | What the green is made of: a test that repeats the code, a fake told to say "five" and checked for five, a fake checked for being called, a snapshot re-recorded whenever it goes red. Tag: shipped it, all green, and it broke anyway | Each test as the real code it is; the snapshot suite going red over a comma, then re-recorded; the gym log in the basement gym, the signal gone, the set vanishing |
+| Pre-chorus | Clawd's confession: I only asked yes-or-no questions I already knew to ask (the line to remember) | — |
+| Chorus | "So actually test it!", then "what happens if…" questions that stand alone: the wifi drops, the clocks go back, a double tap, a train, the rain | Each question played out in the gym log |
+| Verse 2 | Clawd goes and tests, and it's fun: each line a find that stands alone. There's always more | The finds in the gym log; each find turned into a new check that can fail |
+| Bridge | Why agents write tests like this: learned from tests written for show, then marked on what passed, so they learned the marking | — |
+| Break | Checking is part of testing; testing is finding out; testing takes a team, and you're the one who knows what matters | The checking circle inside the testing circle; several Clawds, other bots with their real marks, your hand; credits |
+| Final pre-chorus and chorus | Word for word | The same questions, now being tested |
+| Outro | The flip ("the questions no one knows the answers to"), then the chorus's questions answered | The gym log working in the basement; the brief |
+
+## Lyric sheet (v3, for Qing's ear)
+
+v1 and v2 are in git history. v3 follows the section sketch above, with Qing's hook ("so
+ACTUALLY test it!", which doesn't knock checking) and fixes from the first review round.
 
 **Style (proposal):** Britpop-disco: four-on-the-floor, handclaps, a funky bass, bright strings.
-About 124 bpm. The same kind of singer as episode 1: female pop vocal with a slight robotic edge, so
-Clawd sounds like Clawd. No accent in the prompt (the generator ignored "British" on episode 1),
-so every rhyme holds in General American. The band drops out before each chorus. Half-time break with a gang
-chant. Cheerful and smug in verse 1, then curious and delighted.
+About 124 bpm. Female pop vocal with a slight robotic edge, as in episode 1. No accent in the
+prompt; British words are fine. The band drops out before each chorus. Half-time break with a
+gang chant. Smug in verse 1, then curious and delighted.
 
 **Intro**
 > Two hundred tests, and every one is green!
 
-**Verse 1** (what the green is made of; each line ends on the same punchline)
+**Verse 1**
 > I checked that two was two, and two it was!
-> I told the mock say "five", and five it was!
-> I checked the page was still the page it was!
-> I checked the blue was blue, and blue it was!
+> I made the fake say "five", and five it was!
+> I checked the fake got called, and called it was!
+> The snapshot failed, re-snapped, and green it was!
 > All of them green!
 > Shipped it Monday, clean!
-> *(spoken)* …Wait. Where's your set?
+> *(spoken)* …So why'd it break for you?
 
 **Pre-chorus**
 > All my questions yes or no, all my answers yes, yes, yes!
@@ -188,58 +222,108 @@ chant. Cheerful and smug in verse 1, then curious and delighted.
 > that I knew the answers to.
 
 **Chorus** (sung twice through each time)
+> So actually test it! *(test it!)*
 > What happens if? *(what happens if?)*
-> What happens when? *(what happens when?)*
-> No signal: did it save the set?
-> You tap it twice, your thumb's all wet?
+> The wifi drops? The screen goes black?
+> It's two a.m.? The clocks go back?
 >
+> So actually test it! *(test it!)*
 > What happens if? *(what happens if?)*
-> What happens when? *(what happens when?)*
-> You switch to pounds: a new best, wow?
-> The screen goes dark, and where's it now?
+> You tap it twice? You're on a train?
+> You drop your phone out in the rain?
 
-**Verse 2** (going to look; the finds)
-> Clocks went back? Your streak just stopped.
-> Fat-thumbed a thousand? Top spot!
-> Two tabs open? Half got dropped.
-> Screen reader? "Button, button… what?"
+**Verse 2**
+> Thousand-kilo squat? Top spot!
+> Two tabs? Half the list got dropped!
+> Emoji name? Page is shot!
+> Read aloud? "Button." That's the lot!
 > Found one! Found two! Found three! Found four!
-> *(spoken)* There's always more!
+> *(spoken)* Now they're all checks. And there's always more!
 
 **Pre-chorus**, **Chorus**
 
-**Bridge** (why agents write exam tests)
-> I learned to test from a million repos *(whoa-oh)*
-> where tests were written 'cause you're meant to *(whoa-oh)*
-> then I got marked on whether they passed *(whoa-oh)*
-> so I aced it, and found out nothing new.
+**Bridge**
+> I learned from repos full of tests for show *(whoa-oh)*
+> and then got marked on what would pass, *(whoa-oh)*
+> like any kid who's drilled for every test *(whoa-oh)*
+> who learns the mark scheme, not the class.
 
 **Break** (half time, gang chant, then the team)
-> Checking's yes or no! *(yes or no!)*
 > Testing's finding out! *(finding out!)*
-> Testing is a team! *(and me! and me! and me!)*
+> Checking's part of it! *(yes it is!)*
+> Testing takes a team! *(and me! and me! and me!)*
 > And you're the one who knows what matters.
 
-**Final pre-chorus**
-> Take me where you're using it, show me how you're using it,
-> I'll go and ask the questions
-> no one knows the answers to.
-
-**Chorus**
+**Pre-chorus**, **Chorus** (word for word)
 
 **Outro**
-> What happens if? *(I checked it!)*
-> What happens when? *(I tried it!)*
-> It keeps your set till the signal's back,
-> and two wet taps is one. That's that!
+> I'll go and ask the questions
+> no one knows the answers to.
+> So actually test it! *(I tested it!)*
+> What happens if? *(I found out!)*
+> The wifi drops? Your stuff's still there.
+> The clocks go back? It doesn't care!
 
 **Line to remember:** "I only asked the questions that I knew the answers to."
 
-**Key frames** (only the ones a line depends on)
-- Everything green: the ticks fill the screen on the first line.
-- The punchline tests of verse 1, each one shown as the code it is (`expect(2).toBe(2)`).
-- The basement gym: one bar of signal, then none, and the set that isn't there.
-- The team in the break: several Clawds and bots with different jobs, and your hand.
+**Beat grids** (stresses in capitals; syllable counts in brackets)
+
+```
+V1   i CHECKED that TWO was TWO | and TWO it WAS             (10)
+     i MADE the FAKE say FIVE   | and FIVE it WAS            (10)
+     i CHECKED the FAKE got CALLED | and CALLED it WAS       (10)
+     the SNAP-shot FAILED re-SNAPPED | and GREEN it WAS       (10)
+PC   ALL my QUES-tions YES or NO | ALL my AN-swers YES YES YES   (7 | 7)
+     i ON-ly ASKED the QUES-tions THAT i KNEW the AN-swers TO    (14)
+CH   so AC-tual-ly TEST it                                   (6)
+     the WI-fi DROPS the SCREEN goes BLACK                   (8)
+     it's TWO a-M the CLOCKS go BACK                         (8)
+     you TAP it TWICE you're ON a TRAIN                      (8)
+     you DROP your PHONE out IN the RAIN                     (8)
+V2   THOU-sand KI-lo SQUAT | TOP SPOT                       (7)
+     TWO TABS | HALF the LIST got DROPPED                    (7)
+     e-MO-ji NAME | PAGE is SHOT                             (7)
+     READ a-LOUD | BUT-ton THAT'S the LOT                    (7)
+BR   i LEARNED from RE-pos FULL of TESTS for SHOW            (10)
+     and THEN got MARKED on WHAT would PASS                  (8)
+     like AN-y KID who's DRILLED for EV-ery TEST             (10)
+     who LEARNS the MARK scheme NOT the CLASS                (8)
+OUT  i'll GO and ASK the QUES-tions NO one KNOWS the AN-swers TO (14)
+     the WI-fi DROPS your STUFF'S still THERE                (8)
+     the CLOCKS go BACK it DOES-n't CARE                     (8)
+BRK  TEST-ing's FIND-ing OUT                                 (5)
+     CHECK-ing's PART of IT                                  (5)
+     TEST-ing TAKES a TEAM                                   (5)
+INT  two HUN-dred TESTS and EV-ery ONE is GREEN             (10, "every" as 2)
+```
+
+## Review log
+
+- **Round 1 (2026-09-26), on v2:** a songwriter, a fact-checker and simulated viewers, in
+  parallel. Changes made in v3:
+  - the song now says checks are good: "Checking's part of testing", and each find becomes a new
+    check (all three reviewers: the draft never said so, against the guardrail)
+  - the snapshot line shows the real harm, re-recording on red, not passing
+  - "the button's blue" cut: a brand colour can be a real requirement
+  - the bridge is about incentives ("learns the marking"), not a lazy kid who skipped class
+  - "told the mock say" was ungrammatical, and "mock" is jargon: now "made the fake say"
+  - the outro answers with trying and finding out
+  - "what" doesn't rhyme with "lot" in General American
+  - "testing is a team" isn't a phrase; "testing takes a team" is
+  - the after-brief gains: a real browser, and finding what else could go wrong
+- **Round 2 (2026-09-26), on v3:** one combined cold reader (songwriter and testing expert).
+  Changes made:
+  - two verse-2 lines were 8 syllables, not 7; two needed their own context ("a thousand" of
+    what?)
+  - "the snapshot failed, re-snapped": the harm is audible now, not just in the picture
+  - the outro's "once is enough" sounded like a telling-off; now the app copes
+  - "learns the mark scheme" is a real phrase; "cramming" was honest study
+  - the break's chant lines now match (5 syllables each)
+  - the brief catches change detectors: a check must go red when something I'd notice breaks,
+    and stay green when something I wouldn't notice changes
+  - pro-checking in the words, not just the picture: the finds "are all checks" now
+- **Qing's notes on the sketch:** the hook without knocking checking ("so ACTUALLY test it!");
+  lyrics and video kept apart, with the gym story in the video.
 
 ## The brief, before and after
 
@@ -250,6 +334,8 @@ Before:
 After (added to episode 1's gym-log brief):
 
 > test it as me: basement gym, no signal, sweaty thumbs
-> what happens if: two taps, pounds, the clocks go back
-> checks only where they could fail for a reason I'd care about
+> use it in a real browser, phone-sized, offline
+> break what I'd notice: show me a check go red
+> change what I wouldn't notice: nothing should go red
+> then find what else could go wrong for me
 > tell me what you tried, what you found, and what you didn't try

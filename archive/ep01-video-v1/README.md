@@ -12,6 +12,10 @@ beat map and teaching plan were not part of the failure and stay in
 > art style is simplistic rather than beautiful. I think I over managed you. can you archive that
 > build and that process as "didn't work" and we'll start over with a different prompt?
 
+Then:
+
+> I think our mistake was trying to make a slop tiktok rather than an artsy music video
+
 ## What's here
 
 | Path | What it was |

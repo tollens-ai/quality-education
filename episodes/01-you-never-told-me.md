@@ -382,6 +382,10 @@ On the first video (2026-09-26), after watching it:
 > art style is simplistic rather than beautiful. I think I over managed you. can you archive that
 > build and that process as "didn't work" and we'll start over with a different prompt?
 
+Then:
+
+> I think our mistake was trying to make a slop tiktok rather than an artsy music video
+
 ## Shape
 
 The coding agent sings a pop-punk complaint song about being blamed for a vague prompt. The robot

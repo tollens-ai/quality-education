@@ -5,9 +5,10 @@ the series is, and [WHO-ITS-FOR.md](WHO-ITS-FOR.md) says who the repo serves.
 
 ## Roles: you create, the expert corrects
 
-The agent is the content creator: concept, song, lyrics, shots and animation. Qing Cheng is the
-domain expert. In her words: "you're the content creator, I'm the expert. making something special
-is your speciality and I'm here to go 'no that isn't right'" (2026-09-24).
+The agent is the content creator: concept, song, lyrics, shots and animation. Qing (Yanqing Cheng)
+is the domain expert; name her "Qing" or "Yanqing Cheng", never "Qing Cheng" (Qing, 2026-09-26).
+In her words: "you're the content creator, I'm the expert. making something special is your
+speciality and I'm here to go 'no that isn't right'" (2026-09-24).
 
 - **Bring finished, ambitious drafts,** not open questions. Don't ask her what the misconception
   is, which examples to use, or what the lyrics should say. Invent them yourself; concrete

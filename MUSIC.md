@@ -97,8 +97,9 @@ fix teaches one. Numbers are starting points unless a source is given.
   'oops' when the fifth would do". `music/ep01/leaps.mjs` lists every leap of five semitones or
   more, with each section's share of steps.
 - **Repeat the hook exactly; vary the rest.** The hook's melody and rhythm are identical every
-  time; that's why episode 1 left MiniMax. Second halves and later verses vary one thing (the
-  ending note, a pickup, one interval), not everything.
+  time; that's why episode 1 tried composing its song in code, before going back to a MiniMax
+  take. Second halves and later verses vary one thing (the ending note, a pickup, one interval),
+  not everything.
 - **Strong-beat notes are chord tones.** Passing notes go on weak beats. Any clash with the bass
   on beat 1 has to be deliberate.
 

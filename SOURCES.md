@@ -17,7 +17,7 @@ ideas, the video credits him on screen. From Ed:
 - Unpack, don't collapse: the "trenchcoat" problem
 - Four levels of learning from a bug
 
-## Qing Cheng's writing
+## Yanqing Cheng's writing
 Published articles on X:
 
 - *What even is a bug anyway* (2026-08-25)
@@ -50,7 +50,7 @@ quality. Credit them here and on screen.
 - Research on teaching with video is in [CRAFT.md](CRAFT.md)
 
 ## Episode 1: what went into the video
-- **Song:** lyrics by Qing Cheng with Claude; performed by a MiniMax generation Qing chose (we own
+- **Song:** lyrics by Qing with Claude; performed by a MiniMax generation Qing chose (we own
   the rights to our MiniMax generations).
 - **Ideas:** quality as value to someone who matters (Weinberg; "who matters", Bach & Bolton;
   "someone or something", Ed Pringle); agents as people who matter (Qing); "a non-goal is a

@@ -97,7 +97,9 @@ if (args.video) {
   const ff = spawn(process.env.FFMPEG || 'ffmpeg', [
     '-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-',
     ...(withAudio ? ['-ss', String(f0 / fps), '-t', String((f1 - f0) / fps), '-i', args.audio] : []),
-    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', String(args.crf || 20), '-preset', 'medium',
+    // x264 would start ~1.5 threads per core; containers cap threads (dev boxes allow 512), so
+    // keep each encoder small and let the segments provide the parallelism.
+    '-c:v', 'libx264', '-threads', String(args.threads || 4), '-pix_fmt', 'yuv420p', '-crf', String(args.crf || 20), '-preset', 'medium',
     ...(withAudio ? ['-c:a', 'aac', '-b:a', '256k', '-shortest'] : []),
     args.video,
   ], { stdio: ['pipe', 'inherit', 'inherit'] });

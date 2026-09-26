@@ -25,22 +25,26 @@ export function makeMobile(spec) {
   const m = (p, t) => (!p || t < p.on) ? 0 : p.mass(t) * clamp01((t - p.on) / 0.3);
   const rowMass = (r, t) => r.R && r.R.L ? m(r.L, t) + m(r.R.L, t) + m(r.R.R, t) : m(r.L, t) + m(r.R, t);
   const stackMass = t => m(spec.what, t) + spec.rows.reduce((a, r) => a + rowMass(r, t), 0);
+  spec.stackRef = spec.stackRef ?? 2.2;
+  // The top bar weighs who against what. "What" counts as stackRef once it's all hung, so a real
+  // person balances it and a blank "who" can't.
+  const full = Math.max(1e-6, stackMass(spec.t1));
   bars.push({ target: t => {
-    const w = m(spec.who, t), s = stackMass(t);
+    const w = m(spec.who, t), s = (spec.stackRef ?? full) * stackMass(t) / full;
     if (w + s === 0) return 0;
-    return Math.atan((s * spec.armR - w * spec.armL) / ((w + s) * 260));
+    return Math.atan(1.2 * (s - w) / (w + s));
   }, w: 1.9 });
   spec.rows.forEach((r, i) => {
     const sub = r.R && r.R.L;
     bars.push({ target: t => {
-      const a = m(r.L, t), b = sub ? m(r.R.L, t) + m(r.R.R, t) : m(r.R, t);
+      const a = m(r.L, t), b = sub ? (m(r.R.L, t) + m(r.R.R, t)) / 2 : m(r.R, t);
       if (a === 0 || b === 0) return 0;
-      return Math.atan(0.8 * (b - a) / (a + b));
+      return Math.atan(0.7 * (b - a) / (a + b));
     }, w: 2.3 + i * 0.15 });
     if (sub) bars.push({ target: t => {
       const a = m(r.R.L, t), b = m(r.R.R, t);
       if (a === 0 || b === 0) return 0;
-      return Math.atan(0.8 * (b - a) / (a + b));
+      return Math.atan(0.7 * (b - a) / (a + b));
     }, w: 2.8 });
   });
   const n = bars.length, th = new Float32Array(n), om = new Float32Array(n), samples = [];
@@ -48,7 +52,7 @@ export function makeMobile(spec) {
   for (let s = 0; s < steps; s++) {
     const t = spec.t0 + s * dt;
     bars.forEach((b, i) => {
-      let tg = Math.max(-0.25, Math.min(0.25, b.target(t)));
+      let tg = Math.max(-0.3, Math.min(0.3, b.target(t)));
       if (spec.breeze) tg += spec.breeze(t, i);
       const w = b.w, z = 0.12;
       om[i] += (w * w * (tg - th[i]) - 2 * z * w * om[i]) * dt;

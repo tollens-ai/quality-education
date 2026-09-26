@@ -18,7 +18,11 @@ exactly:
 - Adding one tips the others, so they're trade-offs, not a menu.
 - Where the mobile comes to rest depends on who hangs at the other end.
 
-Until someone says who it's for, the "who" plate is blank and the mobile can't settle.
+Until someone says who it's for, the "who" plate is blank: the mobile hangs lopsided toward
+"what", and its bars wander without settling. When a real person hangs there, the top bar levels
+and each trade-off bar tilts toward what that person values. Chorus 2 cycles through the eight
+people from verse 2, and each one tips the bars differently. In the final chorus, your answers
+settle it.
 
 **An art film, not a feed video.** The rules this version follows:
 - **The camera is calm.** It holds still or drifts slowly. The objects move, not the camera, and

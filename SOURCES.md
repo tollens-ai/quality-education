@@ -58,15 +58,14 @@ quality. Credit them here and on screen.
 - **Clawd,** the Claude Code crab, is Anthropic's mascot. Its proportions were learned from John
   Heibel's MIT-licensed [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase)
   model sheet; the drawing code is our own.
-- **Bots appear as their owners' marks and mascots.** OpenClaw's Molty (OpenClaw Foundation) is
-  its official art; Jolly's portrait is a crop of Muse's official art (Meta); the OpenAI Blossom,
-  Grok's mark (xAI) and the Muse logo appear exactly as provided on name plates. Two are our own
-  drawings: Jolly in his flat on floor 10 (a cartoon of the mascot, in the video's style) and the
-  Hermes bot, a character built on the classical caduceus ☤ that Hermes Agent (Nous Research) uses.
-  No affiliation or endorsement is implied. Details and usage terms:
+- **The look** is an homage to Henri Matisse's cut-outs, especially the book *Jazz* (1947), and to
+  Alexander Calder's mobiles. No artwork of theirs is reproduced; every shape is drawn by our code.
+- **Other agents appear as their owners' official marks,** exactly as provided, each on a plain
+  white card: OpenClaw's Molty (OpenClaw Foundation), the Muse logo (Meta), Grok's mark (xAI) and
+  the OpenAI Blossom. No affiliation or endorsement is implied. Details and usage terms:
   [research/bot-marks.md](research/bot-marks.md).
-- **Fonts** (SIL Open Font License, copies in `video/fonts/`): Bricolage Grotesque, Caveat,
-  Pixelify Sans, JetBrains Mono.
+- **Fonts** (SIL Open Font License, copies in `video/fonts/`): Bricolage Grotesque and Caveat.
+  The archived first video also used Pixelify Sans and JetBrains Mono.
 - **How it was made:** the first video's storyboard process (archived as not working, see
   [archive/ep01-video-v1/](archive/ep01-video-v1/README.md)) came from research on animation, music-video and
   creator studios ([notes](research/studio-pre-production.md)) and on Tim Blais's A Capella Science

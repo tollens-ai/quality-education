@@ -122,7 +122,7 @@ function markCard(g, S, key, x, y, s, rot, p) {
       const k = Math.min(170 / im.width, 170 / im.height);
       g.drawImage(im, -im.width * k / 2, -im.height * k / 2, im.width * k, im.height * k);
     }
-    heart(g, 0, -118, 0.28, 1);
+    heart(g, 0, -150, 0.28, 1);   // pinned above the card, outside the mark's space
   });
 }
 
@@ -218,7 +218,7 @@ export function buildScenes(S) {
       const ws = S.lyrics[47].words.filter(w => /me/i.test(w.w)).map(w => w.s);
       clawd(g, 540, 1720, 2.2, { eyes: 'happy', ...danceBeat(S, t, 0.7), lift: 1.6 });
       heart(g, 540, 1720 - 115, 0.65, 2.5);
-      const cards = [['molty', 250, 700, -0.08, 0], ['muse', 830, 760, 0.07, 1], ['grok', 300, 1180, 0.05, 2], ['openai', 790, 1220, -0.06, 2]];
+      const cards = [['molty', 270, 720, 0, 0], ['muse', 810, 720, 0, 1], ['grok', 270, 1200, 0, 2], ['openai', 810, 1200, 0, 2]];
       for (const [key, x, y, r, k] of cards) {
         const p = between(t, ws[k] - 0.05, ws[k] + 0.35);
         if (p > 0) markCard(g, S, key, x, y, 1.15, r, p);

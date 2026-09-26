@@ -52,8 +52,8 @@ export const PEOPLE = [
     } },
   { name: 'bots', panel: PAL.violet, value: 'no leak', word: 'leak', ink: PAL.cream,
     draw(g, t) {
-      figure(g, -120, 50, 1.6, PAL.black, { armR: 0.9, armL: 0.9 }, 'owner');
-      at(g, -120, -480, 0, 1, () => paint(g, cut('folder', () => [[-80, -60], [-20, -60], [0, -40], [80, -40], [80, 60], [-80, 60]], { amp: 1 }), PAL.yellow, { lift: 2.2, seed: 8 }));
+      figure(g, -120, 50, 1.6, PAL.black, { armR: 0.55, armL: 0.55 }, 'owner');
+      at(g, -120, -250, 0, 1, () => paint(g, cut('folder', () => [[-80, -60], [-20, -60], [0, -40], [80, -40], [80, 60], [-80, 60]], { amp: 1 }), PAL.yellow, { lift: 2.2, seed: 8 }));
       robot(g, 190, 50, 1.25, PAL.cream, 'bot1');
     } },
   { name: 'us', panel: PAL.black, plate: PAL.clawd, value: 'neat', word: 'neat', ink: PAL.cream,
@@ -122,14 +122,14 @@ function gallery(g, t, S) {
 // ---------- chorus 2: the who plate becomes each person in turn ----------
 // Weights for each person, in order of the chorus's eight lines.
 const WEIGHTS = [
-  { fast: 1.5, sturdy: 0.5, cheap: 1, wow: 2.4, keep: 0.4, now: 2, slow: 0.4, need: 0.7, show: 2.2 },     // demo
-  { fast: 1.2, sturdy: 2.2, cheap: 0.7, wow: 0.6, keep: 2.4, now: 0.6, slow: 1.6, need: 2.2, show: 0.5 },  // paying users
-  { fast: 1, sturdy: 0.5, cheap: 2.2, wow: 1.6, keep: 0.5, now: 1.8, slow: 0.4, need: 1, show: 1.4 },       // group chat bot
-  { fast: 0.8, sturdy: 0.6, cheap: 1.8, wow: 0.8, keep: 0.3, now: 2.2, slow: 0.5, need: 1.8, show: 0.6 },   // uni project
-  { fast: 0.8, sturdy: 1.9, cheap: 1, wow: 0.3, keep: 1.6, now: 0.5, slow: 1.3, need: 2.4, show: 0.3 },     // Nana
-  { fast: 1, sturdy: 1.7, cheap: 0.8, wow: 0.3, keep: 1.5, now: 0.6, slow: 1.5, need: 2.6, show: 0.3 },     // can't see screens
-  { fast: 1, sturdy: 2.4, cheap: 0.8, wow: 0.3, keep: 1.5, now: 0.6, slow: 1.4, need: 1.8, show: 0.3 },     // agent bots
-  { fast: 1.2, sturdy: 1.8, cheap: 0.9, wow: 0.5, keep: 2.2, now: 0.5, slow: 1.9, need: 1.4, show: 0.4 },   // us
+  { fast: 2.2, sturdy: 0.6, cheap: 1, wow: 2.2, keep: 0.5, now: 2, slow: 0.5, need: 1, show: 2 },         // demo: snappy, wow, now
+  { fast: 1.2, sturdy: 2.2, cheap: 0.8, wow: 0.7, keep: 2.2, now: 0.8, slow: 1.6, need: 2.2, show: 0.6 },  // paying users: it lasts
+  { fast: 2, sturdy: 0.5, cheap: 1.8, wow: 1.4, keep: 0.6, now: 1.8, slow: 0.5, need: 1.3, show: 1.1 },    // group chat bot: quick, cheap, fun
+  { fast: 0.8, sturdy: 0.9, cheap: 1.6, wow: 0.6, keep: 0.6, now: 2.2, slow: 0.5, need: 2, show: 0.5 },    // uni project: pass, on time
+  { fast: 0.9, sturdy: 1.8, cheap: 1, wow: 0.4, keep: 1.4, now: 0.6, slow: 1.4, need: 2.4, show: 0.3 },    // Nana: simple and dependable
+  { fast: 1.3, sturdy: 1.6, cheap: 0.9, wow: 0.5, keep: 1.2, now: 0.9, slow: 1.2, need: 2.6, show: 0.3 },  // can't see screens: it has to speak
+  { fast: 1.6, sturdy: 2.4, cheap: 1.2, wow: 0.3, keep: 1.6, now: 1, slow: 1, need: 1.6, show: 0.3 },      // agent bots: safe with data
+  { fast: 0.9, sturdy: 1.8, cheap: 0.8, wow: 0.6, keep: 2.2, now: 0.5, slow: 2, need: 1.2, show: 0.8 },    // us: neat, lasting
 ];
 const LI2 = 32;
 function personIdx(S, t) {

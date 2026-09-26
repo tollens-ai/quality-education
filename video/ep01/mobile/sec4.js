@@ -87,7 +87,7 @@ function briefCard(g, t, S, x, y, s) {
 // ---------- the mobile, taking your answers ----------
 const NEUTRAL = { who: 0.4, what: 1, fast: 1, sturdy: 1, cheap: 1, wow: 1, keep: 1, now: 1, slow: 1, need: 1, show: 1 };
 // your answers, and the chorus line (offset) at which each weight arrives
-const YOURS = { who: [2.4, 0], fast: [1.6, 1], wow: [1.3, 1], cheap: [2.3, 2], sturdy: [0.8, 2], keep: [0.45, 3], now: [1.9, 6], slow: [0.6, 6], need: [2.1, 7], show: [0.6, 7] };
+const YOURS = { who: [2.4, 0], fast: [1.6, 1], wow: [1.3, 1], cheap: [2.3, 2], sturdy: [0.8, 2], keep: [0.45, 11], now: [1.9, 6], slow: [0.6, 6], need: [2.1, 7], show: [0.6, 7] };
 let MOB3 = null;
 export function init(S) {
   const t0 = S.lyrics[LI3].start - 0.5, t1 = 200.8;
@@ -194,9 +194,9 @@ export function buildScenes(S) {
       briefCard(g, t, S, 540, lerp(520, 760, cen), lerp(1, 1.04, cen));
       const li = [53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64].find((i, k, a) => t >= L(i).start - 0.05 && t < (a[k + 1] ? L(a[k + 1]).start - 0.05 : 999));
       if (li) lyric(g, t, L(li), { x: 540, y: 150, w: 980, size: 70, align: 'center', accent: { who: PAL.red, what: PAL.blue, you: PAL.blue, that: PAL.red, fun: PAL.red, summer: PAL.red } }, li);
-      // Clawd, at the end, happy with the brief it was given
-      const cp = settle(between(t, tg + 1.2, tg + 1.8));
-      if (cp > 0) clawd(g, 400, 1720 + 300 * (1 - cp), 2.4, { eyes: 'happy', ...danceBeat(S, t, 0.6), lift: 1.6 });
+      // Clawd joins in at "just a toy", and stays, happy with the brief it was given
+      const cp = settle(between(t, 190.4, 191));
+      if (cp > 0) clawd(g, 210, 1800 + 300 * (1 - cp), 1.9, { eyes: 'happy', ...danceBeat(S, t, 0.8), look: 0.4, lift: 1.6 });
     } },
   ];
 }

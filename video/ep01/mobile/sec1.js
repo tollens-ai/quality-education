@@ -210,7 +210,7 @@ export function chorusSpec(S, li0, t0, t1, mass, who = {}, present = false) {
   const o = present ? () => t0 - 10 : (i, w) => on(S, li0 + i, w);
   const P = (key, i, w, draw, extra = {}) => ({ key, on: o(i, w), labelOn: o(i, w), draw, mass: t => mass(key, t), label: key, ...extra });
   return {
-    x: 450, y: 470, armL: 240, armR: 220, t0, t1, plateScale: 1.1,
+    x: 450, y: 440, armL: 240, armR: 220, t0, t1, plateScale: 1.1,
     breeze: (t, i) => 0.06 * Math.sin(t * 0.8 + i * 1.9) + 0.03 * Math.sin(t * 1.7 + i),
     who: { key: 'who', on: o(0, 'who'), labelOn: o(0, 'who'), draw: personPlate(), mass: t => mass('who', t), label: 'who?', labelAt: [0, 62], labelColor: PAL.black, labelSize: 44, hang: 90,
       spin: t => TAU * smooth(between(t, on(S, li0 + 4, 'who'), on(S, li0 + 4, 'who') + 0.9)), ...who },
@@ -224,10 +224,10 @@ export function chorusSpec(S, li0, t0, t1, mass, who = {}, present = false) {
       { half: 140, gap: 320,
         L: P('wow', 3, 'wow', plateOf('wowd', () => shape.star(7, 92, 48), PAL.pink), { labelSize: 38, hang: 80 }),
         R: P('keep', 3, 'keep', plateOf('keepd', () => shape.smooth([[0, -92], [48, -40], [52, 30], [18, 88], [-18, 88], [-52, 30], [-48, -40]], 6), PAL.green), { labelSize: 36, hang: 80 }) },
-      { half: 240, gap: 215,
+      { half: 240, gap: 240,
         L: P('now', 6, 'now', plateOf('nowd', () => [[-100, -18], [100, -18], [68, 46], [-68, 46]], PAL.teal), { labelSize: 34, labelAt: [0, 12], hang: 60 }),
         R: P('slow', 6, 'slow', plateOf('slowd', () => shape.ellipse(62, 62, 40), PAL.white), { labelColor: PAL.black, labelSize: 32 }) },
-      { half: 140, gap: 205,
+      { half: 140, gap: 225,
         L: P('need', 7, 'need', plateOf('needd', () => shape.rect(104, 104, -52, -52), PAL.violet), { labelSize: 32 }),
         R: P('show', 7, 'show', plateOf('showd', () => shape.star(9, 104, 58), PAL.yellow), { labelColor: PAL.black, labelSize: 36, hang: 80 }) },
     ],
@@ -235,11 +235,13 @@ export function chorusSpec(S, li0, t0, t1, mass, who = {}, present = false) {
 }
 
 // Chorus 1: nobody's said who, so the weights are anyone's guess and the mobile hangs lopsided.
-const MASS1 = { who: 0.35, what: 1, fast: 1, sturdy: 1.4, cheap: 0.6, wow: 1.3, keep: 1, now: 1, slow: 1.25, need: 0.8, show: 1.5 };
+// With no "who", every weight wanders: the mobile never settles.
+const KEYS = ['fast', 'sturdy', 'cheap', 'wow', 'keep', 'now', 'slow', 'need', 'show'];
+const MASS1 = (k, t) => k === 'who' ? 0.35 : k === 'what' ? 1 : 1 + 0.6 * Math.sin(t * 0.55 + KEYS.indexOf(k) * 2.1);
 let MOB1 = null;
 export function init(S) {
   const t0 = S.lyrics[12].start - 0.2, t1 = S.lyrics[19].end + 1;
-  MOB1 = makeMobile(chorusSpec(S, 12, t0, t1, k => MASS1[k]));
+  MOB1 = makeMobile(chorusSpec(S, 12, t0, t1, MASS1));
 }
 
 // ---------- scenes ----------
@@ -303,8 +305,8 @@ export const scenes = [
   { from: 18.66, to: 20.8, draw(g, t, S) {
     wall(g);
     const p = settle(between(t, 18.66, 19.1));
-    clawd(g, 540, 1380, 3.0, { eyes: 'worried', look: 0.35, armL: 0.9, armR: 0.9, squash: 0.06, lift: 1.3 });
-    at(g, 540, 1560 + 60 * (1 - p), -0.05, 0.72, () => paint(g, holeySheet(), PAL.clawd, { lift: 2.4, seed: 9 }));
+    clawd(g, 540, 1330, 3.0, { eyes: 'worried', look: 0.35, armL: 0.9, armR: 0.9, squash: 0.06, lift: 1.3 });
+    at(g, 540, 1640 + 60 * (1 - p), -0.05, 0.6, () => paint(g, holeySheet(), PAL.clawd, { lift: 2.4, seed: 9 }));
     lyric(g, t, S.lyrics[7], { x: 540, y: 520, w: 900, size: 108, align: 'center' });
   } },
   // Pre-chorus: your head, solid blue paper; Clawd with the scrap.

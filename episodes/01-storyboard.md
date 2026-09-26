@@ -233,3 +233,34 @@ The brief, exactly:
 - People outside the brief stay lit: they're for other apps.
 - The credit is a plain card and ends at 134.7 s, before "I'm someone too".
 - Corporate marks appear exactly, on plates; never redrawn as characters.
+
+## What changed in the build (2026-09-26)
+
+Built in code in `video/ep01/who/` by six parallel builders on a shared plan, then screened by
+three fresh viewers (an editor and motion designer, a target-viewer panel, a quality teacher).
+The screening changed these things from the tables above:
+
+- **Frame 0 carries the hook:** "YOU SAID / MAKE IT GOOD," is on screen from the first frame,
+  with a bigger ticket, so the thumbnail reads.
+- **Quota as a stamp:** "QUOTA 100% USED" in red on "Oops, your quota's gone!", paid off by
+  "8% USED" on the final ticket.
+- **Chorus 1 shows prices, not labels:** each choice lights the person it suits and costs
+  something visible (tokens, a slipping cable, gilt peeling off after a week).
+- **Chorus 2 pushes in:** the whole tower only for the hook lines; each "or" line lands on two
+  named flats, one going gold while the other dims. A glowing copy of the verse-1 vault door
+  bolts onto the Okafors' door: the misfit that fits.
+- **Pre-chorus 2 is Clawd's first real ask:** it slides a blank "FOR: ___" slip under your door.
+  Nothing comes back until the final pre-chorus.
+- **The definition doesn't gild the tower:** "matters" lights names and warm-white window flares.
+  Gold stays strictly "served by this build". The basement window lights warm-white too, because
+  "I'm someone too" is Clawd mattering, not being served.
+- **The peak holds:** Clawd puts the "who's it for?" note down, "CLAWD · basement" writes itself
+  onto the directory, and "I'M SOMEONE TOO!" is the biggest type in the film. No whip-pans.
+- **The bridge's wall is a handoff sign,** "USERS → PRODUCT TEAM", not a slogan. The eras each
+  have their own colours and props, and the wall stops the "who's it for?" notes.
+- **Your hand at human scale** writes on a label Clawd holds up under the chute.
+- **The shadow on your blind is a standing dumbbell curl,** never a figure hanging from a bar.
+- **The final chorus pushes in on each box as it's written,** then pulls out to its build coming
+  down; "kg or lb?" gets a readable close-up; "(my call)" is the outro's main read.
+- **The bots stay present but quiet after the break** (they're for other apps); their official
+  marks are never tinted or redrawn.

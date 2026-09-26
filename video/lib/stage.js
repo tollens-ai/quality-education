@@ -135,7 +135,7 @@ export function frame(g, canvasW, t, S, scene) {
   g.restore();
   const font = scene.font || 'system-ui, sans-serif';
   if (scene.lyricSlot) drawLyrics(g, t, S, scene.lyricSlot(t, S), font);
-  drawCornerMarks(g, font, scene.markColor || '#222');
+  if (scene.drawMarks) scene.drawMarks(g); else drawCornerMarks(g, font, scene.markColor || '#222');
   if (scene.debug) {
     const sec = S.section(t);
     g.save(); g.font = '24px monospace'; g.fillStyle = '#c00';

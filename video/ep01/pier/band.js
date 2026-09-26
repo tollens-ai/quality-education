@@ -1,25 +1,23 @@
 // Clawd & the Bots: instruments, and the whole band performing to the record.
 // Every move is driven by the song clock: beats for bounce, the kick for punches, the vocal
 // envelope for Clawd's mouth, the backing-vocal times for the bots' mouths.
-import { C, TAU, clamp, lerp, smooth, rr, circle, ellipse, line, glow, rgba, vgrad, lgrad, rgrad, shade, star } from './kit.js';
-import { clawd, molty, grok, blossom, muse, mic, micStand, contactShadow, grokBadge } from './cast.js';
+import { C, TAU, clamp, lerp, smooth, rr, circle, ellipse, line, glow, rgba, vgrad, lgrad, rgrad, shade, star, INK } from './kit.js';
+import { clawd, molty, grok, blossom, muse, mic, micStand, contactShadow, grokBadge, pen, nopen, tone } from './cast.js';
 
 export function guitar(g, x, y, s, rot, col = '#ff4fa3') {
   g.save(); g.translate(x, y); g.rotate(rot);
   const u = s / 10;
-  // Neck and head.
-  g.fillStyle = '#5a3a28'; rr(g, u * 2, -u * .45, u * 8, u * .9, u * .3); g.fill();
+  pen(g, u, .6);
+  g.fillStyle = '#6a4430'; rr(g, u * 2, -u * .45, u * 8, u * .9, u * .3); g.fill();
   g.fillStyle = '#2a1a14'; rr(g, u * 9.6, -u * .8, u * 1.8, u * 1.6, u * .4); g.fill();
+  nopen(g);
   g.strokeStyle = 'rgba(255,240,220,.6)'; g.lineWidth = u * .08;
   for (let i = 0; i < 4; i++) { line(g, -u * 1.5, -u * .3 + i * u * .2, u * 9.8, -u * .3 + i * u * .2); g.stroke(); }
-  // Body: a pointy pop-punk offset shape.
-  g.fillStyle = lgrad(g, -u * 4, -u * 3, u * 2, u * 3, [[0, shade(col, .25)], [.5, col], [1, shade(col, -.35)]]);
-  g.beginPath();
-  g.moveTo(u * 2.2, -u * 1.2);
-  g.bezierCurveTo(u * .5, -u * 3.6, -u * 3.8, -u * 3.2, -u * 4.2, -u * .6);
-  g.bezierCurveTo(-u * 4.6, u * 2.4, -u * 1, u * 3.6, u * 1.6, u * 2);
-  g.bezierCurveTo(u * 1.2, u * 1, u * 1.6, u * .2, u * 2.2, -u * 1.2);
-  g.fill();
+  pen(g, u, .6);
+  const body = () => { g.beginPath(); g.moveTo(u * 2.2, -u * 1.2); g.bezierCurveTo(u * .5, -u * 3.6, -u * 3.8, -u * 3.2, -u * 4.2, -u * .6); g.bezierCurveTo(-u * 4.6, u * 2.4, -u * 1, u * 3.6, u * 1.6, u * 2); g.bezierCurveTo(u * 1.2, u * 1, u * 1.6, u * .2, u * 2.2, -u * 1.2); g.closePath(); };
+  body(); g.fillStyle = col; g.fill();
+  nopen(g); tone(g, body, col, shade(col, -.3), -u * .5, -u * .6);
+  pen(g, u, .5);
   g.fillStyle = '#fff6e8'; rr(g, -u * 2.6, -u * .9, u * 1.6, u * 1.8, u * .3); g.fill();
   g.fillStyle = '#1a1420'; circle(g, -u * .4, 0, u * .5); g.fill();
   g.restore();
@@ -28,16 +26,13 @@ export function guitar(g, x, y, s, rot, col = '#ff4fa3') {
 export function bass(g, x, y, s, rot, col = '#48e3ff') {
   g.save(); g.translate(x, y); g.rotate(rot);
   const u = s / 10;
-  g.fillStyle = '#3a2618'; rr(g, u * 2, -u * .5, u * 10, u * 1, u * .3); g.fill();
+  pen(g, u, .6);
+  g.fillStyle = '#4a3020'; rr(g, u * 2, -u * .5, u * 10, u * 1, u * .3); g.fill();
   g.fillStyle = '#1c1210'; rr(g, u * 11.6, -u * .9, u * 1.6, u * 1.8, u * .4); g.fill();
-  g.fillStyle = lgrad(g, -u * 4, -u * 3, u * 2, u * 3, [[0, shade(col, .25)], [.5, col], [1, shade(col, -.4)]]);
-  g.beginPath();
-  g.moveTo(u * 2.4, -u * 1.4);
-  g.bezierCurveTo(u * .6, -u * 3.2, -u * 3.2, -u * 3.6, -u * 4.4, -u * 1.2);
-  g.bezierCurveTo(-u * 5.2, u * 1.4, -u * 2.6, u * 3.8, u * .4, u * 2.4);
-  g.bezierCurveTo(u * 1.6, u * 1.8, u * 1.4, u * .4, u * 2.4, -u * 1.4);
-  g.fill();
-  g.strokeStyle = 'rgba(255,255,255,.55)'; g.lineWidth = u * .1;
+  const body = () => { g.beginPath(); g.moveTo(u * 2.4, -u * 1.4); g.bezierCurveTo(u * .6, -u * 3.2, -u * 3.2, -u * 3.6, -u * 4.4, -u * 1.2); g.bezierCurveTo(-u * 5.2, u * 1.4, -u * 2.6, u * 3.8, u * .4, u * 2.4); g.bezierCurveTo(u * 1.6, u * 1.8, u * 1.4, u * .4, u * 2.4, -u * 1.4); g.closePath(); };
+  body(); g.fillStyle = col; g.fill();
+  nopen(g); tone(g, body, col, shade(col, -.3), -u * .5, -u * .6);
+  g.strokeStyle = 'rgba(255,255,255,.6)'; g.lineWidth = u * .1;
   for (let i = 0; i < 4; i++) { line(g, -u * 2.5, -u * .3 + i * u * .2, u * 11.8, -u * .3 + i * u * .2); g.stroke(); }
   g.restore();
 }
@@ -45,33 +40,38 @@ export function bass(g, x, y, s, rot, col = '#48e3ff') {
 // A little drum kit; returns hit points so sticks can aim.
 export function drums(g, x, y, s, hit = 0, cymbal = 0, logo) {
   const u = s / 10;
-  // Cymbals.
+  g.save();
   for (const [cx2, cy2, w2, ph] of [[-4.8, -9.2, 3.2, cymbal], [5, -8.6, 2.8, cymbal * .7]]) {
     g.save(); g.translate(x + cx2 * u, y + cy2 * u); g.rotate(.12 * Math.sin(ph * 8) * ph);
-    g.strokeStyle = '#6c6a78'; g.lineWidth = u * .18; line(g, 0, 0, 0, u * 8); g.stroke();
-    g.fillStyle = lgrad(g, -w2 * u, 0, w2 * u, 0, [[0, '#b58a2e'], [.5, '#ffe08a'], [1, '#9a7020']]);
-    ellipse(g, 0, 0, w2 * u, u * .45); g.fill();
-    if (ph > .05) glow(g, 0, 0, w2 * u * 1.4, C.gold, .35 * ph);
+    nopen(g); g.strokeStyle = '#6c6a78'; g.lineWidth = u * .18; line(g, 0, 0, 0, u * 8); g.stroke();
+    pen(g, u, .5);
+    g.fillStyle = '#f2c24a'; ellipse(g, 0, 0, w2 * u, u * .45); g.fill();
+    if (ph > .05) glow(g, 0, 0, w2 * u * 1.3, C.gold, .45 * ph);
     g.restore();
   }
-  // Toms.
+  pen(g, u, .6);
   for (const [tx, ty, tw, th] of [[-2.2, -7, 1.8, 1.4], [2.2, -7.2, 1.8, 1.4]]) {
     g.fillStyle = '#e0495d'; rr(g, x + (tx - tw) * u, y + ty * u, tw * 2 * u, th * u * 1.3, u * .3); g.fill();
     g.fillStyle = '#f4ecde'; ellipse(g, x + tx * u, y + ty * u, tw * u, u * .45); g.fill();
   }
-  // Kick drum with the drummer's mark.
   const kr = u * 4.2 * (1 + hit * .04);
-  g.fillStyle = vgrad(g, y - kr * 2, y, [[0, '#f26a74'], [1, '#8f1f35']]);
-  circle(g, x, y - kr, kr); g.fill();
+  const kick = () => circle(g, x, y - kr, kr);
+  kick(); g.fillStyle = '#d8414f'; g.fill();
+  nopen(g); tone(g, kick, '#d8414f', '#9a2436', -kr * .12, -kr * .12);
+  pen(g, u, .6);
   g.fillStyle = '#fbf3e4'; circle(g, x, y - kr, kr * .84); g.fill();
-  g.strokeStyle = '#8f1f35'; g.lineWidth = u * .3; circle(g, x, y - kr, kr * .84); g.stroke();
+  nopen(g);
   if (logo) logo(g, x, y - kr, kr * .62);
-  if (hit > .05) glow(g, x, y - kr, kr * 1.3, C.pink, .25 * hit);
+  if (hit > .05) glow(g, x, y - kr, kr * 1.2, C.pink, .35 * hit);
+  g.restore();
 }
 
 export function keyboard(g, x, y, w, press = []) {
   const h = w * .2;
-  g.fillStyle = '#2a2838'; rr(g, x - w / 2, y - h, w, h, h * .2); g.fill();
+  g.save();
+  pen(g, w / 40, .6);
+  g.fillStyle = '#2e2c40'; rr(g, x - w / 2, y - h, w, h, h * .2); g.fill();
+  nopen(g);
   g.strokeStyle = '#1a1826'; g.lineWidth = w * .02; line(g, x - w * .4, y, x - w * .45, y + w * .45); g.stroke(); line(g, x + w * .4, y, x + w * .45, y + w * .45); g.stroke();
   const n = 14;
   for (let i = 0; i < n; i++) {
@@ -79,9 +79,10 @@ export function keyboard(g, x, y, w, press = []) {
     const down = press.includes(i);
     g.fillStyle = down ? '#ffd98a' : '#fbf6ee';
     rr(g, kx + 1, y - h * .62, w * .9 / n - 2, h * .5, 2); g.fill();
-    if (down) glow(g, kx + w * .03, y - h * .4, w * .08, C.gold, .5);
+    if (down) glow(g, kx + w * .03, y - h * .4, w * .07, C.gold, .6);
   }
   g.fillStyle = '#3b6bff'; rr(g, x - w * .45, y - h * .9, w * .2, h * .18, 3); g.fill();
+  g.restore();
 }
 
 // Timing helpers the band uses: is a backing vocal ("ooh", "ahh", "and me") sounding at t?

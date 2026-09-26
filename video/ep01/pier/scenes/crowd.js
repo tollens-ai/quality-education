@@ -5,6 +5,7 @@ import { person } from '../cast.js';
 
 export function crowdFront(g, t, K, amount = 1, o = {}) {
   const bp = K.beatPos(t);
+  g.save(); g.ink = null;
   const rows = o.rows ?? 3;
   const tops = ['#2a1a4a', '#3a1a3a', '#1a2a4a', '#2a2a3a', '#40203a'];
   for (let r = rows - 1; r >= 0; r--) {
@@ -44,6 +45,7 @@ export function crowdFront(g, t, K, amount = 1, o = {}) {
       }
     }
   }
+  g.restore();
   // Named people in the very front row, facing the stage (seen from behind at a three-quarter).
   if (o.people) for (const p of o.people) person(g, p.x, p.y, { ...p.o, s: p.s });
 }

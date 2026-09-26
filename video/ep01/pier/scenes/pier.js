@@ -1,6 +1,7 @@
 // The pier at night, seen straight down its length: lamps and bulb strings converge on the
 // bandstand at the far end, the Ferris wheel towers behind, the sea glitters either side.
-import { W, H, C, TAU, clamp, lerp, smooth, rnd, rr, circle, ellipse, line, poly, glow, bulb, vgrad, rgrad, lgrad, rgba, mix, mixHex, firework } from '../kit.js';
+import { W, H, C, TAU, clamp, lerp, smooth, rnd, rr, circle, ellipse, line, poly, glow, bulb, vgrad, rgrad, lgrad, rgba, mix, mixHex, firework, INK } from '../kit.js';
+import { pen, nopen, tone } from '../cast.js';
 import { nightSky, sea, reflection, bandstand, ferrisWheel, lighthouse, beams, town, haze } from '../world.js';
 import { band } from '../band.js';
 
@@ -78,9 +79,10 @@ export function pierWide(g, t, K, o = {}) {
     line(g, xl, y, xr, y); g.stroke();
   }
   // Reflections of the bandstand and lamps on the wet boards.
-  g.save(); g.globalCompositeOperation = 'lighter';
-  g.fillStyle = lgrad(g, 0, yFar, 0, H, [[0, rgba(C.bulb, .4)], [.4, rgba(C.pink, .12)], [1, rgba(C.pink, 0)]]);
-  poly(g, [[bx - 120, yFar], [bx + 120, yFar], [bx + 380, H], [bx - 380, H]]); g.fill();
+  // The bandstand's light lying along the wet boards: two thin painted washes.
+  g.save(); g.ink = null; g.globalCompositeOperation = 'screen';
+  g.fillStyle = rgba(C.bulb, .14); poly(g, [[bx - 110, yFar], [bx + 110, yFar], [bx + 360, H], [bx - 360, H]]); g.fill();
+  g.fillStyle = rgba(C.pink, .1); poly(g, [[bx - 60, yFar], [bx + 60, yFar], [bx + 190, H], [bx - 190, H]]); g.fill();
   g.restore();
   // Rails and lamp posts, far to near, with bulb strings between the lamps and across the deck.
   const lamps = [];
@@ -99,8 +101,8 @@ export function pierWide(g, t, K, o = {}) {
     g.fillStyle = '#1a1024'; rr(g, x - .07 * k, y1, .14 * k, y0 - y1, .05 * k); g.fill();
     const gx = x - s * .35 * k, gy = y1 + .1 * k;
     g.strokeStyle = '#1a1024'; g.lineWidth = .05 * k; line(g, x, y1 + .1 * k, gx, gy); g.stroke();
-    glow(g, gx, gy, 1.6 * k, C.amber, .5 * (1 - dawn * .5));
-    g.fillStyle = rgrad(g, gx, gy, 0, .2 * k, [[0, '#fffbe8'], [1, '#ffc46a']]);
+    glow(g, gx, gy, 1.6 * k, C.amber, .7 * (1 - dawn * .5));
+    g.fillStyle = '#fff1c4';
     circle(g, gx, gy, .17 * k); g.fill();
   };
   for (let i = 0; i < lamps.length; i++) {
@@ -156,9 +158,10 @@ function stringBulbs(g, t, x1, y1, x2, y2, sag, n, r, seed, dawn, lit = 1) {
 // A lone seagull standing on the deck, looking about.
 export function seagull(g, t, x, y, s = 1) {
   g.save(); g.translate(x, y); g.scale(s, s);
+  pen(g, 7, .55);
   const look = Math.sin(t * 1.3) > .3 ? 1 : -1;
   g.scale(look, 1);
-  g.fillStyle = 'rgba(0,0,0,.3)'; ellipse(g, 0, 2, 26, 5); g.fill();
+  nopen(g); g.fillStyle = 'rgba(0,0,0,.3)'; ellipse(g, 0, 2, 26, 5); g.fill(); pen(g, 7, .55);
   g.strokeStyle = '#e8a33a'; g.lineWidth = 3; line(g, -5, -2, -5, -18); g.stroke(); line(g, 5, -2, 5, -18); g.stroke();
   g.fillStyle = '#f3f1f6'; ellipse(g, 0, -30, 26, 15, -.1); g.fill();
   g.fillStyle = '#b9bccb'; ellipse(g, -6, -33, 20, 9, -.15); g.fill();

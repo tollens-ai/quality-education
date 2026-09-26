@@ -15,7 +15,7 @@ export const easeOut = p => 1 - Math.pow(1 - clamp(p), 3);
 export const easeIn = p => Math.pow(clamp(p), 3);
 export const easeInOut = p => { p = clamp(p); return p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; };
 export const easeOutQuint = p => 1 - Math.pow(1 - clamp(p), 5);
-export function easeOutBack(p, s = 1.70158) { p = clamp(p) - 1; return p * p * ((s + 1) * p + s) + 1; }
+export function easeOutBack(p, s = 1.70158) { p = clamp(p); if (p === 0) return 0; p -= 1; return p * p * ((s + 1) * p + s) + 1; }
 export function easeOutElastic(p) {
   p = clamp(p);
   if (p === 0 || p === 1) return p;
@@ -115,6 +115,20 @@ export function heart(g, x, y, s) {
   g.bezierCurveTo(x + s * .55, y + s * .05, x + s * .1, y + s * .25, x, y + s * .35);
   g.closePath();
 }
+// Replay an SVG path (absolute M, L, C, Q, Z) through g, so it can be drawn by hand like anything else.
+export function svgPath(g, d) {
+  const t = d.match(/[MLCQZ]|-?\d*\.?\d+/g); let i = 0;
+  const n = () => +t[i++];
+  g.beginPath();
+  while (i < t.length) {
+    const c = t[i++];
+    if (c === 'M') g.moveTo(n(), n());
+    else if (c === 'L') g.lineTo(n(), n());
+    else if (c === 'C') g.bezierCurveTo(n(), n(), n(), n(), n(), n());
+    else if (c === 'Q') g.quadraticCurveTo(n(), n(), n(), n());
+    else if (c === 'Z') g.closePath();
+  }
+}
 export function poly(g, pts) { g.beginPath(); pts.forEach(([x, y], i) => i ? g.lineTo(x, y) : g.moveTo(x, y)); g.closePath(); }
 export function line(g, x1, y1, x2, y2) { g.beginPath(); g.moveTo(x1, y1); g.lineTo(x2, y2); }
 
@@ -135,38 +149,45 @@ export function rgrad(g, x, y, r0, r1, stops, x1 = x, y1 = y) {
   return gr;
 }
 
-// ---------- glow ----------
-const glowCache = new Map();
-function glowSprite(hex) {
-  if (glowCache.has(hex)) return glowCache.get(hex);
-  const c = document.createElement('canvas'); c.width = c.height = 128;
-  const x = c.getContext('2d');
-  const [r, g, b] = rgb(hex);
-  const gr = x.createRadialGradient(64, 64, 0, 64, 64, 64);
-  gr.addColorStop(0, `rgba(${r},${g},${b},1)`);
-  gr.addColorStop(.18, `rgba(${r},${g},${b},.55)`);
-  gr.addColorStop(.45, `rgba(${r},${g},${b},.16)`);
-  gr.addColorStop(1, `rgba(${r},${g},${b},0)`);
-  x.fillStyle = gr; x.fillRect(0, 0, 128, 128);
-  glowCache.set(hex, c);
-  return c;
-}
-// An additive soft light of radius r.
+// ---------- light ----------
+// Hand-drawn state, set once per frame by main.js: which of the three boil drawings this is.
+export const INK = { col: '#2b1f3c', boil: 0, amp: 2.2, on: true, res: 1 };
+
+// Painted light: a halo laid on as thin washes with wandering edges, screened so it lifts the
+// dark without ever burning out. (The look has no additive glow and no bloom.)
 export function glow(g, x, y, r, hex, a = 1) {
-  if (a <= 0.003 || r <= 0) return;
-  const op = g.globalCompositeOperation, ga = g.globalAlpha;
-  g.globalCompositeOperation = 'lighter';
-  g.globalAlpha = ga * Math.min(1, a);
-  g.drawImage(glowSprite(hex), x - r, y - r, r * 2, r * 2);
-  g.globalAlpha = ga;
-  g.globalCompositeOperation = op;
+  if (a <= 0.004 || r <= 0) return;
+  const raw = g.raw || g;
+  const [cr, cg, cb] = rgb(hex);
+  const k = Math.sqrt(Math.abs(raw.getTransform().a * raw.getTransform().d)) || 1;
+  raw.save();
+  raw.globalCompositeOperation = 'screen';
+  if (r * k < 16) {
+    raw.fillStyle = `rgba(${cr},${cg},${cb},${Math.min(1, a) * .3})`;
+    raw.beginPath(); raw.arc(x, y, r * .6, 0, TAU); raw.fill();
+    raw.restore();
+    return;
+  }
+  for (let j = 0; j < 3; j++) {
+    const rr = r * (.3 + j * .24);
+    raw.fillStyle = `rgba(${cr},${cg},${cb},${Math.min(1, a) * (.2 - j * .05)})`;
+    raw.beginPath();
+    const n = 30;
+    for (let i = 0; i <= n; i++) {
+      const ang = i / n * TAU;
+      const q = rr * (1 + .1 * noise2(Math.cos(ang) * 1.6 + x * .013 + j * 3.1, Math.sin(ang) * 1.6 + y * .013 + INK.boil * .9, 31));
+      const px = x + Math.cos(ang) * q, py = y + Math.sin(ang) * q;
+      i ? raw.lineTo(px, py) : raw.moveTo(px, py);
+    }
+    raw.fill();
+  }
+  raw.restore();
 }
-// A light bulb: hot core, warm halo. `on` 0..1.
+// A light bulb: a painted dab, cream when lit, dull when off, with a small halo. `on` 0..1.
 export function bulb(g, x, y, r, hex = C.bulb, on = 1) {
-  if (on > 0.02) glow(g, x, y, r * 7, hex, .55 * on);
-  g.fillStyle = on > .5 ? mix(hex, '#ffffff', .6 * on) : mix('#3a2a30', hex, on * 1.5);
+  if (on > 0.02) glow(g, x, y, r * 4.4, hex, .8 * on);
+  g.fillStyle = on > .5 ? mix(hex, '#fffaf0', .55 * on) : mix('#3a2a36', hex, on * 1.5);
   circle(g, x, y, r); g.fill();
-  if (on > 0.02) glow(g, x, y, r * 2.2, '#ffffff', .5 * on);
 }
 
 // ---------- text ----------

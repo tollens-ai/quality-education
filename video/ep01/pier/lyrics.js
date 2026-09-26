@@ -1,7 +1,8 @@
-// The sung words on screen. A word appears on its sung onset with a small pop, glows warm while
-// it's being sung, then settles white. Nothing shows before it's sung. Backing vocals ride
-// underneath in a lighter italic. Shots can place, size and colour the caption, or draw their own.
-import { W, H, C, clamp, lerp, smooth, easeOut, easeOutBack, rgba, mix } from './kit.js';
+// The sung words, lettered by hand into each shot. A line is laid out as a small composition (its
+// own breaks, sizes and emphasis) and each word is written on, stroke by stroke, as it's sung.
+// Nothing shows before it's sung. Backing vocals are lettered smaller, in pink, on a wavy line.
+import { W, H, C, clamp, lerp, smooth, easeOut, easeOutBack, rgba, mix, INK } from './kit.js';
+import { letter, measure } from './hand.js';
 
 let LINES = [];
 export function setLyrics(lyrics) {
@@ -25,131 +26,104 @@ export function lineAt(t, hold = .45) {
   }
   return cur;
 }
-
-// Word layout: one row if it fits; otherwise break at the sung phrases (after , ? ! .), and
-// wrap greedily only inside a phrase that is still too long. No lonely orphans.
-function layout(g, words, size, maxW, font, weight, ls) {
-  g.font = `${weight} ${size}px ${font}`;
-  g.letterSpacing = `${ls}px`;
-  const sp = g.measureText(' ').width;
-  const ws = words.map(w => ({ ...w, ww: g.measureText(w.w).width }));
-  const width = row => row.reduce((a, w) => a + w.ww, 0) + sp * Math.max(0, row.length - 1);
-  if (width(ws) <= maxW) return { rows: [ws], sp };
-  const phrases = [[]];
-  ws.forEach((w, i) => { phrases[phrases.length - 1].push(w); if (/[,?!.;:]$/.test(w.w) && i < ws.length - 1) phrases.push([]); });
-  const rows = [];
-  for (const ph of phrases) {
-    if (width(ph) <= maxW) { rows.push(ph); continue; }
-    let row = [];
-    for (const w of ph) { if (row.length && width([...row, w]) > maxW) { rows.push(row); row = []; } row.push(w); }
-    if (row.length) rows.push(row);
-  }
-  // Merge a tiny trailing row into the previous one if it fits.
-  for (let i = rows.length - 1; i > 0; i--) if (rows[i].length === 1 && width([...rows[i - 1], ...rows[i]]) <= maxW) { rows[i - 1].push(...rows[i]); rows.splice(i, 1); }
-  return { rows, sp };
+// The line that starts nearest t0.
+export function lineNear(t0) {
+  let best = null;
+  for (const l of LINES) if (!best || Math.abs(l.start - t0) < Math.abs(best.start - t0)) best = l;
+  return best;
 }
 
-// st: { y (centre of the block), x (centre), size, maxW, color, hot, weight, font, ls, shadow,
-//       align, backing: {color, size}, hide: [words not to caption], alpha }
+// The house styles. paint: cream brush capitals with a dark signwriter's shade, for night.
+// ink: dark capitals with a pale shade, for day. sign: heavy capitals, shaded and outlined.
+export const STYLE = {
+  paint: { col: '#fff3de', w: .155, shade: { col: '#1d1233', dx: .045, dy: .055 } },
+  ink: { col: '#2b1f3c', w: .155, shade: { col: 'rgba(255,248,236,.9)', dx: .04, dy: .05 } },
+  sign: { col: '#ffe9c4', w: .2, shade: { col: '#8a1a3a', dx: .05, dy: .06 }, outline: { col: '#2b1f3c', w: .045 } },
+  hot: '#ffc94a', pink: '#ff8fb8',
+};
+
+// Write word i of a line: how much of it is on by t (0..1), from its onset over its sung length.
+function written(w, t, speed = 1) {
+  const d = clamp(((w.e ?? w.s + .25) - w.s) * .75, .09, .32) / speed;
+  return clamp((t - w.s) / d);
+}
+
+// sing(g, t, t0, spec): letter the line starting nearest t0.
+// spec: { rows: [{ text, x, y, size, align, rot, col, w }], style, emph: { word: {col, size} },
+//         until, alpha, speed, hold }
+// Row text must follow the sung words in order ("Confetti cannons" / "every time you" / "floss,").
+export function sing(g, t, t0, spec) {
+  const L = typeof t0 === 'object' ? t0 : lineNear(t0);
+  if (!L) return;
+  if (spec.until !== undefined && t > spec.until) return;
+  const out = spec.hold === undefined ? 1 : 1 - smooth((t - (L.end + spec.hold)) / .18);
+  if (out <= 0) return;
+  const base = { ...STYLE[spec.style || 'paint'], ...(spec.o || {}) };
+  let wi = spec.from || 0;
+  const raw = g.raw || g;
+  raw.save();
+  raw.globalAlpha *= (spec.alpha ?? 1) * out;
+  for (const row of spec.rows) {
+    const words = row.text.split(' ').filter(Boolean);
+    let size = row.size || spec.size || 90;
+    const wt = row.w ?? base.w;
+    // Never let a row run off the page: shrink it to fit the width it's allowed.
+    const maxW = row.maxW ?? spec.maxW ?? 940;
+    const natural = words.reduce((a, s) => a + measure(s, size, wt), 0) + size * .42 * (words.length - 1);
+    if (natural > maxW) size *= maxW / natural;
+    const ws = words.map(s => measure(s, size, wt));
+    const gap = size * .42;
+    const total = ws.reduce((a, b) => a + b, 0) + gap * (words.length - 1);
+    let x = row.align === 'left' ? row.x : row.align === 'right' ? row.x - total : (row.x ?? 540) - total / 2;
+    raw.save();
+    if (row.alpha !== undefined) raw.globalAlpha *= row.alpha;
+    if (row.rot) { raw.translate(row.x ?? 540, row.y); raw.rotate(row.rot); raw.translate(-(row.x ?? 540), -row.y); }
+    words.forEach((word, k) => {
+      const w = L.lead[wi++];
+      const pre = spec.pre && wi <= spec.pre;
+      if (w && (pre || t >= w.s - .01)) {
+        const key = word.toLowerCase().replace(/[^a-z0-9']/g, '');
+        const em = spec.emph?.['#' + (wi - 1)] || spec.emph?.[key] || {};
+        const p = pre ? 1 : written(w, t, (em.speed ?? 1) * (spec.speed || 1));
+        letter(g, word, x, row.y + (em.dy || 0), size * (em.size || 1), {
+          ...base, col: em.col || row.col || base.col, cols: em.cols || row.cols, w: em.w ?? wt, jitter: em.jitter ?? row.jitter ?? spec.jitter ?? 1,
+          progress: p, seed: (L.i * 31 + wi) % 997, shade: em.shade ?? row.shade ?? base.shade, outline: em.outline ?? row.outline ?? base.outline,
+        });
+      }
+      x += ws[k] + gap;
+    });
+    raw.restore();
+  }
+  raw.restore();
+}
+
+// The backing vocals ("ooh-ooh-ooh"), lettered small in pink on a line that waves with them.
+export function backing(g, t, t0, x, y, size = 58, col = STYLE.pink, o = {}) {
+  const L = typeof t0 === 'object' ? t0 : lineNear(t0);
+  if (!L || !L.back.length) return;
+  const on = L.leadEnd - .05;
+  const p = clamp((t - on) / .5) * (1 - smooth((t - L.end - .3) / .25));
+  if (p <= 0) return;
+  const txt = L.back.map(w => w.w.replace(/[()]/g, '')).join(' ');
+  const raw = g.raw || g;
+  raw.save();
+  raw.translate(x, y);
+  raw.rotate((o.rot ?? -.03) + Math.sin(t * 5) * .015);
+  letter(g, txt, 0, Math.sin(t * 7) * size * .06, size, { col, w: .13, align: 'center', progress: easeOut(p), seed: L.i * 7, shade: { col: '#1d1233', dx: .04, dy: .05 }, ...o });
+  raw.restore();
+}
+
+// Compatibility with shots not yet given their own layout: a plain centred block.
 export function drawCaption(g, t, st = {}, line = lineAt(t, st.hold ?? .45)) {
   if (!line || st.off || (st.until && t > st.until)) return;
-  const k = g.getTransform().a;
-  const size0 = st.size || 84, maxW = st.maxW || 920, font = st.font || 'Bricolage', weight = st.weight || 800;
-  const ls = st.ls ?? -1;
-  const hide = new Set((st.hide || []).map(s => s.toLowerCase()));
-  const words = line.lead.filter(w => !hide.has(w.w.toLowerCase().replace(/[^a-z0-9']/g, '')));
-  if (!words.length && !line.back.length) return;
-  g.save();
-  // Shrink a little (never below 80%) rather than break a sung phrase in the middle.
-  let size = size0;
-  g.font = `${weight} ${size}px ${font}`; g.letterSpacing = `${ls}px`;
-  const phraseW = (() => {
-    let best = 0, cur = [];
-    const spw = g.measureText(' ').width;
-    const flush = () => { if (cur.length) best = Math.max(best, cur.reduce((a, w) => a + g.measureText(w.w).width, 0) + spw * (cur.length - 1)); cur = []; };
-    words.forEach(w => { cur.push(w); if (/[,?!.;:]$/.test(w.w)) flush(); });
-    flush();
-    return best;
-  })();
-  if (phraseW > maxW) size = Math.max(size0 * .8, size0 * maxW / phraseW);
-  const { rows, sp } = layout(g, words, size, maxW, font, weight, ls);
-  const lh = size * (st.lh || 1.06);
-  const blockH = rows.length * lh;
-  const cx = st.x ?? W / 2;
-  let y0 = (st.y ?? 330) - blockH / 2 + size * .78;
-  const out = 1 - smooth((t - Math.min(line.next - .02, line.end + (st.hold ?? .45)) + .14) / .14);
-  g.globalAlpha = (st.alpha ?? 1) * out;
-  g.textBaseline = 'alphabetic';
-  g.textAlign = 'left';
-  rows.forEach((row, ri) => {
-    const rw = row.reduce((a, w) => a + w.ww, 0) + sp * (row.length - 1);
-    let x = st.align === 'left' ? (st.x ?? 90) : cx - rw / 2;
-    const y = y0 + ri * lh;
-    for (const w of row) {
-      const on = w.s;
-      const p = clamp((t - on) / .09);
-      // Words the shot allows ahead of the voice sit dimmed until they're sung.
-      const wi = line.lead.indexOf(line.lead.find(x => x.s === w.s && x.w === w.w));
-      if (p <= 0 && st.ahead && wi < st.ahead) {
-        g.save();
-        g.font = `${weight} ${size}px ${font}`; g.letterSpacing = `${ls}px`;
-        g.globalAlpha *= .38;
-        if (st.shadow !== false) { g.shadowColor = st.shadowCol || 'rgba(8,4,26,.85)'; g.shadowBlur = (st.shadowBlur || 22) * k; }
-        g.fillStyle = st.color || '#fff8ee';
-        g.fillText(w.w, x, y);
-        g.restore();
-      }
-      if (p > 0) {
-        const pop = easeOutBack(clamp((t - on) / .26), 2.2);
-        const sc = lerp(.78, 1, pop);
-        const singing = t >= on && t < (w.e ?? on) + .05;
-        const after = clamp((t - (w.e ?? on) - .05) / .18);
-        const col = singing ? (st.hot || C.gold) : mix(st.hot || C.gold, st.color || '#fff8ee', after);
-        g.save();
-        g.translate(x + w.ww / 2, y - size * .3);
-        g.scale(sc, sc);
-        g.translate(-w.ww / 2, size * .3 + (1 - pop) * size * .12);
-        g.globalAlpha *= p;
-        if (st.shadow !== false) {
-          g.shadowColor = st.shadowCol || 'rgba(8,4,26,.85)';
-          g.shadowBlur = (st.shadowBlur || 22) * k;
-          g.shadowOffsetY = 4 * k;
-        }
-        g.font = `${weight} ${size}px ${font}`;
-        g.letterSpacing = `${ls}px`;
-        g.fillStyle = col.startsWith('#') ? col : col;
-        g.fillText(w.w, 0, 0);
-        g.restore();
-      }
-      x += w.ww + sp;
-    }
-  });
-  // Backing vocals under the lead line.
-  if (line.back.length && st.backing !== false) {
-    const bst = st.backing || {};
-    const on = line.leadEnd - .05;
-    const p = clamp((t - on) / .2);
-    if (p > 0) {
-      const bs = bst.size || size * .56;
-      const txt = line.back.map(w => w.w).join(' ');
-      g.font = `italic 600 ${bs}px ${font}`;
-      g.letterSpacing = '0px';
-      const tw = g.measureText(txt).width;
-      let x = (bst.x ?? cx) - tw / 2;
-      const y = bst.y ?? (y0 + (rows.length - 1) * lh + bs * 1.35);
-      let ci = 0;
-      for (const ch of txt) {
-        const cw = g.measureText(ch).width;
-        const wave = Math.sin(t * 9 - ci * .5) * bs * .08;
-        g.save();
-        g.globalAlpha *= p;
-        if (st.shadow !== false) { g.shadowColor = 'rgba(8,4,26,.8)'; g.shadowBlur = 16 * k; }
-        g.fillStyle = bst.color || C.pink;
-        g.fillText(ch, x, y + wave);
-        g.restore();
-        x += cw; ci++;
-      }
-    }
-  }
-  g.restore();
+  const size = (st.size || 84) * .9;
+  const words = line.lead.map(w => w.w);
+  const maxW = st.maxW || 900;
+  const rows = []; let cur = [];
+  for (const w of words) { const test = [...cur, w].join(' '); if (cur.length && measure(test, size) > maxW) { rows.push(cur.join(' ')); cur = [w]; } else cur.push(w); }
+  if (cur.length) rows.push(cur.join(' '));
+  const lh = size * 1.25;
+  const y0 = (st.y ?? 330) - (rows.length - 1) * lh / 2 + size * .4;
+  sing(g, t, line, { rows: rows.map((r, i) => ({ text: r, y: y0 + i * lh, x: st.x ?? 540, size })), style: st.style || 'paint' });
+  if (st.backing !== false) backing(g, t, line, st.x ?? 540, y0 + rows.length * lh + 10, size * .6);
 }

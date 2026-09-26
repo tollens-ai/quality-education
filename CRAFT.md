@@ -145,7 +145,16 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
   beauty and your training will provide it. make beautiful choices". What to think about, in her
   words: "framing [...] setting [...] art style [...] character design [...] cuts [...] pacing
   [...] motion [...] animation [...] humour [...] inspiration [...] joy [...] love". The third
-  video was made this way ([episodes/01-video.md](episodes/01-video.md)).
+  and fourth videos were made this way ([episodes/01-video.md](episodes/01-video.md)).
+- **The third video met the bar; the words are part of the art.** Qing (2026-09-26): "attempt 3
+  was way better! it meets the "good enough to share" bar", and "in terms of the storyboard and
+  pacing it hits right. so the process of "just let opus drive, no committee" is definitely
+  right!" What stopped her posting it: "let's encorporate the typography as part of your
+  artistic direction, and make it look less like the caption is an afterthought". The words can
+  be hand-drawn or set: "judiciously used fonts and text layouts would be sufficient". A
+  preference: "more of a hand-drawn animation style (myriad to choose from) rather than
+  something so shiny". A standard: "uphold the high quality bar artistically throughout", after
+  the third video's quality dropped from verse 2. The fourth video answers all four.
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
 - ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the

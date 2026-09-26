@@ -62,8 +62,9 @@ is the worked example of the finished shape.
    storyboard funnel, a grey-box animatic and a parallel section build) didn't work: Qing found
    the result dizzying, hard to follow, spoiling lyrics before they were sung, and plain rather
    than beautiful. It is archived with its post-mortem in
-   [archive/ep01-video-v1/](../../../archive/ep01-video-v1/README.md). The replacement process
-   comes from Qing's new brief; until then, don't reuse the archived one.
+   [archive/ep01-video-v1/](../../../archive/ep01-video-v1/README.md). Don't reuse it. What
+   worked instead (one auteur, no committee, the brief to start from) is in
+   [VIDEO.md](../../../VIDEO.md).
 
 5. **Write the agent-facing takeaway.** Show the vague prompt at the start and the rewritten prompt
    at the end. The rewrite must use the concept, not just be longer.

@@ -1,6 +1,22 @@
-// Finishing passes applied to the whole frame: bloom, colour grade, vignette and film grain.
-// They work in device pixels, so previews at any width look like the master.
+// Finishing: the paper the film is painted on, a colour grade, a soft darkening at the edges.
+// There's no bloom and no film grain: the light is painted and the grain is the paper's.
 import { rgba } from './kit.js';
+import { paper } from './ink.js';
+
+// Lay the paper over everything drawn so far, in the current (camera) space, so its fibres travel
+// with the painting when the camera moves. tooth: how much dark paint skips on the paper's grain.
+export function paperOver(g, o = {}) {
+  const P = paper();
+  const raw = g.raw || g;
+  raw.save();
+  raw.globalCompositeOperation = 'multiply';
+  raw.globalAlpha = o.tone ?? 1;
+  raw.drawImage(P.tone, -60, -60, 1200, 2040);
+  raw.globalCompositeOperation = 'screen';
+  raw.globalAlpha = (o.tooth ?? .35);
+  raw.drawImage(P.specks, -60, -60, 1200, 2040);
+  raw.restore();
+}
 
 let bloomA, bloomB, grains = [];
 function buffers(cw, ch) {
@@ -30,7 +46,7 @@ export function finish(g, o = {}) {
   buffers(cw, ch);
   g.save();
   g.setTransform(1, 0, 0, 1, 0, 0);
-  const bl = o.bloom ?? .5;
+  const bl = o.bloomOn ? (o.bloom ?? .5) : 0;
   if (bl > 0) {
     const a = bloomA.getContext('2d'), b = bloomB.getContext('2d');
     a.globalCompositeOperation = 'copy';
@@ -60,10 +76,10 @@ export function finish(g, o = {}) {
     g.globalAlpha = 1;
     const r = g.createRadialGradient(cw / 2, ch * .46, Math.min(cw, ch) * .35, cw / 2, ch * .46, Math.hypot(cw, ch) * .62);
     r.addColorStop(0, 'rgba(4,2,16,0)');
-    r.addColorStop(1, rgba('#04020f', .75 * vg));
+    r.addColorStop(1, rgba('#1a0f24', .45 * vg));
     g.fillStyle = r; g.fillRect(0, 0, cw, ch);
   }
-  const gr = o.grain ?? .5;
+  const gr = o.grainOn ? (o.grain ?? .5) : 0;
   if (gr > 0) {
     const f = o.frame || 0;
     const tile = grains[f % grains.length];

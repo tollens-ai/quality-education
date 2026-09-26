@@ -1,14 +1,68 @@
-# Episode 1 video, v3: "The Pier"
+# Episode 1 video, v4: "The Pier", drawn by hand
 
-The third video for "Good for Who?". The first two are archived in
-[archive/ep01-video-v1/](../archive/ep01-video-v1/README.md) and
-[archive/ep01-video-v2/](../archive/ep01-video-v2/README.md).
+The fourth video for "Good for Who?". It's the third video, "The Pier", redrawn. The first two are
+archived in [archive/ep01-video-v1/](../archive/ep01-video-v1/README.md) and
+[archive/ep01-video-v2/](../archive/ep01-video-v2/README.md). The third is in git history as
+commit `b154e12`.
 
-Qing's brief for this one (2026-09-26): "pull all the stops out and make a gorgeous animated music
-video. no reviewer committees, just you and your taste and your work". So this was made by one
-auteur, with no committee.
+Qing on v3 (2026-09-26): "it meets the "good enough to share" bar", and "in terms of the
+storyboard and pacing it hits right". So v4 keeps v3's storyboard, shots and timing, and changes
+the three things she asked for:
 
-## The idea
+- **A hand-drawn look instead of a shiny one.** Her words: "more of a hand-drawn animation style
+  (myriad to choose from) rather than something so shiny".
+- **The typography is part of the art direction.** "make it look less like the caption is an
+  afterthought". This was the one thing stopping her from posting v3.
+- **The quality holds from verse 2 to the end.** She saw it drop in v3: "the animation quality
+  degrades a bit by verse 2".
+
+As with v3, one auteur made it, with no reviewer committee.
+
+## The look
+
+It's ink and gouache on paper, drawn on twos. The model is a 2D picture book brought to life, not
+a 3D toy.
+
+- **Paint:** every shape is flat colour laid on with a brush. Brush texture shows inside each
+  fill, and the paint is a little denser at the edges, the way gouache dries.
+- **Shading:** each object has one darker tone on the side away from the light, cut like a cel,
+  and at most one painted highlight. There's no gloss and no gradient sheen.
+- **Line:** characters and built things have a brush-pen outline that swells and tapers. The line
+  boils, as in a pencil line test: each drawing is redrawn fifteen times a second, cycling through
+  three versions, so the picture is alive even when nothing moves.
+- **Light:** lamplight, bulbs, beams and moonlight are thin washes of colour. There's no bloom
+  and nothing blows out to white.
+- **Paper:** one sheet of paper texture lies over every frame, and moves with the camera.
+- **What stays exact:** the camera still moves smoothly on every frame, like a rostrum over cels.
+  App screens and code keep typeset text, because that's the machine talking. The bots' corporate
+  marks stay exact too, like printed stickers on the drawings (see
+  [research/bot-marks.md](../research/bot-marks.md)).
+
+## The lettering
+
+The film has its own alphabet: brush capitals drawn stroke by stroke, the way a signwriter
+letters a board. Each sung word is written on at its onset, in writing order, so the words arrive
+with the voice. The same letter skeletons can also be painted, lit with bulbs, stitched, chalked,
+drawn as stars or written in the sand. Each line is laid out as part of its shot, never as a
+subtitle band:
+
+| Where | How the words appear |
+|---|---|
+| Intro | "YOU SAID MAKE IT GOOD," is up from the first frame (it's the prompt, and the thumbnail); "GOOD!" lands huge and gold |
+| Verse 1 | CONFETTI in confetti colours; 2FA as a red warning; KUBERNETES painted on a banner between two cranes, SCALING UP climbing a letter at a time, *your blog* on a tiny paper tag; WORKING ROUND THE CLOCK runs round the dial; "Did I do it wrong?" shaky; GONE! is the last light left when the power cuts; "Guess I didn't ask!" small and pale |
+| Pre-chorus | Painted inside your head, WHO and WHAT in gold; "I can't read your mind" appears only in the torch's pool of light |
+| Hooks | MAKE IT GOOD FOR is lettered onto the fairground sign as it's sung, and WHO? / WHAT? light up in bulbs set along the strokes |
+| Chorus props | FAST, STURDY, CHEAP on ribbons under the corner signs; WOW written in firework sparks, fading with the smoke; KEEP by the lighthouse; SHIP IT on the paper boat's sail, NOW slamming in; SLOW lettered slowly; DOES WHAT THEY NEED as a newspaper headline, like chip paper; SHOW? in bulbs |
+| Verse 2 | Each question on a hut's hanging name board, each answer painted over its door; Nana's is cross-stitched on a sampler, the student's is a PASS stamp |
+| Bridge | TRAINING SET as a constellation; OVER THE WALL chalked on the wall; WHAT TO BUILD / OR TEST on the page Clawd unfolds; WHO IT'S FOR? held up on cards by everyone beyond the wall |
+| Break | The definition in bulbs on the gateway arch; MATTERS on placards; Clawd's own I'M SOMEONE TOO! placard, and AND ME! on the bots' |
+| Final pre-chorus | Clawd's slip becomes a form: WHO IT'S FOR: ___ / WHAT THEY WANT: ___ |
+| Final chorus | The sign flips each question to its answer (ME!, ONE TAP!, YOU TOO!, NEW BESTS!) |
+| Outro | Dark lettering on the summer sky; the last line is written in the sand, and the tide takes it with the sandcastle |
+
+The two corner marks, "@yanqingcheng" and "∴ tollens", are lettered in the same hand.
+
+## The idea (unchanged from v3)
 
 **Clawd & the Bots play a British seaside pier at night.** The song is a band's complaint, so the
 video is a gig: Clawd sings, Molty plays guitar, Grok's bot drums, the OpenAI bot plays bass and
@@ -18,12 +72,12 @@ The world follows the lesson. Clawd starts in the dark, building with no context
 on when the chorus asks who it's for. Then the people arrive, the reasons come clear, and it ends
 in daylight.
 
-- **Verse 1 happens in the dark.** Clawd over-builds alone in a black studio with a glossy floor:
-  confetti cannons and a disco ball for a flossing habit, a bank vault on a gym log, a container
-  port for a blog with one view, twelve copies of itself round a clock. Then the quota runs out,
-  and the power with it.
+- **Verse 1 happens in the dark.** Clawd over-builds alone on a black stage: confetti cannons
+  and a disco ball for a flossing habit, a bank vault on a gym log, a container port for a blog
+  with one view, twelve copies of itself round a clock. Then the quota runs out, and the power
+  with it.
 - **The chorus turns the pier on.** It plays to an empty pier, with one seagull. The questions
-  hang on a fairground sign (WHO? WHAT?), and the trade-offs are fairground props:
+  hang on a fairground sign, and the trade-offs are fairground props:
   - a lit triangle of FAST, STURDY and CHEAP that yanks Clawd from corner to corner
   - a firework (wow) against a lighthouse (keep)
   - a paper boat launched off the pier (ship it now) against a ship in a bottle (polish it slow)
@@ -36,7 +90,7 @@ in daylight.
   their code over a harbour wall without looking. Clawd climbs up with a lantern and finds
   everyone on the other side.
 - **The break lights the definition in bulbs** across the pier's gateway, with the credit on a
-  plaque. Everyone under it lights up on "matters", and the bots pile in on "and me!".
+  plaque. Everyone it's about holds up MATTERS, and the bots pile in on "and me!".
 - **The final chorus is at sunrise, and you answer.** Each device from chorus 1 comes back and
   settles: WHO? flips to ME!, WHAT? to ONE TAP!, WHO? to YOU TOO! (for Clawd). Then the gym log
   gets built right and the brief is held on screen.
@@ -47,19 +101,19 @@ in daylight.
 
 | Time | Section | Picture |
 |---|---|---|
-| 0:00 | Intro | Your laptop in the dark: `> make it good`. Clawd peeks over the screen, then leaps up. A Ferris wheel glows far off, out of focus. |
+| 0:00 | Intro | Your laptop in the dark: `> make it good`. Clawd peeks over the screen, then leaps up. A Ferris wheel glows far off |
 | 0:04 | Verse 1 | Confetti cannons around a habit tracker; the vault and chains on the gym log; containers stacking on a one-view blog; twelve subagents round a clock, throwing SUMMARY.md files |
 | 0:15 | Verse end | Everything it built, crowding the dark. The quota battery drains, the power cuts, and only Clawd's eyes are left. "Guess I didn't ask!" |
 | 0:20 | Pre-chorus | Clawd holds up the slip under the giant profile of your head, where what you want glows, blurred. The torch can't get in. It reads the three words through a magnifier |
 | 0:27 | Chorus 1 | The pier switches on, the band plays to nobody, and the trade-offs play out as props |
-| 0:50 | Verse 2 | Eight beach huts: the founder's demo, the baker's till, the joke bot, the 3am student, Nana's one-button phone, a blind user and their guide dog, the agents' data hatch, and Clawd's own hut with tidy diagnostics |
+| 0:50 | Verse 2 | Eight beach huts, the camera dollying past lamp posts: the founder's demo, the baker's till, the joke bot, the 3am student, Nana's one-button phone, a blind user and their guide dog, the agents' data hatch, and Clawd's own hut with tidy diagnostics |
 | 1:12 | Instrumental | Pull back along the whole row |
 | 1:16 | Pre-chorus 2 | Everyone round Clawd with their thought bubbles, until its eyes spin |
 | 1:23 | Chorus 2 | The pier is packed, with the hut people in the front row |
 | 1:46 | Bridge | The code sky, the wall, the climb, the reveal |
 | 2:09 | Break | SOFTWARE QUALITY IS VALUE TO SOMEONE WHO MATTERS, in bulbs |
 | 2:22 | "I'm debugging this with you" | Your hand and Clawd catch a glowing bug in a jar |
-| 2:27 | Final pre-chorus | First light. Clawd holds out a blank slip and a pencil; you start typing |
+| 2:27 | Final pre-chorus | First light. Clawd holds out the slip, now a form, and a pencil; you start typing |
 | 2:40 | Final chorus | Sunrise. Every question answered, then the brief and the app |
 | 3:05 | Outro | Summer, the sandcastle, the tide, sunset |
 
@@ -77,9 +131,19 @@ in daylight.
 ## Liner notes
 
 **What it is.** A 3:21 music video, 1080×1920 at 30 fps. Every frame is drawn in code by Claude
-Opus (Canvas 2D in headless Chromium, as a pure function of the song's time). The code is in
+Opus: Canvas 2D in headless Chromium, as a pure function of the song's time. The code is in
 [`video/ep01/pier/`](../video/ep01/pier/). The song is our lyrics, sung by a MiniMax generation
 Qing chose.
+
+**How it's drawn by hand, in code.** `ink.js` wraps the canvas so that every path drawn through
+it comes out hand-made:
+- Fills wander a pixel or two off the true edge and take a gouache texture.
+- Outlines are brush strokes that swell and taper.
+- The wobble is redrawn fifteen times a second from three variations, which makes the boil.
+
+`hand.js` is the alphabet: 26 capitals, the digits and punctuation, each defined as brush strokes
+in writing order. The lettering is not a font. It's drawn stroke by stroke, and the same
+skeletons carry bulbs, stitches and stars.
 
 **How it moves with the record.** `video/ep01/pier/tools/analyse.py` measures the take:
 - the bar grid
@@ -87,39 +151,43 @@ Qing chose.
 - the vocal, as the take minus Demucs's instrumental stem
 
 Every character grooves on the beat, the camera breathes with the kick, and Clawd's mouth opens
-with the vocal. Captions come from Whisper's word times, and each word appears on its sung onset.
-Only the intro's first phrase shows ahead of the voice: it's the prompt you typed.
+with the vocal. Lyric timing comes from Whisper's word times: each word starts writing on its sung
+onset. The intro's first phrase is the one exception. It's on screen from the first frame,
+because it's the prompt you typed.
 
 **How it was checked.**
-- Stills of every shot at full resolution, reviewed four at a time.
-- Frame strips at 10 to 30 fps across the moments that move, such as the leap, the confetti, the
-  lights coming on, the hut swipes and the sign flips.
-- Frame-to-frame motion measured for every second of each preview render, to find stretches that
-  had gone static. The first preview had 78 near-still seconds out of 201; the last has 32, most
-  of them in calm moments: the dark "Guess I didn't ask", the start of the bridge, the reveal, the
-  debugging, the plea, the held brief, the sandcastle and the ending.
+- Stills of every shot at full resolution, and full-length contact sheets at one frame a second.
+- Frame strips at 30 fps, to check that drawings change on twos while the camera moves on every
+  frame.
+- Frame-to-frame motion measured for every second, the same way on both 1080 masters. 10 of v4's
+  200 seconds are near-still, against 33 in v3, and all ten are meant to be calm: the first
+  second, "Guess I didn't ask", the triangle appearing, the first seconds of the bridge, the bug
+  in the jar and the end of the typing. The boiling line keeps held moments alive.
+- Every lyric-heavy frame checked at phone size, 390 px wide.
 - Fixed from what the stills showed:
-  - captions under the moon
-  - characters in the bottom UI zone
-  - a flame that read as a water drop
-  - a sign word spilling off its board
-  - people floating on the horizon
-  - a caption word stranded on its own line
+  - "TO RUN" hidden behind Clawd's flight path
+  - a backing vocal over Clawd's head
+  - "PBs!" reading as PBS in capitals (it's now NEW BESTS!)
+  - the sand writing running into the sandcastle
+  - the hanging sign's chains crossing the corner mark
+  - the boat's wake looking like an easel
+  - Nana's phone floating out of her hand
+  - word spaces too tight between capitals
 
 **The bots' marks.** Following [research/bot-marks.md](../research/bot-marks.md), corporate marks
 are never redrawn. Grok's bot and the OpenAI bot are our own robots, and each wears its owner's
 mark as an unaltered badge. Grok's mark is also on the kick drum. Muse's logo is on Jolly's
-headphones in its own colours. Molty is drawn from OpenClaw's open-source SVG.
+headphones in its own colours. Molty is drawn by hand from OpenClaw's open-source SVG shapes.
 
 **Where it falls short.**
-- **No human has watched it at speed yet,** and the model can't hear the song. Sync and feel
-  need Qing's eyes and ears.
+- **The model can't hear the song,** so sync and feel still need Qing's eyes and ears.
 - **Clawd's lip-sync follows loudness, not the actual sounds,** so it reads as singing, not as
   the words.
+- **The alphabet has capitals only.** The corner marks are in capitals too, including TOLLENS.
 - **Jolly is redrawn in the video's style.** Meta's terms forbid modifying their assets, and the
   research asked for him to be drawn faithfully. This is the one mark-related call Qing should
   make: keep him, or swap him for the Muse logo on a card.
-- **Some frames are busy** (the verse-1 recap of everything Clawd built). **Some put characters
-  in the bottom 400 px,** where platform UI can cover them.
+- **Some frames put characters in the bottom 400 px,** where platform UI can cover them. The
+  lyrics stay above it.
 - **The code-sky fragments are texture,** too small to read on a phone.
 - **It's long for X:** 3:21.

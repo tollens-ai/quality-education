@@ -3,7 +3,7 @@
 **Concept:** testing is finding out what's actually true about the product, by exploring and
 experimenting. Checking, answering yes-or-no questions you already knew to ask, is one useful
 part of it.
-**Status:** talking points and section sketch agreed (2026-09-26); lyrics v5 (dense and rhyming), for Qing's ear.
+**Status:** talking points and section sketch agreed (2026-09-26); lyrics v5 on the sheet; hook and chorus v6 (Qing's hook) for her ear.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 
@@ -92,6 +92,15 @@ On the accent (2026-09-26):
 
 > oh we can't really ask for a British accent, it didn't work. last time it always came. out
 > sounding like a vague mix between Taylor swift and every other girl singer
+
+On the hook and chorus (2026-09-27):
+
+> let's get the hook right and the chorus right first. so like the hook is "did you actually test
+> it?" and then the rest of the chorus helps us spell out what we mean by actually test it. and
+> test it is super easy to rhyme, because you can have like "guessed it" "addressed it" "pressed
+> it" etc you know but also "invested" "attested" "requested" etc but also [if] you stretch
+> slightly even "conjectured" etc. so there is LOADS to use. I do wonder [...] whether you're just
+> not being rapper enough about rhyming
 
 ## Talking points (v2, agreed with Qing's notes above)
 
@@ -201,6 +210,45 @@ are listed.
 | Break | Checking is part of testing; testing is finding out; testing takes a team, and you're the one who knows what matters | The checking circle inside the testing circle; several Clawds, other bots with their real marks, your hand; credits |
 | Final pre-chorus and chorus | Word for word | The same questions, now being tested |
 | Outro | The flip ("the questions no one knows the answers to"), then the chorus's questions answered | The gym log working in the basement; the brief |
+
+## Hook and chorus (v6, for Qing's ear)
+
+Qing's hook: "Did you actually test it?" The rest of the chorus says what actually testing means,
+and every line ends on the hook's sound (-EST it, stretched to -ECT it). The questions are sung by
+a gang vocal, as the viewer asking their agent; Clawd answers in the brackets. If Clawd sang "Did
+you…", it would sound like Clawd blaming the viewer. One cold reviewer (a rapper's and a
+songwriter's ear, plus testing) checked both options; its fixes are in.
+
+**Option B (recommended): tight, sung twice**
+> Did you actually test it? *(test it!)*
+> Pressed it, stressed it, second-guessed it? *(second-guessed it!)*
+> Took it where the signal's dead? Found the bug no one expected? *(what happens if?)*
+> Broke it where it matters most? And did a check detect it? *(detect it!)*
+
+- Syllables: 7; 8; 7 + 8; 7 + 7. Stresses mirror in lines 3 and 4: TOOK…SIG…DEAD, BROKE…MAT…MOST.
+- Covers: hands-on use, pushing it, doubting your own answer, the real place, surprises, and
+  checks that fail for a reason that matters. Nothing knocks checking.
+- Rhymes: pressed/stressed/guessed; dead/expected/detect on the same vowel as "test".
+- Costs: "stressed it" could be heard as "worried about it", so the picture carries it. It
+  doesn't say "as the person it's for".
+
+**Option A: the long interrogation, sung once**
+> Did you actually test it? *(test it!)*
+> Did you hold it like a human, with a sweaty thumb, and double-press it? *(press it!)*
+> Did you take it where they'll take it, where the signal drops, and stress it? *(stress it!)*
+> Did you wonder "what happens if…?", then try it and second-guess it? *(guess it!)*
+> Did you find the bug that nobody, not even you, expected? *(expected!)*
+> Did you break it on purpose, to see if a check would detect it? *(detect it!)*
+> Did you actually test it? *(test it!)*
+
+- Covers everything B does, plus the person and the title. It's about 30 seconds, so it can only
+  be sung once, and it's a lot to shout along to.
+
+**The outro answers it** (house rule: the last chorus can answer the hook), with Clawd singing:
+> I actually tested it!
+> Pressed it, stressed it, second-guessed it!
+> Took it where the signal's dead, found the bug no one expected,
+> broke it where it matters most, and a check detected it!
 
 ## Lyric sheet (v5, for Qing's ear)
 

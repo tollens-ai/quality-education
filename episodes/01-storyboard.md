@@ -24,7 +24,9 @@ between them.
    Clawd anything. The ticket's printed boxes (FOR · GOOD = · DON'T NEED · COST · FOR YOU) are
    blank until you fill them.
 5. **Your flat has the blind down.** Top floor but one, right side. We see your shadow on the blind
-   (what is that shape?) and your hand at the letterbox. Your doorbell glows, never rung.
+   (what is that shape? someone mid-workout, one arm pumping) and your hand at the letterbox. Your
+   doorbell glows, never rung. The shadow is always unmistakably exercise, a standing dumbbell
+   curl, never a figure hanging from anything.
 
 **Floor plan** (left flat · right flat):
 
@@ -56,7 +58,7 @@ everything reads at phone size; soft light bloom; subtle paper grain; tiny lives
 stretching, steam from a pan, a plant swaying) that reward a second watch. Fonts: Bricolage
 Grotesque for lyrics, Caveat for your handwriting, Pixelify Sans for Clawd's labels.
 
-**Open questions that pull viewers through:** What's the shape on the blind? Will Clawd ring the
+**Open questions that pull viewers through:** What's the shape on the blind (what are they doing)? Will Clawd ring the
 bell? What goes in the FOR box? Each is planted early and paid off late.
 
 ## Line by line
@@ -205,7 +207,7 @@ The brief, exactly:
 
 | t | Lyric | Main read |
 |---|---|---|
-| 184.84 | Make it good for you? (ooh-ooh-ooh) | **The blind rises: the shadow was a pull-up bar.** You, mid-set, one sweaty hand, tap the one button |
+| 184.84 | Make it good for you? (ooh-ooh-ooh) | **The blind rises: the shadow was a dumbbell curl.** You, mid-set, a dumbbell in one hand, the free sweaty thumb taps the one button |
 | 187.70 | Make it good for that? (ahh-ahh-ahh) | 🔥 on a PB: your flat turns gold, the brightest gold in the video |
 | 190.40 | Just a toy, and only for fun! | You grin; Clawd salutes from the landing; every other flat stays lit (they're for other apps) |
 | 192.8 | (dip) | Every light dims a breath |

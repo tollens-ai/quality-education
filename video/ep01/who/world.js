@@ -14,7 +14,8 @@
 // st.capsule ({ p: 0..1 up the chute pipe }), st.directoryGlint (0..1 sweep), st.lob (0..1 the old
 // builders' throw), st.flats[id].served for every resident, including '9R' (you tap the phone).
 // st.youPause (0..1) freezes your curl mid-rep, blind shadow included. st.clawdLine (0..1, default
-// st.baseWindow) writes the directory's CLAWD line left to right.
+// st.baseWindow) writes the directory's CLAWD line left to right. st.quotaY (a screen y, 1080x1920
+// frame) places the quota readout; otherwise it parks at 38-58% of the frame height.
 // Debug: set st._prof = [] to collect per-stage timings (forces a flush between stages).
 
 import { W, H, clamp01, lerp, smooth, easeOut, between } from '../../lib/stage.js';
@@ -2474,26 +2475,30 @@ function drawTube(g, t, st, cam, V, lod) {
   if (y0 < V.y1 + 20) { box(g, x - 4, y0 - 4, w + 8, 14, '#5A6070', 3, 3); }
   // brass clamps, one per floor
   for (let fl = 1; fl <= P.FLOORS; fl++) { const by = P.floorLevel(fl) - 180; if (by > ya && by < yb) { box(g, x - 5, by - 6, w + 10, 12, '#C9A24E', 2.5, 3); circ(g, x - 1, by, 2, '#8A6A2A', 0); } }
-  // the readout rides the level, or waits at the edge of view pointing to it
-  const vh = V.y1 - V.y0, lo = V.y0 + vh * 0.22, hi = V.y1 - vh * 0.3;
-  const lo2 = Math.max(lo, y1 + 40), hi2 = Math.min(hi, y0 - 40);
-  if (hi2 > lo2 && V.z >= 0.4) {
-    const ry = clamp(lvl, lo2, hi2), rx = x - 90;
-    const used = Math.round((1 - q) * 100);
-    box(g, rx - 4, ry - 34, 84, 68, '#15161F', 3, 8);
-    txt(g, 'QUOTA', rx + 38, ry - 20, 12, '#C9C3D8', { font: F.pixel, weight: 700 });
-    txt(g, `${used}%`, rx + 38, ry + 4, 27, used >= 100 ? '#FF6A5A' : '#FFB27A', { weight: 800 });
-    txt(g, 'used', rx + 38, ry + 24, 12, '#C9C3D8', { font: F.pixel });
-    seg(g, rx + 80, ry, x, ry, '#15161F', 4);
-    if (Math.abs(ry - lvl) > 4) txt(g, lvl > ry ? '▼' : '▲', rx - 16, ry, 16, PAL.token, { weight: 800 });
-    const tag = clamp01(st.sessionTag || 0);
-    if (tag > 0.01) {
-      const sw = Math.sin(t * 2.2) * 0.06;
-      g.save(); g.translate(rx + 38, ry + 34); g.rotate(sw); g.globalAlpha = tag;
-      seg(g, 0, 0, 0, 12, '#C9C3D8', 2);
-      box(g, -76, 12, 152, 36, '#FFF3E0', 3, 6);
-      txt(g, '↻ new session', 0, 30.5, 17, '#C0502A', { font: F.pixel, weight: 700 });
-      g.restore(); g.globalAlpha = 1;
+  // The readout sits beside the tube in the calm middle of the frame (its centre within 38-58% of the
+  // height, clear of the hook rows at 150-560 px and the lyric band at 1150-1520 px), riding the level
+  // when the level is there and pointing to it when not. st.quotaY (a screen y) places it instead.
+  if (V.z >= 0.4) {
+    const z = cam.zoom, toW = sy => cam.y + (sy - H / 2) / z;
+    const tag = clamp01(st.sessionTag || 0), hb = 34 * z, tagH = tag > 0.01 ? 50 * z : 0;
+    const bandLo = toW(0.38 * H + hb + tagH), bandHi = toW(0.58 * H - hb);
+    const ry = st.quotaY != null ? toW(st.quotaY) : clamp(lvl, bandLo, Math.max(bandLo, bandHi)), rx = x - 90;
+    if (ry >= y1 + 40 && ry <= y0 - 40) {
+      const used = Math.round((1 - q) * 100);
+      box(g, rx - 4, ry - 34, 84, 68, '#15161F', 3, 8);
+      txt(g, 'QUOTA', rx + 38, ry - 20, 12, '#C9C3D8', { font: F.pixel, weight: 700 });
+      txt(g, `${used}%`, rx + 38, ry + 4, 27, used >= 100 ? '#FF6A5A' : '#FFB27A', { weight: 800 });
+      txt(g, 'used', rx + 38, ry + 24, 12, '#C9C3D8', { font: F.pixel });
+      seg(g, rx + 80, ry, x, ry, '#15161F', 4);
+      if (Math.abs(ry - lvl) > 4) txt(g, lvl > ry ? '▼' : '▲', rx - 16, ry, 16, PAL.token, { weight: 800 });
+      if (tag > 0.01) {
+        // the new-session tag rides just above the readout
+        g.save(); g.translate(rx + 38, ry - 34); g.rotate(Math.sin(t * 2.2) * 0.04); g.globalAlpha = tag;
+        seg(g, 0, 0, 0, -12, '#C9C3D8', 2);
+        box(g, -76, -48, 152, 36, '#FFF3E0', 3, 6);
+        txt(g, '↻ new session', 0, -29.5, 17, '#C0502A', { font: F.pixel, weight: 700 });
+        g.restore(); g.globalAlpha = 1;
+      }
     }
   }
 }

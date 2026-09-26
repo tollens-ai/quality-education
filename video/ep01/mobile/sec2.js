@@ -73,8 +73,9 @@ function personScene(g, t, S, i, { lyrics = true } = {}) {
   const pv = settle(between(t, tv - 0.1, tv + 0.5));
   const px = 760, py = 700 + Math.sin(t * 1.1 + i) * 6;
   if (t >= tv - 0.1) {
-    const hy = lerp(420, py, pv);
-    g.save(); g.strokeStyle = PAL.black; g.lineWidth = 3; g.beginPath(); g.moveTo(px, 150); g.lineTo(px, hy - 90); g.stroke(); g.restore();
+    const hy = lerp(560, py, pv);
+    g.save(); g.strokeStyle = PAL.black; g.lineWidth = 3; g.beginPath(); g.moveTo(px, 470); g.lineTo(px, hy - 90); g.stroke(); g.restore();
+    pin(g, px, 470, PAL.black, 0.8);
     at(g, px, hy, Math.sin(t * 1.3 + i) * 0.05, lerp(0.6, 1.45, pv), () => {
       valuePlate(g, P.value);
       if (t >= tv) { if (P.value === 'neat') g.translate(0, 130); labelOn(g, P.value, VALUE[P.value].dark && P.value !== 'neat' ? PAL.black : PAL.white); }

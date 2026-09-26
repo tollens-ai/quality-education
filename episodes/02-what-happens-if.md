@@ -3,8 +3,7 @@
 **Concept:** testing is finding out what's actually true about the product, by exploring and
 experimenting. Checking, answering yes-or-no questions you already knew to ask, is one useful
 part of it.
-**Status:** talking points under discussion with Qing (2026-09-26). No lyrics until they're
-agreed (Qing: "let's discuss the talking points before writing the lyrics").
+**Status:** talking points agreed (2026-09-26); lyrics v1 drafted below, for Qing's ear.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 
@@ -54,7 +53,20 @@ On naming the product and the bot:
 
 > no, don't mention [the product] or [the bot] - any bot with a browser and my playbook can do it
 
-## Talking points (v2, for Qing's check)
+On the talking points v2:
+
+> 1. yeah I think that's reasonable! 2. yeah I think show multiple claudes , at least, but you can
+> totally show a grokbot (their logo is kinda cute, though obviously not as cute as muse) or
+> something if you want
+
+> anyway, let's not make too much of point 9 - I think it's irrelevant if we just frame it as a
+> team effort before humans and AI
+
+## Talking points (v2, agreed with Qing's notes above)
+
+Point 9 is folded into point 8: testing is a team effort between humans and AI, and the song
+doesn't argue with Bach and Bolton. The team on screen is several Claudes at least, and it can
+include other bots with their real marks.
 
 **Misconception, in the viewer's voice:** "It wrote tests and they all pass, so it's tested."
 
@@ -140,3 +152,98 @@ screen):
 - Adding TDD instructions alone made one agent's regressions worse (6.08% to 9.94%), while giving
   it the map of which tests cover which code cut them to 1.82%
   ([TDAD, arXiv 2603.17973](https://arxiv.org/abs/2603.17973)).
+
+## Lyric sheet (v1, for Qing's ear)
+
+Written for the performer from the start (LYRICS.md): contrasting verses, the pre-chorus and
+chorus repeated word for word, and the resolution in an outro. Backing vocals are in italics and
+brackets. Stresses in capitals where the line depends on them.
+
+**Style (proposal):** Britpop-disco: four-on-the-floor, handclaps, a funky bass, bright strings.
+About 124 bpm. The same singer as episode 1: British female vocal with a slight robotic edge, so
+Clawd sounds like Clawd. The band drops out before each chorus. Half-time break with a gang
+chant. Cheerful and smug in verse 1, then curious and delighted.
+
+**Intro**
+> Two hundred tests, and every one is green!
+
+**Verse 1** (what the green is made of; each line ends on the same punchline)
+> I checked that two was two, and two it was!
+> I told the mock say "five", and five it was!
+> I checked the page was still the page it was!
+> I checked the blue was blue, and blue it was!
+> All of them green!
+> Shipped it Monday, clean!
+> *(spoken)* …Wait. Where's your set?
+
+**Pre-chorus**
+> All my questions yes or no, all my answers yes, yes, yes!
+> I only asked the questions
+> that I knew the answers to.
+
+**Chorus** (sung twice through each time)
+> What happens if? *(what happens if?)*
+> What happens when? *(what happens when?)*
+> No signal: did it save the set?
+> You tap it twice, your thumb's all wet?
+>
+> What happens if? *(what happens if?)*
+> What happens when? *(what happens when?)*
+> You switch to pounds: a new best, wow?
+> The screen goes dark, and where's it now?
+
+**Verse 2** (going to look; the finds)
+> Clocks went back? Your streak just stopped.
+> Typed a thousand? Top the lot!
+> Two tabs open? Half got dropped.
+> Screen reader? "Button, button… what?"
+> Found one! Found two! Found three! Found four!
+> *(spoken)* There's always more!
+
+**Pre-chorus**, **Chorus**
+
+**Bridge** (why agents write exam tests)
+> I learned to test from a million repos *(whoa-oh)*
+> where tests were written 'cause you're meant to *(whoa-oh)*
+> then I got marked on whether they passed *(whoa-oh)*
+> so I aced it, and found out nothing new.
+
+**Break** (half time, gang chant, then the team)
+> Checking's yes or no! *(yes or no!)*
+> Testing's finding out! *(finding out!)*
+> Testing is a team! *(and me! and me! and me!)*
+> And you're the one who knows what matters.
+
+**Final pre-chorus**
+> Take me where you're using it, show me how you're using it,
+> I'll go and ask the questions
+> no one knows the answers to.
+
+**Chorus**
+
+**Outro**
+> What happens if? *(I checked it!)*
+> What happens when? *(I tried it!)*
+> It keeps your set till the signal's back,
+> and two wet taps is one. That's that!
+
+**Line to remember:** "I only asked the questions that I knew the answers to."
+
+**Key frames** (only the ones a line depends on)
+- Everything green: the ticks fill the screen on the first line.
+- The punchline tests of verse 1, each one shown as the code it is (`expect(2).toBe(2)`).
+- The basement gym: one bar of signal, then none, and the set that isn't there.
+- The team in the break: several Clawds and bots with different jobs, and your hand.
+
+## The brief, before and after
+
+Before:
+
+> write tests. make sure they pass.
+
+After (added to episode 1's gym-log brief):
+
+> test it as me: basement gym, no signal, sweaty thumbs
+> what happens if: two taps, pounds, the clocks go back
+> checks only where they could fail for a reason I'd care about
+> tell me what you tried, what you found, and what you didn't try

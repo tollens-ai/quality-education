@@ -198,8 +198,10 @@ they're sung. What it found, now fixed:
   0.45 s before its cut, and where a line ends on the cut, the cut waits for the next beat.
 - Words that blended into their backgrounds: the hut boards, the PASS stamp, the dawn backing
   vocals. The painted lettering got a thin ink outline.
-- SHOW?, WALL., CHEAP?, CLOCK. and one MATTERS placard ran into the strip on the right where
-  apps put their buttons. They're now clear of it.
+- SHOW?, WALL., CHEAP? and one MATTERS placard ran into the strip on the right where apps put
+  their buttons. They're now clear of it. CLOCK. still reaches into it for its last half-second:
+  the words wrap round the dial, and pulling that end in would turn WORKING, at the other end,
+  further upside down.
 - Crowded rows at phone size: the intro's line spacing, KEEP running into "or built to", Nana's
   empty sign.
 

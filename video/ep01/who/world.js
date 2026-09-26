@@ -1543,7 +1543,10 @@ RES['2R'] = (g, t) => {
 // ---------- floor 10: the agents' flats, dark until they're counted ----------
 function drawTopFlat(g, t, S, st, id, f, lod) {
   const isM = id === '10L', up = clamp01(isM ? (st.bots?.molty || 0) : (st.bots?.jolly || 0));
-  const on = up > 0 ? clamp01(up * 1.4 - 0.1 * (frac(t * 13) > 0.5 && up < 0.6 ? 1 : 0)) : 0;
+  // While a bot is arriving its light flickers on; st.botsSteady (set once they're settled but
+  // quiet, in the final chorus) keeps a low light steady instead.
+  const flick = !st.botsSteady && frac(t * 13) > 0.5 && up < 0.6 ? 1 : 0;
+  const on = up > 0 ? clamp01(up * 1.4 - 0.1 * flick) : 0;
   const R = isM
     ? { wall: '#205466', floor: '#B89A62', lamp: [230, -250, 260], lampCol: '#BFF0FF' }
     : { wall: '#8FA6BA', floor: '#9C7A56', lamp: [240, -200, 260] };
@@ -1574,7 +1577,7 @@ function drawTopFlat(g, t, S, st, id, f, lod) {
   // colours are never tinted.
   if (on > 0.02) {
     g.save(); g.globalAlpha *= clamp01(on);
-    safe(g, () => cast.bot(g, isM ? 'molty' : 'jolly', lx, -30, 1.5, { wave: up, lit: on, t }));
+    safe(g, () => cast.bot(g, isM ? 'molty' : 'jolly', lx, -30, 1.5, { wave: st.botWave ?? up, lit: on, t }));
     g.restore();
   }
   if (on < 0.98) {
@@ -2542,7 +2545,7 @@ function drawRoof(g, t, S, st, V, lod) {
   const pb = Math.abs(Math.sin(t * 3)) > 0.9 ? 4 : 0;
   g.save(); g.translate(700, R - 44); ell(g, 0, -10, 14, 9, '#8A90B0', 2); circ(g, 12, -20 + pb, 6, '#8A90B0', 2); poly(g, [17, -21 + pb, 23, -19 + pb, 17, -17 + pb], '#E0A13A', 1); circ(g, 13, -21 + pb, 1.2, OUT, 0); poly(g, [-12, -12, -22, -6, -12, -6], '#6A7090', 1.5); g.restore();
   // Hermes
-  if (hb > 0.01) safe(g, () => cast.bot(g, 'hermes', dox + dow / 2, sy, 1.4, { wave: hb, lit: hb, t }));
+  if (hb > 0.01) safe(g, () => cast.bot(g, 'hermes', dox + dow / 2, sy, 1.4, { wave: st.botWave ?? hb, lit: hb, t }));
 }
 
 // ===================================================================================================

@@ -123,7 +123,7 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
 - **Priorities: teaching first, artistry second** (Qing, 2026-09-26: "the number one priority was
   teaching and the second was artistry"). The first video served neither and optimised for
   retention instead: "our mistake was trying to make a slop tiktok rather than an artsy music
-  video". Retention rules below serve these two and never outrank them.
+  video". Retention rules, here and in the write-episode skill, serve these two and never outrank them.
 - Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
 - Every episode ships liner notes: how it was checked, where it falls short.
 - ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the

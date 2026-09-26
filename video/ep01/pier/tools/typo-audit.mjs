@@ -5,7 +5,11 @@
 //
 //   node video/ep01/pier/tools/typo-audit.mjs [--step 0.1] [--w 540] [--from 0] [--to 201] > audit.jsonl
 //
-// Run from the repo root on a machine with Playwright's Chromium.
+// Run from the repo root on a machine with Playwright's Chromium. On a small box, run three time
+// ranges in parallel and join the files in order.
+
+// Episode settings: change these when you copy the renderer for another episode.
+const SCENE = '/video/ep01/pier/main.js', SONG = '/music/ep01';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -30,7 +34,7 @@ const server = http.createServer((req, res) => {
 const browser = await chromium.launch({ args: ['--disable-dev-shm-usage'] });
 const page = await browser.newPage({ viewport: { width: w + 40, height: Math.round(w * 16 / 9) + 80 } });
 page.on('pageerror', e => console.error('page error:', e.message));
-await page.goto(`http://localhost:${server.address().port}/video/lib/player.html?scene=/video/ep01/pier/main.js&song=/music/ep01&w=${w}&render=1`);
+await page.goto(`http://localhost:${server.address().port}/video/lib/player.html?scene=${SCENE}&song=${SONG}&w=${w}&render=1`);
 await page.waitForFunction(() => window.ready === true, null, { timeout: 30000 });
 const end = Math.min(to, await page.evaluate(() => window.duration));
 for (let i = 0; from + i * step < end; i++) {

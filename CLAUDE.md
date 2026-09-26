@@ -30,8 +30,9 @@ someone watch it? every 3 seconds, why would they watch the next 3 seconds? why 
 to the end? why would they like it? why would they SHARE it?" Every draft answers each of those
 questions specifically. The [write-episode skill](.claude/skills/write-episode/SKILL.md) turns them
 into steps and checks, and [CRAFT.md](CRAFT.md) holds the evidence behind them. Use the skill to
-write, revise or audit any episode. [VIDEO.md](VIDEO.md) has the brief and the way of working
-that made episode 1's video.
+write, revise or audit any episode. For the video, use the
+[music-video skill](.claude/skills/music-video/SKILL.md); [VIDEO.md](VIDEO.md) has the brief, the
+bar and the pitfalls that made episode 1's.
 
 ## Everything tracked is public
 

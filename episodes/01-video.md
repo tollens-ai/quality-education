@@ -19,7 +19,7 @@ the three things she asked for:
 As with v3, one auteur made it, with no reviewer committee.
 
 Qing on v4 (2026-09-26): "Thank you. It looks amazing. It's exactly what I wanted." She had two
-more notes, and this cut answers both:
+more notes, and the final cut answers both. On that cut: "it's so good! I think it's good to go".
 
 - **Typography:** "Please can you do a typography check for size, legibility, and comprehensibility
   throughout because I just noticed that the Kubernetes scaling up your blog frame is kind of hard
@@ -236,6 +236,9 @@ headphones in its own colours. Molty is drawn by hand from OpenClaw's open-sourc
 - **Clawd's lip-sync follows loudness, not the actual sounds,** so it reads as singing, not as
   the words.
 - **The alphabet has capitals only.** The corner marks are in capitals too, including TOLLENS.
+- **The ∴ in the corner mark isn't quite equilateral** in the final cut. Qing (2026-09-26): "for
+  next time make the three dots equilateral for Tollens, but it really doesn't matter for today".
+  The glyph is fixed in the code for the next render.
 - **Jolly is redrawn in the video's style.** Meta's terms forbid modifying their assets, and the
   research asked for him to be drawn faithfully. This is the one mark-related call Qing should
   make: keep him, or swap him for the Muse logo on a card.

@@ -17,12 +17,17 @@ from collections import defaultdict
 
 MIN_CAP, MIN_TIME, MAX_EDGE, MAX_COVER, MAX_TILT = 50, .6, .35, .25, .15
 
+# Episode settings: change these when you copy the renderer for another episode.
+LYRICS = 'music/ep01/lyrics.json'
+UNTIL = 199.1          # ignore frames after this: episode 1's tide and fade take the last words on purpose
+THUMBNAIL_LINE = True  # the first line is on screen from the first frame, before it's sung
+
 frames = [json.loads(x) for x in open(sys.argv[1])]
 step = round(frames[1]['t'] - frames[0]['t'], 3)
-lyrics = json.load(open('music/ep01/lyrics.json'))
+lyrics = json.load(open(LYRICS))
 lines = [l for l in lyrics if l['start'] is not None]
 lead = [[w for w in l['words'] if not w.get('backing') and w['s'] is not None] for l in lines]
-lead[0][0] = {**lead[0][0], 's': -.4}
+if THUMBNAIL_LINE: lead[0][0] = {**lead[0][0], 's': -.4}
 norm = lambda s: re.sub(r"[^A-Z0-9']", '', s.upper().replace('’', "'"))
 
 def inside(b):
@@ -46,7 +51,7 @@ for f in frames:
         c = r.get('ctx') or {}
         if c.get('mark') or not (r['main'] or r.get('note')): continue
         if r['alpha'] < .5 or r['prog'] < .95 or inside(r['box']) < .6: continue
-        if f['t'] > 199.1: continue   # the tide and the fade to black take the last words on purpose
+        if f['t'] > UNTIL: continue
         for key in words_of(r): seen[key].append((f['t'], r))
 
 def runs(entries):

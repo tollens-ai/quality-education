@@ -63,8 +63,8 @@ is the worked example of the finished shape.
    the result dizzying, hard to follow, spoiling lyrics before they were sung, and plain rather
    than beautiful. It is archived with its post-mortem in
    [archive/ep01-video-v1/](../../../archive/ep01-video-v1/README.md). Don't reuse it. What
-   worked instead (one auteur, no committee, the brief to start from) is in
-   [VIDEO.md](../../../VIDEO.md).
+   worked instead (one auteur, no committee) is the [music-video skill](../music-video/SKILL.md),
+   and the brief to start from is in [VIDEO.md](../../../VIDEO.md).
 
 5. **Write the agent-facing takeaway.** Show the vague prompt at the start and the rewritten prompt
    at the end. The rewrite must use the concept, not just be longer.

@@ -1,11 +1,19 @@
 # Video craft
 
-How to make an episode's music video. Episode 1 took four attempts. The third met the bar to
-share, and the fourth fixed the style notes Qing gave on it. This file records the brief and the
-way of working behind those two, so the next episode can start from them. Make the song first:
+How to make an episode's music video, whatever its style. Episode 1 took four attempts. The
+third met the bar to share, and the fourth fixed the style notes Qing gave on it; she called the
+result "so good! I think it's good to go" (2026-09-26). This file records the brief, the bar and
+the pitfalls behind those two, so the next episode can start from them. Make the song first:
 [MUSIC.md](MUSIC.md) and [LYRICS.md](LYRICS.md) cover it, and the video starts only once it's
-locked. [CRAFT.md](CRAFT.md) holds the research and the decisions behind this file. The episode-1
-renderer is the worked example: [video/ep01/pier/](video/ep01/pier/README.md).
+locked.
+
+- **To make a video,** use the [music-video skill](.claude/skills/music-video/SKILL.md): the
+  steps in order, and what to read at each.
+- **To draw in episode 1's style,** read
+  [ink and gouache, with the lyrics lettered in](.claude/skills/music-video/references/style-ink-and-gouache.md).
+  A new style gets its own reference beside it.
+- [CRAFT.md](CRAFT.md) holds the research and the decisions behind this file. The episode-1
+  renderer is the worked example: [video/ep01/pier/](video/ep01/pier/README.md).
 
 ## What worked and what didn't
 
@@ -49,8 +57,9 @@ effort level to max".
 
 ### The brief for the next video
 
-Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26). Run it at maximum effort. Fill
-in the episode.
+Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26). Run it at maximum effort, with
+the [music-video skill](.claude/skills/music-video/SKILL.md). Fill in the episode, and pick one of
+the two style lines.
 
 > Make the music video for episode N, "TITLE". The song is locked, and the teaching plan and what
 > the song says are in episodes/NN-slug.md.
@@ -62,8 +71,10 @@ in the episode.
 > humour, inspiration, joy and love.
 >
 > The bar, from episode 1:
-> - A hand-drawn animation style, not a shiny one. There are myriad to choose from; pick the one
->   that suits this song.
+> - Either (episode 1's style): draw it in episode 1's ink-and-gouache style, with the lyrics
+>   lettered into the pictures; its reference says how.
+>   Or (a new style): a hand-drawn animation style, not a shiny one. There are myriad to choose
+>   from; pick the one that suits this song, and write a reference for it as you go.
 > - The typography is part of the art direction. Design where each sung line lives in its shot
 >   and what it's made of, so it never looks like a caption added afterwards. Hand-lettering, or
 >   judiciously chosen fonts and layouts.
@@ -75,49 +86,28 @@ in the episode.
 >   proper shapes, not filler.
 > - One world, and it follows the lesson. The storyline serves the teaching.
 > - Clear at every moment: if I can't tell what's going on, I scroll away.
-> - Clawd sings. The bots appear with their real marks, unaltered.
+> - Clawd sings. The bots appear with their real marks, unaltered. Tollens's ∴ is three dots
+>   at the corners of an equilateral triangle.
 >
 > Teaching and beauty are both conditions for release. Take your time, there's no rush, and show
 > me the finished video.
 
 ## How the auteur works
 
-This is what rounds 3 and 4 did, in order. It's a habit, not a gate: nothing here waits for a
-review.
+The steps are in the [music-video skill](.claude/skills/music-video/SKILL.md). What they rest on,
+from rounds 3 and 4:
 
-1. **Orient in under 20 minutes.** Read the episode file, especially the teaching plan, what the
-   song says in prose, and the guardrails for the pictures. Read the lyric timings. Don't watch
-   or read earlier attempts unless the job is to revise one.
-2. **Measure the record.** Analyse the take for the bar grid, the kick and the vocal loudness
-   (`tools/analyse.py` in the ep01 renderer). Everything then moves to the song: characters
-   groove on the beat, the camera breathes with the kick, the singer's mouth follows the vocal.
-3. **Choose one world that follows the lesson.** Episode 1's is a seaside pier: dark while Clawd
-   works without context, lit when the chorus asks who it's for, daylight once you answer. At
-   the same time, choose the art style and how the words will be made. They're one decision.
-4. **Build the look before any shots.** Make the drawing kit and the hand-drawn layer (episode
-   1's `ink.js` wraps the canvas so every path comes out drawn by hand), then the lettering.
-   Then the cast on a character sheet, the hero environment, and one hero frame. Judge that frame
-   for beauty before going on. A look built as a layer can be changed later without redrawing
-   every shot.
-5. **Build the shots in song order.** For each sung line, decide:
-   - the one thing the viewer must read
-   - where the words live in the picture, and what they're made of: a sign, bulbs, chalk,
-     stitches, stars, sand
-   - how they're written on as they're sung
-
-   No word appears before it's sung, except an opening line that doubles as the thumbnail.
-6. **Watch the whole film early and often.** At 540 wide a full preview renders in minutes.
-   Watch it three ways:
-   - a contact sheet at one frame a second
-   - frame-to-frame motion measured per second, to find stretches that have gone static
-   - frame strips at 30 fps across the big moves and every cut
-7. **Make a craft pass at full resolution.** Look at every shot in song order, a few at a time,
-   and fix whatever isn't beautiful or clear. Give verse 2 onwards the same time as the opening,
-   because that's where v3 slipped. Then check the lyric-heavy frames at phone size, 390 px wide.
-8. **Master, document and land.** While the master renders, write the liner notes: how it was
-   made, how it was checked, where it falls short. Verify the master itself (duration, frame
-   count, stills pulled from the file), make the upload copy and a thumbnail, then commit and
-   push.
+- **One auteur, no committee.** Taste makes the choices, and your own eyes check them. Nothing
+  waits for a review.
+- **The world and the style are one decision,** and the words are part of it: decide what
+  they're made of when you choose the look.
+- **Build the look as a layer before any shots,** so it can change late without redrawing
+  everything. Episode 1's hand-drawn restyle took about two hours because of this.
+- **Hold the bar to the end.** v3 slipped from verse 2; give the second half the same time as
+  the opening.
+- **Measure what eyes miss, then look at what the measures flag.** A check of every word found
+  far more than the one frame Qing spotted. Some flags are the design.
+- **When a note names one fault, look for its kind everywhere.**
 
 ## The bar, as checks
 
@@ -126,14 +116,16 @@ review.
 - **Clarity:** each shot has one main read, and the viewer can always tell what's happening.
 - **Words:** every sung word is on screen from its onset and is part of the picture. Words are
   readable on a phone and never cover a face. They stay clear of the bottom 400 px, and of the
-  right 140 px in the lower half, where platform UI sits. Measure it rather than eyeball it: the
-  ep01 renderer's `tools/typo-audit.mjs` and `typo-report.py` check every sung word's size, time
-  on screen, contrast, cover, tilt and reading order. Then look at the flags; some are the design.
+  right 140 px in the lower half, where platform UI sits. Measure it rather than eyeball it,
+  every word at every tenth of a second: size, time on screen, contrast, cover, tilt and reading
+  order (in the ep01 renderer, `tools/typo-audit.mjs` and `typo-report.py`). Then look at the
+  flags; some are the design.
 - **Crowds:** everyone stands on the ground and the crowd is drawn from the back to the front.
   Nobody is cut off in mid-air: a cut belongs to the frame's edge or to something in front.
   Whatever someone holds sits in their hand. Named characters appear once, among strangers.
-- **Motion:** nothing goes static unless the moment calls for stillness. Drawing on twos with
-  the camera moving on every frame reads as animation.
+- **Motion:** nothing goes static unless the moment calls for stillness
+  (`video/lib/motion.py` lists the near-still seconds). In a hand-drawn style, drawing on twos
+  with the camera moving on every frame reads as animation.
 - **Teaching:** the guardrails in the episode file hold. Questions about truth and claims go to
   Qing.
 - **Marks:** corporate marks are drawn exactly as provided (see
@@ -141,15 +133,9 @@ review.
 
 ## Pitfalls met on episode 1
 
-- Colour emoji on a canvas take their opacity from `fillStyle`. In a hand-drawn film, draw your
-  own (v4 paints its flame).
-- A canvas font of size 0 is invalid, so the previous font stays in place: text scaled to zero
-  size draws at full size. Skip drawing anything that has scaled to nothing.
-- An ease that should return 0 can return about 1e-16, and a `> 0` check then draws the thing
-  early. Blank cards appeared a beat before their letters until the ease returned exactly 0.
-- Measure any hand-drawn wobble in master pixels, or previews won't look like the master.
-- Let a lettered row shrink to fit the frame rather than run off the edge.
-- Between capitals, word spaces need about 0.4 of the cap height, or "DID I" reads as "DIDI".
+For any style. The pitfalls of drawing in ink and gouache are in
+[its reference](.claude/skills/music-video/references/style-ink-and-gouache.md).
+
 - A line sung just before a cut is gone before it's read. The key line of episode 1 ("I can't
   read your mind") was on screen for under 0.2 s in three places. Finish writing each word about
   0.45 s before its cut, move the cut to the next beat, or hold the key line as one block.
@@ -160,5 +146,10 @@ review.
 - People drawn from the waist up float unless something in front cuts them off. In a crowd,
   draw whole people from the back row forward; episode 1's bridge drew the front row first, and
   the back row's bodies covered the front row's faces.
+- Let a lettered row shrink to fit the frame rather than run off the edge.
+- Measure anything hand-drawn, such as a wobble or a line weight, in master pixels, or previews
+  won't look like the master.
 - On a 4-core, 8 GB box, render the 1080×1920 master in three parallel segments. Four at once
   crashed a segment even at 540 wide, and three at full size ran clean.
+- On a shared box, another job can hang a render segment. Watch the segment files grow, and
+  restart any that stop.

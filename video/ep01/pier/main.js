@@ -42,7 +42,7 @@ export function drawMarks(g) {
   const col = markColor;
   letter(g, '@yanqingcheng', 36, 62, 22, { col, w: .15, seed: 5 });
   const tw = letter(g, 'TOLLENS', W - 160, 62, 22, { col, w: .15, align: 'right', seed: 9 });
-  letter(g, '∴', W - 160 - tw - 34, 66, 30, { col, w: .2, seed: 8 });
+  letter(g, '∴', W - 160 - tw - 36, 64, 34, { col, w: .2, seed: 8 });
   g.restore();
   if (AUDIT.on) AUDIT.ctx = null;
 }

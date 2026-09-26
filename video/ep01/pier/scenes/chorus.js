@@ -9,8 +9,8 @@ import { hand, guideDog, flame } from '../props.js';
 import { band, blinkAt } from '../band.js';
 import { pierWide, seagull, fireworks } from './pier.js';
 import { hookSign, backingScript, wordTimes, bandMedium, clawdClose, bulbWord } from './stage.js';
-import { sing, lineNear, STYLE } from '../lyrics.js';
-import { letter, measure, skeleton } from '../hand.js';
+import { sing, lineNear, writeDur, STYLE } from '../lyrics.js';
+import { letter, measure, skeleton, AUDIT } from '../hand.js';
 
 const onset = (lineT0, i) => wordTimes(lineT0)[i]?.s ?? lineT0;
 const GOLD = STYLE.hot, PINK = STYLE.pink;
@@ -58,8 +58,8 @@ function railing(g, t, y, o = {}) {
 // ---------------------------------------------------------------- FAST / STURDY / CHEAP
 const CORNERS = [
   { key: 'FAST', x: 540, y: 400, col: '#4fd6f2', icon: 'bolt' },
-  { key: 'STURDY', x: 215, y: 1110, col: '#a9b8ff', icon: 'anchor' },
-  { key: 'CHEAP', x: 865, y: 1110, col: GOLD, icon: 'coin' },
+  { key: 'STURDY', x: 272, y: 1110, col: '#a9b8ff', icon: 'anchor' },
+  { key: 'CHEAP', x: 800, y: 1110, col: GOLD, icon: 'coin' },
 ];
 function icon(g, kind, x, y, s, col) {
   g.save(); g.ink = null;
@@ -86,15 +86,20 @@ function cornerSign(g, t, k, appear, focus, wordP, word) {
   g.save(); g.globalAlpha = .45 + .55 * dim;
   icon(g, k.icon, k.x, k.y, s * .9, mix(k.col, '#ffffff', .25));
   g.restore();
-  // The ribbon, and the sung word on it.
-  const rw = s * 2.3, ry = k.y + s * 1.05;
+  // The ribbon, and the sung word on it: a fixed place under the sign, wide enough for the word.
+  const RS = 108 * spring(appear, 3, 6);
+  const rw = Math.max(RS * 2.3, measure(word, 66, .17) + 44), ry = k.y + RS * 1.05;
   g.save(); pen(g, 9, .8);
   g.fillStyle = shade(k.col, -.35);
   poly(g, [[k.x - rw / 2 - 30, ry - 6], [k.x - rw / 2 + 4, ry - 6], [k.x - rw / 2 + 4, ry + 70], [k.x - rw / 2 - 30, ry + 70], [k.x - rw / 2 - 14, ry + 32]]); g.fill();
   poly(g, [[k.x + rw / 2 + 30, ry - 6], [k.x + rw / 2 - 4, ry - 6], [k.x + rw / 2 - 4, ry + 70], [k.x + rw / 2 + 30, ry + 70], [k.x + rw / 2 + 14, ry + 32]]); g.fill();
-  g.fillStyle = mix(k.col, '#ffffff', .55); rr(g, k.x - rw / 2, ry - 18, rw, 82, 6); g.fill();
+  g.fillStyle = mix(k.col, '#ffffff', .6); rr(g, k.x - rw / 2, ry - 20, rw, 90, 6); g.fill();
   g.restore();
-  if (wordP > 0) letter(g, word, k.x, ry + 48, 58, { align: 'center', col: '#2b1f3c', w: .17, shade: null, progress: wordP, seed: k.x | 0 });
+  if (wordP > 0) {
+    if (AUDIT.on) AUDIT.ctx = { group: 'grp:' + word };
+    letter(g, word, k.x, ry + 51, 66, { align: 'center', col: '#2b1f3c', w: .17, shade: null, progress: wordP, seed: k.x | 0 });
+    if (AUDIT.on) AUDIT.ctx = null;
+  }
 }
 function edge(g, t, a, b, on) {
   if (on <= 0) return;
@@ -123,21 +128,31 @@ export function triangleShot(g, t, c, o) {
   edge(g, t, CORNERS[0], CORNERS[1], appear[1] * 1.2);
   edge(g, t, CORNERS[1], CORNERS[2], appear[2] * 1.2);
   edge(g, t, CORNERS[2], CORNERS[0], appear[2] * 1.2);
-  const wp = i => clamp((t - ws[i].s) / .22);
+  const wp = i => clamp((t - ws[i].s + .1) / writeDur(ws[i].s - .1, .22));
   cornerSign(g, t, CORNERS[0], appear[0], focus[0], wp(0), 'FAST');
   cornerSign(g, t, CORNERS[1], appear[1], focus[1], wp(4), 'STURDY,');
   cornerSign(g, t, CORNERS[2], appear[2], focus[2], wp(6), 'CHEAP?');
   // The little words run along the triangle, so the line reads round it.
-  if (t >= ws[1].s) letter(g, 'TO RUN,', 815, 430, 60, { align: 'center', col: '#fff3de', w: .16, shade: STYLE.paint.shade, progress: clamp((t - ws[1].s) / .3), seed: 5 });
+  // TO RUN, follows FAST on its baseline; the second OR sits between STURDY and CHEAP.
+  const base0 = CORNERS[0].y + 108 * 1.05 + 51, base1 = CORNERS[1].y + 108 * 1.05 + 51;
+  const fastEnd = CORNERS[0].x + Math.max(108 * 2.3, measure('FAST', 66, .17) + 44) / 2 + 30;
+  if (t >= ws[1].s) {
+    if (AUDIT.on) AUDIT.ctx = { group: 'grp:TO RUN,' };
+    letter(g, 'TO RUN,', fastEnd + 20, base0, 62, { col: '#fff3de', w: .16, shade: STYLE.paint.shade, outline: STYLE.paint.outline, progress: clamp((t - ws[1].s) / .25), seed: 5 });
+    if (AUDIT.on) AUDIT.ctx = null;
+  }
   const edgeWord = (i, x, y, seed) => {
     if (t < ws[i].s) return;
-    letter(g, 'OR', x, y, 64, { align: 'center', col: '#fff3de', w: .16, shade: STYLE.paint.shade, progress: clamp((t - ws[i].s) / .15), seed });
+    if (AUDIT.on) AUDIT.ctx = { group: 'grp:OR' };
+    letter(g, 'OR', x, y, 66, { align: 'center', col: '#fff3de', w: .16, shade: STYLE.paint.shade, outline: STYLE.paint.outline, progress: clamp((t - ws[i].s) / .15), seed });
+    if (AUDIT.on) AUDIT.ctx = null;
   };
   edgeWord(3, 300, 800, 8);
-  edgeWord(5, 540, 1180, 9);
+  edgeWord(5, 540, base1, 9);
   // Where the pull goes: toward the corner being sung, then back to the middle.
   const mid = { x: 540, y: 900 };
-  const tgt = i => ({ x: lerp(mid.x, CORNERS[i].x, .55), y: lerp(mid.y, CORNERS[i].y, .55) });
+  // Pulled toward each corner, but never over its word.
+  const tgt = i => [{ x: 540, y: 750 }, { x: 370, y: 1000 }, { x: 710, y: 1000 }][i];
   const seg = (ta, a, b) => { const p = spring(inv(ta, ta + .5, t), 2.2, 5); return { x: lerp(a.x, b.x, p), y: lerp(a.y, b.y, p) }; };
   let pos = mid;
   if (o.variant === 3) {
@@ -168,7 +183,7 @@ export function triangleShot(g, t, c, o) {
       { x: 190, arm: -2.5, o: { skin: '#c98d67', hairStyle: 'bun', hair: '#2a1c18', top: '#f2efe6' }, i: 1 },
       { x: 890, arm: -2.5, o: { skin: '#f6d0b1', hairStyle: 'beanie', hatColor: '#3a8f6a', top: '#e0495d' }, i: 2 },
     ];
-    deferred.push(() => { for (const f of folks) if (appear[f.i] > 0) { const pp = spring(appear[f.i], 3, 6); person(g, f.x, 1790 - 60 * pp, { s: 96, ...f.o, eyes: 'happy', brow: 'up', armR: f.arm + Math.sin(t * 8 + f.x) * .2, armL: f.i === 0 ? -f.arm : .3, mouth: .5 }); } });
+    deferred.push(() => { for (const f of folks) if (appear[f.i] > 0) { const pp = spring(appear[f.i], 3, 6); person(g, f.x, 1790 - 60 * pp, { s: 96, ...f.o, below: 22, eyes: 'happy', brow: 'up', armR: f.arm + Math.sin(t * 8 + f.x) * .2, armL: f.i === 0 ? -f.arm : .3, mouth: .5 }); } });
   }
   const lean = (px - mid.x) / 800;
   g.save(); pen(g, 8, .8);
@@ -206,7 +221,7 @@ export function wowKeepShot(g, t, c, o) {
   const hz = seaNight(g, t, { hz: 1260, moon: false, refl: [{ x: 860, col: '#fff3c4', w: 26, a: .45 }, { x: 250, col: C.pink, w: 40, a: .4 * clamp(1 - (t - tWow) / 2.5) }] });
   const rocks = () => { g.save(); pen(g, 9, .8); g.fillStyle = '#1c1030'; g.beginPath(); g.moveTo(680, hz + 60); g.quadraticCurveTo(740, hz - 40, 840, hz - 10); g.quadraticCurveTo(940, hz - 60, 1040, hz); g.quadraticCurveTo(1080, hz + 20, 1100, hz + 60); g.closePath(); g.fill(); g.restore(); };
   const keepWords = (lit) => {
-    sing(g, t, L, { from: 4, rows: [{ text: 'or built to', x: 330, y: 1130, size: 66 }, { text: 'keep?', x: 340, y: 1300, size: 170 }], emph: { keep: { col: lit ? '#fff3c4' : '#c9c0e0' } } });
+    sing(g, t, L, { from: 4, rows: [{ text: 'or built to', x: 330, y: 1100, size: 66 }, { text: 'keep?', x: 340, y: 1318, size: 170 }], emph: { keep: { col: lit ? '#fff3c4' : '#c9c0e0' } } });
   };
   if (o.variant === 3) {
     // Final chorus: the only wow wanted is a flame for a new best, and nothing needs to stand for
@@ -239,8 +254,8 @@ export function wowKeepShot(g, t, c, o) {
   const lookR = t > tBuilt ? 1 : -1;
   clawd(g, 540, 1600, { s: 210, look: [lookR, -.6], eyes: t < tWeek ? 'star' : 'open', armL: t < tWeek ? -1.2 : -.2, armR: t > tKeep ? -1.1 : -.2, mouth: clamp(c.K.vocal(t)) });
   if (o.variant === 2) {
-    person(g, 150, 1760, { s: 105, skin: '#e8b48f', hairStyle: 'short', hair: '#1b1b24', top: '#1a1a22', glasses: 'round', eyes: 'star', armL: -2.6, armR: -2.6, mouth: .7, look: [-.3, -1] });
-    person(g, 930, 1760, { s: 105, skin: '#c98d67', hairStyle: 'bun', top: '#f2efe6', eyes: 'happy', armR: -2.2, look: [.3, -1] });
+    person(g, 150, 1760, { s: 105, below: 18, skin: '#e8b48f', hairStyle: 'short', hair: '#1b1b24', top: '#1a1a22', glasses: 'round', eyes: 'star', armL: -2.6, armR: -2.6, mouth: .7, look: [-.3, -1] });
+    person(g, 930, 1760, { s: 105, below: 18, skin: '#c98d67', hairStyle: 'bun', top: '#f2efe6', eyes: 'happy', armR: -2.2, look: [.3, -1] });
   }
   // WOW in sparks, and FOR A WEEK fading as the smoke drifts off.
   const fadeWeek = 1 - smooth(inv(tBuilt + .2, tKeep + .6, t)) * .65;
@@ -254,7 +269,7 @@ export function shipShot(g, t, c, o) {
   const L = o.line;
   const ws = wordTimes(L);
   const tShip = ws[0].s, tNow = ws[2].s;
-  const hz = seaNight(g, t, { hz: 1000, moonX: 540, moonY: 800 });
+  const hz = seaNight(g, t, { hz: 1000, moonX: 540, moonY: 872 });
   const go = easeIn(inv(tNow - .1, tNow + 1.2, t));
   const bx = lerp(560, 540, go), by = lerp(1520, hz + 30, Math.pow(go, .6));
   const s = lerp(1, .12, Math.pow(go, .5));
@@ -276,13 +291,13 @@ export function shipShot(g, t, c, o) {
   const pusher = o.pusher || 'clawd';
   if (pusher === 'clawd') clawd(g, 330, 1760, { s: 220, armR: t > tNow ? -.2 : .1, armL: -.3, eyes: t > tNow ? 'happy' : 'open', look: [.6, -.6] });
   else if (pusher === 'hand') { const pp = easeOut(inv(tNow - .5, tNow, t)); hand(g, lerp(640, 600, pp), lerp(1800, 1580, pp) + (t > tNow ? (t - tNow) * 200 : 0), 250, -.1, 'open', { sleeveCol: '#5b6cff' }); clawd(g, 880, 1780, { s: 190, eyes: 'happy', armR: -1.3, armL: -1.3, blush: 1 }); }
-  else person(g, 330, 1820, { s: 115, ...o.pusherO, armR: -1.4, eyes: 'happy', mouth: .6 });
-  // NOW slams in over the sea as the boat takes off.
-  sing(g, t, L, { from: 2, rows: [{ text: 'now,', y: 470, size: 230 }], emph: { now: { col: GOLD } }, speed: 3 });
+  else person(g, 330, 1820, { s: 115, ...o.pusherO, below: 12, armR: -1.4, eyes: 'happy', mouth: .6 });
+  // SHIP IT, then NOW slamming in as the boat takes off, lettered where they stay readable.
+  sing(g, t, L, { rows: [{ text: 'Ship it', y: 235, size: 112 }, { text: 'now,', y: 480, size: 212 }], emph: { now: { col: GOLD } } });
   // In the final chorus there's no one polishing: the whole line plays out here.
-  if (o.whole) sing(g, t, L, { from: 3, rows: [{ text: 'or polish it', y: 620, size: 70 }, { text: 'slow?', y: 760, size: 110 }], emph: { 'slow': { speed: .3 } } });
+  if (o.whole) sing(g, t, L, { from: 3, rows: [{ text: 'or polish it', y: 600, size: 66 }, { text: 'slow?', y: 730, size: 104 }], emph: { 'slow': { speed: .3 } } });
 }
-// A paper boat; SHIP IT is written on its sail as it's sung.
+// A paper boat with a pennant.
 function paperBoat(g, x, y, s, rot, flag, t, ws) {
   g.save(); g.translate(x, y); g.rotate(rot);
   glow(g, 0, -s * .15, s * .8, '#fff3dc', .3);
@@ -295,11 +310,6 @@ function paperBoat(g, x, y, s, rot, flag, t, ws) {
   g.restore();
   g.save(); g.translate(x, y); g.rotate(rot);
   if (s > 60) letter(g, flag, s * .09, -s * .8, s * .07, { align: 'center', col: '#fff', w: .15, seed: 3 });
-  // The sail's lettering, in ink, as if written on the paper before it was folded.
-  if (ws && t >= ws[0].s && s > 40) {
-    letter(g, 'SHIP', -s * .075, -s * .33, s * .11, { align: 'center', col: '#2b1f3c', w: .17, progress: clamp((t - ws[0].s) / .2), seed: 41 });
-    if (t >= ws[1].s) letter(g, 'IT', -s * .04, -s * .185, s * .11, { align: 'center', col: '#2b1f3c', w: .16, progress: clamp((t - ws[1].s) / .15), seed: 42 });
-  }
   g.restore();
 }
 
@@ -390,8 +400,9 @@ export function needShot2(g, t, c, o) {
   railing(g, t, 1180);
   const tNeed = onset(L, 3);
   guideDog(g, 730, 1530, 320, t);
-  g.save(); g.strokeStyle = '#f4f1ea'; g.lineWidth = 12; line(g, 170, 1720, 300, 1060); g.stroke(); g.strokeStyle = '#e0304a'; line(g, 170, 1720, 190, 1620); g.stroke(); g.restore();
-  person(g, 400, 1740, { s: 175, ...(o.personO || {}), armR: -2.9, armLenR: .8, eyes: 'open', mouth: t > tNeed + .2 ? .2 : 0, extra: (g2, u, hy, hr) => { g2.fillStyle = '#fff'; circle(g2, hr * 1.02, hy + u * .6, u * .8); g2.fill(); } });
+  // The white cane, held in the left hand, its red tip on the boards by their feet.
+  const cane = g2 => { g2.save(); g2.lineCap = 'round'; g2.strokeStyle = '#1b1b24'; g2.lineWidth = 13; line(g2, 8, -16, 13, -40); g2.stroke(); g2.strokeStyle = '#f4f1ea'; g2.lineWidth = 11; line(g2, 8, -16, -84, 150); g2.stroke(); g2.strokeStyle = '#e0304a'; line(g2, -70, 124, -86, 154); g2.stroke(); g2.restore(); };
+  person(g, 400, 1880, { s: 175, ...(o.personO || {}), full: true, shadow: true, armL: -.5, gripL: cane, armR: -2.9, armLenR: .8, eyes: 'open', mouth: t > tNeed + .2 ? .2 : 0, extra: (g2, u, hy, hr) => { g2.fillStyle = '#fff'; circle(g2, hr * 1.02, hy + u * .6, u * .8); g2.fill(); } });
   const cx = 540, cy = 1060;
   g.save(); g.ink = null;
   for (let k = 0; k < 4; k++) { const p = ((t * .9) + k * .25) % 1; g.strokeStyle = rgba(C.cyan, (1 - p) * .8); g.lineWidth = 7; g.beginPath(); g.arc(cx - 60, cy + 50, 40 + p * 260, -1.1, .3); g.stroke(); }
@@ -416,12 +427,13 @@ export function showShot(g, t, c, o) {
     streamers(g, t, o.boom + .05, 540, 1050, { n: 12, spread: 2.2, speed: 1900, seed: 62, life: 3 });
     if (bt < 1.6 && !o.crowd) { const p = bt / 1.6; g.save(); g.translate(lerp(610, 1200, p), lerp(1500, 600, easeOut(p))); g.rotate(-.5); pen(g, 5, .6); g.fillStyle = '#f3f1f6'; ellipse(g, 0, 0, 40, 18); g.fill(); const fl = Math.sin(t * 30) * 30; g.beginPath(); g.moveTo(-10, 0); g.lineTo(-40, -40 - fl); g.lineTo(20, -6); g.fill(); g.fillStyle = '#ffd36b'; g.fillRect(42, -4, 30, 8); g.restore(); }
   }
-  // OR STEALS THE small; SHOW? in bulbs, the biggest thing on the pier.
+  // OR STEALS THE small; SHOW? in bulbs, the biggest thing on the pier, stopping short of the
+  // strip on the right where a phone app puts its buttons.
   const L = lineNear(o.line);
-  sing(g, t, L, { from: 4, rows: [{ text: 'or steals the', y: 1170, size: 76 }] });
+  sing(g, t, L, { from: 4, rows: [{ text: 'or steals the', x: 510, y: 1170, size: 76 }] });
   const tShow = L.lead[7].s;
   if (t >= tShow - .02) {
     const lit = t < tShow + .05 ? 1 : t < tShow + .09 ? .3 : 1;
-    bulbWord(g, 'SHOW?', 540, 1470, 230 * easeOutBack(clamp((t - tShow) / .25), 1.6), { t, on: lit, face: '#ff4a6e', w: .21, chase: 6, seed: 55 });
+    bulbWord(g, 'SHOW?', 506, 1462, 210 * easeOutBack(clamp((t - tShow) / .25), 1.6), { t, on: lit, face: '#ff4a6e', w: .21, chase: 6, seed: 55 });
   }
 }

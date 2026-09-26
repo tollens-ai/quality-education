@@ -2,7 +2,7 @@
 // own breaks, sizes and emphasis) and each word is written on, stroke by stroke, as it's sung.
 // Nothing shows before it's sung. Backing vocals are lettered smaller, in pink, on a wavy line.
 import { W, H, C, clamp, lerp, smooth, easeOut, easeOutBack, rgba, mix, INK } from './kit.js';
-import { letter, measure } from './hand.js';
+import { letter, measure, AUDIT } from './hand.js';
 
 let LINES = [];
 export function setLyrics(lyrics) {
@@ -36,15 +36,26 @@ export function lineNear(t0) {
 // The house styles. paint: cream brush capitals with a dark signwriter's shade, for night.
 // ink: dark capitals with a pale shade, for day. sign: heavy capitals, shaded and outlined.
 export const STYLE = {
-  paint: { col: '#fff3de', w: .155, shade: { col: '#1d1233', dx: .045, dy: .055 } },
+  paint: { col: '#fff3de', w: .155, shade: { col: '#1d1233', dx: .045, dy: .055 }, outline: { col: '#1d1233', w: .022 } },
   ink: { col: '#2b1f3c', w: .155, shade: { col: 'rgba(255,248,236,.9)', dx: .04, dy: .05 } },
   sign: { col: '#ffe9c4', w: .2, shade: { col: '#8a1a3a', dx: .05, dy: .06 }, outline: { col: '#2b1f3c', w: .045 } },
-  hot: '#ffc94a', pink: '#ff8fb8',
+  hot: '#ffc94a', pink: '#ff8fb8', berry: '#b0104f',
+  // Backing vocals on a dawn or daylight sky: dark berry with a pale shade.
+  dawnBack: { col: '#5e1440', shade: { col: 'rgba(255,244,230,.85)', dx: .04, dy: .05 } },
 };
 
+// The end of the shot being drawn, set by main.js: words written near a cut are written faster.
+let SHOT_END = 1e9;
+export function setShotEnd(t) { SHOT_END = t; }
+// How long to take writing a word that starts at `s`, at most `d`: short enough to finish .45 s
+// before the cut. For lettering drawn outside sing().
+export function writeDur(s, d) { return Math.min(d, Math.max(.05, SHOT_END - s - .45)); }
+
 // Write word i of a line: how much of it is on by t (0..1), from its onset over its sung length.
+// It always finishes .45 s before the shot ends, so a line's last word is readable before a cut.
 function written(w, t, speed = 1) {
-  const d = clamp(((w.e ?? w.s + .25) - w.s) * .75, .09, .32) / speed;
+  let d = clamp(((w.e ?? w.s + .25) - w.s) * .75, .09, .32) / speed;
+  d = Math.min(d, Math.max(.05, SHOT_END - w.s - .45));
   return clamp((t - w.s) / d);
 }
 
@@ -85,16 +96,26 @@ export function sing(g, t, t0, spec) {
         const key = word.toLowerCase().replace(/[^a-z0-9']/g, '');
         const em = spec.emph?.['#' + (wi - 1)] || spec.emph?.[key] || {};
         const p = pre ? 1 : written(w, t, (em.speed ?? 1) * (spec.speed || 1));
+        if (AUDIT.on) AUDIT.ctx = { line: L.i, word: wi - 1 };
         letter(g, word, x, row.y + (em.dy || 0), size * (em.size || 1), {
           ...base, col: em.col || row.col || base.col, cols: em.cols || row.cols, w: em.w ?? wt, jitter: em.jitter ?? row.jitter ?? spec.jitter ?? 1,
           progress: p, seed: (L.i * 31 + wi) % 997, shade: em.shade ?? row.shade ?? base.shade, outline: em.outline ?? row.outline ?? base.outline,
         });
+        if (AUDIT.on) AUDIT.ctx = null;
       }
       x += ws[k] + gap;
     });
     raw.restore();
   }
   raw.restore();
+}
+
+// The line to remember, as one lockup: "I can't read your mind," above "I'm only reading your
+// prompt." Each half is written on as it's sung; the first half stays up while the second is
+// sung, so the whole line can be read (and screenshotted) at once. y0 is the first baseline.
+export function keyLine(g, t, mindT0, promptT0, y0 = 230, o = {}) {
+  sing(g, t, mindT0, { rows: [{ text: "I can't read", y: y0, size: 80 }, { text: 'your mind,', y: y0 + 128, size: 108 }], ...o });
+  sing(g, t, promptT0, { rows: [{ text: "I'm only reading", y: y0 + 262, size: 76 }, { text: 'your prompt.', y: y0 + 420, size: 140 }], emph: { prompt: { col: STYLE.hot } }, ...o });
 }
 
 // The backing vocals ("ooh-ooh-ooh"), lettered small in pink on a line that waves with them.
@@ -109,7 +130,9 @@ export function backing(g, t, t0, x, y, size = 58, col = STYLE.pink, o = {}) {
   raw.save();
   raw.translate(x, y);
   raw.rotate((o.rot ?? -.03) + Math.sin(t * 5) * .015);
+  if (AUDIT.on) AUDIT.ctx = { line: L.i, backing: true };
   letter(g, txt, 0, Math.sin(t * 7) * size * .06, size, { col, w: .13, align: 'center', progress: easeOut(p), seed: L.i * 7, shade: { col: '#1d1233', dx: .04, dy: .05 }, ...o });
+  if (AUDIT.on) AUDIT.ctx = null;
   raw.restore();
 }
 

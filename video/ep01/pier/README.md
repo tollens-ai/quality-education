@@ -27,6 +27,7 @@ characters draw simple stand-ins where their badges would go.
 | `hand.js` | The film's alphabet: brush capitals defined as strokes in writing order, written on as they're sung; letters along arcs; stroke skeletons for bulbs, stitches and stars |
 | `kit.js` | Maths, easing, seeded noise, colour, shapes, painted light, deterministic particles (confetti, streamers, fireworks), and the song clock |
 | `cast.js` | Clawd, Molty, Grok's bot, the OpenAI bot, Jolly, the people, and the mark badges (drawn exact); `pen` and `tone` for outlines and shading; `GROOVE` makes everyone dance to the beat |
+| `folk.js` | Crowds: varied strangers (`folk`), people seen from behind (`behind`) and small people facing us (`facing`), all whole figures standing on the ground, to be drawn from the back of a crowd to the front |
 | `band.js` | The instruments and the band playing to the record |
 | `lyrics.js` | The sung words, lettered into each shot: `sing` lays a line out in rows and writes each word on at its onset; `backing` letters the backing vocals |
 | `props.js` | Phones, laptops, the user's hand, the quota battery, containers, the clock, padlocks, the guide dog |
@@ -35,3 +36,5 @@ characters draw simple stand-ins where their badges would go.
 | `scenes/` | One file per part of the song: `verse1`, `pre`, `pier` and `stage` (the gig), `chorus`, `huts`, `pre2`, `bridge`, `break`, `final`, `outro`, plus `void` and `crowd` |
 | `sheet.js` | A cast sheet, for checking the characters side by side |
 | `tools/analyse.py` | Measures the take into `audio.json`: vocal, kick and mix loudness at 60 per second |
+| `tools/typo-audit.mjs` | Renders the film every 0.1 s and records every lettered string: cap height, angle, the contrast round its letters, what covers it, and which sung word it is |
+| `tools/typo-report.py` | Judges an audit: every sung word lettered while it's sung, big enough, on screen long enough, readable against its background, and each line in sung order |

@@ -9,7 +9,7 @@ import { blinkAt } from '../band.js';
 import { phone, laptop, hand, padlock, paper, guideDog } from '../props.js';
 import { wordTimes } from './stage.js';
 import { sing, lineNear, STYLE } from '../lyrics.js';
-import { letter, skeleton, measure } from '../hand.js';
+import { letter, skeleton, measure, auditNote } from '../hand.js';
 
 export const HUT_COLS = ['#c9b3ff', '#9fe3c8', '#ffe08a', '#9fd4ff', '#ffb3c7', '#ffab91', '#7fdad0', '#ff9a6a'];
 export const HUT_X = i => 540 + i * 900;          // hut centres along the promenade (world x)
@@ -70,10 +70,18 @@ function nameBoard(g, t, x, y, i, L, col) {
   g.restore();
 }
 
-// The answer, lettered on the wall over the door.
+// The fascia over each door: a dark painted board the answer is lettered onto.
+function fascia(g, x, y) {
+  g.save(); pen(g, 12, .8);
+  g.fillStyle = '#2a1d38'; rr(g, x - 296, y - 70, 592, 94, 10); g.fill();
+  g.ink = null; g.strokeStyle = rgba('#f2cf7c', .7); g.lineWidth = 4; rr(g, x - 284, y - 60, 568, 74, 7); g.stroke();
+  g.restore();
+}
+
+// The answer, lettered on the fascia over the door.
 function lintel(g, t, x, y, i, L, o = {}) {
   const words = L.lead.slice(Q[i], o.count ? Q[i] + o.count : undefined).map(w => w.w).join(' ');
-  sing(g, t, L, { from: Q[i], rows: [{ text: words, x, y, size: o.size || 60 }], style: 'paint', emph: o.emph, maxW: 530 });
+  sing(g, t, L, { from: Q[i], rows: [{ text: words, x, y, size: o.size || 60 }], style: 'paint', emph: o.emph, maxW: 540 });
 }
 
 // One hut at world x (centre), doors opening by `open` 0..1, `inside` drawn in the opening.
@@ -178,6 +186,7 @@ function fgLamp(g, t, x) {
 function stitched(g, t, str, x, y, size, t0, t1, col) {
   const sk = skeleton(str, x, y, size, { align: 'center', w: .15, step: size * .085, seed: 13, jitter: .2 });
   const n = sk.pts.length, p = clamp((t - t0) / Math.max(.05, t1 - t0));
+  if (p > .95) auditNote(g, str, x, y, size, { align: 'center', col });
   g.save(); g.ink = null; g.strokeStyle = col; g.lineWidth = size * .042; g.lineCap = 'round';
   const k = size * .034;
   for (let i = 0; i < n * p; i++) {
@@ -291,7 +300,11 @@ const INSIDE = [
     if (t > tPass - .2) {
       const p = inv(tPass - .2, tPass, t);
       const s = lerp(2.4, 1, easeIn(p));
-      g.save(); g.translate(x + 30, dy + 250); g.rotate(-.18); g.scale(s, s); g.globalAlpha *= clamp(p * 2);
+      g.save(); g.translate(x + 30, dy + 250); g.rotate(-.1);
+      pen(g, 8, .7); g.fillStyle = '#fbf6ea'; rr(g, -190, -104, 380, 208, 8); g.fill();
+      g.ink = null; g.fillStyle = 'rgba(60,50,80,.18)'; for (let k = 0; k < 6; k++) g.fillRect(-160, -80 + k * 30, 320, 5);
+      g.restore();
+      g.save(); g.translate(x + 30, dy + 250); g.rotate(-.12); g.scale(s, s); g.globalAlpha *= clamp(p * 2);
       g.ink = null; g.strokeStyle = '#d9304a'; g.lineWidth = 10; rr(g, -140, -58, 280, 116, 16); g.stroke();
       letter(g, 'PASS.', 4, 34, 92, { align: 'center', col: '#d9304a', w: .19, seed: 77, boil: 0 });
       g.restore();
@@ -424,10 +437,10 @@ const ANSWER = [
 // ---------------------------------------------------------------- the verse 2 shot
 export function hutsShot(g, t, c) {
   let idx = 0;
-  for (let i = 0; i < V2.length; i++) if (t >= V2[i] - .12) idx = i;
-  const slide = .5;
+  for (let i = 0; i < V2.length; i++) if (t >= V2[i] - .02) idx = i;
+  const slide = .45;
   const prevX = HUT_X(Math.max(0, idx - 1)), curX = HUT_X(idx);
-  const sp = idx === 0 ? 1 : easeInOut(inv(V2[idx] - .12, V2[idx] - .12 + slide, t));
+  const sp = idx === 0 ? 1 : easeInOut(inv(V2[idx] - .02, V2[idx] - .02 + slide, t));
   const camX = lerp(prevX, curX, sp) - 540;
   const lineP = inv(V2[idx], V2[idx + 1] ?? 72.48, t);
   const z = 1.6 + .08 * smooth(lineP);
@@ -441,7 +454,7 @@ export function hutsShot(g, t, c) {
     const T = L.lead.map(w => w.s);
     const open = i < idx ? 1 : i === idx ? easeOut(inv(V2[i] + .02, V2[i] + .38, t)) : 0;
     hut(g, t, sx, i, open, (g2, t2, x, dy, dw, dh, op) => INSIDE[i](g2, t2, x, dy, dw, dh, op, T, L), L);
-    if (ANSWER[i]) lintel(g, t, sx, BASE - 540 - 40, i, L, ANSWER[i]);
+    if (ANSWER[i]) { fascia(g, sx, BASE - 540 - 40); lintel(g, t, sx, BASE - 540 - 40, i, L, ANSWER[i]); }
     if (i < 7) bunting(g, t, sx + 360, sx + 540, BASE - 640);
   }
   g.restore();
@@ -479,7 +492,7 @@ export function hutsWide(g, t, c) {
     const L = lineNear(V2[i]);
     const T = L.lead.map(w => w.s);
     hut(g, t, sx, i, 1, (g2, t2, x, dy, dw, dh, op) => INSIDE[i](g2, t2, x, dy, dw, dh, op, T, L), L);
-    if (ANSWER[i]) lintel(g, t, sx, BASE - 540 - 40, i, L, ANSWER[i]);
+    if (ANSWER[i]) { fascia(g, sx, BASE - 540 - 40); lintel(g, t, sx, BASE - 540 - 40, i, L, ANSWER[i]); }
     if (i < 7) bunting(g, t, sx + 360, sx + 540, BASE - 640);
   }
   g.restore();

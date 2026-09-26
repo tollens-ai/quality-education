@@ -6,8 +6,9 @@ import { nightSky, sea, beams, haze, ferrisWheel, town, washBand, twinkle } from
 import { band, backingAt } from '../band.js';
 import { clawd, mic, person, pen, nopen, tone } from '../cast.js';
 import { lines, backing, STYLE } from '../lyrics.js';
-import { letter, skeleton, measure } from '../hand.js';
+import { letter, skeleton, measure, AUDIT } from '../hand.js';
 import { crowdFront } from './crowd.js';
+import { behind, facing, folk } from '../folk.js';
 
 // Word onsets for the lyric line starting nearest `t0`.
 export function wordTimes(t0) {
@@ -22,7 +23,9 @@ export function bulbWord(g, str, x, y, size, o = {}) {
   const on = o.on ?? 1;
   const w = o.w ?? .2;
   const face = on > .5 ? (o.face || '#ff4a6e') : shade(o.face || '#ff4a6e', -.55);
+  if (AUDIT.on) AUDIT.ctx = { ...(AUDIT.ctx || {}), bulbs: true };
   letter(g, str, x, y, size, { align: 'center', w, col: face, shade: { col: shade(o.edge || '#7a1030', -.35), dx: .05, dy: .07 }, outline: { col: INK.col, w: .04 }, seed: o.seed ?? 11 });
+  if (AUDIT.on && AUDIT.ctx) delete AUDIT.ctx.bulbs;
   const sk = skeleton(str, x, y, size, { align: 'center', w, step: o.step || size * .13, seed: o.seed ?? 11 });
   for (let k = 0; k < sk.pts.length; k++) {
     const [px, py] = sk.pts[k];
@@ -81,8 +84,8 @@ export function hookSign(g, t, lineT0, word, x, y, scale = 1, o = {}) {
 }
 
 // Backing vocals as pink hand lettering near the bots.
-export function backingScript(g, t, lineT0, x, y, size = 58, col = STYLE.pink) {
-  backing(g, t, lineT0, x, y, size, col);
+export function backingScript(g, t, lineT0, x, y, size = 58, col = STYLE.pink, o = {}) {
+  backing(g, t, lineT0, x, y, size, col, o);
 }
 
 // The band, close: the bandstand's inside, bulbs along the valance, columns, beams, haze.
@@ -138,30 +141,20 @@ export function bandMedium(g, t, K, o = {}) {
   if (o.crowd) crowdFront(g, t, K, o.crowd, o);
 }
 
-// From the stage, over Clawd's shoulder: the whole pier full, faces lit, the huts' people at the
-// front. people: [{o, x}] for the front row.
+// From the stage, over Clawd's shoulder: the pier packed back to the shore, faces lit, phone
+// torches up, the huts' people at the front. The camera stands up on the stage, so the crowd falls
+// away below it: the further back, the higher and smaller, with the sea either side of the pier.
+// Everyone stands on the boards and the crowd is drawn from the back, so the overlaps come right.
+// people: [{o, x, s, both}] for the front row.
 export function crowdReverse(g, t, K, o = {}) {
   const bp = K.beatPos(t);
   const dawn = o.dawn || 0;
-  const hz = 820;
+  const hz = 820, f = 1000, E = 5.2, HW = 5.8, zF = 95;
+  const P = (xm, z) => [540 + f * xm / z, hz + f * E / z, f / z];
   g.save(); g.ink = null;
   g.fillStyle = vgrad(g, 0, hz, [[0, mixHex('#10103a', '#3a3a8a', dawn)], [.7, mixHex('#2a1a5a', '#d08aa0', dawn)], [1, mixHex('#6a2a6a', '#ffc49a', dawn)]]);
   g.fillRect(0, 0, W, hz);
   for (let i = 0; i < 90; i++) { const a = (rnd(i, 601) > .2 ? 1 : .4) * (1 - dawn); if (rnd(i, 604) > .93) twinkle(g, rnd(i, 602) * W, rnd(i, 603) * hz * .85, 8, '#f4f2ff', a); else { g.fillStyle = rgba('#eceeff', .7 * a); g.fillRect(rnd(i, 602) * W, rnd(i, 603) * hz * .9, 2.4, 2.4); } }
-  g.restore();
-  town(g, t, hz, { on: 1 - dawn * .5 });
-  g.save(); g.ink = null;
-  g.fillStyle = vgrad(g, hz, H, [[0, '#3a2440'], [1, '#120a18']]);
-  g.fillRect(0, hz, W, H - hz);
-  // The pier running back to shore: lamps shrinking into the distance.
-  for (let i = 0; i < 9; i++) {
-    const z = 1 - i / 9;
-    for (const s of [-1, 1]) {
-      const x = 540 + s * (80 + 520 * z * z), y = hz + 30 + 520 * z * z - 200 * z * z - 20;
-      glow(g, x, y, 80 * z + 12, C.amber, .6);
-      g.fillStyle = '#ffe9b8'; circle(g, x, y, 6 * z + 2.4); g.fill();
-    }
-  }
   g.restore();
   if (o.fireworks !== false) {
     for (let k = 0; k < 3; k++) {
@@ -169,40 +162,77 @@ export function crowdReverse(g, t, K, o = {}) {
       if (tb !== undefined) firework(g, t, tb, 180 + ((Math.floor(bp / 2) - k) * 263) % 720, 180 + ((Math.floor(bp / 2) - k) * 131) % 300, { color: [C.pink, C.cyan, C.gold][(Math.floor(bp / 2) - k + 3) % 3], color2: '#fff', n: 60, speed: 340, seed: Math.floor(bp / 2) - k });
     }
   }
-  // The crowd facing us, rows receding: painted heads and shoulders, some phones up.
-  const skins = ['#f6d0b1', '#e8b48f', '#c98d67', '#a86b4a', '#7c4a32', '#5b3526'];
-  const tops = ['#5a4bff', '#ff6a8a', '#2fbfa0', '#ffb13b', '#b06bff', '#48a0ff', '#ff7a59'];
-  const hairs = ['#1b1420', '#3a2418', '#5a3a20', '#141018', '#8a6a4a', '#2a1c2a'];
+  town(g, t, hz, { on: 1 - dawn * .5 });
+  sea(g, t, hz, { dawn, reflections: [{ x: 70, col: C.amber, w: 14, a: .3 }, { x: 1010, col: C.amber, w: 14, a: .3 }] });
+  // The deck, running back to the shore.
+  const [xa, ya] = P(-HW, zF), [xb] = P(HW, zF), [xc, yc] = P(HW, 3.5), [xd] = P(-HW, 3.5);
+  g.save(); g.ink = null;
+  g.fillStyle = vgrad(g, ya, H, [[0, mixHex('#4a2c4a', '#b07a80', dawn)], [.3, mixHex('#2e1a36', '#7a4a60', dawn)], [1, mixHex('#1a0f22', '#3a2238', dawn)]]);
+  poly(g, [[xa, ya], [xb, ya], [xc, yc], [xd, yc]]); g.fill();
+  g.strokeStyle = rgba('#0e0716', .3); g.lineWidth = 1.5;
+  for (let z = 7; z < zF; z *= 1.1) { const [x0, y0] = P(-HW, z), [x1] = P(HW, z); line(g, x0, y0, x1, y0); g.stroke(); }
+  g.restore();
+  // Railings and lamp posts down both sides, shrinking toward the shore.
   g.save();
-  for (let r = 8; r >= 1; r--) {
-    const z = r / 9;
-    const y = hz + 60 + 900 * (1 - z) * (1 - z) * .9 + 40;
-    const s = 12 + 90 * (1 - z) * (1 - z);
-    const n = Math.round(6 + 20 * z);
-    const lit = .35 + .65 * (1 - z);
-    g.ink = s > 30 ? INK.col : null; g.inkW = Math.max(1, s * .05);
-    for (let i = 0; i < n; i++) {
-      const x = (i + .5 + (r % 2) * .5) / n * W + (rnd(i + r * 50, 605) - .5) * 30;
-      const hop = Math.max(0, Math.sin((bp + rnd(i, 606) * .3) * Math.PI)) * s * .25;
-      const k = i + r * 50;
-      g.fillStyle = mix('#170c24', tops[k % tops.length], lit * .85);
-      rr(g, x - s * .55, y - s * 1.2 - hop, s * 1.1, s * 2, s * .4); g.fill();
-      g.fillStyle = mix('#170c24', skins[k % skins.length], lit);
-      circle(g, x, y - s * 1.5 - hop, s * .42); g.fill();
-      g.fillStyle = mix('#170c24', hairs[k % hairs.length], lit);
-      g.beginPath(); g.ellipse(x, y - s * 1.66 - hop, s * .44, s * .28, 0, Math.PI, TAU); g.fill();
-      if (rnd(k, 607) > .6) { glow(g, x + s * .6, y - s * 2.4 - hop, s * 1, '#e8f0ff', .45 * lit); g.fillStyle = '#f4f8ff'; rr(g, x + s * .5, y - s * 2.6 - hop, s * .22, s * .38, s * .05); g.fill(); }
+  for (const sd of [-1, 1]) {
+    g.ink = null; g.strokeStyle = '#150c1f';
+    for (const hgt of [1.05, .55]) {
+      g.lineWidth = hgt > 1 ? 4 : 3;
+      g.beginPath(); let first = true;
+      for (let z = 5.5; z <= zF; z *= 1.12) { const [x, y, k] = P(sd * HW, z); if (first) g.moveTo(x, y - hgt * k); else g.lineTo(x, y - hgt * k); first = false; }
+      g.stroke();
+    }
+    for (let z = 6.5; z < zF; z *= 1.25) {
+      const [x, y, k] = P(sd * (HW + .1), z);
+      if (x < -60 || x > W + 60) continue;
+      g.ink = null; g.fillStyle = '#150c1f'; rr(g, x - .07 * k, y - 3.9 * k, .14 * k, 3.9 * k, .04 * k); g.fill();
+      bulb(g, x, y - 4 * k, Math.max(1.8, .15 * k), C.amber, 1 - dawn * .6);
     }
   }
   g.restore();
+  // The crowd: a row every metre or so, further apart into the distance, each person jostled a
+  // little out of line; drawn from the back.
+  const folks = [];
+  for (let z = 7.6, row = 0; z < 72; z += .75 + .05 * (z - 7.6), row++) {
+    const dx = .8 + .022 * z, n = Math.max(3, Math.floor((2 * HW - .8) / dx));
+    for (let i = 0; i < n; i++) {
+      const id = row * 40 + i;
+      folks.push({ id, xm: -HW + .4 + (i + .5) * (2 * HW - .8) / n + (rnd(id, 611) - .5) * dx * .55, z: z + (rnd(id, 612) - .5) * (.3 + z * .03) });
+    }
+  }
+  folks.sort((a, b) => b.z - a.z);
+  const nightC = mixHex('#170c24', '#9a6a88', dawn), voc = clamp(K.vocal(t));
+  for (const p of folks) {
+    const [x, fy, k] = P(p.xm, p.z);
+    const s = .68 * k;
+    if (x < -s * 1.5 || x > W + s * 1.5) continue;
+    const near = clamp(1 - (p.z - 7.6) / 45);
+    const hop = Math.max(0, Math.sin((bp + rnd(p.id, 606) * .3) * Math.PI)) * .1 * k;
+    const pick = rnd(p.id, 607);
+    const arm = pick > .8 ? (dawn > .5 ? 'wave' : 'torch') : pick > .66 ? 'wave' : pick > .56 ? 'fist' : 'down';
+    facing(g, x, fy, s, { ...folk(p.id + 1200), lit: .32 + .46 * near + .12 * dawn, night: nightC, arm, side: rnd(p.id, 608) > .5 ? 1 : -1, both: pick > .62 && pick < .66, up: .6 + .4 * Math.sin((bp + rnd(p.id, 609)) * Math.PI), hop, mouth: .25 + .7 * voc * rnd(p.id, 610), eyes: rnd(p.id, 613) > .5 ? 'happy' : 'open' });
+  }
+  // The huts' people in the front row, standing just below the stage.
   for (const p of (o.people || [])) {
     const hop = Math.max(0, Math.sin((bp + p.x * .001) * Math.PI)) * 12;
     const pt = o.point;
-    person(g, p.x, 1560 - hop, { s: p.s || 118, ...p.o, eyes: 'happy', mouth: .4 + .5 * clamp(K.vocal(t)), armR: pt ? -1.75 : -2.6 + .3 * Math.sin(bp * Math.PI), armL: pt ? (p.both ? -1.75 : .3) : p.both ? -2.6 : .3, look: pt ? [(760 - p.x) / 600, .6] : [0, 0], shadow: false });
+    person(g, p.x, hz + E * (p.s || 118) / .68 - hop, { s: p.s || 118, ...p.o, full: true, eyes: 'happy', mouth: .4 + .5 * voc, armR: pt ? -1.75 : -2.6 + .3 * Math.sin(bp * Math.PI), armL: pt ? (p.both ? -1.75 : .3) : p.both ? -2.6 : .3, look: pt ? [(760 - p.x) / 600, .6] : [0, 0], shadow: false });
   }
+  // The stage lights wash over the front of the crowd.
+  const lip = 1690;
   g.save(); g.ink = null; g.globalCompositeOperation = 'screen';
-  g.fillStyle = rgba(C.pink, .12); g.fillRect(0, 1250, W, H - 1250);
+  g.fillStyle = vgrad(g, 1000, lip, [[0, rgba(C.pink, 0)], [1, rgba(C.pink, .16)]]);
+  g.fillRect(0, 1000, W, lip - 1000);
   g.restore();
+  // The front of the stage, where we stand: footlights along its lip, boards running out to it.
+  g.save(); g.ink = null;
+  g.fillStyle = vgrad(g, lip, H, [[0, mixHex('#3a2342', '#7a4a52', dawn)], [1, mixHex('#150c1f', '#3a2030', dawn)]]);
+  g.fillRect(0, lip, W, H - lip);
+  g.strokeStyle = rgba('#0c0612', .5); g.lineWidth = 3;
+  for (let i = -9; i <= 9; i++) { const xb = 540 + i * 140; line(g, xb, H + 20, 540 + (xb - 540) * (lip - hz) / (H + 20 - hz), lip); g.stroke(); }
+  g.restore();
+  g.save(); pen(g, 8, .7); g.fillStyle = '#efe0c4'; g.fillRect(-10, lip - 16, W + 20, 20); g.restore();
+  for (let i = 0; i < 15; i++) bulb(g, 36 + i * 72, lip + 12, 7, i % 2 ? C.bulb : '#ffe9c2', .75 + .25 * (Math.sin(i * .9 - t * 4) > 0 ? 1 : .5));
   g.save();
   g.strokeStyle = '#2a2840'; g.lineWidth = 16; g.lineCap = 'round'; line(g, 690, H, 700, 1560); g.stroke();
   g.restore();
@@ -245,15 +275,11 @@ export function clawdClose(g, t, K, o = {}) {
     armR: -1.05, armL: -.35 - bounce * .35, hold: (g2, u) => mic(g2, u, { rot: -1.2 }),
     blush: .5, blink: 0, look: [0, -.2], ...(o.clawd || {}),
   });
-  if (o.crowd) for (let i = 0; i < 6; i++) {
-    const side = i % 2 ? 1 : -1, k = Math.floor(i / 2);
-    const x = 540 + side * (400 + k * 60), up = .6 + .4 * Math.sin((bp + i * .2) * Math.PI);
-    const hy = 1560 - up * 120 - k * 70;
-    g.save();
-    g.strokeStyle = '#120a1c'; g.lineWidth = 50; g.lineCap = 'round';
-    line(g, x + side * 60, H + 40, x, hy); g.stroke();
-    g.fillStyle = '#120a1c'; circle(g, x, hy - 10, 34); g.fill();
-    if (i % 3 !== 1) { glow(g, x, hy - 70, 110, '#dfe8ff', .5); pen(g, 6, .6); g.fillStyle = '#eef4ff'; rr(g, x - 20, hy - 110, 40, 70, 8); g.fill(); }
-    g.restore();
+  // The front of the crowd at the bottom corners, filming: the backs of their heads, and their
+  // phones up, each screen showing the stage.
+  if (o.crowd) for (const [x, side, j] of [[30, 1, 0], [235, -1, 1], [860, 1, 2], [1060, -1, 3]]) {
+    const f = folk(j + 700), k = 690 + 40 * (j % 2);
+    const hop = Math.max(0, Math.sin((bp + j * .2) * Math.PI)) * 16;
+    behind(g, x, 1815 + (f.H - .15) * k, k, { ...f, lit: .2 + dawn * .2, rim: side > 0 ? C.cyan : C.pink, rimA: .75, arm: 'phone', side, up: .45 + .1 * Math.sin(t * 1.1 + j), hop, sway: t * 1.6 + j, glow: 1 });
   }
 }

@@ -4,6 +4,58 @@
 // bulbs, chalked or drawn in the sand.
 import { clamp, lerp, noise2, rnd, INK } from './kit.js';
 
+// ---------------------------------------------------------------- typography audit
+// Off unless a checking tool turns it on. When on, every lettered string is recorded with its
+// cap height (in master pixels), angle, the brightness and clutter behind it, and a copy of its
+// pixels once drawn, so the tool can tell afterwards whether anything was drawn over it.
+// AUDIT.ctx names what's being lettered (a lyric line and word, or a group such as an arc).
+export const AUDIT = { on: false, recs: [], ctx: null };
+if (typeof window !== 'undefined') window.__typo = AUDIT;
+const lin = c => { c /= 255; return c <= .03928 ? c / 12.92 : Math.pow((c + .055) / 1.055, 2.4); };
+const lumOf = (r, g, b) => .2126 * lin(r) + .7152 * lin(g) + .0722 * lin(b);
+function colLum(col) {
+  if (typeof col !== 'string') return null;
+  let m = col.match(/^#([0-9a-f]{6})$/i);
+  if (m) { const v = parseInt(m[1], 16); return lumOf(v >> 16 & 255, v >> 8 & 255, v & 255); }
+  m = col.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)/);
+  return m ? lumOf(+m[1], +m[2], +m[3]) : null;
+}
+function auditBegin(raw, str, tw, size, w, o) {
+  const m = raw.getTransform();
+  const pad = w * .6, sh = o.shade ? size * Math.max(o.shade.dx, o.shade.dy) : 0;
+  const pts = [[-pad, -size - pad], [tw + pad + sh, -size - pad], [tw + pad + sh, size * .18 + pad + sh], [-pad, size * .18 + pad + sh]]
+    .map(([px, py]) => [m.a * px + m.c * py + m.e, m.b * px + m.d * py + m.f]);
+  const cw = raw.canvas.width, chh = raw.canvas.height, k = cw / 1080;
+  const x0 = Math.max(0, Math.floor(Math.min(...pts.map(p => p[0])))), x1 = Math.min(cw, Math.ceil(Math.max(...pts.map(p => p[0]))));
+  const y0 = Math.max(0, Math.floor(Math.min(...pts.map(p => p[1])))), y1 = Math.min(chh, Math.ceil(Math.max(...pts.map(p => p[1]))));
+  const full = [Math.min(...pts.map(p => p[0])), Math.min(...pts.map(p => p[1])), Math.max(...pts.map(p => p[0])), Math.max(...pts.map(p => p[1]))].map(v => v / k);
+  const rec = {
+    str, cap: size * Math.sqrt(Math.abs(m.a * m.d - m.b * m.c)) / k, rot: Math.atan2(m.b, m.a), base: [m.e / k, m.f / k], strokeW: w * Math.sqrt(Math.abs(m.a * m.d - m.b * m.c)),
+    alpha: raw.globalAlpha, prog: o.progress ?? 1, textL: [o.col, ...(o.cols || [])].map(colLum).filter(v => v !== null),
+    shade: !!o.shade, outline: !!o.outline, ctx: AUDIT.ctx, main: raw.canvas.id === 'c', box: full,
+    offscreen: full[0] < -2 || full[1] < -2 || full[2] > 1082 || full[3] > 1922,
+  };
+  if (x1 - x0 > 2 && y1 - y0 > 2) {
+    const d = raw.getImageData(x0, y0, x1 - x0, y1 - y0).data;
+    let s = 0, s2 = 0, n = 0;
+    for (let i = 0; i < d.length; i += 12) { const l = lumOf(d[i], d[i + 1], d[i + 2]); s += l; s2 += l * l; n++; }
+    rec.bgL = s / n; rec.bgStd = Math.sqrt(Math.max(0, s2 / n - rec.bgL * rec.bgL));
+    rec._dev = [x0, y0, x1 - x0, y1 - y0];
+  }
+  AUDIT.recs.push(rec);
+  return rec;
+}
+// Record text drawn some other way (stars along a skeleton, stitches) without drawing it.
+export function auditNote(g, str, x, y, size, o = {}) {
+  if (!AUDIT.on) return;
+  const raw = g.raw || g;
+  const tw = measure(str, size, o.w ?? .15);
+  raw.save(); raw.translate(x, y); raw.translate(o.align === 'center' ? -tw / 2 : o.align === 'right' ? -tw : 0, 0);
+  const rec = auditBegin(raw, str, tw, size, size * (o.w ?? .15), o);
+  rec.note = true; delete rec._dev;
+  raw.restore();
+}
+
 // [advance width, path]. Paths use M, L, C, Q and Z; a stroke of one point ("M x y D") is a dot.
 const G = {
   A: [70, 'M3 0 L35 -100 L67 0 M15 -36 L55 -36'],
@@ -228,6 +280,7 @@ export function letter(g, str, x, y, size, o = {}) {
   if (o.rot) raw.rotate(o.rot);
   raw.translate(ax, 0);
   if (o.alpha !== undefined) raw.globalAlpha *= o.alpha;
+  const rec = AUDIT.on ? auditBegin(raw, str, tw, size, w, o) : null;
   const pass = (col, extra, dx, dy, cols) => {
     raw.fillStyle = col;
     raw.save(); raw.translate(dx, dy);
@@ -241,6 +294,22 @@ export function letter(g, str, x, y, size, o = {}) {
   if (o.shade) pass(o.shade.col, (o.outline?.w ?? 0) * size, o.shade.dx * size, o.shade.dy * size);
   if (o.outline) pass(o.outline.col, o.outline.w * size, 0, 0);
   pass(o.col || '#fff4e2', 0, 0, 0, o.cols);
+  if (rec?._dev) {
+    // A mask of just the letter faces (no shade or outline), for measuring contrast at their edges.
+    const [x0, y0, w0, h0] = rec._dev;
+    const mc = document.createElement('canvas'); mc.width = w0; mc.height = h0;
+    const mx = mc.getContext('2d');
+    const m = raw.getTransform();
+    mx.setTransform(m.a, m.b, m.c, m.d, m.e - x0, m.f - y0);
+    mx.fillStyle = '#fff';
+    for (const s of strokes) {
+      if (s.dot) { mx.beginPath(); mx.arc(s.p[0], s.p[1], w * .62, 0, Math.PI * 2); mx.fill(); continue; }
+      brushStroke(mx, s.pts, w, s.closed, s.partial ? .3 : 1);
+    }
+    const md = mx.getImageData(0, 0, w0, h0).data, mask = new Uint8Array(w0 * h0);
+    for (let i = 0; i < mask.length; i++) mask[i] = md[i * 4 + 3];
+    rec._mask = mask;
+  }
   raw.restore();
   return tw;
 }
@@ -275,16 +344,20 @@ export function letterArc(g, str, cx, cy, r, a, size, o = {}) {
   const raw = g.raw || g;
   const prog = o.progress ?? 1;
   const n = L.glyphs.length;
+  const ctx0 = AUDIT.ctx;
+  if (AUDIT.on) AUDIT.ctx = { group: 'arc:' + str };
   L.glyphs.forEach((gl, i) => {
     const mid = (gl.x + gl.gl.w / 2) * k - total / 2;
     const ang = a + dir * mid / r;
-    const gp = clamp(prog * n - i);
+    const gp = o.glyphP ? o.glyphP(i) : clamp(prog * n - i);
     if (gp <= 0) return;
     raw.save();
     raw.translate(cx + Math.cos(ang) * r, cy + Math.sin(ang) * r);
     raw.rotate(ang + dir * Math.PI / 2);
+    if (AUDIT.on && o.glyphWord) AUDIT.ctx = { group: 'grp:' + o.glyphWord(i) };
     letter(g, gl.ch, -gl.gl.w * k / 2, o.bottom ? size * .5 : size * .5, size, { ...o, progress: gp, seed: (o.seed ?? 3) + i });
     raw.restore();
   });
+  AUDIT.ctx = ctx0;
   return total;
 }

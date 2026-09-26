@@ -8,7 +8,7 @@ import { blinkAt } from '../band.js';
 import { phone, hand, flame } from '../props.js';
 import { gymApp } from './final.js';
 import { sing, backing, lineNear, STYLE } from '../lyrics.js';
-import { letter, skeleton } from '../hand.js';
+import { letter, skeleton, measure, AUDIT } from '../hand.js';
 
 // A summer sky and sea, painted; `sunset` 0..1 turns the day gold, then pink, then dusky.
 export function beachDay(g, t, o = {}) {
@@ -67,8 +67,11 @@ export function sandWrite(g, t, str, x, y, size, t0, dur, o = {}) {
   if (p <= 0) return;
   g.save();
   if (o.clipY !== undefined) { g.beginPath(); g.rect(-100, o.clipY, W + 200, H); g.clip(); }
-  letter(g, str, x + size * .035, y + size * .045, size, { align: 'center', col: rgba('#fff7e6', .85), w: .15, progress: p, seed: o.seed || 3, jitter: 1.4 });
-  letter(g, str, x, y, size, { align: 'center', col: o.col || '#8a5428', w: .13, progress: p, seed: o.seed || 3, jitter: 1.4 });
+  const ctx0 = AUDIT.ctx;
+  if (AUDIT.on) AUDIT.ctx = { deco: true };
+  letter(g, str, x + size * .035, y + size * .045, size, { align: o.align || 'center', col: rgba('#fff7e6', .85), w: .15, progress: p, seed: o.seed || 3, jitter: 1.4 });
+  if (AUDIT.on) AUDIT.ctx = ctx0;
+  letter(g, str, x, y, size, { align: o.align || 'center', col: o.col || '#6b3a17', w: .13, progress: p, seed: o.seed || 3, jitter: 1.4 });
   g.restore();
 }
 
@@ -88,8 +91,8 @@ export function summerTap(g, t, c) {
   if (t < tap + .5) hand(g, lerp(900, 640, easeOut(tp)), lerp(1740, 1420, easeOut(tp)), 190, -.4, 'point', { sleeve: false });
   if (t > tap) { confetti(g, t, tap, 540, 1200, { n: 60, spread: 2.4, speed: 1200, seed: 91, life: 2.2, colors: [C.coral, C.gold, '#ff4a3a', '#ffffff'] }); for (let i = 0; i < 5; i++) { const p = inv(tap + i * .08, tap + .9 + i * .08, t); if (p <= 0 || p >= 1) continue; g.save(); g.globalAlpha *= 1 - p; flame(g, 380 + i * 80, 1100 - p * 300, 60, t + i); g.restore(); } }
   clawd(g, 890, 1760, { s: 210, glasses: true, eyes: 'open', armR: -1.5, armL: -.2, smile: 1, hat: 'sun' });
-  sing(g, t, 184.84, { rows: [{ text: 'Make it good', y: 250, size: 90 }, { text: 'for you?', y: 400, size: 130 }], style: 'ink', emph: { you: { col: '#e0306a' } } });
-  backing(g, t, 184.84, 540, 520, 56, '#e0306a', { shade: { col: 'rgba(255,248,236,.9)', dx: .04, dy: .05 } });
+  sing(g, t, 184.84, { rows: [{ text: 'Make it good', y: 250, size: 90 }, { text: 'for you?', y: 400, size: 130 }], style: 'ink', emph: { you: { col: STYLE.berry } } });
+  backing(g, t, 184.84, 540, 520, 56, STYLE.berry, { shade: { col: 'rgba(255,248,236,.9)', dx: .04, dy: .05 } });
 }
 
 // ---------------------------------------------------------------- 187.7 – 190.4: good for that
@@ -120,8 +123,8 @@ export function beachBots(g, t, c) {
   g.save(); g.ink = null;
   for (let i = 0; i < 3; i++) { const gx = (t * 60 + i * 300) % (W + 200) - 100, gy = 700 + i * 80 + Math.sin(t * 2 + i) * 20; g.strokeStyle = '#3a3a4a'; g.lineWidth = 5; g.beginPath(); g.moveTo(gx - 30, gy); g.quadraticCurveTo(gx - 15, gy - 18 - Math.sin(t * 8 + i) * 8, gx, gy); g.quadraticCurveTo(gx + 15, gy - 18 - Math.sin(t * 8 + i) * 8, gx + 30, gy); g.stroke(); }
   g.restore();
-  sing(g, t, 187.7, { rows: [{ text: 'Make it good', y: 250, size: 90 }, { text: 'for that?', y: 400, size: 130 }], style: 'ink', emph: { that: { col: '#e0306a' } } });
-  backing(g, t, 187.7, 540, 520, 56, '#e0306a', { shade: { col: 'rgba(255,248,236,.9)', dx: .04, dy: .05 } });
+  sing(g, t, 187.7, { rows: [{ text: 'Make it good', y: 250, size: 90 }, { text: 'for that?', y: 400, size: 130 }], style: 'ink', emph: { that: { col: STYLE.berry } } });
+  backing(g, t, 187.7, 540, 520, 56, STYLE.berry, { shade: { col: 'rgba(255,248,236,.9)', dx: .04, dy: .05 } });
 }
 
 // ---------------------------------------------------------------- sandcastle
@@ -158,7 +161,7 @@ export function toyShot(g, t, c) {
   const dig = Math.sin(t * 9);
   clawd(g, 900, 1640, { s: 230, eyes: 'happy', hat: 'sun', armL: -.8 + dig * .4, armR: -.2, holdL: (g2, u) => { g2.save(); g2.rotate(.6 + dig * .3); pen(g2, u, .6); g2.fillStyle = '#ff4a5a'; rr(g2, -u * .15, -u * 2.2, u * .3, u * 2, u * .1); g2.fill(); g2.fillStyle = '#ffd166'; rr(g2, -u * .5, -u * 2.9, u, u * .9, u * .2); g2.fill(); g2.restore(); }, smile: 1, blush: .6 });
   g.save(); g.ink = null; for (let i = 0; i < 8; i++) { const p = ((t * 2 + i * .13) % 1); g.fillStyle = rgba('#d9a860', 1 - p); circle(g, 800 - p * 120 + i * 6, 1520 - Math.sin(p * Math.PI) * 120, 6); g.fill(); } g.restore();
-  sing(g, t, 190.4, { rows: [{ text: 'Just a toy,', y: 290, size: 120 }, { text: 'and only for fun!', y: 440, size: 96 }], style: 'ink', emph: { toy: { col: '#e0306a' }, fun: { col: '#e0306a' } } });
+  sing(g, t, 190.4, { rows: [{ text: 'Just a toy,', y: 290, size: 120 }, { text: 'and only for fun!', y: 440, size: 96 }], style: 'ink', emph: { toy: { col: STYLE.berry }, fun: { col: STYLE.berry } } });
 }
 
 // ---------------------------------------------------------------- 193.26 – end: when summer's done
@@ -170,8 +173,21 @@ export function tideShot(g, t, c) {
   const surfY = lerp(1160, 1620, tide);
   // The line, written in the sand as it's sung.
   const L = lineNear(193.26), ws = L.lead;
-  const rows = [['FINE IF', 0, 1, 1290, 94], ["IT'S GONE", 2, 3, 1405, 108], ["WHEN SUMMER'S DONE!", 4, 6, 1508, 68]];
-  for (const [str, a, b, y, size] of rows) sandWrite(g, t, str, 490, y, size, ws[a].s, (ws[b].e ?? ws[b].s + .4) - ws[a].s, { clipY: surfY + 20 });
+  // Each word is drawn in the sand as it's sung.
+  const rows = [[0, 1, 1290, 94], [2, 3, 1405, 108], [4, 6, 1508, 68]];
+  let wi = 0;
+  for (const [a, b, y, size] of rows) {
+    const words = ws.slice(a, b + 1).map(w => w.w.toUpperCase());
+    const gap = size * .42, widths = words.map(s => measure(s, size, .13));
+    let x = 490 - (widths.reduce((p, q) => p + q, 0) + gap * (words.length - 1)) / 2;
+    words.forEach((word, k) => {
+      const w = ws[a + k];
+      if (AUDIT.on) AUDIT.ctx = { line: L.i, word: a + k };
+      sandWrite(g, t, word, x, y, size, w.s, clamp(((w.e ?? w.s + .4) - w.s) * .8, .25, .6), { clipY: surfY + 20, align: 'left', seed: 3 + a + k });
+      if (AUDIT.on) AUDIT.ctx = null;
+      x += widths[k] + gap;
+    });
+  }
   sandcastle(g, 965, 1390, .44, smooth(inv(199.5, 200.4, t)), t);
   // The water comes up and takes it all, gently.
   g.save(); g.ink = null;

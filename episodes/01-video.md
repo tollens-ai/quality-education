@@ -18,6 +18,15 @@ the three things she asked for:
 
 As with v3, one auteur made it, with no reviewer committee.
 
+Qing on v4 (2026-09-26): "Thank you. It looks amazing. It's exactly what I wanted." She had two
+more notes, and this cut answers both:
+
+- **Typography:** "Please can you do a typography check for size, legibility, and comprehensibility
+  throughout because I just noticed that the Kubernetes scaling up your blog frame is kind of hard
+  to read?"
+- **Crowds:** "the crowd scenes need a bit more attention to detail. There are some overlaps that
+  are drawn wrong and some people shapes that are just a bit too crude"
+
 ## The look
 
 It's ink and gouache on paper, drawn on twos. The model is a 2D picture book brought to life, not
@@ -49,8 +58,8 @@ subtitle band:
 | Where | How the words appear |
 |---|---|
 | Intro | "YOU SAID MAKE IT GOOD," is up from the first frame (it's the prompt, and the thumbnail); "GOOD!" lands huge and gold |
-| Verse 1 | CONFETTI in confetti colours; 2FA as a red warning; KUBERNETES painted on a banner between two cranes, SCALING UP climbing a letter at a time, *your blog* on a tiny paper tag; WORKING ROUND THE CLOCK runs round the dial; "Did I do it wrong?" shaky; GONE! is the last light left when the power cuts; "Guess I didn't ask!" small and pale |
-| Pre-chorus | Painted inside your head, WHO and WHAT in gold; "I can't read your mind" appears only in the torch's pool of light |
+| Verse 1 | CONFETTI in confetti colours; 2FA as a red warning; KUBERNETES painted on a banner between two cranes, SCALING UP rising under it, YOUR BLOG on a signpost pointing at the one-view blog; WORKING ROUND THE CLOCK runs round the dial; "Did I do it wrong?" shaky; GONE! is the last light left when the power cuts; "Guess I didn't ask!" small and pale |
+| Pre-chorus | Painted inside your head, WHO and WHAT in gold; "I can't read your mind" appears only in the torch's pool of light, then holds with "I'm only reading your prompt" as one block of lettering, PROMPT biggest |
 | Hooks | MAKE IT GOOD FOR is lettered onto the fairground sign as it's sung, and WHO? / WHAT? light up in bulbs set along the strokes |
 | Chorus props | FAST, STURDY, CHEAP on ribbons under the corner signs; WOW written in firework sparks, fading with the smoke; KEEP by the lighthouse; SHIP IT on the paper boat's sail, NOW slamming in; SLOW lettered slowly; DOES WHAT THEY NEED as a newspaper headline, like chip paper; SHOW? in bulbs |
 | Verse 2 | Each question on a hut's hanging name board, each answer painted over its door; Nana's is cross-stitched on a sampler, the student's is a PASS stamp |
@@ -109,7 +118,7 @@ in daylight.
 | 0:50 | Verse 2 | Eight beach huts, the camera dollying past lamp posts: the founder's demo, the baker's till, the joke bot, the 3am student, Nana's one-button phone, a blind user and their guide dog, the agents' data hatch, and Clawd's own hut with tidy diagnostics |
 | 1:12 | Instrumental | Pull back along the whole row |
 | 1:16 | Pre-chorus 2 | Everyone round Clawd with their thought bubbles, until its eyes spin |
-| 1:23 | Chorus 2 | The pier is packed, with the hut people in the front row |
+| 1:23 | Chorus 2 | The pier is packed back to the shore, seen from the stage over Clawd's shoulder, with the hut people in the front row. From the back of the crowd, phones are up and every screen shows the stage |
 | 1:46 | Bridge | The code sky, the wall, the climb, the reveal |
 | 2:09 | Break | SOFTWARE QUALITY IS VALUE TO SOMEONE WHO MATTERS, in bulbs |
 | 2:22 | "I'm debugging this with you" | Your hand and Clawd catch a glowing bug in a jar |
@@ -159,10 +168,10 @@ because it's the prompt you typed.
 - Stills of every shot at full resolution, and full-length contact sheets at one frame a second.
 - Frame strips at 30 fps, to check that drawings change on twos while the camera moves on every
   frame.
-- Frame-to-frame motion measured for every second, the same way on both 1080 masters. 10 of v4's
-  200 seconds are near-still, against 33 in v3, and all ten are meant to be calm: the first
-  second, "Guess I didn't ask", the triangle appearing, the first seconds of the bridge, the bug
-  in the jar and the end of the typing. The boiling line keeps held moments alive.
+- Frame-to-frame motion measured for every second, the same way on each 1080 master. 6 of this
+  cut's 200 seconds are near-still, against 33 in v3, and all six are meant to be calm: the first
+  second, "Guess I didn't ask", the first seconds of the bridge and the bug in the jar. The
+  boiling line keeps held moments alive.
 - Every lyric-heavy frame checked at phone size, 390 px wide.
 - Fixed from what the stills showed:
   - "TO RUN" hidden behind Clawd's flight path
@@ -173,6 +182,47 @@ because it's the prompt you typed.
   - the boat's wake looking like an easel
   - Nana's phone floating out of her hand
   - word spaces too tight between capitals
+
+**The second pass: typography.** Qing's note on the Kubernetes frame led to a check of every
+sung word. `tools/typo-audit.mjs` renders the film every 0.1 s and records each lettered string:
+its cap height, how long it stays fully written, the contrast in a ring round its letters,
+whether anything is drawn over it, and its tilt. `tools/typo-report.py` then checks every sung
+word against its onset, and every line for reading order. All 400 sung words are lettered while
+they're sung. What it found, now fixed:
+- The Kubernetes frame read out of order and too small. It's now three layers, top to bottom:
+  the banner, SCALING UP, and a signpost.
+- MIND, the last word of "I can't read your mind", was on screen for under 0.2 s in all three
+  places it's sung, because the cut came straight after it. The line now holds with "I'm only
+  reading your prompt" as one block.
+- Last words of lines were cut off as they were being written. Each word now finishes writing
+  0.45 s before its cut, and where a line ends on the cut, the cut waits for the next beat.
+- Words that blended into their backgrounds: the hut boards, the PASS stamp, the dawn backing
+  vocals. The painted lettering got a thin ink outline.
+- SHOW?, WALL., CHEAP?, CLOCK. and one MATTERS placard ran into the strip on the right where
+  apps put their buttons. They're now clear of it.
+- Crowded rows at phone size: the intro's line spacing, KEEP running into "or built to", Nana's
+  empty sign.
+
+The flags left are on purpose. The clock words tilt round the dial. NOW and NEED finish 0.4 s
+before their cuts. SCALING UP rises, the clock words curve, and the MATTERS and AND ME! placards
+are staggered, so those lines don't read strictly top to bottom.
+
+**The second pass: crowds.** The crowds were pills and slabs, and some overlaps were wrong: in
+the bridge reveal the back rows were drawn over the front, and people cut off at the waist
+floated in mid-air. `folk.js` now draws crowd people as whole figures standing on the ground,
+drawn from the back of the crowd to the front, so the nearer person always hides the one behind:
+- From behind: heads in eleven hairstyles, shoulders, arms, legs and shoes. Some carry a
+  hood or a backpack. Raised hands hold phones whose screens show the stage.
+- Facing us: person()'s shapes, simplified for distance, with phone torches and waving hands.
+- The view from the stage is now the whole pier, packed to the shore with the sea either side,
+  and footlights along the stage's edge in front.
+- Nobody is cut off in mid-air: a cut is always the frame's edge, the stage, a counter or a
+  wall.
+- Props sit in hands: the reveal's cards are raised by the back row as each word is sung, the
+  MATTERS placards are held up by one person in each spotlight, and the white cane is in the
+  listener's hand with its red tip on the boards.
+- The named people from verse 2 appear once each in a crowd, among varied strangers, instead
+  of as repeated clones.
 
 **The bots' marks.** Following [research/bot-marks.md](../research/bot-marks.md), corporate marks
 are never redrawn. Grok's bot and the OpenAI bot are our own robots, and each wears its owner's
@@ -188,6 +238,8 @@ headphones in its own colours. Molty is drawn by hand from OpenClaw's open-sourc
   research asked for him to be drawn faithfully. This is the one mark-related call Qing should
   make: keep him, or swap him for the Muse logo on a card.
 - **Some frames put characters in the bottom 400 px,** where platform UI can cover them. The
-  lyrics stay above it.
+  lyrics stay above it, and out of the strip on the right where the buttons sit.
+- **The crowds are generated,** from eleven hairstyles and a palette of skin tones and clothes.
+  Up close they vary, but nobody in them is designed as an individual, except the verse-2 people.
 - **The code-sky fragments are texture,** too small to read on a phone.
 - **It's long for X:** 3:21.

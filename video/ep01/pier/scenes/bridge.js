@@ -4,10 +4,11 @@
 import { W, H, C, TAU, clamp, lerp, inv, smooth, easeOut, easeIn, easeInOut, easeOutBack, spring, bump, rnd, rrange, noise1, noise2, rr, circle, ellipse, line, poly, star, heart, glow, bulb, vgrad, rgrad, lgrad, rgba, mix, mixHex, shade, ballistic, INK } from '../kit.js';
 import { nightSky, sea, reflection, lighthouse, town, moon, ferrisWheel, washBand, twinkle } from '../world.js';
 import { clawd, person, pen, nopen, tone } from '../cast.js';
+import { folk } from '../folk.js';
 import { blinkAt } from '../band.js';
 import { PEOPLE, HUT_COLS } from './huts.js';
 import { sing, backing, lineNear, STYLE } from '../lyrics.js';
-import { letter, skeleton, measure } from '../hand.js';
+import { letter, skeleton, measure, auditNote, AUDIT } from '../hand.js';
 
 // What the internet taught: fragments of code and comment, as stars.
 const FRAGS = [
@@ -76,9 +77,10 @@ function codeSky(g, t, hz, o = {}) {
 function constellation(g, t, str, x, y, size, t0, dur) {
   const sk = skeleton(str, x, y, size, { align: 'center', w: .15, step: size * .16, seed: 21 });
   const n = sk.pts.length, p = clamp((t - t0) / dur);
+  if (p > .95) auditNote(g, str, x, y, size, { align: 'center', col: '#fbf7ff' });
   const shown = Math.floor(n * p);
   g.save(); g.ink = null;
-  g.strokeStyle = rgba('#cfd8ff', .55); g.lineWidth = 2.4; g.lineCap = 'round';
+  g.strokeStyle = rgba('#dfe6ff', .8); g.lineWidth = 3.6; g.lineCap = 'round';
   for (let i = 1; i < shown; i++) {
     const a = sk.pts[i - 1], b = sk.pts[i];
     if (a[2] !== b[2]) continue;
@@ -88,8 +90,8 @@ function constellation(g, t, str, x, y, size, t0, dur) {
     const [sx, sy] = sk.pts[i];
     const big = i % 3 === 0;
     const tw = rnd(i + INK.boil * 17, 22) > .15 ? 1 : .55;
-    glow(g, sx, sy, big ? 30 : 18, '#e6ecff', .6 * tw);
-    twinkle(g, sx, sy, (big ? 13 : 8) * tw, i % 5 ? '#fbf7ff' : '#ffe6b0', 1);
+    glow(g, sx, sy, big ? 32 : 20, '#e6ecff', .7 * tw);
+    twinkle(g, sx, sy, (big ? 15 : 10) * tw, i % 5 ? '#fbf7ff' : '#ffe6b0', 1);
   }
   g.restore();
 }
@@ -117,7 +119,12 @@ export function trainingShot(g, t, c) {
   // I COULD ONLY LEARN FROM MY in paint; TRAINING SET in stars.
   const L = lineNear(107.1), ws = L.lead;
   sing(g, t, L, { rows: [{ text: 'I could only learn', y: 290, size: 84 }, { text: 'from my', y: 400, size: 70 }] });
-  if (t >= ws[6].s) constellation(g, t, 'TRAINING SET', 540, 640, 150, ws[6].s, (ws[7].e ?? ws[7].s + .5) - ws[6].s + .3);
+  // Each word is drawn in stars as it's sung, TRAINING then SET, on one line.
+  const cs0 = 150, fit = Math.min(1, 900 / (measure('TRAINING', cs0) + cs0 * .42 + measure('SET', cs0)));
+  const cs = cs0 * fit, gap = cs * .42, wT = measure('TRAINING', cs), wS = measure('SET', cs);
+  const x0 = 540 - (wT + gap + wS) / 2;
+  if (t >= ws[6].s) constellation(g, t, 'TRAINING', x0 + wT / 2, 640, cs, ws[6].s, .42);
+  if (t >= ws[7].s) constellation(g, t, 'SET', x0 + wT + gap + wS / 2, 640, cs, ws[7].s, .3);
   backing(g, t, L, 540, 1190, 60);
 }
 
@@ -168,7 +175,7 @@ export function wallShot(g, t, c) {
   g.save(); g.ink = null; g.fillStyle = vgrad(g, 1500, H, [[0, '#2c2139'], [1, '#100b17']]); g.fillRect(0, 1500, W, H - 1500); g.restore();
   // The words, chalked on the wall as they're sung: someone else's graffiti, now Clawd's line.
   const L = lineNear(112.3);
-  sing(g, t, L, { rows: [{ text: 'to write code', y: 930, size: 84 }, { text: 'and throw it', y: 1070, size: 84 }, { text: 'over the wall.', y: 1240, size: 124 }], o: { col: '#f2eee4', shade: null }, emph: { wall: { col: '#ffe8a8' } }, jitter: 1.6 });
+  sing(g, t, L, { rows: [{ text: 'to write code', y: 930, size: 84 }, { text: 'and throw it', y: 1070, size: 84 }, { text: 'over the wall.', x: 515, y: 1240, size: 124, maxW: 850 }], o: { col: '#f2eee4', shade: null }, emph: { wall: { col: '#ffe8a8' } }, jitter: 1.6 });
   const coders = [];
   for (let i = 0; i < 9; i++) coders.push({ x: 60 + i * 120 + (i % 2) * 20, y: 1590 + (i % 3) * 30, s: 70 + (i % 3) * 8, i });
   for (const cd of coders) {
@@ -224,7 +231,7 @@ export function climbShot(g, t, c) {
     g2.fillStyle = '#ffd98a'; rr(g2, -u * .5, u * 1.5, u * 1, u * 1, u * .3); g2.fill(); g2.restore();
   };
   // The unfolded page: a blank plan and a blank checklist; the words land on them.
-  const pageOn = unf * (1 - smooth(inv(121.0, 121.4, t)));
+  const pageOn = unf * (1 - smooth(inv(122.0, 122.4, t)));
   if (pageOn > 0) {
     g.save(); g.translate(540, 1080); g.scale(pageOn, pageOn); g.rotate(-.04);
     pen(g, 10, .8); g.fillStyle = '#fbf6ec'; rr(g, -340, -230, 680, 460, 16); g.fill(); nopen(g);
@@ -233,7 +240,7 @@ export function climbShot(g, t, c) {
     for (let k = 0; k < 4; k++) { rr(g, 40, -180 + k * 64, 42, 42, 6); g.stroke(); g.fillStyle = 'rgba(60,50,80,.2)'; g.fillRect(100, -164 + k * 64, 180, 10); }
     g.restore();
     g.save(); g.translate(540, 1080); g.scale(pageOn, pageOn); g.rotate(-.04);
-    sing(g, t, L, { from: 5, rows: [{ text: 'what to', x: -160, y: -80, size: 58 }, { text: 'build', x: -160, y: 30, size: 96 }, { text: 'or test', x: 165, y: 185, size: 80 }], style: 'ink', o: { shade: null }, emph: { build: { col: '#4a5ab8' }, test: { col: '#1f9a58' } }, maxW: 270 });
+    sing(g, t, L, { from: 5, rows: [{ text: 'what to', x: -160, y: -80, size: 58 }, { text: 'build', x: -160, y: 30, size: 96 }, { text: 'or test', x: 170, y: 190, size: 80 }], style: 'ink', o: { shade: null }, emph: { build: { col: '#4a5ab8' }, test: { col: '#1f9a58' } }, maxW: 300 });
     g.restore();
   }
   clawd(g, 540, cy, { s: 250, look: t < 121 ? [0, .3] : [0, -1], eyes: t < 121 ? 'worried' : 'open', armR: -1.4, armL: t < 121 ? -.4 : -1.2 + Math.sin(t * 8) * .3, hold: t > 121 ? lantern : undefined, shadow: false, legs: climb > 0 && climb < 1 ? t * 2 : undefined, mouth: clamp(K.vocal(t) * .8) });
@@ -243,15 +250,15 @@ export function climbShot(g, t, c) {
 
 // ---------------------------------------------------------------- 123.4 – 128.8: who it's for
 // A card held up over someone's head, its letter painted on as it's sung.
-function card(g, t, x, y, ch, t0, col) {
-  const up = easeOutBack(inv(t0 - .08, t0 + .18, t), 1.8);
-  if (up <= 0) return;
-  g.save(); g.translate(x, y + (1 - up) * 80); g.rotate(Math.sin(t * 3 + x) * .04);
-  g.strokeStyle = INK.col; g.lineWidth = 6; line(g, 0, 40, 0, 110); g.stroke();
-  pen(g, 8, .8); g.fillStyle = '#fbf3e2'; rr(g, -42, -58, 84, 108, 10); g.fill();
+// A letter card on a stick, drawn in the hand that holds it up (the fist goes over the stick).
+function heldCard(g, t, ch, t0, col, seed) {
+  const sway = Math.sin(t * 3 + seed) * .04;
+  g.save(); g.rotate(sway);
+  g.strokeStyle = INK.col; g.lineWidth = 6; line(g, 0, -44, 0, 14); g.stroke();
+  pen(g, 8, .8); g.fillStyle = '#fbf3e2'; rr(g, -42, -148, 84, 108, 10); g.fill();
   g.restore();
-  g.save(); g.translate(x, y + (1 - up) * 80); g.rotate(Math.sin(t * 3 + x) * .04);
-  letter(g, ch, 0, 28, 72, { align: 'center', col, w: .19, seed: x | 0, progress: clamp((t - t0) / .12) });
+  g.save(); g.rotate(sway);
+  letter(g, ch, 0, -62, 72, { align: 'center', col, w: .19, seed, progress: clamp((t - t0) / .12) });
   g.restore();
 }
 export function revealShot(g, t, c) {
@@ -273,20 +280,32 @@ export function revealShot(g, t, c) {
     g.save(); g.ink = null; g.fillStyle = mix('#1a1020', '#ffd494', clear); g.fillRect(x - 32, y - 78, 64, 78); g.restore();
   }
   glow(g, 700, 1150, 900 * (.3 + clear * .7), '#ffcf8a', .5 * clear);
-  const folk = ['demo', 'baker', 'chat1', 'student', 'nana', 'blind', 'chat2', 'chat3'];
   const L = lineNear(123.36), ws = L.lead;
-  // Everyone below, looking up; the front row holds up WHO IT'S FOR? a card each.
-  for (let row = 2; row >= 0; row--) for (let i = 0; i < 7 - row; i++) {
-    const k = folk[(i * 3 + row * 5) % folk.length];
-    const x = 90 + (i + row * .5) * (900 / (6 - row * .4)), y = 1340 + row * 95;
-    const wave = t > 127.6 ? Math.sin(t * 7 + i + row) * .4 : 0;
-    person(g, x, y, { s: 58 + row * 12, ...PEOPLE[k], look: [(700 - x) / 900, -1], eyes: clear > .75 ? 'happy' : 'open', mouth: clear > .75 ? .5 : 0, armR: clear > .75 ? -2.6 + wave : -.9, shadow: false });
-  }
+  // Everyone below, looking up at the lantern, in three rows drawn from the back, feet on the
+  // ground. The back row holds up WHO IT'S FOR?, a card each, raised as its word is sung.
+  const cheer = clear > .75;
+  const look = x => [(540 - x) / 900, -1];
   const cards = [['W', 5], ['H', 5], ['O', 5], ['I', 6], ['T', 6], ["'S", 6], ['F', 7], ['O', 7], ['R', 7], ['?', 7]];
   cards.forEach(([ch, wi], k) => {
-    const x = 156 + k * 80 + (k > 2 ? 24 : 0) + (k > 5 ? 24 : 0);
-    card(g, t, x, 1200 + Math.sin(k * 1.7) * 10, ch, ws[wi].s + (k % 3) * .06, wi === 5 ? '#c2335a' : '#2b1f3c');
+    const sz = 54 + (k * 7) % 5, u = sz / 10, x = 156 + k * 80 + (k > 2 ? 24 : 0) + (k > 5 ? 24 : 0) - 7.31 * u;
+    const t0 = ws[wi].s + (k % 3) * .06, has = t >= t0 - .1;
+    const up = easeOutBack(inv(t0 - .1, t0 + .2, t), 1.8);
+    const grip = (g2) => {
+      if (AUDIT.on) AUDIT.ctx = { line: L.i, word: wi, part: true };
+      heldCard(g2, t, ch, t0, wi === 5 ? '#c2335a' : '#2b1f3c', k * 7 + 1);
+      if (AUDIT.on) AUDIT.ctx = null;
+    };
+    person(g, x, 1398 + 20.96 * (u - 5.6) + Math.sin(k * 1.7) * 5, { s: sz, ...folk(k * 3 + 400), full: true, look: look(x), eyes: cheer ? 'happy' : 'open', mouth: cheer ? .5 : 0, armR: has ? lerp(.25, -2.75, up) : .25, armL: .3, shadow: false, gripR: has ? grip : undefined });
   });
+  const rows = [
+    { y: 1515, s: 64, who: [[60, 0], [220, 'demo'], [380, 'chat2'], [540, 1], [700, 'baker'], [860, 'chat3'], [1020, 2]] },
+    { y: 1650, s: 76, who: [[85, 'nana'], [255, 'chat1'], [425, 3], [655, 4], [825, 'student'], [995, 'blind']] },
+  ];
+  rows.forEach((r, ri) => r.who.forEach(([x, k], i) => {
+    const wave = t > 127.6 ? Math.sin(t * 7 + i + ri) * .4 : 0;
+    const both = (i + ri) % 3 === 0;
+    person(g, x, r.y + (i % 2) * 8, { s: r.s, ...(typeof k === 'string' ? PEOPLE[k] : folk(k + 430)), full: true, look: look(x), eyes: cheer ? 'happy' : 'open', mouth: cheer ? .5 : 0, armR: cheer ? -2.6 + wave : .25, armL: cheer && both ? -2.5 - wave : .3, shadow: false });
+  }));
   // The fog, lifting from the lantern outward.
   for (let i = 0; i < 14; i++) {
     const fx = rnd(i, 771) * W, fy = hz - 100 + rnd(i, 772) * 900;

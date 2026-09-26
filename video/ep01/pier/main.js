@@ -4,8 +4,8 @@
 import { W, H, C, clamp, lerp, smooth, inv, makeClock, INK } from './kit.js';
 import { inkify } from './ink.js';
 import { loadMarks, GROOVE } from './cast.js';
-import { setLyrics, drawCaption } from './lyrics.js';
-import { letter } from './hand.js';
+import { setLyrics, drawCaption, setShotEnd } from './lyrics.js';
+import { letter, AUDIT } from './hand.js';
 import { finish, fill, paperOver } from './post.js';
 import * as V1 from './scenes/verse1.js';
 import * as PC from './scenes/pre.js';
@@ -37,12 +37,14 @@ export let markColor = 'rgba(255,255,255,.72)';
 
 // The two corner marks Qing asked for, very small, lettered in the film's own hand.
 export function drawMarks(g) {
+  if (AUDIT.on) AUDIT.ctx = { mark: true };
   g.save();
   const col = markColor;
   letter(g, '@yanqingcheng', 36, 62, 22, { col, w: .15, seed: 5 });
   const tw = letter(g, 'TOLLENS', W - 160, 62, 22, { col, w: .15, align: 'right', seed: 9 });
   letter(g, '∴', W - 160 - tw - 34, 66, 30, { col, w: .2, seed: 8 });
   g.restore();
+  if (AUDIT.on) AUDIT.ctx = null;
 }
 
 let K, S0;
@@ -58,6 +60,8 @@ const DAY = { color: '#2a1640', hot: '#ff4a2a', shadowCol: 'rgba(255,250,240,.95
 const DUSK = { color: '#fff8ee', hot: '#ffe08a', shadowCol: 'rgba(80,20,60,.75)' };
 
 // The shot list. cap: caption style (or false when the shot sets its own words). post: finishing.
+// Most shots cut where their line starts. Where the line before ends on a word sung just before
+// the cut, the cut waits for the next beat, so that word can be read before it goes.
 // push: slow camera push-in over the shot [from, to]. xfade: dissolve in from the previous shot.
 // flash: a white flash at that time. mark: corner-mark colour, dark on daylight.
 const SHOTS = [
@@ -66,7 +70,7 @@ const SHOTS = [
   { t: 8.0, draw: V1.twoFAShot, cap: false, post: { bloom: .55 }, push: [1, 1.03] },
   { t: 10.76, draw: V1.kubeShot, cap: false, post: { bloom: .6 }, push: [1.03, 1] },
   { t: 13.2, draw: V1.subagentShot, cap: false, post: { bloom: .6 }, push: [1, 1.04] },
-  { t: 15.64, draw: V1.wrongShot, cap: false, post: { bloom: .5 }, push: [1, 1.05] },
+  { t: 15.709, draw: V1.wrongShot, cap: false, post: { bloom: .5 }, push: [1, 1.05] },
   { t: 17.04, draw: V1.quotaShot, cap: false, post: { bloom: .6 }, push: [1, 1.02] },
   { t: 18.66, draw: V1.askShot, cap: false, post: { bloom: .8, vignette: .3 } },
   { t: 20.8, draw: PC.pcWide, cap: false, post: { bloom: .55 } },
@@ -80,9 +84,9 @@ const SHOTS = [
   { t: 38.08, draw: (g, t, c) => CH.hookClose(g, t, c, { line: 38.08, word: 'WHO?' }), cap: false, post: { bloom: .7 } },
   { t: 40.76, draw: (g, t, c) => CH.hookWide(g, t, c, { line: 40.76, word: 'WHAT?', seagull: { x: 420, y: 1500, s: 1.5 } }), cap: false, post: { bloom: .75 } },
   { t: 43.62, draw: (g, t, c) => CH.shipShot(g, t, c, { line: 43.62 }), cap: false, post: { bloom: .65 } },
-  { t: 44.62, draw: (g, t, c) => CH.polishShot(g, t, c, { line: 43.62 }), cap: false, post: { bloom: .6 } },
-  { t: 46.46, draw: (g, t, c) => CH.needShot(g, t, c, { line: 46.46 }), cap: false, post: { bloom: .6 } },
-  { t: 47.6, draw: (g, t, c) => CH.showShot(g, t, c, { line: 46.46, boom: 47.82 }), cap: false, post: { bloom: .8 } },
+  { t: 44.937, draw: (g, t, c) => CH.polishShot(g, t, c, { line: 43.62 }), cap: false, post: { bloom: .6 } },
+  { t: 46.649, draw: (g, t, c) => CH.needShot(g, t, c, { line: 46.46 }), cap: false, post: { bloom: .6 } },
+  { t: 47.659, draw: (g, t, c) => CH.showShot(g, t, c, { line: 46.46, boom: 47.82 }), cap: false, post: { bloom: .8 } },
   // Verse 2: the beach huts, one person per line.
   { t: 50.5, draw: HU.hutsShot, cap: false, post: { bloom: .55 } },
   { t: 72.48, draw: HU.hutsWide, cap: false, post: { bloom: .6 } },
@@ -97,9 +101,9 @@ const SHOTS = [
   { t: 93.82, draw: (g, t, c) => CH.hookClose(g, t, c, { line: 93.82, word: 'WHO?', crowd: 1 }), cap: false, post: { bloom: .7 } },
   { t: 96.54, draw: (g, t, c) => CH.hookWide(g, t, c, { line: 96.54, word: 'WHAT?', crowd: 1 }), cap: false, post: { bloom: .75 } },
   { t: 99.3, draw: (g, t, c) => CH.shipShot(g, t, c, { line: 99.3, pusher: 'person', pusherO: HU.PEOPLE.student, flag: 'DUE 9AM' }), cap: false, post: { bloom: .65 } },
-  { t: 100.4, draw: (g, t, c) => CH.polishShot(g, t, c, { line: 99.3, who: 'person', whoO: HU.PEOPLE.baker }), cap: false, post: { bloom: .6 } },
-  { t: 102.2, draw: (g, t, c) => CH.needShot2(g, t, c, { line: 102.2, personO: HU.PEOPLE.blind }), cap: false, post: { bloom: .6 } },
-  { t: 103.1, draw: (g, t, c) => CH.showShot(g, t, c, { line: 102.2, boom: 103.58, crowd: 1 }), cap: false, post: { bloom: .8 } },
+  { t: 100.681, draw: (g, t, c) => CH.polishShot(g, t, c, { line: 99.3, who: 'person', whoO: HU.PEOPLE.baker }), cap: false, post: { bloom: .6 } },
+  { t: 102.382, draw: (g, t, c) => CH.needShot2(g, t, c, { line: 102.2, personO: HU.PEOPLE.blind }), cap: false, post: { bloom: .6 } },
+  { t: 103.398, draw: (g, t, c) => CH.showShot(g, t, c, { line: 102.2, boom: 103.58, crowd: 1 }), cap: false, post: { bloom: .8 } },
   // Bridge: the code sky, the wall, the climb, the people on the other side.
   { t: 106.3, draw: BR.trainingShot, cap: false, post: { bloom: .8, vignette: .6 }, push: [1.06, 1] },
   { t: 112.3, draw: BR.wallShot, xfade: .5, cap: false, post: { bloom: .6 } },
@@ -109,25 +113,25 @@ const SHOTS = [
   { t: 128.8, draw: BK.archShot, cap: false, post: { bloom: .8 } },
   { t: 134.68, draw: BK.mattersShot, xfade: .3, cap: false, post: { bloom: .7 } },
   { t: 137.48, draw: BK.someoneShot, cap: false, post: { bloom: .7 } },
-  { t: 142.42, draw: BK.debugShot, cap: false, post: { bloom: .6 } },
+  { t: 142.838, draw: BK.debugShot, cap: false, post: { bloom: .6 } },
   // Final pre-chorus: the plea at first light, and you start to type.
-  { t: 147.56, draw: FI.pleaShot, xfade: .5, cap: false, post: { bloom: .6 }, push: [1, 1.06] },
+  { t: 147.56, draw: FI.pleaShot, xfade: .3, cap: false, post: { bloom: .6 }, push: [1, 1.06] },
   { t: 153.32, draw: FI.typeShot, xfade: .4, cap: false, post: { bloom: .6 } },
   // Final chorus at sunrise: every question answered.
-  { t: 160.5, draw: (g, t, c) => FI.finalWho(g, t, c, { line: 160.5, word: 'WHO?', answer: 'ME!', flip: 161.95, people: FRONT }), cap: false, post: { bloom: .7 }, flash: 160.5 },
-  { t: 163.18, draw: (g, t, c) => FI.finalWhat(g, t, c, { line: 163.18, word: 'WHAT?', answer: 'ONE TAP!', flip: 164.62 }), cap: false, post: { bloom: .7 } },
+  { t: 160.5, draw: (g, t, c) => FI.finalWho(g, t, c, { line: 160.5, word: 'WHO?', answer: 'ME!', flip: 162.2, people: FRONT }), cap: false, post: { bloom: .7 }, flash: 160.5 },
+  { t: 163.18, draw: (g, t, c) => FI.finalWhat(g, t, c, { line: 163.18, word: 'WHAT?', answer: 'ONE TAP!', flip: 164.87 }), cap: false, post: { bloom: .7 } },
   { t: 166.17, draw: (g, t, c) => CH.triangleShot(g, t, c, { line: 166.17, variant: 3 }), cap: false, post: { bloom: .7 } },
   { t: 168.74, draw: (g, t, c) => CH.wowKeepShot(g, t, c, { line: 168.74, variant: 3 }), cap: false, post: { bloom: .75 } },
-  { t: 171.34, draw: (g, t, c) => FI.finalWho(g, t, c, { line: 171.34, word: 'WHO?', answer: 'YOU TOO!', flip: 172.75, people: FRONT, point: true }), cap: false, post: { bloom: .7 } },
-  { t: 174.12, draw: (g, t, c) => FI.finalWhat(g, t, c, { line: 174.12, word: 'WHAT?', answer: 'NEW BESTS!', flip: 175.45 }), cap: false, post: { bloom: .7 } },
+  { t: 171.34, draw: (g, t, c) => FI.finalWho(g, t, c, { line: 171.34, word: 'WHO?', answer: 'YOU TOO!', flip: 173.0, people: FRONT, point: true }), cap: false, post: { bloom: .7 } },
+  { t: 174.12, draw: (g, t, c) => FI.finalWhat(g, t, c, { line: 174.12, word: 'WHAT?', answer: 'NEW BESTS!', flip: 175.7 }), cap: false, post: { bloom: .7 } },
   { t: 176.74, draw: (g, t, c) => CH.shipShot(g, t, c, { line: 176.74, pusher: 'hand', flag: 'MON', whole: true }), cap: false, post: { bloom: .65 } },
-  { t: 179.72, draw: FI.appShot, cap: false, post: { bloom: .6 } },
-  { t: 181.9, draw: FI.builtShot, cap: false, post: { bloom: .55 } },
+  { t: 179.891, draw: FI.appShot, cap: false, post: { bloom: .6 } },
+  { t: 182.358, draw: FI.builtShot, cap: false, post: { bloom: .55 } },
   // Outro: summer.
-  { t: 184.6, draw: OU.summerTap, cap: false, post: { bloom: .4, vignette: .3 }, mark: 'rgba(42,22,64,.7)' },
+  { t: 184.953, draw: OU.summerTap, cap: false, post: { bloom: .4, vignette: .3 }, mark: 'rgba(42,22,64,.7)' },
   { t: 187.7, draw: OU.beachBots, cap: false, post: { bloom: .4, vignette: .3 }, mark: 'rgba(42,22,64,.7)' },
   { t: 190.4, draw: OU.toyShot, cap: false, post: { bloom: .4, vignette: .3 }, mark: 'rgba(42,22,64,.7)' },
-  { t: 193.26, draw: OU.tideShot, xfade: .4, cap: false, post: { bloom: .55, vignette: .4 } },
+  { t: 193.492, draw: OU.tideShot, xfade: .4, cap: false, post: { bloom: .55, vignette: .4 } },
 ];
 SHOTS.forEach((s, i) => { s.end = SHOTS[i + 1]?.t ?? 1e9; });
 
@@ -196,6 +200,7 @@ function drawShot(g, shot, t, tq) {
   }
   // A little overscan so the drift never shows an edge.
   g.translate(540, 960); g.scale(1.012, 1.012); g.translate(-540, -960);
+  setShotEnd(shot.end);
   shot.draw(g, tq, c);
   // The words are lettered into the picture, under the same paper.
   if (shot.lyr) shot.lyr(g, tq, c);

@@ -4,7 +4,8 @@ import { W, H, C, TAU, clamp, lerp, inv, smooth, easeOut, easeOutBack, spring, b
 import { clawd, pen, nopen, tone } from '../cast.js';
 import { blinkAt } from '../band.js';
 import { voidStage, spotlight } from './void.js';
-import { sing, STYLE } from '../lyrics.js';
+import { sing, keyLine, STYLE } from '../lyrics.js';
+import { letter } from '../hand.js';
 
 // A smooth closed path through points (quadratic curves via midpoints).
 function smoothPath(g, pts) {
@@ -109,7 +110,7 @@ export function pcWide(g, t, c) {
         g.save(); g.globalAlpha = Math.min(1, a * 1.8);
         pen(g, 6, .7); g.fillStyle = '#eceeff'; ellipse(g, gx + 50 * s, gy - 300 * s, 42 * s * p, 34 * s * p); g.fill(); nopen(g);
         g.restore();
-        if (p > .3) sing(g, 99, { i: 0, lead: [{ w: '?', s: 0, e: .1 }], end: 1e9 }, { rows: [{ text: '?', x: gx + 50 * s, y: gy - 300 * s + 17 * s, size: 46 * s * p }], style: 'ink', o: { shade: null } });
+        if (p > .3) letter(g, '?', gx + 50 * s, gy - 300 * s + 17 * s, 46 * s * p, { align: 'center', col: '#2b1f3c', w: .16, seed: i });
       }
     });
   }
@@ -143,10 +144,10 @@ export function pcTorch(g, t, c) {
   g.restore();
   // The pool of light on the head, and in it the words: the torch finds them written on the outside.
   g.save(); headPath(g, hx, hy, hw); g.clip();
-  g.ink = null; g.fillStyle = rgba('#fff4d6', .32 * beamOn); ellipse(g, lx, ly, 360, 300); g.fill();
-  g.fillStyle = rgba('#fff4d6', .2 * beamOn); ellipse(g, lx, ly, 250, 210); g.fill();
+  g.ink = null; g.fillStyle = rgba('#fff4d6', .5 * beamOn); ellipse(g, lx, ly, 360, 300); g.fill();
+  g.fillStyle = rgba('#fff4d6', .35 * beamOn); ellipse(g, lx, ly, 250, 210); g.fill();
   g.beginPath(); g.ellipse(lx, ly, 370, 310, 0, 0, TAU); g.clip();
-  sing(g, t, 24.0, { rows: [{ text: "I can't read", x: lx, y: ly - 30, size: 92 }, { text: 'your mind,', x: lx, y: ly + 110, size: 120 }], style: 'ink', o: { shade: { col: 'rgba(255,244,214,.6)', dx: .04, dy: .05 } }, emph: { mind: { col: '#6a2ac0' } } });
+  sing(g, t, 24.0, { rows: [{ text: "I can't read", x: lx, y: ly - 30, size: 92 }, { text: 'your mind,', x: lx, y: ly + 110, size: 120 }], style: 'ink', o: { shade: { col: 'rgba(255,248,230,.7)', dx: .04, dy: .05 } }, emph: { mind: { col: '#3d1a86' } } });
   g.restore();
   const torch = (g2, u) => {
     g2.save(); g2.rotate(ang);
@@ -167,7 +168,7 @@ export function pcRead(g, t, c) {
   const freeze = t > 26.85 ? 1 : 0;
   const tt = freeze ? 26.85 : t;
   const bob = Math.sin(tt * 2.5) * 6;
-  const sy0 = 920;
+  const sy0 = 1010;
   slip(g, 540, sy0 + bob, 860, -.035, { text: '> make it good' });
   const mp = easeOut(inv(25.04, 26.12, tt));
   const mx = lerp(280, 690, mp), my = sy0 + 10 + bob + Math.sin(mp * Math.PI) * -30;
@@ -183,7 +184,7 @@ export function pcRead(g, t, c) {
   g.strokeStyle = '#2f2a44'; g.lineWidth = 36; g.lineCap = 'round'; line(g, mx + 110, my + 110, mx + 260, my + 280); g.stroke();
   g.fillStyle = 'rgba(255,255,255,.5)'; g.save(); g.translate(mx - 70, my - 80); g.rotate(-.7); rr(g, -30, -8, 60, 16, 8); g.fill(); g.restore();
   g.restore();
-  clawd(g, 540, 1860, { s: 400, eyes: 'open', look: [lerp(-.8, .6, mp), -1], armL: -1.4, armR: -1.0, mouth: freeze ? 0 : clamp(K.vocal(tt)), blink: 0 });
-  // All it has: the prompt. PROMPT is the word that lands.
-  sing(g, t, 25.04, { rows: [{ text: "I'm only reading", y: 300, size: 80 }, { text: 'your prompt.', y: 470, size: 140 }], emph: { prompt: { col: STYLE.hot } } });
+  clawd(g, 540, 1900, { s: 380, eyes: 'open', look: [lerp(-.8, .6, mp), -1], armL: -1.4, armR: -1.0, mouth: freeze ? 0 : clamp(K.vocal(tt)), blink: 0 });
+  // All it has is the prompt. The whole line stays up together: MIND above, PROMPT landing below.
+  keyLine(g, t, 24.0, 25.04, 190);
 }

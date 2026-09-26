@@ -7,7 +7,7 @@ import { clawd, person, grok, blossom, pen, nopen, tone } from '../cast.js';
 import { blinkAt } from '../band.js';
 import { PEOPLE, HUT_COLS } from './huts.js';
 import { slip } from './pre.js';
-import { sing, STYLE } from '../lyrics.js';
+import { sing, keyLine, STYLE } from '../lyrics.js';
 
 // What each of them wants, as a little painted icon in a thought bubble.
 function want(g, kind, x, y, s) {
@@ -113,13 +113,12 @@ export function pc2Dizzy(g, t, c) {
   // Every want circling Clawd's head, faster and faster; then just the slip.
   RING.forEach((p, i) => {
     const a = spin + i / RING.length * TAU;
-    const x = 540 + Math.cos(a) * 380, y = 1000 + Math.sin(a) * 160;
+    const x = 540 + Math.cos(a) * 380, y = 1080 + Math.sin(a) * 150;
     g.save(); g.globalAlpha = 1 - read * .85;
     bubble(g, x, y, 66, 1); want(g, p.want, x, y, 72);
     g.restore();
   });
   clawd(g, 540, 1680, { s: 440, eyes: read > .5 ? 'open' : 'spiral', t: tt, look: read > .5 ? [0, -1] : [0, 0], armR: lerp(-.3, -1.5, read), armL: lerp(-.3, -1.5, read), mouth: freeze ? 0 : clamp(K.vocal(tt)), sweat: 1 - read });
-  if (read > 0) slip(g, 540, lerp(1400, 1120, easeOutBack(read, 1.4)), 620 * read, -.04, {});
-  sing(g, t, 79.76, { rows: [{ text: "I can't read", y: 300, size: 92 }, { text: 'your mind,', y: 440, size: 120 }], hold: -.1 });
-  sing(g, t, 80.76, { rows: [{ text: "I'm only reading", y: 300, size: 80 }, { text: 'your prompt.', y: 470, size: 140 }], emph: { prompt: { col: STYLE.hot } } });
+  if (read > 0) slip(g, 540, lerp(1420, 1160, easeOutBack(read, 1.4)), 600 * read, -.04, {});
+  keyLine(g, t, 79.76, 80.76, 210);
 }

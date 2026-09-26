@@ -8,7 +8,7 @@ import { blinkAt } from '../band.js';
 import { phone, laptop, hand, battery, container, helm, clockFace, padlock, chain, paper, promptBox, HAND } from '../props.js';
 import { voidStage, spotlight } from './void.js';
 import { sing, lineNear, STYLE } from '../lyrics.js';
-import { letter, letterArc, measure } from '../hand.js';
+import { letter, letterArc, measure, AUDIT } from '../hand.js';
 
 const PROMPT = 'make it good';
 const GOLD = STYLE.hot, PINK = STYLE.pink;
@@ -89,7 +89,7 @@ export function intro(g, t, c) {
   const bp = K.beatPos(t);
   if (t < 1.26) { cy = peekY + Math.sin(t * 5) * 3; look = t < .7 ? [0, .8] : [0, .2]; }
   else if (t < 1.46) { const p = inv(1.26, 1.46, t); cy = peekY + 34 * easeOut(p); sq = .22 * p; }
-  else if (t < landT) { const p = inv(1.46, landT, t); cy = lerp(peekY + 34, topY, p) - Math.sin(p * Math.PI) * 330; sq = -.2 * Math.sin(p * Math.PI); arms = [-1.2, -1.2]; eyes = 'wide'; }
+  else if (t < landT) { const p = inv(1.46, landT, t); cy = lerp(peekY + 34, topY, p) - Math.sin(p * Math.PI) * 220; sq = -.2 * Math.sin(p * Math.PI); arms = [-1.2, -1.2]; eyes = 'wide'; }
   else {
     const p = inv(landT, landT + .3, t);
     cy = topY; sq = .25 * Math.exp(-p * 5) * Math.cos(p * 14);
@@ -111,10 +111,10 @@ export function intro(g, t, c) {
   sing(g, t, 0, {
     pre: 5,
     rows: [
-      { text: 'You said', y: 205, size: 76 },
-      { text: 'make it good,', y: 350, size: 118 },
-      { text: 'so I made it', y: 470, size: 76 },
-      { text: 'good!', y: 668, size: 190 },
+      { text: 'You said', y: 178, size: 76 },
+      { text: 'make it good,', y: 320, size: 118 },
+      { text: 'so I made it', y: 434, size: 76 },
+      { text: 'good!', y: 642, size: 184 },
     ],
     emph: { '#9': { col: GOLD } },
   });
@@ -290,6 +290,7 @@ export function flossShot(g, t, c) {
       { text: 'floss,', y: 710, size: 165 },
     ],
     emph: { 'floss': { col: PINK } },
+    o: { outline: { col: INK.col, w: .035 } },
   });
 }
 
@@ -396,9 +397,9 @@ function blogScreen(g, sx, sy, sw, sh, t, o) {
   g.fillStyle = '#231c33'; g.font = `800 ${sw * .06}px Bricolage`; g.fillText('hello world!', sx + pad, sy + sh * .5);
   g.fillStyle = 'rgba(60,50,80,.2)'; for (let i = 0; i < 2; i++) g.fillRect(sx + pad, sy + sh * (.58 + i * .08), sw * (.7 - i * .25), sh * .03);
   const pulse = o.pulse || 0;
-  g.save(); g.translate(sx + sw - pad - sw * .12, sy + sh * .2); g.scale(1 + pulse * .5, 1 + pulse * .5);
-  g.fillStyle = pulse > .05 ? '#ff4fa3' : '#e9e4f2'; rr(g, -sw * .14, -sh * .075, sw * .28, sh * .11, sh * .05); g.fill();
-  g.fillStyle = pulse > .05 ? '#fff' : '#5a5270'; g.textAlign = 'center'; g.font = `800 ${sw * .04}px Bricolage`; g.fillText('1 view', 0, -sh * .005);
+  g.save(); g.translate(sx + sw - pad - sw * .17, sy + sh * .2); g.scale(1 + pulse * .3, 1 + pulse * .3);
+  g.fillStyle = pulse > .05 ? '#ff4fa3' : '#e9e4f2'; rr(g, -sw * .2, -sh * .1, sw * .4, sh * .16, sh * .07); g.fill();
+  g.fillStyle = pulse > .05 ? '#fff' : '#5a5270'; g.textAlign = 'center'; g.font = `800 ${sw * .075}px Bricolage`; g.fillText('1 view', 0, sh * .02);
   g.restore();
 }
 
@@ -424,83 +425,94 @@ function crane(g, x, fy, h, side, t) {
 }
 
 // ---------------------------------------------------------------- KUBERNETES 10.76 – 13.2
+// The line reads top to bottom: KUBERNETES on a banner slung between two cranes, SCALING UP
+// climbing underneath, and YOUR BLOG on a little signpost pointing at the tiny laptop that all
+// this is for.
 export function kubeShot(g, t, c) {
-  const K = c.K;
   const fy = 1640;
   voidStage(g, t, { floorY: fy, tint: '#1d3f8a', glowA: .45, spot: { x: 540, w: 600, a: 1 } });
   const cols = ['#e0495d', '#2f7bff', '#1fb5a0', '#ff9f43', '#ffd166', '#8b5bff', '#48c6ff', '#ff6fa3'];
-  const cw = 240, ch = 92;
+  const cw = 230, ch = 90;
   const slots = [];
-  for (let i = 0; i < 21; i++) {
+  for (let i = 0; i < 18; i++) {
     const row = Math.floor(i / 3), colx = i % 3;
-    slots.push({ x: 540 - cw * 1.5 + colx * cw + (row % 2 ? 22 : -22), y: fy - 230 - row * ch, c: cols[(i * 5 + row) % cols.length], t: 11.28 + i * .085 });
+    slots.push({ x: 470 - cw * 1.5 + colx * cw + (row % 2 ? 20 : -20), y: fy - 220 - row * ch, c: cols[(i * 5 + row) % cols.length], t: 11.28 + i * .095 });
   }
   const landed = slots.filter(s => t > s.t);
-  const top = landed.length ? landed[landed.length - 1].y : fy - 230;
-  // Two cranes, and a banner slung between their jibs with the word on it.
-  const [ax, ay] = crane(g, 60, fy, 1180, 1, t);
-  const [bx2, by2] = crane(g, 1020, fy, 1180, -1, t);
+  const top = landed.length ? landed[landed.length - 1].y : fy - 220;
+  const [ax, ay] = crane(g, 60, fy, 1440, 1, t);
+  const [bx2, by2] = crane(g, 1020, fy, 1440, -1, t);
+  // Containers drop onto the stack from just above it, never through the words.
   for (let i = 0; i < slots.length; i++) {
     const s = slots[i];
-    if (t < s.t - .18) continue;
-    const land = easeIn(clamp((t - (s.t - .18)) / .18));
+    if (t < s.t - .16) continue;
+    const land = easeIn(clamp((t - (s.t - .16)) / .16));
     const bounce = t > s.t ? Math.exp(-(t - s.t) * 14) * Math.sin((t - s.t) * 42) * 5 : 0;
-    const y = lerp(s.y - 900, s.y, land) + bounce;
+    const y = lerp(s.y - 260, s.y, land) + bounce;
     container(g, s.x, y, cw, ch, s.c);
     for (let k = 0; k < 3; k++) { const on = Math.sin(t * 9 + i * 3 + k * 2) > .2; g.fillStyle = on ? (k === 2 ? '#ff4a5a' : '#6dff9a') : '#1a2a20'; circle(g, s.x + cw * .82 + k * 11 - 11, y + ch * .22, 3.6); g.fill(); }
   }
   const hp = spring(inv(10.76, 11.2, t), 3, 6);
-  helm(g, 540, Math.min(top - 110, 1240), 88 * hp, t * 3);
-  laptop(g, 540, fy, 400, (g2, sx, sy, sw, sh) => blogScreen(g2, sx, sy, sw, sh, t, { pulse: bump(t, 12.2, 12.9) }), { glowA: 1.1 });
+  helm(g, 470, Math.min(top - 100, 1300), 80 * hp, t * 3);
+  // The blog, tiny, on its laptop at the foot of the tower.
+  const lapX = 390;
+  laptop(g, lapX, fy, 330, (g2, sx, sy, sw, sh) => blogScreen(g2, sx, sy, sw, sh, t, { pulse: bump(t, 12.2, 12.9) }), { glowA: 1.1 });
   const lever = inv(11.2, 11.6, t);
-  const lx = 180, ly = fy - 10;
+  const lx = 64, ly = fy - 10;
   g.save(); pen(g, 10, .7);
-  g.fillStyle = '#2b2940'; rr(g, lx - 50, ly - 90, 100, 90, 14); g.fill();
-  g.translate(lx, ly - 70); g.rotate(lerp(.9, -.9, easeOutBack(lever, 2)));
-  g.strokeStyle = '#c9c4d6'; g.lineWidth = 14; g.lineCap = 'round'; line(g, 0, 0, 0, -150); g.stroke();
-  g.fillStyle = '#ff4a5a'; circle(g, 0, -155, 26); g.fill();
+  g.fillStyle = '#2b2940'; rr(g, lx - 44, ly - 84, 88, 84, 14); g.fill();
+  g.translate(lx, ly - 66); g.rotate(lerp(.9, -.9, easeOutBack(lever, 2)));
+  g.strokeStyle = '#c9c4d6'; g.lineWidth = 13; g.lineCap = 'round'; line(g, 0, 0, 0, -140); g.stroke();
+  g.fillStyle = '#ff4a5a'; circle(g, 0, -145, 24); g.fill();
   g.restore();
-  clawd(g, lx + 160, fy + 10, { s: 210, eyes: t > 11.6 ? 'star' : 'open', look: [-1, -.5], armL: lerp(-.2, -1.3, easeOut(lever)), armR: -.3, mouth: 0, smile: 1 });
-  // The banner: sagging canvas between the jibs, the word painted on it as it's sung.
-  const L = lineNear(10.76);
-  const bw0 = ax + 30, bw1 = bx2 - 30, byy = ay + 150, sag = 40;
-  const drop = easeOutBack(inv(10.7, 11.0, t), 1.4);
+  clawd(g, 170, fy + 20, { s: 180, eyes: t > 11.6 ? 'star' : 'open', look: [-1, -.5], armL: lerp(-.2, -1.3, easeOut(lever)), armR: -.3, mouth: 0, smile: 1 });
+  const L = lineNear(10.76), ws = L.lead;
+  // The banner: sagging canvas between the jibs, KUBERNETES painted on as it's sung.
+  const bw0 = ax + 30, bw1 = bx2 - 30, sag = 36;
+  const drop = easeOutBack(inv(10.66, 10.96, t), 1.4);
   if (drop > 0) {
-    const yb = lerp(ay - 300, byy, drop);
+    const yb = lerp(ay - 260, ay + 110, drop);
     g.save();
     g.strokeStyle = rgba(INK.col, .9); g.lineWidth = 3;
-    line(g, ax, ay + 10, bw0, yb - 60); g.stroke(); line(g, bx2, by2 + 10, bw1, yb - 60); g.stroke();
+    line(g, ax, ay + 10, bw0, yb - 70); g.stroke(); line(g, bx2, by2 + 10, bw1, yb - 70); g.stroke();
     pen(g, 9, .8);
     g.fillStyle = '#f4ead6';
-    g.beginPath(); g.moveTo(bw0, yb - 60); g.quadraticCurveTo(540, yb - 60 + sag, bw1, yb - 60); g.lineTo(bw1, yb + 90); g.quadraticCurveTo(540, yb + 90 + sag, bw0, yb + 90); g.closePath(); g.fill();
+    g.beginPath(); g.moveTo(bw0, yb - 70); g.quadraticCurveTo(540, yb - 70 + sag, bw1, yb - 70); g.lineTo(bw1, yb + 90); g.quadraticCurveTo(540, yb + 90 + sag, bw0, yb + 90); g.closePath(); g.fill();
     g.restore();
-    const w0 = L.lead[0];
-    if (t >= w0.s - .01) letter(g, 'KUBERNETES', 540, yb + 60 + sag * .5, 104, { align: 'center', col: '#2f56c8', w: .17, shade: { col: 'rgba(30,20,60,.25)', dx: .03, dy: .04 }, progress: clamp((t - w0.s) / .35), seed: 91 });
+    if (t >= ws[0].s - .01) {
+      if (AUDIT.on) AUDIT.ctx = { line: L.i, word: 0 };
+      letter(g, 'KUBERNETES', 540, yb + 58 + sag * .5, 106, { align: 'center', col: '#2f56c8', w: .17, shade: { col: 'rgba(30,20,60,.22)', dx: .03, dy: .04 }, progress: clamp((t - ws[0].s) / .3), seed: 91 });
+      if (AUDIT.on) AUDIT.ctx = null;
+    }
   }
-  // SCALING UP climbs a letter at a time; your blog is tiny, beside the one thing it needed.
-  const ws = L.lead;
-  const up = 'SCALING UP';
+  // SCALING UP: each letter springs up into place a little higher than the one before.
+  const up = 'SCALING UP', size = 88, rise = 7;
   if (t >= ws[1].s - .01) {
-    const p = clamp((t - ws[1].s) / ((ws[2].e ?? ws[2].s + .3) - ws[1].s));
-    const size = 84;
+    const p = clamp((t - ws[1].s) / Math.max(.2, (ws[2].e ?? ws[2].s + .3) - ws[1].s - .1));
     let x = 540 - measure(up, size) / 2;
     [...up].forEach((ch2, i) => {
+      if (AUDIT.on) AUDIT.ctx = { group: i < 7 ? 'grp:SCALING' : 'grp:UP' };
       if (ch2 === ' ') { x += size * .3; return; }
       const q = clamp(p * up.length - i);
-      if (q > 0) letter(g, ch2, x, 560 - i * 16, size, { col: '#fff3de', w: .155, shade: STYLE.paint.shade, progress: q, seed: 70 + i });
+      if (q > 0) {
+        const jump = (1 - easeOutBack(clamp(q * 1.4), 2)) * 40;
+        letter(g, ch2, x, 628 - i * rise + jump, size, { col: '#fff3de', w: .16, shade: STYLE.paint.shade, outline: { col: INK.col, w: .03 }, progress: q, seed: 70 + i });
+      }
       x += measure(ch2, size) + size * .07;
     });
+    if (AUDIT.on) AUDIT.ctx = null;
   }
-  // your blog, tiny, on a paper tag tied to the laptop: all that tower is for this.
-  if (t >= ws[3].s - .05) {
-    const sw2 = Math.sin(t * 2.4) * .06, p = easeOutBack(inv(ws[3].s - .05, ws[3].s + .2, t), 1.6);
-    g.save(); g.translate(752, 1352); g.rotate(.16 + sw2); g.scale(p, p);
-    g.strokeStyle = rgba(INK.col, .9); g.lineWidth = 2.5; line(g, 0, 0, 0, 40); g.stroke();
-    pen(g, 8, .7); g.fillStyle = '#fbf4e4'; poly(g, [[-108, 40], [108, 40], [108, 128], [-108, 128], [-122, 84]]); g.fill();
+  // YOUR BLOG, on a signpost whose arrow points at the laptop.
+  if (t >= ws[3].s - .08) {
+    const p = easeOutBack(inv(ws[3].s - .08, ws[3].s + .14, t), 1.6);
+    const bh = 100, bw = 418, tip = 562, sx0 = tip + bw / 2, sy0 = 1462;
+    g.save(); g.translate(sx0, 1640); g.rotate(Math.sin(t * 2.4) * .015); g.scale(1, p); g.translate(-sx0, -1640);
+    pen(g, 9, .8);
+    g.strokeStyle = '#7a5236'; g.lineWidth = 16; line(g, sx0 + 40, sy0 + bh / 2, sx0 + 40, 1640); g.stroke();
+    g.fillStyle = '#fbf2e0';
+    poly(g, [[sx0 - bw / 2 + 36, sy0 - bh / 2], [sx0 + bw / 2, sy0 - bh / 2], [sx0 + bw / 2, sy0 + bh / 2], [sx0 - bw / 2 + 36, sy0 + bh / 2], [sx0 - bw / 2, sy0]]); g.fill();
     g.restore();
-    g.save(); g.translate(752, 1352); g.rotate(.16 + sw2); g.scale(p, p);
-    sing(g, t, 10.76, { from: 3, rows: [{ text: 'your blog,', x: 0, y: 104, size: 44 }], style: 'ink', o: { shade: null } });
-    g.restore();
+    if (p > .5) sing(g, t, L, { from: 3, rows: [{ text: 'your blog,', x: sx0 + 18, y: sy0 + 27, size: 54 }], style: 'ink', o: { shade: null }, maxW: bw - 50 });
   }
 }
 
@@ -545,10 +557,28 @@ export function subagentShot(g, t, c) {
   const L = lineNear(13.2);
   const ws = L.lead;
   sing(g, t, L, { rows: [{ text: 'twelve', y: 285, size: 150 }, { text: 'subagents', y: 420, size: 96 }] });
-  const arc = 'WORKING ROUND THE CLOCK.';
+  const arcWords = ['WORKING', 'ROUND', 'THE', 'CLOCK.'];
+  const arc = arcWords.join(' ');
   if (t >= ws[2].s - .01) {
-    const p = clamp((t - ws[2].s) / ((ws[5].e ?? ws[5].s + .4) - ws[2].s));
-    letterArc(g, arc, cx, cy, R * 1.36 + 135, Math.PI / 2, 64, { bottom: true, col: '#fff3de', w: .16, shade: STYLE.paint.shade, progress: p, seed: 51 });
+    // Which word each glyph belongs to, and how far along that word's writing it is.
+    const owner = []; arcWords.forEach((w, k) => { for (let j = 0; j < w.length; j++) owner.push([k, j, w.length]); });
+    const glyphP = i => {
+      const [k, j, n] = owner[i];
+      const w = ws[2 + k], room = 15.709 - w.s;
+      const d = Math.min(clamp(((w.e ?? w.s + .3) - w.s) * .75, .1, .32), Math.max(.05, room - .45));
+      return clamp((t - w.s) / d * n - j);
+    };
+    const rad = R * 1.36 + 150, size = 68;
+    // The band: painted dark round the bottom of the dial, so the flying papers pass behind it.
+    const span = measure(arc, size, .16) / rad;
+    const shown = clamp((t - ws[2].s) / .25);
+    g.save(); g.ink = null;
+    g.strokeStyle = rgba('#120d2a', .72 * shown); g.lineWidth = size * 1.55; g.lineCap = 'round';
+    // Centred a little left of the bottom of the dial, so CLOCK. ends clear of the right edge.
+    const mid = Math.PI / 2 + .14;
+    g.beginPath(); g.arc(cx, cy, rad - size * .47, mid + span / 2 + .04, mid - span / 2 - .04, true); g.stroke();
+    g.restore();
+    letterArc(g, arc, cx, cy, rad, mid, size, { bottom: true, col: '#fff3de', w: .16, shade: STYLE.paint.shade, outline: { col: '#1d1233', w: .022 }, glyphP, glyphWord: i => arcWords[owner[i][0]], seed: 51 });
   }
 }
 
@@ -586,8 +616,8 @@ export function quotaShot(g, t, c) {
   clawd(g, 540, fy, { s: 540, eyes: 'wide', look: [0, -.6], mouth: t < 17.9 ? clamp(gasp * .9 + c.K.vocal(t) * .5) : 0, squash: -gasp * .08, armL: -.9 * gasp, armR: -.9 * gasp, dark, glowEyes: dark, shadow: dark < .5 });
   // The words go out with the lights: GONE! flickers and dies.
   // GONE! is the last light left: it flickers at the cut and hangs on, dim, in the dark.
-  const flick = t < off ? 1 : t < off + .04 ? .2 : t < off + .08 ? .8 : .08;
-  const last = t < off ? 1 : t < off + .05 ? .25 : t < off + .1 ? .9 : lerp(.75, .45, smooth(inv(off + .1, 18.6, t)));
+  const flick = t < off ? 1 : t < off + .04 ? .2 : t < off + .08 ? .8 : lerp(.55, .35, smooth(inv(off + .1, 18.6, t)));
+  const last = t < off ? 1 : t < off + .05 ? .25 : t < off + .1 ? .9 : lerp(.85, .6, smooth(inv(off + .1, 18.6, t)));
   sing(g, t, 17.04, {
     rows: [{ text: 'Oops,', y: 300, size: 170, alpha: flick }, { text: "your quota's", y: 440, size: 86, alpha: flick }, { text: 'gone!', y: 1090, size: 190, alpha: last }],
     emph: { 'oops': { col: GOLD }, 'gone': { col: '#ff6a5a' } },

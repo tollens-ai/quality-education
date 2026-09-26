@@ -531,7 +531,11 @@ export function muse(g, x, y, o = {}) {
 // A chunky, friendly person, waist up or full, drawn like a picture-book character: a big round
 // head, brows that act, a nose, clothes with a collar and a shaded side.
 // o: { s: head size, skin, hair, hairStyle, top, pose: {armL, armR}, eyes, brow, mouth, glasses,
-//      extra: fn, full: bool, torso: fn, hand: fn, look, lean, bob, shadow, frown }
+//      extra: fn, full: bool, torso: fn, hand: fn, look, lean, bob, shadow, frown,
+//      below: how far (in tenths of s) the body carries on below the waist, for someone cut off by
+//      the frame or by something in front, gripL/gripR: fn(g, u) drawn upright in that hand,
+//      under the fingers, for whatever it holds }
+// hairStyle: short, long, bun, curly, grey, beanie, bob, afro, bald, cap, pony.
 export const SKINS = ['#f6d0b1', '#e8b48f', '#c98d67', '#a86b4a', '#7c4a32', '#5b3526'];
 export function person(g, x, y, o = {}) {
   const s = o.s || 120, u = s / 10;
@@ -549,7 +553,8 @@ export function person(g, x, y, o = {}) {
   // Body (torso): a rounded trapezoid with a shaded side and a collar.
   const th = o.full ? u * 11 : u * 9;
   const by = o.full ? -u * 6 : 0;
-  const torso = () => { g.beginPath(); g.moveTo(-u * 6, by + u * .5); g.lineTo(-u * 5.2, by - th + u * 2.4); g.quadraticCurveTo(-u * 5, by - th, -u * 2.5, by - th); g.lineTo(u * 2.5, by - th); g.quadraticCurveTo(u * 5, by - th, u * 5.2, by - th + u * 2.4); g.lineTo(u * 6, by + u * .5); g.closePath(); };
+  const bot = by + u * .5 + (o.below || 0) * u;
+  const torso = () => { g.beginPath(); g.moveTo(-u * 6, bot); g.lineTo(-u * 6, by + u * .5); g.lineTo(-u * 5.2, by - th + u * 2.4); g.quadraticCurveTo(-u * 5, by - th, -u * 2.5, by - th); g.lineTo(u * 2.5, by - th); g.quadraticCurveTo(u * 5, by - th, u * 5.2, by - th + u * 2.4); g.lineTo(u * 6, by + u * .5); g.lineTo(u * 6, bot); g.closePath(); };
   if (o.full) {
     g.fillStyle = o.legs || '#2b3350';
     rr(g, -u * 4, by - u * .5, u * 3.4, u * 6.5, u * 1.2); g.fill(); rr(g, u * .6, by - u * .5, u * 3.4, u * 6.5, u * 1.2); g.fill();
@@ -558,9 +563,14 @@ export function person(g, x, y, o = {}) {
   // Long hair falls behind the shoulders.
   const hy0 = by - th - u * 3.6, hr0 = u * 4.3;
   if (o.hairStyle === 'long') { g.fillStyle = hair; rr(g, -hr0 * 1.1, hy0 - hr0 * .7, hr0 * 2.2, hr0 * 2.25, hr0 * .9); g.fill(); }
+  if (o.hairStyle === 'bob') { g.fillStyle = hair; rr(g, -hr0 * 1.16, hy0 - hr0 * .8, hr0 * 2.32, hr0 * 1.62, hr0 * .55); g.fill(); }
+  if (o.hairStyle === 'afro') { g.fillStyle = hair; circle(g, 0, hy0 - hr0 * .22, hr0 * 1.2); g.fill(); for (let i = 0; i < 12; i++) { const a = i / 12 * TAU; circle(g, Math.cos(a) * hr0 * 1.16, hy0 - hr0 * .22 + Math.sin(a) * hr0 * 1.16, hr0 * .3); g.fill(); } }
+  if (o.hairStyle === 'pony') { g.fillStyle = hair; ellipse(g, hr0 * 1.02, hy0 + hr0 * .35, hr0 * .34, hr0 * .78, -.35); g.fill(); }
   const arm = (side, ang, len = 1) => {
     g.save(); g.translate(side * u * 4.6, by - th + u * 2.6); g.rotate(side * (ang ?? .25));
     g.fillStyle = side > 0 ? topT : top; rr(g, -u * 1.45, -u * .4, u * 2.9, u * 7.2 * len, u * 1.45); g.fill();
+    const grip = side > 0 ? o.gripR : o.gripL;
+    if (grip) { g.save(); g.translate(0, u * 7.1 * len); g.rotate(-side * (ang ?? .25)); grip(g, u); g.restore(); }
     g.fillStyle = skin; circle(g, 0, u * 7.1 * len, u * 1.5); g.fill();
     if (o.hand && side === (o.handSide || 1)) { g.translate(0, u * 7 * len); o.hand(g, u); }
     g.restore();
@@ -599,6 +609,11 @@ export function person(g, x, y, o = {}) {
   if (hs === 'bun') { g.beginPath(); g.ellipse(0, hy - hr * .36, hr * 1.04, hr * .72, 0, Math.PI, TAU); g.fill(); circle(g, 0, hy - hr * 1.14, hr * .5); g.fill(); hairLines([[-hr * .6, -hr * .5, hr * .6, -hr * .5]]); }
   if (hs === 'curly') { for (let i = 0; i < 9; i++) { const a = -Math.PI * .12 - i / 8 * Math.PI * .76; circle(g, Math.cos(a) * hr * .82, hy - hr * .18 + Math.sin(a) * hr * .76, hr * .4); g.fill(); } }
   if (hs === 'grey') { g.fillStyle = '#ecebf2'; for (let i = 0; i < 8; i++) { const a = -Math.PI * .06 - i / 7 * Math.PI * .88; circle(g, Math.cos(a) * hr * .93, hy - hr * .08 + Math.sin(a) * hr * .84, hr * .38); g.fill(); } }
+  if (hs === 'bob') { g.beginPath(); g.ellipse(0, hy - hr * .28, hr * 1.1, hr * .84, 0, Math.PI, TAU); g.fill(); rr(g, -hr * .98, hy - hr * .78, hr * 1.96, hr * .46, hr * .2); g.fill(); hairLines([[-hr * .5, -hr * .8, hr * .1, -hr * .98]]); }
+  if (hs === 'afro') { g.beginPath(); g.ellipse(0, hy - hr * .42, hr * 1.02, hr * .66, 0, Math.PI, TAU); g.fill(); }
+  if (hs === 'pony') { g.beginPath(); g.ellipse(0, hy - hr * .32, hr * 1.06, hr * .78, 0, Math.PI, TAU); g.fill(); hairLines([[-hr * .75, -hr * .4, hr * .2, -hr * .95], [-hr * .2, -hr * .7, hr * .8, -hr * .45]]); }
+  if (hs === 'bald' && !small) { g.save(); g.ink = null; g.fillStyle = 'rgba(255,255,255,.28)'; ellipse(g, -hr * .35, hy - hr * .62, hr * .3, hr * .14, -.4); g.fill(); g.restore(); }
+  if (hs === 'cap') { g.fillStyle = o.hatColor || '#e05a47'; g.beginPath(); g.ellipse(0, hy - hr * .34, hr * 1.06, hr * .84, 0, Math.PI, TAU); g.closePath(); g.fill(); g.fillStyle = shade(o.hatColor || '#e05a47', -.25); ellipse(g, 0, hy - hr * .36, hr * 1.3, hr * .2); g.fill(); g.fillStyle = shade(o.hatColor || '#e05a47', .3); circle(g, 0, hy - hr * 1.14, hr * .11); g.fill(); }
   if (hs === 'beanie') { g.fillStyle = o.hatColor || '#e05a47'; g.beginPath(); g.ellipse(0, hy - hr * .3, hr * 1.08, hr * .98, 0, Math.PI, TAU); g.closePath(); g.fill(); rr(g, -hr * 1.1, hy - hr * .45, hr * 2.2, hr * .42, hr * .16); g.fill(); circle(g, 0, hy - hr * 1.28, hr * .24); g.fill(); }
   // Face.
   g.ink = null;

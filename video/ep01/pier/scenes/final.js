@@ -8,7 +8,7 @@ import { laptop, hand, phone, battery, flame } from '../props.js';
 import { wordTimes, hookSign, backingScript, bandMedium, crowdReverse } from './stage.js';
 import { slip } from './pre.js';
 import { PEOPLE } from './huts.js';
-import { sing, lineNear, STYLE } from '../lyrics.js';
+import { sing, keyLine, lineNear, STYLE } from '../lyrics.js';
 import { letter } from '../hand.js';
 
 // ---------------------------------------------------------------- 147.56 – 153.32: please
@@ -32,8 +32,8 @@ export function pleaShot(g, t, c) {
     const k = w / 640;
     const line1 = (label, y, t0) => {
       if (t < t0) return;
-      letter(g2, label, -w * .43, y * k, 44 * k, { col: '#2b1f3c', w: .15, progress: clamp((t - t0) / .4), seed: 5 });
-      g2.save(); g2.ink = null; g2.strokeStyle = 'rgba(43,31,60,.55)'; g2.lineWidth = 3 * k; g2.setLineDash([10 * k, 8 * k]); line(g2, w * .1, y * k + 6 * k, w * .43, y * k + 6 * k); g2.stroke(); g2.setLineDash([]); g2.restore();
+      const lw = letter(g2, label, -w * .44, y * k, 52 * k, { col: '#2b1f3c', w: .15, progress: clamp((t - t0) / .4), seed: 5 });
+      g2.save(); g2.ink = null; g2.strokeStyle = 'rgba(43,31,60,.55)'; g2.lineWidth = 3 * k; g2.setLineDash([10 * k, 8 * k]); line(g2, -w * .44 + lw + 14 * k, y * k + 6 * k, w * .44, y * k + 6 * k); g2.stroke(); g2.setLineDash([]); g2.restore();
     };
     line1("WHO IT'S FOR:", -30, L1.lead[5].s);
     line1('WHAT THEY WANT:', 70, L2.lead[5].s);
@@ -73,8 +73,7 @@ export function typeShot(g, t, c) {
   const typing = n > 0 && n < TYPED.length;
   hand(g, 380, 1740 + (typing ? Math.sin(t * 30) * 8 : 0), 210, .35, 'open', { sleeveCol: '#5b6cff' });
   hand(g, 700, 1740 + (typing ? Math.sin(t * 30 + 2) * 8 : 0), 210, -.35, 'open', { sleeveCol: '#5b6cff' });
-  sing(g, t, 153.32, { rows: [{ text: "I can't read", y: 260, size: 92 }, { text: 'your mind,', y: 400, size: 120 }], hold: -.1 });
-  sing(g, t, 155.22, { rows: [{ text: "I'm only reading", y: 260, size: 80 }, { text: 'your prompt.', y: 430, size: 140 }], emph: { prompt: { col: STYLE.hot } } });
+  keyLine(g, t, 153.32, 155.22, 200);
 }
 
 // ---------------------------------------------------------------- the final chorus
@@ -95,7 +94,7 @@ export function finalWho(g, t, c, o) {
   crowdReverse(g, t, K, { dawn: .8, people: o.people, fireworks: false, point: ans && o.point });
   hookSign(g, t, o.line, ans ? o.answer : o.word, 540, 330, .9, { face: ans ? '#ffb13b' : undefined, flipAt: o.flip });
   if (ans) confetti(g, t, o.flip, 540, 420, { n: 90, spread: 3, speed: 1300, seed: 83, life: 2.4, colors: ['#ffd166', '#ff9f43', '#ffffff', C.pink] });
-  backingScript(g, t, o.line, 540, 690, 62);
+  backingScript(g, t, o.line, 540, 690, 62, STYLE.dawnBack.col, { shade: STYLE.dawnBack.shade });
 }
 
 // …and WHAT? → the band, at sunrise, with the answer on the sign.
@@ -105,7 +104,7 @@ export function finalWhat(g, t, c, o) {
   bandMedium(g, t, K, { dawn: .85, back: 0, crowd: 1 });
   hookSign(g, t, o.line, ans ? o.answer : o.word, 540, 470, .8, { face: ans ? '#ffb13b' : undefined, flipAt: o.flip });
   if (ans) confetti(g, t, o.flip, 540, 560, { n: 90, spread: 3, speed: 1300, seed: 84, life: 2.4, colors: ['#ffd166', '#ff9f43', '#ffffff', C.pink] });
-  backingScript(g, t, o.line, 540, 800, 64);
+  backingScript(g, t, o.line, 540, 800, 64, STYLE.dawnBack.col, { shade: STYLE.dawnBack.shade });
 }
 
 // Does what I need: one tap on the one big button, and a flame for a new best.
@@ -139,7 +138,7 @@ export function builtShot(g, t, c) {
   const K = c.K;
   sunriseBackdrop(g, t, K, 1);
   g.save(); g.ink = null; g.fillStyle = rgba('#2a1030', .3); g.fillRect(0, 0, W, H); g.restore();
-  const p = easeOutBack(inv(181.9, 182.35, t), 1.4);
+  const p = easeOutBack(inv(182.36, 182.81, t), 1.4);
   const cw = 940, top = 300, lh = 70, h = 150 + FULL_BRIEF.length * lh;
   g.save(); g.translate(540, top + h / 2); g.scale(p, p); g.translate(-540, -(top + h / 2));
   g.ink = null; g.fillStyle = 'rgba(0,0,0,.3)'; rr(g, 540 - cw / 2 + 10, top + 16, cw, h, 30); g.fill();
@@ -148,7 +147,7 @@ export function builtShot(g, t, c) {
   g.textAlign = 'left'; g.textBaseline = 'middle';
   g.font = '700 40px Mono'; g.fillStyle = C.clawdLit; g.fillText('> a gym log. just for me.', 540 - cw / 2 + 44, top + 70);
   FULL_BRIEF.forEach((l, i) => {
-    const on = clamp((t - 182.1 - i * .12) / .15);
+    const on = clamp((t - 182.56 - i * .12) / .15);
     g.globalAlpha = on;
     g.font = '500 37px Mono'; g.fillStyle = '#f5f1e8';
     // The flame is the film's own, painted, not a font's emoji.
@@ -157,7 +156,7 @@ export function builtShot(g, t, c) {
     g.globalAlpha = 1;
   });
   g.restore();
-  const q = easeOutBack(inv(182.6, 183.1, t), 1.5);
+  const q = easeOutBack(inv(183.06, 183.56, t), 1.5);
   if (q < .02) return;
   phone(g, 360, 1500, 280 * q, -.05, (g2, sx, sy, sw, sh) => gymApp(g2, sx, sy, sw, sh, t, { tap: 180.5 }), { glowA: .8 });
   battery(g, 760, 1400, 220 * q, .92, { label: '8% USED', glowA: .9 });

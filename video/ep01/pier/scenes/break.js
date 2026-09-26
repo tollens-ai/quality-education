@@ -6,6 +6,7 @@ import { clawd, person, molty, grok, blossom, muse, pen, nopen, tone } from '../
 import { blinkAt } from '../band.js';
 import { wordTimes, bulbWord } from './stage.js';
 import { PEOPLE } from './huts.js';
+import { folk } from '../folk.js';
 import { laptop, hand } from '../props.js';
 import { sing, lineNear, STYLE } from '../lyrics.js';
 import { letter, measure } from '../hand.js';
@@ -85,23 +86,24 @@ export function archShot(g, t, c) {
   g.restore();
   letter(g, 'after Gerald Weinberg · Bach & Bolton', 540, 1234, 24, { align: 'center', col: '#4a3420', w: .14, seed: 3 });
   letter(g, 'via Ed Pringle', 540, 1266, 22, { align: 'center', col: '#4a3420', w: .14, seed: 4 });
-  const folk = ['demo', 'baker', 'chat1', 'student', 'nana', 'blind', 'chat2', 'chat3', 'baker', 'demo'];
-  for (let i = 0; i < 10; i++) person(g, 80 + i * 102, 1690 + (i % 2) * 40, { s: 70, ...PEOPLE[folk[i]], look: [0, -1], eyes: 'open', brow: 'up', mouth: .3 + .5 * clamp(K.vocal(t)), shadow: false });
+  const who = ['demo', 'baker', 'chat1', 'student', 'nana', 'blind', 'chat2', 'chat3', 0, 1];
+  for (let i = 0; i < 10; i++) person(g, 80 + i * 102, 1795 + (i % 2) * 40, { s: 70, ...(typeof who[i] === 'string' ? PEOPLE[who[i]] : folk(who[i] + 460)), full: true, look: [0, -1], eyes: 'open', brow: 'up', mouth: .3 + .5 * clamp(K.vocal(t)), shadow: true });
   g.restore();
 }
 
 // A placard on a stick, lettered as it's sung.
 export function placard(g, t, x, y, str, t0, o = {}) {
-  const up = easeOutBack(inv(t0 - .1, t0 + .2, t), 1.8);
+  const up = o.held ? 1 : easeOutBack(inv(t0 - .1, t0 + .2, t), 1.8);
   if (up <= 0) return;
   const size = o.size || 60;
   const w = Math.max(o.minW || 0, measure(str, size, .17) + size * 1.1), h = size * 1.9;
-  g.save(); g.translate(x, y + (1 - up) * 120); g.rotate((o.rot || 0) + Math.sin(t * 4 + x) * .03);
+  const sway = (o.rot || 0) + Math.sin(t * 4 + x + (o.seed || 0)) * .03;
+  g.save(); g.translate(x, y + (1 - up) * 120); g.rotate(sway);
   pen(g, 8, .8);
   g.strokeStyle = '#8a5a3a'; g.lineWidth = size * .16; line(g, 0, h * .4, 0, h * .4 + (o.stick || h * 1.2)); g.stroke();
   g.fillStyle = o.board || '#fbf3e2'; rr(g, -w / 2, -h / 2, w, h, 12); g.fill();
   g.restore();
-  g.save(); g.translate(x, y + (1 - up) * 120); g.rotate((o.rot || 0) + Math.sin(t * 4 + x) * .03);
+  g.save(); g.translate(x, y + (1 - up) * 120); g.rotate(sway);
   letter(g, str, 0, size * .5, size, { align: 'center', col: o.col || '#c2335a', w: .18, progress: clamp((t - t0) / (o.dur || .25)), seed: (x | 0) + 7 });
   g.restore();
 }
@@ -112,23 +114,33 @@ export function mattersShot(g, t, c) {
   const ws = wordTimes(134.68).map(w => w.s);
   nightSky(g, t, { horizon: 900, moon: false, stars: .7 });
   g.save(); g.ink = null; g.fillStyle = vgrad(g, 900, H, [[0, '#3a2440'], [1, '#120a18']]); g.fillRect(0, 900, W, H - 900); g.restore();
+  // Three groups, each in its own spotlight, feet on the ground. The one at the back of each
+  // raises the placard as the word is sung; the other two stand in front, looking up.
   const groups = [
-    [['demo', 170, 1220], ['nana', 330, 1260], ['chat1', 90, 1320]],
-    [['student', 540, 1180], ['baker', 700, 1250], ['blind', 420, 1330]],
-    [['chat2', 880, 1220], ['chat3', 990, 1330], ['demo', 760, 1360]],
+    { cx: 200, back: 'demo', front: [['nana', -100, 1660], ['chat1', 95, 1695]] },
+    { cx: 540, back: 'student', front: [['blind', -100, 1690], ['baker', 100, 1660]] },
+    { cx: 880, back: 'chat2', front: [[0, -95, 1665], ['chat3', 100, 1700]] },
   ];
   groups.forEach((grp, gi) => {
-    const on = ws[gi] !== undefined ? smooth(inv(ws[gi] - .05, ws[gi] + .15, t)) : 0;
-    const cx = grp.reduce((a, p) => a + p[1], 0) / grp.length;
+    const t0 = ws[gi];
+    const on = t0 !== undefined ? smooth(inv(t0 - .05, t0 + .15, t)) : 0;
+    const cx = grp.cx;
     if (on > 0) {
       g.save(); g.ink = null; g.globalCompositeOperation = 'screen';
-      g.fillStyle = rgba('#fff3d0', .16 * on); poly(g, [[cx - 60, 0], [cx + 60, 0], [cx + 260, 1450], [cx - 260, 1450]]); g.fill();
-      g.fillStyle = rgba('#fff3d0', .1 * on); poly(g, [[cx - 30, 0], [cx + 30, 0], [cx + 150, 1450], [cx - 150, 1450]]); g.fill();
+      g.fillStyle = rgba('#fff3d0', .16 * on); poly(g, [[cx - 60, 0], [cx + 60, 0], [cx + 290, 1700], [cx - 290, 1700]]); g.fill();
+      g.fillStyle = rgba('#fff3d0', .1 * on); poly(g, [[cx - 30, 0], [cx + 30, 0], [cx + 170, 1700], [cx - 170, 1700]]); g.fill();
+      g.fillStyle = rgba('#fff3d0', .14 * on); ellipse(g, cx, 1690, 290, 60); g.fill();
       g.restore();
-      glow(g, cx, 1300, 300, C.amber, .55 * on);
+      glow(g, cx, 1560, 300, C.amber, .55 * on);
     }
-    for (const [k, x, y] of grp) person(g, x, y + 200, { s: 96, ...PEOPLE[k], eyes: on > .5 ? 'happy' : 'open', look: [0, -.4], mouth: on > .5 ? .5 : 0, shadow: false });
-    if (ws[gi] !== undefined) placard(g, t, cx, 1060 - gi * 30, 'MATTERS', ws[gi], { size: 58, rot: (gi - 1) * .06, stick: 330 + gi * 30 });
+    const u = 9.6, has = t0 !== undefined && t >= t0 - .1;
+    const lift = has ? easeOutBack(inv(t0 - .1, t0 + .2, t), 1.8) : 0;
+    // Each placard goes up higher than the last, a staircase: they don't overlap, and the last
+    // one clears the strip on the right where a phone app puts its buttons.
+    const hi = [-30, 85, 200][gi];
+    const hold = g2 => placard(g2, t, 0, -329 - hi, 'MATTERS', t0, { size: 58, rot: (gi - 1) * .05, stick: 300 + hi, held: true, seed: gi * 2 });
+    person(g, cx - 7.31 * u, 1560, { s: 96, ...PEOPLE[grp.back], full: true, eyes: on > .5 ? 'happy' : 'open', look: [0, -.4], mouth: on > .5 ? .5 : 0, armR: lerp(.25, -2.75, lift), shadow: true, gripR: has ? hold : undefined });
+    for (const [k, dx, fy] of grp.front) person(g, cx + dx, fy, { s: 100, ...(typeof k === 'string' ? PEOPLE[k] : folk(k + 470)), full: true, eyes: on > .5 ? 'happy' : 'open', look: [-dx / 300, -.6], mouth: on > .5 ? .5 : 0, shadow: true });
   });
 }
 
@@ -164,9 +176,9 @@ export function someoneShot(g, t, c) {
   clawd(g, 540, 1720, { s: 400, t, eyes: t > 139.2 ? 'happy' : 'open', look: [0, -.2], heart: heartOn, armL: -1.25, armR: -1.25, mouth: clamp(K.vocal(t)), blush: heartOn });
   placard(g, t, 540, 1150, "I'M SOMEONE TOO!", L1.lead[0].s, { size: 70, col: '#c2335a', dur: .7, minW: 720, stick: 270 });
   // AND ME! on each bot's placard.
-  if (p1 > .2) placard(g, t, lerp(-200, 240 + hug * 40, p1), 1360, 'AND ME!', meT[0] - .05, { size: 50, col: '#d8414f', rot: -.1, stick: 170 });
-  if (p2 > .2) placard(g, t, lerp(1300, 850 - hug * 40, p2), 1340, 'AND ME!', meT[1] - .05, { size: 50, col: '#2b1f3c', rot: .1, stick: 140 });
-  if (p3 > .2) placard(g, t, 720 - hug * 30, 1110, 'AND ME!', meT[2] - .05, { size: 50, col: '#2b6bd8', rot: .06, stick: 100 });
+  if (p1 > .2) placard(g, t, lerp(-200, 240 + hug * 40, p1), 1360, 'AND ME!', meT[0] - .05, { size: 58, col: '#d8414f', rot: -.1, stick: 170 });
+  if (p2 > .2) placard(g, t, lerp(1300, 815 - hug * 40, p2), 1340, 'AND ME!', meT[1] - .05, { size: 58, col: '#2b1f3c', rot: .1, stick: 140 });
+  if (p3 > .2) placard(g, t, 720 - hug * 30, 1110, 'AND ME!', meT[2] - .05, { size: 58, col: '#2b6bd8', rot: .06, stick: 100 });
 }
 
 // ---------------------------------------------------------------- 142.42 – 147.2: debugging this with you

@@ -4,6 +4,7 @@ import { W, H, C, TAU, clamp, lerp, smooth, rnd, rr, circle, ellipse, line, poly
 import { pen, nopen, tone } from '../cast.js';
 import { nightSky, sea, reflection, bandstand, ferrisWheel, lighthouse, beams, town, haze } from '../world.js';
 import { band } from '../band.js';
+import { behind, folk } from '../folk.js';
 
 // Camera: horizon hz, vanishing x, focal length f, eye height h (metres above the deck).
 export function camera(o = {}) {
@@ -172,9 +173,10 @@ export function seagull(g, t, x, y, s = 1) {
   g.restore();
 }
 
-// A crowd on the deck, seen from behind: backlit heads and shoulders filling the pier to the
-// bandstand, hands up on the beat, phone torches. Positions use a slightly raised eye so the
-// rows spread up the frame instead of all heads sitting on the horizon.
+// A crowd on the deck, seen from behind, filling the pier to the bandstand: people of every
+// shape, hands up on the beat, phones held up to film the stage. Positions use a slightly raised
+// eye so the rows spread up the frame instead of all heads sitting on the horizon. The crowd is
+// drawn from the back, so nearer people hide those behind them, feet on the boards.
 export function crowd(g, t, K, cam, amount, o = {}) {
   const bp = K.beatPos(t);
   const eye = 3.1;
@@ -182,36 +184,16 @@ export function crowd(g, t, K, cam, amount, o = {}) {
   const items = [];
   for (let i = 0; i < n; i++) items.push({ i, z: 5.5 + Math.pow(rnd(i, 101), .75) * 16.5, x: (rnd(i, 102) - .5) * 7.8 });
   items.sort((a, b) => b.z - a.z);
-  const hairs = ['#1b1420', '#3a2418', '#5a3a20', '#141018', '#8a6a4a', '#2a1c2a'];
-  const tops = ['#2a1a4a', '#3a1a3a', '#1a2a4a', '#2a2438', '#40203a', '#1f2f3f'];
+  const rims = [C.cyan, C.pink, C.bulb];
   for (const it of items) {
     const k = cam.f / it.z;
     const x = cam.vx + cam.f * it.x / it.z;
-    const headY = cam.hz + cam.f * (eye - 1.55) / it.z;
-    const hop = Math.max(0, Math.sin((bp + rnd(it.i, 103) * .3) * Math.PI)) * .1 * k * (o.energy ?? 1);
-    const cy = headY - hop, hr = .12 * k;
+    const fy = cam.hz + cam.f * eye / it.z;
     const near = clamp(1 - (it.z - 5.5) / 16);
-    const body = mix('#07040d', tops[it.i % tops.length], .25 + .3 * (1 - near));
-    // Shoulders and back.
-    g.fillStyle = body;
-    rr(g, x - .27 * k, cy + hr * .7, .54 * k, 1.4 * k, .16 * k); g.fill();
-    // Head, from behind: all hair.
-    g.fillStyle = mix('#07040d', hairs[it.i % hairs.length], .5 + .3 * (1 - near));
-    circle(g, x, cy, hr); g.fill();
-    // Stage light catching the tops of heads and shoulders.
-    const rim = it.i % 3 === 0 ? C.cyan : it.i % 3 === 1 ? C.pink : C.bulb;
-    g.strokeStyle = rgba(rim, .35 + .35 * (1 - near)); g.lineWidth = Math.max(1.2, .025 * k);
-    g.beginPath(); g.arc(x, cy, hr, Math.PI * 1.15, Math.PI * 1.85); g.stroke();
-    g.beginPath(); g.moveTo(x - .25 * k, cy + hr * 1.1); g.quadraticCurveTo(x, cy + hr * .75, x + .25 * k, cy + hr * 1.1); g.stroke();
-    // Hands up with the beat; some hold phones up.
-    if (rnd(it.i, 104) > .5) {
-      const up = .55 + .45 * Math.sin((bp + rnd(it.i, 105)) * Math.PI);
-      const s = rnd(it.i, 106) > .5 ? 1 : -1;
-      const hx = x + s * (.2 + .1 * up) * k, hy = cy - (.3 + .28 * up) * k;
-      g.strokeStyle = body; g.lineWidth = .08 * k; g.lineCap = 'round';
-      line(g, x + s * .2 * k, cy + hr * 1.3, hx, hy); g.stroke();
-      if (rnd(it.i, 107) > .45) { glow(g, hx, hy - .05 * k, .45 * k, '#e8f0ff', .35); g.fillStyle = '#f4f8ff'; rr(g, hx - .035 * k, hy - .13 * k, .07 * k, .12 * k, .015 * k); g.fill(); }
-      else { g.fillStyle = body; circle(g, hx, hy, .045 * k); g.fill(); }
-    }
+    const hop = Math.max(0, Math.sin((bp + rnd(it.i, 103) * .3) * Math.PI)) * .07 * k * (o.energy ?? 1);
+    const pick = rnd(it.i, 104);
+    const arm = pick > .74 ? 'phone' : pick > .6 ? 'wave' : pick > .52 ? 'fist' : 'down';
+    const up = arm === 'phone' ? .8 : .55 + .45 * Math.sin((bp + rnd(it.i, 105)) * Math.PI);
+    behind(g, x, fy, k, { ...folk(it.i + 300), lit: .2 + .32 * (1 - near) + (o.dawn || 0) * .25, rim: rims[it.i % 3], rimA: .3 + .35 * (1 - near), arm, side: rnd(it.i, 106) > .5 ? 1 : -1, up, hop, sway: t * 2.4 + it.i, glow: .8 });
   }
 }

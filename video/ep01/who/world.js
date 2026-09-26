@@ -1577,7 +1577,9 @@ function drawTopFlat(g, t, S, st, id, f, lod) {
   // The mascots are drawn after the room light, so the gold sits behind them and their official
   // colours are never tinted.
   if (on > 0.02) {
-    g.save(); g.globalAlpha *= clamp01(on);
+    // quick fade-in as they arrive, then fully opaque: quiet bots are shown by the room's light,
+    // never as see-through ghosts
+    g.save(); g.globalAlpha *= clamp01(on * 3);
     safe(g, () => cast.bot(g, isM ? 'molty' : 'jolly', lx, -30, 1.5, { wave: st.botWave ?? up, lit: on, t }));
     g.restore();
   }

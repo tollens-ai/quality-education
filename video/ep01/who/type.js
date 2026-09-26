@@ -119,7 +119,7 @@ export function band(g, t, S, o = {}) {
       // 1.5x; each word brightens with a small lift as it's sung.
       const on = onsetOf(line, w), p = clamp01((t - on) / 0.1);
       const cur = t >= on && t < (w.e ?? on) + 0.08;
-      g.globalAlpha = out * inn * (0.38 + 0.62 * p);
+      g.globalAlpha = out * inn * (0.55 + 0.45 * p);
       g.fillStyle = p <= 0 ? (o.ahead || PAL.textDim) : cur ? (o.accent || PAL.gold) : (o.color || PAL.text);
       g.fillText(w.w, x, y - easeOut(p) * size * 0.06 + (p > 0 ? 0 : size * 0.02));
       x += w.ww + space;

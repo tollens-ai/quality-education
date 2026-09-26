@@ -55,6 +55,10 @@ export function huge(g, t, S, o = {}) {
     const y = y0 + ri * lh;
     for (const w of row) {
       const on = onsetOf(line, w), p = clamp01((t - on) / 0.14);
+      if (p <= 0 && o.dimAhead) {       // optional: the rest of the line waits, dim
+        g.save(); g.globalAlpha = 0.3 * out; g.fillStyle = o.ahead || PAL.textDim;
+        g.fillText(w.w, x, y); g.restore();
+      }
       if (p > 0) {
         const k = pop(p), cur = t >= on && t < (w.e ?? on) + 0.1;
         g.save();
@@ -74,12 +78,12 @@ export function huge(g, t, S, o = {}) {
   });
   // Backing vocals: a smaller echo under the line, answering after the lead.
   if (back.length) {
-    const bs = Math.round(size * 0.36);
+    const bs = Math.round(size * 0.28);
     g.font = `600 ${bs}px ${FONTS.display}`;
     const txt = back.map(w => w.w).join(' ');
     const on = onsetOf(line, back[0]), p = clamp01((t - on) / 0.2);
     if (p > 0) {
-      g.globalAlpha = p * out * 0.9;
+      g.globalAlpha = p * out * 0.6;
       g.fillStyle = o.backing || PAL.textDim;
       g.textAlign = o.align === 'left' ? 'left' : 'center';
       g.fillText(txt, o.align === 'left' ? x0 : x0, y0 + rows.length * lh + bs * 0.2);
@@ -111,13 +115,13 @@ export function band(g, t, S, o = {}) {
     let x = (o.x ?? W / 2) - rowW / 2;
     const y = y0 + ri * lh;
     for (const w of row) {
+      // The whole line is readable from its start (dim ahead of the voice), so it still reads at
+      // 1.5x; each word brightens with a small lift as it's sung.
       const on = onsetOf(line, w), p = clamp01((t - on) / 0.1);
-      if (p > 0) {
-        const cur = t >= on && t < (w.e ?? on) + 0.08;
-        g.globalAlpha = p * out;
-        g.fillStyle = cur ? (o.accent || PAL.gold) : (o.color || PAL.text);
-        g.fillText(w.w, x, y + (1 - easeOut(p)) * size * 0.3);
-      }
+      const cur = t >= on && t < (w.e ?? on) + 0.08;
+      g.globalAlpha = out * inn * (0.38 + 0.62 * p);
+      g.fillStyle = p <= 0 ? (o.ahead || PAL.textDim) : cur ? (o.accent || PAL.gold) : (o.color || PAL.text);
+      g.fillText(w.w, x, y - easeOut(p) * size * 0.06 + (p > 0 ? 0 : size * 0.02));
       x += w.ww + space;
     }
   });

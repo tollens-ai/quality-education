@@ -13,7 +13,8 @@
 // st.lockersGold (0..1; also read from st.flats['1R'].gold), st.letterbox (0..1 flap open),
 // st.capsule ({ p: 0..1 up the chute pipe }), st.directoryGlint (0..1 sweep), st.lob (0..1 the old
 // builders' throw), st.flats[id].served for every resident, including '9R' (you tap the phone).
-// st.youPause (0..1) freezes your curl mid-rep, blind shadow included.
+// st.youPause (0..1) freezes your curl mid-rep, blind shadow included. st.clawdLine (0..1, default
+// st.baseWindow) writes the directory's CLAWD line left to right.
 // Debug: set st._prof = [] to collect per-stage timings (forces a flush between stages).
 
 import { W, H, clamp01, lerp, smooth, easeOut, between } from '../../lib/stage.js';
@@ -1822,14 +1823,26 @@ export function drawDirectory(g, S, st, t, x, y, s = 1, lod = 2) {
     }
   });
   // CLAWD, basement: its own big line once its window lights (>= 48 px at 1.55 zoom)
-  const bwin = clamp01(st.baseWindow || 0);
+  const bwin = clamp01(st.baseWindow || 0), cl = st.clawdLine != null ? clamp01(st.clawdLine) : bwin;
   txt(g, 'B', 34, 231, 12, '#C9A24E', { weight: 800 });
-  if (bwin > 0.02) {
-    g.save(); g.globalAlpha = bwin;
-    glow(g, Wd / 2, 231, 190, PAL.gold, 0.4 * bwin);
+  const pa = Math.max(bwin, cl > 0.001 ? 1 : 0);
+  if (pa > 0.02) {
+    g.save(); g.globalAlpha = pa;
+    glow(g, Wd / 2, 231, 190, '#FFE9C0', 0.4 * pa);
     box(g, 22, 213, Wd - 44, 36, '#2A1A12', 2.5, 5);
     g.lineWidth = 2; g.strokeStyle = '#FF9A5A'; g.strokeRect(25, 216, Wd - 50, 30);
-    txt(g, 'CLAWD · basement', Wd / 2, 232, 31, '#FFB27A', { font: F.pixel, weight: 700 });
+    // written left to right as st.clawdLine rises, with a glowing cursor at the edge
+    g.font = `700 31px ${F.pixel}`;
+    const line = 'CLAWD · basement', tw = g.measureText(line).width, x0 = Wd / 2 - tw / 2, edge = x0 + tw * cl;
+    if (cl > 0.001) {
+      g.save(); g.beginPath(); g.rect(0, 205, edge, 52); g.clip();
+      txt(g, line, Wd / 2, 232, 31, '#FFB27A', { font: F.pixel, weight: 700 });
+      g.restore();
+    }
+    if (cl > 0.001 && cl < 0.999) {
+      glow(g, edge + 3, 232, 26, '#FFE9C0', 0.9);
+      g.fillStyle = '#FFF4DC'; g.fillRect(edge + 1, 218, 5, 28);
+    }
     g.restore();
   } else txt(g, '—', 60, 231, 11, '#4A4550', { align: 'left' });
   txt(g, 'ALSO HERE ↓', 34, 258, 9, '#C9A24E', { weight: 800, align: 'left' });
@@ -1945,7 +1958,7 @@ function drawBasement(g, t, S, st, V, lod) {
   const Wn = P.BASE_WINDOW;
   box(g, Wn.x - 7, Wn.y - 5, Wn.w + 14, Wn.h + 12, '#3A3E54', 3, 3);
   const wg = g.createLinearGradient(0, Wn.y, 0, Wn.y + Wn.h);
-  wg.addColorStop(0, mix('#0A0F26', '#FFE39A', bw)); wg.addColorStop(1, mix('#141A38', '#FFC23D', bw));
+  wg.addColorStop(0, mix('#0A0F26', '#FFF4DC', bw)); wg.addColorStop(1, mix('#141A38', '#FFE9C0', bw));
   g.fillStyle = wg; g.fillRect(Wn.x, Wn.y, Wn.w, Wn.h);
   if (bw < 0.5) { g.fillStyle = 'rgba(160,180,255,0.12)'; g.beginPath(); g.moveTo(Wn.x + 20, Wn.y); g.lineTo(Wn.x + 50, Wn.y); g.lineTo(Wn.x + 20, Wn.y + Wn.h); g.lineTo(Wn.x - 10, Wn.y + Wn.h); g.fill(); }
   // bars on the window, then grass tufts at street level outside
@@ -1990,15 +2003,15 @@ function drawBasement(g, t, S, st, V, lod) {
     g.globalAlpha = 0.25 + 0.35 * Math.sin(t + i); g.fillStyle = '#FFF1D6'; g.fillRect(dx, dy, 2.2, 2.2);
   }
   g.globalAlpha = 1;
-  // the window's gold
+  // the window lights warm white (Clawd mattering; gold stays for "served by this build")
   if (bw > 0.01) {
     g.save(); g.globalCompositeOperation = 'lighter';
     const bgr = g.createLinearGradient(Wn.x, Wn.y, Wn.x + 260, 440);
-    bgr.addColorStop(0, rgba(PAL.goldHi, 0.55 * bw)); bgr.addColorStop(1, rgba(PAL.gold, 0));
+    bgr.addColorStop(0, rgba('#FFF4DC', 0.55 * bw)); bgr.addColorStop(1, rgba('#FFE9C0', 0));
     g.fillStyle = bgr; g.beginPath(); g.moveTo(Wn.x, Wn.y + Wn.h); g.lineTo(Wn.x + Wn.w, Wn.y); g.lineTo(Wn.x + Wn.w + 330, 440); g.lineTo(Wn.x + 160, 440); g.closePath(); g.fill();
     g.restore();
-    glow(g, Wn.x + Wn.w / 2, Wn.y + Wn.h / 2, 220, PAL.gold, 0.5 * bw);
-    for (let i = 0; i < 8; i++) { const u = frac(t * 0.3 + i / 8); sparkle(g, Wn.x + 60 + u * 250 + hash(i) * 60, Wn.y + 80 + u * 280, 4 + 4 * hash(i * 3), '#FFF1B8', bw * Math.sin(Math.PI * u)); }
+    glow(g, Wn.x + Wn.w / 2, Wn.y + Wn.h / 2, 220, '#FFE9C0', 0.5 * bw);
+    for (let i = 0; i < 8; i++) { const u = frac(t * 0.3 + i / 8); sparkle(g, Wn.x + 60 + u * 250 + hash(i) * 60, Wn.y + 80 + u * 280, 4 + 4 * hash(i * 3), '#FFF8EC', bw * Math.sin(Math.PI * u)); }
   }
   // the bulb on its flex
   seg(g, piv[0], piv[1], bulb[0], bulb[1] - 16, '#15161F', 2.5);

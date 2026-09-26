@@ -35,7 +35,8 @@ const server = http.createServer((req, res) => {
 }).listen(0);
 const port = server.address().port;
 
-const browser = await chromium.launch();
+// In containers /dev/shm is small, and several Chromiums at once crash at launch without this.
+const browser = await chromium.launch({ args: ['--disable-dev-shm-usage'] });
 const page = await browser.newPage({ viewport: { width: w + 40, height: Math.round(w * 16 / 9) + 80 } });
 page.on('pageerror', e => console.error('page error:', e.message));
 page.on('console', m => { if (m.type() === 'error') console.error('console:', m.text()); });

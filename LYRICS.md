@@ -37,6 +37,10 @@ others. Add a rule here whenever a fix teaches one.
   it's usually the right one.
 
 ## Rhythm
+- **Every section rhymes.** A repeated refrain word ("…and two it was!") isn't a rhyme, and
+  neither is a hook or a chant left unrhymed because it's short. Episode 2's v3 had unrhymed verse,
+  pre-chorus, hook and break, and Qing's whole note was "you forgot to make it rhyme"
+  (2026-09-26). Check every section's end rhymes before anyone hears it.
 - **Budget syllables to the slot.** See the song-fit limits in the
   [write-episode skill](.claude/skills/write-episode/SKILL.md): at 170 bpm, a 3-second row holds
   8 to 12 sung syllables. Pop-punk wants strong end rhymes; the tag is the one place a half rhyme

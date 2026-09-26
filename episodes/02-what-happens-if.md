@@ -3,7 +3,7 @@
 **Concept:** testing is finding out what's actually true about the product, by exploring and
 experimenting. Checking, answering yes-or-no questions you already knew to ask, is one useful
 part of it.
-**Status:** talking points and section sketch agreed (2026-09-26); lyrics v3 reviewed twice, for Qing's ear.
+**Status:** talking points and section sketch agreed (2026-09-26); lyrics v4 (v3 made to rhyme), for Qing's ear.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 
@@ -69,6 +69,10 @@ On lyrics v1 (2026-09-26):
 > they're out of context they have to make the context clear.
 
 > also are you following the process?
+
+On lyrics v3 (2026-09-26):
+
+> you forgot to make it rhyme
 
 On the sketch (2026-09-26):
 
@@ -194,7 +198,7 @@ are listed.
 | Final pre-chorus and chorus | Word for word | The same questions, now being tested |
 | Outro | The flip ("the questions no one knows the answers to"), then the chorus's questions answered | The gym log working in the basement; the brief |
 
-## Lyric sheet (v3, for Qing's ear)
+## Lyric sheet (v4, for Qing's ear)
 
 v1 and v2 are in git history. v3 follows the section sketch above, with Qing's hook ("so
 ACTUALLY test it!", which doesn't knock checking) and fixes from the first review round.
@@ -208,27 +212,27 @@ gang chant. Smug in verse 1, then curious and delighted.
 > Two hundred tests, and every one is green!
 
 **Verse 1**
-> I checked that two was two, and two it was!
-> I made the fake say "five", and five it was!
-> I checked the fake got called, and called it was!
-> The snapshot failed, re-snapped, and green it was!
+> I checked that two was two, and that was true!
+> I made the fake say "five", and five came through!
+> I checked the fake got called: it did! Woohoo!
+> The snapshot failed? I snapped it fresh and new!
 > All of them green!
 > Shipped it Monday, clean!
 > *(spoken)* …So why'd it break for you?
 
 **Pre-chorus**
-> All my questions yes or no, all my answers yes, yes, yes!
+> Every question, yes or no; every answer, "Yes, it's true!"
 > I only asked the questions
 > that I knew the answers to.
 
 **Chorus** (sung twice through each time)
 > So actually test it! *(test it!)*
-> What happens if? *(what happens if?)*
+> What happens if you mess with it? *(mess with it!)*
 > The wifi drops? The screen goes black?
 > It's two a.m.? The clocks go back?
 >
 > So actually test it! *(test it!)*
-> What happens if? *(what happens if?)*
+> What happens if you mess with it? *(mess with it!)*
 > You tap it twice? You're on a train?
 > You drop your phone out in the rain?
 
@@ -243,24 +247,26 @@ gang chant. Smug in verse 1, then curious and delighted.
 **Pre-chorus**, **Chorus**
 
 **Bridge**
-> I learned from repos full of tests for show *(whoa-oh)*
+> I learned from repos testing 'cause they should, *(whoa-oh)*
 > and then got marked on what would pass, *(whoa-oh)*
-> like any kid who's drilled for every test *(whoa-oh)*
+> like any kid who's drilled to look as good *(whoa-oh)*
 > who learns the mark scheme, not the class.
 
 **Break** (half time, gang chant, then the team)
 > Testing's finding out! *(finding out!)*
-> Checking's part of it! *(yes it is!)*
-> Testing takes a team! *(and me! and me! and me!)*
-> And you're the one who knows what matters.
+> Checking's part, no doubt! *(part, no doubt!)*
+> Testing takes a crew! *(and me! and me! and me!)*
+> And what matters? That's for you!
 
 **Pre-chorus**, **Chorus** (word for word)
 
 **Outro**
+> Every question: what if? Who?
+> Every answer something new!
 > I'll go and ask the questions
 > no one knows the answers to.
 > So actually test it! *(I tested it!)*
-> What happens if? *(I found out!)*
+> What happens if you mess with it? *(I messed with it!)*
 > The wifi drops? Your stuff's still there.
 > The clocks go back? It doesn't care!
 
@@ -269,13 +275,14 @@ gang chant. Smug in verse 1, then curious and delighted.
 **Beat grids** (stresses in capitals; syllable counts in brackets)
 
 ```
-V1   i CHECKED that TWO was TWO | and TWO it WAS             (10)
-     i MADE the FAKE say FIVE   | and FIVE it WAS            (10)
-     i CHECKED the FAKE got CALLED | and CALLED it WAS       (10)
-     the SNAP-shot FAILED re-SNAPPED | and GREEN it WAS       (10)
-PC   ALL my QUES-tions YES or NO | ALL my AN-swers YES YES YES   (7 | 7)
+V1   i CHECKED that TWO was TWO | and THAT was TRUE          (10)
+     i MADE the FAKE say FIVE   | and FIVE came THROUGH      (10)
+     i CHECKED the FAKE got CALLED | it DID woo-HOO          (10)
+     the SNAP-shot FAILED | i SNAPPED it FRESH and NEW       (10)
+PC   EV-ery QUES-tion YES or NO | EV-ery AN-swer YES it's TRUE   (7 | 7)
      i ON-ly ASKED the QUES-tions THAT i KNEW the AN-swers TO    (14)
 CH   so AC-tual-ly TEST it                                   (6)
+     what HAP-pens IF you MESS with IT                       (8)
      the WI-fi DROPS the SCREEN goes BLACK                   (8)
      it's TWO a-M the CLOCKS go BACK                         (8)
      you TAP it TWICE you're ON a TRAIN                      (8)
@@ -284,16 +291,18 @@ V2   THOU-sand KI-lo SQUAT | TOP SPOT                       (7)
      TWO TABS | HALF the LIST got DROPPED                    (7)
      e-MO-ji NAME | PAGE is SHOT                             (7)
      READ a-LOUD | BUT-ton THAT'S the LOT                    (7)
-BR   i LEARNED from RE-pos FULL of TESTS for SHOW            (10)
+BR   i LEARNED from RE-pos TEST-ing 'CAUSE they SHOULD       (10)
      and THEN got MARKED on WHAT would PASS                  (8)
-     like AN-y KID who's DRILLED for EV-ery TEST             (10)
+     like AN-y KID who's DRILLED to LOOK as GOOD             (10)
      who LEARNS the MARK scheme NOT the CLASS                (8)
-OUT  i'll GO and ASK the QUES-tions NO one KNOWS the AN-swers TO (14)
+OUT  EV-ery QUES-tion WHAT if WHO | EV-ery AN-swer SOME-thing NEW   (7 | 7)
+     i'll GO and ASK the QUES-tions NO one KNOWS the AN-swers TO (14)
      the WI-fi DROPS your STUFF'S still THERE                (8)
      the CLOCKS go BACK it DOES-n't CARE                     (8)
 BRK  TEST-ing's FIND-ing OUT                                 (5)
-     CHECK-ing's PART of IT                                  (5)
-     TEST-ing TAKES a TEAM                                   (5)
+     CHECK-ing's PART no DOUBT                               (5)
+     TEST-ing TAKES a CREW                                   (5)
+     and WHAT MAT-ters THAT'S for YOU                        (7)
 INT  two HUN-dred TESTS and EV-ery ONE is GREEN             (10, "every" as 2)
 ```
 
@@ -322,6 +331,11 @@ INT  two HUN-dred TESTS and EV-ery ONE is GREEN             (10, "every" as 2)
   - the brief catches change detectors: a check must go red when something I'd notice breaks,
     and stay green when something I wouldn't notice changes
   - pro-checking in the words, not just the picture: the finds "are all checks" now
+- **v4 (2026-09-26), after Qing's note "you forgot to make it rhyme":** verse 1's "…it was!"
+  refrain, the pre-chorus, the hook, the bridge's first and third lines, the break and the outro
+  had no end rhymes. Every section now rhymes: true/through/woohoo/new; true/to; test it/mess with
+  it; should/good and pass/class; out/doubt and crew/you; who/new/to. All hold in General
+  American. Checked by re-reading the whole sheet, not by a fresh reviewer.
 - **Qing's notes on the sketch:** the hook without knocking checking ("so ACTUALLY test it!");
   lyrics and video kept apart, with the gym story in the video.
 

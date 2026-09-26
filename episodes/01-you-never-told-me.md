@@ -17,8 +17,10 @@ is being rebuilt as one continuous shot, following the
 `music/ep01/beats.json`. After Qing's "too gimmicky" note, a teaching plan came first (approved),
 then a theme-first concept round chose **Who Lives Here?**; the storyboard is
 [01-storyboard.md](01-storyboard.md). The video is built (`video/ep01/who/`), screened twice by
-fresh viewers and fixed; the final render is local at `video/out/good-for-who-final.mp4` (not in
-git). Next: Qing watches it. The code band, code voice
+fresh viewers and fixed. Renders are local, not in git: the master
+`video/out/good-for-who-final.mp4` (1080×1920, 30 fps, 486 MB), an upload encode
+`video/out/good-for-who-x.mp4` (224 MB) and the thumbnail `video/out/good-for-who-thumb.png`.
+Next: Qing watches it. The code band, code voice
 and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)
@@ -1365,4 +1367,6 @@ by a MiniMax generation Qing chose.
   handwriting in the chorus close-ups are readable when paused, less so at full speed.
 - **Two mascots are drawn by us:** Jolly in his flat and the Hermes bot are our own cartoons; the
   Molty art, Jolly's portrait and the name-plate marks are official. See [SOURCES.md](../SOURCES.md).
-- **It's long for X:** 3:20. A shorter cut is an open question for Qing.
+- **It's long for X:** 3:20. Standard X accounts have capped uploads at 2:20 (longer needs
+  Premium; check the current limit). A shorter cut is an open question for Qing.
+- **Frame 0's top-left** shows the lobby directory's names faintly behind the @yanqingcheng mark.

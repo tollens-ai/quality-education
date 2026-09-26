@@ -846,8 +846,52 @@ export function phone(g, x, y, s = 1, screen = 'off', o = {}) {
 // 'phone'), screen + screenOpts (the phone's app state), item (note text), itemScale, fill +
 // ticket (a held ticket's fill and opts), sweat 0..1, chalk 0..1 (default 1), t, flipY, sleeve, lw }.
 // Returns { tip, grip, wrist } in the caller's coordinates (tip = fingertip or pen nib).
-const SKIN = '#EDB48A', SKIN_DK = '#CF9166', NAIL = '#F8DCCB', SLEEVE = '#9AA3BF', CUFF = '#7F88A6', TIE = '#FF5F8F';
+// A denim-blue sleeve: cool against Clawd's orange, so a long reach never reads as Clawd's arm.
+// (pose.sleeve overrides it; your top in flat 9R is #E86A5B.)
+const SKIN = '#EDB48A', SKIN_DK = '#CF9166', NAIL = '#F8DCCB', SLEEVE = '#5B6CA8', TIE = '#FF5F8F';
 const FROM = { left: 0, right: Math.PI, up: Math.PI / 2, down: -Math.PI / 2 };
+// The sleeve from behind the shoulder end (x = -30) to its hem at x1, in the hand's frame (the arm
+// runs along +x). Cloth, not a tube, however long the reach: rippled edges, folds bunched above
+// the cuff, long pull creases, an elbow partway along, a shaded underside. No highlight stripe.
+function sleeve(g, x1, col, dk, lw) {
+  const x0 = -30, L = x1 - x0, BUNCH = Math.min(48, L), elbowAt = L > 220 ? x0 + L * 0.42 : null;
+  const half = x => 16 + Math.min(2.5, (x1 - x) * 0.01);
+  const bunch = x => { const d = x1 - x; return d < BUNCH ? Math.abs(Math.sin(d / BUNCH * Math.PI * 2.5)) * (1.1 - 0.5 * d / BUNCH) * 2.6 : 0; };
+  const ripple = (x, k) => 0.9 * Math.sin(x * 0.045 + k) + 0.55 * Math.sin(x * 0.12 + 2 * k);
+  const elbow = x => (elbowAt === null ? 0 : 3 * Math.exp(-(((x - elbowAt) / 16) ** 2)));
+  const N = Math.max(10, Math.ceil(L / 6)), top = [], bot = [], mid = [];
+  for (let i = 0; i <= N; i++) {
+    const x = x0 + L * i / N, b = bunch(x), h = half(x);
+    top.push([x, -h - b + ripple(x, 1.3)]);
+    bot.push([x, h + 0.8 * b + ripple(x, 4.1) + elbow(x)]);
+    mid.push([x, 3.5 + 1.6 * Math.sin(x * 0.07 + 0.5) - 0.6 * b]);
+  }
+  const path = poly([...top, [x1 + 2, -11], [x1 + 3.5, 0], [x1 + 2, 11], ...bot.slice().reverse()]);
+  cut(g, [path], col, { lw, sd: 2 });
+  g.save(); g.clip(path); g.lineCap = 'round';
+  g.fillStyle = rgba(dk, 0.3); g.fill(poly([...mid, [x1 + 6, 30], [x0, 30]]));   // the underside, in shade
+  g.strokeStyle = rgba(dk, 0.62); g.lineWidth = 1.9;
+  for (let k = 0; k < 3; k++) {   // folds above the cuff, alternating edges
+    const xf = x1 - (k + 0.72) * BUNCH / 2.5, sd = k % 2 ? 1 : -1, h = half(xf);
+    g.beginPath(); g.moveTo(xf + 1, sd * (h + 2)); g.quadraticCurveTo(xf - 6, sd * h * 0.25, xf - 1.5, -sd * h * 0.3); g.stroke();
+  }
+  g.lineWidth = 1.6; g.strokeStyle = rgba(dk, 0.4);
+  for (let x = x0 + 26 + 30 * hash(L), i = 0; x < x1 - BUNCH - 20; x += 64 + 26 * hash(i + 2), i++) {   // pull creases
+    if (elbowAt !== null && Math.abs(x + 18 - elbowAt) < 34) continue;
+    const sd = i % 2 ? 1 : -1, y0 = sd * (6 + 4 * hash(i + 5));
+    g.beginPath(); g.moveTo(x, y0); g.quadraticCurveTo(x + 20, y0 - sd * 4, x + 40 + 12 * hash(i), y0 - sd * 2.5); g.stroke();
+  }
+  if (elbowAt !== null) {   // the inside of the elbow
+    g.strokeStyle = rgba(dk, 0.62); g.lineWidth = 1.9;
+    for (let j = 0; j < 3; j++) {
+      const ex = elbowAt - 9 + j * 8, len = 11 - 2.5 * Math.abs(j - 1);
+      g.beginPath(); g.moveTo(ex - 4, half(ex) + 2); g.quadraticCurveTo(ex + 3, half(ex) - len * 0.55, ex - 1, half(ex) - len); g.stroke();
+    }
+  }
+  g.fillStyle = 'rgba(235,242,255,0.22)';   // a little light on the folds' crowns, never a stripe
+  for (let k = 0; k < 2; k++) { const xf = x1 - (k + 0.25) * BUNCH / 2.5; g.beginPath(); g.ellipse(xf, -half(xf) + 3.5, 4.5, 1.8, 0, 0, TAU); g.fill(); }
+  g.restore();
+}
 function gripFor(holding, point) {
   if (holding === 'phone') return 'phone';
   if (holding === 'pen') return 'fist';
@@ -900,16 +944,15 @@ export function hand(g, x, y, s = 1, pose = {}) {
   g.save();
   g.transform(M.a, M.b, M.c, M.d, M.e, M.f);
   if (pose.clip !== false) { g.beginPath(); g.rect(0, -900, 9000, 1800); g.clip(); }
-  // forearm, sleeve and cuff, hair tie
-  cut(g, [rr(xw - 34, -14, 42, 28, 8)], SKIN, { lw, sd: 2 });
-  const cuffX = xw - 40;
-  if (cuffX > -30) cut(g, [rr(-30, -19, cuffX + 34, 38, 9)], pose.sleeve || SLEEVE, { lw, sd: 2 });
-  cut(g, [rr(cuffX - 4, -20.5, 16, 41, 5)], CUFF, { lw, sd: 1.5 });
-  g.strokeStyle = 'rgba(40,45,70,0.35)'; g.lineWidth = 1.4;
-  for (let i = 0; i < 4; i++) { const rx = cuffX + i * 3.5; g.beginPath(); g.moveTo(rx, -18); g.lineTo(rx, 18); g.stroke(); }
-  if (pose.sleeve === undefined) { g.fillStyle = 'rgba(255,255,255,0.18)'; g.fill(rr(-30, -15, Math.max(0, cuffX + 30), 5, 2.5)); }
-  cut(g, [rr(xw - 20, -17.5, 8, 35, 4), circ(xw - 16, -17, 4.2), circ(xw - 16, 17, 4.2)], TIE, { lw: lw * 0.8, sd: 1 });
-  g.fillStyle = 'rgba(255,255,255,0.45)'; g.fill(rr(xw - 19, -13, 2.5, 22, 1.2));
+  // forearm (a wrist narrower than the palm), a snug ribbed cuff, the sleeve over it, hair tie
+  cut(g, [rr(xw - 34, -12.5, 42, 25, 8)], SKIN, { lw, sd: 2 });
+  const cuffX = xw - 40, sc = pose.sleeve || SLEEVE, dk = mix(sc, '#141828', 0.55);
+  cut(g, [rr(cuffX - 4, -15, 15, 30, 5)], mix(sc, '#141828', 0.22), { lw, sd: 1.5 });
+  g.strokeStyle = rgba(dk, 0.55); g.lineWidth = 1.4;
+  for (let i = 0; i < 3; i++) { const rx = cuffX + 3 + i * 3; g.beginPath(); g.moveTo(rx, -13); g.lineTo(rx, 13); g.stroke(); }
+  if (cuffX > -30) sleeve(g, cuffX + 1, sc, dk, lw);
+  cut(g, [rr(xw - 20, -14.5, 8, 29, 4), circ(xw - 16, -14, 4), circ(xw - 16, 14, 4)], TIE, { lw: lw * 0.8, sd: 1 });
+  g.fillStyle = 'rgba(255,255,255,0.45)'; g.fill(rr(xw - 19, -10.5, 2.5, 18, 1.2));
 
   // the pen goes under the fist
   if (grip === 'fist' && pose.holding === 'pen') {

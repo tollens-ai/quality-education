@@ -13,6 +13,7 @@
 // st.lockersGold (0..1; also read from st.flats['1R'].gold), st.letterbox (0..1 flap open),
 // st.capsule ({ p: 0..1 up the chute pipe }), st.directoryGlint (0..1 sweep), st.lob (0..1 the old
 // builders' throw), st.flats[id].served for every resident, including '9R' (you tap the phone).
+// st.youPause (0..1) freezes your curl mid-rep, blind shadow included.
 // Debug: set st._prof = [] to collect per-stage timings (forces a flush between stages).
 
 import { W, H, clamp01, lerp, smooth, easeOut, between } from '../../lib/stage.js';
@@ -98,6 +99,11 @@ function ik(ax, ay, bx, by, l1, l2, bend) {
   const dm = Math.min(d, l1 + l2 - 0.01), ang = Math.atan2(dy, dx);
   const A = Math.acos(clamp((l1 * l1 + dm * dm - l2 * l2) / (2 * l1 * dm), -1, 1));
   return [ax + Math.cos(ang + bend * A) * l1, ay + Math.sin(ang + bend * A) * l1];
+}
+// 0..1: how far a world y sits below the top 120 px of the frame (the corner marks live there).
+function topFade(g, wy) {
+  const m = g.getTransform(), k = g.canvas.width / W, sy = (m.d * wy + m.f) / k;
+  return clamp01((sy - 90) / 50);
 }
 function safe(g, fn) { g.save(); try { fn(); } catch (e) { /* another builder's module is mid-change */ } g.restore(); }
 
@@ -859,7 +865,7 @@ function drawGoldHalos(g, t, st, V) {
     if (gold < 0.01) continue;
     const R = roomRect(fl, side), cx = R.x + R.w / 2, cy = R.y + R.h / 2;
     if (!seen(V, cx - 400, cy - 400, cx + 400, cy + 400)) continue;
-    glow(g, cx, cy, 260 + 60 * gold, PAL.gold, 0.18 * Math.min(gold, 1.1));
+    glow(g, cx, cy, 220 + 40 * gold, PAL.gold, 0.11 * Math.min(gold, 1.1));
   }
 }
 
@@ -1561,11 +1567,15 @@ function drawTopFlat(g, t, S, st, id, f, lod) {
     poly(g, [282, -100, 298, -118, 304, -100], '#F2A65A', 2); poly(g, [284, -104, 276, -120, 292, -108], '#E08A35', 2);
   }
   const lx = 156;
-  if (on > 0.02) {
-    safe(g, () => cast.bot(g, isM ? 'molty' : 'jolly', lx, -30, 1.5, { wave: up, lit: on, t }));
-  }
   GOLD_FROM[id] = [[lx + 40, -120], [lx, -130]];
   roomLight(g, t, R, { lit: Math.max(0.04, on), gold: f.gold || 0 }, [[[lx + 50, -110], [lx, -140], 40]], lod, isM ? 5 : 6);
+  // The mascots are drawn after the room light, so the gold sits behind them and their official
+  // colours are never tinted.
+  if (on > 0.02) {
+    g.save(); g.globalAlpha *= clamp01(on);
+    safe(g, () => cast.bot(g, isM ? 'molty' : 'jolly', lx, -30, 1.5, { wave: up, lit: on, t }));
+    g.restore();
+  }
   if (on < 0.98) {
     // moonlight through the window when empty
     glow(g, 60, -240, 120, '#9FB3FF', 0.08 * (1 - on));
@@ -1577,10 +1587,11 @@ function drawTopFlat(g, t, S, st, id, f, lod) {
 // other hand holds the phone (one sweaty hand is all that's free). When served rises, your thumb
 // taps the phone's one button. The blind shows the same pose as a flat shadow.
 const YOU_HIP = [178, -86];
+let YOU_PAUSE = 0;   // st.youPause, set per frame in drawYou
 function youPose(t, S, f) {
   const served = clamp01(f.served || 0);
   const bp = S && S.barPos ? S.barPos(t) : t / 1.393;
-  return { curl: 0.5 - 0.5 * Math.cos(bp * TAU), served };
+  return { curl: lerp(0.5 - 0.5 * Math.cos(bp * TAU), 0.62, YOU_PAUSE), served };
 }
 function dumbbell(g, x, y, s, fill, lw) {
   box(g, x - 17 * s, y - 3 * s, 34 * s, 6 * s, fill || '#9AA0AC', lw, 3 * s);
@@ -1643,6 +1654,7 @@ function youShadow(t, S, f) {
 function drawYou(g, t, S, st, f, lod) {
   const R = { wall: '#34466E', pat: 'stripes', patCol: 'rgba(255,255,255,0.04)', floor: '#5A4A3C', lamp: [292, -240, 280] };
   const yg = clamp01(st.youGold || 0), bl = clamp01(st.blind || 0), au = clamp01(st.autumn || 0);
+  YOU_PAUSE = clamp01(st.youPause || 0);
   roomShell(g, R, clamp01(f.lit ?? 1), lod, t);
   // calendar: August, then September
   const flip = smooth(between(au, 0.2, 0.55));
@@ -1781,11 +1793,13 @@ export function drawDirectory(g, S, st, t, x, y, s = 1, lod = 2) {
         g.fillRect(side === 'L' ? 56 : Wd / 2 + 16, yy, 40 + hash(i * 3 + (side === 'L' ? 0 : 1)) * 60, 5);
       }
     });
+    g.fillStyle = '#8A6A3C'; g.fillRect(0, 270, Wd, 34);
     g.restore(); return;
   }
   const short = id => (P.RESIDENTS[id]?.name || '').replace(/\s*\(.*\)/, '');
   rows.forEach((fl, i) => {
     const yy = ry0 + i * rh;
+    if (fl === 'B') return;
     txt(g, fl === 'roof' ? 'ROOF' : String(fl), 34, yy, fl === 'roof' ? 9 : 12, '#C9A24E', { weight: 800 });
     const entry = (id, xx, name, on, opts = {}) => {
       const col = on > 0 ? mix('#8C8574', '#FFE9B0', on) : '#8C8574';
@@ -1799,12 +1813,6 @@ export function drawDirectory(g, S, st, t, x, y, s = 1, lod = 2) {
       if (bots.jolly > 0.02) { g.globalAlpha = bots.jolly; entry('10R', Wd / 2 + 16, 'Jolly · Muse', 1, { mark: 1, img: S?.img?.muse, col: '#E9E1CF', size: 11.5 }); g.globalAlpha = 1; } else txt(g, '—', Wd / 2 + 20, yy, 11, '#4A4550', { align: 'left' });
       return;
     }
-    if (fl === 'B') {
-      const bw = clamp01(st.baseWindow || 0);
-      if (bw > 0.02) { g.globalAlpha = bw; glow(g, 100, yy, 70, PAL.gold, 0.35 * bw); txt(g, 'CLAWD · basement', 56, yy + 0.5, 12.5, '#FFB27A', { align: 'left', weight: 800, font: F.pixel }); g.globalAlpha = 1; }
-      else txt(g, '—', 60, yy, 11, '#4A4550', { align: 'left' });
-      return;
-    }
     for (const side of ['L', 'R']) {
       const id = `${fl}${side}`, idx = order.indexOf(id);
       const on = clamp01(lit * order.length - idx);
@@ -1813,16 +1821,28 @@ export function drawDirectory(g, S, st, t, x, y, s = 1, lod = 2) {
       else entry(id, xx, short(id), on);
     }
   });
-  // visiting agents
-  txt(g, 'ALSO HERE', 34, 238, 8, '#C9A24E', { weight: 800, align: 'left' });
+  // CLAWD, basement: its own big line once its window lights (>= 48 px at 1.55 zoom)
+  const bwin = clamp01(st.baseWindow || 0);
+  txt(g, 'B', 34, 231, 12, '#C9A24E', { weight: 800 });
+  if (bwin > 0.02) {
+    g.save(); g.globalAlpha = bwin;
+    glow(g, Wd / 2, 231, 190, PAL.gold, 0.4 * bwin);
+    box(g, 22, 213, Wd - 44, 36, '#2A1A12', 2.5, 5);
+    g.lineWidth = 2; g.strokeStyle = '#FF9A5A'; g.strokeRect(25, 216, Wd - 50, 30);
+    txt(g, 'CLAWD · basement', Wd / 2, 232, 31, '#FFB27A', { font: F.pixel, weight: 700 });
+    g.restore();
+  } else txt(g, '—', 60, 231, 11, '#4A4550', { align: 'left' });
+  txt(g, 'ALSO HERE ↓', 34, 258, 9, '#C9A24E', { weight: 800, align: 'left' });
+  // the rail under the board, with the agents' plates (marks exactly as provided)
+  box(g, 0, 270, Wd, 34, '#8A6A3C', 3, 4);
   const plate = (px, pw, p, fn) => {
-    if (p <= 0.01) { box(g, px, 244, pw, 20, 'rgba(255,255,255,0.03)', 1, 3); return; }
-    g.save(); g.translate(px + pw / 2, 254); const k = 0.6 + 0.4 * easeOut(p) + 0.08 * Math.sin(Math.PI * clamp01(p * 1.2)); g.scale(k, k); g.globalAlpha = clamp01(p * 2);
-    box(g, -pw / 2, -10, pw, 20, '#E9E1CF', 2, 3); fn(-pw / 2); g.restore(); g.globalAlpha = 1;
+    if (p <= 0.01) { box(g, px, 274, pw, 26, 'rgba(0,0,0,0.18)', 1.5, 3); return; }
+    g.save(); g.translate(px + pw / 2, 287); const k = 0.6 + 0.4 * easeOut(p) + 0.08 * Math.sin(Math.PI * clamp01(p * 1.2)); g.scale(k, k); g.globalAlpha = clamp01(p * 2);
+    box(g, -pw / 2, -13, pw, 26, '#F4EEDD', 2.5, 3); fn(-pw / 2); g.restore(); g.globalAlpha = 1;
   };
-  plate(28, 178, clamp01(bots.molty || 0), x0 => { if (S?.img?.openai) g.drawImage(S.img.openai, x0 + 4, -7, 14, 14); txt(g, 'Astra ★ · Sol ☀ · Luna ☾', x0 + 22, 0.5, 10, '#15161F', { align: 'left', weight: 700 }); });
-  plate(212, 70, clamp01(bots.jolly || 0), x0 => { if (S?.img?.grok) g.drawImage(S.img.grok, x0 + 4, -7, 14, 14); txt(g, 'Grok', x0 + 22, 0.5, 10.5, '#15161F', { align: 'left', weight: 800 }); });
-  plate(288, 64, clamp01(bots.hermes || 0), x0 => { txt(g, 'Instinct', x0 + 32, 0.5, 10.5, '#15161F', { weight: 800 }); });
+  plate(2, 224, clamp01(bots.molty || 0), x0 => { if (S?.img?.openai) g.drawImage(S.img.openai, x0 + 4, -10, 20, 20); txt(g, 'Astra ★ · Sol ☀ · Luna ☾', x0 + 28, 0.5, 14.5, '#15161F', { align: 'left', weight: 700 }); });
+  plate(232, 70, clamp01(bots.jolly || 0), x0 => { if (S?.img?.grok) g.drawImage(S.img.grok, x0 + 4, -10, 20, 20); txt(g, 'Grok', x0 + 28, 0.5, 16, '#15161F', { align: 'left', weight: 800 }); });
+  plate(308, 72, clamp01(bots.hermes || 0), x0 => { txt(g, 'Instinct', x0 + 36, 0.5, 14.5, '#15161F', { weight: 800 }); });
   // the glint
   const gp = st.directoryGlint != null ? clamp01(st.directoryGlint) : frac(t / 7.3) * 2.2;
   if (gp > 0 && gp < 1) {
@@ -2059,11 +2079,35 @@ function drawCutWords(g, t, st, cw, sw) {
 }
 
 // ---------- the older basements (bridge) ----------
+// Three eras, each with its own palette and kit. Geometry (room rects, desk, builder, the wall and its
+// top) is mirrored by sec-c.js, so it stays fixed: desk at (x0 + 150, floor - 110), the wall from
+// x1 - 400 to x1 - 40 with its top at floor - 330. The wall carries a handoff sign, not a slogan.
 const ERAS = [
-  { i: 0, x0: 40, x1: 1040, wall: '#5B4631', glow: '#9FC9FF', tone: '#3A2C1E' },
-  { i: 1, x0: 90, x1: 990, wall: '#57452F', glow: '#E9E2C8', tone: '#35291C' },
-  { i: 2, x0: 140, x1: 940, wall: '#4E3E2A', glow: '#7CFF9B', tone: '#302418' },
+  { i: 0, x0: 40, x1: 1040, glow: '#9FC9FF', wall: ['#2E4664', '#3C5A7C'], floor: '#46506A', pwall: '#DCE2EA', label: ['#FFFFFF', '#2E6BD8'] },
+  { i: 1, x0: 90, x1: 990, glow: '#E9E2C8', wall: ['#8E8468', '#A99C7C'], floor: '#56607A', pwall: '#CFC3A2', label: ['#EFE6CF', '#2F6E6E'] },
+  { i: 2, x0: 140, x1: 940, glow: '#7CFF9B', wall: ['#3E2C1C', '#54402A'], floor: '#7A4A2A', pwall: '#6E5234', label: ['#E0782E', '#2A1A0E'] },
 ];
+function floppy(g, x, y, s, col) {
+  box(g, x - 10 * s, y - 10 * s, 20 * s, 20 * s, col, 1.5, 1.5);
+  g.fillStyle = '#C9CED6'; g.fillRect(x - 5 * s, y - 10 * s, 10 * s, 7 * s);
+  g.fillStyle = '#EFE6CF'; g.fillRect(x - 7 * s, y + 1 * s, 14 * s, 8 * s);
+}
+function handoffSign(g, t, E, wx0, wx1, wy0, y1) {
+  const wc = (wx0 + wx1) / 2, py = wy0 + 118;
+  // the arrow: up from the sign and over the top of the wall
+  g.strokeStyle = E.i === 0 ? '#2E6BD8' : E.i === 1 ? '#2F6E6E' : '#E0782E'; g.lineWidth = 11; g.lineCap = 'round';
+  g.beginPath(); g.moveTo(wc + 110, py - 52); g.lineTo(wc + 110, wy0 + 28); g.quadraticCurveTo(wc + 110, wy0 - 34, wc + 150, wy0 - 34); g.stroke();
+  const hx = wc + 162, hy = wy0 - 34;
+  poly(g, [hx + 12, hy, hx - 8, hy - 16, hx - 8, hy + 16], g.strokeStyle, 2.5);
+  // the sign
+  const sw = 300, sh = 104, sx = wc - sw / 2, sy = py - 52;
+  if (E.i === 0) { box(g, sx, sy, sw, sh, '#1E2A44', 3, 10); }
+  else if (E.i === 1) { box(g, sx, sy, sw, sh, '#F6F4EC', 3, 1); g.fillStyle = 'rgba(220,210,160,0.7)'; g.fillRect(sx + 20, sy - 6, 40, 12); g.fillRect(sx + sw - 60, sy - 6, 40, 12); }
+  else { box(g, sx, sy, sw, sh, '#C9A24E', 3, 4); box(g, sx + 6, sy + 6, sw - 12, sh - 12, null, 1.5, 2); for (const [bx, by] of [[10, 10], [sw - 10, 10], [10, sh - 10], [sw - 10, sh - 10]]) circ(g, sx + bx, sy + by, 3, '#8A6A2A', 1); }
+  const ink = E.i === 0 ? '#FFFFFF' : E.i === 1 ? '#15161F' : '#2A1A0E', font = E.i === 1 ? F.mono : F.display;
+  txt(g, 'USERS', wc, py - 20, 40, ink, { weight: 800, font });
+  txt(g, '→ PRODUCT TEAM', wc, py + 24, 30, ink, { weight: 800, font });
+}
 function drawStrata(g, t, S, st, V, lod) {
   const sv = clamp01(st.strata || 0);
   ERAS.forEach((E, i) => {
@@ -2071,80 +2115,95 @@ function drawStrata(g, t, S, st, V, lod) {
     if (!seen(V, E.x0, y0, E.x1, y1)) return;
     const a = smooth(clamp01(sv * 3 - i));
     if (a < 0.005) {
-      // a hint: a crack of the era's light
       if (i === 0 && lod >= 1) { g.strokeStyle = rgba(E.glow, 0.12); g.lineWidth = 3; g.beginPath(); g.moveTo(300, y0 - 2); g.lineTo(330, y0 + 30); g.lineTo(318, y0 + 60); g.stroke(); }
       return;
     }
     const flick = a < 1 ? (frac(t * 11 + i) > 0.35 ? 1 : 0.55) : 1;
+    const dx = E.x0 + 150, dy = y1 - 110, wx0 = E.x1 - 400, wx1 = E.x1 - 40, wy0 = y1 - 330;
     g.save(); g.globalAlpha = a;
     g.beginPath(); g.rect(E.x0, y0, E.x1 - E.x0, y1 - y0); g.clip();
-    const wg = g.createLinearGradient(0, y0, 0, y1); wg.addColorStop(0, E.tone); wg.addColorStop(0.5, E.wall); wg.addColorStop(1, E.tone);
+    const wg = g.createLinearGradient(0, y0, 0, y1); wg.addColorStop(0, E.wall[0]); wg.addColorStop(1, E.wall[1]);
     g.fillStyle = wg; g.fillRect(E.x0, y0, E.x1 - E.x0, y1 - y0);
-    // era textures
-    g.strokeStyle = 'rgba(0,0,0,0.2)'; g.lineWidth = 2;
-    if (i === 0) for (let y = y0, r = 0; y < y1 - 30; y += 22, r++) { g.beginPath(); g.moveTo(E.x0, y); g.lineTo(E.x1, y); g.stroke(); for (let x = E.x0 + (r % 2) * 24; x < E.x1; x += 48) { g.beginPath(); g.moveTo(x, y); g.lineTo(x, y + 22); g.stroke(); } }
-    if (i === 1) { for (let x = E.x0; x < E.x1; x += 60) { g.beginPath(); g.moveTo(x, y0); g.lineTo(x, y0 + 40); g.stroke(); } g.beginPath(); g.moveTo(E.x0, y0 + 40); g.lineTo(E.x1, y0 + 40); g.stroke(); }
-    if (i === 2) for (let y = y0, r = 0; y < y1 - 30; y += 34, r++) { g.beginPath(); g.moveTo(E.x0, y); g.lineTo(E.x1, y); g.stroke(); for (let x = E.x0 + (r % 2) * 40; x < E.x1; x += 80) { g.beginPath(); g.moveTo(x, y); g.lineTo(x, y + 34); g.stroke(); } }
-    g.fillStyle = 'rgba(0,0,0,0.25)'; g.fillRect(E.x0, y1 - 26, E.x1 - E.x0, 26);
-    // the wall with the old slogan
-    const wx0 = E.x1 - 400, wx1 = E.x1 - 40, wy0 = y1 - 330;
-    box(g, wx0, wy0, wx1 - wx0, y1 - wy0, '#7A6246', 3, 2);
-    g.strokeStyle = 'rgba(0,0,0,0.18)'; g.lineWidth = 2;
-    for (let y = wy0 + 20, r = 0; y < y1; y += 20, r++) { g.beginPath(); g.moveTo(wx0, y); g.lineTo(wx1, y); g.stroke(); for (let x = wx0 + (r % 2) * 20; x < wx1; x += 40) { g.beginPath(); g.moveTo(x, y); g.lineTo(x, y - 20); g.stroke(); } }
-    g.save(); g.translate((wx0 + wx1) / 2, wy0 + 118); g.rotate(-0.03 + i * 0.015);
-    g.globalAlpha = a * (0.62 - i * 0.1);
-    txt(g, 'USERS:', 0, -36, 52, '#EFE3C8', { weight: 800 });
-    txt(g, "PRODUCT'S JOB", 0, 22, 38, '#EFE3C8', { weight: 800 });
-    g.globalAlpha = a;
-    // flaked paint, round the edges of the lettering
-    g.fillStyle = '#7A6246'; for (let k = 0; k < 8; k++) { const ang = hash(k * 3 + i) * TAU; g.beginPath(); g.arc(Math.cos(ang) * 150, -8 + Math.sin(ang) * 62, 3 + hash(k + i) * 5, 0, TAU); g.fill(); }
-    g.restore();
-    // desk, computer, builder
-    const dx = E.x0 + 150, dy = y1 - 110;
+    g.fillStyle = E.floor; g.fillRect(E.x0, y1 - 28, E.x1 - E.x0, 28);
+    g.lineWidth = 2;
+    if (i === 0) {
+      // 2010s: painted brick, a neon </>, a whiteboard of stickies, a beanbag, a plant
+      g.strokeStyle = 'rgba(255,255,255,0.06)';
+      for (let y = y0, r = 0; y < y1 - 28; y += 22, r++) { g.beginPath(); g.moveTo(E.x0, y); g.lineTo(E.x1, y); g.stroke(); for (let x = E.x0 + (r % 2) * 24; x < E.x1; x += 48) { g.beginPath(); g.moveTo(x, y); g.lineTo(x, y + 22); g.stroke(); } }
+      box(g, E.x0 + 30, y0 + 96, 150, 96, '#F4F6F8', 3, 3);
+      for (let k = 0; k < 6; k++) box(g, E.x0 + 42 + (k % 3) * 44, y0 + 108 + Math.floor(k / 3) * 40, 32, 30, ['#FFE36A', '#FF9AB0', '#8CE0FF', '#B8F08A', '#FFB86A', '#FFE36A'][k], 1.5, 1);
+      glow(g, E.x0 + 330, y0 + 120, 120, '#FF5AA8', 0.35 * flick);
+      txt(g, '</>', E.x0 + 330, y0 + 122, 56, '#FF8AC8', { weight: 800, font: F.mono, stroke: 0 });
+      ell(g, E.x0 + 62, y1 - 52, 50, 30, '#E0703A', 3);
+      box(g, E.x1 - 452, y1 - 80, 34, 52, '#F4F4F0', 2.5, [3, 3, 8, 8]);
+      for (let k = 0; k < 5; k++) ell(g, E.x1 - 435 + (k - 2) * 9, y1 - 96 - (k % 2) * 10, 7, 14, '#3F9A5A', 2, (k - 2) * 0.4);
+      // standing desk and a laptop seen from behind, its lid covered in stickers
+      box(g, dx - 30, dy, 250, 12, '#D8D2C4', 3); seg(g, dx - 10, dy + 12, dx - 10, y1 - 28, '#8A9AB0', 7); seg(g, dx + 200, dy + 12, dx + 200, y1 - 28, '#8A9AB0', 7);
+      glow(g, dx + 150, dy - 34, 200, E.glow, 0.5 * flick);
+      poly(g, [dx + 108, dy, dx + 192, dy, dx + 186, dy - 62, dx + 114, dy - 62], '#C9CED8', 3);
+      circ(g, dx + 132, dy - 44, 7, '#FF6A8A', 1.5); box(g, dx + 150, dy - 50, 16, 12, '#FFE36A', 1.5, 3);
+      poly(g, [dx + 170, dy - 30, dx + 176, dy - 20, dx + 170, dy - 12, dx + 162, dy - 12, dx + 156, dy - 20, dx + 162, dy - 30], '#6AD0A0', 1.5);
+      circ(g, dx + 128, dy - 18, 5, '#8CB8FF', 1.5); txt(g, '★', dx + 150, dy - 20, 13, '#B08CFF');
+      box(g, dx + 20, dy - 34, 18, 34, '#3A3A48', 2, 3);
+    } else if (i === 1) {
+      // 1990s: a drop ceiling and a strip light, a cubicle, a beige CRT, a grey tower, floppies
+      g.fillStyle = '#D8D2C0'; g.fillRect(E.x0, y0, E.x1 - E.x0, 40);
+      g.strokeStyle = 'rgba(0,0,0,0.18)'; for (let x = E.x0; x < E.x1; x += 60) { g.beginPath(); g.moveTo(x, y0); g.lineTo(x, y0 + 40); g.stroke(); }
+      box(g, E.x0 + 180, y0 + 34, 200, 12, '#F4FAFF', 2, 2); glow(g, E.x0 + 280, y0 + 60, 260, '#E8F4FF', 0.3 * flick);
+      box(g, dx - 50, dy - 170, 300, 170, '#6E7C8E', 3, 3);
+      g.fillStyle = 'rgba(255,255,255,0.05)'; for (let k = 0; k < 30; k++) g.fillRect(dx - 44 + hash(k * 3) * 288, dy - 164 + hash(k * 7) * 160, 3, 3);
+      box(g, dx - 30, dy, 260, 14, '#C9B99A', 3); box(g, dx - 24, dy + 14, 90, y1 - 28 - dy - 14, '#B8A888', 2.5);
+      glow(g, dx + 150, dy - 60, 190, E.glow, 0.42 * flick);
+      box(g, dx + 96, dy - 104, 108, 92, '#DCD2B4', 3, 6); box(g, dx + 108, dy - 94, 84, 64, '#EDE6CC', 2, 8);
+      g.fillStyle = 'rgba(40,60,50,0.55)'; for (let k = 0; k < 5; k++) g.fillRect(dx + 116, dy - 86 + k * 11, 30 + hash(k) * 36, 4);
+      box(g, dx + 110, dy - 12, 80, 12, '#C9B99A', 2);
+      box(g, dx + 208, dy - 96, 40, 96, '#B8B8B0', 3, 2); box(g, dx + 214, dy - 84, 28, 6, '#8A8A84', 1); circ(g, dx + 228, dy - 20, 4, '#4ADE80', 1);
+      floppy(g, dx - 8, dy - 12, 1, '#2F4E8C'); floppy(g, dx + 18, dy - 12, 1, '#15161F'); floppy(g, dx + 44, dy - 12, 1, '#C8304A');
+      box(g, dx + 60, dy - 20, 30, 18, '#DCD2B4', 2, 3);
+    } else {
+      // 1970s: wood panelling and a supergraphic, a mainframe with tape reels, green phosphor, punch cards
+      g.strokeStyle = 'rgba(0,0,0,0.25)'; for (let x = E.x0 + 24; x < E.x1; x += 48) { g.beginPath(); g.moveTo(x, y0); g.lineTo(x, y1 - 28); g.stroke(); }
+      ['#8A3A1A', '#C8642A', '#E0A040'].forEach((c, k) => { g.fillStyle = c; g.fillRect(E.x0, y0 + 60 + k * 16, E.x1 - E.x0, 12); });
+      box(g, E.x0 + 16, y0 + 120, 104, y1 - 28 - y0 - 120, '#C9C2AE', 3, 3);
+      for (let k = 0; k < 2; k++) { const cy = y0 + 170 + k * 90; circ(g, E.x0 + 68, cy, 30, '#2A2420', 3); g.save(); g.translate(E.x0 + 68, cy); g.rotate(t * (k ? -2 : 2.4)); for (let q = 0; q < 3; q++) { g.rotate(TAU / 3); seg(g, 0, 0, 24, 0, '#8A8270', 4); } g.restore(); circ(g, E.x0 + 68, cy, 6, '#8A8270', 1.5); }
+      for (let k = 0; k < 12; k++) circ(g, E.x0 + 34 + (k % 4) * 22, y0 + 350 + Math.floor(k / 4) * 20, 4.5, frac(t * 2 + k * 0.37) > 0.5 ? ['#7CFF9B', '#FF6A5A', '#FFC23D'][k % 3] : '#3A3226', 1);
+      box(g, dx, dy, 220, 14, '#8A5A36', 3); box(g, dx + 8, dy + 14, 12, y1 - 28 - dy - 14, '#6E4A2A', 2); box(g, dx + 200, dy + 14, 12, y1 - 28 - dy - 14, '#6E4A2A', 2);
+      glow(g, dx + 160, dy - 48, 220, E.glow, 0.5 * flick);
+      box(g, dx + 116, dy - 90, 92, 90, '#B8AE92', 3, 4); box(g, dx + 126, dy - 80, 72, 54, '#061A0C', 2, 6);
+      g.fillStyle = E.glow; g.font = `600 10px ${F.mono}`; g.textAlign = 'left'; g.textBaseline = 'alphabetic';
+      for (let k = 0; k < 4; k++) g.fillText(['RUN JOB', 'OK', 'READY', '> _'][k], dx + 132, dy - 66 + k * 12);
+      for (let k = 0; k < 6; k++) box(g, dx + 8 + k * 5, dy - 20 - k * 2, 56, 18, '#EFE6CF', 1.2, 1);
+      g.fillStyle = '#6A5642'; for (let q = 0; q < 8; q++) g.fillRect(dx + 44 + q * 2.5, dy - 26, 1.5, 3);
+      // green-bar fanfold spilling to the floor
+      for (let k = 0; k < 5; k++) { box(g, dx + 216 - k * 6, dy + 16 + k * 16, 60, 16, k % 2 ? '#E9F2DE' : '#CFE6C6', 1.2, 0); }
+    }
+    // the wall, with its handoff sign
+    box(g, wx0, wy0, wx1 - wx0, y1 - wy0, E.pwall, 3, 2);
+    if (i === 0) { g.strokeStyle = 'rgba(0,0,0,0.08)'; for (let y = wy0 + 20, r = 0; y < y1; y += 20, r++) { g.beginPath(); g.moveTo(wx0, y); g.lineTo(wx1, y); g.stroke(); } }
+    if (i === 2) { g.strokeStyle = 'rgba(0,0,0,0.22)'; for (let x = wx0 + 30; x < wx1; x += 30) { g.beginPath(); g.moveTo(x, wy0); g.lineTo(x, y1); g.stroke(); } }
+    handoffSign(g, t, E, wx0, wx1, wy0, y1);
+    // the builder, alone at the desk
     const lob = st.lob != null ? clamp01(st.lob - i * 0.08) : 0;
     const type = Math.sin(t * 12 + i * 2) * 3;
-    if (i === 0) {
-      box(g, dx - 30, dy, 250, 12, '#6E5A44', 3); seg(g, dx - 20, dy + 12, dx - 20, y1 - 26, '#4E3E2A', 6); seg(g, dx + 210, dy + 12, dx + 210, y1 - 26, '#4E3E2A', 6);
-      poly(g, [dx + 110, dy, dx + 190, dy, dx + 186, dy - 6, dx + 114, dy - 6], '#B8BCC8', 2.5); poly(g, [dx + 116, dy - 6, dx + 184, dy - 6, dx + 176, dy - 56, dx + 124, dy - 56], '#B8BCC8', 2.5);
-      box(g, dx + 128, dy - 52, 44, 40, E.glow, 0, 2);
-      box(g, dx + 20, dy - 36, 18, 36, '#E0B070', 2, 2);  // energy drink
-      ell(g, E.x0 + 60, y1 - 44, 44, 26, '#8A4A3A', 3);    // beanbag
-    } else if (i === 1) {
-      box(g, dx - 30, dy, 260, 14, '#C9B99A', 3); box(g, dx - 24, dy + 14, 90, y1 - 26 - dy - 14, '#B8A888', 2.5);
-      box(g, dx + 100, dy - 100, 100, 88, '#D8CDB0', 3, 6); box(g, dx + 112, dy - 90, 76, 60, E.glow, 2, 8);
-      box(g, dx + 110, dy - 12, 80, 12, '#C9B99A', 2); box(g, dx + 212, dy - 70, 30, 70, '#D8CDB0', 2.5, 2);
-      for (let k = 0; k < 3; k++) box(g, dx - 10 + k * 16, dy - 14, 14, 14, ['#2A2A36', '#3E6FA8', '#C8304A'][k], 1.5, 1);
-    } else {
-      box(g, E.x0 + 20, y0 + 40, 90, y1 - 26 - y0 - 40, '#8A8270', 3, 2);
-      for (let k = 0; k < 2; k++) { const cy = y0 + 110 + k * 90; circ(g, E.x0 + 65, cy, 26, '#3A3226', 2.5); g.save(); g.translate(E.x0 + 65, cy); g.rotate(t * (k ? -2 : 2.4)); for (let s2 = 0; s2 < 3; s2++) { g.rotate(TAU / 3); seg(g, 0, 0, 20, 0, '#8A8270', 3); } g.restore(); }
-      for (let k = 0; k < 8; k++) { circ(g, E.x0 + 35 + (k % 4) * 20, y0 + 310 + Math.floor(k / 4) * 20, 4, frac(t * 2 + k * 0.37) > 0.5 ? E.glow : '#3A3226', 1); }
-      box(g, dx, dy, 220, 14, '#6E5A44', 3); box(g, dx + 8, dy + 14, 12, y1 - 26 - dy - 14, '#5A4A36', 2); box(g, dx + 200, dy + 14, 12, y1 - 26 - dy - 14, '#5A4A36', 2);
-      box(g, dx + 120, dy - 80, 80, 80, '#6E6450', 3, 4); box(g, dx + 130, dy - 72, 60, 48, '#0A1A0E', 2, 4);
-      g.fillStyle = E.glow; g.font = `600 9px ${F.mono}`; g.textAlign = 'left'; for (let k = 0; k < 4; k++) g.fillText('█▌▌█ ▌█', dx + 134, dy - 60 + k * 10);
-      for (let k = 0; k < 6; k++) box(g, dx + 10 + k * 6, dy - 18 - k * 1.5, 50, 16, '#E9DCBC', 1.2, 1);
-    }
-    const scr = i === 0 ? [dx + 150, dy - 32] : i === 1 ? [dx + 150, dy - 60] : [dx + 160, dy - 48];
-    glow(g, dx + 60, dy - 120, 300, '#FFC98A', 0.16);
-    glow(g, scr[0], scr[1], 220, E.glow, 0.42 * flick);
-    glow(g, (wx0 + wx1) / 2, wy0 + 100, 240, '#FFE6B8', 0.1);
-    const sil = '#1E160E';
+    const sil = ['#101A2A', '#2A2418', '#1E140A'][i];
     const throwing = lob > 0.01;
-    const bp = person(g, { x: dx + 60, y: dy - 20, s: 0.95, face: 1, sil, noLegs: false, fl: [dx + 70, y1 - 30], fr: [dx + 86, y1 - 30],
+    const bp = person(g, { x: dx + 60, y: dy - 20, s: 0.95, face: 1, sil, fl: [dx + 70, y1 - 30], fr: [dx + 86, y1 - 30],
       hl: throwing ? [dx + 40 + lob * 60, dy - 110 - Math.sin(lob * Math.PI) * 60] : [dx + 110, dy - 6 + type], hrt: [dx + 124, dy - 6 - type],
       hs: ['short', 'bob', 'short'][i], lean: -0.1 * Math.sin(lob * Math.PI) });
-    // rim light from the screen
-    g.save(); g.globalCompositeOperation = 'lighter'; g.strokeStyle = rgba(E.glow, 0.5 * flick); g.lineWidth = 3;
+    if (i === 0) { g.strokeStyle = sil; g.lineWidth = 5; g.beginPath(); g.arc(bp.head[0], bp.head[1], 22, Math.PI * 1.1, Math.PI * 1.9); g.stroke(); }
+    if (i === 2) { g.strokeStyle = '#E9E2C8'; g.lineWidth = 2; for (const sd of [-1, 1]) { g.beginPath(); g.arc(bp.head[0] + 6 + sd * 7, bp.head[1] + 1, 6, 0, TAU); g.stroke(); } }
+    g.save(); g.globalCompositeOperation = 'lighter'; g.strokeStyle = rgba(E.glow, 0.6 * flick); g.lineWidth = 3;
     g.beginPath(); g.arc(bp.head[0], bp.head[1], 19, -Math.PI * 0.4, Math.PI * 0.35); g.stroke(); g.restore();
-    if (i === 2) { g.strokeStyle = '#1E160E'; g.lineWidth = 3; g.beginPath(); g.arc(bp.head[0] + 6, bp.head[1] + 1, 7, 0, TAU); g.stroke(); }
-    // era chair
-    box(g, dx + 36, dy + 30, 50, 8, sil, 0); seg(g, dx + 40, dy + 38, dx + 40, y1 - 26, sil, 5);
-    // sepia veil
-    g.fillStyle = 'rgba(60,40,20,0.18)'; g.fillRect(E.x0, y0, E.x1 - E.x0, y1 - y0);
+    box(g, dx + 36, dy + 30, 50, 8, sil, 0); seg(g, dx + 40, dy + 38, dx + 40, y1 - 28, sil, 5);
     g.restore();
+    g.globalAlpha = a; g.lineWidth = 5; g.strokeStyle = OUT; g.strokeRect(E.x0, y0, E.x1 - E.x0, y1 - y0);
+    // the decade, big
+    if (a > 0.3) {
+      g.globalAlpha = smooth((a - 0.3) / 0.7);
+      box(g, E.x0 + 22, y0 + 20, 176, 64, E.label[0], 3.5, E.i === 0 ? 14 : 4);
+      txt(g, Sd.era, E.x0 + 110, y0 + 53, 46, E.label[1], { weight: 800, font: E.i === 1 ? F.pixel : F.display });
+    }
     g.globalAlpha = 1;
-    g.lineWidth = 5; g.strokeStyle = OUT; g.globalAlpha = a; g.strokeRect(E.x0, y0, E.x1 - E.x0, y1 - y0); g.globalAlpha = 1;
-    // era tag
-    if (a > 0.5 && lod >= 1) { box(g, E.x0 + 14, y0 + 14, 74, 26, '#EFE3C8', 2.5, 3); txt(g, Sd.era, E.x0 + 51, y0 + 27.5, 16, '#3A2C1E', { weight: 800 }); }
   });
 }
 
@@ -2165,9 +2224,13 @@ function drawShaft(g, t, st, V, lod) {
     box(g, 482, y - 228, 116, 228, '#1C2244', 2.5, 2);
     box(g, 486, y - 222, 53, 222, '#2A3258', 2); box(g, 541, y - 222, 53, 222, '#2A3258', 2);
     const lbl = fl === 0 ? 'B' : String(fl);
+    const tf = topFade(g, y - 290);
+    if (tf < 0.02) continue;
+    g.globalAlpha = tf;
     circ(g, 540, y - 290, 19, '#15161F', 2.5);
     txt(g, lbl, 540, y - 289, 22, fl === 9 ? PAL.goldHi : '#FFE3B0', { weight: 800 });
     glow(g, 540, y - 290, 40, PAL.lamp, 0.18);
+    g.globalAlpha = 1;
     // call button
     box(g, 604, y - 150, 10, 22, '#3A4264', 1.5, 2); circ(g, 609, y - 139, 3, '#FFC23D', 0);
     // sills
@@ -2233,7 +2296,7 @@ export function drawLiftCar(g, t, S, st, o = {}) {
   // floor indicator
   const lbl = y > 200 ? 'B' : String(clamp(Math.round(1 - y / P.FH), 1, 10));
   box(g, x0 + w / 2 - 20, y0 - 4, 40, 22, '#15161F', 2.5, 4);
-  txt(g, lbl, x0 + w / 2, y0 + 8, 16, '#FF9A5A', { font: F.pixel, weight: 700 });
+  txt(g, lbl, x0 + w / 2, y0 + 8, 17, '#FF9A5A', { weight: 800 });
   // buttons
   const lit = Array.isArray(L.buttons) ? L.buttons : [];
   box(g, x0 + w - 26, y0 + 104, 16, 60, '#2A2F45', 2, 3);
@@ -2362,51 +2425,58 @@ STYLE_DRAW.show = (g, t, x0, y0, w, h, doors, O) => {
 };
 
 // ---------- the quota tube ----------
+// A glass tube of orange tokens up the shaft's right side. Drawn wider than plan.TUBE (same centre).
 function drawTube(g, t, st, cam, V, lod) {
-  const T = P.TUBE, x = T.x, w = T.w, y1 = T.y1, y0 = T.y0, Hh = y0 - y1;
-  if (!seen(V, x - 120, y1, x + w + 20, y0)) return;
+  const T = P.TUBE, cx = T.x + T.w / 2, w = 24, x = cx - w / 2, y1 = T.y1, y0 = T.y0, Hh = y0 - y1;
+  if (!seen(V, x - 120, y1 - 20, x + w + 20, y0 + 20)) return;
   const q = clamp01(st.quota ?? 1), lvl = y0 - Hh * q;
   const ya = Math.max(y1, V.y0 - 10), yb = Math.min(y0, V.y1 + 10);
-  // brackets
-  for (let fl = 1; fl <= P.FLOORS; fl++) { const by = P.floorLevel(fl) - 180; if (by > ya && by < yb) box(g, x - 4, by - 5, w + 14, 10, '#3A4264', 2, 2); }
-  // glass
-  g.fillStyle = 'rgba(170,200,255,0.1)'; g.fillRect(x, ya, w, yb - ya);
+  // glass body
+  g.fillStyle = 'rgba(160,200,255,0.16)'; g.fillRect(x, ya, w, yb - ya);
   // tokens
   const ta = Math.max(lvl, ya), tb = yb;
   if (tb > ta) {
     if (V.z >= 0.7) {
-      const step = 7, first = Math.floor((ta - y0) / step) * step + y0;
-      for (let yy = Math.max(first, ta - step); yy <= tb + step; yy += step) {
-        if (yy < lvl - 0.5) continue;
-        g.beginPath(); g.ellipse(x + w / 2, yy, w / 2 - 0.5, 3.4, 0, 0, TAU);
-        g.fillStyle = PAL.token; g.fill(); g.lineWidth = 1.2; g.strokeStyle = '#8A3E1E'; g.stroke();
+      const step = 8.5;
+      for (let yy = y0 - 5 - Math.max(0, Math.floor((y0 - 5 - tb) / step)) * step; yy >= ta - 1; yy -= step) {
+        g.beginPath(); g.ellipse(cx, yy, w / 2 - 2, 4.2, 0, 0, TAU);
+        g.fillStyle = PAL.token; g.fill(); g.lineWidth = 1.5; g.strokeStyle = '#8A3E1E'; g.stroke();
+        g.fillStyle = 'rgba(255,220,180,0.55)'; g.fillRect(cx - 5, yy - 2.2, 7, 1.6);
       }
-      g.fillStyle = 'rgba(255,220,180,0.35)'; g.fillRect(x + 2, ta, 2, tb - ta);
     } else {
-      g.fillStyle = PAL.token; g.fillRect(x, ta, w, tb - ta);
+      g.fillStyle = PAL.token; g.fillRect(x + 2, ta, w - 4, tb - ta);
+      g.fillStyle = 'rgba(138,62,30,0.45)'; for (let yy = y0 - 10; yy > ta; yy -= 17) if (yy < tb) g.fillRect(x + 2, yy, w - 4, 2.5);
     }
-    glow(g, x + w / 2, lvl, 26, PAL.token, 0.6);
+    glow(g, cx, lvl, 34, PAL.token, 0.55);
   }
-  g.strokeStyle = 'rgba(255,255,255,0.4)'; g.lineWidth = 1.5; g.beginPath(); g.moveTo(x + w - 3, ya); g.lineTo(x + w - 3, yb); g.stroke();
-  g.lineWidth = 3; g.strokeStyle = OUT; g.strokeRect(x, ya, w, yb - ya);
+  // glass highlights and shade
+  g.fillStyle = 'rgba(255,255,255,0.5)'; g.fillRect(x + 4, ya, 3, yb - ya);
+  g.fillStyle = 'rgba(255,255,255,0.22)'; g.fillRect(x + 9, ya, 1.5, yb - ya);
+  g.fillStyle = 'rgba(10,14,40,0.28)'; g.fillRect(x + w - 6, ya, 4, yb - ya);
+  g.lineWidth = 3.5; g.strokeStyle = OUT; g.beginPath(); g.moveTo(x, ya); g.lineTo(x, yb); g.moveTo(x + w, ya); g.lineTo(x + w, yb); g.stroke();
+  if (y1 > V.y0 - 20) { g.beginPath(); g.ellipse(cx, y1, w / 2, 6, 0, 0, TAU); inked(g, '#9AA3B6', 3); }
+  if (y0 < V.y1 + 20) { box(g, x - 4, y0 - 4, w + 8, 14, '#5A6070', 3, 3); }
+  // brass clamps, one per floor
+  for (let fl = 1; fl <= P.FLOORS; fl++) { const by = P.floorLevel(fl) - 180; if (by > ya && by < yb) { box(g, x - 5, by - 6, w + 10, 12, '#C9A24E', 2.5, 3); circ(g, x - 1, by, 2, '#8A6A2A', 0); } }
   // the readout rides the level, or waits at the edge of view pointing to it
   const vh = V.y1 - V.y0, lo = V.y0 + vh * 0.22, hi = V.y1 - vh * 0.3;
-  const lo2 = Math.max(lo, y1 + 20), hi2 = Math.min(hi, y0 - 20);
+  const lo2 = Math.max(lo, y1 + 40), hi2 = Math.min(hi, y0 - 40);
   if (hi2 > lo2 && V.z >= 0.4) {
-    const ry = clamp(lvl, lo2, hi2), rx = x - 58;
+    const ry = clamp(lvl, lo2, hi2), rx = x - 90;
     const used = Math.round((1 - q) * 100);
-    box(g, rx - 2, ry - 13, 54, 26, '#15161F', 2.5, 5);
-    txt(g, `${used}%`, rx + 25, ry - 2, 13, used >= 100 ? '#FF6A5A' : '#FFB27A', { font: F.pixel, weight: 700 });
-    txt(g, 'used', rx + 25, ry + 8, 7.5, '#C9C3D8', { font: F.pixel });
-    seg(g, rx + 52, ry, x, ry, '#15161F', 3);
-    if (Math.abs(ry - lvl) > 4) txt(g, lvl > ry ? '▼' : '▲', rx - 12, ry, 12, PAL.token, { weight: 800 });
+    box(g, rx - 4, ry - 34, 84, 68, '#15161F', 3, 8);
+    txt(g, 'QUOTA', rx + 38, ry - 20, 12, '#C9C3D8', { font: F.pixel, weight: 700 });
+    txt(g, `${used}%`, rx + 38, ry + 4, 27, used >= 100 ? '#FF6A5A' : '#FFB27A', { weight: 800 });
+    txt(g, 'used', rx + 38, ry + 24, 12, '#C9C3D8', { font: F.pixel });
+    seg(g, rx + 80, ry, x, ry, '#15161F', 4);
+    if (Math.abs(ry - lvl) > 4) txt(g, lvl > ry ? '▼' : '▲', rx - 16, ry, 16, PAL.token, { weight: 800 });
     const tag = clamp01(st.sessionTag || 0);
     if (tag > 0.01) {
-      const sw = Math.sin(t * 2.2) * 0.08;
-      g.save(); g.translate(rx + 20, ry + 14); g.rotate(sw); g.globalAlpha = tag;
-      seg(g, 0, 0, 0, 16, '#C9C3D8', 1.5);
-      box(g, -58, 16, 116, 28, '#FFF3E0', 2.5, 5);
-      txt(g, '↻ new session', 0, 30.5, 13, '#C0502A', { font: F.pixel, weight: 700 });
+      const sw = Math.sin(t * 2.2) * 0.06;
+      g.save(); g.translate(rx + 38, ry + 34); g.rotate(sw); g.globalAlpha = tag;
+      seg(g, 0, 0, 0, 12, '#C9C3D8', 2);
+      box(g, -76, 12, 152, 36, '#FFF3E0', 3, 6);
+      txt(g, '↻ new session', 0, 30.5, 17, '#C0502A', { font: F.pixel, weight: 700 });
       g.restore(); g.globalAlpha = 1;
     }
   }
@@ -2475,6 +2545,8 @@ export function drawAtmosphere(g, t, S, st, cam) {
   a.globalCompositeOperation = 'copy'; a.filter = 'none'; a.drawImage(cv, 0, 0, bw, bh);
   b.globalCompositeOperation = 'copy'; b.filter = `blur(${(bw / 70).toFixed(1)}px) brightness(0.85) contrast(2.2)`; b.drawImage(C.bloomA, 0, 0);
   b.filter = 'none';
+  // cap: the bloom may lift a highlight, never blow a column of flats white
+  b.globalCompositeOperation = 'multiply'; b.fillStyle = '#8C7E70'; b.fillRect(0, 0, bw, bh); b.globalCompositeOperation = 'source-over';
   g.save();
   g.globalCompositeOperation = 'screen'; g.globalAlpha = 0.5;
   g.drawImage(C.bloomB, 0, 0, W, H);
@@ -2483,8 +2555,7 @@ export function drawAtmosphere(g, t, S, st, cam) {
   const au = clamp01(st.autumn || 0);
   if (au > 0.01) { g.save(); g.globalCompositeOperation = 'soft-light'; g.fillStyle = rgba('#E07A2A', 0.35 * au); g.fillRect(0, 0, W, H); g.restore(); }
   // sepia when looking into the old basements
-  const dep = clamp01((cam.y - 520) / 500) * clamp01(st.strata || 0);
-  if (dep > 0.01) { g.save(); g.globalCompositeOperation = 'multiply'; g.fillStyle = rgba('#E8C99A', 0.6 * dep); g.fillRect(0, 0, W, H); g.restore(); }
+
   // leaves
   if (au > 0.01) {
     const n = Math.round(1 + 13 * au);

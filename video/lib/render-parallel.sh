@@ -5,7 +5,8 @@
 set -euo pipefail
 scene=$1 song=$2 audio=$3 out=$4 jobs=${5:-8} fps=${6:-30} w=${7:-1080}
 ff=${FFMPEG:-ffmpeg}
-dur=$("$ff" -i "$audio" 2>&1 | sed -n 's/.*Duration: \([0-9:.]*\).*/\1/p' | awk -F: '{print $1*3600+$2*60+$3}')
+# `ffmpeg -i` with no output exits 1 by design, so don't let pipefail treat that as an error.
+dur=$( ("$ff" -i "$audio" 2>&1 || true) | sed -n 's/.*Duration: \([0-9:.]*\).*/\1/p' | awk -F: '{print $1*3600+$2*60+$3}')
 total=$(awk -v d="$dur" -v f="$fps" 'BEGIN{print int(d*f)}')
 tmp=$(mktemp -d)
 echo "rendering $total frames at ${w}px in $jobs segments"

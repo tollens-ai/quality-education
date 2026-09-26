@@ -197,6 +197,27 @@ because I'm expecting you to be done in hours".
   existing ideas, gates) was reused by generators, judges and treatment writers, so every round
   judged against the same facts.
 
+### What episode 1's build taught (2026-09-26)
+
+- **A shared plan with fixed handoffs makes a one-shot parallel.** `plan.js` held the geometry,
+  the cast's positions and the camera at each section boundary; six builders (world, cast, four
+  sections) each owned one file and met exactly at the handoffs. `main.js` guarded every stage,
+  so one builder's runtime error never blanked everyone's frames.
+- **Screen the whole cut early, with fresh viewers on 1 fps contact sheets.** They found what no
+  builder saw in their own section: a chorus that repeated with nothing new, lyrics over the
+  action, a pixel font whose C reads as O ("OLAWD"), a colour rule broken at the climax.
+- **Define what each colour means, and check every section against it.** Gold meant "served by
+  this build"; the definition and "I'm someone too" needed their own signal (warm white), or the
+  climax would have said one build serves everyone.
+- **Resume the builders for fixes.** They keep their context, so a fix list takes minutes.
+- **Check the output, not the exit code.** A render that "succeeded" can still be frame 0 every
+  frame (a playback loop repainting between draw and capture); a verification step can be the
+  thing that's broken (ffmpeg prints no frame count in copy mode).
+- **Know the box:** dev containers cap threads (512), so render with a few segments and small
+  encoders (`render-parallel.sh` defaults to 4 × 4 threads) and launch Chromium with
+  `--disable-dev-shm-usage`. Never trace a shell's start-up there (`bash -x`): it exports the
+  workstation's secrets.
+
 ### Model viewers (stages 6 and 7)
 
 - Gemini samples video at 1 frame per second by default and misses fast action. Raise the frame

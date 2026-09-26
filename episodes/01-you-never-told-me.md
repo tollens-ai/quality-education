@@ -6,7 +6,8 @@ Who works"). The craft references put the title in the chorus, where the hook is
 **Line to remember:** "I can't read your mind, I'm only reading your prompt." **Locked**: Qing,
 2026-09-24, "this is ace keep it! made me well up a little".
 **Status:** the song is locked (Qing's MiniMax take, "a consistent 8/10 good one", 2026-09-25);
-the teaching plan is approved; the one-shot video "Who Lives Here?" is being built.
+the teaching plan is approved; the one-shot video "Who Lives Here?" is built and awaiting Qing's
+watch.
 
 **Where we stopped (2026-09-25):** Qing picked a MiniMax take (kept locally, not in git) and the
 lyrics are locked as v9 below, with caption spelling. The take is transcribed and the captions are
@@ -15,7 +16,9 @@ is being rebuilt as one continuous shot, following the
 [storyboard guide](../.claude/skills/write-episode/storyboard.md): the take is scored in
 `music/ep01/beats.json`. After Qing's "too gimmicky" note, a teaching plan came first (approved),
 then a theme-first concept round chose **Who Lives Here?**; the storyboard is
-[01-storyboard.md](01-storyboard.md) and the video is being built in `video/ep01/who/`. The code band, code voice
+[01-storyboard.md](01-storyboard.md). The video is built (`video/ep01/who/`), screened twice by
+fresh viewers and fixed; the final render is local at `video/out/good-for-who-final.mp4` (not in
+git). Next: Qing watches it. The code band, code voice
 and DiffSinger work stay in `music/` as tools.
 
 ## Expert notes (Qing, 2026-09-24, verbatim)

@@ -1,12 +1,12 @@
-# Episode 3: "What Happens If?"
+# Episode 4: "What Happens If?"
 
 **Concept:** testing is finding out what's actually true about the product, by exploring and
 experimenting. Checking, answering yes-or-no questions you already knew to ask, is one useful
 part of it.
-**Status:** moved from episode 2 to episode 3 (2026-09-27), after the oracles episode. Talking
-points and section sketch were agreed (2026-09-26), and hook and chorus v6 went to Qing. All of it
-reopens once episode 2 is agreed, because the viewer will arrive knowing about oracles (see *What
-changes now oracles come first*).
+**Status:** moved from episode 2 to episode 4 (2026-09-27), after the oracles and ilities
+episodes. Talking points and section sketch were agreed (2026-09-26), and hook and chorus v6 went to Qing. All of it
+reopens once episodes 2 and 3 are agreed, because the viewer will arrive knowing about oracles
+and ilities (see *What changes now oracles come first*).
 
 ## Why it moved (Qing, 2026-09-27, verbatim)
 
@@ -22,6 +22,10 @@ changes now oracles come first*).
 > understand about oracles and they don't understand about ilities, then the testing part is just
 > really boring manual testing and they want to be inspired about that.
 
+Later the same day:
+
+> oh actually by my sequencing reasoning ilities go before testing
+
 ## What changes now oracles come first
 
 - **The question the episode answers changes** from "should you test?" to "how do you get agents
@@ -35,6 +39,8 @@ changes now oracles come first*).
   with oracles, rather than about the viewer's diligence.
 - **Kept:** testing versus checking (Bach and Bolton), testing as a team of agents and a human,
   testing is fun, the gym-log finds, and the research below.
+- **The ilities give the hunt its map.** After episode 3 the viewer knows "fast" and "reliable"
+  are each several things, so the testers can be sent after each one, with its own oracle.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 

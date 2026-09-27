@@ -4,7 +4,7 @@
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
 **Status:** talking points v1 for Qing (2026-09-27). Moved ahead of the testing episode, which is
-now episode 3.
+now episode 4, after the ilities episode.
 
 ## Expert notes (Qing, 2026-09-27, verbatim)
 
@@ -20,8 +20,10 @@ On the order of the series:
 > - How do we know if it's good?
 > - How good is it?
 
-Her notes on why testing moved to episode 3 are in
-[episode 3](03-what-happens-if.md#why-it-moved-qing-2026-09-27-verbatim).
+Her notes on why testing moved later are in
+[episode 4](04-what-happens-if.md#why-it-moved-qing-2026-09-27-verbatim). Later the same day:
+
+> oh actually by my sequencing reasoning ilities go before testing
 
 ## Where it comes from
 
@@ -73,15 +75,15 @@ check its own work at agent speed. You keep the final say.
    say on what good means. But you stop being the agent's only check and become the person who
    tells it how to check. Qing's closing line: "The job for humans isn't writing code any more -
    it's knowing what good means."
-8. **The tease for episode 3.** A test is only as good as its oracle. The next episode is about
-   putting the oracles to work.
+8. **The tease for the testing episode.** A test is only as good as its oracle. Episode 4 puts
+   the oracles to work.
 9. **The brief:** say how you'll know it's good, and have the agent check against that before it
    says "done".
 
 **Guardrails:**
 - Not "agents can replace your judgement": they approximate it, and you have the final say.
 - Not "you need a test suite first": an oracle can be a person, a rule or a comparison. Writing
-  tests is episode 3.
+  tests is episode 4.
 - Not "only apps with right answers can be automated": that's the misconception.
 
 ## Line to remember and hook (early options, before the sketch)
@@ -101,8 +103,8 @@ Options for the line to remember (Clawd, plain and fair):
 1. **The front-page test** comes from security work, and a newspaper feels dated to a vibecoder.
    Can it become the screenshot test ("what would be mortifying in a screenshot?"), or should it
    keep your name for it?
-2. **Point 8 draws the line with episode 3.** "Make sure a check can go red" (calibrating an
-   oracle) stays in episode 3, so this episode only says a test is as good as its oracle. Is that
+2. **Point 8 draws the line with the testing episode.** "Make sure a check can go red"
+   (calibrating an oracle) stays in episode 4, so this episode only says a test is as good as its oracle. Is that
    the right split?
 3. **The compiler story** is from Anthropic's blog, via your article. I'll check every figure and
    quote on the live page before any of it goes on screen. Is it still the example you'd pick, or

@@ -55,6 +55,11 @@ Lines, rhymes and ideas that worked on their own, with why each isn't in the son
   AD-dress, so it doesn't rhyme with "ex" in General American)
 - "Pinterest board" is two syllables to most people (PIN-trest).
 
+- "i BUILT you FOUR new APPS, and EV-ery TEST came BACK as GREEN; / then EV-ery ONE went WRONG
+  in WAYS my TESTS had NEV-er SEEN" (v8; one person with four apps was a stretch, so the band
+  now sings to a cast)
+- "our" counts as two syllables in the dictionary ("in WAYS our TESTS" came out 15).
+
 **Tags and asides**
 - "Oh, but you've got three!" (answering "No answer key for me!"; replaced by "wait and see")
 - "(or play you!)" and the cardigan pulled off to show your gym hoodie (cut: play someone

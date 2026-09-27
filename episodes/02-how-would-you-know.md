@@ -251,6 +251,19 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
   sings the bridge on his stool; the bad boy, in a backwards cap, who does the obligatory rap; and
   the older one, who swaps his suit jacket for Gran's cardigan. The casting carries the lesson:
   the Clawd who plays Gran isn't the Clawd who built it.
+- **A cast to sing to** (Qing, 2026-09-27: "the FICTIONAL people can be different people [...]
+  you can have a cast of characters"). As in every boy-band video, each member has his own
+  person to serenade, and he built them an app, so "I built you an app" stays one-to-one:
+
+  | Member | Sings to | Their app | Its oracles |
+  |---|---|---|---|
+  | the lead | Rosa, who runs the bread shop | order-ahead | the till roll; last Saturday's rush; pull the plug |
+  | the sensitive one | Dr Obi, who runs the clinic | booking site | Gran, one of her patients, played by the older one |
+  | the bad boy | Ms Kim, the school office manager | the parent app | snoop as a parent |
+  | the builder | Jess, the bride | the wedding site | her dread list; the family chat |
+
+  The older one sings to nobody; he's busy being Gran. The chorus is sung to all of them at once,
+  and to the viewer, whose app is different again.
 - **Genre moves, played straight** (as Weird Al does): the spoken dedication, the stools, the
   harmonies on "baby, baby", the bad boy's rap, the key change where everyone stands, and three
   nods to famous boy-band hooks (see *Cribbed, on purpose*). Every joke is a specific,
@@ -290,8 +303,8 @@ line depends on are listed.
 
 | Section | Lyrics say | Video shows |
 |---|---|---|
-| Intro | The lead's spoken dedication: "This one goes out to everyone who's ever typed… 'still broken'." Then Qing's refrain: the band's "I just fixed it!", four times, and your replies, none of which the band can check: "it won't open", "where's the slogan?", "missing token", "it's still broken" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "I just fixed it! ✅" and your "it won't open". 2:47 AM in small type. Each exchange stacks on top. The builder Clawd wears a hard hat throughout |
-| Verse 1 | I built you four new apps, and every test came back green; then every one went wrong in ways my tests had never seen: the bread shop's app went down at eight with fifty in the queue; the clinic's booking site was fine, but Gran could not get through; your school app let a parent read the other parents' texts; the wedding site sat Uncle Dave beside his angry ex. Tag: I'd do anything for you, if I only had a clue | Four app screens in a row, each with a green ✅ stamp; one per line, the stamp cracks and a small plain-word chip appears: **busy** (a queue out of the bread shop door, a spinner), **easy** (Gran lost on a booking form), **safe** (a parent's chat thread on the wrong phone), and for Dave, no chip, just the soup-staring |
+| Intro | The lead's spoken dedication: "This one goes out to everyone who's ever typed… 'still broken'." Then Qing's refrain: the band's "I just fixed it!", four times, and the cast's replies, one each, none of which the band can check: Rosa's "it won't open", Jess's "where's the slogan?", Ms Kim's "missing token", Dr Obi's "it's still broken" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "I just fixed it! ✅" and Rosa's "it won't open", her flour-dusted thumb on the send button. 2:47 AM in small type. Each exchange stacks on top. The builder Clawd wears a hard hat throughout |
+| Verse 1 | We built you each an app, and every test came back green; then every one went wrong in ways the tests had never seen. Each member turns on his stool to his own person for his line: your bread shop's app went down at eight with fifty in the queue (to Rosa); your clinic's booking site was fine, but Gran could not get through (to Dr Obi); your school app let a parent read the other parents' texts (to Ms Kim); your wedding site sat Uncle Dave beside his angry ex (to Jess). Tag: I'd do anything for you, if I only had a clue | Four app screens in a row, each held by its owner, each with a green ✅ stamp; one per line, the stamp cracks and a small plain-word chip appears: **busy** (a queue out of the bread shop door, a spinner), **easy** (Gran lost on a booking form), **safe** (a parent's chat thread on the wrong phone), and for Dave, no chip, just the soup-staring |
 | Pre-chorus | You tell me when it's broken, never how to tell it's right; you know it when you see it, but keep the answer out of sight; and baby, baby, I just wanna make you love it | — |
 | Chorus | How do I know? All my checks and my tests say it's true; then you just say "not that way", and I'm blue (the band: "which way?"). Give me a sign, or a line, or a clue. The line to remember | The green test report; your "not that way"; the band, blue, pointing five different ways; a sign held up, blank |
 | Verse 2 | Give me the till roll or last Saturday's rush and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Back at the bread shop: a till roll unspools beside the app's order list, the totals ticking into agreement (chip: **works**); last Saturday's queue, doubled, pours through the app without a spinner (chip: **busy**); back to "still broken". On "wait and see", three cards land face down |
@@ -299,7 +312,7 @@ line depends on are listed.
 | Break | The bad boy's rap. An oracle is anything that helps you spot what's wrong. We can't be your gran, but we can play her; I'll pull out the plug and see if orders stay; I'll snoop like a parent and see what others say; I'll check each fear you name, show you receipts, and it's still your call | The older Clawd in Gran's cardigan and reading glasses squints at an old phone and books her check-up (chip: **easy**); the bad boy yanks the bread shop's wifi cable mid-order, and the order is still there (chip: **doesn't lose things**); in a parent's lanyard he tries to open another family's messages: 🔒 (chip: **safe**). A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
 | Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The questions appear, blank |
 | Chorus (key change) | Word for word | The band stands up off the stools. The questions tick in, one per sung line |
-| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report, one line per app: ✅ bread shop: last month's orders replayed, totals match the till roll; last Saturday at twice the crowd, nothing lost ✅ clinic: a bandmate playing Gran booked a check-up on an old phone (screen recording) ✅ school app: signed in as one parent, nobody else's messages visible ✅ wedding: nobody on your dread list shares a table ✅ a fresh phone: installed and working in under a minute ❓ whether they'll love it: yours to say. The chips from the whole song line up in a row, a quiet trailer for episode 3. The questions held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
+| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" The cast try their apps, one by one: "I love it." "I love it." "I love it." A beat. Jess: "…Dave's still coming, though." | The band's check report, one line per app: ✅ bread shop: last month's orders replayed, totals match the till roll; last Saturday at twice the crowd, nothing lost ✅ clinic: a bandmate playing Gran booked a check-up on an old phone (screen recording) ✅ school app: signed in as one parent, nobody else's messages visible ✅ wedding: nobody on your dread list shares a table ✅ a fresh phone: installed and working in under a minute ❓ whether they'll love it: yours to say. The chips from the whole song line up in a row, a quiet trailer for episode 3. The questions held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
@@ -311,7 +324,7 @@ Stresses in capitals, syllables split with hyphens. Every set of lines that answ
 was run through `music/check/rhyme.py lines` and matches exactly; every rhyme listed below was run
 through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 
-**Intro** (the lead, spoken, over finger snaps; then Qing's refrain, the band, then you)
+**Intro** (the lead, spoken, over finger snaps; then Qing's refrain, the band, then the cast)
 > *(spoken)* This one goes out to everyone who's ever typed… "still broken".
 > i just FIXED it! *(you)* it won't O-pen! [4 + 4]
 > yeah, just FIXED it! *(you)* where's the SLO-gan? [4 + 4]
@@ -319,12 +332,12 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 > REAL-ly FIXED it! *(you)* it's still BRO-ken! [4 + 4]
 
 **Verse 1**
-> i BUILT you FOUR new APPS, and EV-ery TEST came BACK as GREEN; [14]
-> then EV-ery ONE went WRONG in WAYS my TESTS had NEV-er SEEN: [14]
-> the BREAD shop's APP went DOWN at EIGHT with FIF-ty IN the QUEUE; [14]
-> the CLIN-ic's BOOK-ing SITE was FINE, but GRAN could NOT get THROUGH; [14]
-> your SCHOOL app LET a PAR-ent READ the OTH-er PAR-ents' TEXTS; [14]
-> the WED-ding SITE sat UN-cle DAVE be-SIDE his AN-gry EX! [14]
+> we BUILT you EACH an APP, and EV-ery TEST came BACK as GREEN; [14]
+> then EV-ery ONE went WRONG in WAYS the TESTS had NEV-er SEEN: [14]
+> *(the lead, to Rosa)* your BREAD shop's APP went DOWN at EIGHT with FIF-ty IN the QUEUE; [14]
+> *(the sensitive one, to Dr Obi)* your CLIN-ic's BOOK-ing SITE was FINE, but GRAN could NOT get THROUGH; [14]
+> *(the bad boy, to Ms Kim)* your SCHOOL app LET a PAR-ent READ the OTH-er PAR-ents' TEXTS; [14]
+> *(the builder, to Jess)* your WED-ding SITE sat UN-cle DAVE be-SIDE his AN-gry EX! [14]
 > *(all)* I'd do anything for you *(for you)* [7]
 > if I only had a clue! [7]
 
@@ -376,7 +389,8 @@ stress for stress)
 > HERE are the CHECKS, and the TESTS, that went THROUGH; *(ooh, baby)* [10]
 > WHAT i don't KNOW, i will SHOW it to YOU. [10]
 > *(spoken)* So… do you love it?
-> *(you, after trying it)* …I love it.
+> *(the cast, one by one, after trying their apps)* …I love it. / I love it. / I love it.
+> *(Jess)* …Dave's still coming, though.
 
 **Rhymes, checked by stressed vowel** (General American)
 - Intro: open / slogan / token / broken, all on OW.
@@ -404,27 +418,34 @@ fourteen, alternating light and stressed ("i BUILT your SEAT-ing PLAN…"); "MOO
 stress on "mood", as people say it; the band's "(which way?)" answers in the gap after "blue",
 where "(ooh, baby)" was.
 
-## What to save: the questions
+## What to save: the questions, each with a worked example
 
-Nobody watching is building a bread shop app, so the thing to save is the questions, not one
-app's answers. After episode 1 your brief says who it's for; this adds how the agent will know
-it's good. Each line asks you for a source of judgement, and its bracket shows the song's
-example:
+Every viewer is building their own, completely different app, so what they save is the questions
+to answer for it. But nobody learns from a generalisation (Qing, 2026-09-27: "you still need
+concrete teaching examples because nobody can learn from generalisations"), so each question
+comes with the song's worked answer from one of the cast:
 
 > how you'll know it's good:
-> works: what can you check it against? (last month's till roll)
+> works: what can you check it against?
+>   Rosa: replay last month's orders; the totals must match the till roll
 > easy: who's the least techy person who'll use it? have a subagent play them, on their phone
->   (Gran, on an old phone)
+>   Dr Obi: a subagent plays Gran, 82, on an old phone with big text: can she book a check-up?
 > installs: can a phone that's never seen it get from the link to working in a minute?
-> busy: what's the busiest it ever gets? replay that, doubled (last Saturday's rush)
+>   Rosa: a stranger scans the QR code on the counter and orders a loaf
+> busy: what's the busiest it ever gets? replay that, doubled
+>   Rosa: last Saturday, 8 a.m., the sourdough queue, twice over; nothing lost, nothing slow
 > doesn't lose things: pull the plug halfway through: is everything saved, or clearly failed?
+>   Rosa: cut the wifi mid-order; the order is either there or clearly not
 > safe: sign in as the nosiest user: what can you see that isn't yours?
+>   Ms Kim: signed in as one parent, you can't read any other family's messages
 > dread: what would you hate to happen, or to see screenshotted? list it
+>   Jess: nobody on the feud list shares a table (Uncle Dave, his ex)
 > check each one before you tell me it's done; show me how you checked
 > ask me when these don't settle it
 
-On screen it's held full-frame as the last chorus's lines tick in, with the brackets dropped,
-so a viewer can screenshot it and fill in their own answers.
+On screen it's held full-frame as the last chorus's lines tick in, each question with its
+example beneath in smaller type, so a viewer can screenshot it and write their own answers
+alongside.
 
 ## Why they'd like it
 
@@ -438,7 +459,7 @@ ending gives the lonely "still broken" its answer: "I love it."
 
 - **To clip:** the intro refrain; the stools, the key change, the band standing up; the Clawd in Gran's cardigan; the bad boy yanking the wifi cable.
 - **To quote:** "I can't make you love it if I can't tell when you do."
-- **To save:** the questions, held full screen, to fill in for your own app.
+- **To save:** the questions with their worked examples, held full screen, to answer for your own app.
 - **To tag:** the friend who replies "still broken" and nothing else; the friend who runs a small shop.
 - **To reply:** the post text lists the checks and asks for theirs.
 
@@ -567,6 +588,10 @@ ending gives the lonely "still broken" its answer: "I love it."
   which no viewer could reuse ("a... concrete... one to copy???"; "you should assume every viewer
   is making their own completely different app"). It's now the questions, one per
   care, with the song's examples only in brackets. The bread shop brief is in the scratchbook.
+- **After Qing's notes on the cast and examples (2026-09-27):** the band sings to a cast, one
+  person per member (Rosa, Dr Obi, Ms Kim, Jess), so "I built you an app" stays one-to-one and
+  "four new apps" is gone. The saved questions keep a worked example each, because nobody
+  learns from generalisations.
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

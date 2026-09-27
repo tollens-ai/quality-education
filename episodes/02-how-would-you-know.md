@@ -91,6 +91,18 @@ On lyrics v4 (2026-09-27):
 
 > mockup and lock it up don't rhyme either
 
+On lyrics v5 (2026-09-27):
+
+> OK the overt simile is cringe. "like an ex" is a waste of syllables we could be teaching with.
+> it operates on an artistic allusion level!
+>
+> also I liked the "I fixed it" "still broken" refrain and maybe we could use it somewhere
+>
+> "I just fixed it" "it won't open"
+> "yeah just fixed it" "where's the slogan?"
+> "I refixed it" "missing token"
+> "really fixed it" "it's still broken"
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -202,8 +214,8 @@ line depends on are listed.
 
 | Section | Lyrics say | Video shows |
 |---|---|---|
-| Intro | Spoken dedication, "this one's for the one who keeps on saying…", answered by you: "still broken!" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "Fixed it! ✅" and your "still broken". 2:47 AM in small type. The builder Clawd wears a hard hat throughout |
-| Verse 1 | I rebuilt your gym log; every test was green; you texted "it's still broken", cold, just like an ex; now I'm guessing. Tag: I'd do anything for you, if I only had a clue | The gym log redone screen by screen; a wall of green ticks; your "it's still broken" arriving like a breakup text |
+| Intro | Qing's refrain: the band's "I just fixed it!", four times, and your replies, none of which the band can check: "it won't open", "where's the slogan?", "missing token", "it's still broken" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "I just fixed it! ✅" and your "it won't open". 2:47 AM in small type. Each exchange stacks on top. The builder Clawd wears a hard hat throughout |
+| Verse 1 | I rebuilt your gym log; every test was green; but you never said what good looks like, so what's to check? Now I'm guessing. Tag: I'd do anything for you, if I only had a clue | The gym log redone screen by screen; a wall of green ticks; an empty space where "good looks like…" should be |
 | Pre-chorus | You tell me when it's broken, never how to tell it's right; you know it when you see it, but keep the answer out of sight; and baby, baby, I just wanna make you love it | — |
 | Chorus | How do I know, though, you love it? My tests all say yes, so I've done it: do you agree too, or shun it? Give me the signs, and I'll judge it. The line to remember | The green test report; your face, unmoved; a sign held up, blank |
 | Verse 2 | Give me a mockup or a spreadsheet and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Clawd matching a mockup, the two screens converging; a column of totals ticking into agreement; back to "still broken". On "wait and see", three cards land face down |
@@ -211,7 +223,7 @@ line depends on are listed.
 | Break | An oracle is anything that helps you spot what's wrong. We can't be your dad, but we can play him (or play you); I'll check each fear you name, show you receipts, and it's still your call | One Clawd in a dad cardigan squints at your shop, then pulls the cardigan off to show your gym hoodie: *"…or you, mid-set"*. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
 | Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The brief opening |
 | Chorus (key change) | Word for word | The band stands up off the stools. The brief's new lines tick in, one per sung line |
-| Outro | Here's how I know that I've done it: one of the band tried to run it; what I don't know, I won't fudge it. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ mid-set test (the hoodie Clawd, one thumb, phone-sized, screen recording), ✅ bests survive no signal, ❓ app updates: couldn't try a real one. Your thumb logs one set. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "Fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "still broken" again |
+| Outro | Here's how I know that I've done it: one of the band tried to run it; what I don't know, I won't fudge it. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ mid-set test (the hoodie Clawd, one thumb, phone-sized, screen recording), ✅ bests survive no signal, ❓ app updates: couldn't try a real one. Your thumb logs one set. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
@@ -223,14 +235,16 @@ Stresses in capitals, syllables split with hyphens. Every set of lines that answ
 was run through `music/check/rhyme.py lines` and matches exactly; every rhyme listed below was run
 through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 
-**Intro** (spoken, over finger snaps)
-> Yeah… this one's for the one who keeps on saying…
-> *(you)* Still broken!
+**Intro** (Qing's refrain; the band, then you)
+> i just FIXED it! *(you)* it won't O-pen! [4 + 4]
+> yeah, just FIXED it! *(you)* where's the SLO-gan? [4 + 4]
+> i re-FIXED it! *(you)* MISS-ing TO-ken! [4 + 4]
+> REAL-ly FIXED it! *(you)* it's still BRO-ken! [4 + 4]
 
 **Verse 1**
 > i re-BUILT your GYM log, EV-ery BUT-ton, EV-ery SCREEN, [13]
 > then i RAN my TESTS, and EV-ery SIN-gle ONE was GREEN, [13]
-> but you TEXT-ed "IT'S still BRO-ken", COLD, just LIKE an EX, [13]
+> but you NEV-er SAID what GOOD looks LIKE, so WHAT'S to CHECK? [13]
 > now i'm GUESS-ing WHAT you MEANT, and GET-ting MORE per-PLEXED. [13]
 > *(all)* I'd do anything for you *(for you)* [7]
 > if I only had a clue! [7]
@@ -285,7 +299,8 @@ stress for stress)
 > *(you, after trying it)* …I love it.
 
 **Rhymes, checked by stressed vowel** (General American)
-- Verse 1: screen/green; ex/perplexed; tag you/clue.
+- Intro: open / slogan / token / broken, all on OW.
+- Verse 1: screen/green; check/perplexed; tag you/clue.
 - Pre-chorus: right/sight.
 - Chorus: love it / done it / shun it / judge it (all "-uh it"); know/though, tests/yes, do/too
   inside the lines; the tag's do answers verse 1's you/clue.
@@ -297,7 +312,9 @@ stress for stress)
 **Cribbed, on purpose:** the hook line nods to "I Can't Make You Love Me"; "if I only had a clue"
 to "If I Only Had a Brain"; "I'd do anything for you" to every boy band ever.
 
-**For Qing's ear:** "IT'S still BRO-ken" puts the stress on "it's"; "a-GAINST" goes unstressed
+**For Qing's ear:** in the intro, "REAL-ly FIXED it" and "MISS-ing TO-ken" start on a stress
+where their neighbours start with two light syllables; if the take trips, "it's so FIXED now" and
+"there's no TO-ken" match exactly; "a-GAINST" goes unstressed
 in "SOME-thing to CHECK a-gainst", as people say it; the final pre-chorus's third line is new
 words on the old stresses, so watch it in the takes.
 
@@ -338,7 +355,7 @@ ending gives the lonely "still broken" its answer: "I love it."
 
 ## Why they'd share it
 
-- **To clip:** the stools, the key change, the band standing up; "cold, just like an ex"; the cardigan coming off.
+- **To clip:** the intro refrain; the stools, the key change, the band standing up; the cardigan coming off.
 - **To quote:** "I can't make you love it if I can't tell when you do."
 - **To save:** the brief, held full screen.
 - **To tag:** the friend who replies "still broken" and nothing else.

@@ -16,7 +16,10 @@ where one already covers it.
   scansion until the meaning is diluted. If a line needs explaining ("put a lock on your water
   log"), rewrite it. You're allowed to add words or verses.
 - **Pack in as much information as possible.** Workshopping drifts towards lines that recap,
-  repeat or fill. Every line should teach something new. When a repeated section's second half
+  repeat or fill. Every line should teach something new. A spelled-out simile is filler when the song's
+  frame already makes the comparison: in a boy-band love song, "cold, just like an ex" spent a
+  line on what the genre says by itself (Qing, 2026-09-27: "it operates on an artistic allusion
+  level!"). When a repeated section's second half
   changes, use the change to introduce new ideas (new tradeoffs, say), not to recap the verse.
 - **Use the words people actually say.** Don't swap in a near-synonym just to make a rhyme work.
   People say an agent "deleted my files", not that it "wiped what you own"; they say "keeps your

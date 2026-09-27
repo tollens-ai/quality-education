@@ -32,7 +32,7 @@ from prosody import FUNCTION, LEXICON
 SPELL = {
     "clawd": "K L AO1 D", "clawds": "K L AO1 D Z", "vibecoder": "V AY1 B K OW2 D ER0",
     "mockup": "M AA1 K AH2 P", "gcc": "JH IY1 S IY1 S IY1",
-    "bests": "B EH1 S T S", "weighins": "W EY1 IH2 N Z",
+    "bests": "B EH1 S T S", "refixed": "R IY0 F IH1 K S T", "weighins": "W EY1 IH2 N Z",
 }
 STRESSLESS = FUNCTION | set("a the it its to you your me my i i'm".split())
 

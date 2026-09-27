@@ -22,6 +22,9 @@ Lines, rhymes and ideas that worked on their own, with why each isn't in the son
   rhyming pair in the first two slots and an -oo end. Third lines drafted to it:
   "WHO could it BE? WHAT would they SEE? then LET me CHECK it TOO" and "GIVE me a SIGN, GIVE me
   a LINE, and SAY who'd KNOW it's TRUE".
+  Qing, next: "and can definitely squeeze a 'to make your dreams come true' in". It fits the
+  last six syllables exactly: "WHO could it BE? WHAT would they SEE, to MAKE your DREAMS come
+  TRUE?" or "GIVE me a SIGN, GIVE me a LINE, to MAKE your DREAMS come TRUE".
 - "I don't need you watching. I need to know how you'd know." (an early line to remember)
 - "If it's good, somebody can tell. So tell me who, and tell me how."
 - "I'd check my own work, if you'd tell me how you'd check it."

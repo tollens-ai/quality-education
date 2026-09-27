@@ -118,6 +118,8 @@ where one already covers it.
 - **Name concrete constraints, not categories.** "Works on the Tube" teaches more than "offline
   support". Check the concrete version doesn't just restate an earlier line ("loads before you
   blink" is "fast to run" again).
+  The same goes for people: a Clawd playing Dad is easy to draw, and a Clawd playing "you" isn't
+  (Qing, 2026-09-27).
 - **The payoff phrase goes last, once.** In a section built to land a phrase, hold it back for
   the final line and don't spend it earlier. Episode 1's bridge used "who's it for" in lines 2
   and 4; now it only closes the bridge, held ("who it's fo-o-or?").

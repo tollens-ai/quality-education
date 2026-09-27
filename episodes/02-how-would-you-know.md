@@ -39,6 +39,12 @@ Her notes on why testing moved later are in
 > the highest level just for the stuff you said you care about in episode one. "how do I know" is
 > a classic song refrain
 
+On the draft (2026-09-27):
+
+> oh we shouldn't include the compiler story, it's way too out of date and irrelwvant
+
+> half a year is ancient history in agentic terms now
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -59,12 +65,12 @@ check its own work at agent speed. You keep the final say.
 
 1. **The loop.** Fifteen rounds of "Fixed it! ✅" and "still broken". The agent is fast; you
    aren't, and you're the bottleneck.
-2. **What agents do when they can tell for themselves.** Sixteen Claudes wrote a C compiler,
-   100,000 lines of Rust. Then they stalled on the Linux kernel, all hitting the same bug and
-   overwriting each other, until they were given GCC, a compiler known to be right, to compare
-   against. Agents are much better when they can tell for themselves what's correct (Qing).
-3. **The fair objection.** "Cool, but my app hasn't got a GCC." That's right in a way, and it's
-   an "under-ambitious" way to think about it (Qing).
+2. **What agents do when they can tell for themselves.** Give an agent something to check
+   against, a mockup to match or totals a spreadsheet already worked out, and it iterates at agent
+   speed until it matches. Agents are much better when they can tell for themselves what's correct
+   (Qing).
+3. **The fair objection.** "Cool, but my app hasn't got an answer key." That's right in a way,
+   and it's an "under-ambitious" way to think about it (Qing).
 4. **The turn: somebody can always tell.** "Because it's good, somebody knows that it's good. If
    it's bad, somebody knows that it's bad" (Qing). You already have oracles; you just don't call
    them that:
@@ -108,14 +114,9 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
    screenshot?" It's the same reputational oracle, in the form a vibecoder meets it.
 2. **Calibrating an oracle ("make sure the check can go red") stays in episode 4.** This episode
    only needs the idea that there's always a way to know, and that the agent can use it.
-3. **The compiler story stays.** It's the cleanest proof, it's Anthropic's own account, and the
-   post itself uses the word "oracle". Checked on the live page (2026-09-27, Nicholas Carlini,
-   [Building a C compiler with a team of parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler),
-   5 February 2026): 16 agents; a 100,000-line compiler; nearly 2,000 Claude Code sessions;
-   "When agents started to compile the Linux kernel, they got stuck. Unlike a test suite with
-   hundreds of independent tests, compiling the Linux kernel is one giant task"; "The fix was to
-   use GCC as an online known-good compiler oracle to compare against." Also: "it's important
-   that the task verifier is nearly perfect, otherwise Claude will solve the wrong problem."
+3. ~~The compiler story stays.~~ Qing cut it (2026-09-27): "way too out of date and
+   irrelevant". Verse 2 now uses everyday things an agent can check against: a mockup and a
+   spreadsheet's totals.
 4. **The oracles stay at the highest level** (Qing): one for each thing episode 1's brief said
    matters, plus the panic and screenshot tests, which surface cares the brief forgot. Exact
    oracles (a converter to compare against, rules that must always hold) are only glimpsed; the
@@ -157,7 +158,7 @@ line depends on are listed.
 | Verse 1 | The agent fixes the gym log fast, then waits all night: it can run and test the app, but it never knows what "right" means to you. So it guesses, and breaks what worked. Tag: I'm fast, you're slow, and I'm the last to know | The gym log getting worse with each guess: the button in the footer, the rest timer spinning |
 | Pre-chorus | You only say when it's wrong, never how to tell it's right. You know it when you see it, but you never said what shows it | — |
 | Chorus (once) | "How do I know?" All my tests came up green, and you still said no. The line to remember | Clawd's own test report, all green, under your "still broken" |
-| Verse 2 | Sixteen Claudes wrote a compiler and got stuck on the Linux kernel, one giant build: all sixteen chased the same bug and overwrote each other, until their human built most of the kernel with GCC, a compiler known to work, so each could narrow down a different bug. Tag: "No GCC for me!" "Oh, but you've got three!" | Sixteen Clawds at one giant wall, all hammering the same brick; a human hand plugging in GCC, glossed on screen as "a compiler that already works"; most of the wall built with GCC, the red patch shrinking as the Clawds spread out to different bugs. Credit: *Nicholas Carlini, Anthropic* |
+| Verse 2 | Give the agent something to check against and it's unstoppable: a mockup matched pixel for pixel, a spreadsheet's totals matched to the penny. With only "still broken", it guesses and gets a no. Tag: "No answer key for me!" "Oh, but you've got three!" | Clawd at full speed beside a mockup, the two screens converging; a column of totals ticking into agreement; then back to the gym log and the "still broken" bubble |
 | Bridge | If it's good, somebody can tell. Your three: could your mum log a set, would you sweat if your bests disappeared, would you fret if your weight hit the group chat | Three pictures, each captioned with its name so the brief can use it: *the mum test* (Mum with the gym log), *the sweat test* (you bolt upright at night), *the group-chat test* (a screenshot of your weight in a group chat) |
 | Break | An oracle is anything that helps you spot what's wrong. The agent can play your mum and check each fear you name; it shows you what it checked, and the last word is yours | Clawd in Mum's cardigan trying the gym log one-thumbed; a checklist ticking; your hand on the final tick. Credit below |
 | Final pre-chorus | The same complaint, then the ask: put the answers in the brief, and I'll know it, and I'll show it | The brief opening |
@@ -165,7 +166,6 @@ line depends on are listed.
 | Outro | Now I know: as your mum I logged sets, and your bests won't go; here's how I checked it all, plus the gaps I know. Spoken: "Is it good?" You try it yourself: "It's good." | Under the sung lines, Clawd's check report: ✅ mum test: a stranger logged a set one-thumbed (screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone on screen, captions off, for at least 8 seconds over the instrumental tail. Last frame: frame 1's layout, now "Fixed it! ✅" / "it's good.", over the intro riff, so the loop lands on "I fixed it!" again |
 
 **On-screen credits:**
-- Verse 2: *Nicholas Carlini, "Building a C compiler with a team of parallel Claudes", Anthropic, 2026*
 - Break: *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) · human oracles for
   agents: Yanqing Cheng*
 
@@ -206,11 +206,11 @@ in capitals for the pre-chorus and chorus; syllable counts in brackets.
 > TELL me WHO would SEE it's WRONG, TELL me HOW they'd KNOW! [12]
 
 **Verse 2** (patter)
-> Sixteen Claudes wrote a compiler, a hundred thousand lines of Rust, [16]
-> but the Linux kernel's one big build: one bug, and the whole thing's bust. [16]
-> All sixteen chased the same bug, so they overwrote each other's code, [16]
-> till their human used GCC for most, and each took their own road! [16]
-> *(you, gang)* No GCC for me! [6]
+> Give me a mockup, and I'll match it, every pixel, every shade, [16]
+> and to the penny, I'll match all the totals that your spreadsheet made, [16]
+> 'cause with something I can check against, I'm off, and just watch me go! [16]
+> But with nothing but "still broken", I guess and guess and get a "no". [16]
+> *(you, gang)* No answer key for me! [6]
 > *(Clawd)* Oh, but you've got three! [5]
 
 **Bridge**
@@ -240,8 +240,6 @@ in capitals for the pre-chorus and chorus; syllable counts in brackets.
 > *(spoken)* …Is it good?
 > *(you, after trying it)* It's good.
 
-**Generator spellings:** "Clawdz" for Claudes (so it isn't heard as "clouds"), "gee see see" for
-GCC, "see compiler" for C compiler.
 
 **Rhymes, section by section** (all hold in General American)
 - Intro: fixed it / re-fixed it, then hoping / broken, all on the same x-S-x shape, against the
@@ -249,14 +247,13 @@ GCC, "see compiler" for C compiler.
 - Verse 1: night/right; guessed/messed, and fix/minute inside; worked/berserk; slow/know.
 - Pre-chorus: wrong/right; right/night; know it/shows it.
 - Chorus: no/go/know, the hook's sound; tests/said and green/sleep inside; sign/fine.
-- Verse 2: Rust/bust; code/road, the hook's sound again; me/three.
+- Verse 2: shade/made; go/no, the hook's sound; mockup/match and penny/pixel inside; me/three.
 - Bridge: test/set/sweat/fret (test a slant); mum/gym inside.
 - Break: wrong/long; name/claim.
 - Final pre-chorus: as the first; know it/show it.
 - Outro: know/go/know; sign/twice; mum/sets inside.
 
 **For Qing's ear:** bridge line 1 stresses "CAN", and line 4 puts GROUP on syllable 6 against 7;
-"their human" in verse 2 (the person who built the harness) is the line most likely to puzzle;
 break line 4 matches its section's grid only in its back half; the final pre-chorus changes line 3,
 so watch it in the takes.
 
@@ -289,7 +286,7 @@ or one the sweat and group-chat tests turned up, written so the agent can actual
 
 The opening is a loop every vibecoder has lived, played as heartbreak. The agent is sympathetic
 and owns its part: it can run its own tests, and they all pass, and it still can't tell whether
-you're happy. The compiler story is real and a bit astonishing. And the love-song frame makes a
+you're happy. And the love-song frame makes a
 dry word, "oracle", feel obvious: of course you'd want a sign.
 
 ## Why they'd share it
@@ -358,6 +355,10 @@ dry word, "oracle", feel obvious: of course you'd want a sign.
     outro (now on the chorus grid), bridge line 1
   - muted viewers get caption styles that show who's singing; the brief is held 8 seconds with
     captions off
+- **After Qing's note (2026-09-27):** the compiler story is cut as out of date and irrelevant.
+  Verse 2 now shows what an agent does with something to check against (a mockup, a
+  spreadsheet's totals), then what it does with only "still broken". The tag becomes "No answer
+  key for me!" The GCC notes in rounds 1 and 2 are history.
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

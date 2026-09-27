@@ -120,6 +120,10 @@ X vertical player: https://wersm.com/x-goes-all-in-on-vertical-video-with-a-new-
 Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-favorite
 
 ## Decided
+- **Examples must feel current, or be timeless.** In agentic coding, "half a year is ancient
+  history" (Qing, 2026-09-27, cutting a six-month-old story about agents building a compiler).
+  Prefer everyday examples a viewer meets now, like a mockup or a spreadsheet, to news stories
+  that date.
 - **Priorities: teaching first, artistry second, attention third** (Qing, 2026-09-26: "the number one priority was
   teaching and the second was artistry"). The first video served neither and optimised for
   retention instead: "our mistake was trying to make a slop tiktok rather than an artsy music

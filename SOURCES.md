@@ -52,8 +52,6 @@ quality. Credit them here and on screen.
   for the term; Elaine Weyuker, "On testing non-testable programs" (1982), for the oracle
   problem; Bach and Bolton for oracles as fallible heuristics for spotting problems (Bolton,
   [Oracles are about problems, not correctness](https://developsense.com/blog/2015/03/oracles-are-about-problems-not-correctness), 2015)
-- Nicholas Carlini, [Building a C compiler with a team of parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler)
-  (Anthropic, 2026-02-05): sixteen agents, and GCC as a "known-good compiler oracle"
 
 ## Episode 1: what went into the video
 - **Song:** lyrics by Qing with Claude; performed by a MiniMax generation Qing chose (we own

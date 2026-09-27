@@ -15,6 +15,13 @@ know. The second half is about making it good on purpose.
 **Each episode gives you one question to ask your agent,** and that question is the chorus.
 Episode 1's is "Good for who? Good for what?". The finale sings all of them.
 
+**You can use the lessons in order.** Each episode's change to the brief is the next thing
+your agent needs. First tell it who matters and what good means for them (episode 1), then how
+it will know whether it's good (episode 2), then how to find out whether it is (episode 3). That
+follows the four questions. Qing moved oracles ahead of testing for this reason (2026-09-27): "if
+you don't understand about oracles [...] then the testing part is just really boring manual
+testing".
+
 **What carries over:** Clawd, the Claude Code crab, sings, with the other bots as the band. The
 gym log from episode 1's brief is the running app. Every episode ends with a before-and-after
 brief, and each episode can be watched on its own.
@@ -24,8 +31,8 @@ brief, and each episode can be watched on its own.
 | # | Song | The one idea | What the viewer believes first | What changes in the brief | Where it comes from |
 |---|---|---|---|---|---|
 | 1 | **Good for Who?** (out) | Software quality is value to someone who matters | "The agent should know what I meant by good" | Say who it's for and what good means for them | Weinberg; Bach & Bolton; Ed Pringle |
-| 2 | **What Happens If?** (in progress) | Testing is finding out what's actually true. Checking is one part of it | "All tests pass, so it works" | Try it as the person it's for, where they'll use it; only write checks that could fail for a real reason; say what wasn't tried | Bach & Bolton, testing vs checking; Ed Pringle |
-| 3 | **How Would You Know?** | Somebody can always tell whether it's good. Name that source of truth before the agent builds, and it can check its own work | "There's no right answer for my app, so only I can judge it" | "Here's how you'll know it's good: …" | Qing, *Agentic coding and the problem of oracles* |
+| 2 | **How Would You Know?** (in progress) | Somebody can always tell whether it's good. Name that source of truth before the agent builds, and it can check its own work | "There's no right answer for my app, so only I can judge it" | "Here's how you'll know it's good: …" | Qing, *Agentic coding and the problem of oracles* |
+| 3 | **What Happens If?** (reopening) | Testing is finding out what's actually true. Checking is one part of it | "All tests pass, so it works" | Try it as the person it's for, where they'll use it; only write checks that could fail for a real reason; say what wasn't tried | Bach & Bolton, testing vs checking; Ed Pringle |
 | 4 | **Nobody's Average** | There's no mainline user: every edge case is somebody's everyday | "Build it for the typical user and handle edge cases later" | Name the real situations, build it to adjust, watch real people use it | Qing, *There is no mainline user*; Gilbert S. Daniels's pilot study |
 | 5 | **Number Go Up** | A number that stands in for quality isn't quality, and an agent asked to raise a number will raise the number | "100% coverage and all green means it's good" | Say the goal behind the number; if the number can go up while the app gets worse, don't | Ed Pringle, proxies and the malicious compliance check; Goodhart |
 | 6 | **If It Bugs Them, It's a Bug** | A bug is a gap between the software and what people reasonably expect or want, and the world keeps moving | "It works as intended, so it's user error" | If it confuses or loses the person it's for, it's a bug, even when it matches the spec | Bach & Bolton's definition, via Qing, *What even is a bug anyway?* |

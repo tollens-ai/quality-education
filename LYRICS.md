@@ -43,15 +43,15 @@ others. Add a rule here whenever a fix teaches one.
   "drama"), and make every line carry a new fact. The songwriting skill's
   [lyrics reference](.claude/skills/songwriting/references/lyrics.md) has the Sondheim craft.
 - **Rhyme like a rapper: the hook's sound is the chorus's spine.** Take the hook's stressed
-  vowel and what follows it, list the whole family, and end every chorus line on it. Episode 2's
-  hook "did you actually test it?" gives pressed it, stressed it, second-guessed it, requested,
+  vowel and what follows it, list the whole family, and end every chorus line on it. The testing
+  episode's hook "did you actually test it?" gives pressed it, stressed it, second-guessed it, requested,
   and, stretching a little, expected, detected, protected. v5 rhymed its chorus lines in
   pairs that ignored the hook (black/back, train/rain) and called "test it / mess with it" a
   weak slant instead of mining the family. Qing (2026-09-27): "I do wonder [...] whether you're
   just not being rapper enough about rhyming". Before calling a word hard to rhyme, write out
   its family: there's usually loads.
 - **Every section rhymes.** A repeated refrain word ("…and two it was!") isn't a rhyme, and
-  neither is a hook or a chant left unrhymed because it's short. Episode 2's v3 had unrhymed verse,
+  neither is a hook or a chant left unrhymed because it's short. The testing episode's v3 had unrhymed verse,
   pre-chorus, hook and break, and Qing's whole note was "you forgot to make it rhyme"
   (2026-09-26). Check every section's end rhymes before anyone hears it.
 - **Budget syllables to the slot.** See the song-fit limits in the

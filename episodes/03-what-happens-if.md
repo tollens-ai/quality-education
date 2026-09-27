@@ -1,9 +1,40 @@
-# Episode 2: "What Happens If?"
+# Episode 3: "What Happens If?"
 
 **Concept:** testing is finding out what's actually true about the product, by exploring and
 experimenting. Checking, answering yes-or-no questions you already knew to ask, is one useful
 part of it.
-**Status:** talking points and section sketch agreed (2026-09-26); lyrics v5 on the sheet; hook and chorus v6 (Qing's hook) for her ear.
+**Status:** moved from episode 2 to episode 3 (2026-09-27), after the oracles episode. Talking
+points and section sketch were agreed (2026-09-26), and hook and chorus v6 went to Qing. All of it
+reopens once episode 2 is agreed, because the viewer will arrive knowing about oracles (see *What
+changes now oracles come first*).
+
+## Why it moved (Qing, 2026-09-27, verbatim)
+
+> I was mauling over the testing song overnight and I really do think that we have the order of
+> episode 2 and episode 3 the wrong way around. What can you really say about testing if the
+> listener doesn't know about oracles? "You should test it yourself" is incredibly obvious and
+> incredibly boring. What a webcoder wants to know is how to use agents to do testing
+> effectively.
+
+> Sure I have some guidance but I can't really say a lot about it without going into some of the
+> more low-level details. All of the rest of the quality education almost teaches you how to test
+> and just that you need to test is kind of a bit boring by itself. It's almost like if you don't
+> understand about oracles and they don't understand about ilities, then the testing part is just
+> really boring manual testing and they want to be inspired about that.
+
+## What changes now oracles come first
+
+- **The question the episode answers changes** from "should you test?" to "how do you get agents
+  to test well?" That's what a vibecoder wants to know (Qing). The answer can now use episode 2:
+  give the testers your oracles, a real browser and a playbook, and let them hunt.
+- **The green wall gets a sharper diagnosis.** A tautology is a test whose oracle is the code
+  itself, so it can't disagree with the code. A change detector's oracle is yesterday's version,
+  which doesn't know what matters. Episode 2 gives the word; this episode shows it failing.
+- **The hook needs another look.** "Did you actually test it?" leans towards the "test it
+  yourself" message Qing now finds boring. It may survive if the chorus is about agents testing
+  with oracles, rather than about the viewer's diligence.
+- **Kept:** testing versus checking (Bach and Bolton), testing as a team of agents and a human,
+  testing is fun, the gym-log finds, and the research below.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 

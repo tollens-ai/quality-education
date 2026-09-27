@@ -22,6 +22,14 @@ where one already covers it.
 - **Every section serves the episode's idea.** A bridge about the people who'd judge the app
   ("who'd quit, who'd panic, who'd post") was about stakeholders, not oracles (Qing,
   2026-09-27: "it's talking about stakeholders not oracles").
+- **An oracle line says how you'd tell, not what the app should do.** "No one sees what's not
+  their own" is a requirement; "text one parent: do the others' phones stay dark?" is an oracle,
+  a check you can run without knowing the answer in advance. It's in CANON, and it still slipped
+  twice (Qing, 2026-09-27: "line 3 describes a requirement, not an oracle (second time I've said
+  that phrase now)"). Test every such line: could it be pasted into a spec as a requirement?
+  Then rewrite it as the check, the comparison or the judge. And pick oracles you'd give on day
+  one, which would catch the bug and ones nobody's seen, not checks you'd only write after
+  seeing that bug (Qing: "the kind of oracles you'd only put in AFTER you've seen the bugs").
 
 ## Meaning first
 - **Rhyme and scansion serve the meaning.** The classic failure is working hard at rhyme and

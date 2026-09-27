@@ -74,6 +74,31 @@ theory and a house rule disagree, the note says so, and the house rule wins.
 - **Internal rhyme adds density without adding lines.** Rap and *Hamilton* stack rhymes within the
   line (the *Wall Street Journal* mapped *Hamilton*'s into "rhyme families"). Each rhyme marks a
   beat, which helps fast lines. (house: *Rhyme densely and inventively*.)
+- **A multi-syllable rhyme matches vowel for vowel.** From the first stressed vowel of the span
+  to the end, every vowel matches in order, stressed against stressed; the consonants can differ
+  ("SEE it / LEAVE it"; Eminem's *sweaty / knees weak / heavy / spaghetti / ready*, secondary via
+  Shmoop). A mosaic rhyme does it across a word break (Gilbert's "a lot o' news / hypotenuse",
+  live). Rappers bend vowels to make chains land (Eminem on "orange … door hinge … storage", live
+  via Laughing Squid); the generator won't, so a chain has to hold in dictionary General
+  American. `music/check/rhyme.py rhyme --from 2` checks a two-stress chain.
+- **Perfect rhyme on the payoff, vowel chains inside the line.** Sondheim: "I've never come across
+  a near rhyme that works better than a perfect rhyme would" (secondary), and on Miranda, good
+  rhyming keeps lines from flattening: "Jokes don't land the way they should" (Playbill, live).
+  Rap's slant chains give density inside the line; perfect rhymes land the joke at its end.
+- **Density fits a clever singer, and mustn't upstage the character.** Sondheim faulted his own
+  "It's alarming how charming I feel" because it "drew attention to the lyric writer rather than
+  the character" (secondary). Miranda made "My Shot" dense to show Hamilton's intellect "not just
+  in what he was saying but in the way he was saying it" (secondary). An agent can carry dense
+  rhyme; each rhyme still lands on a word people say.
+- **Patter: one syllable per note, triple rhymes, one stress pattern.** Gilbert rhymes the last
+  three syllables, stressed DUM-da-da ("GEN-er-al / MIN-er-al", respelled "Gineral" to match;
+  live). Both lines must repeat the pattern exactly, which is also what the generator needs.
+- **A method for a writer who can't hear.** Fix the payoff phrase first and write back from it.
+  Write out its vowel skeleton from the pronunciation dictionary, and list candidates that match
+  it: perfect first, then consonant family, then assonance (Pattison's order: "look in your
+  rhyming dictionary under the vowel sound", live paraphrase). Keep only phrases people say. Put
+  internal rhymes on stressed beats. Then check every rhyme and every set of answering lines with
+  `music/check/rhyme.py` before anyone hears it.
 
 ## Hook, title and power positions
 - **The title goes in a power position.** Pattison: "always try to place the title in prominent
@@ -190,6 +215,15 @@ lists CMUdict's gaps (jargon, one-syllable stress, squashed words): keep a sung 
   and check each falls on a hook word.
 
 ## Sources
+- Multi-syllable rhyme research (2026-09-27): Wikipedia, "Multisyllabic rhymes" (citing Paul
+  Edwards, *How to Rap*, 2009): https://en.wikipedia.org/wiki/Multisyllabic_rhymes; Shmoop on
+  "Lose Yourself": https://www.shmoop.com/lose-yourself/songwriting.html; Eminem on *60 Minutes*
+  (2010), live: https://laughingsquid.com/eminem-creates-rhymes-for-orange/; Sondheim on
+  *Hamilton*, live: https://playbill.com/article/stephen-sondheim-says-hamilton-is-a-breakthrough-com-352907;
+  Sondheim on "I Feel Pretty", secondary: https://masterworksbroadway.com/blog/sondheims-worst-enemy-by-peter-filichia/;
+  Miranda on *Fresh Air*, secondary: https://www.npr.org/2019/12/27/790798484/fresh-air-favorites-hamilton-creator-lin-manuel-miranda;
+  Gilbert's Major-General's Song and commentary, live: http://wonderingminstrels.blogspot.com/1999/05/major-general-song-w-s-gilbert.html;
+  Pattison, live paraphrase: https://americansongwriter.com/songwriter-u-surviving-rhyme-meeting-the-family/
 Checked 2026-09-25. **live**: quoted words matched on the page; **secondary**: a book quote
 confirmed via a page quoting it; **unchecked**: not verified.
 - Sondheim, *Finishing the Hat* (2010), *Look, I Made a Hat* (2011). Credo and rhyme essay,

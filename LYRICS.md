@@ -15,6 +15,12 @@ where one already covers it.
 - **Rhyme and scansion serve the meaning.** The classic failure is working hard at rhyme and
   scansion until the meaning is diluted. If a line needs explaining ("put a lock on your water
   log"), rewrite it. You're allowed to add words or verses.
+- **Read every line for what it literally says and what it implies.** A line can scan, rhyme
+  and sound right while claiming something slightly wrong, or carrying the wrong connotation
+  (pushy, sinister, filler). Say each line's claim in plain words and check it against the
+  lesson; when it's close, a small tweak to the framing usually fixes it (Qing, 2026-09-27: "you
+  have to make sure all the things you say actually... make sense, in meaning and
+  connotation?"). This goes for the words chosen to fill a rhyme, too.
 - **Pack in as much information as possible.** Workshopping drifts towards lines that recap,
   repeat or fill. Every line should teach something new. A spelled-out simile is filler when the song's
   frame already makes the comparison: in a boy-band love song, "cold, just like an ex" spent a

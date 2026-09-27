@@ -45,6 +45,8 @@ On the draft (2026-09-27):
 
 > half a year is ancient history in agentic terms now
 
+> also it's weird, why is mum using the gym log
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -74,14 +76,16 @@ check its own work at agent speed. You keep the final say.
 4. **The turn: somebody can always tell.** "Because it's good, somebody knows that it's good. If
    it's bad, somebody knows that it's bad" (Qing). You already have oracles; you just don't call
    them that:
-   - **the mum test:** could someone who isn't a developer log a set without asking you?
+   - **the mum test:** could someone who isn't a developer use it without asking you? That's
+     Qing's general form. The gym log is just for you (episode 1), so here it becomes **the
+     mid-set test:** could you log a set out of breath, one-thumbed, at the gym?
    - **the midnight panic:** what breaking would make you sweat? For the gym log, losing your
      personal bests.
    - **the screenshot test** (Qing's front-page test, made current): what would make you cringe
      in a screenshot? Your weight showing on a public leaderboard.
 5. **The agent can play the people who'd judge it.** Language models are good at imagining
-   specific people; predicting what people write is how they were made. It can't be your mum, but
-   it can try the app as "someone who's never seen it, one thumb, mid-set", and tell you where it
+   specific people; predicting what people write is how they were made. It can't be you mid-set,
+   but it can try the app as you, "one thumb, out of breath, phone-sized", and tell you where it
    got stuck. It can't panic, but it can check everything on your panic list, and if it knows who
    you are (episode 1) it can help you write the list.
 6. **Make fuzzy things precise where you can.** Some ways to know are exact, and some are a
@@ -134,8 +138,8 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
   partner who can never tell whether you're happy: its own checks all pass, and you still say no.
   "How do I know?" and "show me a sign" are love-song stock phrases, and here they mean exactly
   what the episode teaches. The agent owns its part, as in episode 1: "Fixed it!" was a guess.
-  The user is heard only as a backing-vocal "(still broken)". Keep Clawd's staging comic (Mum's
-  cardigan, the wandering button), never doe-eyed, so it doesn't read as an AI-girlfriend song.
+  The user is heard only as a backing-vocal "(still broken)". Keep Clawd's staging comic (the
+  sweatband, the wandering button), never doe-eyed, so it doesn't read as an AI-girlfriend song.
 - **Genre (proposal):** 1980s synth-pop, in the spirit of the big mid-80s "does he love me?"
   songs, with its own tune: gated-reverb drums, bright synth bass, a big glossy chorus, a key
   change into the last chorus. About 128 bpm, so a bar is about 1.9 s. Female pop vocal, earnest
@@ -159,11 +163,11 @@ line depends on are listed.
 | Pre-chorus | You only say when it's wrong, never how to tell it's right. You know it when you see it, but you never said what shows it | — |
 | Chorus (once) | "How do I know?" All my tests came up green, and you still said no. The line to remember | Clawd's own test report, all green, under your "still broken" |
 | Verse 2 | Give the agent something to check against and it's unstoppable: a mockup matched pixel for pixel, a spreadsheet's totals matched to the penny. With only "still broken", it guesses and gets a no. Tag: "No answer key for me!" "Oh, but you've got three!" | Clawd at full speed beside a mockup, the two screens converging; a column of totals ticking into agreement; then back to the gym log and the "still broken" bubble |
-| Bridge | If it's good, somebody can tell. Your three: could your mum log a set, would you sweat if your bests disappeared, would you fret if your weight hit the group chat | Three pictures, each captioned with its name so the brief can use it: *the mum test* (Mum with the gym log), *the sweat test* (you bolt upright at night), *the group-chat test* (a screenshot of your weight in a group chat) |
-| Break | An oracle is anything that helps you spot what's wrong. The agent can play your mum and check each fear you name; it shows you what it checked, and the last word is yours | Clawd in Mum's cardigan trying the gym log one-thumbed; a checklist ticking; your hand on the final tick. Credit below |
+| Bridge | If it's good, somebody can tell. Your three: at the gym, one-thumbed, could you log a set; would you sweat if your bests disappeared; would you fret if your weight hit the group chat | Three pictures, each captioned with its name so the brief can use it: *the mid-set test* (you, out of breath, one thumb on the gym log), *the sweat test* (you bolt upright at night), *the group-chat test* (a screenshot of your weight in a group chat) |
+| Break | An oracle is anything that helps you spot what's wrong. The agent can't lift your weights, but it can play you, and check each fear you name; it shows you what it checked, and the last word is yours | Clawd in your sweatband, panting, trying the gym log one-thumbed; a checklist ticking; your hand on the final tick. Credit below |
 | Final pre-chorus | The same complaint, then the ask: put the answers in the brief, and I'll know it, and I'll show it | The brief opening |
 | Chorus (twice, key change) | Word for word, with the second pass: while you sleep, who else knows if it's good to go? | The questions answered, one per oracle, each tick with its evidence beside it (a screenshot, a load time) |
-| Outro | Now I know: as your mum I logged sets, and your bests won't go; here's how I checked it all, plus the gaps I know. Spoken: "Is it good?" You try it yourself: "It's good." | Under the sung lines, Clawd's check report: ✅ mum test: a stranger logged a set one-thumbed (screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone on screen, captions off, for at least 8 seconds over the instrumental tail. Last frame: frame 1's layout, now "Fixed it! ✅" / "it's good.", over the intro riff, so the loop lands on "I fixed it!" again |
+| Outro | Now I know: playing you, I logged sets, and your bests won't go; here's how I checked it all, plus the gaps I know. Spoken: "Is it good?" You try it yourself: "It's good." | Under the sung lines, Clawd's check report: ✅ mid-set test: logged a set one-thumbed at phone size (screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone on screen, captions off, for at least 8 seconds over the instrumental tail. Last frame: frame 1's layout, now "Fixed it! ✅" / "it's good.", over the intro riff, so the loop lands on "I fixed it!" again |
 
 **On-screen credits:**
 - Break: *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) · human oracles for
@@ -215,13 +219,13 @@ in capitals for the pre-chorus and chorus; syllable counts in brackets.
 
 **Bridge**
 > If it's GOOD, someone CAN TELL. Here's a TEST: *(whoa-oh)* [10]
-> On your gym log, could your mum log a set? *(whoa-oh)* [10]
+> At the gym, one-thumbed, could you log a set? *(whoa-oh)* [10]
 > If your bests all disappeared, would you sweat? *(whoa-oh)* [10]
 > If your weight hit the group chat, would you fret? [10]
 
 **Break** (half time)
 > An oracle's anything that helps you spot what's wrong! *(spot what's wrong!)* [13]
-> I can't be your mum, but I can play her all day long! *(all day long!)* [13]
+> I can't lift your weights, but I can play you all day long! *(all day long!)* [13]
 > I can't feel your panic, but I'll check each fear you name! *(fear you name!)* [13]
 > I'll SHOW you WHAT i've CHECKED, but the LAST word's YOURS to CLAIM. [13]
 
@@ -234,7 +238,7 @@ in capitals for the pre-chorus and chorus; syllable counts in brackets.
 
 **Outro** (the chorus's grid)
 > OH, now i KNOW! *(now I know!)* [4]
-> as your MUM i logged SETS, and your BESTS won't GO! [11]
+> playing YOU, i logged SETS, and your BESTS won't GO! [11]
 > HERE is the SIGN! *(checked it twice!)* [4]
 > HERE'S the WAY i CHECKED it ALL, PLUS the GAPS i KNOW! [12]
 > *(spoken)* …Is it good?
@@ -248,12 +252,13 @@ in capitals for the pre-chorus and chorus; syllable counts in brackets.
 - Pre-chorus: wrong/right; right/night; know it/shows it.
 - Chorus: no/go/know, the hook's sound; tests/said and green/sleep inside; sign/fine.
 - Verse 2: shade/made; go/no, the hook's sound; mockup/match and penny/pixel inside; me/three.
-- Bridge: test/set/sweat/fret (test a slant); mum/gym inside.
+- Bridge: test/set/sweat/fret (test a slant); gym/thumbed inside.
 - Break: wrong/long; name/claim.
 - Final pre-chorus: as the first; know it/show it.
-- Outro: know/go/know; sign/twice; mum/sets inside.
+- Outro: know/go/know; sign/twice; you/logged/sets inside.
 
-**For Qing's ear:** bridge line 1 stresses "CAN", and line 4 puts GROUP on syllable 6 against 7;
+**For Qing's ear:** bridge line 2 stresses GYM, THUMBED, LOG, SET (3, 5, 8, 10) against 3, 7, 10;
+bridge line 1 stresses "CAN", and line 4 puts GROUP on syllable 6 against 7;
 break line 4 matches its section's grid only in its back half; the final pre-chorus changes line 3,
 so watch it in the takes.
 
@@ -274,7 +279,7 @@ After, with these lines added. Each is a way to check one thing the brief alread
 or one the sweat and group-chat tests turned up, written so the agent can actually run it:
 
 > how you'll know it's good:
-> mum test: someone who's never seen it logs a set, one thumb, phone-sized
+> mid-set test: play me, out of breath: one thumb, phone-sized, one tap per set
 > fast? a second from tap to open, on slow data
 > 🔥? only for more weight than my best on that lift
 > sweat test: my bests survive no signal and app updates
@@ -300,7 +305,7 @@ dry word, "oracle", feel obvious: of course you'd want a sign.
 **Post text (draft):**
 > "Fixed it!" "still broken." "Fixed it now!" "still broken."
 > Your agent's usually not lying. It's guessing, because nobody told it how to tell.
-> Three ways you already have: could your mum use it? What would make you sweat? What would you
+> Three ways you already have: could the person it's for use it, mid-whatever they're doing? What would make you sweat? What would you
 > hate to see in the group chat?
 > Ep 2 of Software Quality Theory 101, a synth-pop love song. How would you know yours is good?
 
@@ -359,6 +364,9 @@ dry word, "oracle", feel obvious: of course you'd want a sign.
   Verse 2 now shows what an agent does with something to check against (a mockup, a
   spreadsheet's totals), then what it does with only "still broken". The tag becomes "No answer
   key for me!" The GCC notes in rounds 1 and 2 are history.
+- **After Qing's note on Mum (2026-09-27):** the gym log is just for you (episode 1), so Mum has
+  no reason to use it. The mum test becomes the mid-set test: you, out of breath, one-thumbed.
+  The agent plays you, in your sweatband. The post text keeps the general form for other apps.
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"
@@ -382,5 +390,5 @@ Her answers, verbatim, to the three claims:
    picture". The break's wording stands.
 2. **"All my tests came up green, and you still said no":** "yeah it points to checking the wrong
    things". It stays: the agent's tests were checking the wrong things.
-3. **The agent playing your mum as a check:** "yeah, it's not perfect but it's better than
+3. **The agent playing the judge as a check** (then Mum; now you, mid-set): "yeah, it's not perfect but it's better than
    nothing!" It stays, with the evidence shown and the last word yours.

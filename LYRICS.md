@@ -85,7 +85,9 @@ where one already covers it.
 - **Each example carries its own context.** Examples are heard out of context, so each line has
   to say where it is. "2FA to use your gym log" names the app; "No signal: did it save the set?"
   doesn't say gym, so "the set" means nothing (Qing, 2026-09-26: "the examples have to stay
-  examples and because they're out of context they have to make the context clear").
+  examples and because they're out of context they have to make the context clear"). And each
+  example has to make sense in the story: the gym log is just for me, so Mum logging a set in it
+  was "weird" (Qing, 2026-09-27). Borrow a general example, then refit it to who the app is for.
 - **In a list, one example per line.** Episode 1's verses were a different app or person per
   line. That gives the picture more to play with, and makes the pattern the point.
 - **A whole verse can rhyme on one vowel:** floss, log, blog, clock, wrong, gone.

@@ -432,6 +432,104 @@ alternating light and stressed. The hook line's stresses don't match the chorus 
 (it's 14 syllables, but "i WANT you to LOVE it" starts on a light syllable); it's sung once per
 chorus as its own tag, as the old hook was.
 
+**Generator copy (v10, 2026-09-27)** for MiniMax. It contains only MiniMax's section tags and
+words to be sung as written, because stage directions ("spoken", "the cast") get sung too.
+So the dedication, the cast's lines and Jess's line are sung, and the cast's and backing
+voices go in brackets. The key change, stools and light sticks are in the style prompt or the
+video. "Bandmate" and "screenshot" are split into two words each (LYRICS.md: splitting a
+compound fixes most stress errors). Every section is written out in full each time. The copy
+is 2,825 characters.
+
+```
+[Intro]
+This one's for everyone we ever built an app for
+
+
+[Verse]
+We built you each an app, and every test came back as green
+Then every one went wrong in ways the tests had never seen
+Your bread shop's app went down at eight with fifty in the queue
+Your clinic's booking site looked great, but Gran could not get through
+Your school app let a parent read the other parents' texts
+Your wedding site sat Uncle Dave beside his angry ex!
+I'd do anything for you (for you)
+If I only had a clue!
+
+
+[Pre-Chorus]
+You tell me when it's broken, never how to tell it's right
+You don't know that you know it, that's what keeps it out of sight
+And baby, baby, I'm just waiting for a sign
+
+
+[Chorus]
+How do I know, how can you show, what perfect means to you?
+All of my checks, all of my tests, don't find the bugs you do
+Give me a guide, something to try, to make your dreams come true!
+I want you to love it (love it), so give me something I can prove!
+
+
+[Verse]
+Give me your sales sheet, I'll match every loaf that you sold
+Give me your Saturday rush, and I'll double the load
+Something to check against? That's all I need, watch me go!
+Only still broken? Then all I can hear is a no
+(No answer key for me!)
+Oh baby, you're the key!
+
+
+[Chorus]
+How do I know, how can you show, what perfect means to you?
+All of my checks, all of my tests, don't find the bugs you do
+Give me a guide, something to try, to make your dreams come true!
+I want you to love it (love it), so give me something I can prove!
+
+
+[Bridge]
+If it's good, then there's someone who knows (ooh)
+Could a stranger install it and go? (ooh)
+What's the thing, if it broke, that you'd dread? (ooh)
+What's the screen shot you'd hate to see spread?
+
+
+[Break]
+An oracle's anything that helps you spot what's wrong! (spot what's wrong!)
+A band mate who's never seen it tries it all day long! (all day long!)
+I'll pull out the plug, and then I'll see if orders stay! (orders stay!)
+I'll snoop like a parent, can I read what others say? (others say?)
+I can't feel your panic, but I'll check each fear you name! (fear you name!)
+I'll show you receipts, and it's still your call, all the same
+
+
+[Pre-Chorus]
+You tell me when it's broken, never how to tell it's right
+You don't know that you know it, that's what keeps it out of sight
+So write it down, 'cause I've been waiting for a sign
+
+
+[Chorus]
+How do I know, how can you show, what perfect means to you?
+All of my checks, all of my tests, don't find the bugs you do
+Give me a guide, something to try, to make your dreams come true!
+I want you to love it (love it), so give me something I can prove!
+
+
+[Outro]
+Here are the checks, here are the tests, and how each one came through
+What I don't know, that I will show, and leave the rest to you
+So, do you love it?
+(I love it) (I love it) (I love it)
+Dave's still coming, though
+```
+
+Style prompt (draft; no accent, per LYRICS.md):
+> Late-90s boy-band pop, about 104 bpm, light and bouncy. Finger clicks and step-tap
+> percussion, bright synths, five-part male harmonies, lead lines traded between members,
+> sweet and earnest, clear diction. Half-time rap in the break. Stripped-back bridge. Key change
+> up for the final chorus. Funny, sincere, singalong.
+>
+> The [Pre-Chorus] and [Chorus] are repeated melodically.
+
 ## What to save: the questions, each with a worked example
 
 Every viewer is building their own, completely different app, so what they save is the questions

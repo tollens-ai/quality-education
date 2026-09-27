@@ -3,8 +3,9 @@
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** v6 (2026-09-27): the boy band, now about a wedding seating plan, with oracles as
-sources of judgement. Every stress match and rhyme machine-checked. For Qing's ear. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
+**Status:** v7 (2026-09-27): the boy band, about a wedding seating plan, with oracles as
+sources of judgement, and the genre played up: a spoken dedication, five boy-band types, a 90s
+rap break, and specific wedding disasters. Every stress match and rhyme machine-checked. For Qing's ear. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
 highest level here, for what the viewer said they care about in episode 1. Working title changed
 from "How Would You Know?" after Qing's note that "how do I know" is a classic song refrain.
 
@@ -121,6 +122,11 @@ On lyrics v5 (2026-09-27):
 > also i really think the gym log example is just too simplistic for this song, you want
 > something that will really be improved with non obvious oracles
 
+On v6 (2026-09-27):
+
+> idk if it helps to more explicitly think one direction backstreet boys etc - and also think
+> weird Al and Tim blais etc
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -218,6 +224,15 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
   for you, if they only had a clue. Being a band also carries a point for free: the Clawd who
   built it isn't the one who plays the people who'd judge it. The user is heard only in call-and-response ("still
   broken", "No answer key for me!").
+- **The five, one type each** (as every boy band has): the lead heart-throb, who sings the verses;
+  the builder, in a hard hat, who wrote the code and never plays anyone; the sensitive one, who
+  sings the bridge on his stool; the bad boy, in a backwards cap, who does the obligatory rap; and
+  the older one, who swaps his suit jacket for Gran's cardigan. The casting carries the lesson:
+  the Clawd who plays Gran isn't the Clawd who built it.
+- **Genre moves, played straight** (as Weird Al does): the spoken dedication, the stools, the
+  harmonies on "baby, baby", the bad boy's rap, the key change where everyone stands, and three
+  nods to famous boy-band hooks (see *Cribbed, on purpose*). Every joke is a specific wedding
+  detail sung dead seriously.
 - **Genre (proposal):** late-90s boy-band pop: finger snaps, an R&B groove, five-part harmonies,
   lead lines traded between members, a stool-ballad feel that stands up for the key change into
   the last chorus. About 104 bpm (a bar is about 2.3 s). Lines that answer each other match their
@@ -240,13 +255,13 @@ line depends on are listed.
 
 | Section | Lyrics say | Video shows |
 |---|---|---|
-| Intro | Qing's refrain: the band's "I just fixed it!", four times, and your replies, none of which the band can check: "it won't open", "where's the slogan?", "missing token", "it's still broken" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "I just fixed it! ✅" and your "it won't open". 2:47 AM in small type. Each exchange stacks on top. The builder Clawd wears a hard hat throughout |
-| Verse 1 | I rebuilt your seating plan; every test was green; but you never said what good looks like, so what's to check? Now I'm guessing. Tag: I'd do anything for you, if I only had a clue | The seating plan redone table by table; a wall of green ticks; an empty space where "good looks like…" should be |
+| Intro | The lead's spoken dedication: "This one goes out to everyone who's ever typed… 'still broken'." Then Qing's refrain: the band's "I just fixed it!", four times, and your replies, none of which the band can check: "it won't open", "where's the slogan?", "missing token", "it's still broken" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "I just fixed it! ✅" and your "it won't open". 2:47 AM in small type. Each exchange stacks on top. The builder Clawd wears a hard hat throughout |
+| Verse 1 | I built your seating plan for 120 guests; every button clicks, every page loads fast, a thousand tests passed; then you said Gran's by the band and Dave's by his ex. I didn't know those were wrong: I had no way to check. Tag: I'd do anything for you, if I only had a clue | The seating plan fills table by table; a wall of green ticks; then Gran at Table 1, her chair against a speaker stack, and Uncle Dave beside his ex, both staring at their soup |
 | Pre-chorus | You tell me when it's broken, never how to tell it's right; you know it when you see it, but keep the answer out of sight; and baby, baby, I just wanna make you love it | — |
-| Chorus | How do I know? All my checks and my tests say it's true; then you just say "not okay", and I'm blue. Give me a sign, or a line, or a clue. The line to remember | The green test report; your "not okay"; the band, blue; a sign held up, blank |
-| Verse 2 | Give me a mockup or a spreadsheet and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Clawd matching a mockup, the two screens converging; a column of totals ticking into agreement; back to "still broken". On "wait and see", three cards land face down |
+| Chorus | How do I know? All my checks and my tests say it's true; then you just say "not that way", and I'm blue (the band: "which way?"). Give me a sign, or a line, or a clue. The line to remember | The green test report; your "not that way"; the band, blue, pointing five different ways; a sign held up, blank |
+| Verse 2 | Give me a mood board or the caterer's list and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | A Clawd matching the mood board, petal for petal, the two screens converging; the caterer's counts ticking into agreement with the plates; back to "still broken". On "wait and see", three cards land face down |
 | Bridge | If it's good, then there's someone who knows. Could your gran find her seat on her phone? What's the thing on the day that you'd dread? What's the screenshot you'd hate to see spread? Each line asks for a source of judgement, not a requirement | One card flips per line, each captioned with its name: *the Gran test* (Gran, squinting at her phone at the venue door), *the dread test* (two feuding uncles at one table), *the screenshot test* ("Table 13: Singles 💀" in the family chat) |
-| Break | An oracle is anything that helps you spot what's wrong. We can't be your gran, but we can play her; I'll check each fear you name, show you receipts, and it's still your call | One Clawd in Gran's cardigan and reading glasses squints at an old phone, and finds Table 7. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
+| Break | The bad boy's rap. An oracle is anything that helps you spot what's wrong. We can't be your gran, but we can play her; I'll check each fear you name, show you receipts, and it's still your call | One Clawd in Gran's cardigan and reading glasses squints at an old phone, and finds Table 7. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
 | Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The brief opening |
 | Chorus (key change) | Word for word | The band stands up off the stools. The brief's new lines tick in, one per sung line |
 | Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ Gran test (the cardigan Clawd found her seat on an old phone; screen recording), ✅ every guest seated exactly once, against the RSVP sheet, ✅ dietary counts match the caterer's order, ✅ nobody on your dread list shares a table, ❓ feuds you didn't list: can't know. Your sister opens it and finds her table. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
@@ -254,42 +269,43 @@ line depends on are listed.
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
 
-## Lyric sheet (v5)
+## Lyric sheet (v7)
 
 Backing vocals in italics and brackets. Lines marked *(you)* are the user, as a gang vocal.
 Stresses in capitals, syllables split with hyphens. Every set of lines that answer each other
 was run through `music/check/rhyme.py lines` and matches exactly; every rhyme listed below was run
 through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 
-**Intro** (Qing's refrain; the band, then you)
+**Intro** (the lead, spoken, over finger snaps; then Qing's refrain, the band, then you)
+> *(spoken)* This one goes out to everyone who's ever typed… "still broken".
 > i just FIXED it! *(you)* it won't O-pen! [4 + 4]
 > yeah, just FIXED it! *(you)* where's the SLO-gan? [4 + 4]
 > i re-FIXED it! *(you)* MISS-ing TO-ken! [4 + 4]
 > REAL-ly FIXED it! *(you)* it's still BRO-ken! [4 + 4]
 
 **Verse 1**
-> i re-BUILT your SEAT-ing PLAN, the TA-bles, EV-ery SCREEN, [13]
-> then i RAN my TESTS, and EV-ery SIN-gle ONE was GREEN, [13]
-> but you NEV-er SAID what GOOD looks LIKE, so WHAT'S to CHECK? [13]
-> now i'm GUESS-ing WHAT you MEANT, and GET-ting MORE per-PLEXED. [13]
+> i BUILT your SEAT-ing PLAN for ALL a HUN-dred TWEN-ty GUESTS; [14]
+> each BUT-ton CLICKS, each PAGE loads FAST, i PASSED a THOU-sand TESTS; [14]
+> you SAID, "my GRAN is BY the BAND, and DAVE is BY his EX!" [14]
+> i DID-n't KNOW that THOSE were WRONG; i HAD no WAY to CHECK. [14]
 > *(all)* I'd do anything for you *(for you)* [7]
 > if I only had a clue! [7]
 
 **Pre-chorus**
 > you TELL me when it's BRO-ken, NEV-er HOW to TELL it's RIGHT; [14]
-> you KNOW it when you SEE it, KEEP the AN-swer OUT of SIGHT, [14]
+> you DON'T know that you KNOW it; THAT'S what KEEPS it OUT of SIGHT, [14]
 > and BA-by, BA-by, i just WAN-na make you LOVE it… [13]
 
 **Chorus**
 > HOW do i KNOW? *(how do I know?)*
 > ALL of my CHECKS, and my TESTS, say it's TRUE, *(ooh, baby)* [10]
-> THEN you just SAY "not o-KAY", and i'm BLUE. *(ooh, baby)* [10]
+> THEN you just SAY "not that WAY", and i'm BLUE. *(which way?)* [10]
 > GIVE me a SIGN, or a LINE, or a CLUE! [10]
 > *(all)* i can't MAKE you LOVE it *(love it)*, if i can't TELL when you DO! [13]
 
 **Verse 2**
-> GIVE me a MOCK-up, i'll MATCH ev-ery PIX-el and SHADE; [13]
-> GIVE me your SPREAD-sheet, i'll MATCH ev-ery SUM that you MADE; [13]
+> SEND me a MOOD board, i'll MATCH ev-ery PET-al and SHADE; [13]
+> GIVE me the CAT-er-ing LIST, and i'll COUNT ev-ery PLATE; [13]
 > SOME-thing to CHECK a-gainst? THAT'S all i NEED: watch me GO! [13]
 > ON-ly "still BRO-ken"? Then ALL i can HEAR is a "NO". [13]
 > *(you)* no AN-swer KEY for ME! [6]
@@ -303,7 +319,7 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 > what's the THING on the DAY that you'd DREAD? *(ooh)* [9]
 > what's the SCREEN-shot you'd HATE to see SPREAD? [9]
 
-**Break** (half time)
+**Break** (half time: the bad boy's rap)
 > an OR-a-cle's AN-y-thing that HELPS you SPOT what's WRONG! *(spot what's wrong!)* [13]
 > we CAN'T be your GRAN, but we can PLAY her ALL day LONG! *(all day long!)* [13]
 > i CAN'T feel your PAN-ic, but i'll CHECK each FEAR you NAME! *(fear you name!)* [13]
@@ -312,7 +328,7 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 **Final pre-chorus** (lines 1 and 2 word for word; line 3 matches the first pre-chorus's line 3
 stress for stress)
 > you TELL me when it's BRO-ken, NEV-er HOW to TELL it's RIGHT; [14]
-> you KNOW it when you SEE it, KEEP the AN-swer OUT of SIGHT, [14]
+> you DON'T know that you KNOW it; THAT'S what KEEPS it OUT of SIGHT, [14]
 > so WRITE it DOWN, and i can REAL-ly make you LOVE it… [13]
 
 **Chorus** (key change up; the band stands)
@@ -325,23 +341,29 @@ stress for stress)
 
 **Rhymes, checked by stressed vowel** (General American)
 - Intro: open / slogan / token / broken, all on OW.
-- Verse 1: screen/green; check/perplexed; tag you/clue.
+- Verse 1: guests/tests; ex/check; tag you/clue.
 - Pre-chorus: right/sight.
 - Chorus: every line has a rhyming pair in the same two slots, then its end rhyme:
-  checks/tests, say/okay, sign/line; the ends true / blue / clue, and the tag's do.
-- Verse 2: shade/made; go/no; tag me/see.
+  checks/tests, say/way, sign/line; the ends true / blue / clue, and the tag's do.
+- Verse 2: shade/plate; go/no; tag me/see.
 - Bridge: knows/phone; dread/spread.
 - Break: wrong/long; name/same.
 - Outro: the chorus's pattern: checks/tests, know/show; through / you.
 
 **Cribbed, on purpose:** the hook line nods to "I Can't Make You Love Me"; "if I only had a clue"
-to "If I Only Had a Brain"; "I'd do anything for you" to every boy band ever.
+to "If I Only Had a Brain"; "I'd do anything for you" to every boy band ever. "Not that way"
+and "which way?" poke at "I Want It That Way", famous for never saying which way; "you don't
+know that you know it, that's what keeps it out of sight" turns the "don't know you're
+beautiful" hook around. The nods are titles and tropes, never the songs' lyrics.
 
 **For Qing's ear:** in the intro, "REAL-ly FIXED it" and "MISS-ing TO-ken" start on a stress
 where their neighbours start with two light syllables; if the take trips, "it's so FIXED now" and
 "there's no TO-ken" match exactly; "a-GAINST" goes unstressed
 in "SOME-thing to CHECK a-gainst", as people say it; the final pre-chorus's third line is new
-words on the old stresses, so watch it in the takes.
+words on the old stresses, so watch it in the takes. New in v7: verse 1 is a straight run of
+fourteen, alternating light and stressed ("i BUILT your SEAT-ing PLAN…"); "MOOD board" takes its
+stress on "mood", as people say it; the band's "(which way?)" answers in the gap after "blue",
+where "(ooh, baby)" was.
 
 ## The brief, before and after
 
@@ -483,6 +505,16 @@ ending gives the lonely "still broken" its answer: "I love it."
 - **After Qing's note on playing you (2026-09-27):** the simulation plays someone specific, which
   is easier to draw: the dad on your shop, a lifter mid-set on the gym log. The cardigan-to-hoodie
   swap and "(or play you!)" are gone; the brief's line is the lifter test.
+- **v7, after Qing's note on the genre (2026-09-27):** the boy band is now played up the way
+  Weird Al plays a genre, straight and specific. There's a spoken dedication; the five are cast
+  as the five boy-band types, so the Clawd who plays Gran is visibly not the builder; the break
+  is the bad boy's rap. Verse 1 swaps the abstract "every screen" for specific failures the green
+  tests couldn't see: Gran by the band, Dave by his ex. The pre-chorus turns the "don't know
+  you're beautiful" hook into tacit knowledge ("you don't know that you know it"). The chorus's
+  "not okay" becomes "not that way", and the band asks "which way?". Verse 2 checks against a
+  mood board and the caterer's list, which is also the list the outro's check report uses. The
+  chorus's hook, the bridge, the break's words and the outro are unchanged. The v7 drafts
+  alluded only to titles and tropes, never to existing lyrics.
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

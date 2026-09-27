@@ -80,6 +80,13 @@ where one already covers it.
 - **Borrow a rhythm template.** Name a known song whose rhythm the verse follows (verse 1 of
   episode 1 is the "We Didn't Start the Fire" verse rhythm) and fit every line to it. Write the
   template in the script.
+- **Borrow a genre's moves and titles, not its lyrics.** Parody works by playing a genre's moves
+  straight: the boy band's spoken dedication, the rap break, the key change (Qing, 2026-09-27:
+  "think one direction backstreet boys etc - and also think weird Al and Tim blais"). A nod to a
+  title or a famous hook's shape is fair game; lines lifted from the song are not. Describe the
+  move in your own words even while drafting. On 2026-09-27 the API's content filter blocked a
+  reply twice while an agent was drafting from these models, most likely because it quoted
+  their lyrics.
 - **Unstressed pickups are fine.** In a run of lines that start on the downbeat, though, a line
   with a pickup ("con-FET-ti") breaks the run in the middle; put it first, where it leads in.
 - **At patter speed, keep the template and let a stress bend.** "2FA on your gym log" in

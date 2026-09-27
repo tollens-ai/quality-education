@@ -33,14 +33,14 @@ Later the same day:
   give the testers your oracles, a real browser and a playbook, and let them hunt.
 - **The green wall gets a sharper diagnosis.** A tautology is a test whose oracle is the code
   itself, so it can't disagree with the code. A change detector's oracle is yesterday's version,
-  which doesn't know what matters. Episode 3 gives the word; this episode shows it failing.
+  which doesn't know what matters. Episode 2 gives the word; this episode shows it failing.
 - **The hook needs another look.** "Did you actually test it?" leans towards the "test it
   yourself" message Qing now finds boring. It may survive if the chorus is about agents testing
   with oracles, rather than about the viewer's diligence.
 - **Kept:** testing versus checking (Bach and Bolton), testing as a team of agents and a human,
   testing is fun, the gym-log finds, and the research below.
-- **The ilities give the hunt its map.** After episode 2 the viewer knows good is several
-  qualities, so the testers can be sent after each one, with its own oracle from episode 3.
+- **The ilities give the hunt its map.** After episode 3 the viewer knows good is several
+  qualities, each with its own way to know, so the testers can be sent after each one.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 

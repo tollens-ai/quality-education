@@ -13,10 +13,14 @@ Pringle's foundations).
 
 **The first three questions each have a basic answer; the fourth doesn't.** "How do we make it
 good?" isn't one thing, it's a million things (Qing, 2026-09-27). So Part 1 teaches the basics of
-the first three questions in order, then the first practice you'll need from the fourth: what to
+the first three questions, then the first practice you'll need from the fourth: what to
 do with the bugs that testing finds. Part 2 goes deeper on the first three, and adds a few more of
 the million ways of making it good. Each Part 2 episode deepens a Part 1 episode: the Trenchcoat
-is the 102 to episode 2's 101 on the ilities.
+is the 102 to episode 3's 101 on the ilities.
+
+**Oracles come before the ilities** (Qing, 2026-09-27: "it feels boring otherwise"). Episode 2
+asks how you'd know, at the highest level, for what you said you care about in episode 1.
+Episode 3 then adds the other qualities, each with its own way to know.
 
 **You can use the lessons in order.** Each episode's change to the brief is the next thing
 your agent needs, and it builds on the ones before. Qing (2026-09-27): "it would be nice if they
@@ -36,8 +40,8 @@ brief, and each episode can be watched on its own.
 | # | Question | Song | The one idea | What the viewer believes first | What changes in the brief | Where it comes from |
 |---|---|---|---|---|---|---|
 | 1 | What does good look like? | **Good for Who?** (out) | Software quality is value to someone who matters | "The agent should know what I meant by good" | Say who it's for and what good means for them | Weinberg; Bach & Bolton; Ed Pringle |
-| 2 | What does good look like? | **What Kind of Good?** (working title) | "Good" is many different qualities, the "ilities": does it work, is it easy, does it keep your stuff, is it fast, is it safe, can everyone use it, can it be fixed and changed, what does it cost. Agents build the few everyone mentions and skip the rest unless asked | "If it works and it looks nice, it's good" | Name the qualities that matter most to the people it's for, and the ones you'll trade away | Quality characteristics, as in ISO/IEC 25010; Ed Pringle, quality dimensions |
-| 3 | How would we know? | **How Would You Know?** (in progress) | Somebody can always tell whether it's good. Say how they'd tell, for each quality that matters, and the agent can check its own work | "There's no right answer for my app, so only I can judge it" | "Here's how you'll know it's good: …" | Qing, *Agentic coding and the problem of oracles* |
+| 2 | How would we know? | **How Do I Know?** (in progress; working title) | Somebody can always tell whether it's good. Say how they'd tell, for what you said matters in episode 1, and the agent can check its own work | "There's no right answer for my app, so only I can judge it" | "Here's how you'll know it's good: …" | Qing, *Agentic coding and the problem of oracles* |
+| 3 | What does good look like? | **What Kind of Good?** (working title) | "Good" is many different qualities, the "ilities": does it work, is it easy, does it keep your stuff, is it fast, is it safe, can everyone use it, can it be fixed and changed, what does it cost. Agents build the few everyone mentions and skip the rest unless asked | "If it works and it looks nice, it's good" | Name the qualities that matter most to the people it's for, the ones you'll trade away, and how you'll know each one | Quality characteristics, as in ISO/IEC 25010; Ed Pringle, quality dimensions |
 | 4 | Is it good? | **What Happens If?** (reopening) | Testing is finding out what's actually true. Checking is one part of it. Agents can do much of it, as a team, when they have the qualities and the oracles to test against | "All tests pass, so it works" | Test it as the person it's for, where they'll use it, against the oracles; say what you tried, what you found and what you didn't try | Bach & Bolton, testing vs checking; Ed Pringle |
 | 5 | How do we make it good? (one practice) | **Four Findings** | Every bug is four findings: how it got in and how it got past, this time and as a pattern. Fixing what let it in improves the brief; fixing what let it past improves the oracles and tests | "Fixed the bug, so we're done" | Fix the bug, then what let it in and what let it through | Qing's bug postmortem; Ed Pringle, four levels of learning from a bug |
 
@@ -46,9 +50,9 @@ brief, and each episode can be watched on its own.
 | # | Question | Song | The one idea | What the viewer believes first | What changes in the brief | Deepens | Where it comes from |
 |---|---|---|---|---|---|---|---|
 | 6 | What does good look like? | **Nobody's Average** | There's no mainline user: every edge case is somebody's everyday | "Build it for the typical user and handle edge cases later" | Name the real situations, build it to adjust, watch real people use it | 1 | Qing, *There is no mainline user*; Gilbert S. Daniels's pilot study |
-| 7 | What does good look like? | **The Trenchcoat** | "Fast", "reliable" and "secure" are each several things in a trenchcoat. Unpack them | "Make it fast" is a clear enough ask | Not "make it fast" but "opens in under a second; the export can take a minute" | 2 | Ed Pringle, unpack don't collapse |
-| 8 | What does good look like? | **Dealbreaker** | For each person: what would delight them, what's good enough, what's a dealbreaker. What you won't do is a decision too | "Aim for the best at everything" | Dealbreakers, the honest bar, and what's deliberately left out | 1, 2 | Ed Pringle, the lenses and non-goals |
-| 9 | How would we know? | **Number Go Up** | A number that stands in for quality isn't quality, and an agent asked to raise a number will raise the number | "100% coverage and all green means it's good" | Say the goal behind the number; if the number can go up while the app gets worse, don't | 3 | Ed Pringle, proxies and the malicious compliance check; Goodhart |
+| 7 | What does good look like? | **The Trenchcoat** | "Fast", "reliable" and "secure" are each several things in a trenchcoat. Unpack them | "Make it fast" is a clear enough ask | Not "make it fast" but "opens in under a second; the export can take a minute" | 3 | Ed Pringle, unpack don't collapse |
+| 8 | What does good look like? | **Dealbreaker** | For each person: what would delight them, what's good enough, what's a dealbreaker. What you won't do is a decision too | "Aim for the best at everything" | Dealbreakers, the honest bar, and what's deliberately left out | 1, 3 | Ed Pringle, the lenses and non-goals |
+| 9 | How would we know? | **Number Go Up** | A number that stands in for quality isn't quality, and an agent asked to raise a number will raise the number | "100% coverage and all green means it's good" | Say the goal behind the number; if the number can go up while the app gets worse, don't | 2 | Ed Pringle, proxies and the malicious compliance check; Goodhart |
 | 10 | Is it good? | **If It Bugs Them, It's a Bug** | A bug is a gap between the software and what people reasonably expect or want, and the world keeps moving | "It works as intended, so it's user error" | If it confuses or loses the person it's for, it's a bug, even when it matches the spec | 4 | Bach & Bolton's definition, via Qing, *What even is a bug anyway?* |
 | 11 | Is it good? | **Where Would It Hurt?** | You can't test everything. Look where it would hurt most and where you know least, and say how sure you are | "Test everything the same amount" | "For each area: checked, glanced or guessing" | 4 | Ed Pringle, risk, economics and confidence |
 | 12 | How do we make it good? (one practice) | **Debugging This With You** | The agent is on the team, so build for it too: diagnostics it can read, a way back, instructions that stay current, comments that say why | "The code's for me; the agent will cope" | "Build it so you can debug it without me" | 5 | Qing; Ed Pringle; Martin Davidson |

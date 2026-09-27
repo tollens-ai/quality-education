@@ -1,11 +1,12 @@
-# Episode 3: "How Would You Know?"
+# Episode 2: "How Do I Know?" (working title)
 
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** talking points v1 for Qing (2026-09-27). Now episode 3: after the basic ilities
-(episode 2), before testing (episode 4). Its examples need a pass so each oracle answers one of
-episode 2's qualities.
+**Status:** talking points v1 for Qing (2026-09-27). Back at episode 2: oracles come before the
+ilities (episode 3) and testing (episode 4). Oracles stay at the highest level here, for what the
+viewer said they care about in episode 1. Working title changed from "How Would You Know?" after
+Qing's note that "how do I know" is a classic song refrain.
 
 ## Expert notes (Qing, 2026-09-27, verbatim)
 
@@ -33,6 +34,10 @@ Her notes on why testing moved later are in
 
 > Please review the actual lesson plan carefully and don't just guess based on the sources we
 > have. It has to make sense as a curriculum from first principles and be applicable in order
+
+> ilities After oracles, actually I think. it feels boring otherwise. and you can have oracles at
+> the highest level just for the stuff you said you care about in episode one. "how do I know" is
+> a classic song refrain
 
 ## Where it comes from
 
@@ -97,8 +102,10 @@ check its own work at agent speed. You keep the final say.
 
 ## Line to remember and hook (early options, before the sketch)
 
-Clawd sings as your agent again: the underdog who wants to do a good job and can't tell whether
-it has. The title is the hook: **"How would you know?"** Its rhyme family is big: know, show, go,
+Clawd sings as your agent again: it wants to do a good job and can't tell whether it has. The
+hook is Clawd's own question, **"How do I know?"**, a classic song refrain (Qing), which the
+viewer ends up answering. Its sibling "How would you know?" can be the turn, when Clawd asks it
+back. Its rhyme family is big: know, show, go,
 though, so, slow, no, below, owe, grow, flow, hello, yo-yo, and one step further, "go-to", "logo",
 "solo".
 
@@ -121,7 +128,7 @@ Options for the line to remember (Clawd, plain and fair):
 
 ## The brief, before and after
 
-Before (episode 1's gym-log brief; episode 2's additions to come):
+Before (episode 1's gym-log brief):
 
 > a gym log. just for me.
 > for: me, mid-set, sweaty hands

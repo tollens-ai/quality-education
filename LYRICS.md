@@ -154,6 +154,12 @@ where one already covers it.
   depends on. Rebuild the storyboard once the lyrics are locked; before that, every lyric change
   throws storyboard work away. This applies to conversation too: lyric options come with no
   pictures, shots or timings unless the line can't be understood without one.
+- **Keep every draft, like a songwriter's notebook.** Each song has a scratchbook
+  (`episodes/NN-scratchbook.md`) that holds every lyric sheet, every option offered, and every
+  stray rhyme or fragment that worked, even when it didn't fit. Skim it before rewriting a
+  section, and add to it rather than overwriting. An idea that fails now may work later (Qing,
+  2026-09-27: "Any serious songwriter has pages and pages of notes and scratch lyrics for any
+  given song", and "I'm keeping any random rhyme or lyric fragment that seems to work well").
 - **Take from an example only what it was given to show.** When Qing sketches lines to show one
   thing (a rhyme density, a tone), take that one thing and write your own lines. Copying her
   sketch's structure, or filling in its blanks, is over-fitting (2026-09-27: "there is no

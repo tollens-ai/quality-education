@@ -3,9 +3,9 @@
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** v7 (2026-09-27): the boy band, about a wedding seating plan, with oracles as
-sources of judgement, and the genre played up: a spoken dedication, five boy-band types, a 90s
-rap break, and specific wedding disasters. Every stress match and rhyme machine-checked. For Qing's ear. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
+**Status:** v8 (2026-09-27): the boy band, now across several apps, one angle of quality at a
+time (does it work, is it easy, does it install, can it take the rush, does it lose things, is it
+safe), each with an oracle a vibecoder wouldn't think of. Every stress match and rhyme machine-checked. For Qing's ear. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
 highest level here, for what the viewer said they care about in episode 1. Working title changed
 from "How Would You Know?" after Qing's note that "how do I know" is a classic song refrain.
 
@@ -127,6 +127,29 @@ On v6 (2026-09-27):
 > idk if it helps to more explicitly think one direction backstreet boys etc - and also think
 > weird Al and Tim blais etc
 
+On v7 (2026-09-27):
+
+> I still think the example app is too simplistic and makes the software quality angle feel
+> boring. we want multiple useful oracle examples from multiple angles - functionality usability
+> installability, etc - we haven't introduced the ilities yet but we can allude to the common
+> sense requirements backing them
+
+> and it probably works better for the video to not focus just on one app /scenario anyway
+
+On process (2026-09-27), now in LYRICS.md and the [scratchbook](02-scratchbook.md):
+
+> By the way process bug: the fact that you're deleting and rewriting the lyrics every single
+> time means that you don't have all the previous examples to draw from when you're rewriting.
+> That's not how anybody works. Any serious songwriter has pages and pages of notes and scratch
+> lyrics for any given song.
+>
+> What you should do is keep all the old drafts somewhere so that you can skim them when you want
+> to pick up ideas. Even if you have an idea that doesn't quite work now, it might work later. You
+> shouldn't just throw away the old revisions. Think: what would Sondheim do?
+
+> like when I'm writing songs I'm keeping any random rhyme or lyric fragment that seems to work
+> well
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -135,8 +158,7 @@ from the Tollens quality-strategy work. The oracle problem itself is an old idea
 
 ## Talking points (v1)
 
-*The ideas still stand; the gym-log examples are superseded by the wedding seating plan (see
-Shape), and the bridge's tests are now asked as sources of judgement, not requirements.*
+*The ideas still stand; the gym-log examples are superseded by the apps in Shape, and the bridge's tests are now asked as sources of judgement, not requirements.*
 
 **Misconception, in the viewer's voice:** "My app doesn't have a right answer, so I have to look
 at everything myself."
@@ -231,45 +253,58 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
   the Clawd who plays Gran isn't the Clawd who built it.
 - **Genre moves, played straight** (as Weird Al does): the spoken dedication, the stools, the
   harmonies on "baby, baby", the bad boy's rap, the key change where everyone stands, and three
-  nods to famous boy-band hooks (see *Cribbed, on purpose*). Every joke is a specific wedding
-  detail sung dead seriously.
+  nods to famous boy-band hooks (see *Cribbed, on purpose*). Every joke is a specific,
+  everyday disaster sung dead seriously.
 - **Genre (proposal):** late-90s boy-band pop: finger snaps, an R&B groove, five-part harmonies,
   lead lines traded between members, a stool-ballad feel that stands up for the key change into
   the last chorus. About 104 bpm (a bar is about 2.3 s). Lines that answer each other match their
   stresses exactly, checked with `music/check/rhyme.py`; the rhythm is otherwise free.
 - **Form and length:** spoken intro, verse 1, pre-chorus, chorus, verse 2, chorus, bridge, break,
-  final pre-chorus, chorus with the key change, outro. About 2:40; the second pre-chorus is cut
-  for length.
+  final pre-chorus, chorus with the key change, outro. About 2:55 since v8 added four lines;
+  the second pre-chorus is cut for length, and verse 2's tag is the next cut if a take runs long.
 - **Line to remember:** "I can't make you love it if I can't tell when you do." It closes every
   chorus. It's plain and fair, it's a love-song line, and it's the whole oracle problem.
-- **The app:** a seating plan and RSVP site for your sister's wedding, not the gym log. The gym
-  log was too simple for this idea (Qing): almost everything about it has an obvious answer. A
-  seating plan has no answer key, and plenty of non-obvious oracles: Gran, the RSVP sheet, the
-  caterer's order, the relatives you'd dread seating together, the screenshot you'd hate to see
-  in the family chat. And a wedding suits a love song.
+- **The apps (v8):** one app per example, as in episode 1's verses, so each angle of quality gets
+  the app where its oracle is most vivid, and the video gets a new world every few seconds (Qing:
+  "it probably works better for the video to not focus just on one app"). The angles are the
+  common-sense cares behind the ilities, which episode 3 names; here they're only plain words on
+  screen:
+
+  | Care (plain word on screen) | App | What went wrong with green tests | The oracle: who or what can tell |
+  |---|---|---|---|
+  | works | the bread shop's order app | — | last month's till roll: replay the orders, the totals match |
+  | busy | the bread shop's order app | down at 8 a.m., fifty in the queue | last Saturday's rush, replayed at twice the crowd |
+  | easy | the clinic's booking site | Gran couldn't get through | Gran, played by a bandmate who didn't build it, on an old phone |
+  | installs | any of them | — | a stranger: a phone that's never seen it, from link to working in a minute |
+  | doesn't lose things | the bread shop's order app | — | pull the plug mid-order: every order is saved or clearly failed |
+  | safe | the school's parent app | one parent could read other parents' messages | snoop as a parent: what can you see that isn't yours? |
+  | the judgement call | your sister's wedding site | Uncle Dave next to his angry ex | your dread list; the screenshot you'd hate to see spread |
+
+  The gym log and the single wedding app were too simple for this idea (Qing): almost everything
+  about them had an obvious answer, and one app made quality look like one thing.
 
 ## What the song says, and what the video shows (sketch)
 
-The lyrics carry the ideas and stand alone; the video carries the wedding. Only the pictures a
+The lyrics carry the ideas and stand alone; the video carries the apps. Only the pictures a
 line depends on are listed.
 
 | Section | Lyrics say | Video shows |
 |---|---|---|
 | Intro | The lead's spoken dedication: "This one goes out to everyone who's ever typed… 'still broken'." Then Qing's refrain: the band's "I just fixed it!", four times, and your replies, none of which the band can check: "it won't open", "where's the slogan?", "missing token", "it's still broken" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "I just fixed it! ✅" and your "it won't open". 2:47 AM in small type. Each exchange stacks on top. The builder Clawd wears a hard hat throughout |
-| Verse 1 | I built your seating plan for 120 guests; every button clicks, every page loads fast, a thousand tests passed; then you said Gran's by the band and Dave's by his ex. I didn't know those were wrong: I had no way to check. Tag: I'd do anything for you, if I only had a clue | The seating plan fills table by table; a wall of green ticks; then Gran at Table 1, her chair against a speaker stack, and Uncle Dave beside his ex, both staring at their soup |
+| Verse 1 | I built you four new apps, and every test came back green; then every one went wrong in ways my tests had never seen: the bread shop's app went down at eight with fifty in the queue; the clinic's booking site was fine, but Gran could not get through; your school app let a parent read the other parents' texts; the wedding site sat Uncle Dave beside his angry ex. Tag: I'd do anything for you, if I only had a clue | Four app screens in a row, each with a green ✅ stamp; one per line, the stamp cracks and a small plain-word chip appears: **busy** (a queue out of the bread shop door, a spinner), **easy** (Gran lost on a booking form), **safe** (a parent's chat thread on the wrong phone), and for Dave, no chip, just the soup-staring |
 | Pre-chorus | You tell me when it's broken, never how to tell it's right; you know it when you see it, but keep the answer out of sight; and baby, baby, I just wanna make you love it | — |
 | Chorus | How do I know? All my checks and my tests say it's true; then you just say "not that way", and I'm blue (the band: "which way?"). Give me a sign, or a line, or a clue. The line to remember | The green test report; your "not that way"; the band, blue, pointing five different ways; a sign held up, blank |
-| Verse 2 | Give me a mood board or the caterer's list and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | A Clawd matching the mood board, petal for petal, the two screens converging; the caterer's counts ticking into agreement with the plates; back to "still broken". On "wait and see", three cards land face down |
-| Bridge | If it's good, then there's someone who knows. Could your gran find her seat on her phone? What's the thing on the day that you'd dread? What's the screenshot you'd hate to see spread? Each line asks for a source of judgement, not a requirement | One card flips per line, each captioned with its name: *the Gran test* (Gran, squinting at her phone at the venue door), *the dread test* (two feuding uncles at one table), *the screenshot test* ("Table 13: Singles 💀" in the family chat) |
-| Break | The bad boy's rap. An oracle is anything that helps you spot what's wrong. We can't be your gran, but we can play her; I'll check each fear you name, show you receipts, and it's still your call | One Clawd in Gran's cardigan and reading glasses squints at an old phone, and finds Table 7. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
+| Verse 2 | Give me the till roll or last Saturday's rush and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Back at the bread shop: a till roll unspools beside the app's order list, the totals ticking into agreement (chip: **works**); last Saturday's queue, doubled, pours through the app without a spinner (chip: **busy**); back to "still broken". On "wait and see", three cards land face down |
+| Bridge | If it's good, then there's someone who knows. Could a stranger install it and go? What's the thing, if it broke, that you'd dread? What's the screenshot you'd hate to see spread? Each line asks for a source of judgement, not a requirement | One card flips per line, each captioned with its name: *the stranger test* (a phone that's never seen it scans the QR on the bread shop counter; chip: **installs**), *the dread test* (the wedding seating plan, Dave and his ex circled in red), *the screenshot test* (a parent's private message posted in the class group chat 💀) |
+| Break | The bad boy's rap. An oracle is anything that helps you spot what's wrong. We can't be your gran, but we can play her; I'll pull out the plug and see if orders stay; I'll snoop like a parent and see what others say; I'll check each fear you name, show you receipts, and it's still your call | The older Clawd in Gran's cardigan and reading glasses squints at an old phone and books her check-up (chip: **easy**); the bad boy yanks the bread shop's wifi cable mid-order, and the order is still there (chip: **doesn't lose things**); in a parent's lanyard he tries to open another family's messages: 🔒 (chip: **safe**). A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
 | Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The brief opening |
 | Chorus (key change) | Word for word | The band stands up off the stools. The brief's new lines tick in, one per sung line |
-| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ Gran test (the cardigan Clawd found her seat on an old phone; screen recording), ✅ every guest seated exactly once, against the RSVP sheet, ✅ dietary counts match the caterer's order, ✅ nobody on your dread list shares a table, ❓ feuds you didn't list: can't know. Your sister opens it and finds her table. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
+| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report, one line per app: ✅ bread shop: last month's orders replayed, totals match the till roll; last Saturday at twice the crowd, nothing lost ✅ clinic: a bandmate playing Gran booked a check-up on an old phone (screen recording) ✅ school app: signed in as one parent, nobody else's messages visible ✅ wedding: nobody on your dread list shares a table ✅ a fresh phone: installed and working in under a minute ❓ whether they'll love it: yours to say. The chips from the whole song line up in a row, a quiet trailer for episode 3. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
 
-## Lyric sheet (v7)
+## Lyric sheet (v8)
 
 Backing vocals in italics and brackets. Lines marked *(you)* are the user, as a gang vocal.
 Stresses in capitals, syllables split with hyphens. Every set of lines that answer each other
@@ -284,10 +319,12 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 > REAL-ly FIXED it! *(you)* it's still BRO-ken! [4 + 4]
 
 **Verse 1**
-> i BUILT your SEAT-ing PLAN for ALL a HUN-dred TWEN-ty GUESTS; [14]
-> each BUT-ton CLICKS, each PAGE loads FAST, i PASSED a THOU-sand TESTS; [14]
-> you SAID, "my GRAN is BY the BAND, and DAVE is BY his EX!" [14]
-> i DID-n't KNOW that THOSE were WRONG; i HAD no WAY to CHECK. [14]
+> i BUILT you FOUR new APPS, and EV-ery TEST came BACK as GREEN; [14]
+> then EV-ery ONE went WRONG in WAYS my TESTS had NEV-er SEEN: [14]
+> the BREAD shop's APP went DOWN at EIGHT with FIF-ty IN the QUEUE; [14]
+> the CLIN-ic's BOOK-ing SITE was FINE, but GRAN could NOT get THROUGH; [14]
+> your SCHOOL app LET a PAR-ent READ the OTH-er PAR-ents' TEXTS; [14]
+> the WED-ding SITE sat UN-cle DAVE be-SIDE his AN-gry EX! [14]
 > *(all)* I'd do anything for you *(for you)* [7]
 > if I only had a clue! [7]
 
@@ -304,8 +341,8 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 > *(all)* i can't MAKE you LOVE it *(love it)*, if i can't TELL when you DO! [13]
 
 **Verse 2**
-> SEND me a MOOD board, i'll MATCH ev-ery PET-al and SHADE; [13]
-> GIVE me the CAT-er-ing LIST, and i'll COUNT ev-ery PLATE; [13]
+> GIVE me the TILL roll, i'll MATCH ev-ery OR-der it FOUND; [13]
+> SEND me last SAT-ur-day's RUSH, and i'll DOU-ble the CROWD; [13]
 > SOME-thing to CHECK a-gainst? THAT'S all i NEED: watch me GO! [13]
 > ON-ly "still BRO-ken"? Then ALL i can HEAR is a "NO". [13]
 > *(you)* no AN-swer KEY for ME! [6]
@@ -315,13 +352,15 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 
 **Bridge** (stripped back)
 > if it's GOOD, then there's SOME-one who KNOWS: *(ooh)* [9]
-> could your GRAN find her SEAT on her PHONE? *(ooh)* [9]
-> what's the THING on the DAY that you'd DREAD? *(ooh)* [9]
+> could a STRANG-er in-STALL it and GO? *(ooh)* [9]
+> what's the THING, if it BROKE, that you'd DREAD? *(ooh)* [9]
 > what's the SCREEN-shot you'd HATE to see SPREAD? [9]
 
 **Break** (half time: the bad boy's rap)
 > an OR-a-cle's AN-y-thing that HELPS you SPOT what's WRONG! *(spot what's wrong!)* [13]
 > we CAN'T be your GRAN, but we can PLAY her ALL day LONG! *(all day long!)* [13]
+> i'll PULL out the PLUG, and then i'll SEE if OR-ders STAY! *(orders stay!)* [13]
+> i'll SNOOP like a PAR-ent, and i'll SEE what OTH-ers SAY! *(others say!)* [13]
 > i CAN'T feel your PAN-ic, but i'll CHECK each FEAR you NAME! *(fear you name!)* [13]
 > i'll SHOW you re-CEIPTS, and it's still YOUR call, ALL the SAME. [13]
 
@@ -341,13 +380,13 @@ stress for stress)
 
 **Rhymes, checked by stressed vowel** (General American)
 - Intro: open / slogan / token / broken, all on OW.
-- Verse 1: guests/tests; ex/check; tag you/clue.
+- Verse 1: green/seen; queue/through; texts/ex; tag you/clue.
 - Pre-chorus: right/sight.
 - Chorus: every line has a rhyming pair in the same two slots, then its end rhyme:
   checks/tests, say/way, sign/line; the ends true / blue / clue, and the tag's do.
-- Verse 2: shade/plate; go/no; tag me/see.
-- Bridge: knows/phone; dread/spread.
-- Break: wrong/long; name/same.
+- Verse 2: found/crowd; go/no; tag me/see.
+- Bridge: knows/go; dread/spread.
+- Break: wrong/long; stay/say; name/same.
 - Outro: the chorus's pattern: checks/tests, know/show; through / you.
 
 **Cribbed, on purpose:** the hook line nods to "I Can't Make You Love Me"; "if I only had a clue"
@@ -363,27 +402,32 @@ in "SOME-thing to CHECK a-gainst", as people say it; the final pre-chorus's thir
 words on the old stresses, so watch it in the takes. New in v7: verse 1 is a straight run of
 fourteen, alternating light and stressed ("i BUILT your SEAT-ing PLAN…"); "MOOD board" takes its
 stress on "mood", as people say it; the band's "(which way?)" answers in the gap after "blue",
-where "(ooh, baby)" was.
+where "(ooh, baby)" was. New in v8: "the BREAD shop's" and "your SCHOOL app" each take two
+stresses where the dictionary gives one ("BREAD shop", "SCHOOL app"); if a take trips, "the
+BAK-er's" and "the SCHOOL'S new" are fallbacks with a light second syllable.
 
 ## The brief, before and after
 
 Before: a brief that already knows who it's for (episode 1), and still says nothing about how
-anyone would know it's good.
+anyone would know it's good. It's the bread shop's, since that app carries most of the song; the
+left-hand words on each new line work for any app.
 
-> seating plan + RSVP site for my sister's wedding
-> for: 120 guests, mostly on phones, Gran included
-> good = everyone finds their seat in seconds
-> skip: logins, confetti
-> ship it by the 14th
+> order-ahead app for the bread shop
+> for: regulars, lots of them over 70, on their phones
+> good = order tonight, pick up warm tomorrow
+> skip: loyalty points, delivery
+> live by Saturday
 
 After, with these lines added. Each names a source of judgement the agents can check against:
 
 > how you'll know it's good:
-> Gran test: a subagent plays Gran on an old phone: can she find her seat?
-> every guest seated exactly once, matching the RSVP sheet
-> dietary counts match the caterer's order
-> dread test: nobody on my feud list shares a table (list below)
-> screenshot test: no table name anyone would hate to see in the family chat
+> works: replay last month's orders; the totals match the till roll
+> easy: a subagent plays our oldest regular, on an old phone, large text: can she order a loaf?
+> installs: a phone that's never seen it gets from the counter's QR code to an order in a minute
+> busy: replay last Saturday's rush at twice the crowd; nothing lost, nothing slow
+> doesn't lose things: pull the wifi mid-order; every order is saved or clearly failed
+> safe: signed in as one customer, you can't see anyone else's orders
+> dread: what I'd hate to happen or see screenshotted is in the list below
 > check each one before you tell me it's done; show me how you checked
 > ask me when these don't settle it
 
@@ -397,17 +441,18 @@ ending gives the lonely "still broken" its answer: "I love it."
 
 ## Why they'd share it
 
-- **To clip:** the intro refrain; the stools, the key change, the band standing up; the Clawd in Gran's cardigan.
+- **To clip:** the intro refrain; the stools, the key change, the band standing up; the Clawd in Gran's cardigan; the bad boy yanking the wifi cable.
 - **To quote:** "I can't make you love it if I can't tell when you do."
 - **To save:** the brief, held full screen.
-- **To tag:** the friend who replies "still broken" and nothing else; the sibling who's planning a wedding.
-- **To reply:** the post text lists the three tests and asks for theirs.
+- **To tag:** the friend who replies "still broken" and nothing else; the friend who runs a small shop.
+- **To reply:** the post text lists the checks and asks for theirs.
 
 **Post text (draft):**
 > "Fixed it!" "still broken." "Fixed it now!" "still broken."
 > Your agent's usually not lying. It's guessing, because nobody told it how to tell.
-> Ways you already have: could your gran use it? What would you dread? What screenshot would you
-> hate to see spread? And the lists you already trust, like the RSVP sheet.
+> Ways you already have: does it match the till roll? Could your gran use it? Could a stranger
+> install it? Does it survive your busiest Saturday, or the wifi dropping? What can a nosy user
+> see? What screenshot would you hate to see spread?
 > Put them in the brief, and have another Claude play the person it's for.
 > Ep 2 of Software Quality Theory 101: a boy band of Clawds asks how to make you love your app.
 > How would you know yours is good?
@@ -515,6 +560,14 @@ ending gives the lonely "still broken" its answer: "I love it."
   mood board and the caterer's list, which is also the list the outro's check report uses. The
   chorus's hook, the bridge, the break's words and the outro are unchanged. The v7 drafts
   alluded only to titles and tropes, never to existing lyrics.
+- **v8, after Qing's notes on the app (2026-09-27):** one wedding app made quality look like one
+  thing, and was too simple for non-obvious oracles. The song now moves across four apps, one
+  angle per line, like episode 1's verses: the bread shop (works, busy, doesn't lose things), the
+  clinic (easy, with Gran), the school's parent app (safe), and the wedding (the judgement call,
+  kept for the laugh). Installs gets the bridge's stranger test. The cares appear only as plain
+  words on screen, trailing episode 3's ilities. The rap gains two lines (pull the plug, snoop
+  like a parent). The chorus, pre-chorus, hook and intro are unchanged. Every earlier draft and
+  fragment is now in the [scratchbook](02-scratchbook.md).
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

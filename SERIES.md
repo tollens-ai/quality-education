@@ -32,7 +32,9 @@ really boring manual testing".
 Episode 1's is "Good for who? Good for what?". The finale sings all of them.
 
 **What carries over:** Clawd, the Claude Code crab, sings, with the other bots as the band. The
-gym log from episode 1's brief is the running app. Every episode ends with a before-and-after
+gym log from episode 1's brief is the running app where it fits; an episode switches app when its
+idea needs one (episode 2's oracles need a wedding seating plan, because the gym log was "too
+simplistic", Qing, 2026-09-27). Every episode ends with a before-and-after
 brief, and each episode can be watched on its own.
 
 ## Part 1: the basics, in the order you'd use them

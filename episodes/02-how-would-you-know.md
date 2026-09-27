@@ -3,8 +3,8 @@
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** v5 (2026-09-27): Qing's boy-band concept, with a chorus of our own, every stress
-match and rhyme machine-checked, after a review round on v4. For Qing's ear. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
+**Status:** v6 (2026-09-27): the boy band, now about a wedding seating plan, with oracles as
+sources of judgement. Every stress match and rhyme machine-checked. For Qing's ear. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
 highest level here, for what the viewer said they care about in episode 1. Working title changed
 from "How Would You Know?" after Qing's note that "how do I know" is a classic song refrain.
 
@@ -116,6 +116,11 @@ On lyrics v5 (2026-09-27):
 > also why is it still playing you! Claus splaying granny or mum or anyone specific is way easier
 > to illustrate.
 
+> hey "if your gym log lost your best" is not an oracle it's just a requirement.
+>
+> also i really think the gym log example is just too simplistic for this song, you want
+> something that will really be improved with non obvious oracles
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -123,6 +128,9 @@ Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
 from the Tollens quality-strategy work. The oracle problem itself is an old idea in testing.
 
 ## Talking points (v1)
+
+*The ideas still stand; the gym-log examples are superseded by the wedding seating plan (see
+Shape), and the bridge's tests are now asked as sources of judgement, not requirements.*
 
 **Misconception, in the viewer's voice:** "My app doesn't have a right answer, so I have to look
 at everything myself."
@@ -219,24 +227,29 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
   for length.
 - **Line to remember:** "I can't make you love it if I can't tell when you do." It closes every
   chorus. It's plain and fair, it's a love-song line, and it's the whole oracle problem.
+- **The app:** a seating plan and RSVP site for your sister's wedding, not the gym log. The gym
+  log was too simple for this idea (Qing): almost everything about it has an obvious answer. A
+  seating plan has no answer key, and plenty of non-obvious oracles: Gran, the RSVP sheet, the
+  caterer's order, the relatives you'd dread seating together, the screenshot you'd hate to see
+  in the family chat. And a wedding suits a love song.
 
 ## What the song says, and what the video shows (sketch)
 
-The lyrics carry the ideas and stand alone; the video carries the gym log. Only the pictures a
+The lyrics carry the ideas and stand alone; the video carries the wedding. Only the pictures a
 line depends on are listed.
 
 | Section | Lyrics say | Video shows |
 |---|---|---|
 | Intro | Qing's refrain: the band's "I just fixed it!", four times, and your replies, none of which the band can check: "it won't open", "where's the slogan?", "missing token", "it's still broken" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "I just fixed it! ✅" and your "it won't open". 2:47 AM in small type. Each exchange stacks on top. The builder Clawd wears a hard hat throughout |
-| Verse 1 | I rebuilt your gym log; every test was green; but you never said what good looks like, so what's to check? Now I'm guessing. Tag: I'd do anything for you, if I only had a clue | The gym log redone screen by screen; a wall of green ticks; an empty space where "good looks like…" should be |
+| Verse 1 | I rebuilt your seating plan; every test was green; but you never said what good looks like, so what's to check? Now I'm guessing. Tag: I'd do anything for you, if I only had a clue | The seating plan redone table by table; a wall of green ticks; an empty space where "good looks like…" should be |
 | Pre-chorus | You tell me when it's broken, never how to tell it's right; you know it when you see it, but keep the answer out of sight; and baby, baby, I just wanna make you love it | — |
 | Chorus | How do I know? All my checks and my tests say it's true; then you just say "not okay", and I'm blue. Give me a sign, or a line, or a clue. The line to remember | The green test report; your "not okay"; the band, blue; a sign held up, blank |
 | Verse 2 | Give me a mockup or a spreadsheet and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Clawd matching a mockup, the two screens converging; a column of totals ticking into agreement; back to "still broken". On "wait and see", three cards land face down |
-| Bridge | If it's good, someone can tell; here's a test: could your dad buy from your shop without stress? If your gym log lost your bests, would you sweat? If your weigh-ins hit the chat, would you fret? | One card flips per line, each captioned with its name: *the dad test* (your dad on your shop), *the sweat test* (you bolt upright at night), *the group-chat test* (your weigh-in in a group chat) |
-| Break | An oracle is anything that helps you spot what's wrong. We can't be your dad, but we can play him; I'll check each fear you name, show you receipts, and it's still your call | One Clawd in a dad cardigan and reading glasses squints at your shop, and finds the checkout button. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
+| Bridge | If it's good, then there's someone who knows. Could your gran find her seat on her phone? What's the thing on the day that you'd dread? What's the screenshot you'd hate to see spread? Each line asks for a source of judgement, not a requirement | One card flips per line, each captioned with its name: *the Gran test* (Gran, squinting at her phone at the venue door), *the dread test* (two feuding uncles at one table), *the screenshot test* ("Table 13: Singles 💀" in the family chat) |
+| Break | An oracle is anything that helps you spot what's wrong. We can't be your gran, but we can play her; I'll check each fear you name, show you receipts, and it's still your call | One Clawd in Gran's cardigan and reading glasses squints at an old phone, and finds Table 7. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
 | Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The brief opening |
 | Chorus (key change) | Word for word | The band stands up off the stools. The brief's new lines tick in, one per sung line |
-| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ lifter test (a Clawd in a sweatband, playing a lifter mid-set, logs a set one-thumbed; screen recording), ✅ bests survive no signal, ❓ app updates: couldn't try a real one. Your thumb logs one set. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
+| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ Gran test (the cardigan Clawd found her seat on an old phone; screen recording), ✅ every guest seated exactly once, against the RSVP sheet, ✅ dietary counts match the caterer's order, ✅ nobody on your dread list shares a table, ❓ feuds you didn't list: can't know. Your sister opens it and finds her table. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
@@ -255,7 +268,7 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 > REAL-ly FIXED it! *(you)* it's still BRO-ken! [4 + 4]
 
 **Verse 1**
-> i re-BUILT your GYM log, EV-ery BUT-ton, EV-ery SCREEN, [13]
+> i re-BUILT your SEAT-ing PLAN, the TA-bles, EV-ery SCREEN, [13]
 > then i RAN my TESTS, and EV-ery SIN-gle ONE was GREEN, [13]
 > but you NEV-er SAID what GOOD looks LIKE, so WHAT'S to CHECK? [13]
 > now i'm GUESS-ing WHAT you MEANT, and GET-ting MORE per-PLEXED. [13]
@@ -285,14 +298,14 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 **Chorus**
 
 **Bridge** (stripped back)
-> if it's GOOD, some-one can TELL. Here's a TEST: *(ooh)* [10]
-> could your DAD buy from your SHOP, and not STRESS? *(ooh)* [10]
-> if your GYM log lost your BESTS, would you SWEAT? *(ooh)* [10]
-> if your WEIGH-ins hit the CHAT, would you FRET? [10]
+> if it's GOOD, then there's SOME-one who KNOWS: *(ooh)* [9]
+> could your GRAN find her SEAT on her PHONE? *(ooh)* [9]
+> what's the THING on the DAY that you'd DREAD? *(ooh)* [9]
+> what's the SCREEN-shot you'd HATE to see SPREAD? [9]
 
 **Break** (half time)
 > an OR-a-cle's AN-y-thing that HELPS you SPOT what's WRONG! *(spot what's wrong!)* [13]
-> we CAN'T be your DAD, but we can PLAY him ALL day LONG! *(all day long!)* [13]
+> we CAN'T be your GRAN, but we can PLAY her ALL day LONG! *(all day long!)* [13]
 > i CAN'T feel your PAN-ic, but i'll CHECK each FEAR you NAME! *(fear you name!)* [13]
 > i'll SHOW you re-CEIPTS, and it's still YOUR call, ALL the SAME. [13]
 
@@ -317,7 +330,7 @@ stress for stress)
 - Chorus: every line has a rhyming pair in the same two slots, then its end rhyme:
   checks/tests, say/okay, sign/line; the ends true / blue / clue, and the tag's do.
 - Verse 2: shade/made; go/no; tag me/see.
-- Bridge: test/stress/bests/sweat/fret.
+- Bridge: knows/phone; dread/spread.
 - Break: wrong/long; name/same.
 - Outro: the chorus's pattern: checks/tests, know/show; through / you.
 
@@ -332,28 +345,23 @@ words on the old stresses, so watch it in the takes.
 
 ## The brief, before and after
 
-Before: episode 1's brief.
+Before: a brief that already knows who it's for (episode 1), and still says nothing about how
+anyone would know it's good.
 
-> a gym log. just for me.
-> for: me, mid-set, sweaty hands
-> good = log a set in one tap
-> fast to open, cheap to run
-> a 🔥 when I beat my best
-> skip: 2FA, Kubernetes, confetti
-> ship it by Monday
-> for you: tidy diags, ask if unsure
+> seating plan + RSVP site for my sister's wedding
+> for: 120 guests, mostly on phones, Gran included
+> good = everyone finds their seat in seconds
+> skip: logins, confetti
+> ship it by the 14th
 
-After, with these lines added. Each is a way to check one thing the brief already cares about,
-or one the sweat and group-chat tests turned up, written so the agent can actually run it. The
-gym log is just for me, so its dad test is a lifter, mid-set, played by someone other than the
-Claude who built it:
+After, with these lines added. Each names a source of judgement the agents can check against:
 
 > how you'll know it's good:
-> lifter test: a subagent plays a lifter mid-set: one thumb, phone-sized
-> fast? a second from tap to open, on slow data
-> 🔥? only for more weight than my best on that lift
-> sweat test: my bests survive no signal and app updates
-> group-chat test: my weigh-ins never leave my phone
+> Gran test: a subagent plays Gran on an old phone: can she find her seat?
+> every guest seated exactly once, matching the RSVP sheet
+> dietary counts match the caterer's order
+> dread test: nobody on my feud list shares a table (list below)
+> screenshot test: no table name anyone would hate to see in the family chat
 > check each one before you tell me it's done; show me how you checked
 > ask me when these don't settle it
 
@@ -367,17 +375,17 @@ ending gives the lonely "still broken" its answer: "I love it."
 
 ## Why they'd share it
 
-- **To clip:** the intro refrain; the stools, the key change, the band standing up; the cardigan coming off.
+- **To clip:** the intro refrain; the stools, the key change, the band standing up; the Clawd in Gran's cardigan.
 - **To quote:** "I can't make you love it if I can't tell when you do."
 - **To save:** the brief, held full screen.
-- **To tag:** the friend who replies "still broken" and nothing else.
+- **To tag:** the friend who replies "still broken" and nothing else; the sibling who's planning a wedding.
 - **To reply:** the post text lists the three tests and asks for theirs.
 
 **Post text (draft):**
 > "Fixed it!" "still broken." "Fixed it now!" "still broken."
 > Your agent's usually not lying. It's guessing, because nobody told it how to tell.
-> Three ways you already have: could your dad use it? What would make you sweat? What would you
-> hate to see in the group chat?
+> Ways you already have: could your gran use it? What would you dread? What screenshot would you
+> hate to see spread? And the lists you already trust, like the RSVP sheet.
 > Put them in the brief, and have another Claude play the person it's for.
 > Ep 2 of Software Quality Theory 101: a boy band of Clawds asks how to make you love your app.
 > How would you know yours is good?
@@ -467,6 +475,11 @@ ending gives the lonely "still broken" its answer: "I love it."
   - verse 1, verse 2 and the bridge rebuilt so their lines match stress for stress; "played you"
     (heard as "tricked you") is gone; "receipts" replaces "the last word's yours to claim"
   - the second pre-chorus is cut for length
+- **After Qing's notes on oracles and the app (2026-09-27):** "lost your bests" was a
+  requirement, not an oracle; the bridge now asks for sources of judgement (someone who knows,
+  Gran, what you'd dread, a screenshot you'd hate to see spread). The gym log was too simple for
+  oracles, so the song moves to a wedding seating plan and RSVP site, whose oracles aren't
+  obvious: Gran, the RSVP sheet, the caterer's order, the feud list, the family chat.
 - **After Qing's note on playing you (2026-09-27):** the simulation plays someone specific, which
   is easier to draw: the dad on your shop, a lifter mid-set on the gym log. The cardigan-to-hoodie
   swap and "(or play you!)" are gone; the brief's line is the lifter test.

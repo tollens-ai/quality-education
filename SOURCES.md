@@ -22,7 +22,7 @@ Published articles on X:
 
 - *What even is a bug anyway* (2026-08-25)
 - *There is no mainline user* (2026-04-16)
-- *Agentic coding and the problem of oracles* (2026-02-06)
+- *Agentic coding and the problem of oracles* (2026-02-06), first written as a guest post for Ed Pringle's blog
 - *Catching the wave I almost missed* (2026-02-09)
 
 ## Martin Davidson's writing
@@ -48,6 +48,12 @@ quality. Credit them here and on screen.
 - [Examples of real software quality failures](research/software-quality-failures.md)
 - James Bach and Michael Bolton on testing vs checking, and on ritual testing ([notes](research/bach-bolton-ritual-testing.md))
 - Research on teaching with video is in [CRAFT.md](CRAFT.md)
+- Test oracles: William Howden, "Theoretical and empirical studies of program testing" (1978),
+  for the term; Elaine Weyuker, "On testing non-testable programs" (1982), for the oracle
+  problem; Bach and Bolton for oracles as fallible heuristics for spotting problems (Bolton,
+  [Oracles are about problems, not correctness](https://developsense.com/blog/2015/03/oracles-are-about-problems-not-correctness), 2015)
+- Nicholas Carlini, [Building a C compiler with a team of parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler)
+  (Anthropic, 2026-02-05): sixteen agents, and GCC as a "known-good compiler oracle"
 
 ## Episode 1: what went into the video
 - **Song:** lyrics by Qing with Claude; performed by a MiniMax generation Qing chose (we own

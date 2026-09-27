@@ -3,10 +3,10 @@
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** talking points v1 for Qing (2026-09-27). Back at episode 2: oracles come before the
-ilities (episode 3) and testing (episode 4). Oracles stay at the highest level here, for what the
-viewer said they care about in episode 1. Working title changed from "How Would You Know?" after
-Qing's note that "how do I know" is a classic song refrain.
+**Status:** full draft v3 (shape, sketch, lyrics, brief), through three review rounds, for
+Qing (2026-09-27). Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
+highest level here, for what the viewer said they care about in episode 1. Working title changed
+from "How Would You Know?" after Qing's note that "how do I know" is a classic song refrain.
 
 ## Expert notes (Qing, 2026-09-27, verbatim)
 
@@ -59,7 +59,7 @@ check its own work at agent speed. You keep the final say.
 
 1. **The loop.** Fifteen rounds of "Fixed it! ✅" and "still broken". The agent is fast; you
    aren't, and you're the bottleneck.
-2. **What agents do when they can tell for themselves.** Sixteen Claudes wrote a C compiler, about
+2. **What agents do when they can tell for themselves.** Sixteen Claudes wrote a C compiler,
    100,000 lines of Rust. Then they stalled on the Linux kernel, all hitting the same bug and
    overwriting each other, until they were given GCC, a compiler known to be right, to compare
    against. Agents are much better when they can tell for themselves what's correct (Qing).
@@ -71,8 +71,8 @@ check its own work at agent speed. You keep the final say.
    - **the mum test:** could someone who isn't a developer log a set without asking you?
    - **the midnight panic:** what breaking would make you sweat? For the gym log, losing your
      personal bests.
-   - **the front-page test:** what would be embarrassing in public? Your weight showing on a
-     public leaderboard.
+   - **the screenshot test** (Qing's front-page test, made current): what would make you cringe
+     in a screenshot? Your weight showing on a public leaderboard.
 5. **The agent can play the people who'd judge it.** Language models are good at imagining
    specific people; predicting what people write is how they were made. It can't be your mum, but
    it can try the app as "someone who's never seen it, one thumb, mid-set", and tell you where it
@@ -100,47 +100,290 @@ check its own work at agent speed. You keep the final say.
   tests is episode 4.
 - Not "only apps with right answers can be automated": that's the misconception.
 
-## Line to remember and hook (early options, before the sketch)
+## Judgement calls on the open claims (2026-09-27)
 
-Clawd sings as your agent again: it wants to do a good job and can't tell whether it has. The
-hook is Clawd's own question, **"How do I know?"**, a classic song refrain (Qing), which the
-viewer ends up answering. Its sibling "How would you know?" can be the turn, when Clawd asks it
-back. Its rhyme family is big: know, show, go,
-though, so, slow, no, below, owe, grow, flow, hello, yo-yo, and one step further, "go-to", "logo",
-"solo".
+Qing asked for my own judgement on these for now ("make your own judgements for now").
 
-Options for the line to remember (Clawd, plain and fair):
-- **A (recommended):** "I don't need you watching. I need to know how you'd know."
-- B: "If it's good, somebody can tell. So tell me who, and tell me how."
-- C: "I'd check my own work, if you'd tell me how you'd check it."
+1. **The front-page test becomes the screenshot test:** "what would make you cringe in a
+   screenshot?" It's the same reputational oracle, in the form a vibecoder meets it.
+2. **Calibrating an oracle ("make sure the check can go red") stays in episode 4.** This episode
+   only needs the idea that there's always a way to know, and that the agent can use it.
+3. **The compiler story stays.** It's the cleanest proof, it's Anthropic's own account, and the
+   post itself uses the word "oracle". Checked on the live page (2026-09-27, Nicholas Carlini,
+   [Building a C compiler with a team of parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler),
+   5 February 2026): 16 agents; a 100,000-line compiler; nearly 2,000 Claude Code sessions;
+   "When agents started to compile the Linux kernel, they got stuck. Unlike a test suite with
+   hundreds of independent tests, compiling the Linux kernel is one giant task"; "The fix was to
+   use GCC as an online known-good compiler oracle to compare against." Also: "it's important
+   that the task verifier is nearly perfect, otherwise Claude will solve the wrong problem."
+4. **The oracles stay at the highest level** (Qing): one for each thing episode 1's brief said
+   matters, plus the panic and screenshot tests, which surface cares the brief forgot. Exact
+   oracles (a converter to compare against, rules that must always hold) are only glimpsed; the
+   ilities episode and the testing episode use them properly.
 
-## Claims to check with Qing
+## Shape
 
-1. **The front-page test** comes from security work, and a newspaper feels dated to a vibecoder.
-   Can it become the screenshot test ("what would be mortifying in a screenshot?"), or should it
-   keep your name for it?
-2. **Point 8 draws the line with the testing episode.** "Make sure a check can go red"
-   (calibrating an oracle) stays in episode 4, so this episode only says a test is as good as its oracle. Is that
-   the right split?
-3. **The compiler story** is from Anthropic's blog, via your article. I'll check every figure and
-   quote on the live page before any of it goes on screen. Is it still the example you'd pick, or
-   is there a fresher one?
+- **Concept, in one sentence:** tell your agent how it will know its work is good, and it can
+  check its own work; there's always a way, because if it's good, somebody can tell.
+- **Misconception:** "My app has no right answer, so I have to check everything myself." What it
+  looks like: the "Fixed it! ✅" / "still broken" loop.
+- **Refutation:** somebody can always tell. Say who, and how they'd tell, and the agent checks its
+  own work at agent speed, shows you how it checked, and you keep the last word.
+- **Singer:** Clawd again, as your agent. This time it's a love song. The agent is the anxious
+  partner who can never tell whether you're happy: its own checks all pass, and you still say no.
+  "How do I know?" and "show me a sign" are love-song stock phrases, and here they mean exactly
+  what the episode teaches. The agent owns its part, as in episode 1: "Fixed it!" was a guess.
+  The user is heard only as a backing-vocal "(still broken)". Keep Clawd's staging comic (Mum's
+  cardigan, the wandering button), never doe-eyed, so it doesn't read as an AI-girlfriend song.
+- **Genre (proposal):** 1980s synth-pop, in the spirit of the big mid-80s "does he love me?"
+  songs, with its own tune: gated-reverb drums, bright synth bass, a big glossy chorus, a key
+  change into the last chorus. About 128 bpm, so a bar is about 1.9 s. Female pop vocal, earnest
+  and yearning, slight robotic edge. Patter verses; a verse template such as the rap cadence of
+  Blondie's "Rapture" is one option for Qing's ear.
+- **Form and length:** intro, verse 1, pre-chorus, chorus once through, verse 2, bridge, break,
+  final pre-chorus, chorus twice through with the key change, outro. About 2:50. The middle
+  chorus and the second pre-chorus are cut so the teaching arrives before two minutes.
+- **Line to remember:** "Don't just tell me when it's wrong, tell me how you'd know!" It closes
+  the chorus. It's the agent's fair side of the relationship, and it is the instruction.
+
+## What the song says, and what the video shows (sketch)
+
+The lyrics carry the ideas and stand alone; the video carries the gym log. Only the pictures a
+line depends on are listed.
+
+| Section | Lyrics say | Video shows |
+|---|---|---|
+| Intro | "I fixed it!" answered by "(still broken)", four times, ending in heartbreak | Frame 1 is two huge bubbles and nothing else: "Fixed it! ✅" and "still broken", 2:47 AM in small type. Each new exchange stacks on top. From here on, the user's sung lines are captioned as grey right-aligned bubbles, Clawd's as its own, so muted viewers can tell who's singing |
+| Verse 1 | The agent fixes the gym log fast, then waits all night: it can run and test the app, but it never knows what "right" means to you. So it guesses, and breaks what worked. Tag: I'm fast, you're slow, and I'm the last to know | The gym log getting worse with each guess: the button in the footer, the rest timer spinning |
+| Pre-chorus | You only say when it's wrong, never how to tell it's right. You know it when you see it, but you never said what shows it | — |
+| Chorus (once) | "How do I know?" All my tests came up green, and you still said no. The line to remember | Clawd's own test report, all green, under your "still broken" |
+| Verse 2 | Sixteen Claudes wrote a compiler and got stuck on the Linux kernel, one giant build: all sixteen chased the same bug and overwrote each other, until their human built most of the kernel with GCC, a compiler known to work, so each could narrow down a different bug. Tag: "No GCC for me!" "Oh, but you've got three!" | Sixteen Clawds at one giant wall, all hammering the same brick; a human hand plugging in GCC, glossed on screen as "a compiler that already works"; most of the wall built with GCC, the red patch shrinking as the Clawds spread out to different bugs. Credit: *Nicholas Carlini, Anthropic* |
+| Bridge | If it's good, somebody can tell. Your three: could your mum log a set, would you sweat if your bests disappeared, would you fret if your weight hit the group chat | Three pictures, each captioned with its name so the brief can use it: *the mum test* (Mum with the gym log), *the sweat test* (you bolt upright at night), *the group-chat test* (a screenshot of your weight in a group chat) |
+| Break | An oracle is anything that helps you spot what's wrong. The agent can play your mum and check each fear you name; it shows you what it checked, and the last word is yours | Clawd in Mum's cardigan trying the gym log one-thumbed; a checklist ticking; your hand on the final tick. Credit below |
+| Final pre-chorus | The same complaint, then the ask: put the answers in the brief, and I'll know it, and I'll show it | The brief opening |
+| Chorus (twice, key change) | Word for word, with the second pass: while you sleep, who else knows if it's good to go? | The questions answered, one per oracle, each tick with its evidence beside it (a screenshot, a load time) |
+| Outro | Now I know: as your mum I logged sets, and your bests won't go; here's how I checked it all, plus the gaps I know. Spoken: "Is it good?" You try it yourself: "It's good." | Under the sung lines, Clawd's check report: ✅ mum test: a stranger logged a set one-thumbed (screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone on screen, captions off, for at least 8 seconds over the instrumental tail. Last frame: frame 1's layout, now "Fixed it! ✅" / "it's good.", over the intro riff, so the loop lands on "I fixed it!" again |
+
+**On-screen credits:**
+- Verse 2: *Nicholas Carlini, "Building a C compiler with a team of parallel Claudes", Anthropic, 2026*
+- Break: *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) · human oracles for
+  agents: Yanqing Cheng*
+
+## Lyric sheet (v3)
+
+Backing vocals in italics and brackets. *(still broken)* is the user, as a gang vocal. Stresses
+in capitals for the pre-chorus and chorus; syllable counts in brackets.
+
+**Intro**
+> I fixed it! *(still broken)* [3]
+> Re-fixed it! *(still broken)* [3]
+> I'm hoping! *(still broken)* [3]
+> I'm broken! *(still broken)* [3]
+
+**Verse 1** (patter)
+> I can fix your gym log in a minute; then I wait all night, [15]
+> I can run it, I can test it, but I never know what's right. [15]
+> So I guessed which bit was broken, and I messed with bits that worked; [15]
+> now the button's in the footer, and the rest timer's berserk! [15]
+> I'm fast, you're slow, [4]
+> and I'm the last to know. [6]
+> *(spoken)* …Is it good now?
+
+**Pre-chorus**
+> you TELL me WHEN it's WRONG, but NEV-er HOW to TELL it's RIGHT; [14]
+> you're ALL i've GOT to JUDGE it, and you JUDGE it LATE at NIGHT. [14]
+> YOU just KNOW it when you SEE it, but you NEV-er SAID what SHOWS it! [16]
+
+**Chorus** (once through the first time; twice through at the end)
+> HOW do i KNOW? *(how do I know?)* [4]
+> all my TESTS came up GREEN, and you STILL said NO! [11]
+> SHOW me a SIGN! *(is it fine?)* [4]
+> DON'T just TELL me WHEN it's WRONG, TELL me HOW you'd KNOW! [12]
+>
+> HOW do i KNOW? *(how do I know?)* [4]
+> while you SLEEP, who else KNOWS if it's GOOD to GO? [11]
+> SHOW me a SIGN! *(is it fine?)* [4]
+> TELL me WHO would SEE it's WRONG, TELL me HOW they'd KNOW! [12]
+
+**Verse 2** (patter)
+> Sixteen Claudes wrote a compiler, a hundred thousand lines of Rust, [16]
+> but the Linux kernel's one big build: one bug, and the whole thing's bust. [16]
+> All sixteen chased the same bug, so they overwrote each other's code, [16]
+> till their human used GCC for most, and each took their own road! [16]
+> *(you, gang)* No GCC for me! [6]
+> *(Clawd)* Oh, but you've got three! [5]
+
+**Bridge**
+> If it's GOOD, someone CAN TELL. Here's a TEST: *(whoa-oh)* [10]
+> On your gym log, could your mum log a set? *(whoa-oh)* [10]
+> If your bests all disappeared, would you sweat? *(whoa-oh)* [10]
+> If your weight hit the group chat, would you fret? [10]
+
+**Break** (half time)
+> An oracle's anything that helps you spot what's wrong! *(spot what's wrong!)* [13]
+> I can't be your mum, but I can play her all day long! *(all day long!)* [13]
+> I can't feel your panic, but I'll check each fear you name! *(fear you name!)* [13]
+> I'll SHOW you WHAT i've CHECKED, but the LAST word's YOURS to CLAIM. [13]
+
+**Final pre-chorus** (lines 1 and 2 word for word; only line 3 changes)
+> you TELL me WHEN it's WRONG, but NEV-er HOW to TELL it's RIGHT; [14]
+> you're ALL i've GOT to JUDGE it, and you JUDGE it LATE at NIGHT. [14]
+> PUT the AN-swers IN the BRIEF, and THEN i'll KNOW it, AND i'll SHOW it! [16]
+
+**Chorus** (key change up, twice through)
+
+**Outro** (the chorus's grid)
+> OH, now i KNOW! *(now I know!)* [4]
+> as your MUM i logged SETS, and your BESTS won't GO! [11]
+> HERE is the SIGN! *(checked it twice!)* [4]
+> HERE'S the WAY i CHECKED it ALL, PLUS the GAPS i KNOW! [12]
+> *(spoken)* …Is it good?
+> *(you, after trying it)* It's good.
+
+**Generator spellings:** "Clawdz" for Claudes (so it isn't heard as "clouds"), "gee see see" for
+GCC, "see compiler" for C compiler.
+
+**Rhymes, section by section** (all hold in General American)
+- Intro: fixed it / re-fixed it, then hoping / broken, all on the same x-S-x shape, against the
+  refrain; "broken" is the payoff.
+- Verse 1: night/right; guessed/messed, and fix/minute inside; worked/berserk; slow/know.
+- Pre-chorus: wrong/right; right/night; know it/shows it.
+- Chorus: no/go/know, the hook's sound; tests/said and green/sleep inside; sign/fine.
+- Verse 2: Rust/bust; code/road, the hook's sound again; me/three.
+- Bridge: test/set/sweat/fret (test a slant); mum/gym inside.
+- Break: wrong/long; name/claim.
+- Final pre-chorus: as the first; know it/show it.
+- Outro: know/go/know; sign/twice; mum/sets inside.
+
+**For Qing's ear:** bridge line 1 stresses "CAN", and line 4 puts GROUP on syllable 6 against 7;
+"their human" in verse 2 (the person who built the harness) is the line most likely to puzzle;
+break line 4 matches its section's grid only in its back half; the final pre-chorus changes line 3,
+so watch it in the takes.
 
 ## The brief, before and after
 
-Before (episode 1's gym-log brief):
+Before: episode 1's brief.
 
 > a gym log. just for me.
 > for: me, mid-set, sweaty hands
 > good = log a set in one tap
-> …
+> fast to open, cheap to run
+> a 🔥 when I beat my best
+> skip: 2FA, Kubernetes, confetti
+> ship it by Monday
+> for you: tidy diags, ask if unsure
 
-After (added to it):
+After, with these lines added. Each is a way to check one thing the brief already cares about,
+or one the sweat and group-chat tests turned up, written so the agent can actually run it:
 
 > how you'll know it's good:
-> a stranger logs a set one-thumbed, phone-sized
-> my bests never vanish, even offline
-> kg ↔ lb matches a real converter
-> nothing public: my weight stays mine
-> check all that yourself before you say done
-> ask me only what those can't answer
+> mum test: someone who's never seen it logs a set, one thumb, phone-sized
+> fast? a second from tap to open, on slow data
+> 🔥? only for more weight than my best on that lift
+> sweat test: my bests survive no signal and app updates
+> group-chat test: my weight never leaves my phone
+> check each one yourself; show me how you checked
+> ask me when these don't settle it
+
+## Why they'd like it
+
+The opening is a loop every vibecoder has lived, played as heartbreak. The agent is sympathetic
+and owns its part: it can run its own tests, and they all pass, and it still can't tell whether
+you're happy. The compiler story is real and a bit astonishing. And the love-song frame makes a
+dry word, "oracle", feel obvious: of course you'd want a sign.
+
+## Why they'd share it
+
+- **To clip:** the intro's "Fixed it! (still broken)" loop, ending on "I'm broken!"
+- **To quote:** "I'm fast, you're slow, and I'm the last to know."
+- **To save:** the brief, held full screen.
+- **To tag:** the friend who replies "still broken" and nothing else.
+- **To reply:** the post text lists the three tests and asks for theirs.
+
+**Post text (draft):**
+> "Fixed it!" "still broken." "Fixed it now!" "still broken."
+> Your agent's usually not lying. It's guessing, because nobody told it how to tell.
+> Three ways you already have: could your mum use it? What would make you sweat? What would you
+> hate to see in the group chat?
+> Ep 2 of Software Quality Theory 101, a synth-pop love song. How would you know yours is good?
+
+## Review log
+
+- **Round 1 (2026-09-27), on v1:** a songwriter, a short-form editor, simulated viewers and a
+  fact-checker, in parallel. Changes made in v2:
+  - the agent no longer claims you're its only way of knowing (the senior engineer's dunk): it can
+    run and test the app, and its tests all pass, but it doesn't know what "right" means to you
+  - the GCC tag answers "Oh, but you've got three!", not "you've got one": a mum, a panic list and
+    a group chat aren't a GCC, and the article says so (fact-checker)
+  - verse 2 now says the mechanism (check each file against a compiler that works, and the bad
+    ones show), and the picture shows a human plugging GCC in: a person told the agents how to
+    know, which is the lesson
+  - the outro no longer rubber-stamps the agent's self-check: it says what it checked, how, and
+    what it couldn't, and the user tries it before saying "It's good" (fact-checker: the
+    circularity trap)
+  - the oracle credit no longer implies Qing coined the word: it credits the testing lineage and
+    her framing for agents
+  - "An oracle tells you if it's right" became "whatever helps you tell right from wrong": oracles
+    are fallible
+  - the brief's lines are now checks an agent can run (it can't open your phone or judge "fake")
+  - cut to about 2:50 by dropping the middle chorus and second pre-chorus, so the three tests
+    arrive before two minutes (editor, viewers)
+  - frame 1 is two huge bubbles; the brief gets six seconds alone; the last frame mirrors the
+    first so the loop reads as before and after (editor)
+  - the songwriter's rebuilds: every intro line on one vowel; verse 1 names the gym log; the
+    pre-choruses share one grid; chorus line 2 carries a fact instead of "Is it right? Is it
+    tight?"; "Show me a sign" gets a rhyming answer, "(is it fine?)"; the bridge is one gym-log
+    test per line; the break rhymes wrong/long and wrote/vote
+  - the post text no longer says the agent "has no way to tell"
+- **Round 2 (2026-09-27), on v2:** one combined craft reviewer and a fresh fact-checker. Changes
+  made in v3:
+  - verse 2 had the GCC fix wrong: the harness didn't check file by file, it built most of the
+    kernel with GCC so the bugs could be narrowed down, and every agent had been chasing the same
+    bug. The lyric now says so, and credits "their human" with the harness (fact-checker, against
+    the live post)
+  - no more "all is fine" or "you can sleep at night": the outro's answer is "(here's the proof!)",
+    the final ticks carry their evidence, the brief asks for proof, and the outro's picture is
+    Clawd's check report, including what it couldn't tell (fact-checker: the circularity trap)
+  - an oracle is now "anything that helps you spot what's wrong": a way to find problems, not a
+    proof of rightness (Bach and Bolton)
+  - the final pre-chorus keeps lines 1 and 2 word for word and changes only line 3, so the
+    generator can repeat it and the instruction ("put the answers in the brief") survives
+  - pre-chorus line 3 now says the new fact, tacit knowledge: "You just know it when you see it,
+    but you never said what shows it"
+  - "you said 'oh no'" contradicted the only thing the user ever says; now "you still said no"
+  - the break no longer refers to a list that doesn't exist yet ("each fear you note")
+  - the brief's usability line now plays Mum, as the song does; the 🔥 and speed lines say
+    exactly what's measured
+  - fixed off-grid lines: the intro (all x-S-x), verse 1 line 2, verse 2 line 1 and tag, the
+    outro (now on the chorus grid), bridge line 1
+  - muted viewers get caption styles that show who's singing; the brief is held 8 seconds with
+    captions off
+- **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
+  - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
+    twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"
+  - the brief's "panic test" and "cringe test" were never taught: the bridge's pictures are now
+    captioned *the mum test*, *the sweat test* and *the group-chat test*, and the brief and post
+    text use those names
+  - verse 2 still made GCC sound as if it exposed the bugs; now GCC let each agent take "their own
+    road", a different bug each
+  - the outro's last line now matches the chorus's stresses ("PLUS the GAPS i KNOW"), and its
+    check report admits the one thing it couldn't try (a real app update)
+  - the brief's usability line is one an agent can act on ("someone who's never seen it"), and the
+    song's mum is that test's name
+  - the sketch now matches the lyrics word for word
+  - the post text says agents are "usually" not lying
+
+## Claims to check with Qing
+
+Only the ones where her answer would change the draft:
+
+1. **What an oracle is.** The break follows Bach and Bolton: "anything that helps you spot what's
+   wrong", a fallible way to find problems. Qing's article frames it the other way round, as the
+   source of truth that lets an agent "tell by themselves what's correct". Is the problem-spotting
+   definition the right one for this audience, or does it undersell the "agent checks its own
+   work" payoff?
+2. **"All my tests came up green, and you still said no."** It says the agent's own tests can't
+   stand in for your judgement, which foreshadows episode 4's green wall. Fair, or does it knock
+   tests too early?
+3. **The agent playing your mum.** The break and the outro treat persona simulation as a real
+   check, with the evidence shown and the last word yours. Is that the right strength of claim?

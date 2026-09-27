@@ -25,6 +25,8 @@ Lines, rhymes and ideas that worked on their own, with why each isn't in the son
   Qing, next: "and can definitely squeeze a 'to make your dreams come true' in". It fits the
   last six syllables exactly: "WHO could it BE? WHAT would they SEE, to MAKE your DREAMS come
   TRUE?" or "GIVE me a SIGN, GIVE me a LINE, to MAKE your DREAMS come TRUE".
+  Qing, next: "give me a guide, something to try?" (GIVE me a GUIDE, SOME-thing to TRY: the
+  same 4 + 4, guide/try on AY).
 - "I don't need you watching. I need to know how you'd know." (an early line to remember)
 - "If it's good, somebody can tell. So tell me who, and tell me how."
 - "I'd check my own work, if you'd tell me how you'd check it."

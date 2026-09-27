@@ -73,6 +73,14 @@ Lines, rhymes and ideas that worked on their own, with why each isn't in the son
 - "our" counts as two syllables in the dictionary ("in WAYS our TESTS" came out 15).
 
 **Tags and asides**
+- Qing's refrain, the intro of v5 to v9 (cut from the intro as too heavy for a light opening;
+  could return as a mid-song breakdown or in the post text):
+  > i just FIXED it! *(you)* it won't O-pen! / yeah, just FIXED it! *(you)* where's the SLO-gan? /
+  > i re-FIXED it! *(you)* MISS-ing TO-ken! / REAL-ly FIXED it! *(you)* it's still BRO-ken!
+- "Oh baby, wait and see!" (v5 to v9; read as "ship it and find out"), and the v9 dedication
+  "This one goes out to everyone who's ever typed… 'still broken'."
+- Chorus line 3 alternative: "GIVE me a GUIDE, GIVE me a SIGN, to MAKE your DREAMS come TRUE"
+  (guide/sign on AY; pays off the pre-chorus's "waiting for a sign").
 - "Oh, but you've got three!" (answering "No answer key for me!"; replaced by "wait and see")
 - "(or play you!)" and the cardigan pulled off to show your gym hoodie (cut: play someone
   specific, not you)
@@ -1570,3 +1578,102 @@ words on the old stresses, so watch it in the takes. New in v7: verse 1 is a str
 fourteen, alternating light and stressed ("i BUILT your SEAT-ing PLAN…"); "MOOD board" takes its
 stress on "mood", as people say it; the band's "(which way?)" answers in the gap after "blue",
 where "(ooh, baby)" was.
+
+### Episode 2 v9, Qing's chorus, before the full review (13dc18f)
+
+Backing vocals in italics and brackets. Lines marked *(you)* are the user, as a gang vocal.
+Stresses in capitals, syllables split with hyphens. Every set of lines that answer each other
+was run through `music/check/rhyme.py lines` and matches exactly; every rhyme listed below was run
+through `music/check/rhyme.py rhyme` and shares its stressed vowel.
+
+**Intro** (the lead, spoken, over finger snaps; then Qing's refrain, the band, then the cast)
+> *(spoken)* This one goes out to everyone who's ever typed… "still broken".
+> i just FIXED it! *(you)* it won't O-pen! [4 + 4]
+> yeah, just FIXED it! *(you)* where's the SLO-gan? [4 + 4]
+> i re-FIXED it! *(you)* MISS-ing TO-ken! [4 + 4]
+> REAL-ly FIXED it! *(you)* it's still BRO-ken! [4 + 4]
+
+**Verse 1**
+> we BUILT you EACH an APP, and EV-ery TEST came BACK as GREEN; [14]
+> then EV-ery ONE went WRONG in WAYS the TESTS had NEV-er SEEN: [14]
+> *(the lead, to Rosa)* your BREAD shop's APP went DOWN at EIGHT with FIF-ty IN the QUEUE; [14]
+> *(the sensitive one, to Dr Obi)* your CLIN-ic's BOOK-ing SITE looked GREAT, but GRAN could NOT get THROUGH; [14]
+> *(the bad boy, to Ms Kim)* your SCHOOL app LET a PAR-ent READ the OTH-er PAR-ents' TEXTS; [14]
+> *(the builder, to Jess)* your WED-ding SITE sat UN-cle DAVE be-SIDE his AN-gry EX! [14]
+> *(all)* I'd do anything for you *(for you)* [7]
+> if I only had a clue! [7]
+
+**Pre-chorus**
+> you TELL me when it's BRO-ken, NEV-er HOW to TELL it's RIGHT; [14]
+> you DON'T know that you KNOW it; THAT'S what KEEPS it OUT of SIGHT, [14]
+> and BA-by, BA-by, i'm just WAIT-ing for a SIGN… [12]
+
+**Chorus**
+> HOW do i KNOW, HOW can you SHOW, what PER-fect MEANS to YOU? [14]
+> ALL of my CHECKS, ALL of my TESTS, don't FIND the BUGS you DO. [14]
+> GIVE me a GUIDE, SOME-thing to TRY, to MAKE your DREAMS come TRUE! [14]
+> *(all)* i WANT you to LOVE it *(love it)*, so GIVE me SOME-thing i can PROVE! [14]
+
+**Verse 2**
+> GIVE me the TILL roll, i'll MATCH ev-ery LOAF that you SOLD; [13]
+> SEND me last SAT-ur-day's RUSH, and i'll DOU-ble the LOAD; [13]
+> SOME-thing to CHECK a-gainst? THAT'S all i NEED: watch me GO! [13]
+> ON-ly "still BRO-ken"? Then ALL i can HEAR is a "NO". [13]
+> *(you)* no AN-swer KEY for ME! [6]
+> *(all)* oh BA-by, WAIT and SEE! [6]
+
+**Chorus**
+
+**Bridge** (stripped back)
+> if it's GOOD, then there's SOME-one who KNOWS: *(ooh)* [9]
+> could a STRANG-er in-STALL it and GO? *(ooh)* [9]
+> what's the THING, if it BROKE, that you'd DREAD? *(ooh)* [9]
+> what's the SCREEN-shot you'd HATE to see SPREAD? [9]
+
+**Break** (half time: the bad boy's rap)
+> an OR-a-cle's AN-y-thing that HELPS you SPOT what's WRONG! *(spot what's wrong!)* [13]
+> we CAN'T be your PA-tients, we can PLAY them ALL day LONG! *(all day long!)* [13]
+> i'll PULL out the PLUG, and then i'll SEE if OR-ders STAY! *(orders stay!)* [13]
+> i'll SNOOP like a PAR-ent, and i'll SEE what OTH-ers SAY! *(others say!)* [13]
+> i CAN'T feel your PAN-ic, but i'll CHECK each FEAR you NAME! *(fear you name!)* [13]
+> i'll SHOW you re-CEIPTS, and it's still YOUR call, ALL the SAME. [13]
+
+**Final pre-chorus** (lines 1 and 2 word for word; line 3 matches the first pre-chorus's line 3
+stress for stress)
+> you TELL me when it's BRO-ken, NEV-er HOW to TELL it's RIGHT; [14]
+> you DON'T know that you KNOW it; THAT'S what KEEPS it OUT of SIGHT, [14]
+> so WRITE it DOWN, 'cause i've been WAIT-ing for a SIGN… [12]
+
+**Chorus** (key change up; the band stands)
+
+**Outro** (the chorus's grid)
+> HERE are the CHECKS, HERE are the TESTS, and HOW i RAN them THROUGH; [14]
+> WHAT i don't KNOW, THAT i will SHOW, and LEAVE the REST to YOU. [14]
+> *(spoken)* So… do you love it?
+> *(the cast, one by one, after trying their apps)* …I love it. / I love it. / I love it.
+> *(Jess)* …Dave's still coming, though.
+
+**Rhymes, checked by stressed vowel** (General American)
+- Intro: open / slogan / token / broken, all on OW.
+- Verse 1: green/seen; queue/through; texts/ex; tag you/clue.
+- Pre-chorus: right / sight / sign, all on AY.
+- Chorus (Qing's grid): every line has a rhyming pair in the first two slots, then its end rhyme:
+  know/show, checks/tests, guide/try; the ends you / do / true, and the hook's prove.
+- Verse 2: sold/load; go/no; tag me/see.
+- Bridge: knows/go; dread/spread.
+- Break: wrong/long; stay/say; name/same.
+- Outro: the chorus's grid: checks/tests, know/show; through / you.
+
+**Cribbed, on purpose:** "if I only had a clue" nods to "If I Only Had a Brain"; "I'd do
+anything for you" and "make your dreams come true" to every boy band ever; "you don't
+know that you know it, that's what keeps it out of sight" turns the "don't know you're
+beautiful" hook around. The nods are titles and tropes, never the songs' lyrics.
+
+**For Qing's ear:** in the intro, "REAL-ly FIXED it" and "MISS-ing TO-ken" start on a stress
+where their neighbours start with two light syllables; if the take trips, "it's so FIXED now" and
+"there's no TO-ken" match exactly; "a-GAINST" goes unstressed
+in "SOME-thing to CHECK a-gainst", as people say it; the final pre-chorus's third line is new
+words on the old stresses, so watch it in the takes. Verse 1 is a straight run of fourteen,
+alternating light and stressed. The hook line's stresses don't match the chorus lines' grid
+(it's 14 syllables, but "i WANT you to LOVE it" starts on a light syllable); it's sung once per
+chorus as its own tag, as the old hook was.

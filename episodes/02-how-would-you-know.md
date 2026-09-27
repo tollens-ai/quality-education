@@ -402,9 +402,7 @@ in "SOME-thing to CHECK a-gainst", as people say it; the final pre-chorus's thir
 words on the old stresses, so watch it in the takes. New in v7: verse 1 is a straight run of
 fourteen, alternating light and stressed ("i BUILT your SEAT-ing PLAN…"); "MOOD board" takes its
 stress on "mood", as people say it; the band's "(which way?)" answers in the gap after "blue",
-where "(ooh, baby)" was. New in v8: "the BREAD shop's" and "your SCHOOL app" each take two
-stresses where the dictionary gives one ("BREAD shop", "SCHOOL app"); if a take trips, "the
-BAK-er's" and "the SCHOOL'S new" are fallbacks with a light second syllable.
+where "(ooh, baby)" was.
 
 ## The brief, before and after
 

@@ -24,7 +24,9 @@ where one already covers it.
 - **Use the words people actually say.** Don't swap in a near-synonym just to make a rhyme work.
   People say an agent "deleted my files", not that it "wiped what you own"; they say "keeps your
   data safe", not "keeps your data locked". If the natural phrase won't rhyme, rebuild the line
-  around a different natural phrase. Prefer the international word when it costs nothing ("works
+  around a different natural phrase, and if a whole rhyme scheme keeps forcing odd words ("or
+  shun it"), change the scheme (Qing, 2026-09-27: "if one rhyme scheme is not working out try
+  others"). Prefer the international word when it costs nothing ("works
   on a train", not "works on the Tube"; "dad", not "mum", which is "mom" in America: Qing,
   2026-09-27).
 - **Every phrase must be a real phrase.** "Test it through" rhymes but isn't English, so listeners

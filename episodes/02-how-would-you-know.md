@@ -103,6 +103,9 @@ On lyrics v5 (2026-09-27):
 > "I refixed it" "missing token"
 > "really fixed it" "it's still broken"
 
+> also like weird wording like "shun it" is cringe. if one rhyme scheme is not working out try
+> others
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -217,13 +220,13 @@ line depends on are listed.
 | Intro | Qing's refrain: the band's "I just fixed it!", four times, and your replies, none of which the band can check: "it won't open", "where's the slogan?", "missing token", "it's still broken" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "I just fixed it! ✅" and your "it won't open". 2:47 AM in small type. Each exchange stacks on top. The builder Clawd wears a hard hat throughout |
 | Verse 1 | I rebuilt your gym log; every test was green; but you never said what good looks like, so what's to check? Now I'm guessing. Tag: I'd do anything for you, if I only had a clue | The gym log redone screen by screen; a wall of green ticks; an empty space where "good looks like…" should be |
 | Pre-chorus | You tell me when it's broken, never how to tell it's right; you know it when you see it, but keep the answer out of sight; and baby, baby, I just wanna make you love it | — |
-| Chorus | How do I know, though, you love it? My tests all say yes, so I've done it: do you agree too, or shun it? Give me the signs, and I'll judge it. The line to remember | The green test report; your face, unmoved; a sign held up, blank |
+| Chorus | How do I know if you love it, though? All my checks and tests say so; you take a look, and it's still a no. Give me the signs, and then off I go. The line to remember | The green test report; your face, unmoved; a sign held up, blank; on "off I go", the band a blur of speed |
 | Verse 2 | Give me a mockup or a spreadsheet and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Clawd matching a mockup, the two screens converging; a column of totals ticking into agreement; back to "still broken". On "wait and see", three cards land face down |
 | Bridge | If it's good, someone can tell; here's a test: could your dad buy from your shop without stress? If your gym log lost your bests, would you sweat? If your weigh-ins hit the chat, would you fret? | One card flips per line, each captioned with its name: *the dad test* (your dad on your shop), *the sweat test* (you bolt upright at night), *the group-chat test* (your weigh-in in a group chat) |
 | Break | An oracle is anything that helps you spot what's wrong. We can't be your dad, but we can play him (or play you); I'll check each fear you name, show you receipts, and it's still your call | One Clawd in a dad cardigan squints at your shop, then pulls the cardigan off to show your gym hoodie: *"…or you, mid-set"*. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
 | Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The brief opening |
 | Chorus (key change) | Word for word | The band stands up off the stools. The brief's new lines tick in, one per sung line |
-| Outro | Here's how I know that I've done it: one of the band tried to run it; what I don't know, I won't fudge it. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ mid-set test (the hoodie Clawd, one thumb, phone-sized, screen recording), ✅ bests survive no signal, ❓ app updates: couldn't try a real one. Your thumb logs one set. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
+| Outro | Here are the checks, and they all say so; one of the band gave your app a go; anything else? That's for you to know. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ mid-set test (the hoodie Clawd, one thumb, phone-sized, screen recording), ✅ bests survive no signal, ❓ app updates: couldn't try a real one. Your thumb logs one set. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
@@ -255,10 +258,10 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 > and BA-by, BA-by, i just WAN-na make you LOVE it… [13]
 
 **Chorus**
-> HOW do i KNOW, though, you LOVE it? *(ooh, baby)* [8]
-> TESTS all say YES, so i've DONE it! *(ooh, baby)* [8]
-> DO you a-GREE, too, or SHUN it? *(ooh, baby)* [8]
-> GIVE me the SIGNS, and i'll JUDGE it! [8]
+> HOW do i KNOW if you LOVE it, THOUGH? *(ooh, baby)* [9]
+> ALL of my CHECKS and my TESTS say SO, *(ooh, baby)* [9]
+> YOU take a LOOK, and it's STILL a NO. *(ooh, baby)* [9]
+> GIVE me the SIGNS, and then OFF i GO! [9]
 > *(all)* i can't MAKE you LOVE it *(love it)*, if i can't TELL when you DO! [13]
 
 **Verse 2**
@@ -292,9 +295,9 @@ stress for stress)
 **Chorus** (key change up; the band stands)
 
 **Outro** (the chorus's grid)
-> HERE'S how i KNOW that i've DONE it: *(ooh, baby)* [8]
-> ONE of the BAND tried to RUN it! *(ooh, baby)* [8]
-> WHAT i don't KNOW, i won't FUDGE it! [8]
+> HERE are the CHECKS, and they ALL say SO, *(ooh, baby)* [9]
+> ONE of the BAND gave your APP a GO, *(ooh, baby)* [9]
+> AN-y-thing ELSE? That's for YOU to KNOW. [9]
 > *(spoken)* So… do you love it?
 > *(you, after trying it)* …I love it.
 
@@ -302,12 +305,12 @@ stress for stress)
 - Intro: open / slogan / token / broken, all on OW.
 - Verse 1: screen/green; check/perplexed; tag you/clue.
 - Pre-chorus: right/sight.
-- Chorus: love it / done it / shun it / judge it (all "-uh it"); know/though, tests/yes, do/too
-  inside the lines; the tag's do answers verse 1's you/clue.
+- Chorus: though / so / no / go, on the hook's own sound (know); checks/tests and signs/I inside
+  the lines; the tag's do answers verse 1's you/clue.
 - Verse 2: shade/made; go/no; tag me/see.
 - Bridge: test/stress/bests/sweat/fret.
 - Break: wrong/long; name/same.
-- Outro: done it / run it / fudge it, on the chorus's "-uh it".
+- Outro: so / go / know, on the chorus's sound.
 
 **Cribbed, on purpose:** the hook line nods to "I Can't Make You Love Me"; "if I only had a clue"
 to "If I Only Had a Brain"; "I'd do anything for you" to every boy band ever.
@@ -437,9 +440,9 @@ ending gives the lonely "still broken" its answer: "I love it."
 - **Round 4 (2026-09-27), on v4:** a songwriter, and a combined editor, viewer and fact-checker.
   Changes made in v5, with a chorus of our own and `music/check/rhyme.py` checking every stress
   match and rhyme (it caught a pre-chorus mismatch v4 had called exact):
-  - a new chorus on one multi-syllable rhyme (love it / done it / shun it / judge it) with
-    internal pairs, and the green tests turned into the oracle question: "do you agree too, or
-    shun it?"
+  - a new chorus, the green tests turned into the oracle question (its first rhyme scheme,
+    love it / done it / shun it / judge it, forced "shun it" and was replaced after Qing's note:
+    now though / so / no / go, on the hook's own sound)
   - the builder no longer checks its own work in the words: it wears a hard hat and watches;
     another Clawd plays you, "one of the band tried to run it", and the brief says "a subagent"
   - the dad test's switch of app is shown: the cardigan comes off to show your gym hoodie, "…or

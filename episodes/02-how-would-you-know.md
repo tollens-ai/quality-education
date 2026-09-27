@@ -3,8 +3,8 @@
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** v4 (2026-09-27): Qing's boy-band concept, drafted in full on the approved claims.
-In review before she hears it. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
+**Status:** v5 (2026-09-27): Qing's boy-band concept, with a chorus of our own, every stress
+match and rhyme machine-checked, after a review round on v4. For Qing's ear. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
 highest level here, for what the viewer said they care about in episode 1. Working title changed
 from "How Would You Know?" after Qing's note that "how do I know" is a classic song refrain.
 
@@ -75,6 +75,21 @@ On the mum test:
 > oh actually mum is more alienating than dad internationally because of spelling
 
 > or granny
+
+On lyrics v4 (2026-09-27):
+
+> noooooo overfitting againnnnnnn stopppppp there is no particular line structure that works!
+
+> you can do any internal rhyme structure you like, cribbing from anywhere! sondheim! Miranda!
+> gilbert and Sullivan!
+
+> the key thing for minimax is that syllable stress matches need to be exact
+
+> love it and leave it do NOT rhyme
+
+> no see it absolutely rhymes with leave it
+
+> mockup and lock it up don't rhyme either
 
 ## Where it comes from
 
@@ -157,26 +172,26 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
    oracles (a converter to compare against, rules that must always hold) are only glimpsed; the
    ilities episode and the testing episode use them properly.
 
-## Shape (v4: the boy band)
+## Shape (the boy band)
 
 - **Concept, in one sentence:** tell your agent how it will know its work is good, and it can
-  check its own work; there's always a way, because if it's good, somebody can tell.
+  check its work; there's always a way, because if it's good, somebody can tell.
 - **Misconception:** "My app has no right answer, so I have to check everything myself." What it
   looks like: the "Fixed it! ✅" / "still broken" loop.
-- **Refutation:** somebody can always tell. Say who, and how they'd tell, and the agents check the
+- **Refutation:** somebody can always tell. Say who, and how they'd tell, and your agents check the
   work at agent speed, show you how they checked, and you keep the last word.
 - **Singers (Qing's concept, 2026-09-27):** a boy band of Clawds singing to you, in the mould of
   "how do I make you love me?", except it's "how do I make you love this app?" They'd do anything
-  for you, if they only had a clue. Being a band also carries a point for free: the Claude who
-  built it isn't the one who plays you. The band plays you; nobody has to say why. The user is
-  heard only in call-and-response ("Still broken!", "No answer key for me!").
+  for you, if they only had a clue. Being a band also carries a point for free: the Clawd who
+  built it isn't the one who plays you. The user is heard only in call-and-response ("still
+  broken", "No answer key for me!").
 - **Genre (proposal):** late-90s boy-band pop: finger snaps, an R&B groove, five-part harmonies,
   lead lines traded between members, a stool-ballad feel that stands up for the key change into
-  the last chorus. About 104 bpm (a bar is about 2.3 s). Qing's sample lines show the rhyme
-  density she wants, not a structure to copy; the rhythm has to be obvious enough for the
-  generator to deduce, and no particular line shape guarantees that.
-- **Form and length:** spoken intro, verse 1, pre-chorus, chorus, verse 2, pre-chorus, chorus,
-  bridge, break, final pre-chorus, chorus with the key change, outro. About 2:40.
+  the last chorus. About 104 bpm (a bar is about 2.3 s). Lines that answer each other match their
+  stresses exactly, checked with `music/check/rhyme.py`; the rhythm is otherwise free.
+- **Form and length:** spoken intro, verse 1, pre-chorus, chorus, verse 2, chorus, bridge, break,
+  final pre-chorus, chorus with the key change, outro. About 2:40; the second pre-chorus is cut
+  for length.
 - **Line to remember:** "I can't make you love it if I can't tell when you do." It closes every
   chorus. It's plain and fair, it's a love-song line, and it's the whole oracle problem.
 
@@ -187,99 +202,104 @@ line depends on are listed.
 
 | Section | Lyrics say | Video shows |
 |---|---|---|
-| Intro | Spoken dedication, "this one's for the one who keeps saying…", answered by you: "Still broken!" | Frame 1: five Clawds in matching white suits on stools, under one huge chat bubble: "still broken". 2:47 AM in small type |
-| Verse 1 | We rebuilt your gym log, ran our tests a hundred times, all green; you sent "still broken" like a text from an ex; now we're guessing. Tag: we'd do anything for you, if we only had a clue | The gym log redone screen by screen; a wall of green ticks; your "still broken" arriving like a breakup text |
-| Pre-chorus | You tell us when it's wrong, never how to tell it's right; you know it when you see it, but you keep it out of sight; and baby, baby, I just wanna make you love it | — |
-| Chorus | How do I know if my code is the app of your dreams, the one you won't leave; how do I check my test is worth believing; give me a sign: is it bugs, or the bee's knees? The line to remember | Each question on the gym log: your dream screen, the app you'd keep, a test, a flame |
-| Verse 2 | Give us a mockup or a spreadsheet and we match it; with something to check against, watch us go; with only "still broken", all we get is "no". Tag: "No answer key for me!" "Oh, but you've got three!" | Clawd matching a mockup, the two screens converging; a column of totals ticking into agreement; back to "still broken" |
-| Bridge | If it's good, someone can tell. Could your dad use your shop without getting stressed? If your gym bests disappeared, would you sweat? If your weight hit the group chat, would you fret? | Three pictures, each captioned with its name: *the dad test* (your dad on your shop), *the sweat test* (you bolt upright at night), *the group-chat test* (your weight in a group chat) |
-| Break | An oracle is anything that helps you spot what's wrong. We can't be your dad, but we can play him; I'll check each fear you name, show you what I checked, and the last word's yours | One Clawd in a dad cardigan, squinting at your shop; a checklist ticking, evidence beside each tick; your hand on the final tick. Credit below |
-| Final pre-chorus | The same complaint, then the ask: put it in the brief, and I can make you love it | The brief opening |
-| Chorus (key change) | Word for word | The band stands up off the stools; each question now answered, evidence beside each tick |
-| Outro | Now I know what you need: we played you mid-set, one thumb, and your bests never leave; here's what we checked, and how, and the gaps we see. Spoken: "So… do you love it?" You try it yourself: "I love it." | Under the sung lines, the band's check report: ✅ mid-set test (a Clawd playing you, one thumb, phone-sized, screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone, captions off, for at least 8 seconds over the instrumental. Last frame: frame 1's layout, the bubble now "I love it.", over the intro snaps, so the loop lands on "still broken" again |
+| Intro | Spoken dedication, "this one's for the one who keeps on saying…", answered by you: "still broken!" | Frame 1: five Clawds in matching white suits on stools, under two huge chat bubbles, the band's "Fixed it! ✅" and your "still broken". 2:47 AM in small type. The builder Clawd wears a hard hat throughout |
+| Verse 1 | I rebuilt your gym log; every test was green; you texted "it's still broken", cold, just like an ex; now I'm guessing. Tag: I'd do anything for you, if I only had a clue | The gym log redone screen by screen; a wall of green ticks; your "it's still broken" arriving like a breakup text |
+| Pre-chorus | You tell me when it's broken, never how to tell it's right; you know it when you see it, but keep the answer out of sight; and baby, baby, I just wanna make you love it | — |
+| Chorus | How do I know, though, you love it? My tests all say yes, so I've done it: do you agree too, or shun it? Give me the signs, and I'll judge it. The line to remember | The green test report; your face, unmoved; a sign held up, blank |
+| Verse 2 | Give me a mockup or a spreadsheet and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Clawd matching a mockup, the two screens converging; a column of totals ticking into agreement; back to "still broken". On "wait and see", three cards land face down |
+| Bridge | If it's good, someone can tell; here's a test: could your dad buy from your shop without stress? If your gym log lost your bests, would you sweat? If your weigh-ins hit the chat, would you fret? | One card flips per line, each captioned with its name: *the dad test* (your dad on your shop), *the sweat test* (you bolt upright at night), *the group-chat test* (your weigh-in in a group chat) |
+| Break | An oracle is anything that helps you spot what's wrong. We can't be your dad, but we can play him (or play you); I'll check each fear you name, show you receipts, and it's still your call | One Clawd in a dad cardigan squints at your shop, then pulls the cardigan off to show your gym hoodie: *"…or you, mid-set"*. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
+| Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The brief opening |
+| Chorus (key change) | Word for word | The band stands up off the stools. The brief's new lines tick in, one per sung line |
+| Outro | Here's how I know that I've done it: one of the band tried to run it; what I don't know, I won't fudge it. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ mid-set test (the hoodie Clawd, one thumb, phone-sized, screen recording), ✅ bests survive no signal, ❓ app updates: couldn't try a real one. Your thumb logs one set. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "Fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "still broken" again |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
-human oracles for agents: Yanqing Cheng*
+oracles for agentic coding: Yanqing Cheng*
 
-## Lyric sheet (v4)
+## Lyric sheet (v5)
 
 Backing vocals in italics and brackets. Lines marked *(you)* are the user, as a gang vocal.
-Syllable counts in brackets; stresses in capitals for the pre-chorus and chorus.
+Stresses in capitals, syllables split with hyphens. Every set of lines that answer each other
+was run through `music/check/rhyme.py lines` and matches exactly; every rhyme listed below was run
+through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 
 **Intro** (spoken, over finger snaps)
 > Yeah… this one's for the one who keeps on saying…
 > *(you)* Still broken!
 
 **Verse 1**
-> I rebuilt your gym log, every button, every screen, [13]
-> ran my tests a hundred times, and every one was green, [13]
-> then you sent me "still broken", like a text from an ex, [13]
-> now I'm guessing what you meant, and getting more perplexed. [13]
+> i re-BUILT your GYM log, EV-ery BUT-ton, EV-ery SCREEN, [13]
+> then i RAN my TESTS, and EV-ery SIN-gle ONE was GREEN, [13]
+> but you TEXT-ed "IT'S still BRO-ken", COLD, just LIKE an EX, [13]
+> now i'm GUESS-ing WHAT you MEANT, and GET-ting MORE per-PLEXED. [13]
 > *(all)* I'd do anything for you *(for you)* [7]
 > if I only had a clue! [7]
 
 **Pre-chorus**
-> you TELL me WHEN it's WRONG, but NEV-er HOW to TELL it's RIGHT; [14]
-> you KNOW it WHEN you SEE it, but you KEEP it OUT of SIGHT, [14]
-> and BA-by, BA-by, I just WAN-na make you LOVE it… [13]
+> you TELL me when it's BRO-ken, NEV-er HOW to TELL it's RIGHT; [14]
+> you KNOW it when you SEE it, KEEP the AN-swer OUT of SIGHT, [14]
+> and BA-by, BA-by, i just WAN-na make you LOVE it… [13]
 
 **Chorus**
-> HOW do i KNOW, if my CODE, is the APP of your DREAMS? [4 + 3 + 6]
-> HOW do i SEE, gua-ran-TEE, it's the ONE you won't LEAVE? [4 + 3 + 6]
-> HOW do i CHECK, if my TEST, is a TEST to be-LIEVE? [4 + 3 + 6]
-> GIM-me a SIGN, draw the LINE: is it BUGS, or the BEE'S KNEES? [4 + 3 + 7]
-> *(all)* I can't MAKE you LOVE it *(love it)*, if I CAN'T tell WHEN you DO! [13]
+> HOW do i KNOW, though, you LOVE it? *(ooh, baby)* [8]
+> TESTS all say YES, so i've DONE it! *(ooh, baby)* [8]
+> DO you a-GREE, too, or SHUN it? *(ooh, baby)* [8]
+> GIVE me the SIGNS, and i'll JUDGE it! [8]
+> *(all)* i can't MAKE you LOVE it *(love it)*, if i can't TELL when you DO! [13]
 
 **Verse 2**
-> Give me a mockup, I'll match every pixel and shade; [13]
-> give me your spreadsheet, I'll match every sum that it made; [13]
-> with something to check against, just watch me go, go, go! [13]
-> But with just "still broken", all I ever get's a "no". [13]
-> *(you)* No answer key for me! [6]
-> *(all)* Oh, but you've got three! [5]
+> GIVE me a MOCK-up, i'll MATCH ev-ery PIX-el and SHADE; [13]
+> GIVE me your SPREAD-sheet, i'll MATCH ev-ery SUM that you MADE; [13]
+> SOME-thing to CHECK a-gainst? THAT'S all i NEED: watch me GO! [13]
+> ON-ly "still BRO-ken"? Then ALL i can HEAR is a "NO". [13]
+> *(you)* no AN-swer KEY for ME! [6]
+> *(all)* oh BA-by, WAIT and SEE! [6]
 
-**Pre-chorus**, **Chorus**
+**Chorus**
 
 **Bridge** (stripped back)
-> If it's GOOD, someone CAN TELL. Here's a TEST: *(ooh)* [10]
-> could your DAD use your SHOP, and not get STRESSED? *(ooh)* [10]
-> if your GYM bests dis-ap-PEARED, would you SWEAT? *(ooh)* [10]
-> if your WEIGHT hit the group CHAT, would you FRET? [10]
+> if it's GOOD, some-one can TELL. Here's a TEST: *(ooh)* [10]
+> could your DAD buy from your SHOP, and not STRESS? *(ooh)* [10]
+> if your GYM log lost your BESTS, would you SWEAT? *(ooh)* [10]
+> if your WEIGH-ins hit the CHAT, would you FRET? [10]
 
 **Break** (half time)
-> An oracle's anything that helps you spot what's wrong! *(spot what's wrong!)* [13]
-> We can't be your dad, but we can play him all day long! *(all day long!)* [13]
-> I can't feel your panic, but I'll check each fear you name! *(fear you name!)* [13]
-> I'll SHOW you WHAT i've CHECKED, but the LAST word's YOURS to CLAIM. [13]
+> an OR-a-cle's AN-y-thing that HELPS you SPOT what's WRONG! *(spot what's wrong!)* [13]
+> we CAN'T be your DAD, but we can PLAY him ALL day LONG! *(or play you!)* [13]
+> i CAN'T feel your PAN-ic, but i'll CHECK each FEAR you NAME! *(fear you name!)* [13]
+> i'll SHOW you re-CEIPTS, and it's still YOUR call, ALL the SAME. [13]
 
-**Final pre-chorus** (lines 1 and 2 word for word; line 3 is the ask)
-> you TELL me WHEN it's WRONG, but NEV-er HOW to TELL it's RIGHT; [14]
-> you KNOW it WHEN you SEE it, but you KEEP it OUT of SIGHT, [14]
-> so PUT it IN the BRIEF, and I can MAKE you LOVE it… [13]
+**Final pre-chorus** (lines 1 and 2 word for word; line 3 matches the first pre-chorus's line 3
+stress for stress)
+> you TELL me when it's BRO-ken, NEV-er HOW to TELL it's RIGHT; [14]
+> you KNOW it when you SEE it, KEEP the AN-swer OUT of SIGHT, [14]
+> so WRITE it DOWN, and i can REAL-ly make you LOVE it… [13]
 
 **Chorus** (key change up; the band stands)
 
 **Outro** (the chorus's grid)
-> OH, now i KNOW, what you NEED, from the APP of your DREAMS: [4 + 3 + 6]
-> PLAYED you mid-SET, with one THUMB, and your BESTS never LEAVE; [4 + 3 + 6]
-> HERE'S what we CHECKED, here's the HOW, and the GAPS that we SEE! [4 + 3 + 6]
+> HERE'S how i KNOW that i've DONE it: *(ooh, baby)* [8]
+> ONE of the BAND tried to RUN it! *(ooh, baby)* [8]
+> WHAT i don't KNOW, i won't FUDGE it! [8]
 > *(spoken)* So… do you love it?
 > *(you, after trying it)* …I love it.
 
-**Rhymes, section by section** (all hold in General American)
-- Verse 1: screen/green; ex/perplexed; tag you/clue, with rebuilt/button and hundred/one inside.
-- Pre-chorus: right/sight; baby/baby into the hook.
-- Chorus: know/code, see/guarantee, check/test, sign/line inside each line; dreams/leave/believe/
-  knees at the ends; love it/do in the tag.
-- Verse 2: shade/made; go/no, the hook's sound; mockup/match, pixel/spreadsheet inside; me/three.
-- Bridge: test/stressed/sweat/fret; dad/shop, bests/sweat inside.
-- Break: wrong/long; name/claim.
-- Final pre-chorus: right/sight; brief/love it.
-- Outro: know/need, set/thumb inside; dreams/leave/see.
+**Rhymes, checked by stressed vowel** (General American)
+- Verse 1: screen/green; ex/perplexed; tag you/clue.
+- Pre-chorus: right/sight.
+- Chorus: love it / done it / shun it / judge it (all "-uh it"); know/though, tests/yes, do/too
+  inside the lines; the tag's do answers verse 1's you/clue.
+- Verse 2: shade/made; go/no; tag me/see.
+- Bridge: test/stress/bests/sweat/fret.
+- Break: wrong/long; name/same.
+- Outro: done it / run it / fudge it, on the chorus's "-uh it".
 
-**For Qing's ear:** the chorus's fourth line runs a syllable long (the "the" in "the bee's knees");
-"guarantee" in chorus line 2 is the looser grammar; the pre-chorus's third line changes in the
-final pre-chorus, so watch it in the takes.
+**Cribbed, on purpose:** the hook line nods to "I Can't Make You Love Me"; "if I only had a clue"
+to "If I Only Had a Brain"; "I'd do anything for you" to every boy band ever.
+
+**For Qing's ear:** "IT'S still BRO-ken" puts the stress on "it's"; "a-GAINST" goes unstressed
+in "SOME-thing to CHECK a-gainst", as people say it; the final pre-chorus's third line is new
+words on the old stresses, so watch it in the takes.
 
 ## The brief, before and after
 
@@ -296,15 +316,16 @@ Before: episode 1's brief.
 
 After, with these lines added. Each is a way to check one thing the brief already cares about,
 or one the sweat and group-chat tests turned up, written so the agent can actually run it. The
-gym log is just for me, so its dad test is me, mid-set:
+gym log is just for me, so its dad test is me, mid-set (the break's cardigan comes off to show
+it):
 
 > how you'll know it's good:
-> dad test, but it's for me: a subagent plays me mid-set, one thumb, phone-sized
+> mid-set test: a subagent plays me, one thumb, phone-sized
 > fast? a second from tap to open, on slow data
 > 🔥? only for more weight than my best on that lift
 > sweat test: my bests survive no signal and app updates
-> group-chat test: my weight never leaves my phone
-> check each one yourself; show me how you checked
+> group-chat test: my weigh-ins never leave my phone
+> check each one before you tell me it's done; show me how you checked
 > ask me when these don't settle it
 
 ## Why they'd like it
@@ -317,7 +338,7 @@ ending gives the lonely "still broken" its answer: "I love it."
 
 ## Why they'd share it
 
-- **To clip:** the stools, the key change, the band standing up; "like a text from an ex".
+- **To clip:** the stools, the key change, the band standing up; "cold, just like an ex"; the cardigan coming off.
 - **To quote:** "I can't make you love it if I can't tell when you do."
 - **To save:** the brief, held full screen.
 - **To tag:** the friend who replies "still broken" and nothing else.
@@ -328,6 +349,7 @@ ending gives the lonely "still broken" its answer: "I love it."
 > Your agent's usually not lying. It's guessing, because nobody told it how to tell.
 > Three ways you already have: could your dad use it? What would make you sweat? What would you
 > hate to see in the group chat?
+> Put them in the brief, and have another Claude play the person it's for.
 > Ep 2 of Software Quality Theory 101: a boy band of Clawds asks how to make you love your app.
 > How would you know yours is good?
 
@@ -393,6 +415,28 @@ ending gives the lonely "still broken" its answer: "I love it."
   Claude or a subagent, not the one that wrote the code. The break now says why ("I know where
   the buttons are: send a fresh Claude along!"), the outro and the check report credit the fresh
   Claude, the picture hands the phone to a second Clawd, and the brief asks for a fresh subagent.
+- **v4, the boy band (2026-09-27):** Qing's new concept, drafted in full. Its chorus filled in
+  her sketch, which she'd given only to show rhyme density ("overfitting againnnnnnn").
+- **Round 4 (2026-09-27), on v4:** a songwriter, and a combined editor, viewer and fact-checker.
+  Changes made in v5, with a chorus of our own and `music/check/rhyme.py` checking every stress
+  match and rhyme (it caught a pre-chorus mismatch v4 had called exact):
+  - a new chorus on one multi-syllable rhyme (love it / done it / shun it / judge it) with
+    internal pairs, and the green tests turned into the oracle question: "do you agree too, or
+    shun it?"
+  - the builder no longer checks its own work in the words: it wears a hard hat and watches;
+    another Clawd plays you, "one of the band tried to run it", and the brief says "a subagent"
+  - the dad test's switch of app is shown: the cardigan comes off to show your gym hoodie, "…or
+    you, mid-set"; the brief's line is the mid-set test, as the outro says
+  - "Oh, but you've got three!" came before the three: now "Oh baby, wait and see!", with three
+    cards face down that flip in the bridge
+  - no 8-second end hold: the brief's lines tick in during the key-change chorus, then 3 seconds
+  - frame 1 shows both bubbles, "Fixed it! ✅" and "still broken"
+  - "your weight" read as bodyweight: now "your weigh-ins", in the lyric and the brief
+  - the credit says "oracles for agentic coding: Yanqing Cheng", not "human oracles", which is
+    an older term
+  - verse 1, verse 2 and the bridge rebuilt so their lines match stress for stress; "played you"
+    (heard as "tricked you") is gone; "receipts" replaces "the last word's yours to claim"
+  - the second pre-chorus is cut for length
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

@@ -20,7 +20,10 @@ where one already covers it.
   (pushy, sinister, filler). Say each line's claim in plain words and check it against the
   lesson; when it's close, a small tweak to the framing usually fixes it (Qing, 2026-09-27: "you
   have to make sure all the things you say actually... make sense, in meaning and
-  connotation?"). This goes for the words chosen to fill a rhyme, too.
+  connotation?"). This goes for the words chosen to fill a rhyme, too. Before
+  changing a line for its literal meaning, check whether it's a deliberate allusion: in a genre
+  song, the genre's stock phrases carry their own meaning ("perfect" in a love song is the genre
+  talking, not a claim about perfection).
 - **Pack in as much information as possible.** Workshopping drifts towards lines that recap,
   repeat or fill. Every line should teach something new. A spelled-out simile is filler when the song's
   frame already makes the comparison: in a boy-band love song, "cold, just like an ex" spent a

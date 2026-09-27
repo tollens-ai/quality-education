@@ -47,6 +47,9 @@ On the draft (2026-09-27):
 
 > also it's weird, why is mum using the gym log
 
+> hmm, also on user simulation we need to make it clear you need to get a separate claude or a
+> subagent to do it, can't just be the main coder claude
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -86,7 +89,9 @@ check its own work at agent speed. You keep the final say.
 5. **The agent can play the people who'd judge it.** Language models are good at imagining
    specific people; predicting what people write is how they were made. It can't be you mid-set,
    but it can try the app as you, "one thumb, out of breath, phone-sized", and tell you where it
-   got stuck. It can't panic, but it can check everything on your panic list, and if it knows who
+   got stuck. It has to be a separate Claude or a subagent, not the one that wrote the code
+   (Qing): the builder knows where every button is, so it can't use the app like someone who
+   doesn't. It can't panic, but it can check everything on your panic list, and if it knows who
    you are (episode 1) it can help you write the list.
 6. **Make fuzzy things precise where you can.** Some ways to know are exact, and some are a
    person's judgement. Gym-log examples, from exact to judgement:
@@ -164,10 +169,10 @@ line depends on are listed.
 | Chorus (once) | "How do I know?" All my tests came up green, and you still said no. The line to remember | Clawd's own test report, all green, under your "still broken" |
 | Verse 2 | Give the agent something to check against and it's unstoppable: a mockup matched pixel for pixel, a spreadsheet's totals matched to the penny. With only "still broken", it guesses and gets a no. Tag: "No answer key for me!" "Oh, but you've got three!" | Clawd at full speed beside a mockup, the two screens converging; a column of totals ticking into agreement; then back to the gym log and the "still broken" bubble |
 | Bridge | If it's good, somebody can tell. Your three: at the gym, one-thumbed, could you log a set; would you sweat if your bests disappeared; would you fret if your weight hit the group chat | Three pictures, each captioned with its name so the brief can use it: *the mid-set test* (you, out of breath, one thumb on the gym log), *the sweat test* (you bolt upright at night), *the group-chat test* (a screenshot of your weight in a group chat) |
-| Break | An oracle is anything that helps you spot what's wrong. The agent can't lift your weights, but it can play you, and check each fear you name; it shows you what it checked, and the last word is yours | Clawd in your sweatband, panting, trying the gym log one-thumbed; a checklist ticking; your hand on the final tick. Credit below |
+| Break | An oracle is anything that helps you spot what's wrong. The builder knows where the buttons are, so a fresh Claude plays you; the builder checks each fear you name; it shows you what it checked, and the last word is yours | The builder Clawd hands the phone to a second, fresh Clawd in your sweatband, panting, trying the gym log one-thumbed; a checklist ticking; your hand on the final tick. Credit below |
 | Final pre-chorus | The same complaint, then the ask: put the answers in the brief, and I'll know it, and I'll show it | The brief opening |
 | Chorus (twice, key change) | Word for word, with the second pass: while you sleep, who else knows if it's good to go? | The questions answered, one per oracle, each tick with its evidence beside it (a screenshot, a load time) |
-| Outro | Now I know: playing you, I logged sets, and your bests won't go; here's how I checked it all, plus the gaps I know. Spoken: "Is it good?" You try it yourself: "It's good." | Under the sung lines, Clawd's check report: ✅ mid-set test: logged a set one-thumbed at phone size (screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone on screen, captions off, for at least 8 seconds over the instrumental tail. Last frame: frame 1's layout, now "Fixed it! ✅" / "it's good.", over the intro riff, so the loop lands on "I fixed it!" again |
+| Outro | Now I know: a fresh Claude logged a set, and your bests won't go; here's how I checked it all, plus the gaps I know. Spoken: "Is it good?" You try it yourself: "It's good." | Under the sung lines, Clawd's check report: ✅ mid-set test: a fresh subagent, playing you, logged a set one-thumbed at phone size (screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone on screen, captions off, for at least 8 seconds over the instrumental tail. Last frame: frame 1's layout, now "Fixed it! ✅" / "it's good.", over the intro riff, so the loop lands on "I fixed it!" again |
 
 **On-screen credits:**
 - Break: *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) · human oracles for
@@ -225,7 +230,7 @@ in capitals for the pre-chorus and chorus; syllable counts in brackets.
 
 **Break** (half time)
 > An oracle's anything that helps you spot what's wrong! *(spot what's wrong!)* [13]
-> I can't lift your weights, but I can play you all day long! *(all day long!)* [13]
+> I know where the buttons are: send a fresh Claude along! *(fresh Claude along!)* [13]
 > I can't feel your panic, but I'll check each fear you name! *(fear you name!)* [13]
 > I'll SHOW you WHAT i've CHECKED, but the LAST word's YOURS to CLAIM. [13]
 
@@ -238,7 +243,7 @@ in capitals for the pre-chorus and chorus; syllable counts in brackets.
 
 **Outro** (the chorus's grid)
 > OH, now i KNOW! *(now I know!)* [4]
-> playing YOU, i logged SETS, and your BESTS won't GO! [11]
+> a fresh CLAUDE logged a SET, and your BESTS won't GO! [11]
 > HERE is the SIGN! *(checked it twice!)* [4]
 > HERE'S the WAY i CHECKED it ALL, PLUS the GAPS i KNOW! [12]
 > *(spoken)* …Is it good?
@@ -255,7 +260,7 @@ in capitals for the pre-chorus and chorus; syllable counts in brackets.
 - Bridge: test/set/sweat/fret (test a slant); gym/thumbed inside.
 - Break: wrong/long; name/claim.
 - Final pre-chorus: as the first; know it/show it.
-- Outro: know/go/know; sign/twice; you/logged/sets inside.
+- Outro: know/go/know; sign/twice; logged/bests inside.
 
 **For Qing's ear:** bridge line 2 stresses GYM, THUMBED, LOG, SET (3, 5, 8, 10) against 3, 7, 10;
 bridge line 1 stresses "CAN", and line 4 puts GROUP on syllable 6 against 7;
@@ -279,7 +284,7 @@ After, with these lines added. Each is a way to check one thing the brief alread
 or one the sweat and group-chat tests turned up, written so the agent can actually run it:
 
 > how you'll know it's good:
-> mid-set test: play me, out of breath: one thumb, phone-sized, one tap per set
+> mid-set test: a fresh subagent plays me, out of breath: one thumb, phone-sized
 > fast? a second from tap to open, on slow data
 > 🔥? only for more weight than my best on that lift
 > sweat test: my bests survive no signal and app updates
@@ -367,6 +372,10 @@ dry word, "oracle", feel obvious: of course you'd want a sign.
 - **After Qing's note on Mum (2026-09-27):** the gym log is just for you (episode 1), so Mum has
   no reason to use it. The mum test becomes the mid-set test: you, out of breath, one-thumbed.
   The agent plays you, in your sweatband. The post text keeps the general form for other apps.
+- **After Qing's note on user simulation (2026-09-27):** playing the user has to be a separate
+  Claude or a subagent, not the one that wrote the code. The break now says why ("I know where
+  the buttons are: send a fresh Claude along!"), the outro and the check report credit the fresh
+  Claude, the picture hands the phone to a second Clawd, and the brief asks for a fresh subagent.
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

@@ -15,6 +15,13 @@ capitals, as on the live sheet.
 Lines, rhymes and ideas that worked on their own, with why each isn't in the song (yet).
 
 **Hooks and choruses**
+- Qing's hook sketch (2026-09-27, verbatim):
+  > how do I know, how can you show, what perfect means to you?
+  > all of my checks, all of my tests, don't find the bugs you do?
+  Grid: HOW do i KNOW, HOW can you SHOW, what PER-fect MEANS to YOU (4 + 4 + 6), with a
+  rhyming pair in the first two slots and an -oo end. Third lines drafted to it:
+  "WHO could it BE? WHAT would they SEE? then LET me CHECK it TOO" and "GIVE me a SIGN, GIVE me
+  a LINE, and SAY who'd KNOW it's TRUE".
 - "I don't need you watching. I need to know how you'd know." (an early line to remember)
 - "If it's good, somebody can tell. So tell me who, and tell me how."
 - "I'd check my own work, if you'd tell me how you'd check it."

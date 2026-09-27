@@ -57,8 +57,8 @@ theory and a house rule disagree, the note says so, and the house rule wins.
 - **Perfect rhymes for jokes and for arrival.** Sondheim: "A perfect rhyme snaps the word, and with
   it the thought, vigorously into place, rendering it easily intelligible; a near rhyme blurs it."
   Also: "Jokes work best with perfect rhymes." Webb goes further: a false rhyme offends the listener
-  "on a subliminal level". Pop-punk choruses need end rhymes as strong as these (keep/cheap,
-  grow/show). (house: *Pop-punk wants strong end rhymes*.)
+  "on a subliminal level". Each genre sets how strong its end rhymes are; episode 1's pop-punk
+  chorus used perfect ones (keep/cheap, grow/show). (house: *Rhyme densely and inventively*.)
 - **Near rhymes where the section is meant to feel open.** This is where theory explains a house
   rule. The house rules allow a half rhyme in the tag, and a whole verse on one vowel family
   (floss, log, blog, clock). By Pattison's scale, assonance is right for a tag that winds into the
@@ -70,10 +70,10 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   (house: *Hard-to-rhyme words go inside the line* is the fix when the key word won't rhyme.)
 - **Rhyme depends on accent.** Tom Lehrer sang "Harvard" and "discovered" in a Northeastern elite
   accent to make them rhyme. Episode 1's verse 2 only rhymes in British English, and the generator sang
-  it in a generic American pop accent anyway, so rhymes now have to hold in General American. (house: *Rhyme on a vowel family*, the note on accent.)
+  it in a generic American pop accent anyway, so rhymes now have to hold in General American. (house: *Rhymes must hold in General American*.)
 - **Internal rhyme adds density without adding lines.** Rap and *Hamilton* stack rhymes within the
   line (the *Wall Street Journal* mapped *Hamilton*'s into "rhyme families"). Each rhyme marks a
-  beat, which helps fast lines; a slow chorus needs only its end rhymes.
+  beat, which helps fast lines. (house: *Rhyme densely and inventively*.)
 
 ## Hook, title and power positions
 - **The title goes in a power position.** Pattison: "always try to place the title in prominent
@@ -164,7 +164,8 @@ Rules a script can flag before anyone listens; a person judges each flag. LYRICS
 lists CMUdict's gaps (jargon, one-syllable stress, squashed words): keep a sung lexicon of overrides.
 - **Rhyme type per pair:** look up both words in CMUdict (`pronouncing`). Compare the phones from
   the last stressed vowel onward, and label the pair perfect, family, additive/subtractive,
-  assonance, consonance or none. Flag any end rhyme in a chorus that isn't perfect or family.
+  assonance, consonance or none. Flag weak rhymes (consonance or none where a rhyme is meant) and
+  lazy ones (the first obvious word, or one reused); an inventive slant rhyme isn't a fault.
 - **Rhyme scheme and line count per section:** label the end-rhyme classes (AABB, ABAB, ABBA),
   count the lines, and report each section as stable or unstable. Flag a stable pre-chorus and an
   unstable final chorus.

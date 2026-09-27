@@ -19,8 +19,8 @@ ears.
 
 ## Steps
 
-Work at maximum effort, and hold the same bar from the first second to the last. There's no
-rush.
+Work at maximum effort, and hold the bar to the end (VIDEO.md, *How the auteur works*). There's
+no rush.
 
 1. **Orient.** Read the episode file: the teaching plan, what the song says, and the guardrails
    for the pictures. Read the lyric timings, and VIDEO.md's brief. Don't study earlier attempts
@@ -50,8 +50,7 @@ rush.
 
 5. **Build the shots in song order.** For each sung line, decide the one thing to read, where
    its words live and what they're made of, and how they arrive with the voice. Hold the line to
-   remember on screen as one block. Draw crowds as whole people, from the back to the front, and
-   put whatever someone holds in their hand.
+   remember on screen as one block. For words and crowds, mind VIDEO.md's *Pitfalls*.
    *Done when* every line has its shot, and every word is written on at its onset.
 
 6. **Watch the whole film, early and often.** A 540-wide preview renders in minutes. Look at it
@@ -78,8 +77,7 @@ rush.
 
 8. **Make a craft pass at full size and at phone size.** Render stills of every shot in song
    order at 1080 and look at a few at a time. Then tile the lyric frames at phone size, 390 px
-   wide (`video/lib/sheet.sh <dir> 6 390`), and read them as a viewer would. Give verse 2 onwards
-   the same time as the opening.
+   wide (`video/lib/sheet.sh <dir> 6 390`), and read them as a viewer would.
    *Done when* you'd post it yourself.
 
 9. **Render the master and verify it.** Render at 1080×1920 and 30 fps in parallel segments
@@ -102,6 +100,8 @@ the report what the wider check found.
 
 ## Adding to the pack
 
-When a note or a fix teaches something, write it down in one place:
+When a correction generalises, write the principle under it, not the fix. Check it against the
+existing rules and a video that worked, and merge or replace rather than append. Keep each rule
+in one place:
 - VIDEO.md, if it holds for any style
 - the style's reference, if it's about drawing in that style

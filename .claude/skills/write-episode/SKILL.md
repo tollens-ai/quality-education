@@ -34,23 +34,21 @@ is the worked example of the finished shape.
 
 3. **Pick the song.** Decide who sings (the agent, the user, the app, a stakeholder), which genre
    carries the emotion, and the one line people will remember. That line is usually the chorus.
-   The singer's point of view should be surprising and should favour an underdog.
-   Lines land when the underdog says a plain, fair truth with no joke attached. Qing's reaction to
-   episode 1's line ("made me well up a little") is the benchmark to aim for.
-   Write and revise lyrics by the rules in [LYRICS.md](../../../LYRICS.md), and add a rule there
-   whenever a fix teaches one.
+   The line to remember is plain, fair and true, and it moves people; a surprising point of view
+   helps. Qing's reaction to episode 1's line ("made me well up a little") is the benchmark to aim
+   for. Write lyrics by [LYRICS.md](../../../LYRICS.md); add a lesson there only as a principle,
+   checked against its rules and a song that worked, merged rather than appended.
    Work on the lyric sheet alone, section by section, and note only the **key frames** a line
    depends on (a gag, a clip moment, an on-screen device). Don't storyboard yet: every lyric
    change would throw the storyboard away (Qing, 2026-09-24).
    *Done when* the line to remember is quotable out of context and still true, and Qing has
    locked the lyrics.
 
-   **Song-fit limits.** In 4/4, one bar lasts 240 ÷ bpm seconds; at 170 bpm that is about 1.4s.
-   A 3-second row (about 2 bars) fits 8–12 sung syllables, and a 2-second row fits 6–8. More than
-   that blurs in a formant voice, and the word-by-word captions can't be read in time. For the
-   synthetic singer, prefer short words, open vowels and few consonant clusters. Rhyme like the
-   genre does: pop-punk needs strong end rhymes. The fuller rules, with worked examples, are in
-   [LYRICS.md](../../../LYRICS.md).
+   **Song-fit limits.** Write each song's genre conventions ([MUSIC.md](../../../MUSIC.md)). In
+   4/4, one bar lasts 240 ÷ bpm seconds. Outside patter, a line fits about 3–4 sung syllables a
+   second: at episode 1's 180 bpm, 8–12 in a 2-bar line of 2.7 s. More than that blurs when sung,
+   and the words on screen can't be read in time. For a synthetic singer, prefer short words, open
+   vowels and few consonant clusters. The fuller rules are in [LYRICS.md](../../../LYRICS.md).
 
    **Then make the song, before any video work** (Qing, 2026-09-24: "let's get to a song we're
    happy with first before starting video"). The song's timings drive every shot. Use the
@@ -92,12 +90,12 @@ is the worked example of the finished shape.
 
 9. **After the build, write liner notes:** how it was checked, and where it falls short.
 
-## Retention checks
+## Retention checks (below teaching and beauty; see [CRAFT.md](../../../CRAFT.md), *Decided*)
 
 - **Opening (0–3s):** the first frame is the thumbnail and plays muted. It needs a tension the viewer
   recognises, not a title card, and the first lyric starts on the first beat.
-- **Next 3 seconds:** each row needs escalation, a turn, a new example, a musical build, or an
-  unanswered question.
+- **Every moment:** the viewer can tell what's happening and has a reason to keep watching.
+  Clarity beats density: if it's too complex to parse, people scroll away.
 - **The chorus:** people swipe away once they feel they've got the point. Before the chorus
   resolves, open a new question (e.g. an empty prompt box that fills in at the end).
 - **The end:** the final payoff pays off the question opened earlier, then the video loops. No end

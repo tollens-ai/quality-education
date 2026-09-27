@@ -2,7 +2,14 @@
 
 How to write lyrics for the series. The rules come from Qing's notes on episode 1 (2026-09-24);
 she has written a lot of parody lyrics. Writing a lyric is like a sudoku: every line constrains the
-others. Add a rule here whenever a fix teaches one.
+others.
+
+**Adding a rule.** When a fix teaches something, write down the general lesson, not the fix.
+Agents tend to turn one incident into a narrow rule that misses the point. For example, "end
+every chorus line on the hook's rhyme" was written after one chorus, but episode 1's chorus
+rhymes nothing with its hook. The real lesson was to rhyme more densely and more inventively.
+Before you add a rule, check it against a song that worked, and fold it into an existing rule
+where one already covers it.
 
 ## Meaning first
 - **Rhyme and scansion serve the meaning.** The classic failure is working hard at rhyme and
@@ -18,16 +25,17 @@ others. Add a rule here whenever a fix teaches one.
   on a train", not "works on the Tube").
 - **Every phrase must be a real phrase.** "Test it through" rhymes but isn't English, so listeners
   stumble on it.
-- **Say what was learned.** A line like "learned from everyone online" is weak until it says
-  *what*: "I learned to code from all of you".
+- **Be concrete about sources and lessons.** "Learned from everyone online" is weak; "I could
+  only learn from my training set" names the singer's real source, and is true for an agent.
 - **Check for mishearings.** Listeners heard "that's what product's for" as "that's what *the*
   product's for", which is the opposite of the point. Say each line aloud, fast, as a stranger
   would hear it.
 - **Quotes vanish when sung.** Put someone else's view in the lead's mouth and it sounds like
   the singer's own view. Attribute it in the words ("most left the users at product's door"), or
   give it to another voice.
-- **Fact-check the jokes too.** Summary docs don't burn much quota; subagents running round the
-  clock do. Blame the thing that's actually true, and keep the in-joke in the picture instead.
+- **Fact-check the jokes too.** A joke is a claim. "Summaries burn your quota" was false, since
+  subagents running round the clock are what burn it. Blame the thing that's actually true, and
+  keep an in-joke in the picture, where it doesn't have to be.
 - **Don't hand the viewer a job that isn't theirs.** "Tell me what can break" asked the user to
   name failures. Nobody reads it as "tell me your tradeoffs".
 - **A transformation line must be true.** "Now you've told me who it's for" claims the viewer has
@@ -37,33 +45,27 @@ others. Add a rule here whenever a fix teaches one.
   it's usually the right one.
 
 ## Rhythm
-- **Dense and rhyming, after Tim Blais, after Sondheim.** Qing (2026-09-26): "we have to model
-  after Tim blais, who clearly models after sondheim. dense and rhyming". Rhyme inside the lines as
-  well as at their ends, use multi-syllable rhymes where they come naturally ("comma" and
-  "drama"), and make every line carry a new fact. The songwriting skill's
+- **Rhyme densely and inventively. Don't be lazy.** Model it on Tim Blais, who models it on
+  Sondheim (Qing, 2026-09-26: "dense and rhyming"). Rhyme inside lines as well as at their ends,
+  use multi-syllable rhymes where they come naturally ("comma" and "drama"), and make every line
+  carry a new fact. The method is a jigsaw: before writing a section, list every rhyme that might
+  be useful for its key words, including multi-syllable rhymes and near rhymes that stretch
+  ("test it" gives pressed it, second-guessed it, requested, invested and, at a stretch,
+  expected). Then build the lines from those pieces. Never call a word hard to rhyme until you've
+  written out its family: there's usually loads (Qing, 2026-09-27: "whether you're just not being
+  rapper enough about rhyming"). The songwriting skill's
   [lyrics reference](.claude/skills/songwriting/references/lyrics.md) has the Sondheim craft.
-- **Rhyme like a rapper: the hook's sound is the chorus's spine.** Take the hook's stressed
-  vowel and what follows it, list the whole family, and end every chorus line on it. The testing
-  episode's hook "did you actually test it?" gives pressed it, stressed it, second-guessed it, requested,
-  and, stretching a little, expected, detected, protected. v5 rhymed its chorus lines in
-  pairs that ignored the hook (black/back, train/rain) and called "test it / mess with it" a
-  weak slant instead of mining the family. Qing (2026-09-27): "I do wonder [...] whether you're
-  just not being rapper enough about rhyming". Before calling a word hard to rhyme, write out
-  its family: there's usually loads.
 - **Every section rhymes.** A repeated refrain word ("…and two it was!") isn't a rhyme, and
-  neither is a hook or a chant left unrhymed because it's short. The testing episode's v3 had unrhymed verse,
-  pre-chorus, hook and break, and Qing's whole note was "you forgot to make it rhyme"
-  (2026-09-26). Check every section's end rhymes before anyone hears it.
+  neither is a hook or a chant left unrhymed because it's short (Qing, 2026-09-26: "you forgot to
+  make it rhyme"). Check every section's rhymes before anyone hears it.
 - **Budget syllables to the slot.** See the song-fit limits in the
-  [write-episode skill](.claude/skills/write-episode/SKILL.md): at 170 bpm, a 3-second row holds
-  8 to 12 sung syllables. Pop-punk wants strong end rhymes; the tag is the one place a half rhyme
-  is fine.
+  [write-episode skill](.claude/skills/write-episode/SKILL.md): about 3 to 4 sung syllables a
+  second outside patter.
 - **Borrow a rhythm template.** Name a known song whose rhythm the verse follows (verse 1 of
   episode 1 is the "We Didn't Start the Fire" verse rhythm) and fit every line to it. Write the
   template in the script.
-- **Unstressed upbeats are fine anywhere.** The exception is a list of lines that start on the
-  downbeat: there a line that starts on an upbeat ("con-FET-ti") has to go first, or it breaks
-  the run.
+- **Unstressed pickups are fine.** In a run of lines that start on the downbeat, though, a line
+  with a pickup ("con-FET-ti") breaks the run in the middle; put it first, where it leads in.
 - **At patter speed, keep the template and let a stress bend.** "2FA on your gym log" in
   straight eighths puts the stress on "your". Squeezing "on your" into sixteenths to fix it broke
   the "Fire" rhythm; sung that fast, the bent stress goes by unnoticed and the rhythm carries the
@@ -77,9 +79,6 @@ others. Add a rule here whenever a fix teaches one.
   launch demo?" limped and "Product demo?" fits.
 
 ## Structure
-- **Verses share a shape.** If verse 1 is four example lines and then a tag, verse 2 is too.
-  Episode 1: four examples on one vowel, a two-line tag that rhymes with itself, then one spoken
-  line that hands on to the next section.
 - **A tag breaks the pattern to wind into the next section.** It doesn't need a full rhyme;
   echoing the verse's vowel is enough ("Did I do it wrong? / Oops, your quota's gone! / Guess I
   didn't ask.").
@@ -87,12 +86,11 @@ others. Add a rule here whenever a fix teaches one.
   to say where it is. "2FA to use your gym log" names the app; "No signal: did it save the set?"
   doesn't say gym, so "the set" means nothing (Qing, 2026-09-26: "the examples have to stay
   examples and because they're out of context they have to make the context clear").
-- **One example per line.** Each line is a different app or person. That gives the picture more
-  to play with, and it makes the pattern the point.
-- **Rhyme on a vowel family.** A whole verse can rhyme on one vowel: floss, log, blog, clock, wrong,
-  gone. Note the accent: fast, last, laugh, pass rhyme in British English but not American, and
-  the generator won't sing British (see *Generating the song*). Choose rhymes that work in a
-  General American pop accent.
+- **In a list, one example per line.** Episode 1's verses were a different app or person per
+  line. That gives the picture more to play with, and makes the pattern the point.
+- **A whole verse can rhyme on one vowel:** floss, log, blog, clock, wrong, gone.
+- **Rhymes must hold in General American.** Fast, last, laugh and pass rhyme in British English
+  but not American, and the generator won't sing British (see *Generating the song*).
 - **Hard-to-rhyme words go inside the line.** When an important word won't rhyme ("rogue"), keep
   it and move it inside the line, where it can still take a stress. Rhyme on an easier word: "No
   rogue agent wipes what you own?" Don't swap out the word people actually use.
@@ -105,28 +103,24 @@ others. Add a rule here whenever a fix teaches one.
 - **The payoff phrase goes last, once.** In a section built to land a phrase, hold it back for
   the final line and don't spend it earlier. Episode 1's bridge used "who's it for" in lines 2
   and 4; now it only closes the bridge, held ("who it's fo-o-or?").
-- **Name the singer's real source, not a crowd.** "I learned to code from all of you" was limp.
-  "I could only learn from my training set" is concrete, true for an agent, and rhymes with
-  "test".
 - **Put each idea where it belongs.** When two sections both want a line ("I'm someone too"),
   keep it in the one where it pays off, and don't let it leak into the other.
 
-- **The singalong question is the chorus.** The shortest, most shoutable phrase with open vowels
-  ("Good for who-o-o? Good for wha-a-at?") is the chorus, even if it was drafted as a pre-chorus.
+- **The singalong phrase is the chorus.** The shortest, most shoutable phrase with open vowels
+  ("Good for who? Good for what?") is the chorus, even if it was drafted as a pre-chorus.
   The complaint that builds tension goes before it, and the band can stop dead at the end of the
   pre-chorus so the chorus crashes in.
-- **Repeat the hook; vary the second half.** Every chorus repeats the hook. Its second half
-  changes each time and moves the argument on (episode 1: the tradeoffs the gags showed, then
-  the ones nobody briefs, then the agent-facing ones). Each chorus is sung twice, so each needs two second
-  halves, and the second one adds new tradeoffs rather than restating the first.
+- **Within one chorus, the repeat can add.** A chorus sung twice through can use its second pass
+  for new ideas rather than restating the first. Across the song, repeat choruses word for word:
+  the generator can't reliably reuse a melody under new words (see *Writing for the performer*).
 - **The last chorus can answer the hook.** Episode 1 asks "Good for who? Good for what?" three
   times; the last chorus answers it ("Good for you! Good for that!") and its second half turns
   from questions to exclamations. Keep the same sounds so the singalong still works.
 - **Use standard form, and fold stray sections into it.** Verse, pre-chorus, chorus, twice, then
   bridge, breakdown and a final chorus. A section that doesn't repeat and isn't the bridge is
   usually in the wrong place: episode 1's post-chorus became its bridge.
-- **Mark held notes.** Write melismas the way they're sung ("who-o-o") so the synth gives them
-  several notes.
+- **Show held notes with a backing-vocal answer,** not extra letters: see *Generating the
+  song*.
 
 ## Process
 - **Lyrics before storyboard.** Work on the lyric sheet, noting only the key frames a line
@@ -162,7 +156,7 @@ perform [...] Together that's the best"). For a lyrics-to-song generator, that m
 - **Let verse lines breathe.** A storytelling verse can use full sentences; word compression was
   only ever needed to fit a fixed grid.
 - **Within a section, sudoku the stresses harder.** Contrasting verses don't need to match each
-  other, but lines that answer each other inside a section should share a stress pattern and
+  other (a template borrowed for one verse needn't bind the next), but lines that answer each other inside a section should share a stress pattern and
   syllable count exactly. The more obviously the syllables fit, the easier the generator finds
   the phrasing. It still isn't guaranteed. Qing (2026-09-25), after the first consistent take:
   "it works _better_ if we can sudoku the lyric stress patterns MORE, to match the intended
@@ -173,12 +167,6 @@ perform [...] Together that's the best"). For a lyrics-to-song generator, that m
   - "Just a toy and just for fun! / Fine if it dies when summer's done!" became "Just a toy, and
     only for fun! / Fine if it's gone, when summer's done!": JUST a TOY and ON-ly for FUN against
     FINE if it's GONE when SUM-mer's DONE.
-  - "Ship it now or room to grow?" became "Ship it now, or polish it slow?", mirroring "Fast to
-    run, or sturdy or cheap?" above it.
-  - "(matters, matters)" became "(matters, matters, matters)", three hits like "and me! and me!
-    and me!".
-  - "And for us, keep the dye aggs neat!" became "And for us keep dye aggs neat!", seven syllables
-    like the rest of verse 2.
 
 ## Generating the song (MiniMax)
 Qing's findings from the first generations of episode 1 (2026-09-24):
@@ -202,8 +190,8 @@ Qing's findings from the first generations of episode 1 (2026-09-24):
 - **Expect uneven takes.** Each generation gets different sections right (a good chorus on one, a
   good verse 2 on another). Keep the best sections of each; stitching takes together in
   production is the fallback.
-- **Britishisms are fine; British rhymes aren't.** Qing: "it's still my song" (2026-09-26). Keep
-  British words and idioms; just don't rely on a British vowel for a rhyme.
+- **Britishisms are fine.** Qing: "it's still my song" (2026-09-26). Only the rhymes have to hold
+  in General American.
 - **Don't count on an accent.** Asking MiniMax for a British accent didn't work: it "always came
   out sounding like a vague mix between Taylor swift and every other girl singer" (Qing,
   2026-09-26). Write rhymes that hold in a General American pop accent, and leave the accent out

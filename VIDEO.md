@@ -120,8 +120,8 @@ from rounds 3 and 4:
   every word at every tenth of a second: size, time on screen, contrast, cover, tilt and reading
   order (in the ep01 renderer, `tools/typo-audit.mjs` and `typo-report.py`). Then look at the
   flags; some are the design.
-- **Crowds:** everyone stands on the ground and the crowd is drawn from the back to the front.
-  Nobody is cut off in mid-air: a cut belongs to the frame's edge or to something in front.
+- **Crowds:** everyone stands on the ground and nearer people hide those behind, never the
+  reverse. Nobody is cut off in mid-air: a cut belongs to the frame's edge or to something in front.
   Whatever someone holds sits in their hand. Named characters appear once, among strangers.
 - **Motion:** nothing goes static unless the moment calls for stillness
   (`video/lib/motion.py` lists the near-still seconds). In a hand-drawn style, drawing on twos

@@ -72,8 +72,7 @@ Replace (the episode): `main.js`'s shot list and `scenes/`. To start episode N:
   wide. Hero words go much bigger.
 - **Contrast.** The painted style carries a dark shade and a thin ink outline. On a busy ground,
   put the words on a board, a ribbon or a dark band.
-- **Order.** Stack a line's words in the order they're sung, at sizes a phone can read. Scattered
-  words at mixed sizes were the one frame Qing found hard to read.
+- **Order.** Stack words in sung order (see [VIDEO.md](../../../../VIDEO.md)'s *Pitfalls*).
 - **Time.** Finish writing each word about 0.45 s before its shot's cut (`writeDur`). If a line
   ends on the cut, move the cut to the next beat. Hold the line to remember as one block
   (`keyLine`).
@@ -92,10 +91,8 @@ Replace (the episode): `main.js`'s shot list and `scenes/`. To start episode N:
 - **Nobody floats.** Someone drawn from the waist up needs something in front of them: the
   frame's edge (`below` carries the body down past it), a counter, a wall, the edge of a stage.
   Otherwise draw them whole (`full: true`), feet on the ground, with a shadow.
-- **Crowds are drawn from the back.** Give everyone a place on the ground at their own distance,
-  sort far to near, and draw in that order, so whoever is nearer hides whoever is behind. Don't
-  draw rows in any other order: episode 1's bridge once drew the front row first, and the back
-  row's bodies covered the front row's faces.
+- **Crowds.** Give everyone a place on the ground at their own distance, sort far to near, and
+  draw in that order ([VIDEO.md](../../../../VIDEO.md)'s *Pitfalls* says why).
 - **Named people stand out.** Dim the crowd behind the characters we know, and put each named
   character in a crowd once, among strangers from `folk(i)`, not repeated as clones.
 - **Seen from behind,** hair covers the whole back of the head, and only the neck shows. A patch

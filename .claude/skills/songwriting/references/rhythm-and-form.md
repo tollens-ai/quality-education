@@ -61,8 +61,8 @@ soaring chorus and a few syncopated pushes. At 180 bpm an eighth note lasts 167 
   pleasure". That was drums, not melody, so take the direction, not a number.
 - **Push the payoff word.** Singers push to fit speech rhythm, to free a syllable from the band's
   hits, and for variety (Tan, Lustig & Temperley). So push CHEAP, TOO, SET and TEST, not *the*.
-- **Syncopate by section.** Keep patter and build sections straight so the pushes stand out, give
-  the chorus tail a couple, and push hardest in the tag and bridge. Episode 1's pushes per bar:
+- **Contrast syncopation by section.** Keep some sections straight so the pushes elsewhere stand
+  out, and record each section's target in the song's map. Episode 1's example, pushes per bar:
   verse 0, pre-chorus 0, chorus about 0.1, bridge 0.25, tag 0.5.
 
 ## Groove, microtiming and drums
@@ -145,7 +145,7 @@ soaring chorus and a few syncopated pushes. At 180 bpm an eighth note lasts 167 
   it's going to be in 30 seconds", "super catchy, really fast", but "be very selective about what
   you introduce first". The same article says the bridge has "largely vanished" from TikTok-era
   hits. For a muted autoplay feed: the hook's rhythm in the first three seconds (instrument or
-  caption), the sung hook by about 0:25, and a last bar that loops into the first. Episode 1:
+  caption), the sung hook inside 30 seconds, and a last bar that loops into the first. Episode 1:
   voice in the first second, guitar hook at 0:03, sung hook at about 0:25, 2:26 in all.
 
 ## Contrast between sections
@@ -172,14 +172,14 @@ those mark where the writer *put* stress, so checking against them is circular.
 |---|---|
 | Stress-on-beat rate | Per section, the share of stressed syllables on quarter beats. Hook over 90%; patter lower, each bend logged. |
 | Illicit mismatches | Flag Dell & Halle cases (word-internal, or unstressed word on the tactus before a stressed one off it). Error on held notes and rhyme words, warning elsewhere. |
-| Syncopation index | Per section, stressed syllables on an `&` with a rest or hold on the next beat, per bar. Verse ≈ 0, chorus > 0, and not on most bars anywhere. |
+| Syncopation index | Per section, stressed syllables on an `&` with a rest or hold on the next beat, per bar, against the map's targets. Sections should contrast, and no section pushes on most bars. |
 | Anticipation target | Each push sits on the `&` of 4 or of 2; list any on the `&` of 1 or 3. |
 | Pushes fit the next chord | Each push's pitch is a tone of the chord on the beat it anticipates. |
-| Rhythm density | Lead onsets per bar per section; chorus well under verse (episode 1: about 3 against 7). |
-| Note length | Mean lead duration per section in eighths; chorus > pre-chorus > verse. |
+| Rhythm density | Lead onsets per bar per section, against the map's targets; sections should contrast (episode 1's chorus about 3 against the verse's 7). |
+| Note length | Mean lead duration per section in eighths, against the map's targets (episode 1: chorus > pre-chorus > verse). |
 | Phrase lengths | Bars per section and per line (lines split at rests of an eighth or more). Flag anything not 2, 4, 8 or 16 without a reason in the map. |
 | Parallel lines share rhythm | Jaccard overlap of onset positions between lines with the same motif ID: at least 0.8; chorus repeats exact. |
-| Time to first hook | Seconds to the hook's first sung onset and first instrumental statement, against about 0:25 and 0:03. |
+| Time to first hook | Seconds to the hook's first sung onset and first instrumental statement, against the map's targets (episode 1: 0:25 and 0:03). |
 | Section lengths | Bars × 240 / bpm per section; report the intro, the time to first chorus and the total. |
 | Silence placement | Every lead rest of two beats or more and every band stop, with what follows. Each stop ends in a downbeat hit; each exclamation has a rest beside it. |
 | Drum contrast | Cymbal onsets per bar and snare positions per section; chorus above verse, half-time snare on 3 only. |

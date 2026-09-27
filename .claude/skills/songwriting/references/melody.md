@@ -174,8 +174,8 @@ These can be measured from the score. Run them before any human listens; the hum
 judges only what the numbers can't. Episode 1's `music/ep01/leaps.mjs` implements the first two.
 - **Leap budget.** List every interval of five semitones or more between notes less than a
   beat apart. Outside the chorus there should be almost none, each with a reason.
-- **Step ratio per section.** Share of intervals of 0–2 semitones. Rough targets: verse and
-  pre-chorus over 70%, chorus over 55% (episode 1: 69–92% and 57–63%).
+- **Step ratio per section.** Share of intervals of 0–2 semitones, against the map's targets
+  (episode 1: verse and pre-chorus 69–92%, the leapier chorus 57–63%).
 - **Range and tessitura.** Report the lowest and highest notes of the song and the
   duration-weighted mean pitch of each section. The chorus mean should be above the verse mean.
 - **Climax count and position.** Count onsets on the song's highest pitch, grouping identical

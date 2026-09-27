@@ -30,7 +30,8 @@ sections, timings and teaching content, and syllable counts marked on each line.
 **Short-form editor.** Someone who has grown educational and developer accounts on X, TikTok and
 Shorts, reviewing against CRAFT.md. Cover:
 - whether a muted viewer would stop on the first frame
-- a second-by-second list of where viewers swipe away, and why
+- where a viewer would lose track of what's happening, or lose a reason to keep watching (clarity
+  beats density, and this ranks below teaching and beauty)
 - whether the payoff and the open loop work
 - the moments people would clip, screenshot or quote-tweet, and what they'd say
 - cringe risk

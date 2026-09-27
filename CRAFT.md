@@ -155,7 +155,8 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
   preference: "more of a hand-drawn animation style (myriad to choose from) rather than
   something so shiny". A standard: "uphold the high quality bar artistically throughout", after
   the third video's quality dropped from verse 2. The fourth video answers all four.
-- Audio: all code, including vocals (Qing 2026-09-24). An external voice is the fallback.
+- Audio: first decided as all code, including vocals (Qing 2026-09-24). Episode 1 shipped a
+  MiniMax take instead; the current route is in [music/README.md](music/README.md#two-routes).
 - Every episode ships liner notes: how it was checked, where it falls short.
 - ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the
   continuous camera made that video dizzying. See

@@ -1,13 +1,16 @@
 # Music craft
 
-How to make a song entirely in code: composed, arranged, synthesised, mixed and checked in
-JavaScript, then rendered offline to a WAV file. The rules adapt standard songwriting, music theory
-and production practice to code. Qing's brief (2026-09-24): "you'll need to figure out your own
-'doing songs with javascript' best practices based on standard music writing and songwriting and
-music production best practices", and "you'll need to map out the full song's rhythm and chord
-sequences before you can go into generation - we need coherent rhythmic phrasing throughout".
-[LYRICS.md](LYRICS.md) covers the words. This file covers everything else. Add a rule whenever a
-fix teaches one. Numbers are starting points unless a source is given.
+How to make a song, adapting standard songwriting, theory and production practice. The
+sound-design, engineering and mix rules are for making it in code; episode 1 shipped a MiniMax
+take instead ([the two routes](music/README.md#two-routes)). Qing's brief (2026-09-24): "you'll
+need to figure out your own 'doing songs with javascript' best practices based on standard music
+writing and songwriting and music production best practices", and "you'll need to map out the
+full song's rhythm and chord sequences before you can go into generation - we need coherent
+rhythmic phrasing throughout". [LYRICS.md](LYRICS.md) covers the words. This file covers
+everything else. Numbers are starting points unless a source is given.
+
+**Adding a rule.** Write the principle under a correction, not the fix. Check it against the
+existing rules and a song that worked, and merge or replace rather than append.
 
 ## Order of work
 - **Map the whole song before making any sound.** Work in this order: song map, melody,
@@ -16,13 +19,13 @@ fix teaches one. Numbers are starting points unless a source is given.
 - **The map is a file, not a thought.** It holds tempo, key, time signature, and the form with a
   bar count for every section. Each bar gets its chord, its drum pattern, and every syllable placed
   on the grid. Episode 1: 180 bpm, E♭ major, 4/4, one bar = 1.33 s.
-- **Phrases come in 2, 4 and 8 bars.** Lines are usually 2 bars and sections 8 or 16, and every
-  chorus is sung twice. Any odd length (a 1-bar stop, a 2-bar extension) goes in the map with its
-  reason. Otherwise the listener feels a stumble they can't name.
+- **Phrases come in 2, 4 and 8 bars.** Lines are usually 2 bars and sections 8 or 16. Any odd
+  length (a 1-bar stop, a 2-bar extension) goes in the map with its reason. Otherwise the listener
+  feels a stumble they can't name.
 - **Name the rhythmic motifs and reuse them.** Give each line's rhythm an ID (A, A′, B) and write
-  it in the map. Lines 1, 2 and 4 of a verse share motif A, and line 3 varies it. The verses match
-  each other and the choruses repeat exactly. This is what "coherent rhythmic phrasing" means in
-  practice, and the map is where you check it.
+  it in the map. Parallel lines within a section share a rhythm; that is what "coherent rhythmic
+  phrasing" means in practice, and the map is where you check it. Choose how much repeats across
+  sections to suit the performer ([LYRICS.md](LYRICS.md), *Writing for the performer*).
 - **Write pickups as pickups.** A line that starts before the bar line ("and a", then ONE) gets its
   pickup notes written in the previous bar, so the first stressed syllable still lands on beat 1.
 - **Stressed syllables go on strong beats.** Beat 1 is strongest, then 3, then 2 and 4, then the
@@ -39,7 +42,9 @@ fix teaches one. Numbers are starting points unless a source is given.
   motif  | H (hook)                       | H
   ```
 
-## Pop-punk conventions
+## Genre conventions
+Pick the genre per song and write its conventions in the song's map. Episode 1's pop-punk,
+below, is the worked example, not the default.
 - **Tempo is 145–180 bpm, felt in 4.** "All the Small Things" is 150 bpm, "Sk8er Boi" 150,
   "Basket Case" and "good 4 u" about 170, "Misery Business" 173. Sheet music often gives half
   these numbers (85, 86) because it counts the half-time feel. Pick one convention and state it in
@@ -79,10 +84,10 @@ fix teaches one. Numbers are starting points unless a source is given.
   A/B reference and write it in the map.
 
 ## Melody
-- **Keep the lead in a pop female range.** Hayley Williams covers F3–E♭5 on "Misery Business". For
-  our voice, keep verses around B♭3–B♭4 and put the chorus peak at about E♭5. Episode 1's hook leaps
-  to the high tonic, E♭5, which is the top of that range. Avoid holding notes in the A4–C5 break
-  region for long unless the voice model handles it.
+- **Keep the lead in the singer's range.** Take it from a reference singer in the genre and write
+  it in the map. Episode 1's example: Hayley Williams covers F3–E♭5 on "Misery Business", so
+  verses sat around B♭3–B♭4 and the hook leapt to the high tonic, E♭5, the top of that range.
+  Avoid holding notes in the singer's break (A4–C5 for that voice) unless the voice handles it.
 - **The chorus sits higher than the verse.** A corpus study of Billboard songs found chorus
   sections "louder, sharper and rougher" than others, with "slightly higher and more salient pitch".
   Timbre mattered more than pitch height, so lift the arrangement as well as the melody.
@@ -96,10 +101,8 @@ fix teaches one. Numbers are starting points unless a source is given.
   callbacks, and use a smaller interval elsewhere: in episode 1, "the octave tonic is a waste for
   'oops' when the fifth would do". `music/ep01/leaps.mjs` lists every leap of five semitones or
   more, with each section's share of steps.
-- **Repeat the hook exactly; vary the rest.** The hook's melody and rhythm are identical every
-  time; that's why episode 1 tried composing its song in code, before going back to a MiniMax
-  take. Second halves and later verses vary one thing (the ending note, a pickup, one interval),
-  not everything.
+- **Repeat the hook exactly.** The hook's melody and rhythm are identical every time. How much
+  else repeats depends on the performer (see *Name the rhythmic motifs* above).
 - **Strong-beat notes are chord tones.** Passing notes go on weak beats. Any clash with the bass
   on beat 1 has to be deliberate.
 
@@ -117,13 +120,13 @@ this series in particular stay here and in [LYRICS.md](LYRICS.md).
   back to the hook; the second pass keeps the tune but changes its last bar or two to close
   (Qing, 2026-09-25: "it needs a second time bar that ties a bow on it though - just repeating
   won't work").
-- **A section that ends must cadence.** A chorus or tail that hands on to a new section needs a
-  dominant (V, V⁶ or a ♭VII substitute) before the tonic. iii–vi–I has no dominant
-  (Qing, 2026-09-25, on episode 1's option b: "what on earth in your harmonic theory analysis
-  makes you think it's OK to end the chorus on G minor here"): with the
-  melody holding the shared third (G over Gm, Cm, E♭), the arrival sounds like the minor chord,
-  not home. The "royal road" (IV–V–iii–vi) is a J-pop loop built to keep going, not to end, and
-  it isn't a pop-punk move.
+- **An ending must sound like arriving home.** Check what the melody note and the chord sound
+  like together at the arrival, not just the numerals; the cadences that work are in
+  [harmony.md](.claude/skills/songwriting/references/harmony.md). Episode 1's option b ended
+  iii–vi–I with the melody holding the shared third (G over Gm, Cm, E♭), so the arrival sounded
+  like the minor chord, not home (Qing, 2026-09-25: "what on earth in your harmonic theory
+  analysis makes you think it's OK to end the chorus on G minor here"). A loop built to keep
+  going, like the "royal road" (IV–V–iii–vi), won't end a section.
 
 ## Singing voice
 - **Glide between pitches.** Ornaments and melismas slide: S-shaped transitions of roughly
@@ -153,24 +156,23 @@ this series in particular stay here and in [LYRICS.md](LYRICS.md).
   audible on phone speakers. Tune the kick's resting pitch to the key.
 - **Band-limit every oscillator.** A naive saw or square aliases into inharmonic whine on high
   notes. Use PolyBLEP or wavetables (Välimäki & Huovilainen), and oversample every nonlinearity.
-- **Voice: formant synthesis first, an external voice as fallback.** A source–filter voice uses a
-  glottal pulse through cascaded formant resonators, with parallel resonators for fricatives
-  (Klatt 1980). Pink Trombone shows an articulatory model in JS. If the all-code voice fails the
-  intelligibility check below, an external singing model can render the same score line by line.
-  The score still owns the timing.
+- **Voice in code: formant synthesis.** A source–filter voice uses a glottal pulse through
+  cascaded formant resonators, with parallel resonators for fricatives (Klatt 1980). Pink
+  Trombone shows an articulatory model in JS. The score owns the timing.
 - **Consonants carry the words.** Vowels make the tone; plosive bursts, fricative noise (/s/ at
   about 4–8 kHz) and 30–60 ms formant transitions into the vowel carry the meaning. Most
   "robot with a cold" failures are missing or mushy consonants.
 - **The vowel starts on the beat.** Singers put the vowel onset on the beat, and accompanists sync
   to it (Sundberg & Bauer-Huppmann). So each consonant is scheduled before the beat, by its own
   length. "Good" starts its /g/ burst early, and /ʊ/ lands on the grid.
-- **Take vowel targets from the right accent.** Published formant tables (Hillenbrand 1995) are
-  American. Our voice is British, so measure formants from a British reference, such as Qing's
-  chosen take, and store them per vowel.
+- **Take vowel targets from the accent the song is sung in.** Published formant tables
+  (Hillenbrand 1995) are American, which matches the General American the rhymes are written for
+  ([LYRICS.md](LYRICS.md)). For any other accent, measure a reference singer and store the
+  formants per vowel.
 - **High notes need vowel modification.** At E♭5 (622 Hz) the pitch is above the first formant of
   /u/ and /i/. Sopranos raise the first formant to follow the pitch, and intelligibility drops
-  anyway. On "who-o-o" at the high tonic, open the vowel slightly and let the consonant and the
-  caption carry the word.
+  anyway. On a closed vowel at the top (episode 1's "who" on the high tonic), open the vowel
+  slightly and let the consonant and the caption carry the word.
 - **The pitch line needs overshoot, preparation, vibrato and fine fluctuation.** A singing-synthesis
   study found overshoot, the brief pass above the new note, matters most (Saitou et al.). Pop-punk
   also scoops up into notes from below. Vibrato runs at about 5–7 Hz, and solo singers usually keep it

@@ -278,7 +278,7 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
 
   | Member | Sings to | Their app | Its oracles |
   |---|---|---|---|
-  | the lead | Rosa, who runs the bread shop | order-ahead | the till roll; last Saturday's rush; pull the plug |
+  | the lead | Rosa, who runs the bread shop | order-ahead | her sales sheet; last Saturday's rush; pull the plug |
   | the sensitive one | Dr Obi, who runs the clinic | booking site | Gran, one of her patients, played by the older one |
   | the bad boy | Ms Kim, the school office manager | the parent app | snoop as a parent |
   | the builder | Jess, the bride | the wedding site | her dread list; the family chat |
@@ -308,7 +308,7 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
 
   | Care (plain word on screen) | App | What went wrong with green tests | The oracle: who or what can tell |
   |---|---|---|---|
-  | works | the bread shop's order app | — | last month's till roll: replay the orders, the totals match |
+  | works | the bread shop's order app | — | last month's sales sheet: replay the orders, the totals match |
   | busy | the bread shop's order app | down at 8 a.m., fifty in the queue | last Saturday's rush, replayed at twice the crowd |
   | easy | the clinic's booking site | Gran couldn't get through | Gran, played by a bandmate who didn't build it, on an old phone |
   | installs | any of them | — | a stranger: a phone that's never seen it, from link to working in a minute |
@@ -330,12 +330,12 @@ line depends on are listed.
 | Verse 1 | We built you each an app, and every test came back green; then every one went wrong in ways the tests had never seen. Each member turns on his stool to his own person for his line: your bread shop's app went down at eight with fifty in the queue (to Rosa); your clinic's booking site was fine, but Gran could not get through (to Dr Obi); your school app let a parent read the other parents' texts (to Ms Kim); your wedding site sat Uncle Dave beside his angry ex (to Jess). Tag: I'd do anything for you, if I only had a clue | Four app screens in a row, each held by its owner, each with a green ✅ stamp; one per line, the stamp cracks and a small plain-word chip appears: **busy** (a queue out of the bread shop door, a spinner), **easy** (Gran lost on a booking form), **safe** (a parent's chat thread on the wrong phone), and for Dave, no chip, just the soup-staring |
 | Pre-chorus | You tell me when it's broken, never how to tell it's right; you know it when you see it, but keep the answer out of sight; and baby, baby, I'm just waiting for a sign | — |
 | Chorus | Qing's chorus: how do I know, how can you show, what perfect means to you? All of my checks, all of my tests, don't find the bugs you do. Give me a guide, something to try, to make your dreams come true. I want you to love it, so give me something I can prove | The green test report beside the cast's four bug screenshots; a guidebook held up, blank; the band on one knee |
-| Verse 2 | Give me the till roll and I'll match every loaf you sold; give me your Saturday rush and I'll double the load; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, you're the key!" | Back at the bread shop: a till roll unspools beside the app's order list, the totals ticking into agreement (chip: **works**); last Saturday's queue, doubled, pours through the app without a spinner (chip: **busy**); back to "still broken". On "you're the key", the band points out at the cast, and three cards land face down |
+| Verse 2 | Give me your sales sheet and I'll match every loaf you sold; give me your Saturday rush and I'll double the load; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, you're the key!" | Back at the bread shop: Rosa's sales spreadsheet slides in beside the app's order list, the totals ticking into agreement (chip: **works**); last Saturday's queue, doubled, pours through the app without a spinner (chip: **busy**); back to "still broken". On "you're the key", the band points out at the cast, and three cards land face down |
 | Bridge | If it's good, then there's someone who knows. Could a stranger install it and go? What's the thing, if it broke, that you'd dread? What's the screenshot you'd hate to see spread? Each line asks for a source of judgement, not a requirement | One card flips per line, each captioned with its name: *the stranger test* (a phone that's never seen it scans the QR on the bread shop counter; chip: **installs**), *the dread test* (the wedding seating plan, Dave and his ex circled in red), *the screenshot test* (a parent's private message posted in the class group chat 💀) |
 | Break | The bad boy's rap. An oracle is anything that helps you spot what's wrong. We can't be your users, but we'll play them; I'll pull out the plug and see if orders stay; I'll snoop like a parent: can I read what others say?; I'll check each fear you name, show you receipts, and it's still your call | The older Clawd in Gran's cardigan and reading glasses squints at an old phone and books her check-up (chip: **easy**); the bad boy yanks the bread shop's wifi cable mid-order, and the order is still there (chip: **doesn't lose things**); in a parent's lanyard he tries to open another family's messages: 🔒 (chip: **safe**). A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
 | Final pre-chorus | The same complaint; then: so write it down, 'cause I've been waiting for a sign | The questions appear, blank |
 | Chorus (key change) | Word for word | The band stands up off the stools. The questions tick in, one per sung line |
-| Outro | Here are the checks, here are the tests, and how each one came through; what I don't know, that I will show, and leave the rest to you. Spoken: "So… do you love it?" The cast try their apps, one by one: "I love it." "I love it." "I love it." A beat. Jess: "…Dave's still coming, though." | The band's check report, one line per app: ✅ bread shop: last month's orders replayed, totals match the till roll; last Saturday at twice the crowd, nothing lost ✅ clinic: a bandmate playing Gran booked a check-up on an old phone (screen recording) ✅ school app: signed in as one parent, nobody else's messages visible ✅ wedding: nobody on your dread list shares a table ✅ a fresh phone: installed and working in under a minute ❓ whether they'll love it: yours to say. The chips from the whole song line up in a row, a quiet trailer for episode 3. The questions held about 3 seconds. Last frame: frame 1's layout, the four screens now saying "I love it.", over the intro's clicks, so the loop lands back on "All tests passed ✅" |
+| Outro | Here are the checks, here are the tests, and how each one came through; what I don't know, that I will show, and leave the rest to you. Spoken: "So… do you love it?" The cast try their apps, one by one: "I love it." "I love it." "I love it." A beat. Jess: "…Dave's still coming, though." | The band's check report, one line per app: ✅ bread shop: last month's orders replayed, totals match the sales sheet; last Saturday at twice the crowd, nothing lost ✅ clinic: a bandmate playing Gran booked a check-up on an old phone (screen recording) ✅ school app: signed in as one parent, nobody else's messages visible ✅ wedding: nobody on your dread list shares a table ✅ a fresh phone: installed and working in under a minute ❓ whether they'll love it: yours to say. The chips from the whole song line up in a row, a quiet trailer for episode 3. The questions held about 3 seconds. Last frame: frame 1's layout, the four screens now saying "I love it.", over the intro's clicks, so the loop lands back on "All tests passed ✅" |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
@@ -372,7 +372,7 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 > *(all)* i WANT you to LOVE it *(love it)*, so GIVE me SOME-thing i can PROVE! [14]
 
 **Verse 2**
-> *(the lead, to Rosa)* GIVE me the TILL roll, i'll MATCH ev-ery LOAF that you SOLD; [13]
+> *(the lead, to Rosa)* GIVE me your SALES sheet, i'll MATCH ev-ery LOAF that you SOLD; [13]
 > GIVE me your SAT-ur-day RUSH, and i'll DOU-ble the LOAD; [13]
 > SOME-thing to CHECK a-gainst? THAT'S all i NEED: watch me GO! [13]
 > ON-ly "still BRO-ken"? Then ALL i can HEAR is a "NO". [13]
@@ -441,7 +441,7 @@ comes with the song's worked answer from one of the cast:
 
 > how you'll know it's good:
 > works: what can you check it against?
->   Rosa: replay last month's orders; the totals must match the till roll
+>   Rosa: replay last month's orders; the totals must match the sales sheet
 > easy: who's the least techy person who'll use it? have a subagent play them, on their phone
 >   Dr Obi: a subagent plays Gran, 82, on an old phone with big text: can she book a check-up?
 > installs: can a phone that's never seen it get from the link to working in a minute?
@@ -480,7 +480,7 @@ ending gives the lonely "still broken" its answer: "I love it."
 **Post text (draft):**
 > "Fixed it!" "still broken." "Fixed it now!" "still broken."
 > Your agent's usually not lying. It's guessing, because nobody told it how to tell.
-> Ways you already have: does it match the till roll? Could your gran use it? Could a stranger
+> Ways you already have: does it match your sales records? Could your gran use it? Could a stranger
 > install it? Does it survive your busiest Saturday, or the wifi dropping? What can a nosy user
 > see? What screenshot would you hate to see spread?
 > Put them in the brief, and have another Claude play the person it's for.
@@ -631,6 +631,8 @@ ending gives the lonely "still broken" its answer: "I love it."
   - "send me last Saturday's rush" isn't something people say: "give me your Saturday rush"
   - the outro's "how I ran them through" (a sword) is "how each one came through"
   - the builder's type no longer says he wrote everyone's code; Jess's wedding site is hers
+- **After Qing's note on the till roll (2026-09-27):** "give me your till roll is confusing".
+  A till roll is British and obscure; it's now "give me your sales sheet".
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

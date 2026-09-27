@@ -4,7 +4,7 @@
 experimenting. Checking, answering yes-or-no questions you already knew to ask, is one useful
 part of it.
 **Status:** moved from episode 2 to episode 4 (2026-09-27), after the oracles and ilities
-episodes. Talking points and section sketch were agreed (2026-09-26), and hook and chorus v6 went to Qing. All of it
+episodes (2 and 3). Talking points and section sketch were agreed (2026-09-26), and hook and chorus v6 went to Qing. All of it
 reopens once episodes 2 and 3 are agreed, because the viewer will arrive knowing about oracles
 and ilities (see *What changes now oracles come first*).
 
@@ -29,18 +29,18 @@ Later the same day:
 ## What changes now oracles come first
 
 - **The question the episode answers changes** from "should you test?" to "how do you get agents
-  to test well?" That's what a vibecoder wants to know (Qing). The answer can now use episode 2:
+  to test well?" That's what a vibecoder wants to know (Qing). The answer can now use episodes 2 and 3:
   give the testers your oracles, a real browser and a playbook, and let them hunt.
 - **The green wall gets a sharper diagnosis.** A tautology is a test whose oracle is the code
   itself, so it can't disagree with the code. A change detector's oracle is yesterday's version,
-  which doesn't know what matters. Episode 2 gives the word; this episode shows it failing.
+  which doesn't know what matters. Episode 3 gives the word; this episode shows it failing.
 - **The hook needs another look.** "Did you actually test it?" leans towards the "test it
   yourself" message Qing now finds boring. It may survive if the chorus is about agents testing
   with oracles, rather than about the viewer's diligence.
 - **Kept:** testing versus checking (Bach and Bolton), testing as a team of agents and a human,
   testing is fun, the gym-log finds, and the research below.
-- **The ilities give the hunt its map.** After episode 3 the viewer knows "fast" and "reliable"
-  are each several things, so the testers can be sent after each one, with its own oracle.
+- **The ilities give the hunt its map.** After episode 2 the viewer knows good is several
+  qualities, so the testers can be sent after each one, with its own oracle from episode 3.
 
 ## Expert notes (Qing, 2026-09-26, verbatim)
 

@@ -1,10 +1,11 @@
-# Episode 2: "How Would You Know?"
+# Episode 3: "How Would You Know?"
 
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** talking points v1 for Qing (2026-09-27). Moved ahead of the testing episode, which is
-now episode 4, after the ilities episode.
+**Status:** talking points v1 for Qing (2026-09-27). Now episode 3: after the basic ilities
+(episode 2), before testing (episode 4). Its examples need a pass so each oracle answers one of
+episode 2's qualities.
 
 ## Expert notes (Qing, 2026-09-27, verbatim)
 
@@ -24,6 +25,14 @@ Her notes on why testing moved later are in
 [episode 4](04-what-happens-if.md#why-it-moved-qing-2026-09-27-verbatim). Later the same day:
 
 > oh actually by my sequencing reasoning ilities go before testing
+
+> No the trench coat is not the illaties. The trench coat is a further breakdown of the ilities.
+> Did you not have an episode for the basic ilities because a vibe coder won't know them?
+>
+> Trench coat is 102-level ilities
+
+> Please review the actual lesson plan carefully and don't just guess based on the sources we
+> have. It has to make sense as a curriculum from first principles and be applicable in order
 
 ## Where it comes from
 
@@ -112,7 +121,7 @@ Options for the line to remember (Clawd, plain and fair):
 
 ## The brief, before and after
 
-Before (episode 1's gym-log brief):
+Before (episode 1's gym-log brief; episode 2's additions to come):
 
 > a gym log. just for me.
 > for: me, mid-set, sweaty hands

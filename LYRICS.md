@@ -157,6 +157,13 @@ where one already covers it.
 - **The payoff phrase goes last, once.** In a section built to land a phrase, hold it back for
   the final line and don't spend it earlier. Episode 1's bridge used "who's it for" in lines 2
   and 4; now it only closes the bridge, held ("who it's fo-o-or?").
+- **A later verse can answer the first, line for line.** In Qing's rewrite of episode 2
+  (2026-09-28), verse 1 lists four apps that failed, and verse 2 gives each one its oracle in the
+  same order, until the last line breaks the pattern for the joke: no check would have caught
+  Dave, so "you really had to let me know". The lesson lands as a payoff to the setup. The
+  bridge also names the term outright ("An oracle is something that can help me figure out
+  what's wrong"). A song that teaches a word should say what it means at least once. (This
+  reading of her rewrite is ours, not her words.)
 - **Put each idea where it belongs.** When two sections both want a line ("I'm someone too"),
   keep it in the one where it pays off, and don't let it leak into the other.
 

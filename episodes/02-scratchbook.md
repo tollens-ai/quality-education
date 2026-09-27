@@ -1679,3 +1679,193 @@ words on the old stresses, so watch it in the takes. Verse 1 is a straight run o
 alternating light and stressed. The hook line's stresses don't match the chorus lines' grid
 (it's 14 syllables, but "i WANT you to LOVE it" starts on a light syllable); it's sung once per
 chorus as its own tag, as the old hook was.
+
+### Episode 2 v10, before Qing's rewrite (2d5b9e7)
+
+Backing vocals in italics and brackets. Lines marked *(the cast)* are the app owners, as a gang vocal.
+Stresses in capitals, syllables split with hyphens. Every set of lines that answer each other
+was run through `music/check/rhyme.py lines` and matches exactly; every rhyme listed below was run
+through `music/check/rhyme.py rhyme` and shares its stressed vowel.
+
+**Intro** (one bar: finger clicks, step-taps)
+> *(the lead, spoken)* This one's for everyone we ever built an app for.
+
+**Verse 1**
+> we BUILT you EACH an APP, and EV-ery TEST came BACK as GREEN; [14]
+> then EV-ery ONE went WRONG in WAYS the TESTS had NEV-er SEEN: [14]
+> *(the lead, to Rosa)* your BREAD shop's APP went DOWN at EIGHT with FIF-ty IN the QUEUE; [14]
+> *(the sensitive one, to Dr Obi)* your CLIN-ic's BOOK-ing SITE looked GREAT, but GRAN could NOT get THROUGH; [14]
+> *(the bad boy, to Ms Kim)* your SCHOOL app LET a PAR-ent READ the OTH-er PAR-ents' TEXTS; [14]
+> *(the builder, to Jess)* your WED-ding SITE sat UN-cle DAVE be-SIDE his AN-gry EX! [14]
+> *(all)* I'd do anything for you *(for you)* [7]
+> if I only had a clue! [7]
+
+**Pre-chorus**
+> you TELL me when it's BRO-ken, NEV-er HOW to TELL it's RIGHT; [14]
+> you DON'T know that you KNOW it; THAT'S what KEEPS it OUT of SIGHT, [14]
+> and BA-by, BA-by, i'm just WAIT-ing for a SIGN… [12]
+
+**Chorus**
+> HOW do i KNOW, HOW can you SHOW, what PER-fect MEANS to YOU? [14]
+> ALL of my CHECKS, ALL of my TESTS, don't FIND the BUGS you DO. [14]
+> GIVE me a GUIDE, SOME-thing to TRY, to MAKE your DREAMS come TRUE! [14]
+> *(all)* i WANT you to LOVE it *(love it)*, so GIVE me SOME-thing i can PROVE! [14]
+
+**Verse 2**
+> *(the lead, to Rosa)* GIVE me your SALES sheet, i'll MATCH ev-ery LOAF that you SOLD; [13]
+> GIVE me your SAT-ur-day RUSH, and i'll DOU-ble the LOAD; [13]
+> SOME-thing to CHECK a-gainst? THAT'S all i NEED: watch me GO! [13]
+> ON-ly "still BRO-ken"? Then ALL i can HEAR is a "NO". [13]
+> *(the cast)* no AN-swer KEY for ME! [6]
+> *(all)* oh BA-by, YOU'RE the KEY! [6]
+
+**Chorus**
+
+**Bridge** (stripped back; the sensitive one on a stool)
+> if it's GOOD, then there's SOME-one who KNOWS: *(ooh)* [9]
+> could a STRANG-er in-STALL it and GO? *(ooh)* [9]
+> what's the THING, if it BROKE, that you'd DREAD? *(ooh)* [9]
+> what's the SCREEN-shot you'd HATE to see SPREAD? [9]
+
+**Break** (half time: the bad boy's rap)
+> an OR-a-cle's AN-y-thing that HELPS you SPOT what's WRONG! *(spot what's wrong!)* [13]
+> a BAND-mate who's NEV-er seen it TRIES it ALL day LONG! *(all day long!)* [13]
+> i'll PULL out the PLUG, and then i'll SEE if OR-ders STAY! *(orders stay!)* [13]
+> i'll SNOOP like a PAR-ent: can i READ what OTH-ers SAY? *(others say?)* [13]
+> i CAN'T feel your PAN-ic, but i'll CHECK each FEAR you NAME! *(fear you name!)* [13]
+> i'll SHOW you re-CEIPTS, and it's still YOUR call, ALL the SAME. [13]
+
+**Final pre-chorus** (lines 1 and 2 word for word; line 3 matches the first pre-chorus's line 3
+stress for stress)
+> you TELL me when it's BRO-ken, NEV-er HOW to TELL it's RIGHT; [14]
+> you DON'T know that you KNOW it; THAT'S what KEEPS it OUT of SIGHT, [14]
+> so WRITE it DOWN, 'cause i've been WAIT-ing for a SIGN… [12]
+
+**Chorus** (key change up; the band steps forward, light sticks up)
+
+**Outro** (the chorus's grid)
+> HERE are the CHECKS, HERE are the TESTS, and HOW each ONE came THROUGH; [14]
+> WHAT i don't KNOW, THAT i will SHOW, and LEAVE the REST to YOU. [14]
+> *(spoken)* So… do you love it?
+> *(the cast, one by one, after trying their apps)* …I love it. / I love it. / I love it.
+> *(Jess)* …Dave's still coming, though.
+
+**Rhymes, checked by stressed vowel** (General American)
+- Verse 1: green/seen; queue/through; texts/ex; tag you/clue.
+- Pre-chorus: right / sight / sign, all on AY.
+- Chorus (Qing's grid): every line has a rhyming pair in the first two slots, then its end rhyme:
+  know/show, checks/tests, guide/try; the ends you / do / true, and the hook's prove.
+- Verse 2: sold/load; go/no; tag me/key.
+- Bridge: knows/go; dread/spread.
+- Break: wrong/long; stay/say; name/same.
+- Outro: the chorus's grid: checks/tests, know/show; through / you.
+
+**Cribbed, on purpose:** "if I only had a clue" nods to "If I Only Had a Brain"; "I'd do
+anything for you" and "make your dreams come true" to every boy band ever; "you don't
+know that you know it, that's what keeps it out of sight" turns the "don't know you're
+beautiful" hook around. The nods are titles and tropes, never the songs' lyrics.
+
+**For Qing's ear:** "a-GAINST" goes unstressed
+in "SOME-thing to CHECK a-gainst", as people say it; the final pre-chorus's third line is new
+words on the old stresses, so watch it in the takes. Verse 1 is a straight run of fourteen,
+alternating light and stressed. The hook line's stresses don't match the chorus lines' grid
+(it's 14 syllables, but "i WANT you to LOVE it" starts on a light syllable); it's sung once per
+chorus as its own tag, as the old hook was.
+
+**Generator copy (v10, 2026-09-27)** for MiniMax. It contains only MiniMax's section tags and
+words to be sung as written, because stage directions ("spoken", "the cast") get sung too.
+So the dedication, the cast's lines and Jess's line are sung, and the cast's and backing
+voices go in brackets. The key change, stools and light sticks are in the style prompt or the
+video. "Bandmate" and "screenshot" are split into two words each (LYRICS.md: splitting a
+compound fixes most stress errors). Every section is written out in full each time. The copy
+is 2,825 characters.
+
+```
+[Intro]
+This one's for everyone we ever built an app for
+
+
+[Verse]
+We built you each an app, and every test came back as green
+Then every one went wrong in ways the tests had never seen
+Your bread shop's app went down at eight with fifty in the queue
+Your clinic's booking site looked great, but Gran could not get through
+Your school app let a parent read the other parents' texts
+Your wedding site sat Uncle Dave beside his angry ex!
+I'd do anything for you (for you)
+If I only had a clue!
+
+
+[Pre-Chorus]
+You tell me when it's broken, never how to tell it's right
+You don't know that you know it, that's what keeps it out of sight
+And baby, baby, I'm just waiting for a sign
+
+
+[Chorus]
+How do I know, how can you show, what perfect means to you?
+All of my checks, all of my tests, don't find the bugs you do
+Give me a guide, something to try, to make your dreams come true!
+I want you to love it (love it), so give me something I can prove!
+
+
+[Verse]
+Give me your sales sheet, I'll match every loaf that you sold
+Give me your Saturday rush, and I'll double the load
+Something to check against? That's all I need, watch me go!
+Only still broken? Then all I can hear is a no
+(No answer key for me!)
+Oh baby, you're the key!
+
+
+[Chorus]
+How do I know, how can you show, what perfect means to you?
+All of my checks, all of my tests, don't find the bugs you do
+Give me a guide, something to try, to make your dreams come true!
+I want you to love it (love it), so give me something I can prove!
+
+
+[Bridge]
+If it's good, then there's someone who knows (ooh)
+Could a stranger install it and go? (ooh)
+What's the thing, if it broke, that you'd dread? (ooh)
+What's the screen shot you'd hate to see spread?
+
+
+[Break]
+An oracle's anything that helps you spot what's wrong! (spot what's wrong!)
+A band mate who's never seen it tries it all day long! (all day long!)
+I'll pull out the plug, and then I'll see if orders stay! (orders stay!)
+I'll snoop like a parent, can I read what others say? (others say?)
+I can't feel your panic, but I'll check each fear you name! (fear you name!)
+I'll show you receipts, and it's still your call, all the same
+
+
+[Pre-Chorus]
+You tell me when it's broken, never how to tell it's right
+You don't know that you know it, that's what keeps it out of sight
+So write it down, 'cause I've been waiting for a sign
+
+
+[Chorus]
+How do I know, how can you show, what perfect means to you?
+All of my checks, all of my tests, don't find the bugs you do
+Give me a guide, something to try, to make your dreams come true!
+I want you to love it (love it), so give me something I can prove!
+
+
+[Outro]
+Here are the checks, here are the tests, and how each one came through
+What I don't know, that I will show, and leave the rest to you
+So, do you love it?
+(I love it) (I love it) (I love it)
+Dave's still coming, though
+```
+
+Style prompt (draft; no accent, per LYRICS.md):
+> Late-90s boy-band pop, about 104 bpm, light and bouncy. Finger clicks and step-tap
+> percussion, bright synths, five-part male harmonies, lead lines traded between members,
+> sweet and earnest, clear diction. Half-time rap in the break. Stripped-back bridge. Key change
+> up for the final chorus. Funny, sincere, singalong.
+>
+> The [Pre-Chorus] and [Chorus] are repeated melodically.

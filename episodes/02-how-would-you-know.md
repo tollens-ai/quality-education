@@ -110,6 +110,9 @@ On lyrics v5 (2026-09-27):
 > rhyming is about predictability. otherwise it sounds like an accident. you see how in my
 > example it's the same on every line
 
+> right. don't force the rhymes and lose track of what you're trying to say though. you'd always
+> rather change the rhyme structure
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see

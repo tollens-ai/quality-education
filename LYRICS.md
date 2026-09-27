@@ -69,6 +69,8 @@ where one already covers it.
   internal rhyme, the lines that answer it have one in the same slot; otherwise it sounds like an
   accident (Qing, 2026-09-27: "rhyming is about predictability"). Her sketch put a rhyming pair
   in the same two slots of every line (know/code, verify/UI, check/test), then the end rhyme.
+  Never force a word to keep the pattern: if the meaning starts to bend, change the rhyme
+  structure instead ("you'd always rather change the rhyme structure", Qing, 2026-09-27).
 - **Every section rhymes.** A repeated refrain word ("…and two it was!") isn't a rhyme, and
   neither is a hook or a chant left unrhymed because it's short (Qing, 2026-09-26: "you forgot to
   make it rhyme"). Check every section's rhymes before anyone hears it.

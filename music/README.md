@@ -13,7 +13,7 @@ throughout.
 | `lib/notation.mjs`, `lib/audio.mjs` | Grid notation parser; timing, WAV output, seeded noise, filters | Shared |
 | `lib/band/` | Synthesised drums, bass, guitars, DSP ([README](lib/band/README.md)) | Shared |
 | `voice/` | The all-code singing voice ([README](voice/README.md)) | Shared |
-| `check/` | Measurements: prosody, band checks, pitch against the score, the model ear | Shared |
+| `check/` | Measurements: prosody, rhymes and line stresses in a lyric draft (`rhyme.py`), band checks, pitch against the score, the model ear | Shared |
 | `reference/` | Analysis of reference takes: beat grid, sung notes, chords | Shared |
 | `epNN/score.mjs` | The song as data: form, chords, arrangement, every syllable and pitch | Per episode |
 | `epNN/band.mjs` | The episode's feels (one function per arrangement feel), mix and render | Per episode; copy and adapt |

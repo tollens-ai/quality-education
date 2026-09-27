@@ -22,7 +22,8 @@ where one already covers it.
   People say an agent "deleted my files", not that it "wiped what you own"; they say "keeps your
   data safe", not "keeps your data locked". If the natural phrase won't rhyme, rebuild the line
   around a different natural phrase. Prefer the international word when it costs nothing ("works
-  on a train", not "works on the Tube").
+  on a train", not "works on the Tube"; "dad", not "mum", which is "mom" in America: Qing,
+  2026-09-27).
 - **Every phrase must be a real phrase.** "Test it through" rhymes but isn't English, so listeners
   stumble on it.
 - **Be concrete about sources and lessons.** "Learned from everyone online" is weak; "I could
@@ -55,6 +56,10 @@ where one already covers it.
   written out its family: there's usually loads (Qing, 2026-09-27: "whether you're just not being
   rapper enough about rhyming"). The songwriting skill's
   [lyrics reference](.claude/skills/songwriting/references/lyrics.md) has the Sondheim craft.
+- **What makes a rhyme is the stressed vowel.** "See it", "leave it" and "believe it" all rhyme,
+  though the consonants differ ("see it absolutely rhymes with leave it"). "Love it" and "leave
+  it" don't, however alike they look, because the vowels differ ("love it and leave it do NOT
+  rhyme"; Qing, 2026-09-27). Check each claimed rhyme by its stressed vowel, in General American.
 - **Every section rhymes.** A repeated refrain word ("…and two it was!") isn't a rhyme, and
   neither is a hook or a chant left unrhymed because it's short (Qing, 2026-09-26: "you forgot to
   make it rhyme"). Check every section's rhymes before anyone hears it.
@@ -129,6 +134,10 @@ where one already covers it.
   depends on. Rebuild the storyboard once the lyrics are locked; before that, every lyric change
   throws storyboard work away. This applies to conversation too: lyric options come with no
   pictures, shots or timings unless the line can't be understood without one.
+- **Take from an example only what it was given to show.** When Qing sketches lines to show one
+  thing (a rhyme density, a tone), take that one thing and write your own lines. Copying her
+  sketch's structure, or filling in its blanks, is over-fitting (2026-09-27: "there is no
+  particular line structure that works!").
 - **Bring the expert whole options.** Two or three finished lines to choose between, each with
   what it covers and what it costs, and a recommendation. Not open questions.
 
@@ -140,6 +149,9 @@ where one already covers it.
   So:
   - Write a beat grid for each verse: syllables on eighth notes, stresses in capitals, bars split
     with `|`.
+  - Run [`music/check/rhyme.py`](music/check/rhyme.py) on every rhyme you claim and every set of
+    lines that answer each other, before anyone hears the draft. It prints each stressed vowel
+    and each line's stress pattern, so a false rhyme or a mismatched line shows up.
   - Get a human ear (Qing's) on every rhythm change.
   - Once the synth exists, sing the grid on a click and listen.
 - **Re-read the whole sheet after every fix.** Lyrics interlock: changing one line can break a
@@ -159,7 +171,8 @@ perform [...] Together that's the best"). For a lyrics-to-song generator, that m
   only ever needed to fit a fixed grid.
 - **Within a section, sudoku the stresses harder.** Contrasting verses don't need to match each
   other (a template borrowed for one verse needn't bind the next), but lines that answer each other inside a section should share a stress pattern and
-  syllable count exactly. The more obviously the syllables fit, the easier the generator finds
+  syllable count exactly. This is the key thing for MiniMax, whatever the line structure (Qing,
+  2026-09-27: "the key thing for minimax is that syllable stress matches need to be exact"). The more obviously the syllables fit, the easier the generator finds
   the phrasing. It still isn't guaranteed. Qing (2026-09-25), after the first consistent take:
   "it works _better_ if we can sudoku the lyric stress patterns MORE, to match the intended
   phrasing". Her edits between the semi-decent copy and that take:

@@ -3,8 +3,8 @@
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** full draft v3 (shape, sketch, lyrics, brief), through three review rounds; claims
-approved by Qing (2026-09-27). Next: her ear on the lyrics, then a MiniMax take. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
+**Status:** v4 (2026-09-27): Qing's boy-band concept, drafted in full on the approved claims.
+In review before she hears it. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
 highest level here, for what the viewer said they care about in episode 1. Working title changed
 from "How Would You Know?" after Qing's note that "how do I know" is a classic song refrain.
 
@@ -49,6 +49,32 @@ On the draft (2026-09-27):
 
 > hmm, also on user simulation we need to make it clear you need to get a separate claude or a
 > subagent to do it, can't just be the main coder claude
+
+> oh you don't have to say frsh claude that's weird and defensive. just don't imply something
+> wrong.
+
+The boy-band concept (2026-09-27):
+
+> anyway, I was thinking and I have a new concept, like if this was a boy band this time and it's
+> more of a song, of, like "how do I make you love me" style but it's like actually baout how do I
+> make you love this app, you know?
+>
+> like you don't have to do it like this it's not very good but like (also this illustrates the
+> level of rhyme density that I think is good - doesn't have to be this structure obviously. the
+> rhythmic structure isn't right because it won't be obvious enough for minimax)
+>
+> how do I know, if my code, will make the app of your dreams?
+> and verify, the UI, won't be the reason you leave
+> ... something something the bee's knees
+> how do I check, if my test, something something believe?
+
+On the mum test:
+
+> also I like the mum thing! Just pick a different app
+
+> oh actually mum is more alienating than dad internationally because of spelling
+
+> or granny
 
 ## Where it comes from
 
@@ -131,30 +157,28 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
    oracles (a converter to compare against, rules that must always hold) are only glimpsed; the
    ilities episode and the testing episode use them properly.
 
-## Shape
+## Shape (v4: the boy band)
 
 - **Concept, in one sentence:** tell your agent how it will know its work is good, and it can
   check its own work; there's always a way, because if it's good, somebody can tell.
 - **Misconception:** "My app has no right answer, so I have to check everything myself." What it
   looks like: the "Fixed it! ✅" / "still broken" loop.
-- **Refutation:** somebody can always tell. Say who, and how they'd tell, and the agent checks its
-  own work at agent speed, shows you how it checked, and you keep the last word.
-- **Singer:** Clawd again, as your agent. This time it's a love song. The agent is the anxious
-  partner who can never tell whether you're happy: its own checks all pass, and you still say no.
-  "How do I know?" and "show me a sign" are love-song stock phrases, and here they mean exactly
-  what the episode teaches. The agent owns its part, as in episode 1: "Fixed it!" was a guess.
-  The user is heard only as a backing-vocal "(still broken)". Keep Clawd's staging comic (the
-  sweatband, the wandering button), never doe-eyed, so it doesn't read as an AI-girlfriend song.
-- **Genre (proposal):** 1980s synth-pop, in the spirit of the big mid-80s "does he love me?"
-  songs, with its own tune: gated-reverb drums, bright synth bass, a big glossy chorus, a key
-  change into the last chorus. About 128 bpm, so a bar is about 1.9 s. Female pop vocal, earnest
-  and yearning, slight robotic edge. Patter verses; a verse template such as the rap cadence of
-  Blondie's "Rapture" is one option for Qing's ear.
-- **Form and length:** intro, verse 1, pre-chorus, chorus once through, verse 2, bridge, break,
-  final pre-chorus, chorus twice through with the key change, outro. About 2:50. The middle
-  chorus and the second pre-chorus are cut so the teaching arrives before two minutes.
-- **Line to remember:** "Don't just tell me when it's wrong, tell me how you'd know!" It closes
-  the chorus. It's the agent's fair side of the relationship, and it is the instruction.
+- **Refutation:** somebody can always tell. Say who, and how they'd tell, and the agents check the
+  work at agent speed, show you how they checked, and you keep the last word.
+- **Singers (Qing's concept, 2026-09-27):** a boy band of Clawds singing to you, in the mould of
+  "how do I make you love me?", except it's "how do I make you love this app?" They'd do anything
+  for you, if they only had a clue. Being a band also carries a point for free: the Claude who
+  built it isn't the one who plays you. The band plays you; nobody has to say why. The user is
+  heard only in call-and-response ("Still broken!", "No answer key for me!").
+- **Genre (proposal):** late-90s boy-band pop: finger snaps, an R&B groove, five-part harmonies,
+  lead lines traded between members, a stool-ballad feel that stands up for the key change into
+  the last chorus. About 104 bpm (a bar is about 2.3 s). Qing's sample lines show the rhyme
+  density she wants, not a structure to copy; the rhythm has to be obvious enough for the
+  generator to deduce, and no particular line shape guarantees that.
+- **Form and length:** spoken intro, verse 1, pre-chorus, chorus, verse 2, pre-chorus, chorus,
+  bridge, break, final pre-chorus, chorus with the key change, outro. About 2:40.
+- **Line to remember:** "I can't make you love it if I can't tell when you do." It closes every
+  chorus. It's plain and fair, it's a love-song line, and it's the whole oracle problem.
 
 ## What the song says, and what the video shows (sketch)
 
@@ -163,109 +187,99 @@ line depends on are listed.
 
 | Section | Lyrics say | Video shows |
 |---|---|---|
-| Intro | "I fixed it!" answered by "(still broken)", four times, ending in heartbreak | Frame 1 is two huge bubbles and nothing else: "Fixed it! ✅" and "still broken", 2:47 AM in small type. Each new exchange stacks on top. From here on, the user's sung lines are captioned as grey right-aligned bubbles, Clawd's as its own, so muted viewers can tell who's singing |
-| Verse 1 | The agent fixes the gym log fast, then waits all night: it can run and test the app, but it never knows what "right" means to you. So it guesses, and breaks what worked. Tag: I'm fast, you're slow, and I'm the last to know | The gym log getting worse with each guess: the button in the footer, the rest timer spinning |
-| Pre-chorus | You only say when it's wrong, never how to tell it's right. You know it when you see it, but you never said what shows it | — |
-| Chorus (once) | "How do I know?" All my tests came up green, and you still said no. The line to remember | Clawd's own test report, all green, under your "still broken" |
-| Verse 2 | Give the agent something to check against and it's unstoppable: a mockup matched pixel for pixel, a spreadsheet's totals matched to the penny. With only "still broken", it guesses and gets a no. Tag: "No answer key for me!" "Oh, but you've got three!" | Clawd at full speed beside a mockup, the two screens converging; a column of totals ticking into agreement; then back to the gym log and the "still broken" bubble |
-| Bridge | If it's good, somebody can tell. Your three: at the gym, one-thumbed, could you log a set; would you sweat if your bests disappeared; would you fret if your weight hit the group chat | Three pictures, each captioned with its name so the brief can use it: *the mid-set test* (you, out of breath, one thumb on the gym log), *the sweat test* (you bolt upright at night), *the group-chat test* (a screenshot of your weight in a group chat) |
-| Break | An oracle is anything that helps you spot what's wrong. The builder knows where the buttons are, so a fresh Claude plays you; the builder checks each fear you name; it shows you what it checked, and the last word is yours | The builder Clawd hands the phone to a second, fresh Clawd in your sweatband, panting, trying the gym log one-thumbed; a checklist ticking; your hand on the final tick. Credit below |
-| Final pre-chorus | The same complaint, then the ask: put the answers in the brief, and I'll know it, and I'll show it | The brief opening |
-| Chorus (twice, key change) | Word for word, with the second pass: while you sleep, who else knows if it's good to go? | The questions answered, one per oracle, each tick with its evidence beside it (a screenshot, a load time) |
-| Outro | Now I know: a fresh Claude logged a set, and your bests won't go; here's how I checked it all, plus the gaps I know. Spoken: "Is it good?" You try it yourself: "It's good." | Under the sung lines, Clawd's check report: ✅ mid-set test: a fresh subagent, playing you, logged a set one-thumbed at phone size (screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone on screen, captions off, for at least 8 seconds over the instrumental tail. Last frame: frame 1's layout, now "Fixed it! ✅" / "it's good.", over the intro riff, so the loop lands on "I fixed it!" again |
+| Intro | Spoken dedication, "this one's for the one who keeps saying…", answered by you: "Still broken!" | Frame 1: five Clawds in matching white suits on stools, under one huge chat bubble: "still broken". 2:47 AM in small type |
+| Verse 1 | We rebuilt your gym log, ran our tests a hundred times, all green; you sent "still broken" like a text from an ex; now we're guessing. Tag: we'd do anything for you, if we only had a clue | The gym log redone screen by screen; a wall of green ticks; your "still broken" arriving like a breakup text |
+| Pre-chorus | You tell us when it's wrong, never how to tell it's right; you know it when you see it, but you keep it out of sight; and baby, baby, I just wanna make you love it | — |
+| Chorus | How do I know if my code is the app of your dreams, the one you won't leave; how do I check my test is worth believing; give me a sign: is it bugs, or the bee's knees? The line to remember | Each question on the gym log: your dream screen, the app you'd keep, a test, a flame |
+| Verse 2 | Give us a mockup or a spreadsheet and we match it; with something to check against, watch us go; with only "still broken", all we get is "no". Tag: "No answer key for me!" "Oh, but you've got three!" | Clawd matching a mockup, the two screens converging; a column of totals ticking into agreement; back to "still broken" |
+| Bridge | If it's good, someone can tell. Could your dad use your shop without getting stressed? If your gym bests disappeared, would you sweat? If your weight hit the group chat, would you fret? | Three pictures, each captioned with its name: *the dad test* (your dad on your shop), *the sweat test* (you bolt upright at night), *the group-chat test* (your weight in a group chat) |
+| Break | An oracle is anything that helps you spot what's wrong. We can't be your dad, but we can play him; I'll check each fear you name, show you what I checked, and the last word's yours | One Clawd in a dad cardigan, squinting at your shop; a checklist ticking, evidence beside each tick; your hand on the final tick. Credit below |
+| Final pre-chorus | The same complaint, then the ask: put it in the brief, and I can make you love it | The brief opening |
+| Chorus (key change) | Word for word | The band stands up off the stools; each question now answered, evidence beside each tick |
+| Outro | Now I know what you need: we played you mid-set, one thumb, and your bests never leave; here's what we checked, and how, and the gaps we see. Spoken: "So… do you love it?" You try it yourself: "I love it." | Under the sung lines, the band's check report: ✅ mid-set test (a Clawd playing you, one thumb, phone-sized, screen recording), ✅ bests survive offline, ❓ app updates: couldn't try a real one. Your thumb logs one set. Then the brief's added lines alone, captions off, for at least 8 seconds over the instrumental. Last frame: frame 1's layout, the bubble now "I love it.", over the intro snaps, so the loop lands on "still broken" again |
 
-**On-screen credits:**
-- Break: *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) · human oracles for
-  agents: Yanqing Cheng*
+**On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
+human oracles for agents: Yanqing Cheng*
 
-## Lyric sheet (v3)
+## Lyric sheet (v4)
 
-Backing vocals in italics and brackets. *(still broken)* is the user, as a gang vocal. Stresses
-in capitals for the pre-chorus and chorus; syllable counts in brackets.
+Backing vocals in italics and brackets. Lines marked *(you)* are the user, as a gang vocal.
+Syllable counts in brackets; stresses in capitals for the pre-chorus and chorus.
 
-**Intro**
-> I fixed it! *(still broken)* [3]
-> Re-fixed it! *(still broken)* [3]
-> I'm hoping! *(still broken)* [3]
-> I'm broken! *(still broken)* [3]
+**Intro** (spoken, over finger snaps)
+> Yeah… this one's for the one who keeps on saying…
+> *(you)* Still broken!
 
-**Verse 1** (patter)
-> I can fix your gym log in a minute; then I wait all night, [15]
-> I can run it, I can test it, but I never know what's right. [15]
-> So I guessed which bit was broken, and I messed with bits that worked; [15]
-> now the button's in the footer, and the rest timer's berserk! [15]
-> I'm fast, you're slow, [4]
-> and I'm the last to know. [6]
-> *(spoken)* …Is it good now?
+**Verse 1**
+> I rebuilt your gym log, every button, every screen, [13]
+> ran my tests a hundred times, and every one was green, [13]
+> then you sent me "still broken", like a text from an ex, [13]
+> now I'm guessing what you meant, and getting more perplexed. [13]
+> *(all)* I'd do anything for you *(for you)* [7]
+> if I only had a clue! [7]
 
 **Pre-chorus**
 > you TELL me WHEN it's WRONG, but NEV-er HOW to TELL it's RIGHT; [14]
-> you're ALL i've GOT to JUDGE it, and you JUDGE it LATE at NIGHT. [14]
-> YOU just KNOW it when you SEE it, but you NEV-er SAID what SHOWS it! [16]
+> you KNOW it WHEN you SEE it, but you KEEP it OUT of SIGHT, [14]
+> and BA-by, BA-by, I just WAN-na make you LOVE it… [13]
 
-**Chorus** (once through the first time; twice through at the end)
-> HOW do i KNOW? *(how do I know?)* [4]
-> all my TESTS came up GREEN, and you STILL said NO! [11]
-> SHOW me a SIGN! *(is it fine?)* [4]
-> DON'T just TELL me WHEN it's WRONG, TELL me HOW you'd KNOW! [12]
->
-> HOW do i KNOW? *(how do I know?)* [4]
-> while you SLEEP, who else KNOWS if it's GOOD to GO? [11]
-> SHOW me a SIGN! *(is it fine?)* [4]
-> TELL me WHO would SEE it's WRONG, TELL me HOW they'd KNOW! [12]
+**Chorus**
+> HOW do i KNOW, if my CODE, is the APP of your DREAMS? [4 + 3 + 6]
+> HOW do i SEE, gua-ran-TEE, it's the ONE you won't LEAVE? [4 + 3 + 6]
+> HOW do i CHECK, if my TEST, is a TEST to be-LIEVE? [4 + 3 + 6]
+> GIM-me a SIGN, draw the LINE: is it BUGS, or the BEE'S KNEES? [4 + 3 + 7]
+> *(all)* I can't MAKE you LOVE it *(love it)*, if I CAN'T tell WHEN you DO! [13]
 
-**Verse 2** (patter)
-> Give me a mockup, and I'll match it, every pixel, every shade, [16]
-> and to the penny, I'll match all the totals that your spreadsheet made, [16]
-> 'cause with something I can check against, I'm off, and just watch me go! [16]
-> But with nothing but "still broken", I guess and guess and get a "no". [16]
-> *(you, gang)* No answer key for me! [6]
-> *(Clawd)* Oh, but you've got three! [5]
+**Verse 2**
+> Give me a mockup, I'll match every pixel and shade; [13]
+> give me your spreadsheet, I'll match every sum that it made; [13]
+> with something to check against, just watch me go, go, go! [13]
+> But with just "still broken", all I ever get's a "no". [13]
+> *(you)* No answer key for me! [6]
+> *(all)* Oh, but you've got three! [5]
 
-**Bridge**
-> If it's GOOD, someone CAN TELL. Here's a TEST: *(whoa-oh)* [10]
-> At the gym, one-thumbed, could you log a set? *(whoa-oh)* [10]
-> If your bests all disappeared, would you sweat? *(whoa-oh)* [10]
-> If your weight hit the group chat, would you fret? [10]
+**Pre-chorus**, **Chorus**
+
+**Bridge** (stripped back)
+> If it's GOOD, someone CAN TELL. Here's a TEST: *(ooh)* [10]
+> could your DAD use your SHOP, and not get STRESSED? *(ooh)* [10]
+> if your GYM bests dis-ap-PEARED, would you SWEAT? *(ooh)* [10]
+> if your WEIGHT hit the group CHAT, would you FRET? [10]
 
 **Break** (half time)
 > An oracle's anything that helps you spot what's wrong! *(spot what's wrong!)* [13]
-> I know where the buttons are: send a fresh Claude along! *(fresh Claude along!)* [13]
+> We can't be your dad, but we can play him all day long! *(all day long!)* [13]
 > I can't feel your panic, but I'll check each fear you name! *(fear you name!)* [13]
 > I'll SHOW you WHAT i've CHECKED, but the LAST word's YOURS to CLAIM. [13]
 
-**Final pre-chorus** (lines 1 and 2 word for word; only line 3 changes)
+**Final pre-chorus** (lines 1 and 2 word for word; line 3 is the ask)
 > you TELL me WHEN it's WRONG, but NEV-er HOW to TELL it's RIGHT; [14]
-> you're ALL i've GOT to JUDGE it, and you JUDGE it LATE at NIGHT. [14]
-> PUT the AN-swers IN the BRIEF, and THEN i'll KNOW it, AND i'll SHOW it! [16]
+> you KNOW it WHEN you SEE it, but you KEEP it OUT of SIGHT, [14]
+> so PUT it IN the BRIEF, and I can MAKE you LOVE it… [13]
 
-**Chorus** (key change up, twice through)
+**Chorus** (key change up; the band stands)
 
 **Outro** (the chorus's grid)
-> OH, now i KNOW! *(now I know!)* [4]
-> a fresh CLAUDE logged a SET, and your BESTS won't GO! [11]
-> HERE is the SIGN! *(checked it twice!)* [4]
-> HERE'S the WAY i CHECKED it ALL, PLUS the GAPS i KNOW! [12]
-> *(spoken)* …Is it good?
-> *(you, after trying it)* It's good.
-
+> OH, now i KNOW, what you NEED, from the APP of your DREAMS: [4 + 3 + 6]
+> PLAYED you mid-SET, with one THUMB, and your BESTS never LEAVE; [4 + 3 + 6]
+> HERE'S what we CHECKED, here's the HOW, and the GAPS that we SEE! [4 + 3 + 6]
+> *(spoken)* So… do you love it?
+> *(you, after trying it)* …I love it.
 
 **Rhymes, section by section** (all hold in General American)
-- Intro: fixed it / re-fixed it, then hoping / broken, all on the same x-S-x shape, against the
-  refrain; "broken" is the payoff.
-- Verse 1: night/right; guessed/messed, and fix/minute inside; worked/berserk; slow/know.
-- Pre-chorus: wrong/right; right/night; know it/shows it.
-- Chorus: no/go/know, the hook's sound; tests/said and green/sleep inside; sign/fine.
-- Verse 2: shade/made; go/no, the hook's sound; mockup/match and penny/pixel inside; me/three.
-- Bridge: test/set/sweat/fret (test a slant); gym/thumbed inside.
+- Verse 1: screen/green; ex/perplexed; tag you/clue, with rebuilt/button and hundred/one inside.
+- Pre-chorus: right/sight; baby/baby into the hook.
+- Chorus: know/code, see/guarantee, check/test, sign/line inside each line; dreams/leave/believe/
+  knees at the ends; love it/do in the tag.
+- Verse 2: shade/made; go/no, the hook's sound; mockup/match, pixel/spreadsheet inside; me/three.
+- Bridge: test/stressed/sweat/fret; dad/shop, bests/sweat inside.
 - Break: wrong/long; name/claim.
-- Final pre-chorus: as the first; know it/show it.
-- Outro: know/go/know; sign/twice; logged/bests inside.
+- Final pre-chorus: right/sight; brief/love it.
+- Outro: know/need, set/thumb inside; dreams/leave/see.
 
-**For Qing's ear:** bridge line 2 stresses GYM, THUMBED, LOG, SET (3, 5, 8, 10) against 3, 7, 10;
-bridge line 1 stresses "CAN", and line 4 puts GROUP on syllable 6 against 7;
-break line 4 matches its section's grid only in its back half; the final pre-chorus changes line 3,
-so watch it in the takes.
+**For Qing's ear:** the chorus's fourth line runs a syllable long (the "the" in "the bee's knees");
+"guarantee" in chorus line 2 is the looser grammar; the pre-chorus's third line changes in the
+final pre-chorus, so watch it in the takes.
 
 ## The brief, before and after
 
@@ -281,10 +295,11 @@ Before: episode 1's brief.
 > for you: tidy diags, ask if unsure
 
 After, with these lines added. Each is a way to check one thing the brief already cares about,
-or one the sweat and group-chat tests turned up, written so the agent can actually run it:
+or one the sweat and group-chat tests turned up, written so the agent can actually run it. The
+gym log is just for me, so its dad test is me, mid-set:
 
 > how you'll know it's good:
-> mid-set test: a fresh subagent plays me, out of breath: one thumb, phone-sized
+> dad test, but it's for me: a subagent plays me mid-set, one thumb, phone-sized
 > fast? a second from tap to open, on slow data
 > 🔥? only for more weight than my best on that lift
 > sweat test: my bests survive no signal and app updates
@@ -294,15 +309,16 @@ or one the sweat and group-chat tests turned up, written so the agent can actual
 
 ## Why they'd like it
 
-The opening is a loop every vibecoder has lived, played as heartbreak. The agent is sympathetic
-and owns its part: it can run its own tests, and they all pass, and it still can't tell whether
-you're happy. And the love-song frame makes a
-dry word, "oracle", feel obvious: of course you'd want a sign.
+The opening is a loop every vibecoder has lived, sung by a boy band as a breakup. The agents are
+sympathetic and own their part: they ran their tests, all green, and still can't tell whether
+you'll love it. Boy-band cheese (the stools, the key change, "baby, baby") is funny on crabs, and
+the love-song frame makes a dry word, "oracle", feel obvious: of course you'd want a sign. The
+ending gives the lonely "still broken" its answer: "I love it."
 
 ## Why they'd share it
 
-- **To clip:** the intro's "Fixed it! (still broken)" loop, ending on "I'm broken!"
-- **To quote:** "I'm fast, you're slow, and I'm the last to know."
+- **To clip:** the stools, the key change, the band standing up; "like a text from an ex".
+- **To quote:** "I can't make you love it if I can't tell when you do."
 - **To save:** the brief, held full screen.
 - **To tag:** the friend who replies "still broken" and nothing else.
 - **To reply:** the post text lists the three tests and asks for theirs.
@@ -310,9 +326,10 @@ dry word, "oracle", feel obvious: of course you'd want a sign.
 **Post text (draft):**
 > "Fixed it!" "still broken." "Fixed it now!" "still broken."
 > Your agent's usually not lying. It's guessing, because nobody told it how to tell.
-> Three ways you already have: could the person it's for use it, mid-whatever they're doing? What would make you sweat? What would you
+> Three ways you already have: could your dad use it? What would make you sweat? What would you
 > hate to see in the group chat?
-> Ep 2 of Software Quality Theory 101, a synth-pop love song. How would you know yours is good?
+> Ep 2 of Software Quality Theory 101: a boy band of Clawds asks how to make you love your app.
+> How would you know yours is good?
 
 ## Review log
 

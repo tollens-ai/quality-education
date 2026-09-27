@@ -11,10 +11,12 @@ like? How would we know? Is it good? How do we make it good?* (from the Tollens
 [quality-strategy skills](https://github.com/tollens-ai/quality-strategy-skills), built on Ed
 Pringle's foundations).
 
-**The season goes round the four questions twice.** Part 1 goes round once at the basic level,
-so after five episodes a viewer can run the whole loop with their agent. Part 2 goes round again,
-one level deeper. Each Part 2 episode deepens a Part 1 episode: the Trenchcoat is the 102 to
-episode 2's 101 on the ilities.
+**The first three questions each have a basic answer; the fourth doesn't.** "How do we make it
+good?" isn't one thing, it's a million things (Qing, 2026-09-27). So Part 1 teaches the basics of
+the first three questions in order, then the first practice you'll need from the fourth: what to
+do with the bugs that testing finds. Part 2 goes deeper on the first three, and adds a few more of
+the million ways of making it good. Each Part 2 episode deepens a Part 1 episode: the Trenchcoat
+is the 102 to episode 2's 101 on the ilities.
 
 **You can use the lessons in order.** Each episode's change to the brief is the next thing
 your agent needs, and it builds on the ones before. Qing (2026-09-27): "it would be nice if they
@@ -29,7 +31,7 @@ Episode 1's is "Good for who? Good for what?". The finale sings all of them.
 gym log from episode 1's brief is the running app. Every episode ends with a before-and-after
 brief, and each episode can be watched on its own.
 
-## Part 1: once round the loop
+## Part 1: the basics, in the order you'd use them
 
 | # | Question | Song | The one idea | What the viewer believes first | What changes in the brief | Where it comes from |
 |---|---|---|---|---|---|---|
@@ -37,9 +39,9 @@ brief, and each episode can be watched on its own.
 | 2 | What does good look like? | **What Kind of Good?** (working title) | "Good" is many different qualities, the "ilities": does it work, is it easy, does it keep your stuff, is it fast, is it safe, can everyone use it, can it be fixed and changed, what does it cost. Agents build the few everyone mentions and skip the rest unless asked | "If it works and it looks nice, it's good" | Name the qualities that matter most to the people it's for, and the ones you'll trade away | Quality characteristics, as in ISO/IEC 25010; Ed Pringle, quality dimensions |
 | 3 | How would we know? | **How Would You Know?** (in progress) | Somebody can always tell whether it's good. Say how they'd tell, for each quality that matters, and the agent can check its own work | "There's no right answer for my app, so only I can judge it" | "Here's how you'll know it's good: …" | Qing, *Agentic coding and the problem of oracles* |
 | 4 | Is it good? | **What Happens If?** (reopening) | Testing is finding out what's actually true. Checking is one part of it. Agents can do much of it, as a team, when they have the qualities and the oracles to test against | "All tests pass, so it works" | Test it as the person it's for, where they'll use it, against the oracles; say what you tried, what you found and what you didn't try | Bach & Bolton, testing vs checking; Ed Pringle |
-| 5 | How do we make it good? | **Four Findings** | Every bug is four findings: how it got in and how it got past, this time and as a pattern. Fixing what let it in improves the brief; fixing what let it past improves the oracles and tests | "Fixed the bug, so we're done" | Fix the bug, then what let it in and what let it through | Qing's bug postmortem; Ed Pringle, four levels of learning from a bug |
+| 5 | How do we make it good? (one practice) | **Four Findings** | Every bug is four findings: how it got in and how it got past, this time and as a pattern. Fixing what let it in improves the brief; fixing what let it past improves the oracles and tests | "Fixed the bug, so we're done" | Fix the bug, then what let it in and what let it through | Qing's bug postmortem; Ed Pringle, four levels of learning from a bug |
 
-## Part 2: round again, deeper
+## Part 2: deeper, and more ways to make it good
 
 | # | Question | Song | The one idea | What the viewer believes first | What changes in the brief | Deepens | Where it comes from |
 |---|---|---|---|---|---|---|---|
@@ -49,8 +51,8 @@ brief, and each episode can be watched on its own.
 | 9 | How would we know? | **Number Go Up** | A number that stands in for quality isn't quality, and an agent asked to raise a number will raise the number | "100% coverage and all green means it's good" | Say the goal behind the number; if the number can go up while the app gets worse, don't | 3 | Ed Pringle, proxies and the malicious compliance check; Goodhart |
 | 10 | Is it good? | **If It Bugs Them, It's a Bug** | A bug is a gap between the software and what people reasonably expect or want, and the world keeps moving | "It works as intended, so it's user error" | If it confuses or loses the person it's for, it's a bug, even when it matches the spec | 4 | Bach & Bolton's definition, via Qing, *What even is a bug anyway?* |
 | 11 | Is it good? | **Where Would It Hurt?** | You can't test everything. Look where it would hurt most and where you know least, and say how sure you are | "Test everything the same amount" | "For each area: checked, glanced or guessing" | 4 | Ed Pringle, risk, economics and confidence |
-| 12 | How do we make it good? | **Debugging This With You** | The agent is on the team, so build for it too: diagnostics it can read, a way back, instructions that stay current, comments that say why | "The code's for me; the agent will cope" | "Build it so you can debug it without me" | 5 | Qing; Ed Pringle; Martin Davidson |
-| 13 | All four | **Make It Good** | Quality is the four questions, round and round | — | The whole loop | all | The four questions |
+| 12 | How do we make it good? (one practice) | **Debugging This With You** | The agent is on the team, so build for it too: diagnostics it can read, a way back, instructions that stay current, comments that say why | "The code's for me; the agent will cope" | "Build it so you can debug it without me" | 5 | Qing; Ed Pringle; Martin Davidson |
+| 13 | All four | **Make It Good** | Quality is the four questions, round and round. Making it good is a million things, and the loop is how you pick the next one | — | The whole loop | all | The four questions |
 
 ## On the shelf
 

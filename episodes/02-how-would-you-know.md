@@ -113,6 +113,9 @@ On lyrics v5 (2026-09-27):
 > right. don't force the rhymes and lose track of what you're trying to say though. you'd always
 > rather change the rhyme structure
 
+> also why is it still playing you! Claus splaying granny or mum or anyone specific is way easier
+> to illustrate.
+
 ## Where it comes from
 
 Qing's article *Agentic Coding and the Problem of Oracles* (2026-02-06; see
@@ -205,7 +208,7 @@ Qing asked for my own judgement on these for now ("make your own judgements for 
 - **Singers (Qing's concept, 2026-09-27):** a boy band of Clawds singing to you, in the mould of
   "how do I make you love me?", except it's "how do I make you love this app?" They'd do anything
   for you, if they only had a clue. Being a band also carries a point for free: the Clawd who
-  built it isn't the one who plays you. The user is heard only in call-and-response ("still
+  built it isn't the one who plays the people who'd judge it. The user is heard only in call-and-response ("still
   broken", "No answer key for me!").
 - **Genre (proposal):** late-90s boy-band pop: finger snaps, an R&B groove, five-part harmonies,
   lead lines traded between members, a stool-ballad feel that stands up for the key change into
@@ -230,10 +233,10 @@ line depends on are listed.
 | Chorus | How do I know? All my checks and my tests say it's true; then you just say "not okay", and I'm blue. Give me a sign, or a line, or a clue. The line to remember | The green test report; your "not okay"; the band, blue; a sign held up, blank |
 | Verse 2 | Give me a mockup or a spreadsheet and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Clawd matching a mockup, the two screens converging; a column of totals ticking into agreement; back to "still broken". On "wait and see", three cards land face down |
 | Bridge | If it's good, someone can tell; here's a test: could your dad buy from your shop without stress? If your gym log lost your bests, would you sweat? If your weigh-ins hit the chat, would you fret? | One card flips per line, each captioned with its name: *the dad test* (your dad on your shop), *the sweat test* (you bolt upright at night), *the group-chat test* (your weigh-in in a group chat) |
-| Break | An oracle is anything that helps you spot what's wrong. We can't be your dad, but we can play him (or play you); I'll check each fear you name, show you receipts, and it's still your call | One Clawd in a dad cardigan squints at your shop, then pulls the cardigan off to show your gym hoodie: *"…or you, mid-set"*. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
+| Break | An oracle is anything that helps you spot what's wrong. We can't be your dad, but we can play him; I'll check each fear you name, show you receipts, and it's still your call | One Clawd in a dad cardigan and reading glasses squints at your shop, and finds the checkout button. A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
 | Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The brief opening |
 | Chorus (key change) | Word for word | The band stands up off the stools. The brief's new lines tick in, one per sung line |
-| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ mid-set test (the hoodie Clawd, one thumb, phone-sized, screen recording), ✅ bests survive no signal, ❓ app updates: couldn't try a real one. Your thumb logs one set. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
+| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report: ✅ lifter test (a Clawd in a sweatband, playing a lifter mid-set, logs a set one-thumbed; screen recording), ✅ bests survive no signal, ❓ app updates: couldn't try a real one. Your thumb logs one set. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
@@ -289,7 +292,7 @@ through `music/check/rhyme.py rhyme` and shares its stressed vowel.
 
 **Break** (half time)
 > an OR-a-cle's AN-y-thing that HELPS you SPOT what's WRONG! *(spot what's wrong!)* [13]
-> we CAN'T be your DAD, but we can PLAY him ALL day LONG! *(or play you!)* [13]
+> we CAN'T be your DAD, but we can PLAY him ALL day LONG! *(all day long!)* [13]
 > i CAN'T feel your PAN-ic, but i'll CHECK each FEAR you NAME! *(fear you name!)* [13]
 > i'll SHOW you re-CEIPTS, and it's still YOUR call, ALL the SAME. [13]
 
@@ -342,11 +345,11 @@ Before: episode 1's brief.
 
 After, with these lines added. Each is a way to check one thing the brief already cares about,
 or one the sweat and group-chat tests turned up, written so the agent can actually run it. The
-gym log is just for me, so its dad test is me, mid-set (the break's cardigan comes off to show
-it):
+gym log is just for me, so its dad test is a lifter, mid-set, played by someone other than the
+Claude who built it:
 
 > how you'll know it's good:
-> mid-set test: a subagent plays me, one thumb, phone-sized
+> lifter test: a subagent plays a lifter mid-set: one thumb, phone-sized
 > fast? a second from tap to open, on slow data
 > 🔥? only for more weight than my best on that lift
 > sweat test: my bests survive no signal and app updates
@@ -464,6 +467,9 @@ ending gives the lonely "still broken" its answer: "I love it."
   - verse 1, verse 2 and the bridge rebuilt so their lines match stress for stress; "played you"
     (heard as "tricked you") is gone; "receipts" replaces "the last word's yours to claim"
   - the second pre-chorus is cut for length
+- **After Qing's note on playing you (2026-09-27):** the simulation plays someone specific, which
+  is easier to draw: the dad on your shop, a lifter mid-set on the gym log. The cardigan-to-hoodie
+  swap and "(or play you!)" are gone; the brief's line is the lifter test.
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

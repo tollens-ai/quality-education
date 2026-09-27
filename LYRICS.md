@@ -65,6 +65,10 @@ where one already covers it.
   though the consonants differ ("see it absolutely rhymes with leave it"). "Love it" and "leave
   it" don't, however alike they look, because the vowels differ ("love it and leave it do NOT
   rhyme"; Qing, 2026-09-27). Check each claimed rhyme by its stressed vowel, in General American.
+- **Rhyme is predictability: repeat an internal rhyme in the same place.** If one line has an
+  internal rhyme, the lines that answer it have one in the same slot; otherwise it sounds like an
+  accident (Qing, 2026-09-27: "rhyming is about predictability"). Her sketch put a rhyming pair
+  in the same two slots of every line (know/code, verify/UI, check/test), then the end rhyme.
 - **Every section rhymes.** A repeated refrain word ("…and two it was!") isn't a rhyme, and
   neither is a hook or a chant left unrhymed because it's short (Qing, 2026-09-26: "you forgot to
   make it rhyme"). Check every section's rhymes before anyone hears it.

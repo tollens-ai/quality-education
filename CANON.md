@@ -41,4 +41,6 @@ correction here applies to every episode.
   what's right are "the same picture". An agent playing the people who'd judge it is "not perfect
   but it's better than nothing", and it must be "a separate claude or a subagent", never the one
   that wrote the code. Green tests that miss what you care about are "checking the
-  wrong things". (2026-09-27)
+  wrong things". An oracle is a source of judgement (who or what can tell), not a
+  requirement: "if your gym log lost your best" is "not an oracle it's just a requirement".
+  (2026-09-27)

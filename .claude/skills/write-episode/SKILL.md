@@ -38,6 +38,24 @@ is the worked example of the finished shape.
    helps. Qing's reaction to episode 1's line ("made me well up a little") is the benchmark to aim
    for. Write lyrics by [LYRICS.md](../../../LYRICS.md); add a lesson there only as a principle,
    checked against its rules and a song that worked, merged rather than appended.
+   **Examples and cast.** These decide whether the idea feels rich or trivial:
+   - *Spread the concept across scenarios.* When the idea has several facets, give each facet
+     its own example, from whichever scenario makes it most vivid, one per line as in episode 1's
+     verses. A single simple scenario makes the idea look like one thing, and the teaching
+     boring. Episode 2's oracles, first all on a gym log and then all on a wedding site, only came
+     alive spread across a bread shop, a clinic, a school app and a wedding (Qing, 2026-09-27:
+     "you want something that will really be improved with non obvious oracles"). Several
+     scenarios also give the video a new world every few seconds.
+   - *Invent a cast.* Fictional people are free. Give each line, or each singer, its own
+     specific person, with a name and a job, so "you" stays one person talking to one person and
+     the video has someone to draw. Don't strain the premise to keep one "you" (Qing, 2026-09-27:
+     "the FICTIONAL people can be different people [...] you can have a cast of characters").
+   - *Trail later ideas by their plain words.* A concept that a later episode names can appear
+     earlier as the common-sense care behind it ("does it install?", "is it safe?") without its
+     jargon. That grounds the example, and it sets up the later episode.
+   - *Play the genre all the way.* Use its recognisable moves, straight, with Weird-Al-level
+     specifics; see LYRICS.md, *Borrow a genre's moves and titles*.
+
    Work on the lyric sheet alone, section by section, and note only the **key frames** a line
    depends on (a gag, a clip moment, an on-screen device). Don't storyboard yet: every lyric
    change would throw the storyboard away (Qing, 2026-09-24).

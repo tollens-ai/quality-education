@@ -172,7 +172,8 @@ where one already covers it.
   Syllable counts slip on words that stretch or squash ("every", "summary"). Where stresses land on
   the beat is the weakest skill of all. A pronunciation dictionary doesn't fix this: CMU lacks
   "Kubernetes" and "2FA", stresses every one-syllable word, and counts "every" as three syllables.
-  So:
+  It also counts "our" as two, stresses "address" on its first syllable (so "ad-DRESS" won't
+  rhyme with "ex" in General American), and hears "Pinterest" as two syllables. So:
   - Write a beat grid for each verse: syllables on eighth notes, stresses in capitals, bars split
     with `|`.
   - Run [`music/check/rhyme.py`](music/check/rhyme.py) on every rhyme you claim and every set of

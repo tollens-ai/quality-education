@@ -80,13 +80,11 @@ where one already covers it.
 - **Borrow a rhythm template.** Name a known song whose rhythm the verse follows (verse 1 of
   episode 1 is the "We Didn't Start the Fire" verse rhythm) and fit every line to it. Write the
   template in the script.
-- **Borrow a genre's moves and titles, not its lyrics.** Parody works by playing a genre's moves
-  straight: the boy band's spoken dedication, the rap break, the key change (Qing, 2026-09-27:
-  "think one direction backstreet boys etc - and also think weird Al and Tim blais"). A nod to a
-  title or a famous hook's shape is fair game; lines lifted from the song are not. Describe the
-  move in your own words even while drafting. On 2026-09-27 the API's content filter blocked a
-  reply twice while an agent was drafting from these models, most likely because it quoted
-  their lyrics.
+- **Borrow a genre's moves and titles, never its lyrics.** A genre song or parody works by
+  playing the genre's signature moves straight, with specific everyday detail (Qing, 2026-09-27,
+  naming bands of the genre alongside "weird Al and Tim blais"). A nod to a title or to the shape
+  of a famous hook is fair; lifted lines aren't. Describe a move in your own words even in working
+  notes, because quoting real lyrics can get the reply blocked by the API's content filter.
 - **Unstressed pickups are fine.** In a run of lines that start on the downbeat, though, a line
   with a pickup ("con-FET-ti") breaks the run in the middle; put it first, where it leads in.
 - **At patter speed, keep the template and let a stress bend.** "2FA on your gym log" in
@@ -170,10 +168,10 @@ where one already covers it.
 ## Checking
 - **The model can't hear.** Stress within a word is reliable (it's dictionary knowledge).
   Syllable counts slip on words that stretch or squash ("every", "summary"). Where stresses land on
-  the beat is the weakest skill of all. A pronunciation dictionary doesn't fix this: CMU lacks
-  "Kubernetes" and "2FA", stresses every one-syllable word, and counts "every" as three syllables.
-  It also counts "our" as two, stresses "address" on its first syllable (so "ad-DRESS" won't
-  rhyme with "ex" in General American), and hears "Pinterest" as two syllables. So:
+  the beat is the weakest skill of all. A pronunciation dictionary doesn't fix this. It lacks
+  jargon and brand names, stresses every one-syllable word, and its counts and stresses sometimes
+  differ from how a word is sung (squashed words, diphthongs, nouns stressed unlike their verbs).
+  When the checker flags a line, check the flagged word before rewriting the line. So:
   - Write a beat grid for each verse: syllables on eighth notes, stresses in capitals, bars split
     with `|`.
   - Run [`music/check/rhyme.py`](music/check/rhyme.py) on every rhyme you claim and every set of

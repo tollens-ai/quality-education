@@ -42,14 +42,11 @@ is the worked example of the finished shape.
    - *Spread the concept across scenarios.* When the idea has several facets, give each facet
      its own example, from whichever scenario makes it most vivid, one per line as in episode 1's
      verses. A single simple scenario makes the idea look like one thing, and the teaching
-     boring. Episode 2's oracles, first all on a gym log and then all on a wedding site, only came
-     alive spread across a bread shop, a clinic, a school app and a wedding (Qing, 2026-09-27:
-     "you want something that will really be improved with non obvious oracles"). Several
+     boring; pick scenarios where the idea is non-obvious and pays off (Qing, 2026-09-27). Several
      scenarios also give the video a new world every few seconds.
    - *Invent a cast.* Fictional people are free. Give each line, or each singer, its own
      specific person, with a name and a job, so "you" stays one person talking to one person and
-     the video has someone to draw. Don't strain the premise to keep one "you" (Qing, 2026-09-27:
-     "the FICTIONAL people can be different people [...] you can have a cast of characters").
+     the video has someone to draw. Don't strain the premise to keep one "you" (Qing, 2026-09-27).
    - *Trail later ideas by their plain words.* A concept that a later episode names can appear
      earlier as the common-sense care behind it ("does it install?", "is it safe?") without its
      jargon. That grounds the example, and it sets up the later episode.

@@ -3,8 +3,8 @@
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** full draft v3 (shape, sketch, lyrics, brief), through three review rounds, for
-Qing (2026-09-27). Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
+**Status:** full draft v3 (shape, sketch, lyrics, brief), through three review rounds; claims
+approved by Qing (2026-09-27). Next: her ear on the lyrics, then a MiniMax take. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
 highest level here, for what the viewer said they care about in episode 1. Working title changed
 from "How Would You Know?" after Qing's note that "how do I know" is a classic song refrain.
 
@@ -374,17 +374,13 @@ dry word, "oracle", feel obvious: of course you'd want a sign.
   - the sketch now matches the lyrics word for word
   - the post text says agents are "usually" not lying
 
-## Claims to check with Qing
+## Claims checked with Qing (2026-09-27)
 
-Only the ones where her answer would change the draft:
+Her answers, verbatim, to the three claims:
 
-1. **What an oracle is.** The break follows Bach and Bolton: "anything that helps you spot what's
-   wrong", a fallible way to find problems. Qing's article frames it the other way round, as the
-   source of truth that lets an agent "tell by themselves what's correct". Is the problem-spotting
-   definition the right one for this audience, or does it undersell the "agent checks its own
-   work" payoff?
-2. **"All my tests came up green, and you still said no."** It says the agent's own tests can't
-   stand in for your judgement, which foreshadows episode 4's green wall. Fair, or does it knock
-   tests too early?
-3. **The agent playing your mum.** The break and the outro treat persona simulation as a real
-   check, with the evidence shown and the last word yours. Is that the right strength of claim?
+1. **What an oracle is** (spotting what's wrong, or telling what's right?): "they're the same
+   picture". The break's wording stands.
+2. **"All my tests came up green, and you still said no":** "yeah it points to checking the wrong
+   things". It stays: the agent's tests were checking the wrong things.
+3. **The agent playing your mum as a check:** "yeah, it's not perfect but it's better than
+   nothing!" It stays, with the evidence shown and the last word yours.

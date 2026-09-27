@@ -36,3 +36,8 @@ correction here applies to every episode.
   them. Comments that say *why* matter more than ever. Intent (purpose, who it's for, quality goals)
   belongs in README, CLAUDE.md or AGENTS.md. Source: Martin Davidson, "No comments allowed". Qing
   approved it for the series. (2026-09-24)
+- **Oracles: there's always a way to know.** If it's good, somebody can tell (Qing, *Agentic
+  coding and the problem of oracles*). An oracle that spots what's wrong and one that tells you
+  what's right are "the same picture". An agent playing the people who'd judge it is "not perfect
+  but it's better than nothing". Green tests that miss what you care about are "checking the
+  wrong things". (2026-09-27)

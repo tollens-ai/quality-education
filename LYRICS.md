@@ -11,6 +11,18 @@ rhymes nothing with its hook. The real lesson was to rhyme more densely and more
 Before you add a rule, check it against a song that worked, and fold it into an existing rule
 where one already covers it.
 
+## Every line, every axis
+- **A line isn't ready until it's right six ways:** meaning; tone, connotation and frame; its
+  place in the story; scansion; stress; and rhyme. Songs are dense, so one weak line stands out
+  (Qing, 2026-09-27: "when you 'ship it' EVERY line has to be right [...] anything weak stands
+  out"). Get the content right first, then fit the sound to it; audit each line on all six
+  before anyone hears it.
+- **Once the scene is set, go straight to the point.** A later verse that spends lines
+  re-setting the frame ("so give me ways to tell…") wastes the slots that should teach.
+- **Every section serves the episode's idea.** A bridge about the people who'd judge the app
+  ("who'd quit, who'd panic, who'd post") was about stakeholders, not oracles (Qing,
+  2026-09-27: "it's talking about stakeholders not oracles").
+
 ## Meaning first
 - **Rhyme and scansion serve the meaning.** The classic failure is working hard at rhyme and
   scansion until the meaning is diluted. If a line needs explaining ("put a lock on your water

@@ -72,6 +72,32 @@ Lines, rhymes and ideas that worked on their own, with why each isn't in the son
 - Bakery: the till roll; last Saturday's rush, replayed at double; pull the wifi mid-order; the
   QR code on the counter; a nosy customer.
 
+**Briefs**
+- The bread shop's brief (v8), before and after; replaced by the reusable questions, because no
+  viewer is building a bread shop app:
+  Before: a brief that already knows who it's for (episode 1), and still says nothing about how
+  anyone would know it's good. It's the bread shop's, since that app carries most of the song; the
+  left-hand words on each new line work for any app.
+
+  > order-ahead app for the bread shop
+  > for: regulars, lots of them over 70, on their phones
+  > good = order tonight, pick up warm tomorrow
+  > skip: loyalty points, delivery
+  > live by Saturday
+
+  After, with these lines added. Each names a source of judgement the agents can check against:
+
+  > how you'll know it's good:
+  > works: replay last month's orders; the totals match the till roll
+  > easy: a subagent plays our oldest regular, on an old phone, large text: can she order a loaf?
+  > installs: a phone that's never seen it gets from the counter's QR code to an order in a minute
+  > busy: replay last Saturday's rush at twice the crowd; nothing lost, nothing slow
+  > doesn't lose things: pull the wifi mid-order; every order is saved or clearly failed
+  > safe: signed in as one customer, you can't see anyone else's orders
+  > dread: what I'd hate to happen or see screenshotted is in the list below
+  > check each one before you tell me it's done; show me how you checked
+  > ask me when these don't settle it
+
 ## Options shown to Qing in conversation (2026-09-27, verbatim)
 
 ### 2026-09-27 11:33 UTC

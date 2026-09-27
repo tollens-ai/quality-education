@@ -65,7 +65,10 @@ is the worked example of the finished shape.
    and the brief to start from is in [VIDEO.md](../../../VIDEO.md).
 
 5. **Write the agent-facing takeaway.** Show the vague prompt at the start and the rewritten prompt
-   at the end. The rewrite must use the concept, not just be longer.
+   at the end. The rewrite must use the concept, not just be longer. Assume every viewer is
+   building their own, completely different app (Qing, 2026-09-27), so what they save is the
+   questions to answer for their own app. One example app's answers are no use to them: put
+   the song's examples in brackets at most.
 
 6. **Say why they'd like it and why they'd share it.** Name the specific reason for each (tagging
    someone, something useful to save, novelty, something to argue about). Draft the post text; it

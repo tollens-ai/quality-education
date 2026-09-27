@@ -297,9 +297,9 @@ line depends on are listed.
 | Verse 2 | Give me the till roll or last Saturday's rush and I match it; something to check against, and watch me go; only "still broken", and all I hear is no. Tag: "No answer key for me!" "Oh baby, wait and see!" | Back at the bread shop: a till roll unspools beside the app's order list, the totals ticking into agreement (chip: **works**); last Saturday's queue, doubled, pours through the app without a spinner (chip: **busy**); back to "still broken". On "wait and see", three cards land face down |
 | Bridge | If it's good, then there's someone who knows. Could a stranger install it and go? What's the thing, if it broke, that you'd dread? What's the screenshot you'd hate to see spread? Each line asks for a source of judgement, not a requirement | One card flips per line, each captioned with its name: *the stranger test* (a phone that's never seen it scans the QR on the bread shop counter; chip: **installs**), *the dread test* (the wedding seating plan, Dave and his ex circled in red), *the screenshot test* (a parent's private message posted in the class group chat 💀) |
 | Break | The bad boy's rap. An oracle is anything that helps you spot what's wrong. We can't be your gran, but we can play her; I'll pull out the plug and see if orders stay; I'll snoop like a parent and see what others say; I'll check each fear you name, show you receipts, and it's still your call | The older Clawd in Gran's cardigan and reading glasses squints at an old phone and books her check-up (chip: **easy**); the bad boy yanks the bread shop's wifi cable mid-order, and the order is still there (chip: **doesn't lose things**); in a parent's lanyard he tries to open another family's messages: 🔒 (chip: **safe**). A checklist ticks, with evidence beside each tick; your hand on the last one. Credit in its own band, below the captions |
-| Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The brief opening |
-| Chorus (key change) | Word for word | The band stands up off the stools. The brief's new lines tick in, one per sung line |
-| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report, one line per app: ✅ bread shop: last month's orders replayed, totals match the till roll; last Saturday at twice the crowd, nothing lost ✅ clinic: a bandmate playing Gran booked a check-up on an old phone (screen recording) ✅ school app: signed in as one parent, nobody else's messages visible ✅ wedding: nobody on your dread list shares a table ✅ a fresh phone: installed and working in under a minute ❓ whether they'll love it: yours to say. The chips from the whole song line up in a row, a quiet trailer for episode 3. The brief held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
+| Final pre-chorus | The same complaint; then: so write it down, and I can really make you love it | The questions appear, blank |
+| Chorus (key change) | Word for word | The band stands up off the stools. The questions tick in, one per sung line |
+| Outro | Here are the checks and the tests that went through; what I don't know, I will show it to you. Spoken: "So… do you love it?" You try it yourself: "I love it." | The band's check report, one line per app: ✅ bread shop: last month's orders replayed, totals match the till roll; last Saturday at twice the crowd, nothing lost ✅ clinic: a bandmate playing Gran booked a check-up on an old phone (screen recording) ✅ school app: signed in as one parent, nobody else's messages visible ✅ wedding: nobody on your dread list shares a table ✅ a fresh phone: installed and working in under a minute ❓ whether they'll love it: yours to say. The chips from the whole song line up in a row, a quiet trailer for episode 3. The questions held about 3 seconds. Last frame: frame 1's layout, the bubbles now "I just fixed it! ✅" and "I love it.", over the intro snaps, so the loop lands on "it won't open" again |
 
 **On-screen credit (break):** *Oracles: an old idea in testing (Howden; Weyuker; Bach & Bolton) ·
 oracles for agentic coding: Yanqing Cheng*
@@ -404,30 +404,27 @@ fourteen, alternating light and stressed ("i BUILT your SEAT-ing PLAN…"); "MOO
 stress on "mood", as people say it; the band's "(which way?)" answers in the gap after "blue",
 where "(ooh, baby)" was.
 
-## The brief, before and after
+## What to save: the questions
 
-Before: a brief that already knows who it's for (episode 1), and still says nothing about how
-anyone would know it's good. It's the bread shop's, since that app carries most of the song; the
-left-hand words on each new line work for any app.
-
-> order-ahead app for the bread shop
-> for: regulars, lots of them over 70, on their phones
-> good = order tonight, pick up warm tomorrow
-> skip: loyalty points, delivery
-> live by Saturday
-
-After, with these lines added. Each names a source of judgement the agents can check against:
+Nobody watching is building a bread shop app, so the thing to save is the questions, not one
+app's answers. After episode 1 your brief says who it's for; this adds how the agent will know
+it's good. Each line asks you for a source of judgement, and its bracket shows the song's
+example:
 
 > how you'll know it's good:
-> works: replay last month's orders; the totals match the till roll
-> easy: a subagent plays our oldest regular, on an old phone, large text: can she order a loaf?
-> installs: a phone that's never seen it gets from the counter's QR code to an order in a minute
-> busy: replay last Saturday's rush at twice the crowd; nothing lost, nothing slow
-> doesn't lose things: pull the wifi mid-order; every order is saved or clearly failed
-> safe: signed in as one customer, you can't see anyone else's orders
-> dread: what I'd hate to happen or see screenshotted is in the list below
+> works: what can you check it against? (last month's till roll)
+> easy: who's the least techy person who'll use it? have a subagent play them, on their phone
+>   (Gran, on an old phone)
+> installs: can a phone that's never seen it get from the link to working in a minute?
+> busy: what's the busiest it ever gets? replay that, doubled (last Saturday's rush)
+> doesn't lose things: pull the plug halfway through: is everything saved, or clearly failed?
+> safe: sign in as the nosiest user: what can you see that isn't yours?
+> dread: what would you hate to happen, or to see screenshotted? list it
 > check each one before you tell me it's done; show me how you checked
 > ask me when these don't settle it
+
+On screen it's held full-frame as the last chorus's lines tick in, with the brackets dropped,
+so a viewer can screenshot it and fill in their own answers.
 
 ## Why they'd like it
 
@@ -441,7 +438,7 @@ ending gives the lonely "still broken" its answer: "I love it."
 
 - **To clip:** the intro refrain; the stools, the key change, the band standing up; the Clawd in Gran's cardigan; the bad boy yanking the wifi cable.
 - **To quote:** "I can't make you love it if I can't tell when you do."
-- **To save:** the brief, held full screen.
+- **To save:** the questions, held full screen, to fill in for your own app.
 - **To tag:** the friend who replies "still broken" and nothing else; the friend who runs a small shop.
 - **To reply:** the post text lists the checks and asks for theirs.
 
@@ -566,6 +563,10 @@ ending gives the lonely "still broken" its answer: "I love it."
   words on screen, trailing episode 3's ilities. The rap gains two lines (pull the plug, snoop
   like a parent). The chorus, pre-chorus, hook and intro are unchanged. Every earlier draft and
   fragment is now in the [scratchbook](02-scratchbook.md).
+- **After Qing's note on the brief (2026-09-27):** the saved brief was the bread shop's own,
+  which no viewer could reuse ("a... concrete... one to copy???"; "you should assume every viewer
+  is making their own completely different app"). It's now the questions, one per
+  care, with the song's examples only in brackets. The bread shop brief is in the scratchbook.
 - **Round 3 (2026-09-27), on v3:** one final cold read. Changes made:
   - "proof" contradicted the break (an oracle isn't proof): the outro answers "(checked it
     twice!)", which also rhymes with "sign", and the brief asks "show me how you checked"

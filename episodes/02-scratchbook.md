@@ -73,6 +73,8 @@ Lines, rhymes and ideas that worked on their own, with why each isn't in the son
 - "our" counts as two syllables in the dictionary ("in WAYS our TESTS" came out 15).
 
 **Tags and asides**
+- "we CAN'T be your GRAN / PA-tients / US-ers, but we (can) PLAY her / them ALL day LONG" (v6 to v10;
+  "play" reads as "deceive", "patients" as "patience")
 - Qing's refrain, the intro of v5 to v9 (cut from the intro as too heavy for a light opening;
   could return as a mid-song breakdown or in the post text):
   > i just FIXED it! *(you)* it won't O-pen! / yeah, just FIXED it! *(you)* where's the SLO-gan? /

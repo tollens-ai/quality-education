@@ -3,7 +3,7 @@
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can
 tell.
-**Status:** video v1 (2026-09-28): Qing generated the song on Suno ("How Will I Know", a pop-punk take); the video and the final lyrics as sung are in [02-video.md](02-video.md) and [music/ep02/captions.txt](../music/ep02/captions.txt). Before that, v11 (2026-09-28): Qing's rewrite. Verse 2 answers verse 1 with an oracle per app, and the bridge says what an oracle is. v10 had Qing's chorus, a light intro and the band singing to a cast across several apps, one angle of quality at a time. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
+**Status:** video v2, "The Mirror" (2026-09-28): drawn from a blank page after Qing's notes on v1, as a 2000s alt-rock video with visual kei and experimental anime in it, with every word re-timed from the voice; see [02-video.md](02-video.md). Before that, video v1 (2026-09-28): Qing generated the song on Suno ("How Will I Know", a pop-punk take); the final lyrics as sung are in [music/ep02/captions.txt](../music/ep02/captions.txt). Before that, v11 (2026-09-28): Qing's rewrite. Verse 2 answers verse 1 with an oracle per app, and the bridge says what an oracle is. v10 had Qing's chorus, a light intro and the band singing to a cast across several apps, one angle of quality at a time. Oracles come before the ilities (episode 3) and testing (episode 4), and stay at the
 highest level here, for what the viewer said they care about in episode 1. Working title changed
 from "How Would You Know?" after Qing's note that "how do I know" is a classic song refrain.
 

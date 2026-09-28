@@ -2,7 +2,10 @@
 //
 //   node video/lib/render.mjs --scene video/epNN/main.js --song music/ep01 \
 //     [--stills 0,3,27.2] [--sheet 3] [--video out.mp4 --audio take.mp3 --fps 12] \
-//     [--from 0 --to 200] [--w 540] [--out out/dir]
+//     [--from 0 --to 200] [--w 540] [--out out/dir] [--query key=value&...]
+//
+// --query is passed on to the player's URL, for scenes that read options from it (a character
+// sheet's close-ups, say).
 //
 // --sheet N lays out one frame every N seconds, 6 across, with timestamps: the quickest way to
 // look at a whole one-shot at once. Needs Playwright; --video needs FFMPEG (path or on PATH).
@@ -40,7 +43,7 @@ const browser = await chromium.launch({ args: ['--disable-dev-shm-usage'] });
 const page = await browser.newPage({ viewport: { width: w + 40, height: Math.round(w * 16 / 9) + 80 } });
 page.on('pageerror', e => console.error('page error:', e.message));
 page.on('console', m => { if (m.type() === 'error') console.error('console:', m.text()); });
-const url = `http://localhost:${port}/video/lib/player.html?scene=/${args.scene}&song=/${args.song}&w=${w}&render=1`;
+const url = `http://localhost:${port}/video/lib/player.html?scene=/${args.scene}&song=/${args.song}&w=${w}&render=1${args.query ? "&" + args.query : ""}`;
 await page.goto(url);
 await page.waitForFunction(() => window.ready === true, null, { timeout: 30000 });
 const duration = await page.evaluate(() => window.duration);

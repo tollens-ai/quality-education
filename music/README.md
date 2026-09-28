@@ -67,6 +67,13 @@ craft for each stage; these are the repo-specific steps.
    lines, energy dips and every 3-second window.
    Pitch is reliable to a semitone on held notes; watch for octave slips. Word times are ±0.1–0.2 s,
    so treat the rhythm as a draft for the expert to correct.
+   **For a lyric video, time every word again from the voice.** Whisper's word times ran about
+   130 ms early on episode 2. `music/ep02/align_words.py` (its header gives the arguments)
+   re-times the captions' words: two forced aligners and two Whisper runs vote on each word, each
+   onset snaps to the nearest onset of sound on the stem, and the report lists every word's four
+   estimates, the lines re-aligned, the words set by hand, and repeated lines that disagree. It
+   needs torchaudio, and downloads its aligner models on the first run. VIDEO.md, "Word timing
+   comes from the voice", says how to check the result by ear with Qing.
    **Transcribe the ornaments, not just the held notes.** Scoops, falls, turns, grace notes and
    backing echoes are much of why a take sounds good. Episode 1's first transcription kept only
    held notes, so the chorus tail read as near-monotone, and a whole round of rewrites was aimed

@@ -3,68 +3,70 @@
   "text": "(This one's for everyone we ever built an app for)",
   "section": "Intro",
   "back": true,
-  "start": 0.0,
-  "end": 2.26,
+  "start": 0.15,
+  "end": 2.34,
   "words": [
    {
     "w": "(This",
-    "s": 0.0,
-    "e": 0.34,
-    "backing": true
+    "s": 0.15,
+    "e": 0.44,
+    "backing": true,
+    "flag": "no voiced sound; estimates spread 300 ms"
    },
    {
     "w": "one's",
-    "s": 0.34,
-    "e": 0.64,
+    "s": 0.517,
+    "e": 0.7,
     "backing": true
    },
    {
     "w": "for",
-    "s": 0.64,
-    "e": 0.76,
+    "s": 0.74,
+    "e": 0.82,
     "backing": true
    },
    {
     "w": "everyone",
-    "s": 0.76,
-    "e": 1.06,
+    "s": 0.859,
+    "e": 1.22,
     "backing": true
    },
    {
     "w": "we",
-    "s": 1.06,
-    "e": 1.3,
+    "s": 1.22,
+    "e": 1.32,
     "backing": true
    },
    {
     "w": "ever",
-    "s": 1.3,
-    "e": 1.44,
+    "s": 1.39,
+    "e": 1.56,
     "backing": true
    },
    {
     "w": "built",
-    "s": 1.44,
-    "e": 1.74,
+    "s": 1.643,
+    "e": 1.8,
     "backing": true
    },
    {
     "w": "an",
-    "s": 1.74,
-    "e": 1.86,
+    "s": 1.805,
+    "e": 1.92,
     "backing": true
    },
    {
     "w": "app",
-    "s": 1.86,
-    "e": 2.04,
+    "s": 1.927,
+    "e": 2.14,
     "backing": true
    },
    {
     "w": "for)",
-    "s": 2.04,
-    "e": 2.26,
-    "backing": true
+    "s": 2.159,
+    "e": 2.34,
+    "backing": true,
+    "flag": "estimates spread 340 ms"
    }
   ]
  },
@@ -72,79 +74,79 @@
   "text": "Your checkout just went down at eight with fifty in the queue",
   "section": "Verse 1",
   "back": false,
-  "start": 13.52,
-  "end": 16.98,
+  "start": 14.106,
+  "end": 17.12,
   "words": [
    {
     "w": "Your",
-    "s": 13.52,
-    "e": 14.08,
+    "s": 14.106,
+    "e": 14.193,
     "backing": false
    },
    {
     "w": "checkout",
-    "s": 14.08,
-    "e": 14.42,
+    "s": 14.193,
+    "e": 14.68,
     "backing": false
    },
    {
     "w": "just",
-    "s": 14.42,
-    "e": 14.74,
+    "s": 14.698,
+    "e": 14.84,
     "backing": false
    },
    {
     "w": "went",
-    "s": 14.74,
-    "e": 14.96,
+    "s": 14.936,
+    "e": 15.08,
     "backing": false
    },
    {
     "w": "down",
-    "s": 14.96,
-    "e": 15.24,
+    "s": 15.105,
+    "e": 15.32,
     "backing": false
    },
    {
     "w": "at",
-    "s": 15.24,
-    "e": 15.38,
+    "s": 15.424,
+    "e": 15.504,
     "backing": false
    },
    {
     "w": "eight",
-    "s": 15.38,
-    "e": 15.7,
+    "s": 15.64,
+    "e": 15.8,
     "backing": false
    },
    {
     "w": "with",
-    "s": 15.7,
-    "e": 15.88,
+    "s": 15.819,
+    "e": 15.98,
     "backing": false
    },
    {
     "w": "fifty",
-    "s": 15.88,
-    "e": 16.24,
+    "s": 16.03,
+    "e": 16.5,
     "backing": false
    },
    {
     "w": "in",
-    "s": 16.24,
-    "e": 16.54,
+    "s": 16.54,
+    "e": 16.66,
     "backing": false
    },
    {
     "w": "the",
-    "s": 16.54,
-    "e": 16.72,
+    "s": 16.7,
+    "e": 16.78,
     "backing": false
    },
    {
     "w": "queue",
-    "s": 16.72,
-    "e": 16.98,
+    "s": 16.846,
+    "e": 17.12,
     "backing": false
    }
   ]
@@ -153,13 +155,13 @@
   "text": "(oooh)",
   "section": "Verse 1",
   "back": true,
-  "start": 17.4,
-  "end": 17.74,
+  "start": 17.45,
+  "end": 17.53,
   "words": [
    {
     "w": "(oooh)",
-    "s": 17.4,
-    "e": 17.74,
+    "s": 17.45,
+    "e": 17.53,
     "backing": true
    }
   ]
@@ -168,79 +170,81 @@
   "text": "Your clinic's booking site looked cute but Gran could not get through",
   "section": "Verse 1",
   "back": false,
-  "start": 17.18,
-  "end": 20.5,
+  "start": 17.734,
+  "end": 20.62,
   "words": [
    {
     "w": "Your",
-    "s": 17.18,
-    "e": 17.66,
-    "backing": false
+    "s": 17.734,
+    "e": 17.814,
+    "backing": false,
+    "flag": "estimates spread 180 ms"
    },
    {
     "w": "clinic's",
-    "s": 17.66,
-    "e": 18.08,
-    "backing": false
+    "s": 17.82,
+    "e": 18.12,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    },
    {
     "w": "booking",
-    "s": 18.08,
-    "e": 18.3,
+    "s": 18.193,
+    "e": 18.54,
     "backing": false
    },
    {
     "w": "site",
-    "s": 18.3,
-    "e": 18.7,
+    "s": 18.663,
+    "e": 18.84,
     "backing": false
    },
    {
     "w": "looked",
-    "s": 18.7,
-    "e": 18.86,
+    "s": 18.85,
+    "e": 18.988,
     "backing": false
    },
    {
     "w": "cute",
-    "s": 18.86,
-    "e": 19.22,
+    "s": 18.988,
+    "e": 19.32,
     "backing": false
    },
    {
     "w": "but",
-    "s": 19.22,
-    "e": 19.42,
+    "s": 19.342,
+    "e": 19.48,
     "backing": false
    },
    {
     "w": "Gran",
-    "s": 19.42,
-    "e": 19.6,
+    "s": 19.534,
+    "e": 19.78,
     "backing": false
    },
    {
     "w": "could",
-    "s": 19.6,
-    "e": 19.84,
+    "s": 19.841,
+    "e": 19.958,
     "backing": false
    },
    {
     "w": "not",
-    "s": 19.84,
-    "e": 20.06,
+    "s": 19.958,
+    "e": 20.18,
     "backing": false
    },
    {
     "w": "get",
-    "s": 20.06,
-    "e": 20.32,
+    "s": 20.207,
+    "e": 20.38,
     "backing": false
    },
    {
     "w": "through",
-    "s": 20.32,
-    "e": 20.5,
+    "s": 20.428,
+    "e": 20.62,
     "backing": false
    }
   ]
@@ -249,13 +253,13 @@
   "text": "(oooh)",
   "section": "Verse 1",
   "back": true,
-  "start": 20.98,
-  "end": 21.32,
+  "start": 21.008,
+  "end": 21.088,
   "words": [
    {
     "w": "(oooh)",
-    "s": 20.98,
-    "e": 21.32,
+    "s": 21.008,
+    "e": 21.088,
     "backing": true
    }
   ]
@@ -264,73 +268,73 @@
   "text": "Your school's new feedback app let parents read each others' texts",
   "section": "Verse 1",
   "back": false,
-  "start": 20.8,
-  "end": 24.04,
+  "start": 21.124,
+  "end": 24.32,
   "words": [
    {
     "w": "Your",
-    "s": 20.8,
-    "e": 21.16,
+    "s": 21.124,
+    "e": 21.22,
     "backing": false
    },
    {
     "w": "school's",
-    "s": 21.16,
-    "e": 21.42,
+    "s": 21.299,
+    "e": 21.46,
     "backing": false
    },
    {
     "w": "new",
-    "s": 21.42,
-    "e": 21.52,
+    "s": 21.496,
+    "e": 21.6,
     "backing": false
    },
    {
     "w": "feedback",
-    "s": 21.52,
-    "e": 21.96,
+    "s": 21.722,
+    "e": 22.18,
     "backing": false
    },
    {
     "w": "app",
-    "s": 21.96,
-    "e": 22.28,
+    "s": 22.198,
+    "e": 22.34,
     "backing": false
    },
    {
     "w": "let",
-    "s": 22.28,
-    "e": 22.4,
+    "s": 22.361,
+    "e": 22.54,
     "backing": false
    },
    {
     "w": "parents",
-    "s": 22.4,
-    "e": 22.84,
+    "s": 22.57,
+    "e": 23.0,
     "backing": false
    },
    {
     "w": "read",
-    "s": 22.84,
-    "e": 23.12,
+    "s": 23.07,
+    "e": 23.26,
     "backing": false
    },
    {
     "w": "each",
-    "s": 23.12,
-    "e": 23.36,
+    "s": 23.32,
+    "e": 23.52,
     "backing": false
    },
    {
     "w": "others'",
-    "s": 23.36,
-    "e": 23.68,
+    "s": 23.539,
+    "e": 23.86,
     "backing": false
    },
    {
     "w": "texts",
-    "s": 23.82,
-    "e": 24.04,
+    "s": 23.94,
+    "e": 24.32,
     "backing": false
    }
   ]
@@ -339,13 +343,13 @@
   "text": "(oooh)",
   "section": "Verse 1",
   "back": true,
-  "start": 24.44,
-  "end": 24.68,
+  "start": 24.497,
+  "end": 24.62,
   "words": [
    {
     "w": "(oooh)",
-    "s": 24.44,
-    "e": 24.68,
+    "s": 24.497,
+    "e": 24.62,
     "backing": true
    }
   ]
@@ -354,73 +358,73 @@
   "text": "Your wedding seating site put Dave next to his angry ex!",
   "section": "Verse 1",
   "back": false,
-  "start": 24.34,
-  "end": 27.66,
+  "start": 24.694,
+  "end": 27.76,
   "words": [
    {
     "w": "Your",
-    "s": 24.34,
-    "e": 24.7,
+    "s": 24.694,
+    "e": 24.8,
     "backing": false
    },
    {
     "w": "wedding",
-    "s": 24.7,
-    "e": 25.0,
+    "s": 24.828,
+    "e": 25.14,
     "backing": false
    },
    {
     "w": "seating",
-    "s": 25.0,
-    "e": 25.36,
+    "s": 25.22,
+    "e": 25.58,
     "backing": false
    },
    {
     "w": "site",
-    "s": 25.36,
-    "e": 25.74,
+    "s": 25.716,
+    "e": 25.89,
     "backing": false
    },
    {
     "w": "put",
-    "s": 25.74,
-    "e": 25.92,
+    "s": 25.89,
+    "e": 26.06,
     "backing": false
    },
    {
     "w": "Dave",
-    "s": 25.92,
-    "e": 26.26,
+    "s": 26.146,
+    "e": 26.4,
     "backing": false
    },
    {
     "w": "next",
-    "s": 26.26,
-    "e": 26.48,
+    "s": 26.424,
+    "e": 26.68,
     "backing": false
    },
    {
     "w": "to",
-    "s": 26.48,
-    "e": 26.76,
+    "s": 26.732,
+    "e": 26.82,
     "backing": false
    },
    {
     "w": "his",
-    "s": 26.76,
-    "e": 26.96,
+    "s": 26.889,
+    "e": 27.04,
     "backing": false
    },
    {
     "w": "angry",
-    "s": 26.96,
-    "e": 27.32,
+    "s": 27.15,
+    "e": 27.44,
     "backing": false
    },
    {
     "w": "ex!",
-    "s": 27.32,
-    "e": 27.66,
+    "s": 27.62,
+    "e": 27.76,
     "backing": false
    }
   ]
@@ -429,85 +433,87 @@
   "text": "You can tell me it's broken, but how will I know for myself?",
   "section": "Pre-chorus 1",
   "back": false,
-  "start": 28.6,
-  "end": 31.58,
+  "start": 28.909,
+  "end": 31.66,
   "words": [
    {
     "w": "You",
-    "s": 28.6,
-    "e": 28.96,
+    "s": 28.909,
+    "e": 29.04,
     "backing": false
    },
    {
     "w": "can",
-    "s": 28.96,
-    "e": 29.12,
+    "s": 29.089,
+    "e": 29.2,
     "backing": false
    },
    {
     "w": "tell",
-    "s": 29.12,
-    "e": 29.32,
+    "s": 29.222,
+    "e": 29.38,
     "backing": false
    },
    {
     "w": "me",
-    "s": 29.32,
-    "e": 29.44,
+    "s": 29.425,
+    "e": 29.505,
     "backing": false
    },
    {
     "w": "it's",
-    "s": 29.44,
-    "e": 29.6,
+    "s": 29.542,
+    "e": 29.64,
     "backing": false
    },
    {
     "w": "broken,",
-    "s": 29.6,
-    "e": 29.78,
+    "s": 29.675,
+    "e": 30.12,
     "backing": false
    },
    {
     "w": "but",
-    "s": 30.0,
-    "e": 30.22,
-    "backing": false
+    "s": 30.436,
+    "e": 30.56,
+    "backing": false,
+    "flag": "estimates spread 440 ms"
    },
    {
     "w": "how",
-    "s": 30.22,
-    "e": 30.58,
-    "backing": false
+    "s": 30.56,
+    "e": 30.68,
+    "backing": false,
+    "flag": "estimates spread 280 ms"
    },
    {
     "w": "will",
-    "s": 30.58,
-    "e": 30.8,
+    "s": 30.74,
+    "e": 30.88,
     "backing": false
    },
    {
     "w": "I",
-    "s": 30.8,
-    "e": 30.94,
+    "s": 30.9,
+    "e": 30.96,
     "backing": false
    },
    {
     "w": "know",
-    "s": 30.94,
-    "e": 31.08,
+    "s": 30.96,
+    "e": 31.12,
     "backing": false
    },
    {
     "w": "for",
-    "s": 31.08,
-    "e": 31.2,
+    "s": 31.184,
+    "e": 31.264,
     "backing": false
    },
    {
     "w": "myself?",
-    "s": 31.2,
-    "e": 31.58,
+    "s": 31.277,
+    "e": 31.66,
     "backing": false
    }
   ]
@@ -516,19 +522,19 @@
   "text": "(for myself?)",
   "section": "Pre-chorus 1",
   "back": true,
-  "start": 31.62,
-  "end": 32.18,
+  "start": 31.777,
+  "end": 32.42,
   "words": [
    {
     "w": "(for",
-    "s": 31.62,
-    "e": 31.76,
+    "s": 31.777,
+    "e": 31.857,
     "backing": true
    },
    {
     "w": "myself?)",
-    "s": 31.76,
-    "e": 32.18,
+    "s": 31.869,
+    "e": 32.42,
     "backing": true
    }
   ]
@@ -537,80 +543,84 @@
   "text": "So baby now I'm hoping, that you can give me something else",
   "section": "Pre-chorus 1",
   "back": false,
-  "start": 32.3,
-  "end": 35.18,
+  "start": 32.514,
+  "end": 35.22,
   "words": [
    {
     "w": "So",
-    "s": 32.3,
-    "e": 32.52,
+    "s": 32.514,
+    "e": 32.594,
     "backing": false
    },
    {
     "w": "baby",
-    "s": 32.52,
-    "e": 32.78,
+    "s": 32.601,
+    "e": 32.86,
     "backing": false
    },
    {
     "w": "now",
-    "s": 32.82,
-    "e": 33.0,
+    "s": 32.949,
+    "e": 33.08,
     "backing": false
    },
    {
     "w": "I'm",
-    "s": 33.0,
+    "s": 33.09,
     "e": 33.18,
-    "backing": false
+    "backing": false,
+    "flag": "estimates spread 520 ms"
    },
    {
     "w": "hoping,",
-    "s": 33.18,
-    "e": 33.38,
-    "backing": false
+    "s": 33.21,
+    "e": 33.6,
+    "backing": false,
+    "flag": "estimates spread 220 ms"
    },
    {
     "w": "that",
-    "s": 33.38,
-    "e": 33.7,
-    "backing": false
+    "s": 33.6,
+    "e": 33.773,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    },
    {
     "w": "you",
-    "s": 33.7,
-    "e": 33.82,
+    "s": 33.773,
+    "e": 33.88,
     "backing": false
    },
    {
     "w": "can",
-    "s": 33.82,
-    "e": 34.0,
+    "s": 33.942,
+    "e": 34.058,
     "backing": false
    },
    {
     "w": "give",
-    "s": 34.0,
-    "e": 34.2,
+    "s": 34.058,
+    "e": 34.32,
     "backing": false
    },
    {
     "w": "me",
-    "s": 34.2,
+    "s": 34.325,
     "e": 34.42,
     "backing": false
    },
    {
     "w": "something",
-    "s": 34.42,
-    "e": 34.7,
+    "s": 34.569,
+    "e": 35.02,
     "backing": false
    },
    {
     "w": "else",
-    "s": 34.7,
-    "e": 35.18,
-    "backing": false
+    "s": 35.03,
+    "e": 35.22,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    }
   ]
  },
@@ -618,20 +628,22 @@
   "text": "(something else)",
   "section": "Pre-chorus 1",
   "back": true,
-  "start": 35.18,
-  "end": 36.44,
+  "start": 35.567,
+  "end": 36.08,
   "words": [
    {
     "w": "(something",
-    "s": 35.18,
-    "e": 35.56,
-    "backing": true
+    "s": 35.567,
+    "e": 35.892,
+    "backing": true,
+    "flag": "estimates spread 440 ms"
    },
    {
     "w": "else)",
-    "s": 35.56,
-    "e": 36.44,
-    "backing": true
+    "s": 35.892,
+    "e": 36.08,
+    "backing": true,
+    "flag": "estimates spread 320 ms"
    }
   ]
  },
@@ -639,20 +651,21 @@
   "text": "(something else)",
   "section": "Pre-chorus 1",
   "back": true,
-  "start": 36.44,
-  "end": 38.14,
+  "start": 37.001,
+  "end": 38.64,
   "words": [
    {
     "w": "(something",
-    "s": 36.44,
-    "e": 37.2,
+    "s": 37.001,
+    "e": 37.66,
     "backing": true
    },
    {
     "w": "else)",
-    "s": 37.2,
-    "e": 38.14,
-    "backing": true
+    "s": 37.669,
+    "e": 38.64,
+    "backing": true,
+    "flag": "estimates spread 840 ms"
    }
   ]
  },
@@ -660,85 +673,88 @@
   "text": "How do I know, how can you show, what perfect means to you?",
   "section": "Chorus 1",
   "back": false,
-  "start": 38.96,
-  "end": 42.14,
+  "start": 39.41,
+  "end": 42.22,
   "words": [
    {
     "w": "How",
-    "s": 38.96,
-    "e": 39.4,
-    "backing": false
+    "s": 39.41,
+    "e": 39.52,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    },
    {
     "w": "do",
-    "s": 39.4,
-    "e": 39.58,
+    "s": 39.56,
+    "e": 39.64,
     "backing": false
    },
    {
     "w": "I",
-    "s": 39.58,
-    "e": 39.72,
-    "backing": false
+    "s": 39.683,
+    "e": 39.763,
+    "backing": false,
+    "flag": "estimates spread 160 ms"
    },
    {
     "w": "know,",
-    "s": 39.72,
-    "e": 39.92,
-    "backing": false
+    "s": 39.84,
+    "e": 39.94,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    },
    {
     "w": "how",
-    "s": 40.0,
-    "e": 40.28,
+    "s": 40.263,
+    "e": 40.38,
     "backing": false
    },
    {
     "w": "can",
-    "s": 40.28,
-    "e": 40.44,
+    "s": 40.426,
+    "e": 40.54,
     "backing": false
    },
    {
     "w": "you",
-    "s": 40.44,
-    "e": 40.58,
+    "s": 40.571,
+    "e": 40.651,
     "backing": false
    },
    {
     "w": "show,",
-    "s": 40.58,
-    "e": 40.8,
+    "s": 40.739,
+    "e": 40.92,
     "backing": false
    },
    {
     "w": "what",
-    "s": 40.8,
-    "e": 41.02,
+    "s": 41.03,
+    "e": 41.11,
     "backing": false
    },
    {
     "w": "perfect",
-    "s": 41.02,
-    "e": 41.38,
+    "s": 41.146,
+    "e": 41.558,
     "backing": false
    },
    {
     "w": "means",
-    "s": 41.38,
-    "e": 41.68,
+    "s": 41.558,
+    "e": 41.86,
     "backing": false
    },
    {
     "w": "to",
-    "s": 41.68,
-    "e": 41.9,
+    "s": 41.866,
+    "e": 41.96,
     "backing": false
    },
    {
     "w": "you?",
-    "s": 41.9,
-    "e": 42.14,
+    "s": 42.022,
+    "e": 42.22,
     "backing": false
    }
   ]
@@ -747,91 +763,91 @@
   "text": "All of my checks, all of my tests, don't find the bugs you do",
   "section": "Chorus 1",
   "back": false,
-  "start": 42.48,
-  "end": 45.68,
+  "start": 42.934,
+  "end": 45.684,
   "words": [
    {
     "w": "All",
-    "s": 42.48,
-    "e": 42.92,
+    "s": 42.934,
+    "e": 43.08,
     "backing": false
    },
    {
     "w": "of",
-    "s": 42.92,
-    "e": 43.1,
+    "s": 43.09,
+    "e": 43.17,
     "backing": false
    },
    {
     "w": "my",
-    "s": 43.1,
-    "e": 43.22,
+    "s": 43.212,
+    "e": 43.3,
     "backing": false
    },
    {
     "w": "checks,",
-    "s": 43.22,
-    "e": 43.48,
+    "s": 43.386,
+    "e": 43.6,
     "backing": false
    },
    {
     "w": "all",
-    "s": 43.62,
-    "e": 43.88,
+    "s": 43.822,
+    "e": 43.94,
     "backing": false
    },
    {
     "w": "of",
-    "s": 43.88,
-    "e": 43.96,
+    "s": 43.98,
+    "e": 44.06,
     "backing": false
    },
    {
     "w": "my",
-    "s": 43.96,
-    "e": 44.12,
+    "s": 44.077,
+    "e": 44.18,
     "backing": false
    },
    {
     "w": "tests,",
-    "s": 44.12,
-    "e": 44.38,
+    "s": 44.211,
+    "e": 44.518,
     "backing": false
    },
    {
     "w": "don't",
-    "s": 44.46,
-    "e": 44.62,
+    "s": 44.518,
+    "e": 44.635,
     "backing": false
    },
    {
     "w": "find",
-    "s": 44.62,
-    "e": 44.84,
+    "s": 44.635,
+    "e": 44.96,
     "backing": false
    },
    {
     "w": "the",
-    "s": 44.84,
-    "e": 45.02,
+    "s": 44.983,
+    "e": 45.063,
     "backing": false
    },
    {
     "w": "bugs",
-    "s": 45.02,
-    "e": 45.26,
+    "s": 45.116,
+    "e": 45.4,
     "backing": false
    },
    {
     "w": "you",
-    "s": 45.26,
-    "e": 45.44,
+    "s": 45.412,
+    "e": 45.54,
     "backing": false
    },
    {
     "w": "do",
-    "s": 45.44,
-    "e": 45.68,
+    "s": 45.604,
+    "e": 45.684,
     "backing": false
    }
   ]
@@ -840,85 +856,85 @@
   "text": "Give me a guide, something to try, to make your dreams come true!",
   "section": "Chorus 1",
   "back": false,
-  "start": 45.68,
-  "end": 49.2,
+  "start": 46.434,
+  "end": 49.3,
   "words": [
    {
     "w": "Give",
-    "s": 45.68,
-    "e": 46.42,
+    "s": 46.434,
+    "e": 46.58,
     "backing": false
    },
    {
     "w": "me",
-    "s": 46.42,
-    "e": 46.66,
+    "s": 46.614,
+    "e": 46.694,
     "backing": false
    },
    {
     "w": "a",
-    "s": 46.66,
-    "e": 46.78,
+    "s": 46.724,
+    "e": 46.804,
     "backing": false
    },
    {
     "w": "guide,",
-    "s": 46.78,
-    "e": 47.08,
+    "s": 46.887,
+    "e": 47.26,
     "backing": false
    },
    {
     "w": "something",
-    "s": 47.16,
-    "e": 47.38,
+    "s": 47.316,
+    "e": 47.595,
     "backing": false
    },
    {
     "w": "to",
-    "s": 47.38,
-    "e": 47.66,
+    "s": 47.595,
+    "e": 47.675,
     "backing": false
    },
    {
     "w": "try,",
-    "s": 47.66,
-    "e": 47.88,
+    "s": 47.792,
+    "e": 48.02,
     "backing": false
    },
    {
     "w": "to",
-    "s": 47.88,
-    "e": 48.08,
+    "s": 48.025,
+    "e": 48.14,
     "backing": false
    },
    {
     "w": "make",
-    "s": 48.08,
-    "e": 48.3,
+    "s": 48.199,
+    "e": 48.431,
     "backing": false
    },
    {
     "w": "your",
-    "s": 48.3,
-    "e": 48.52,
+    "s": 48.431,
+    "e": 48.6,
     "backing": false
    },
    {
     "w": "dreams",
-    "s": 48.52,
-    "e": 48.78,
+    "s": 48.64,
+    "e": 48.9,
     "backing": false
    },
    {
     "w": "come",
-    "s": 48.78,
-    "e": 48.96,
+    "s": 48.924,
+    "e": 49.046,
     "backing": false
    },
    {
     "w": "true!",
-    "s": 48.96,
-    "e": 49.2,
+    "s": 49.046,
+    "e": 49.3,
     "backing": false
    }
   ]
@@ -927,44 +943,45 @@
   "text": "I want you to love it",
   "section": "Chorus 1",
   "back": false,
-  "start": 49.2,
+  "start": 49.383,
   "end": 50.38,
   "words": [
    {
     "w": "I",
-    "s": 49.2,
-    "e": 49.42,
+    "s": 49.383,
+    "e": 49.52,
     "backing": false
    },
    {
     "w": "want",
-    "s": 49.42,
-    "e": 49.56,
+    "s": 49.557,
+    "e": 49.662,
     "backing": false
    },
    {
     "w": "you",
-    "s": 49.56,
-    "e": 49.72,
+    "s": 49.662,
+    "e": 49.8,
     "backing": false
    },
    {
     "w": "to",
-    "s": 49.72,
-    "e": 49.86,
+    "s": 49.83,
+    "e": 49.91,
     "backing": false
    },
    {
     "w": "love",
-    "s": 49.86,
-    "e": 50.08,
+    "s": 49.923,
+    "e": 50.161,
     "backing": false
    },
    {
     "w": "it",
-    "s": 50.08,
+    "s": 50.161,
     "e": 50.38,
-    "backing": false
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    }
   ]
  },
@@ -972,20 +989,21 @@
   "text": "(love it)",
   "section": "Chorus 1",
   "back": true,
-  "start": 50.4,
-  "end": 51.08,
+  "start": 50.805,
+  "end": 51.123,
   "words": [
    {
     "w": "(love",
-    "s": 50.4,
-    "e": 50.88,
+    "s": 50.805,
+    "e": 50.885,
     "backing": true
    },
    {
     "w": "it)",
-    "s": 50.88,
-    "e": 51.08,
-    "backing": true
+    "s": 51.043,
+    "e": 51.123,
+    "backing": true,
+    "flag": "estimates spread 220 ms"
    }
   ]
  },
@@ -993,50 +1011,53 @@
   "text": "so give me something I can prove!",
   "section": "Chorus 1",
   "back": false,
-  "start": 51.1,
-  "end": 53.56,
+  "start": 51.287,
+  "end": 53.94,
   "words": [
    {
     "w": "so",
-    "s": 51.1,
-    "e": 51.14,
-    "backing": false
+    "s": 51.287,
+    "e": 51.337,
+    "backing": false,
+    "flag": "estimates spread 180 ms"
    },
    {
     "w": "give",
-    "s": 51.14,
-    "e": 51.34,
+    "s": 51.337,
+    "e": 51.44,
     "backing": false
    },
    {
     "w": "me",
-    "s": 51.34,
-    "e": 51.52,
+    "s": 51.461,
+    "e": 51.541,
     "backing": false
    },
    {
     "w": "something",
-    "s": 51.52,
-    "e": 52.02,
+    "s": 51.69,
+    "e": 52.5,
     "backing": false
    },
    {
     "w": "I",
-    "s": 52.02,
-    "e": 52.72,
-    "backing": false
+    "s": 52.5,
+    "e": 52.74,
+    "backing": false,
+    "flag": "estimates spread 480 ms"
    },
    {
     "w": "can",
-    "s": 52.72,
-    "e": 53.08,
+    "s": 53.029,
+    "e": 53.38,
     "backing": false
    },
    {
     "w": "prove!",
-    "s": 53.08,
-    "e": 53.56,
-    "backing": false
+    "s": 53.429,
+    "e": 53.94,
+    "backing": false,
+    "flag": "estimates spread 440 ms"
    }
   ]
  },
@@ -1044,50 +1065,55 @@
   "text": "So give me something I can prove!",
   "section": "Break 1",
   "back": false,
-  "start": 57.7,
-  "end": 60.62,
+  "start": 58.183,
+  "end": 60.68,
   "words": [
    {
     "w": "So",
-    "s": 57.7,
-    "e": 58.14,
-    "backing": false
+    "s": 58.183,
+    "e": 58.263,
+    "backing": false,
+    "flag": "estimates spread 320 ms"
    },
    {
     "w": "give",
-    "s": 58.14,
-    "e": 58.34,
-    "backing": false
+    "s": 58.311,
+    "e": 58.42,
+    "backing": false,
+    "flag": "estimates spread 560 ms"
    },
    {
     "w": "me",
-    "s": 58.34,
-    "e": 58.58,
-    "backing": false
+    "s": 58.503,
+    "e": 58.583,
+    "backing": false,
+    "flag": "estimates spread 300 ms"
    },
    {
     "w": "something",
-    "s": 58.58,
-    "e": 59.08,
+    "s": 58.63,
+    "e": 59.55,
     "backing": false
    },
    {
     "w": "I",
-    "s": 59.08,
-    "e": 59.76,
-    "backing": false
+    "s": 59.55,
+    "e": 59.78,
+    "backing": false,
+    "flag": "estimates spread 600 ms"
    },
    {
     "w": "can",
-    "s": 59.76,
-    "e": 60.14,
+    "s": 60.076,
+    "e": 60.36,
     "backing": false
    },
    {
     "w": "prove!",
-    "s": 60.14,
-    "e": 60.62,
-    "backing": false
+    "s": 60.471,
+    "e": 60.68,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    }
   ]
  },
@@ -1095,85 +1121,88 @@
   "text": "Give me a tool to run on every merge to check the load",
   "section": "Verse 2",
   "back": false,
-  "start": 60.62,
-  "end": 63.42,
+  "start": 60.91,
+  "end": 63.62,
   "words": [
    {
     "w": "Give",
-    "s": 60.62,
-    "e": 60.92,
-    "backing": false
+    "s": 60.91,
+    "e": 61.0,
+    "backing": false,
+    "flag": "estimates spread 420 ms"
    },
    {
     "w": "me",
-    "s": 60.92,
-    "e": 61.02,
-    "backing": false
+    "s": 61.01,
+    "e": 61.1,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    },
    {
     "w": "a",
-    "s": 61.02,
-    "e": 61.22,
+    "s": 61.109,
+    "e": 61.2,
     "backing": false
    },
    {
     "w": "tool",
-    "s": 61.22,
-    "e": 61.46,
-    "backing": false
+    "s": 61.399,
+    "e": 61.556,
+    "backing": false,
+    "flag": "estimates spread 160 ms"
    },
    {
     "w": "to",
-    "s": 61.46,
-    "e": 61.62,
+    "s": 61.556,
+    "e": 61.64,
     "backing": false
    },
    {
     "w": "run",
-    "s": 61.62,
-    "e": 61.8,
+    "s": 61.74,
+    "e": 61.852,
     "backing": false
    },
    {
     "w": "on",
-    "s": 61.8,
-    "e": 61.94,
+    "s": 61.852,
+    "e": 62.02,
     "backing": false
    },
    {
     "w": "every",
-    "s": 61.94,
-    "e": 62.16,
+    "s": 62.08,
+    "e": 62.24,
     "backing": false
    },
    {
     "w": "merge",
-    "s": 62.16,
-    "e": 62.48,
+    "s": 62.305,
+    "e": 62.58,
     "backing": false
    },
    {
     "w": "to",
-    "s": 62.48,
-    "e": 62.62,
+    "s": 62.618,
+    "e": 62.698,
     "backing": false
    },
    {
     "w": "check",
-    "s": 62.62,
-    "e": 62.82,
+    "s": 62.717,
+    "e": 62.92,
     "backing": false
    },
    {
     "w": "the",
-    "s": 62.82,
-    "e": 63.08,
+    "s": 63.025,
+    "e": 63.105,
     "backing": false
    },
    {
     "w": "load",
-    "s": 63.08,
-    "e": 63.42,
+    "s": 63.205,
+    "e": 63.62,
     "backing": false
    }
   ]
@@ -1182,13 +1211,13 @@
   "text": "(ohhh)",
   "section": "Verse 2",
   "back": true,
-  "start": 63.66,
-  "end": 64.3,
+  "start": 63.605,
+  "end": 64.38,
   "words": [
    {
     "w": "(ohhh)",
-    "s": 63.66,
-    "e": 64.3,
+    "s": 63.605,
+    "e": 64.38,
     "backing": true
    }
   ]
@@ -1197,84 +1226,84 @@
   "text": "I'll prompt a bot to act as Gran make sure she can go",
   "section": "Verse 2",
   "back": false,
-  "start": 64.0,
+  "start": 64.366,
   "end": 66.82,
   "words": [
    {
     "w": "I'll",
-    "s": 64.0,
-    "e": 64.44,
+    "s": 64.366,
+    "e": 64.47,
     "backing": false
    },
    {
     "w": "prompt",
-    "s": 64.44,
-    "e": 64.66,
+    "s": 64.47,
+    "e": 64.778,
     "backing": false
    },
    {
     "w": "a",
-    "s": 64.66,
+    "s": 64.778,
     "e": 64.86,
     "backing": false
    },
    {
     "w": "bot",
-    "s": 64.86,
-    "e": 65.06,
+    "s": 64.969,
+    "e": 65.14,
     "backing": false
    },
    {
     "w": "to",
-    "s": 65.06,
-    "e": 65.28,
+    "s": 65.167,
+    "e": 65.3,
     "backing": false
    },
    {
     "w": "act",
-    "s": 65.28,
-    "e": 65.44,
+    "s": 65.399,
+    "e": 65.515,
     "backing": false
    },
    {
     "w": "as",
-    "s": 65.44,
-    "e": 65.58,
+    "s": 65.515,
+    "e": 65.64,
     "backing": false
    },
    {
     "w": "Gran",
-    "s": 65.58,
-    "e": 65.82,
+    "s": 65.689,
+    "e": 65.8,
     "backing": false
    },
    {
     "w": "make",
-    "s": 65.82,
-    "e": 65.94,
+    "s": 65.858,
+    "e": 66.02,
     "backing": false
    },
    {
     "w": "sure",
-    "s": 65.94,
-    "e": 66.1,
+    "s": 66.084,
+    "e": 66.22,
     "backing": false
    },
    {
     "w": "she",
-    "s": 66.1,
-    "e": 66.24,
+    "s": 66.27,
+    "e": 66.35,
     "backing": false
    },
    {
     "w": "can",
-    "s": 66.24,
-    "e": 66.48,
+    "s": 66.392,
+    "e": 66.58,
     "backing": false
    },
    {
     "w": "go",
-    "s": 66.48,
+    "s": 66.699,
     "e": 66.82,
     "backing": false
    }
@@ -1284,13 +1313,13 @@
   "text": "(ohhh)",
   "section": "Verse 2",
   "back": true,
-  "start": 67.18,
-  "end": 67.84,
+  "start": 67.14,
+  "end": 67.94,
   "words": [
    {
     "w": "(ohhh)",
-    "s": 67.18,
-    "e": 67.84,
+    "s": 67.14,
+    "e": 67.94,
     "backing": true
    }
   ]
@@ -1299,67 +1328,67 @@
   "text": "An isolation check to find the things that shouldn't show",
   "section": "Verse 2",
   "back": false,
-  "start": 67.44,
-  "end": 70.34,
+  "start": 67.895,
+  "end": 70.56,
   "words": [
    {
     "w": "An",
-    "s": 67.44,
-    "e": 67.88,
+    "s": 67.895,
+    "e": 68.04,
     "backing": false
    },
    {
     "w": "isolation",
-    "s": 67.88,
-    "e": 68.32,
+    "s": 68.156,
+    "e": 68.72,
     "backing": false
    },
    {
     "w": "check",
-    "s": 68.32,
-    "e": 68.8,
+    "s": 68.731,
+    "e": 68.88,
     "backing": false
    },
    {
     "w": "to",
-    "s": 68.8,
-    "e": 68.92,
+    "s": 68.899,
+    "e": 68.98,
     "backing": false
    },
    {
     "w": "find",
-    "s": 68.92,
-    "e": 69.14,
+    "s": 69.05,
+    "e": 69.2,
     "backing": false
    },
    {
     "w": "the",
-    "s": 69.14,
-    "e": 69.22,
+    "s": 69.23,
+    "e": 69.31,
     "backing": false
    },
    {
     "w": "things",
-    "s": 69.22,
-    "e": 69.46,
+    "s": 69.335,
+    "e": 69.62,
     "backing": false
    },
    {
     "w": "that",
-    "s": 69.46,
-    "e": 69.72,
+    "s": 69.666,
+    "e": 69.8,
     "backing": false
    },
    {
     "w": "shouldn't",
-    "s": 69.8,
-    "e": 70.12,
+    "s": 69.927,
+    "e": 70.18,
     "backing": false
    },
    {
     "w": "show",
-    "s": 70.12,
-    "e": 70.34,
+    "s": 70.246,
+    "e": 70.56,
     "backing": false
    }
   ]
@@ -1368,85 +1397,85 @@
   "text": "But as for Dave and Sue, you really had to let me know!",
   "section": "Verse 2",
   "back": false,
-  "start": 70.34,
-  "end": 73.96,
+  "start": 70.949,
+  "end": 73.94,
   "words": [
    {
     "w": "But",
-    "s": 70.34,
-    "e": 71.06,
+    "s": 70.949,
+    "e": 71.14,
     "backing": false
    },
    {
     "w": "as",
-    "s": 71.06,
-    "e": 71.22,
+    "s": 71.19,
+    "e": 71.34,
     "backing": false
    },
    {
     "w": "for",
-    "s": 71.22,
-    "e": 71.4,
+    "s": 71.396,
+    "e": 71.48,
     "backing": false
    },
    {
     "w": "Dave",
-    "s": 71.4,
-    "e": 71.72,
+    "s": 71.552,
+    "e": 71.854,
     "backing": false
    },
    {
     "w": "and",
-    "s": 71.72,
-    "e": 71.88,
+    "s": 71.854,
+    "e": 71.94,
     "backing": false
    },
    {
     "w": "Sue,",
-    "s": 71.88,
-    "e": 72.06,
+    "s": 72.011,
+    "e": 72.24,
     "backing": false
    },
    {
     "w": "you",
-    "s": 72.16,
-    "e": 72.3,
+    "s": 72.29,
+    "e": 72.37,
     "backing": false
    },
    {
     "w": "really",
-    "s": 72.3,
-    "e": 72.58,
+    "s": 72.435,
+    "e": 72.8,
     "backing": false
    },
    {
     "w": "had",
-    "s": 72.58,
-    "e": 72.96,
+    "s": 72.847,
+    "e": 73.06,
     "backing": false
    },
    {
     "w": "to",
-    "s": 72.96,
-    "e": 73.18,
+    "s": 73.12,
+    "e": 73.22,
     "backing": false
    },
    {
     "w": "let",
-    "s": 73.18,
-    "e": 73.38,
+    "s": 73.34,
+    "e": 73.52,
     "backing": false
    },
    {
     "w": "me",
-    "s": 73.38,
-    "e": 73.66,
+    "s": 73.555,
+    "e": 73.68,
     "backing": false
    },
    {
     "w": "know!",
-    "s": 73.66,
-    "e": 73.96,
+    "s": 73.805,
+    "e": 73.94,
     "backing": false
    }
   ]
@@ -1455,13 +1484,13 @@
   "text": "(ohhh)",
   "section": "Verse 2",
   "back": true,
-  "start": 74.04,
-  "end": 74.66,
+  "start": 74.368,
+  "end": 74.448,
   "words": [
    {
     "w": "(ohhh)",
-    "s": 74.04,
-    "e": 74.66,
+    "s": 74.368,
+    "e": 74.448,
     "backing": true
    }
   ]
@@ -1470,85 +1499,87 @@
   "text": "You can tell me it's broken, but how will I know for myself?",
   "section": "Pre-chorus 2",
   "back": false,
-  "start": 73.96,
-  "end": 77.4,
+  "start": 74.757,
+  "end": 77.56,
   "words": [
    {
     "w": "You",
-    "s": 73.96,
-    "e": 74.8,
+    "s": 74.757,
+    "e": 74.86,
     "backing": false
    },
    {
     "w": "can",
-    "s": 74.8,
-    "e": 74.9,
+    "s": 74.908,
+    "e": 75.02,
     "backing": false
    },
    {
     "w": "tell",
-    "s": 74.9,
-    "e": 75.16,
+    "s": 75.047,
+    "e": 75.22,
     "backing": false
    },
    {
     "w": "me",
-    "s": 75.16,
-    "e": 75.3,
+    "s": 75.233,
+    "e": 75.313,
     "backing": false
    },
    {
     "w": "it's",
-    "s": 75.3,
-    "e": 75.42,
+    "s": 75.395,
+    "e": 75.475,
     "backing": false
    },
    {
     "w": "broken,",
-    "s": 75.42,
-    "e": 75.64,
+    "s": 75.517,
+    "e": 75.94,
     "backing": false
    },
    {
     "w": "but",
-    "s": 75.84,
-    "e": 76.06,
-    "backing": false
+    "s": 76.115,
+    "e": 76.195,
+    "backing": false,
+    "flag": "estimates spread 300 ms"
    },
    {
     "w": "how",
-    "s": 76.06,
-    "e": 76.4,
-    "backing": false
+    "s": 76.38,
+    "e": 76.5,
+    "backing": false,
+    "flag": "estimates spread 260 ms"
    },
    {
     "w": "will",
-    "s": 76.4,
-    "e": 76.62,
+    "s": 76.562,
+    "e": 76.72,
     "backing": false
    },
    {
     "w": "I",
-    "s": 76.62,
-    "e": 76.74,
+    "s": 76.74,
+    "e": 76.82,
     "backing": false
    },
    {
     "w": "know",
-    "s": 76.74,
-    "e": 76.88,
+    "s": 76.82,
+    "e": 76.9,
     "backing": false
    },
    {
     "w": "for",
-    "s": 76.88,
-    "e": 77.02,
+    "s": 77.009,
+    "e": 77.089,
     "backing": false
    },
    {
     "w": "myself?",
-    "s": 77.02,
-    "e": 77.4,
+    "s": 77.119,
+    "e": 77.56,
     "backing": false
    }
   ]
@@ -1557,20 +1588,22 @@
   "text": "(for myself?)",
   "section": "Pre-chorus 2",
   "back": true,
-  "start": 77.4,
-  "end": 77.84,
+  "start": 77.311,
+  "end": 78.24,
   "words": [
    {
     "w": "(for",
-    "s": 77.4,
-    "e": 77.547,
-    "backing": true
+    "s": 77.311,
+    "e": 77.425,
+    "backing": true,
+    "flag": "estimates spread 720 ms"
    },
    {
     "w": "myself?)",
-    "s": 77.547,
-    "e": 77.84,
-    "backing": true
+    "s": 77.425,
+    "e": 78.24,
+    "backing": true,
+    "flag": "estimates spread 620 ms"
    }
   ]
  },
@@ -1578,79 +1611,81 @@
   "text": "So baby now I'm hoping, that you can give me something else",
   "section": "Pre-chorus 2",
   "back": false,
-  "start": 77.84,
-  "end": 80.98,
+  "start": 78.24,
+  "end": 81.06,
   "words": [
    {
     "w": "So",
-    "s": 77.84,
-    "e": 78.28,
-    "backing": false
+    "s": 78.24,
+    "e": 78.38,
+    "backing": false,
+    "flag": "estimates spread 420 ms"
    },
    {
     "w": "baby",
-    "s": 78.28,
-    "e": 78.6,
+    "s": 78.425,
+    "e": 78.68,
     "backing": false
    },
    {
     "w": "now",
-    "s": 78.62,
-    "e": 78.78,
+    "s": 78.745,
+    "e": 78.92,
     "backing": false
    },
    {
     "w": "I'm",
-    "s": 78.78,
-    "e": 79.02,
+    "s": 78.93,
+    "e": 79.04,
     "backing": false
    },
    {
     "w": "hoping,",
-    "s": 79.02,
-    "e": 79.2,
+    "s": 79.041,
+    "e": 79.5,
     "backing": false
    },
    {
     "w": "that",
-    "s": 79.2,
-    "e": 79.54,
-    "backing": false
+    "s": 79.505,
+    "e": 79.662,
+    "backing": false,
+    "flag": "estimates spread 220 ms"
    },
    {
     "w": "you",
-    "s": 79.54,
-    "e": 79.64,
+    "s": 79.662,
+    "e": 79.749,
     "backing": false
    },
    {
     "w": "can",
-    "s": 79.64,
-    "e": 79.8,
+    "s": 79.749,
+    "e": 79.88,
     "backing": false
    },
    {
     "w": "give",
-    "s": 79.8,
-    "e": 80.02,
+    "s": 79.917,
+    "e": 80.14,
     "backing": false
    },
    {
     "w": "me",
-    "s": 80.02,
-    "e": 80.24,
+    "s": 80.202,
+    "e": 80.282,
     "backing": false
    },
    {
     "w": "something",
-    "s": 80.24,
-    "e": 80.56,
+    "s": 80.387,
+    "e": 80.829,
     "backing": false
    },
    {
     "w": "else",
-    "s": 80.56,
-    "e": 80.98,
+    "s": 80.829,
+    "e": 81.06,
     "backing": false
    }
   ]
@@ -1659,20 +1694,22 @@
   "text": "(something else)",
   "section": "Pre-chorus 2",
   "back": true,
-  "start": 80.98,
-  "end": 82.4,
+  "start": 81.119,
+  "end": 82.26,
   "words": [
    {
     "w": "(something",
-    "s": 80.98,
-    "e": 81.963,
-    "backing": true
+    "s": 81.119,
+    "e": 81.76,
+    "backing": true,
+    "flag": "estimates spread 780 ms"
    },
    {
     "w": "else)",
-    "s": 81.963,
-    "e": 82.4,
-    "backing": true
+    "s": 81.908,
+    "e": 82.26,
+    "backing": true,
+    "flag": "estimates spread 420 ms"
    }
   ]
  },
@@ -1680,20 +1717,22 @@
   "text": "(something else)",
   "section": "Pre-chorus 2",
   "back": true,
-  "start": 82.4,
-  "end": 83.8,
+  "start": 82.86,
+  "end": 84.14,
   "words": [
    {
     "w": "(something",
-    "s": 82.4,
-    "e": 83.369,
-    "backing": true
+    "s": 82.86,
+    "e": 83.476,
+    "backing": true,
+    "flag": "estimates spread 160 ms"
    },
    {
     "w": "else)",
-    "s": 83.369,
-    "e": 83.8,
-    "backing": true
+    "s": 83.476,
+    "e": 84.14,
+    "backing": true,
+    "flag": "estimates spread 440 ms"
    }
   ]
  },
@@ -1701,85 +1740,89 @@
   "text": "How do I know, how can you show, what perfect means to you?",
   "section": "Chorus 2",
   "back": false,
-  "start": 84.48,
-  "end": 87.98,
+  "start": 85.08,
+  "end": 87.9,
   "words": [
    {
     "w": "How",
-    "s": 84.48,
-    "e": 84.92,
-    "backing": false
+    "s": 85.08,
+    "e": 85.34,
+    "backing": false,
+    "flag": "estimates spread 580 ms"
    },
    {
     "w": "do",
-    "s": 84.92,
-    "e": 85.36,
-    "backing": false
+    "s": 85.36,
+    "e": 85.44,
+    "backing": false,
+    "flag": "estimates spread 320 ms"
    },
    {
     "w": "I",
-    "s": 85.36,
-    "e": 85.54,
-    "backing": false
+    "s": 85.507,
+    "e": 85.587,
+    "backing": false,
+    "flag": "estimates spread 160 ms"
    },
    {
     "w": "know,",
-    "s": 85.54,
-    "e": 85.78,
-    "backing": false
+    "s": 85.68,
+    "e": 86.1,
+    "backing": false,
+    "flag": "estimates spread 180 ms"
    },
    {
     "w": "how",
-    "s": 85.8,
-    "e": 86.08,
+    "s": 86.105,
+    "e": 86.2,
     "backing": false
    },
    {
     "w": "can",
-    "s": 86.08,
-    "e": 86.28,
+    "s": 86.233,
+    "e": 86.36,
     "backing": false
    },
    {
     "w": "you",
-    "s": 86.28,
-    "e": 86.42,
+    "s": 86.378,
+    "e": 86.46,
     "backing": false
    },
    {
     "w": "show,",
-    "s": 86.42,
-    "e": 86.64,
+    "s": 86.547,
+    "e": 86.74,
     "backing": false
    },
    {
     "w": "what",
-    "s": 86.64,
-    "e": 86.86,
+    "s": 86.808,
+    "e": 86.959,
     "backing": false
    },
    {
     "w": "perfect",
-    "s": 86.86,
-    "e": 87.2,
+    "s": 86.959,
+    "e": 87.377,
     "backing": false
    },
    {
     "w": "means",
-    "s": 87.2,
-    "e": 87.5,
+    "s": 87.377,
+    "e": 87.64,
     "backing": false
    },
    {
     "w": "to",
-    "s": 87.5,
-    "e": 87.7,
+    "s": 87.69,
+    "e": 87.78,
     "backing": false
    },
    {
     "w": "you?",
-    "s": 87.7,
-    "e": 87.98,
+    "s": 87.818,
+    "e": 87.9,
     "backing": false
    }
   ]
@@ -1788,13 +1831,13 @@
   "text": "(ooh-ooh)",
   "section": "Chorus 2",
   "back": true,
-  "start": 87.98,
-  "end": 88.4,
+  "start": 88.12,
+  "end": 88.78,
   "words": [
    {
     "w": "(ooh-ooh)",
-    "s": 87.98,
-    "e": 88.4,
+    "s": 88.12,
+    "e": 88.78,
     "backing": true
    }
   ]
@@ -1803,90 +1846,91 @@
   "text": "All of my checks, all of my tests, don't find the bugs you do",
   "section": "Chorus 2",
   "back": false,
-  "start": 88.32,
+  "start": 88.735,
   "end": 91.5,
   "words": [
    {
     "w": "All",
-    "s": 88.32,
-    "e": 88.76,
-    "backing": false
+    "s": 88.735,
+    "e": 88.92,
+    "backing": false,
+    "flag": "estimates spread 340 ms"
    },
    {
     "w": "of",
-    "s": 88.76,
-    "e": 88.94,
+    "s": 88.92,
+    "e": 88.99,
     "backing": false
    },
    {
     "w": "my",
-    "s": 88.94,
-    "e": 89.04,
+    "s": 88.99,
+    "e": 89.12,
     "backing": false
    },
    {
     "w": "checks,",
-    "s": 89.04,
-    "e": 89.44,
+    "s": 89.246,
+    "e": 89.6,
     "backing": false
    },
    {
     "w": "all",
-    "s": 89.44,
-    "e": 89.7,
+    "s": 89.635,
+    "e": 89.734,
     "backing": false
    },
    {
     "w": "of",
-    "s": 89.7,
-    "e": 89.82,
+    "s": 89.734,
+    "e": 89.86,
     "backing": false
    },
    {
     "w": "my",
-    "s": 89.82,
-    "e": 89.96,
+    "s": 89.873,
+    "e": 90.02,
     "backing": false
    },
    {
     "w": "tests,",
-    "s": 89.96,
-    "e": 90.2,
+    "s": 90.088,
+    "e": 90.28,
     "backing": false
    },
    {
     "w": "don't",
-    "s": 90.2,
-    "e": 90.42,
+    "s": 90.314,
+    "e": 90.46,
     "backing": false
    },
    {
     "w": "find",
-    "s": 90.42,
-    "e": 90.64,
+    "s": 90.523,
+    "e": 90.8,
     "backing": false
    },
    {
     "w": "the",
-    "s": 90.64,
-    "e": 90.84,
+    "s": 90.807,
+    "e": 90.887,
     "backing": false
    },
    {
     "w": "bugs",
-    "s": 90.84,
-    "e": 91.08,
+    "s": 90.941,
+    "e": 91.22,
     "backing": false
    },
    {
     "w": "you",
-    "s": 91.08,
-    "e": 91.26,
+    "s": 91.243,
+    "e": 91.34,
     "backing": false
    },
    {
     "w": "do",
-    "s": 91.26,
+    "s": 91.405,
     "e": 91.5,
     "backing": false
    }
@@ -1896,13 +1940,13 @@
   "text": "(ooh-ooh)",
   "section": "Chorus 2",
   "back": true,
-  "start": 91.5,
-  "end": 92.26,
+  "start": 91.649,
+  "end": 91.729,
   "words": [
    {
     "w": "(ooh-ooh)",
-    "s": 91.5,
-    "e": 92.26,
+    "s": 91.649,
+    "e": 91.729,
     "backing": true
    }
   ]
@@ -1911,85 +1955,85 @@
   "text": "Give me a guide, something to try, to make your dreams come true!",
   "section": "Chorus 2",
   "back": false,
-  "start": 91.5,
-  "end": 95.0,
+  "start": 92.23,
+  "end": 95.14,
   "words": [
    {
     "w": "Give",
-    "s": 91.5,
-    "e": 92.26,
+    "s": 92.23,
+    "e": 92.392,
     "backing": false
    },
    {
     "w": "me",
-    "s": 92.26,
-    "e": 92.46,
+    "s": 92.392,
+    "e": 92.5,
     "backing": false
    },
    {
     "w": "a",
-    "s": 92.46,
-    "e": 92.62,
+    "s": 92.526,
+    "e": 92.606,
     "backing": false
    },
    {
     "w": "guide,",
-    "s": 92.62,
-    "e": 92.92,
+    "s": 92.682,
+    "e": 93.08,
     "backing": false
    },
    {
     "w": "something",
-    "s": 92.98,
-    "e": 93.22,
+    "s": 93.158,
+    "e": 93.408,
     "backing": false
    },
    {
     "w": "to",
-    "s": 93.22,
-    "e": 93.48,
+    "s": 93.408,
+    "e": 93.488,
     "backing": false
    },
    {
     "w": "try,",
-    "s": 93.48,
-    "e": 93.72,
+    "s": 93.542,
+    "e": 93.82,
     "backing": false
    },
    {
     "w": "to",
-    "s": 93.72,
-    "e": 93.88,
+    "s": 93.901,
+    "e": 93.981,
     "backing": false
    },
    {
     "w": "make",
-    "s": 93.88,
-    "e": 94.1,
+    "s": 94.006,
+    "e": 94.24,
     "backing": false
    },
    {
     "w": "your",
-    "s": 94.1,
-    "e": 94.34,
+    "s": 94.25,
+    "e": 94.42,
     "backing": false
    },
    {
     "w": "dreams",
-    "s": 94.34,
-    "e": 94.62,
+    "s": 94.459,
+    "e": 94.7,
     "backing": false
    },
    {
     "w": "come",
-    "s": 94.62,
-    "e": 94.76,
+    "s": 94.743,
+    "e": 94.859,
     "backing": false
    },
    {
     "w": "true!",
-    "s": 94.76,
-    "e": 95.0,
+    "s": 94.859,
+    "e": 95.14,
     "backing": false
    }
   ]
@@ -1998,44 +2042,45 @@
   "text": "I want you to love it",
   "section": "Chorus 2",
   "back": false,
-  "start": 95.0,
-  "end": 96.1,
+  "start": 95.184,
+  "end": 96.2,
   "words": [
    {
     "w": "I",
-    "s": 95.0,
-    "e": 95.22,
+    "s": 95.184,
+    "e": 95.32,
     "backing": false
    },
    {
     "w": "want",
-    "s": 95.22,
-    "e": 95.4,
+    "s": 95.36,
+    "e": 95.475,
     "backing": false
    },
    {
     "w": "you",
-    "s": 95.4,
-    "e": 95.54,
+    "s": 95.475,
+    "e": 95.6,
     "backing": false
    },
    {
     "w": "to",
-    "s": 95.54,
-    "e": 95.66,
+    "s": 95.649,
+    "e": 95.729,
     "backing": false
    },
    {
     "w": "love",
-    "s": 95.66,
-    "e": 95.9,
+    "s": 95.753,
+    "e": 95.974,
     "backing": false
    },
    {
     "w": "it",
-    "s": 95.9,
-    "e": 96.1,
-    "backing": false
+    "s": 95.974,
+    "e": 96.2,
+    "backing": false,
+    "flag": "estimates spread 180 ms"
    }
   ]
  },
@@ -2043,19 +2088,20 @@
   "text": "(love it)",
   "section": "Chorus 2",
   "back": true,
-  "start": 96.26,
-  "end": 96.88,
+  "start": 96.653,
+  "end": 96.942,
   "words": [
    {
     "w": "(love",
-    "s": 96.26,
-    "e": 96.74,
-    "backing": true
+    "s": 96.653,
+    "e": 96.862,
+    "backing": true,
+    "flag": "estimates spread 600 ms"
    },
    {
     "w": "it)",
-    "s": 96.74,
-    "e": 96.88,
+    "s": 96.862,
+    "e": 96.942,
     "backing": true
    }
   ]
@@ -2064,49 +2110,51 @@
   "text": "so give me something I can prove!",
   "section": "Chorus 2",
   "back": false,
-  "start": 96.88,
-  "end": 99.44,
+  "start": 96.961,
+  "end": 99.74,
   "words": [
    {
     "w": "so",
-    "s": 96.88,
-    "e": 96.96,
-    "backing": false
+    "s": 96.961,
+    "e": 97.041,
+    "backing": false,
+    "flag": "estimates spread 180 ms"
    },
    {
     "w": "give",
-    "s": 96.96,
-    "e": 97.14,
+    "s": 97.094,
+    "e": 97.24,
     "backing": false
    },
    {
     "w": "me",
-    "s": 97.14,
-    "e": 97.34,
+    "s": 97.257,
+    "e": 97.337,
     "backing": false
    },
    {
     "w": "something",
-    "s": 97.34,
-    "e": 97.84,
+    "s": 97.483,
+    "e": 98.395,
     "backing": false
    },
    {
     "w": "I",
-    "s": 97.84,
-    "e": 98.56,
-    "backing": false
+    "s": 98.395,
+    "e": 98.78,
+    "backing": false,
+    "flag": "estimates spread 700 ms"
    },
    {
     "w": "can",
-    "s": 98.56,
-    "e": 98.9,
+    "s": 98.847,
+    "e": 99.14,
     "backing": false
    },
    {
     "w": "prove!",
-    "s": 98.9,
-    "e": 99.44,
+    "s": 99.26,
+    "e": 99.74,
     "backing": false
    }
   ]
@@ -2115,79 +2163,79 @@
   "text": "An oracle is something that can help me figure out what's wrong!",
   "section": "Bridge",
   "back": false,
-  "start": 102.4,
-  "end": 105.64,
+  "start": 102.679,
+  "end": 105.78,
   "words": [
    {
     "w": "An",
-    "s": 102.4,
+    "s": 102.679,
     "e": 102.84,
     "backing": false
    },
    {
     "w": "oracle",
-    "s": 102.84,
-    "e": 103.28,
+    "s": 103.015,
+    "e": 103.439,
     "backing": false
    },
    {
     "w": "is",
-    "s": 103.28,
-    "e": 103.52,
+    "s": 103.439,
+    "e": 103.58,
     "backing": false
    },
    {
     "w": "something",
-    "s": 103.52,
-    "e": 103.8,
+    "s": 103.689,
+    "e": 103.96,
     "backing": false
    },
    {
     "w": "that",
-    "s": 103.8,
-    "e": 104.08,
+    "s": 103.996,
+    "e": 104.1,
     "backing": false
    },
    {
     "w": "can",
-    "s": 104.08,
-    "e": 104.38,
+    "s": 104.16,
+    "e": 104.58,
     "backing": false
    },
    {
     "w": "help",
-    "s": 104.38,
-    "e": 104.66,
+    "s": 104.612,
+    "e": 104.739,
     "backing": false
    },
    {
     "w": "me",
-    "s": 104.66,
-    "e": 104.78,
+    "s": 104.739,
+    "e": 104.819,
     "backing": false
    },
    {
     "w": "figure",
-    "s": 104.78,
-    "e": 105.04,
+    "s": 104.885,
+    "e": 105.16,
     "backing": false
    },
    {
     "w": "out",
-    "s": 105.04,
-    "e": 105.26,
+    "s": 105.186,
+    "e": 105.3,
     "backing": false
    },
    {
     "w": "what's",
-    "s": 105.26,
-    "e": 105.4,
+    "s": 105.343,
+    "e": 105.44,
     "backing": false
    },
    {
     "w": "wrong!",
-    "s": 105.4,
-    "e": 105.64,
+    "s": 105.482,
+    "e": 105.78,
     "backing": false
    }
   ]
@@ -2196,19 +2244,19 @@
   "text": "(oh yeah)",
   "section": "Bridge",
   "back": true,
-  "start": 105.66,
-  "end": 106.3,
+  "start": 105.83,
+  "end": 106.16,
   "words": [
    {
     "w": "(oh",
-    "s": 105.66,
-    "e": 105.873,
+    "s": 105.83,
+    "e": 105.91,
     "backing": true
    },
    {
     "w": "yeah)",
-    "s": 105.873,
-    "e": 106.3,
+    "s": 106.01,
+    "e": 106.16,
     "backing": true
    }
   ]
@@ -2217,103 +2265,105 @@
   "text": "Cos if I know your rules then I can run and run them all day long!",
   "section": "Bridge",
   "back": false,
-  "start": 105.64,
-  "end": 109.16,
+  "start": 106.202,
+  "end": 109.22,
   "words": [
    {
     "w": "Cos",
-    "s": 105.64,
-    "e": 106.06,
+    "s": 106.202,
+    "e": 106.36,
     "backing": false
    },
    {
     "w": "if",
-    "s": 106.06,
-    "e": 106.4,
+    "s": 106.37,
+    "e": 106.481,
     "backing": false
    },
    {
     "w": "I",
-    "s": 106.4,
-    "e": 106.56,
+    "s": 106.481,
+    "e": 106.62,
     "backing": false
    },
    {
     "w": "know",
-    "s": 106.56,
-    "e": 106.86,
-    "backing": false
+    "s": 106.678,
+    "e": 106.9,
+    "backing": false,
+    "flag": "estimates spread 160 ms"
    },
    {
     "w": "your",
-    "s": 106.86,
-    "e": 107.0,
+    "s": 106.93,
+    "e": 107.15,
     "backing": false
    },
    {
     "w": "rules",
-    "s": 107.0,
-    "e": 107.3,
-    "backing": false
+    "s": 107.15,
+    "e": 107.38,
+    "backing": false,
+    "flag": "estimates spread 180 ms"
    },
    {
     "w": "then",
-    "s": 107.3,
-    "e": 107.44,
+    "s": 107.404,
+    "e": 107.52,
     "backing": false
    },
    {
     "w": "I",
-    "s": 107.44,
-    "e": 107.58,
+    "s": 107.52,
+    "e": 107.6,
     "backing": false
    },
    {
     "w": "can",
-    "s": 107.58,
-    "e": 107.9,
+    "s": 107.77,
+    "e": 108.06,
     "backing": false
    },
    {
     "w": "run",
-    "s": 107.9,
-    "e": 108.2,
+    "s": 108.135,
+    "e": 108.26,
     "backing": false
    },
    {
     "w": "and",
-    "s": 108.2,
-    "e": 108.34,
+    "s": 108.286,
+    "e": 108.397,
     "backing": false
    },
    {
     "w": "run",
-    "s": 108.34,
-    "e": 108.48,
+    "s": 108.397,
+    "e": 108.56,
     "backing": false
    },
    {
     "w": "them",
-    "s": 108.48,
-    "e": 108.66,
+    "s": 108.577,
+    "e": 108.68,
     "backing": false
    },
    {
     "w": "all",
-    "s": 108.66,
-    "e": 108.78,
+    "s": 108.704,
+    "e": 108.84,
     "backing": false
    },
    {
     "w": "day",
-    "s": 108.78,
-    "e": 108.92,
+    "s": 108.855,
+    "e": 108.96,
     "backing": false
    },
    {
     "w": "long!",
-    "s": 108.92,
-    "e": 109.16,
+    "s": 108.971,
+    "e": 109.22,
     "backing": false
    }
   ]
@@ -2322,19 +2372,19 @@
   "text": "(oh yeah)",
   "section": "Bridge",
   "back": true,
-  "start": 109.16,
-  "end": 109.56,
+  "start": 109.31,
+  "end": 109.74,
   "words": [
    {
     "w": "(oh",
-    "s": 109.16,
-    "e": 109.34,
+    "s": 109.31,
+    "e": 109.47,
     "backing": true
    },
    {
     "w": "yeah)",
-    "s": 109.34,
-    "e": 109.56,
+    "s": 109.47,
+    "e": 109.74,
     "backing": true
    }
   ]
@@ -2343,73 +2393,75 @@
   "text": "And even only heuristics I'd be better off than having none!",
   "section": "Bridge",
   "back": false,
-  "start": 109.6,
-  "end": 112.68,
+  "start": 109.738,
+  "end": 112.82,
   "words": [
    {
     "w": "And",
-    "s": 109.6,
-    "e": 109.8,
-    "backing": false
+    "s": 109.738,
+    "e": 109.92,
+    "backing": false,
+    "flag": "estimates spread 420 ms"
    },
    {
     "w": "even",
-    "s": 109.8,
-    "e": 110.02,
+    "s": 109.94,
+    "e": 110.039,
     "backing": false
    },
    {
     "w": "only",
-    "s": 110.02,
-    "e": 110.66,
+    "s": 110.039,
+    "e": 110.22,
     "backing": false
    },
    {
     "w": "heuristics",
-    "s": 110.66,
-    "e": 110.66,
+    "s": 110.341,
+    "e": 110.76,
     "backing": false
    },
    {
     "w": "I'd",
-    "s": 110.66,
-    "e": 111.0,
-    "backing": false
+    "s": 110.86,
+    "e": 110.98,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    },
    {
     "w": "be",
-    "s": 111.0,
-    "e": 111.08,
+    "s": 111.049,
+    "e": 111.14,
     "backing": false
    },
    {
     "w": "better",
-    "s": 111.08,
-    "e": 111.46,
+    "s": 111.363,
+    "e": 111.6,
     "backing": false
    },
    {
     "w": "off",
-    "s": 111.46,
-    "e": 111.74,
+    "s": 111.607,
+    "e": 111.82,
     "backing": false
    },
    {
     "w": "than",
-    "s": 111.74,
-    "e": 112.0,
+    "s": 111.92,
+    "e": 112.03,
     "backing": false
    },
    {
     "w": "having",
-    "s": 112.0,
-    "e": 112.38,
+    "s": 112.03,
+    "e": 112.48,
     "backing": false
    },
    {
     "w": "none!",
-    "s": 112.38,
-    "e": 112.68,
+    "s": 112.489,
+    "e": 112.82,
     "backing": false
    }
   ]
@@ -2418,18 +2470,18 @@
   "text": "(oh yeah)",
   "section": "Bridge",
   "back": true,
-  "start": 112.68,
+  "start": 112.791,
   "end": 113.1,
   "words": [
    {
     "w": "(oh",
-    "s": 112.68,
-    "e": 112.82,
+    "s": 112.791,
+    "e": 112.871,
     "backing": true
    },
    {
     "w": "yeah)",
-    "s": 112.82,
+    "s": 112.93,
     "e": 113.1,
     "backing": true
    }
@@ -2439,91 +2491,93 @@
   "text": "So I can keep on checking till they pass before I say it's done!",
   "section": "Bridge",
   "back": false,
-  "start": 113.1,
-  "end": 116.16,
+  "start": 113.168,
+  "end": 116.4,
   "words": [
    {
     "w": "So",
-    "s": 113.1,
-    "e": 113.26,
-    "backing": false
+    "s": 113.168,
+    "e": 113.32,
+    "backing": false,
+    "flag": "estimates spread 440 ms"
    },
    {
     "w": "I",
-    "s": 113.26,
-    "e": 113.42,
+    "s": 113.395,
+    "e": 113.5,
     "backing": false
    },
    {
     "w": "can",
-    "s": 113.42,
-    "e": 113.58,
+    "s": 113.551,
+    "e": 113.66,
     "backing": false
    },
    {
     "w": "keep",
-    "s": 113.58,
-    "e": 113.9,
+    "s": 113.708,
+    "e": 113.98,
     "backing": false
    },
    {
     "w": "on",
-    "s": 113.9,
-    "e": 114.12,
-    "backing": false
+    "s": 113.987,
+    "e": 114.2,
+    "backing": false,
+    "flag": "estimates spread 160 ms"
    },
    {
     "w": "checking",
-    "s": 114.12,
-    "e": 114.38,
+    "s": 114.26,
+    "e": 114.538,
     "backing": false
    },
    {
     "w": "till",
-    "s": 114.38,
-    "e": 114.64,
+    "s": 114.538,
+    "e": 114.78,
     "backing": false
    },
    {
     "w": "they",
-    "s": 114.64,
-    "e": 114.94,
+    "s": 114.881,
+    "e": 115.0,
     "backing": false
    },
    {
     "w": "pass",
-    "s": 114.94,
-    "e": 115.2,
+    "s": 115.154,
+    "e": 115.28,
     "backing": false
    },
    {
     "w": "before",
-    "s": 115.2,
-    "e": 115.38,
+    "s": 115.316,
+    "e": 115.59,
     "backing": false
    },
    {
     "w": "I",
-    "s": 115.38,
-    "e": 115.64,
+    "s": 115.59,
+    "e": 115.67,
     "backing": false
    },
    {
     "w": "say",
-    "s": 115.64,
-    "e": 115.8,
+    "s": 115.751,
+    "e": 115.88,
     "backing": false
    },
    {
     "w": "it's",
-    "s": 115.8,
-    "e": 115.96,
+    "s": 115.89,
+    "e": 116.0,
     "backing": false
    },
    {
     "w": "done!",
-    "s": 115.96,
-    "e": 116.16,
+    "s": 116.019,
+    "e": 116.4,
     "backing": false
    }
   ]
@@ -2532,20 +2586,22 @@
   "text": "(oh yeah)",
   "section": "Bridge",
   "back": true,
-  "start": 116.16,
-  "end": 116.7,
+  "start": 116.442,
+  "end": 116.86,
   "words": [
    {
     "w": "(oh",
-    "s": 116.16,
-    "e": 116.36,
-    "backing": true
+    "s": 116.442,
+    "e": 116.66,
+    "backing": true,
+    "flag": "estimates spread 420 ms"
    },
    {
     "w": "yeah)",
-    "s": 116.36,
-    "e": 116.7,
-    "backing": true
+    "s": 116.66,
+    "e": 116.86,
+    "backing": true,
+    "flag": "estimates spread 240 ms"
    }
   ]
  },
@@ -2553,86 +2609,94 @@
   "text": "You can tell me it's broken, but how will I know for myself?",
   "section": "Pre-chorus 3",
   "back": false,
-  "start": 116.78,
-  "end": 119.64,
+  "start": 116.92,
+  "end": 120.28,
   "words": [
    {
     "w": "You",
-    "s": 116.78,
-    "e": 117.08,
-    "backing": false
+    "s": 116.92,
+    "e": 117.04,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    },
    {
     "w": "can",
-    "s": 117.08,
-    "e": 117.2,
+    "s": 117.203,
+    "e": 117.3,
     "backing": false
    },
    {
     "w": "tell",
-    "s": 117.2,
-    "e": 117.44,
+    "s": 117.325,
+    "e": 117.42,
     "backing": false
    },
    {
     "w": "me",
-    "s": 117.44,
-    "e": 117.54,
+    "s": 117.493,
+    "e": 117.58,
     "backing": false
    },
    {
     "w": "it's",
-    "s": 117.54,
-    "e": 117.7,
+    "s": 117.632,
+    "e": 117.72,
     "backing": false
    },
    {
     "w": "broken,",
-    "s": 117.7,
-    "e": 117.92,
+    "s": 117.772,
+    "e": 118.22,
     "backing": false
    },
    {
     "w": "but",
-    "s": 118.1,
-    "e": 118.28,
-    "backing": false
+    "s": 118.265,
+    "e": 118.345,
+    "backing": false,
+    "flag": "estimates spread 260 ms"
    },
    {
     "w": "how",
-    "s": 118.28,
-    "e": 118.68,
-    "backing": false
+    "s": 118.53,
+    "e": 118.61,
+    "backing": false,
+    "flag": "estimates spread 440 ms"
    },
    {
     "w": "will",
-    "s": 118.68,
-    "e": 118.9,
-    "backing": false
+    "s": 118.822,
+    "e": 119.05,
+    "backing": false,
+    "flag": "estimates spread 360 ms"
    },
    {
     "w": "I",
-    "s": 118.9,
-    "e": 119.02,
-    "backing": false
+    "s": 119.05,
+    "e": 119.14,
+    "backing": false,
+    "flag": "estimates spread 600 ms"
    },
    {
     "w": "know",
-    "s": 119.02,
-    "e": 119.2,
-    "backing": false
+    "s": 119.14,
+    "e": 119.229,
+    "backing": false,
+    "flag": "estimates spread 580 ms"
    },
    {
     "w": "for",
-    "s": 119.2,
-    "e": 119.28,
-    "backing": false
+    "s": 119.229,
+    "e": 119.426,
+    "backing": false,
+    "flag": "estimates spread 580 ms"
    },
    {
     "w": "myself?",
-    "s": 119.28,
-    "e": 119.64,
-    "backing": false
+    "s": 119.426,
+    "e": 120.28,
+    "backing": false,
+    "flag": "estimates spread 600 ms"
    }
   ]
  },
@@ -2640,20 +2704,22 @@
   "text": "(for myself?)",
   "section": "Pre-chorus 3",
   "back": true,
-  "start": 119.7,
-  "end": 120.3,
+  "start": 119.856,
+  "end": 120.25,
   "words": [
    {
     "w": "(for",
-    "s": 119.7,
-    "e": 119.9,
-    "backing": true
+    "s": 119.856,
+    "e": 119.936,
+    "backing": true,
+    "flag": "no voiced sound; estimates spread 680 ms"
    },
    {
     "w": "myself?)",
-    "s": 119.9,
-    "e": 120.3,
-    "backing": true
+    "s": 119.985,
+    "e": 120.25,
+    "backing": true,
+    "flag": "no voiced sound; estimates spread 610 ms"
    }
   ]
  },
@@ -2661,80 +2727,81 @@
   "text": "So baby now I'm hoping, that you can give me something else",
   "section": "Pre-chorus 3",
   "back": false,
-  "start": 120.3,
-  "end": 124.16,
+  "start": 120.599,
+  "end": 123.8,
   "words": [
    {
     "w": "So",
-    "s": 120.3,
-    "e": 120.58,
+    "s": 120.599,
+    "e": 120.679,
     "backing": false
    },
    {
     "w": "baby",
-    "s": 120.58,
-    "e": 120.86,
+    "s": 120.726,
+    "e": 120.906,
     "backing": false
    },
    {
     "w": "now",
-    "s": 120.9,
-    "e": 121.08,
+    "s": 120.906,
+    "e": 121.2,
     "backing": false
    },
    {
     "w": "I'm",
-    "s": 121.08,
-    "e": 121.3,
+    "s": 121.21,
+    "e": 121.313,
     "backing": false
    },
    {
     "w": "hoping,",
-    "s": 121.3,
-    "e": 121.48,
+    "s": 121.313,
+    "e": 121.76,
     "backing": false
    },
    {
     "w": "that",
-    "s": 121.48,
-    "e": 121.8,
+    "s": 121.777,
+    "e": 121.893,
     "backing": false
    },
    {
     "w": "you",
-    "s": 121.8,
-    "e": 121.92,
+    "s": 121.893,
+    "e": 122.02,
     "backing": false
    },
    {
     "w": "can",
-    "s": 121.92,
-    "e": 122.1,
+    "s": 122.05,
+    "e": 122.16,
     "backing": false
    },
    {
     "w": "give",
-    "s": 122.1,
-    "e": 122.36,
+    "s": 122.207,
+    "e": 122.44,
     "backing": false
    },
    {
     "w": "me",
-    "s": 122.36,
-    "e": 122.64,
+    "s": 122.508,
+    "e": 122.6,
     "backing": false
    },
    {
     "w": "something",
-    "s": 122.64,
-    "e": 123.16,
+    "s": 122.903,
+    "e": 123.36,
     "backing": false
    },
    {
     "w": "else",
-    "s": 123.16,
-    "e": 124.16,
-    "backing": false
+    "s": 123.46,
+    "e": 123.8,
+    "backing": false,
+    "flag": "estimates spread 1480 ms"
    }
   ]
  },
@@ -2742,20 +2809,22 @@
   "text": "(something else)",
   "section": "Pre-chorus 3",
   "back": true,
-  "start": 125.42,
-  "end": 126.3,
+  "start": 125.411,
+  "end": 126.41,
   "words": [
    {
     "w": "(something",
-    "s": 125.42,
-    "e": 125.86,
-    "backing": true
+    "s": 125.411,
+    "e": 125.97,
+    "backing": true,
+    "flag": "estimates spread 680 ms"
    },
    {
     "w": "else)",
-    "s": 125.86,
-    "e": 126.3,
-    "backing": true
+    "s": 125.97,
+    "e": 126.41,
+    "backing": true,
+    "flag": "estimates spread 700 ms"
    }
   ]
  },
@@ -2763,85 +2832,89 @@
   "text": "How do I know, how can you show, what perfect means to you?",
   "section": "Chorus 3",
   "back": false,
-  "start": 127.04,
-  "end": 130.24,
+  "start": 127.466,
+  "end": 130.26,
   "words": [
    {
     "w": "How",
-    "s": 127.04,
-    "e": 127.48,
-    "backing": false
+    "s": 127.466,
+    "e": 127.6,
+    "backing": false,
+    "flag": "estimates spread 240 ms"
    },
    {
     "w": "do",
-    "s": 127.48,
-    "e": 127.66,
+    "s": 127.64,
+    "e": 127.72,
     "backing": false
    },
    {
     "w": "I",
-    "s": 127.66,
-    "e": 127.8,
-    "backing": false
+    "s": 127.75,
+    "e": 127.83,
+    "backing": false,
+    "flag": "estimates spread 180 ms"
    },
    {
     "w": "know,",
-    "s": 127.8,
-    "e": 128.06,
-    "backing": false
+    "s": 127.936,
+    "e": 128.016,
+    "backing": false,
+    "flag": "estimates spread 260 ms"
    },
    {
     "w": "how",
-    "s": 128.1,
-    "e": 128.38,
-    "backing": false
+    "s": 128.36,
+    "e": 128.44,
+    "backing": false,
+    "flag": "estimates spread 600 ms"
    },
    {
     "w": "can",
-    "s": 128.38,
-    "e": 128.54,
+    "s": 128.517,
+    "e": 128.62,
     "backing": false
    },
    {
     "w": "you",
-    "s": 128.54,
-    "e": 128.7,
+    "s": 128.644,
+    "e": 128.724,
     "backing": false
    },
    {
     "w": "show,",
-    "s": 128.7,
-    "e": 128.9,
+    "s": 128.813,
+    "e": 129.0,
     "backing": false
    },
    {
     "w": "what",
-    "s": 128.9,
-    "e": 129.12,
+    "s": 129.09,
+    "e": 129.18,
     "backing": false
    },
    {
     "w": "perfect",
-    "s": 129.12,
-    "e": 129.46,
+    "s": 129.236,
+    "e": 129.64,
     "backing": false
    },
    {
     "w": "means",
-    "s": 129.46,
-    "e": 129.74,
+    "s": 129.654,
+    "e": 129.887,
     "backing": false
    },
    {
     "w": "to",
-    "s": 129.74,
-    "e": 129.98,
+    "s": 129.887,
+    "e": 130.04,
     "backing": false
    },
    {
     "w": "you?",
-    "s": 129.98,
-    "e": 130.24,
+    "s": 130.113,
+    "e": 130.26,
     "backing": false
    }
   ]
@@ -2850,90 +2923,91 @@
   "text": "All of my checks, all of my tests, don't find the bugs you do",
   "section": "Chorus 3",
   "back": false,
-  "start": 130.56,
+  "start": 131.007,
   "end": 133.78,
   "words": [
    {
     "w": "All",
-    "s": 130.56,
-    "e": 131.0,
-    "backing": false
+    "s": 131.007,
+    "e": 131.16,
+    "backing": false,
+    "flag": "estimates spread 540 ms"
    },
    {
     "w": "of",
-    "s": 131.0,
-    "e": 131.18,
+    "s": 131.16,
+    "e": 131.24,
     "backing": false
    },
    {
     "w": "my",
-    "s": 131.18,
-    "e": 131.3,
+    "s": 131.262,
+    "e": 131.4,
     "backing": false
    },
    {
     "w": "checks,",
-    "s": 131.3,
-    "e": 131.56,
+    "s": 131.466,
+    "e": 131.7,
     "backing": false
    },
    {
     "w": "all",
-    "s": 131.7,
-    "e": 131.96,
-    "backing": false
-   },
-   {
-    "w": "of",
-    "s": 131.96,
+    "s": 131.901,
     "e": 132.04,
     "backing": false
    },
    {
+    "w": "of",
+    "s": 132.06,
+    "e": 132.14,
+    "backing": false
+   },
+   {
     "w": "my",
-    "s": 132.04,
-    "e": 132.22,
+    "s": 132.156,
+    "e": 132.28,
     "backing": false
    },
    {
     "w": "tests,",
-    "s": 132.22,
-    "e": 132.46,
+    "s": 132.301,
+    "e": 132.58,
     "backing": false
    },
    {
     "w": "don't",
-    "s": 132.52,
-    "e": 132.72,
+    "s": 132.609,
+    "e": 132.74,
     "backing": false
    },
    {
     "w": "find",
-    "s": 132.72,
-    "e": 132.92,
+    "s": 132.78,
+    "e": 133.06,
     "backing": false
    },
    {
     "w": "the",
-    "s": 132.92,
-    "e": 133.1,
+    "s": 133.074,
+    "e": 133.154,
     "backing": false
    },
    {
     "w": "bugs",
-    "s": 133.1,
-    "e": 133.32,
+    "s": 133.184,
+    "e": 133.439,
     "backing": false
    },
    {
     "w": "you",
-    "s": 133.32,
-    "e": 133.54,
+    "s": 133.439,
+    "e": 133.62,
     "backing": false
    },
    {
     "w": "do",
-    "s": 133.54,
+    "s": 133.689,
     "e": 133.78,
     "backing": false
    }
@@ -2943,85 +3017,85 @@
   "text": "Give me a guide, something to try, to make your dreams come true!",
   "section": "Chorus 3",
   "back": false,
-  "start": 133.78,
-  "end": 137.26,
+  "start": 134.49,
+  "end": 137.52,
   "words": [
    {
     "w": "Give",
-    "s": 133.78,
-    "e": 134.5,
+    "s": 134.49,
+    "e": 134.647,
     "backing": false
    },
    {
     "w": "me",
-    "s": 134.5,
-    "e": 134.72,
+    "s": 134.647,
+    "e": 134.74,
     "backing": false
    },
    {
     "w": "a",
-    "s": 134.72,
-    "e": 134.84,
+    "s": 134.786,
+    "e": 134.88,
     "backing": false
    },
    {
     "w": "guide,",
-    "s": 134.84,
-    "e": 135.18,
+    "s": 134.966,
+    "e": 135.36,
     "backing": false
    },
    {
     "w": "something",
-    "s": 135.22,
-    "e": 135.5,
+    "s": 135.401,
+    "e": 135.674,
     "backing": false
    },
    {
     "w": "to",
-    "s": 135.5,
-    "e": 135.74,
+    "s": 135.674,
+    "e": 135.754,
     "backing": false
    },
    {
     "w": "try,",
-    "s": 135.74,
-    "e": 135.96,
+    "s": 135.808,
+    "e": 136.08,
     "backing": false
    },
    {
     "w": "to",
-    "s": 135.96,
-    "e": 136.16,
+    "s": 136.11,
+    "e": 136.2,
     "backing": false
    },
    {
     "w": "make",
-    "s": 136.16,
-    "e": 136.38,
+    "s": 136.272,
+    "e": 136.5,
     "backing": false
    },
    {
     "w": "your",
-    "s": 136.38,
-    "e": 136.62,
+    "s": 136.528,
+    "e": 136.68,
     "backing": false
    },
    {
     "w": "dreams",
-    "s": 136.62,
-    "e": 136.88,
+    "s": 136.69,
+    "e": 136.96,
     "backing": false
    },
    {
     "w": "come",
-    "s": 136.88,
-    "e": 137.04,
+    "s": 137.004,
+    "e": 137.12,
     "backing": false
    },
    {
     "w": "true!",
-    "s": 137.04,
-    "e": 137.26,
+    "s": 137.12,
+    "e": 137.52,
     "backing": false
    }
   ]
@@ -3030,43 +3104,44 @@
   "text": "I want you to love it",
   "section": "Chorus 3",
   "back": false,
-  "start": 137.26,
-  "end": 138.46,
+  "start": 137.451,
+  "end": 138.36,
   "words": [
    {
     "w": "I",
-    "s": 137.26,
-    "e": 137.52,
-    "backing": false
+    "s": 137.451,
+    "e": 137.58,
+    "backing": false,
+    "flag": "estimates spread 160 ms"
    },
    {
     "w": "want",
-    "s": 137.52,
-    "e": 137.68,
+    "s": 137.62,
+    "e": 137.758,
     "backing": false
    },
    {
     "w": "you",
-    "s": 137.68,
-    "e": 137.82,
+    "s": 137.758,
+    "e": 137.88,
     "backing": false
    },
    {
     "w": "to",
-    "s": 137.82,
-    "e": 137.92,
+    "s": 137.915,
+    "e": 137.995,
     "backing": false
    },
    {
     "w": "love",
-    "s": 137.92,
-    "e": 138.16,
+    "s": 138.043,
+    "e": 138.246,
     "backing": false
    },
    {
     "w": "it",
-    "s": 138.16,
-    "e": 138.46,
+    "s": 138.246,
+    "e": 138.36,
     "backing": false
    }
   ]
@@ -3075,20 +3150,22 @@
   "text": "(love it)",
   "section": "Chorus 3",
   "back": true,
-  "start": 138.46,
-  "end": 139.16,
+  "start": 138.72,
+  "end": 139.173,
   "words": [
    {
     "w": "(love",
-    "s": 138.46,
-    "e": 138.96,
-    "backing": true
+    "s": 138.72,
+    "e": 138.8,
+    "backing": true,
+    "flag": "no voiced sound; estimates spread 510 ms"
    },
    {
     "w": "it)",
-    "s": 138.96,
-    "e": 139.16,
-    "backing": true
+    "s": 139.093,
+    "e": 139.173,
+    "backing": true,
+    "flag": "estimates spread 810 ms"
    }
   ]
  },
@@ -3096,50 +3173,53 @@
   "text": "so give me something I can prove!",
   "section": "Chorus 3",
   "back": false,
-  "start": 139.16,
-  "end": 141.68,
+  "start": 139.093,
+  "end": 141.72,
   "words": [
    {
     "w": "so",
-    "s": 139.16,
-    "e": 139.22,
-    "backing": false
+    "s": 139.093,
+    "e": 139.28,
+    "backing": false,
+    "flag": "estimates spread 460 ms"
    },
    {
     "w": "give",
-    "s": 139.22,
-    "e": 139.34,
+    "s": 139.366,
+    "e": 139.494,
     "backing": false
    },
    {
     "w": "me",
-    "s": 139.34,
+    "s": 139.494,
     "e": 139.6,
     "backing": false
    },
    {
     "w": "something",
-    "s": 139.6,
-    "e": 140.16,
+    "s": 139.819,
+    "e": 140.684,
     "backing": false
    },
    {
     "w": "I",
-    "s": 140.16,
-    "e": 140.82,
-    "backing": false
+    "s": 140.684,
+    "e": 140.96,
+    "backing": false,
+    "flag": "estimates spread 580 ms"
    },
    {
     "w": "can",
-    "s": 140.82,
-    "e": 141.16,
+    "s": 141.096,
+    "e": 141.46,
     "backing": false
    },
    {
     "w": "prove!",
-    "s": 141.16,
-    "e": 141.68,
-    "backing": false
+    "s": 141.537,
+    "e": 141.72,
+    "backing": false,
+    "flag": "estimates spread 240 ms"
    }
   ]
  },
@@ -3147,91 +3227,94 @@
   "text": "Here are the checks, here are the tests, and how each one came through",
   "section": "Outro",
   "back": false,
-  "start": 141.68,
-  "end": 145.22,
+  "start": 141.978,
+  "end": 145.38,
   "words": [
    {
     "w": "Here",
-    "s": 141.68,
-    "e": 142.12,
-    "backing": false
+    "s": 141.978,
+    "e": 142.135,
+    "backing": false,
+    "flag": "estimates spread 320 ms"
    },
    {
     "w": "are",
-    "s": 142.12,
-    "e": 142.2,
+    "s": 142.135,
+    "e": 142.28,
     "backing": false
    },
    {
     "w": "the",
-    "s": 142.2,
-    "e": 142.3,
+    "s": 142.298,
+    "e": 142.378,
     "backing": false
    },
    {
     "w": "checks,",
-    "s": 142.3,
-    "e": 142.6,
+    "s": 142.478,
+    "e": 142.68,
     "backing": false
    },
    {
     "w": "here",
-    "s": 142.7,
-    "e": 142.98,
-    "backing": false
+    "s": 142.884,
+    "e": 143.029,
+    "backing": false,
+    "flag": "estimates spread 200 ms"
    },
    {
     "w": "are",
-    "s": 142.98,
-    "e": 143.1,
+    "s": 143.029,
+    "e": 143.157,
     "backing": false
    },
    {
     "w": "the",
-    "s": 143.1,
-    "e": 143.22,
+    "s": 143.157,
+    "e": 143.26,
     "backing": false
    },
    {
     "w": "tests,",
-    "s": 143.22,
-    "e": 143.5,
+    "s": 143.354,
+    "e": 143.62,
     "backing": false
    },
    {
     "w": "and",
-    "s": 143.5,
-    "e": 143.72,
+    "s": 143.68,
+    "e": 143.84,
     "backing": false
    },
    {
     "w": "how",
-    "s": 143.72,
-    "e": 143.96,
+    "s": 143.842,
+    "e": 144.22,
     "backing": false
    },
    {
     "w": "each",
-    "s": 143.96,
-    "e": 144.36,
-    "backing": false
+    "s": 144.225,
+    "e": 144.515,
+    "backing": false,
+    "flag": "estimates spread 160 ms"
    },
    {
     "w": "one",
-    "s": 144.36,
-    "e": 144.6,
+    "s": 144.515,
+    "e": 144.72,
     "backing": false
    },
    {
     "w": "came",
-    "s": 144.6,
-    "e": 144.86,
+    "s": 144.747,
+    "e": 145.03,
     "backing": false
    },
    {
     "w": "through",
-    "s": 144.86,
-    "e": 145.22,
+    "s": 145.03,
+    "e": 145.38,
     "backing": false
    }
   ]
@@ -3240,92 +3323,94 @@
   "text": "What I don't know, that I will show, and leave the rest to you",
   "section": "Outro",
   "back": false,
-  "start": 145.22,
-  "end": 148.76,
+  "start": 145.496,
+  "end": 148.86,
   "words": [
    {
     "w": "What",
-    "s": 145.22,
-    "e": 145.58,
+    "s": 145.496,
+    "e": 145.67,
     "backing": false
    },
    {
     "w": "I",
-    "s": 145.58,
-    "e": 145.74,
+    "s": 145.67,
+    "e": 145.8,
     "backing": false
    },
    {
     "w": "don't",
-    "s": 145.74,
-    "e": 145.94,
+    "s": 145.821,
+    "e": 145.96,
     "backing": false
    },
    {
     "w": "know,",
-    "s": 145.94,
-    "e": 146.1,
+    "s": 145.995,
+    "e": 146.22,
     "backing": false
    },
    {
     "w": "that",
-    "s": 146.1,
-    "e": 146.46,
+    "s": 146.425,
+    "e": 146.512,
     "backing": false
    },
    {
     "w": "I",
-    "s": 146.46,
-    "e": 146.6,
+    "s": 146.512,
+    "e": 146.68,
     "backing": false
    },
    {
     "w": "will",
-    "s": 146.6,
-    "e": 146.74,
+    "s": 146.709,
+    "e": 146.82,
     "backing": false
    },
    {
     "w": "show,",
-    "s": 146.74,
-    "e": 146.94,
+    "s": 146.872,
+    "e": 147.02,
     "backing": false
    },
    {
     "w": "and",
-    "s": 146.94,
-    "e": 147.16,
+    "s": 147.168,
+    "e": 147.29,
     "backing": false
    },
    {
     "w": "leave",
-    "s": 147.16,
-    "e": 147.44,
+    "s": 147.29,
+    "e": 147.56,
     "backing": false
    },
    {
     "w": "the",
-    "s": 147.44,
-    "e": 147.62,
+    "s": 147.586,
+    "e": 147.666,
     "backing": false
    },
    {
     "w": "rest",
-    "s": 147.62,
-    "e": 147.9,
+    "s": 147.81,
+    "e": 148.06,
     "backing": false
    },
    {
     "w": "to",
-    "s": 147.9,
-    "e": 148.24,
-    "backing": false
+    "s": 148.1,
+    "e": 148.28,
+    "backing": false,
+    "flag": "estimates spread 920 ms"
    },
    {
     "w": "you",
-    "s": 148.24,
-    "e": 148.76,
-    "backing": false
+    "s": 148.66,
+    "e": 148.86,
+    "backing": false,
+    "flag": "estimates spread 1360 ms"
    }
   ]
  },
@@ -3333,38 +3418,40 @@
   "text": "So, do you love it?",
   "section": "Outro",
   "back": false,
-  "start": 150.84,
-  "end": 152.5,
+  "start": 151.47,
+  "end": 152.502,
   "words": [
    {
     "w": "So,",
-    "s": 150.84,
-    "e": 151.4,
+    "s": 151.47,
+    "e": 151.6,
     "backing": false
    },
    {
     "w": "do",
-    "s": 151.4,
-    "e": 151.74,
+    "s": 151.702,
+    "e": 151.782,
     "backing": false
    },
    {
     "w": "you",
-    "s": 151.74,
-    "e": 151.96,
+    "s": 151.917,
+    "e": 151.997,
     "backing": false
    },
    {
     "w": "love",
-    "s": 151.96,
-    "e": 152.38,
-    "backing": false
+    "s": 152.06,
+    "e": 152.14,
+    "backing": false,
+    "flag": "estimates spread 180 ms"
    },
    {
     "w": "it?",
-    "s": 152.38,
-    "e": 152.5,
-    "backing": false
+    "s": 152.422,
+    "e": 152.502,
+    "backing": false,
+    "flag": "estimates spread 440 ms"
    }
   ]
  },
@@ -3372,26 +3459,29 @@
   "text": "(I love it)",
   "section": "Outro",
   "back": true,
-  "start": 153.36,
-  "end": 154.3,
+  "start": 153.6,
+  "end": 154.156,
   "words": [
    {
     "w": "(I",
-    "s": 153.36,
-    "e": 153.64,
-    "backing": true
+    "s": 153.6,
+    "e": 153.68,
+    "backing": true,
+    "flag": "estimates spread 1640 ms"
    },
    {
     "w": "love",
-    "s": 153.64,
-    "e": 153.98,
-    "backing": true
+    "s": 153.896,
+    "e": 153.976,
+    "backing": true,
+    "flag": "estimates spread 1720 ms"
    },
    {
     "w": "it)",
-    "s": 153.98,
-    "e": 154.3,
-    "backing": true
+    "s": 154.076,
+    "e": 154.156,
+    "backing": true,
+    "flag": "estimates spread 1700 ms"
    }
   ]
  },
@@ -3399,26 +3489,27 @@
   "text": "(I love it)",
   "section": "Outro",
   "back": true,
-  "start": 154.86,
-  "end": 156.08,
+  "start": 155.365,
+  "end": 156.13,
   "words": [
    {
     "w": "(I",
-    "s": 154.86,
-    "e": 155.36,
+    "s": 155.365,
+    "e": 155.47,
     "backing": true
    },
    {
     "w": "love",
-    "s": 155.36,
-    "e": 155.78,
+    "s": 155.638,
+    "e": 155.881,
     "backing": true
    },
    {
     "w": "it)",
-    "s": 155.78,
-    "e": 156.08,
-    "backing": true
+    "s": 155.881,
+    "e": 156.13,
+    "backing": true,
+    "flag": "estimates spread 190 ms"
    }
   ]
  },
@@ -3426,26 +3517,29 @@
   "text": "(I love it)",
   "section": "Outro",
   "back": true,
-  "start": 156.08,
-  "end": 156.96,
+  "start": 156.395,
+  "end": 157.19,
   "words": [
    {
     "w": "(I",
-    "s": 156.08,
-    "e": 156.28,
-    "backing": true
+    "s": 156.395,
+    "e": 156.53,
+    "backing": true,
+    "flag": "estimates spread 250 ms"
    },
    {
     "w": "love",
-    "s": 156.28,
-    "e": 156.64,
-    "backing": true
+    "s": 156.535,
+    "e": 156.85,
+    "backing": true,
+    "flag": "estimates spread 150 ms"
    },
    {
     "w": "it)",
-    "s": 156.64,
-    "e": 156.96,
-    "backing": true
+    "s": 156.865,
+    "e": 157.19,
+    "backing": true,
+    "flag": "estimates spread 170 ms"
    }
   ]
  },
@@ -3453,26 +3547,28 @@
   "text": "(I love it)",
   "section": "Outro",
   "back": true,
-  "start": 156.96,
-  "end": 158.3,
+  "start": 157.27,
+  "end": 158.64,
   "words": [
    {
     "w": "(I",
-    "s": 156.96,
-    "e": 157.14,
+    "s": 157.27,
+    "e": 157.35,
     "backing": true
    },
    {
     "w": "love",
-    "s": 157.14,
-    "e": 157.54,
-    "backing": true
+    "s": 157.42,
+    "e": 157.64,
+    "backing": true,
+    "flag": "estimates spread 660 ms"
    },
    {
     "w": "it)",
-    "s": 157.54,
-    "e": 158.3,
-    "backing": true
+    "s": 157.64,
+    "e": 158.64,
+    "backing": true,
+    "flag": "estimates spread 440 ms; set by hand from the stem"
    }
   ]
  },
@@ -3480,31 +3576,33 @@
   "text": "(Dave's still coming, though)",
   "section": "Outro",
   "back": true,
-  "start": 158.3,
-  "end": 159.78,
+  "start": 158.28,
+  "end": 163.62,
   "words": [
    {
     "w": "(Dave's",
-    "s": 158.3,
-    "e": 158.636,
+    "s": 158.28,
+    "e": 158.66,
     "backing": true
    },
    {
     "w": "still",
-    "s": 158.636,
-    "e": 158.973,
-    "backing": true
+    "s": 158.72,
+    "e": 159.039,
+    "backing": true,
+    "flag": "no voiced sound"
    },
    {
     "w": "coming,",
-    "s": 158.973,
-    "e": 159.376,
-    "backing": true
+    "s": 159.039,
+    "e": 159.56,
+    "backing": true,
+    "flag": "no voiced sound"
    },
    {
     "w": "though)",
-    "s": 159.376,
-    "e": 159.78,
+    "s": 159.597,
+    "e": 163.62,
     "backing": true
    }
   ]
@@ -3513,13 +3611,13 @@
   "text": "(ooh)",
   "section": "Tail",
   "back": true,
-  "start": 165.9,
-  "end": 170.9,
+  "start": 166.069,
+  "end": 169.34,
   "words": [
    {
     "w": "(ooh)",
-    "s": 165.9,
-    "e": 170.9,
+    "s": 166.069,
+    "e": 169.34,
     "backing": true
    }
   ]

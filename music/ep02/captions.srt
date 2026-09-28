@@ -1,268 +1,268 @@
 1
-00:00:00,000 --> 00:00:02,660
+00:00:00,150 --> 00:00:02,740
 (This one's for everyone we ever built an app for)
 
 2
-00:00:13,520 --> 00:00:17,380
+00:00:14,106 --> 00:00:17,520
 Your checkout just went down at eight with fifty in the queue
 
 3
-00:00:17,180 --> 00:00:20,900
-Your clinic's booking site looked cute but Gran could not get through
+00:00:17,450 --> 00:00:17,930
+(oooh)
 
 4
-00:00:17,400 --> 00:00:18,140
-(oooh)
+00:00:17,734 --> 00:00:21,020
+Your clinic's booking site looked cute but Gran could not get through
 
 5
-00:00:20,800 --> 00:00:24,440
-Your school's new feedback app let parents read each others' texts
+00:00:21,008 --> 00:00:21,488
+(oooh)
 
 6
-00:00:20,980 --> 00:00:21,720
-(oooh)
+00:00:21,124 --> 00:00:24,720
+Your school's new feedback app let parents read each others' texts
 
 7
-00:00:24,340 --> 00:00:28,060
-Your wedding seating site put Dave next to his angry ex!
-
-8
-00:00:24,440 --> 00:00:25,080
+00:00:24,497 --> 00:00:25,020
 (oooh)
 
+8
+00:00:24,694 --> 00:00:28,160
+Your wedding seating site put Dave next to his angry ex!
+
 9
-00:00:28,600 --> 00:00:31,980
+00:00:28,909 --> 00:00:32,060
 You can tell me it's broken, but how will I know for myself?
 
 10
-00:00:31,620 --> 00:00:32,580
+00:00:31,777 --> 00:00:32,820
 (for myself?)
 
 11
-00:00:32,300 --> 00:00:35,580
+00:00:32,514 --> 00:00:35,620
 So baby now I'm hoping, that you can give me something else
 
 12
-00:00:35,180 --> 00:00:36,840
+00:00:35,567 --> 00:00:36,480
 (something else)
 
 13
-00:00:36,440 --> 00:00:38,540
+00:00:37,001 --> 00:00:39,040
 (something else)
 
 14
-00:00:38,960 --> 00:00:42,540
+00:00:39,410 --> 00:00:42,620
 How do I know, how can you show, what perfect means to you?
 
 15
-00:00:42,480 --> 00:00:46,080
+00:00:42,934 --> 00:00:46,084
 All of my checks, all of my tests, don't find the bugs you do
 
 16
-00:00:45,680 --> 00:00:49,600
+00:00:46,434 --> 00:00:49,700
 Give me a guide, something to try, to make your dreams come true!
 
 17
-00:00:49,200 --> 00:00:50,780
+00:00:49,383 --> 00:00:50,780
 I want you to love it
 
 18
-00:00:50,400 --> 00:00:51,480
+00:00:50,805 --> 00:00:51,523
 (love it)
 
 19
-00:00:51,100 --> 00:00:53,960
+00:00:51,287 --> 00:00:54,340
 so give me something I can prove!
 
 20
-00:00:57,700 --> 00:01:01,020
+00:00:58,183 --> 00:01:01,080
 So give me something I can prove!
 
 21
-00:01:00,620 --> 00:01:03,820
+00:01:00,910 --> 00:01:04,020
 Give me a tool to run on every merge to check the load
 
 22
-00:01:03,660 --> 00:01:04,700
+00:01:03,605 --> 00:01:04,780
 (ohhh)
 
 23
-00:01:04,000 --> 00:01:07,220
+00:01:04,366 --> 00:01:07,220
 I'll prompt a bot to act as Gran make sure she can go
 
 24
-00:01:07,180 --> 00:01:08,240
+00:01:07,140 --> 00:01:08,340
 (ohhh)
 
 25
-00:01:07,440 --> 00:01:10,740
+00:01:07,895 --> 00:01:10,960
 An isolation check to find the things that shouldn't show
 
 26
-00:01:10,340 --> 00:01:14,360
+00:01:10,949 --> 00:01:14,340
 But as for Dave and Sue, you really had to let me know!
 
 27
-00:01:13,960 --> 00:01:17,800
-You can tell me it's broken, but how will I know for myself?
-
-28
-00:01:14,040 --> 00:01:15,060
+00:01:14,368 --> 00:01:14,848
 (ohhh)
 
+28
+00:01:14,757 --> 00:01:17,960
+You can tell me it's broken, but how will I know for myself?
+
 29
-00:01:17,400 --> 00:01:18,240
+00:01:17,311 --> 00:01:18,640
 (for myself?)
 
 30
-00:01:17,840 --> 00:01:21,380
+00:01:18,240 --> 00:01:21,460
 So baby now I'm hoping, that you can give me something else
 
 31
-00:01:20,980 --> 00:01:22,800
+00:01:21,119 --> 00:01:22,660
 (something else)
 
 32
-00:01:22,400 --> 00:01:24,200
+00:01:22,860 --> 00:01:24,540
 (something else)
 
 33
-00:01:24,480 --> 00:01:28,380
+00:01:25,080 --> 00:01:28,300
 How do I know, how can you show, what perfect means to you?
 
 34
-00:01:27,980 --> 00:01:28,800
+00:01:28,120 --> 00:01:29,180
 (ooh-ooh)
 
 35
-00:01:28,320 --> 00:01:31,900
+00:01:28,735 --> 00:01:31,900
 All of my checks, all of my tests, don't find the bugs you do
 
 36
-00:01:31,500 --> 00:01:32,660
+00:01:31,649 --> 00:01:32,129
 (ooh-ooh)
 
 37
-00:01:31,500 --> 00:01:35,400
+00:01:32,230 --> 00:01:35,540
 Give me a guide, something to try, to make your dreams come true!
 
 38
-00:01:35,000 --> 00:01:36,500
+00:01:35,184 --> 00:01:36,600
 I want you to love it
 
 39
-00:01:36,260 --> 00:01:37,280
+00:01:36,653 --> 00:01:37,342
 (love it)
 
 40
-00:01:36,880 --> 00:01:39,840
+00:01:36,961 --> 00:01:40,140
 so give me something I can prove!
 
 41
-00:01:42,400 --> 00:01:46,040
+00:01:42,679 --> 00:01:46,180
 An oracle is something that can help me figure out what's wrong!
 
 42
-00:01:45,640 --> 00:01:49,560
-Cos if I know your rules then I can run and run them all day long!
-
-43
-00:01:45,660 --> 00:01:46,700
+00:01:45,830 --> 00:01:46,560
 (oh yeah)
 
+43
+00:01:46,202 --> 00:01:49,620
+Cos if I know your rules then I can run and run them all day long!
+
 44
-00:01:49,160 --> 00:01:49,960
+00:01:49,310 --> 00:01:50,140
 (oh yeah)
 
 45
-00:01:49,600 --> 00:01:53,080
+00:01:49,738 --> 00:01:53,220
 And even only heuristics I'd be better off than having none!
 
 46
-00:01:52,680 --> 00:01:53,500
+00:01:52,791 --> 00:01:53,500
 (oh yeah)
 
 47
-00:01:53,100 --> 00:01:56,560
+00:01:53,168 --> 00:01:56,800
 So I can keep on checking till they pass before I say it's done!
 
 48
-00:01:56,160 --> 00:01:57,100
+00:01:56,442 --> 00:01:57,260
 (oh yeah)
 
 49
-00:01:56,780 --> 00:02:00,040
+00:01:56,920 --> 00:02:00,680
 You can tell me it's broken, but how will I know for myself?
 
 50
-00:01:59,700 --> 00:02:00,700
+00:01:59,856 --> 00:02:00,650
 (for myself?)
 
 51
-00:02:00,300 --> 00:02:04,560
+00:02:00,599 --> 00:02:04,200
 So baby now I'm hoping, that you can give me something else
 
 52
-00:02:05,420 --> 00:02:06,700
+00:02:05,411 --> 00:02:06,810
 (something else)
 
 53
-00:02:07,040 --> 00:02:10,640
+00:02:07,466 --> 00:02:10,660
 How do I know, how can you show, what perfect means to you?
 
 54
-00:02:10,560 --> 00:02:14,180
+00:02:11,007 --> 00:02:14,180
 All of my checks, all of my tests, don't find the bugs you do
 
 55
-00:02:13,780 --> 00:02:17,660
+00:02:14,490 --> 00:02:17,920
 Give me a guide, something to try, to make your dreams come true!
 
 56
-00:02:17,260 --> 00:02:18,860
+00:02:17,451 --> 00:02:18,760
 I want you to love it
 
 57
-00:02:18,460 --> 00:02:19,560
+00:02:18,720 --> 00:02:19,573
 (love it)
 
 58
-00:02:19,160 --> 00:02:22,080
+00:02:19,093 --> 00:02:22,120
 so give me something I can prove!
 
 59
-00:02:21,680 --> 00:02:25,620
+00:02:21,978 --> 00:02:25,780
 Here are the checks, here are the tests, and how each one came through
 
 60
-00:02:25,220 --> 00:02:29,160
+00:02:25,496 --> 00:02:29,260
 What I don't know, that I will show, and leave the rest to you
 
 61
-00:02:30,840 --> 00:02:32,900
+00:02:31,470 --> 00:02:32,902
 So, do you love it?
 
 62
-00:02:33,360 --> 00:02:34,700
+00:02:33,600 --> 00:02:34,556
 (I love it)
 
 63
-00:02:34,860 --> 00:02:36,480
+00:02:35,365 --> 00:02:36,530
 (I love it)
 
 64
-00:02:36,080 --> 00:02:37,360
+00:02:36,395 --> 00:02:37,590
 (I love it)
 
 65
-00:02:36,960 --> 00:02:38,700
+00:02:37,270 --> 00:02:39,040
 (I love it)
 
 66
-00:02:38,300 --> 00:02:40,180
+00:02:38,280 --> 00:02:44,020
 (Dave's still coming, though)
 
 67
-00:02:45,900 --> 00:02:51,300
+00:02:46,069 --> 00:02:49,740
 (ooh)
 

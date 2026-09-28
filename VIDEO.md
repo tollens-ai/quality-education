@@ -11,7 +11,8 @@ locked.
   steps in order, and what to read at each.
 - **Each episode has its own style** and its own reference. Episode 1's is
   [ink and gouache, with the lyrics lettered in](.claude/skills/music-video/references/style-ink-and-gouache.md);
-  episode 2 v1's, since retired, is [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md).
+  episode 2 v1's, since retired, is [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md);
+  episode 2 v2's is [Mirror Kei, G-pen ink and title-card type](.claude/skills/music-video/references/style-mirror-kei.md).
   Read them for the shape of a reference, not for a look to reuse.
 - [CRAFT.md](CRAFT.md) holds the research and the decisions behind this file. The episode-1
   renderer is the worked example: [video/ep01/pier/](video/ep01/pier/README.md).
@@ -58,7 +59,7 @@ effort level to max".
 
 ### The brief for the next video
 
-Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2 v1
+Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2 v1 and v2
 (2026-09-28). Run it at maximum effort, with the
 [music-video skill](.claude/skills/music-video/SKILL.md). Fill in the episode.
 
@@ -81,6 +82,8 @@ Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2
 >   judiciously chosen fonts and layouts.
 > - A proper animated lyric video: the typography leads. Each word appears exactly as it's sung,
 >   and the words move and animate with the music, rather than sitting still once written.
+>   Choreograph them so the lyric animation is almost a musical instrument in itself, and let it
+>   express what the music and the lyrics feel.
 > - The same artistic bar from the first second to the last. Verse 2, the bridge and the outro
 >   get the care the opening gets.
 > - Every word legible and understandable on a phone: big enough, clear of what's behind it, on
@@ -137,12 +140,16 @@ the drawings.
 - **Clarity:** each shot has one main read, and the viewer can always tell what's happening.
 - **Kinetic typography, as motion design:** "motion design" is the discipline to draw on (Qing,
   2026-09-28: "one of the key words I'm looking for"). The words are the lead animation, not
-  lettering on a picture. Each
-  word lands exactly on its sung onset, never ahead of it, and keeps moving with the music while
-  it's on screen. Qing (2026-09-28): "way more typography-focused with text appearing exactly
-  word by word aligned with the timing and moving and animated [...] in a proper animated lyric
-  video way (though this is actually general feedback - episode 1 would have been better if it
-  had this too)".
+  lettering on a picture. Each word has finished arriving just before it's sung, and keeps moving
+  with the music while it's on screen. Qing (2026-09-28): "way more typography-focused with text
+  appearing exactly word by word aligned with the timing and moving and animated [...] in a
+  proper animated lyric video way (though this is actually general feedback - episode 1 would
+  have been better if it had this too)". On timing, see [Word timing comes from the
+  voice](#word-timing-comes-from-the-voice).
+- **A sung line holds across cuts.** Cut the pictures on the phrases, but set each line as one
+  block that builds word by word over them and stays until the line is done. Episode 2 v2's first
+  cut gave every chorus phrase its own shot, and the audit found 65 words up for under 0.6 s; with
+  the lines held across the cuts, none.
 - **Words:** every sung word is on screen from its onset and is part of the picture. Words are
   readable on a phone and never cover a face. They stay clear of the bottom 400 px, and of the
   right 140 px in the lower half, where platform UI sits. Measure it rather than eyeball it,
@@ -201,6 +208,19 @@ lyric video that aligns perfectly word to word".
   aligner's time, and flag any word whose onset doesn't sit on voiced sound on its stem. Then
   render a plain karaoke preview (each word lighting up at its onset over the song) for Qing to
   watch and hear before the shots are built. The model can't hear whether a word is early.
+- **Don't trust one estimate.** On episode 2 each word's time is the median of four: two forced
+  aligners (torchaudio's MMS_FA and its English wav2vec2) and two Whisper runs (on the vocal stem
+  and the full mix), matched a section at a time (`music/ep02/align_words.py`). Two checks catch
+  what the vote can't: repeated lines (the choruses) should be sung much alike, and where every
+  estimate is wrong together (a held note), the stem's own onset decides, set by hand and written
+  down. The karaoke split put stacked lead vocals in the backing stem, so align on the whole
+  vocal.
+- **Land a little ahead of the voice.** A word lit exactly on its measured onset "just feeeeels a
+  tiny fraction late. it's so subtle but it matters at this tempo" (Qing, 2026-09-28). Offer her
+  the same chorus with the words leading by, say, 50, 100 and 150 ms, and use the lead she picks:
+  on episode 2 it was 85 ms ("between a and b [...] maybe 80-90"). Animated words finish arriving
+  by that moment: "if the lyric is animated, you want it to ideally finish or be almost finished
+  appearing by the time it's sung" (Qing, 2026-09-28).
 
 - A generated take doesn't sing the lyric sheet exactly: it repeats hooks, drops or adds backing
   vocals, and holds notes where the sheet has an "ooh". Caption the take. Separate the vocal, then
@@ -209,6 +229,10 @@ lyric video that aligns perfectly word to word".
   invent those words, so don't prompt it. Say which spots rest on measurement alone.
 - Small subjects at the bottom of the frame under an empty field read as unfinished. Fill the
   middle of the frame, between the words and the floor.
+- **Several stories in one song blur together.** A test listener liked episode 2's song but
+  couldn't tell it was about four separate apps (Qing, 2026-09-28). Give each story an owner who
+  keeps it (on episode 2, one band member per app, named with it in the intro), a number and a
+  label ("1/4 ROSA'S BAKERY · CHECKOUT"), and visit them in the same order every time.
 - Lettering drawn over the shots (episode 2's backing pop-ups) needs its own writing clock, or a
   word written before a cut un-writes itself after it.
 - A texture laid over the whole frame, like episode 1's paper, wasn't liked by everyone (Qing,

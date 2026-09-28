@@ -65,7 +65,9 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
 5. **Build the shots in song order.** For each sung line, decide the one thing to read, where
    its words live and what they're made of, and how they arrive with the voice. Hold the line to
    remember on screen as one block. For words and crowds, mind VIDEO.md's *Pitfalls*.
-   *Done when* every line has its shot, and every word is written on at its onset.
+   *Done when* every line has its shot, and every word has finished arriving just before it's
+   sung (VIDEO.md, "Land a little ahead of the voice"), and holds across the cuts until its line
+   is done.
 
 6. **Watch the whole film, early and often.** A 540-wide preview renders in minutes. Look at it
    three ways:

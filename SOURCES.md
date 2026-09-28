@@ -86,3 +86,21 @@ quality. Credit them here and on screen.
   [archive/ep01-video-v1/](archive/ep01-video-v1/README.md)) came from research on animation, music-video and
   creator studios ([notes](research/studio-pre-production.md)) and on Tim Blais's A Capella Science
   ([notes](research/tim-blais-craft.md)).
+
+## Episode 2: what went into the video (v3, "Cut Light")
+- **Song:** lyrics by Qing with Claude; performed by the Suno generation Qing chose, "How Will I
+  Know".
+- **Ideas:** test oracles (Howden; Weyuker; Bach & Bolton, as above), and oracles for agentic
+  coding (Yanqing Cheng, *Agentic coding and the problem of oracles*). Credited on screen on the
+  teaching card. The chorus's moths are for the first computer "bug", a moth taped into the
+  Harvard Mark II's logbook in 1947.
+- **Clawd,** as for episode 1: Anthropic's mascot, its proportions learned from John Heibel's
+  MIT-licensed [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) model
+  sheet; the band's costumes and the drawing code are our own.
+- **The look** is our own: a box of one-way mirrors, inked like a manga page, with the words cut
+  out of the glass. Hatching, scratchboard blacks and focus lines are the manga's and the
+  engraver's familiar techniques, drawn by our code; no artwork is reproduced.
+- **Fonts,** with their licences in `video/ep02/cutlight/fonts/`: Big Shoulders Stencil Display
+  (The Big Shoulders Project Authors, SIL Open Font License) for the sung words; JetBrains Mono
+  (The JetBrains Mono Project Authors, SIL Open Font License) for labels and the teaching card;
+  Rock Salt (Font Diner, Apache License 2.0) for the people's handwriting.

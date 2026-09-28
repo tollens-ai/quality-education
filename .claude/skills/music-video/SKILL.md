@@ -59,7 +59,8 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
 4. **Build the look before any shots.** In this order: the drawing kit, the layer that makes the
    style (episode 1's `inkify`), the lettering, the cast on a character sheet, the hero
    environment, and one hero frame. A look built as a layer can still change late without
-   redrawing every shot.
+   redrawing every shot. Style studies from Codex's image generation can help you find the look
+   (VIDEO.md, *How the auteur works*); draw your own.
    *Done when* the hero frame could be printed.
 
 5. **Build the shots in song order.** For each sung line, decide the one thing to read, where

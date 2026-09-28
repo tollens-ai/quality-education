@@ -1,10 +1,11 @@
 # Style: Mirror Kei, G-pen ink and title-card type
 
-Episode 2's style (v2, "The Mirror"): 90s cel anime inked with a G-pen, in the red, black and
-bone of 2000s alternative rock, worn by a visual-kei band, with lyrics set as Evangelion-style
-title cards. Qing's brief for it (2026-09-28): "an alternative rock music video of the 00s", "a
-heavy dose of inspiration from Visual Kei, from J-rock in the '90s", "the more experimental and
-alternative anime genres", and lyrics "almost a musical instrument in itself".
+Episode 2's style for v2, "The Mirror", since retired (v3 is [Cut Light](style-cut-light.md)):
+90s cel anime inked with a G-pen, in the red, black and bone of 2000s alternative rock, worn by a
+visual-kei band, with lyrics set as Evangelion-style title cards. Qing's brief for it
+(2026-09-28): "an alternative rock music video of the 00s", "a heavy dose of inspiration from
+Visual Kei, from J-rock in the '90s", "the more experimental and alternative anime genres", and
+lyrics "almost a musical instrument in itself".
 
 The worked example is the renderer, [video/ep02/mirror/](../../../../video/ep02/mirror/README.md).
 The liner notes are in [episodes/02-video.md](../../../../episodes/02-video.md).

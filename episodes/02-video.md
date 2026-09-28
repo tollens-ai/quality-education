@@ -1,7 +1,216 @@
-# Episode 2 video, v2: "The Mirror"
+# Episode 2 video, v3: "Cut Light"
 
-The second video for episode 2, made to the take Qing chose on Suno, "How Will I Know". One
-auteur made it from a blank page, with no reviewer committee, following the
+The third video for episode 2, made to the take Qing chose on Suno, "How Will I Know". One
+auteur made it from a blank page after Qing's notes on v2, with no reviewer committee, at maximum
+effort. The only condition at every stage was her question: do I stand behind this artistically?
+The renderer is [video/ep02/cutlight/](../video/ep02/cutlight/README.md), and the style's reference
+is [Cut Light, ink and neon](../.claude/skills/music-video/references/style-cut-light.md). v2,
+"The Mirror", and v1, "The Garage", are kept below.
+
+## Qing's notes on v2 (2026-09-28, verbatim)
+
+> hey, I don't love it yet but I see the angle you're going for.
+>
+> 1) the text animation is still super simplistic and just, like, going horizontally across the
+> screen rather than as a graphic design element in it's own right. the font design is also kinda
+> antithetical to the alternative ness
+>
+> 2) some of the fonts and text layouts are not clear (for example the way the band members intros
+> hang off the blocks)
+>
+> 3) the visual design has gone back to the simplistic and cartoony that I complained about back in
+> v1. and the colour scheme is too repetitive - with just the red and black I can't tell the band
+> mates apart easily. and the human character designs are very clumsy as well
+>
+> please don't put random Japanese in its super cringe and I can't post that
+>
+> hmm, I feel like you've anchored way too hard on the suggestions I gave as guidance again and
+> it's distracted you from your own artistry!
+>
+> can we start over and just...... forget trying to satisfy all my conditions, just have all your
+> conditions at every stage be "do I stand behind this artistically"? in character, set, design,
+> colour, lineart, creativity, dynamicism, story clarity... I can forgive most things if it's
+> beautiful enough.
+>
+> I like the concept it just doesn't wow me. the execution looks lazy.
+>
+> I've taildropped you the steins gate intro as inspiration.
+>
+> if you need a model with access to image gen as an oracle please feel free to ask gpt!
+
+Then, as v3 started:
+
+> no no no no no. not the api I mean codex
+
+> just ask Codex to use it's built in image gen call
+
+> anyway, don't copy steins gate, it's there just to remind you what detailed artistry looks like
+
+> I want you to go all out
+
+## The world
+
+The band plays inside a box of mirrors. Every check they run shows them only themselves. Every
+word they sing is laser-cut out of the mirror, and through the letters comes the daylight of the
+world outside, where the people they built for are. The film goes from mirror to window:
+
+- **Verse 1, the mirror.** Each member faces the glass and plays to his own reflection, clear and
+  lit, while what went wrong with his app is cut through the mirror above it. Through the
+  letters, only glimpses of the place: the bakery's queue, the clinic's error page, the school
+  gate, the wedding.
+- **Pre-choruses.** CLAWD alone at the glass, his hand on it. BROKEN cracks out from his hand;
+  his reflection sings the echo, "(for myself?)".
+- **Choruses.** The whole band, all four lasers. PERFECT is cut round a perfect circle; CHECKS
+  and TESTS are ticks cut all over the glass round the words, and then the bugs you'd find come
+  in through them as moths.
+- **Verse 2, the windows.** Each oracle cuts a window where the member's reflection was, and he
+  sees out: the load test's customers, the clinic's booking site as the bot playing Gran books,
+  each family's messages sealed in a cell of its own, and Jess holding up her note.
+- **The bridge** sets ORACLE as a dictionary headword over four windows, one for each oracle
+  so far. RUN AND RUN turns round a disc of mirror like a clock. For HEURISTICS, NULL shines a
+  torch at the glass, and it clears only where the beam falls: a partial view, better than
+  none. NONE is struck through and DONE stamped.
+- **Pre-chorus 3 and chorus 3.** The people have come to the glass. One-way glass turns clear
+  when the far side is the brighter, and it does: the four they built for, and others, stand
+  outside watching. On the last PROVE! the box shatters.
+- **The outro, in the square at golden hour.** The pieces of mirror hang in the air with the
+  outro's lines cut in them, and four more carry the evidence, a brief's number and a tick
+  each. A question mark comes down for what they can't know. CLAWD asks "SO, DO YOU LOVE IT?",
+  and the four answer in their own hands. Then Jess, about Dave.
+
+## Four briefs, one per band member
+
+Each app belongs to one member, is introduced with him, and comes back in the same order, in his
+colour, with a numbered label.
+
+| Brief | Built by | Verse 1: through the letters | Verse 2: the window |
+|---|---|---|---|
+| 1/4 Rosa's bakery, the checkout | REGEX, guitar (cyan) | the shop at eight, the queue | the queue doubled in cyan: a load test on every merge |
+| 2/4 the clinic, the booking site | CRON, drums (lime) | the cute site, spinning, "please try again later" | the booking site, tried by NULL playing Gran, and BOOKED |
+| 3/4 Parkside School, the feedback app | NULL, bass (violet) | parents reading each other's private messages | four cells, a family in each, their messages theirs alone |
+| 4/4 Jess's wedding, the seating plan | CLAWD, vocals (orange) | Dave next to his angry ex | Jess at the glass: "Dave + Sue: NOT the same table!!" |
+
+## The band
+
+| Member | Mark | Plays |
+|---|---|---|
+| CLAWD | the plain mascot, the only one without a costume | the mic |
+| REGEX | a visor with his colour scrolling across it | a white offset guitar; he plays the intro riff |
+| CRON | headphones with lime rings | a kit with a lime ring on the kick and brass cymbals |
+| NULL | a black hooded cloak, two violet eyes in the hood | a black long-horned bass; he plays Gran in verse 2 |
+
+Each is the mascot's own block, posed in 3D so the camera can go anywhere and drawn over the
+pose by hand. Their colours are the only colours inside the box, so you can tell them apart in
+any shot, even from the back.
+
+## The look
+
+A manga page that moves, inked in black and paper white. Every surface is hatched from its light,
+dark materials are drawn white on black like scratchboard, and the line boils on twos. Inside the
+box the only colour is light: the four members' colours and the daylight through the cuts. Stage
+beams are bundles of fine lines, smoke has an inked edge, the floor is wet black glass, and
+focus lines close in on the crashes. Outside is the same pen on a page in daylight: the square
+inked in warm ink with its shade sides hatched, lit by a low sun behind it, the people rimmed in
+gold.
+
+The intro plays the riff as a storm of laser cuts: every note of the guitar stem is a cut across
+the mirror, and the cuts open into shards of sky. Each member is introduced with his name cut a
+letter a note, his instrument and his brief under it. Then the title, one letter on each of the
+bar's twelve notes.
+
+Borrowed ideas, drawn fresh: one-way glass, which turns see-through when the far side is the
+brighter; manga's hatching, scratchboard blacks and focus lines; and stencil lettering, whose
+letters are already separate pieces, as a cutter needs.
+
+## The lettering
+
+- **The band's words are cut out of the mirror,** in Big Shoulders Stencil Display at its
+  heaviest weight. A laser runs round each piece of each letter in the member's colour, the
+  piece drops out, and the day comes in. The cut finishes 85 ms before the word is sung.
+- **Every line is a poster:** its rows are sized to fill a box on screen, so the lettering is the
+  frame's composition, not a caption over it. What's seen through the letters is the place the
+  line is about.
+- **Words act out what they say:** BROKEN cracks, THROUGH stays stuck in the glass, PERFECT is
+  cut round a circle, MERGE has two branches running into it, each word of the isolation check
+  gets a cell of its own, RUN AND RUN turns like a clock, NONE is struck through, DONE is
+  stamped.
+- **Echoes are etched, not cut:** the backing vocals are glowing lines drawn on the glass,
+  in the colour of whoever sings them, beside the reflection that sings them.
+- **The machine's voice** (the labels, the brief tickets, the teaching card) is JetBrains Mono.
+- **The people's hand** (Jess's note, the four "I love it!"s, "Dave's still coming, though.") is
+  Rock Salt, written outside the glass, never cut into it.
+- **A sung line holds across cuts.** A line cut before a shot starts is carried into it already
+  open.
+
+## The timing and the captions
+
+As v2: every word timed from the voice, landing 85 ms ahead of it, and captions that follow the
+take (see v2's sections below). The words and the captions are unchanged.
+
+## The teaching card
+
+Unchanged from v2 (below): HOW YOUR AGENT CAN KNOW, four common kinds of oracle (there are
+more), over the band's last jam.
+
+## How it was made
+
+- **Looks first, from a blank page.** Codex's built-in image generation drew style studies for
+  the world (a band in a box of mirrors, words cut out of the glass) as an oracle for the look.
+  None of them is in the film; they're kept out of the repo. The look was then built in
+  `look.js` as hero frames before any shots.
+- **Canvas 2D over a small 3D kit.** A camera and solids in centimetres place everything; what's
+  drawn is 2D and inked.
+- **The first full cut was reviewed at full size and redrawn where it was weak.** Verse 1 had the
+  words at the top, the member small at the bottom and an empty middle, and verse 2 looked like
+  verse 1. So each member now faces his reflection in verse 1, and the oracles cut windows where
+  it was in verse 2. The last third got the one-way glass clearing. The outro square was redrawn
+  in ink at golden hour, and its small cards became pieces of mirror.
+
+## How it was checked
+
+- **Words:** the typography audit (`video/ep02/cutlight/tools/typo-audit.mjs`, `typo-report.py`,
+  run by `typo-run.sh`) rendered the film every 0.1 s and judged all 487 sung words for size, time
+  fully on screen, contrast at the letters' edges, cover, tilt, reading order and the phone apps'
+  UI zone. Each cut-out piece is recorded as its own polygon, so contrast is measured round the
+  letters themselves. The first run flagged 123 words and missed 21. Carrying lines across cuts,
+  starting rows below the brief labels, keeping low rows out of the button strip, keeping the
+  chorus's ticks and moths off the words, and thinning the glow round the stuck words brought it
+  to 24 flags, all there on purpose. The whispered dedication and the stuck words (GET THROUGH,
+  BROKEN) are etched with a glow the check reads as their edges blending (13); they read clearly
+  by eye. RUN AND RUN turns round its disc, so it's tilted (7). And the two PROVE!s are hit by
+  the flash of the crash (4). Every word is lettered while it's sung, and every line reads in
+  sung order.
+- **Motion:** `video/lib/motion.py` on the preview: five near-still seconds, all on the teaching
+  card and the end card, which are there to be read.
+- **Shots:** `video/ep02/cutlight/tools/shots.mjs`: 60 shots and no gaps. Where two overlap, the
+  next starts a fraction early on purpose, to cut its first word, and wins.
+- **Craft:** six full previews at 540 wide, each as a contact sheet at one frame a second; stills
+  of every shot that changed; and the lyric frames tiled at phone size, 390 px wide, and read as
+  a viewer would. At that size, two backing echoes sat on other words and were moved.
+- **The master:** 1080×1920 at 30 fps, 174.83 s and 5,245 frames, counted by decoding it; stills
+  pulled from it at every fix.
+
+## Where it falls short
+
+- **The people are simple:** flat colour with a few features, rimmed by the light. Against the
+  sun they read well; close up (Jess, in verse 2's window and at the end) they're paper-doll
+  plain.
+- **The timings rest on measurement and one listen.** Qing checked the karaoke version and chose
+  the lead; nobody has checked this film's sync by ear yet.
+- **The storm's cuts follow the riff's rhythm, and its pitches only roughly:** the notes come
+  from a distorted guitar stem, where octaves are often wrong.
+- **Choruses 1 and 2 share their shots,** mirrored, with chorus 2's echoes added. Chorus 3 is
+  different: the people are at the glass, and it ends by breaking the box.
+- **The teaching card is teaching the song doesn't sing.** Its wording is a claim for Qing to
+  check.
+
+---
+
+# Episode 2 video, v2: "The Mirror" (retired)
+
+The second video for episode 2, made to the take Qing chose on Suno, "How Will I Know", and
+retired after her notes on it (above). One auteur made it from a blank page, with no reviewer
+committee, following the
 [music-video skill](../.claude/skills/music-video/SKILL.md) at maximum effort. The renderer is
 [video/ep02/mirror/](../video/ep02/mirror/README.md), and the style's reference is
 [Mirror Kei, G-pen ink and title-card type](../.claude/skills/music-video/references/style-mirror-kei.md).

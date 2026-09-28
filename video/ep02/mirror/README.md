@@ -1,6 +1,6 @@
 # Episode 2 video: "The Mirror"
 
-The renderer for episode 2's video, v2 ([episodes/02-video.md](../../../episodes/02-video.md)).
+The renderer for episode 2's video, v2 ([episodes/02-video.md](../../../episodes/02-video.md)), since retired; v3 is [cutlight/](../cutlight/README.md).
 Every frame is a pure function of the song's time, drawn with Canvas 2D: G-pen ink and flat cel
 colour in the red, black and bone of 2000s alt-rock, and lyrics set as title-card type. It was
 written from a blank page; nothing is shared with the episode-1 renderer or v1's except the

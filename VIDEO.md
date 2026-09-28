@@ -11,8 +11,9 @@ locked.
   steps in order, and what to read at each.
 - **Each episode has its own style** and its own reference. Episode 1's is
   [ink and gouache, with the lyrics lettered in](.claude/skills/music-video/references/style-ink-and-gouache.md);
-  episode 2 v1's, since retired, is [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md);
-  episode 2 v2's is [Mirror Kei, G-pen ink and title-card type](.claude/skills/music-video/references/style-mirror-kei.md).
+  episode 2 v1's and v2's, both since retired, are [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md)
+  and [Mirror Kei, G-pen ink and title-card type](.claude/skills/music-video/references/style-mirror-kei.md);
+  episode 2 v3's is [Cut Light, ink and neon](.claude/skills/music-video/references/style-cut-light.md).
   Read them for the shape of a reference, not for a look to reuse.
 - [CRAFT.md](CRAFT.md) holds the research and the decisions behind this file. The episode-1
   renderer is the worked example: [video/ep01/pier/](video/ep01/pier/README.md).
@@ -24,6 +25,9 @@ locked.
 | v1, v2 | A storyboard funnel, reviewer committees, a grey-box animatic, then parallel builds | Dizzying, hard to follow, spoilt lyrics before they were sung, simplistic, static and thin. Archived in [archive/](archive/) |
 | v3, "The Pier" | One auteur at maximum effort, with no process and no committee. One world that follows the lesson. About two hours from a blank page to the master | "it meets the "good enough to share" bar"; "in terms of the storyboard and pacing it hits right". Three notes: too shiny, captions that looked like an afterthought, and quality that dropped from verse 2 |
 | v4 | The same storyboard, redrawn by hand, with the lyrics lettered into every shot and the same care to the end. About two hours | "It looks amazing. It's exactly what I wanted." Two notes: one frame hard to read, which led to a typography check of every word, and crowds with wrong overlaps and crude people. Both fixed in a second pass |
+| Ep. 2 v1, "The Garage" | Episode 1's renderer copied and restyled, below maximum effort | Looked like episode 1 at thumbnail size, and didn't feel like the genre. Retired |
+| Ep. 2 v2, "The Mirror" | A blank page, to a brief full of references (00s alt-rock, visual kei, experimental anime) | "I see the angle you're going for", but lyrics in rows across the screen, a font against the genre, red and black only, clumsy people, and Japanese as decoration. "you've anchored way too hard on the suggestions I gave as guidance" |
+| Ep. 2 v3, "Cut Light" | A blank page, one condition at every stage: "do I stand behind this artistically?" Image-model style studies for the look, then a full cut reviewed at full size and redrawn where it was weak | Awaiting Qing's view |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -94,6 +98,11 @@ Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2
 > - Clear at every moment: if I can't tell what's going on, I scroll away.
 > - Clawd sings. The bots appear with their real marks, unaltered. Tollens's ∴ is three dots
 >   at the corners of an equilateral triangle.
+> - The typography is a graphic design element in its own right, not rows running across the
+>   screen, in fonts that suit the genre. Every label and layout is clear.
+> - The characters are told apart at a glance: give each their own colour, not one shared palette.
+> - No lettering in a language that's there as decoration (episode 2 v2's Japanese: "super
+>   cringe and I can't post that").
 >
 > Teaching and beauty are both conditions for release. Take your time, there's no rush, and show
 > me the finished video.
@@ -114,6 +123,18 @@ from rounds 3 and 4:
 - **Measure what eyes miss, then look at what the measures flag.** A check of every word found
   far more than the one frame Qing spotted. Some flags are the design.
 - **When a note names one fault, look for its kind everywhere.**
+- **Your artistry, not the brief's list.** Treat Qing's references and suggestions as guidance,
+  and at every stage ask one question: do I stand behind this artistically, in character, set,
+  design, colour, line, creativity, dynamism and story clarity? Qing (2026-09-28): "I feel like
+  you've anchored way too hard on the suggestions I gave as guidance again and it's distracted
+  you from your own artistry!"; "I can forgive most things if it's beautiful enough."
+- **An image model can be an oracle for looks.** Ask Codex to use its built-in image generation
+  for style studies (Qing: "not the api I mean codex"). Learn from them and draw your own; keep
+  them out of the film and the repo. A reference Qing sends ("don't copy steins gate, it's there
+  just to remind you what detailed artistry looks like") sets the level of detail, not the look.
+- **Watch the first full cut at full size, then redraw what's weak.** Episode 2 v3's first cut
+  had an empty middle in every verse and a verse 2 that looked like verse 1; both were only
+  visible once the whole film was up.
 
 ## Every episode draws its own
 
@@ -228,7 +249,14 @@ lyric video that aligns perfectly word to word".
   voicing and pitch. Whisper rarely writes down an "ooh", and a word list in its prompt makes it
   invent those words, so don't prompt it. Say which spots rest on measurement alone.
 - Small subjects at the bottom of the frame under an empty field read as unfinished. Fill the
-  middle of the frame, between the words and the floor.
+  middle of the frame, between the words and the floor. Episode 2 v3's first cut did it again in
+  every verse and bridge line; staging each member facing his reflection filled it with the story.
+- **Make each turn of the story visible, not only sung.** If two verses look alike, the change
+  between them is invisible. Episode 2 v3's verse 2 first looked like verse 1 though it sings the
+  answer to it; an oracle became a window cut where the reflection was.
+- **Anything scattered over the frame keeps clear of the lyrics.** Particles, icons and flying
+  things placed at random land on words: episode 2's chorus ticks and moths covered THE and FIND
+  until each was kept outside every word's box and the moths flew away from the rows.
 - **Several stories in one song blur together.** A test listener liked episode 2's song but
   couldn't tell it was about four separate apps (Qing, 2026-09-28). Give each story an owner who
   keeps it (on episode 2, one band member per app, named with it in the intro), a number and a

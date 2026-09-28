@@ -33,8 +33,9 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    *Done when* you can say in one sentence what the viewer must understand by the end, and which
    line they'll remember.
 
-2. **Hear and measure the record.** You can't hear it, so have a model that can describe it:
-   give Gemini the audio alone, under a neutral name with no lyrics beside it, and ask for the
+2. **Hear and measure the record.** You can't hear it. Start with the generator's style note:
+   ask Qing for it if it isn't in the episode's files, since it describes the take as made. Then
+   have a model that can listen describe it: give Gemini the audio alone, under a neutral name with no lyrics beside it, and ask for the
    genre, the instruments and the vocal section by section, the arc, the feel, what would match
    it and what would clash. Check what it says against the measurements, and against Qing's word
    for the genre. Episode 2's is `music/ep02/listening-notes.md`. Then get the bars, the kick and

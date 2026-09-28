@@ -4,6 +4,19 @@ The model making the video can't hear the song, so Gemini 3.1 Pro (High) listene
 "How Will I Know", and described it for a director who can't hear (2026-09-28). It got the file
 alone under a neutral name, with no lyrics or notes to lean on.
 
+## Suno's style note for the take (from Qing, 2026-09-28, verbatim)
+
+> Frantic, breathless post-genre pop-rock with churning electric guitars, bright keys, bass, and
+> tightly packed drums; energetic lead vocals with layered chorus responses; urgent, fast
+> straight-ahead pulse; dense studio mix with crisp percussion and stacked vocal doubles.
+
+This is the generator's own description of what it made, so it outranks Gemini's reading below.
+It agrees with Gemini on the energy and the stacked vocals. It adds bright keys, which Gemini
+didn't mention, and it calls the genre "post-genre pop-rock", closer to Qing's "experimental
+post-paramore" than Gemini's 2000s pop-punk.
+
+## Gemini's listening
+
 **How far to trust it.** It heard the audio. It gave the length exactly (2:54) and quoted a verse
 line word for word, and its section boundaries fall within a second of the measured ones up to the
 bridge. Two things disagree with other evidence:

@@ -11,7 +11,7 @@ import { player, singer, drummer } from './playing.js';
 import { ROOM, WALL, backWall, floorPlane, floorReflection, wallReflection, beam } from './room.js';
 import { P, BAND } from './palette.js';
 import { beamInk, smoke, rays, streaks } from './air.js';
-import { person, stranger, SKIN, HAIRC } from './people.js';
+import { CAST, figure, loadCast } from './paper.js';
 
 export const fonts = typeFonts;
 export function drawMarks() {}
@@ -21,6 +21,7 @@ export async function init(S) {
   await loadAudio('/video/ep02/cutlight/audio.json');
   setSong(S); setLyrics(S.lyrics);
   await loadGlyphs();
+  await loadCast();
   HWS = words('Chorus 1', 'How do I know');
 }
 
@@ -88,68 +89,19 @@ function sheet(g, t) {
   glow(g, E, { k1: .3, k2: .3 });
 }
 
-function peopleSheet(g, t) {
-  // A low sun behind them.
-  const gr = g.createLinearGradient(0, 0, 0, H);
-  gr.addColorStop(0, '#8fc3e3'); gr.addColorStop(.45, '#f7e3bd'); gr.addColorStop(.62, '#ffd08a'); gr.addColorStop(1, '#e9b27a');
-  g.fillStyle = gr; g.fillRect(0, 0, W, H);
-  const sg = g.createRadialGradient(W / 2, H * .5, 0, W / 2, H * .5, 700);
-  sg.addColorStop(0, 'rgba(255,252,236,1)'); sg.addColorStop(.25, 'rgba(255,240,200,.6)'); sg.addColorStop(1, 'rgba(255,230,180,0)');
-  g.fillStyle = sg; g.fillRect(0, 0, W, H);
-  g.fillStyle = '#c99a6e'; g.fillRect(0, 1570, W, 350);
-  const E = layer('emit');
-  const rim = [{ col: '#ffe9b8', lx: 0, ly: -1, d: 3, k: 1, glow: .6 }, { col: '#fff4d6', lx: -1, ly: -.3, d: 2.2, k: .8, glow: .3 }];
-  const poses = ['down', 'phone', 'cross', 'pockets', 'watch', 'hips', 'phoneFar', 'down', 'up', 'point'];
-  const faces = ['front', 'right', 'front', 'left', 'front', 'right', 'left', 'front', 'front', 'right'];
-  rimmed(g, 'crowdA', L => {
-    for (let i = 0; i < 10; i++) {
-      const sp = stranger(i * 7 + 3);
-      const x = 110 + (i % 5) * 215, y = 600 + Math.floor(i / 5) * 470;
-      person(L, x, y, 400 * sp.height, sp, { arms: poses[i], face: faces[i], look: poses[i].startsWith('phone') ? 'phone' : 'ahead' }, t);
-    }
-  }, rim, { E });
-  const rosa = { sex: 'f', skin: SKIN[2], hair: { style: 'bun', col: HAIRC.black }, top: { kind: 'apron', col: '#e7e2d6', col2: '#f6f1e6' }, legs: { col: '#2e3446' }, build: 1.02, seed: 11 };
-  const gran = { sex: 'f', age: 'old', skin: SKIN[0], hair: { style: 'curly', col: HAIRC.white }, top: { kind: 'coat', col: '#8a4f7d' }, legs: { kind: 'skirt', col: '#5a4a5e' }, glasses: true, bag: '#6b3a2a', build: .95, seed: 12 };
-  const jess = { sex: 'f', skin: SKIN[1], hair: { style: 'bun', col: HAIRC.auburn }, top: { kind: 'gown', col: '#fbf8f2' }, legs: { kind: 'dress', col: '#fbf8f2' }, veil: '#ffffff', seed: 13 };
-  const dave = { sex: 'm', skin: SKIN[1], hair: { style: 'bald', col: HAIRC.grey }, top: { kind: 'coat', col: '#2d3340' }, legs: { col: '#2d3340' }, build: 1.25, seed: 14 };
-  const sue = { sex: 'f', skin: SKIN[3], hair: { style: 'long', col: HAIRC.black }, top: { kind: 'dress', col: '#7a2f3a' }, legs: { kind: 'skirt', col: '#7a2f3a' }, seed: 15 };
-  rimmed(g, 'crowdB', L => {
-    person(L, 120, 1580, 450, rosa, { arms: 'hips', face: 'front' }, t);
-    person(L, 330, 1580, 380, gran, { arms: 'phoneFar', face: 'right', look: 'phone' }, t);
-    person(L, 545, 1580, 440, jess, { arms: 'hold', face: 'front' }, t);
-    person(L, 770, 1580, 460, dave, { arms: 'pockets', face: 'right' }, t);
-    person(L, 960, 1580, 430, sue, { arms: 'cross', face: 'left' }, t);
-  }, rim, { E });
-  glow(g, E, { k1: .4, k2: .3 });
-}
-
-// The cast, for drawing the people: each in the sun on the left, against the golden-hour sun on
-// the right (?v=cast), and a row of strangers.
-import { ROSA, GRAN, PARENT, JESS, DAVE, SUE } from './world.js';
-import { SHADE } from './people.js';
-import { sunlit } from './world.js';
+// The cast: every paper cut-out, in rows, on a warm ground (?v=cast), each moving as it will in
+// the film.
 function castSheet(g, t) {
-  g.fillStyle = '#efe4cf'; g.fillRect(0, 0, W, H);
-  const gr = g.createLinearGradient(0, 0, 0, H * .5);
-  gr.addColorStop(0, '#5a86c6'); gr.addColorStop(1, '#ffc98a');
-  g.fillStyle = gr; g.fillRect(W / 2, 0, W / 2, H * .5);
-  g.fillStyle = '#d8b48a'; g.fillRect(W / 2, H * .5, W / 2, H * .5);
-  const cast = [[ROSA, { arms: 'hips', face: 'right', mood: 'joy' }], [GRAN, { arms: 'phoneFar', face: 'right', look: 'phone' }], [PARENT, { arms: 'strap', face: 'left' }], [JESS, { arms: 'cross', face: 'right', mood: 'deadpan' }], [DAVE, { arms: 'wave', face: 'front', mood: 'joy' }], [SUE, { arms: 'cross', face: 'left', mood: 'cross' }]];
-  const q = new URLSearchParams(location.search), big = +(q.get('h') || 600);
-  // Lit: three a row, big.
-  SHADE.lit = true;
-  sunlit(g, 'castLit', L => cast.forEach(([sp, pose], i) => person(L, 95 + (i % 3) * 170, 700 + Math.floor(i / 3) * 820 + (i % 3) * 0, big * .62, sp, pose, t)), -1);
-  SHADE.lit = false; const kc = { col: SHADE.col, k: SHADE.k }; SHADE.col = '#3a2c48'; SHADE.k = .48;
-  rimmed(g, 'castBack', L => cast.forEach(([sp, pose], i) => person(L, W / 2 + 95 + (i % 3) * 170, 700 + Math.floor(i / 3) * 820, big * .62, sp, pose, t)), [{ col: '#ffe0a6', lx: -.35, ly: -1, d: 3, k: 1, glow: .6 }]);
-  SHADE.col = kc.col; SHADE.k = kc.k;
-  // Strangers along the bottom, small, lit.
-  SHADE.lit = true;
-  sunlit(g, 'castStr', L => { for (let i = 0; i < 8; i++) { const sp = stranger(200 + i * 7); person(L, 70 + i * 128, 1880, 230 * sp.height, sp, { arms: ['down', 'pockets', 'cross', 'phone', 'hips', 'watch', 'cheer', 'down'][i], face: ['front', 'left', 'front', 'right', 'front', 'front', 'front', 'right'][i], look: i === 3 ? 'phone' : 'ahead', joy: i === 6 }, t); } }, -1);
-  SHADE.lit = false;
+  g.fillStyle = '#e9d9bd'; g.fillRect(0, 0, W, H);
+  const names = Object.keys(CAST).sort();
+  const per = 7, rowH = H / Math.ceil(names.length / per);
+  names.forEach((n, i) => {
+    const x = (i % per + .5) * W / per, y = (Math.floor(i / per) + 1) * rowH - 12;
+    figure(g, n, x, y, rowH * .82 * (1 - CAST[n].head), { t, seed: i });
+  });
 }
 export function draw(g, t, S) {
   if (new URLSearchParams(location.search).get('v') === 'cast') { setScale(g.canvas.width / W); return castSheet(g, t); }
-  if (new URLSearchParams(location.search).get('v') === 'people') { setScale(g.canvas.width / W); return peopleSheet(g, t); }
   if (new URLSearchParams(location.search).get('v') === 'sheet') { setScale(g.canvas.width / W); STYLE.ink = true; INK.t = t; return sheet(g, t); }
   setScale(g.canvas.width / W);
   const q = new URLSearchParams(location.search);

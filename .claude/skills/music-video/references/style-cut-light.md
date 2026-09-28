@@ -39,11 +39,10 @@ day only arrives at the end.
   black glass whose reflections break into streaks (`air.js`).
 - **Speed lines on the hits.** Focus lines close in on the crashes, as a manga panel does on an
   impact (`ink.js`: `focusLines`).
-- **The day is the same pen on a page in daylight.** Outside, the square is inked in warm ink,
-  every front outlined and its shade side hatched, the trees in scalloped clumps (`square.js`).
-  The sun is low behind it: golden hour, so the fronts face us from their shade, rimmed in gold,
-  and the sky blazes behind the pieces of mirror still in the air (`day.js`). The contrast is the
-  story: nothing inside has a colour of its own but the band.
+- **The day is a painted world.** Outside, the town square is a hand-inked illustration at
+  golden hour, the sun low behind its fronts, so they and the people face us from their shade,
+  rimmed in gold, and the sky blazes behind the pieces of mirror still in the air (`day.js`).
+  The contrast is the story: nothing inside has a colour of its own but the band.
 
 ## The band
 
@@ -81,28 +80,31 @@ The world is a box of mirrors, so the staging uses them:
   only about 25° wide. Over-the-shoulder shots need the camera well to one side of the member
   and near the glass, or the reflection hides behind him or slides out of frame.
 
-## People
+## People, and the places outside
 
-The same pen as everything else, not a style of their own (`people.js`): flat colour under a line
-that swells on the shade side, a few lines for the folds that say what the clothes are (a coat's
-opening and lapels, a suit's tie, a parka's hood and zip, a skirt's pleats), and hatching in the
-shade when a figure is big enough. The construction is a figure drawer's:
+Paper cut-outs of generated artwork (`paper.js`). Drawing people in code never got past
+construction you could see (capsule limbs, oval hands, curls that were rings of circles), so
+Codex's image generation draws them, and the places behind them, in one hand-inked style from
+our briefs:
 
-- **About six and a half heads,** bigger than life, for appeal beside the Clawds.
-- **Three-quarters when they face a way:** the far side foreshortened, the front's middle line
-  moved, the far arm behind the body.
-- **Weight on one leg:** the hips tip, the spine turns back against them in a gentle S, the free
-  foot turns out.
-- **Hands with a thumb,** fists for gripping, an open hand for a wave; real shoes, heels for Sue.
-- **A build and clothes per person,** so each silhouette says who they are (Dave round, Rosa
-  sturdy, Gran small and stooped).
-- **Faces by mood:** dots for eyes (arcs for joy, lidded for deadpan), brows angled for anger, a
-  nose line, a mouth.
-- **Detail by size:** small figures keep their silhouette and line; faces from about 100 px
-  tall; fingers, folds and hatching from about 240 px.
-
-Against the golden-hour sun they sink into mid-tone violet shade (not black), rimmed in gold, so
-their faces still read.
+- **Character sheets first:** the six named people, lit from the front and against a low sun,
+  then each in the poses the film needs, with the sheets attached as references so every image
+  keeps their faces and clothes. Crowds for the queue and the square, a sheet of six at a time.
+- **Briefs for cutting out:** a flat pale background, whole figures well apart, no floor or
+  shadow. The tool floods the background away, splits the sheet into figures, and drops the
+  fringe and specks (`tools/cutout.py`). Where the model gives its own transparency, use it, but
+  tighten it: its soft edge carries stray colour.
+- **Backdrops with blank signs** and nothing tall where people will stand. `tools/backdrops.py`
+  measures the boards, the clinic's screen and the sun, and cuts out the table so people can
+  stand behind it.
+- **Animated as paper:** each figure is a card that sways on its feet, breathes, bobs on the beat
+  and is swapped for another pose with a pop, on twos, while the camera moves on every frame. A
+  limb that must move (Dave's wave) is cut free and pinned at its joint, feathered so no gap
+  opens. A thin paper edge and a soft shadow make each one read as card.
+- **Two lights per person:** lit from the front for the views through the cuts; against the
+  golden-hour sun, rimmed in gold, in the square.
+- **The square is a painted flat** standing across the far side, its paving running up to its
+  fronts, so the people stand on painted stone and cast long shadows on it.
 
 ## Lettering
 
@@ -139,10 +141,13 @@ How the cut words behave:
 ## Pitfalls met
 
 - **3D solids inked with hatching look like CG crates.** Pose in 3D, draw the silhouette by hand.
-- **People in flat shapes without a line look like paper dolls** beside an inked world: triangle
-  skirts, straight tubes for limbs, mitten hands. Draw them with the same pen, from a figure
-  drawer's construction, and calibrate against a reference sheet (Codex's image generation drew
-  one for the six named people).
+- **People built from shapes show their construction.** Flat shapes looked like paper dolls;
+  inked shapes still showed their circles and capsules (Qing, 2026-09-28: "it's not really good
+  art if I can see the circles"). Generated artwork, cut out and animated as paper, got past it.
+- **A plain ground in front of a painted backdrop reads as a gap.** Let the painting's own ground
+  run under the people, and anchor them with shadows.
+- **Depth-sort people, props and pieces of glass together,** far to near, or a far piece lands on
+  a near face.
 - **Dark materials go white under a strong key.** Shade by albedo, and scratch dark ones white on
   black.
 - **Daylight through a cut blows out to flat white** once glow and shafts are added on top. Give

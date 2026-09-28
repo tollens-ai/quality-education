@@ -27,7 +27,7 @@ locked.
 | v4 | The same storyboard, redrawn by hand, with the lyrics lettered into every shot and the same care to the end. About two hours | "It looks amazing. It's exactly what I wanted." Two notes: one frame hard to read, which led to a typography check of every word, and crowds with wrong overlaps and crude people. Both fixed in a second pass |
 | Ep. 2 v1, "The Garage" | Episode 1's renderer copied and restyled, below maximum effort | Looked like episode 1 at thumbnail size, and didn't feel like the genre. Retired |
 | Ep. 2 v2, "The Mirror" | A blank page, to a brief full of references (00s alt-rock, visual kei, experimental anime) | "I see the angle you're going for", but lyrics in rows across the screen, a font against the genre, red and black only, clumsy people, and Japanese as decoration. "you've anchored way too hard on the suggestions I gave as guidance" |
-| Ep. 2 v3, "Cut Light" | A blank page, one condition at every stage: "do I stand behind this artistically?" Image-model style studies for the look, then a full cut reviewed at full size and redrawn where it was weak | Awaiting Qing's view |
+| Ep. 2 v3, "Cut Light" | A blank page, one condition at every stage: "do I stand behind this artistically?" Image-model style studies for the look, then a full cut reviewed at full size and redrawn where it was weak | The people were "extremely" doubtful, then "better" but showing their construction, so they and their places became generated paper cut-outs. Awaiting Qing's view of that |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -93,7 +93,7 @@ Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2
 > - Every word legible and understandable on a phone: big enough, clear of what's behind it, on
 >   screen long enough to read, and read in the order it's sung.
 > - Crowds get the same attention to detail as the stars: overlaps drawn right, and people with
->   proper shapes, drawn with the same hand as everything else, not filler.
+>   proper shapes and no construction showing, not filler.
 > - One world, and it follows the lesson. The storyline serves the teaching.
 > - Clear at every moment: if I can't tell what's going on, I scroll away.
 > - Clawd sings. The bots appear with their real marks, unaltered. Tollens's ∴ is three dots
@@ -139,6 +139,12 @@ from rounds 3 and 4:
   fix it first. Qing (2026-09-28), after v3's people were delivered as "the weakest part": "you
   need to apply a high quality bar for your own artistry before handing back to me. don't hand
   back until you think it's good".
+- **Where code can't draw it well enough, generate it and animate it as paper.** People drawn
+  from shapes in code show their construction, however careful (Qing, 2026-09-28: "I can still
+  see the circles? it's not really good art if I can see the circles"). Generated artwork, cut out
+  and animated as paper cut-outs, is allowed (Qing: "if we need to incorporate more generated
+  images and like, paper cut animate them we can"). Episode 2 v3's people and the places behind
+  them are made this way; how is in [its style reference](.claude/skills/music-video/references/style-cut-light.md).
 
 ## Every episode draws its own
 

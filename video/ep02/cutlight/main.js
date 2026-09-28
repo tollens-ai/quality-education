@@ -11,6 +11,7 @@ import { fonts as typeFonts, loadGlyphs, flat, AUDIT } from './type.js';
 import { setScale } from './post.js';
 import { SHOTS, OVERLAYS } from './shots.js';
 import { INK } from './ink.js';
+import { loadCast } from './paper.js';
 import * as intro from './scenes/intro.js';
 import * as verse1 from './scenes/verse1.js';
 import * as pre from './scenes/pre.js';
@@ -27,6 +28,7 @@ export async function init(S) {
   await loadAudio('/video/ep02/cutlight/audio.json');
   setSong(S); setLyrics(S.lyrics);
   await loadGlyphs();
+  await loadCast();
   for (const sc of SCENES) sc.register(S);
   SHOTS.sort((a, b) => a.a - b.a);
   if (typeof window !== 'undefined') window.__shots = SHOTS.map(s => [+s.a.toFixed(3), +s.b.toFixed(3)]);

@@ -57,7 +57,15 @@ On the people, from the thumbnails and a frame of chorus 3:
 > you need to apply a high quality bar for your own artistry before handing back to me. don't hand
 > back until you think it's good
 
-The people were redrawn from scratch in the film's own pen (see *The people*, below).
+The people were redrawn from scratch in the film's own pen. Then:
+
+> it's better, but, like, I can still see the circles? it's not really good art if I can see the
+> circles
+
+> if we need to incorporate more generated images and like, paper cut animate them we can
+
+So the people and the places behind them became generated artwork, cut out and animated as
+paper (see *The people, and the places they stand in*, below).
 
 ## The world
 
@@ -114,27 +122,30 @@ Each is the mascot's own block, posed in 3D so the camera can go anywhere and dr
 pose by hand. Their colours are the only colours inside the box, so you can tell them apart in
 any shot, even from the back.
 
-## The people
+## The people, and the places they stand in
 
-Drawn with the same pen as everything else: a line that swells on the shade side, flat colour,
-a few lines for the folds that say what the clothes are, and hatching in the shade. They're about
-six and a half heads tall, turned three-quarters when they face a way, with the weight on one
-leg and the spine in a gentle S. Each named person has their own build and clothes, so their
-silhouette says who they are:
+The people, and the four places behind them, are paper cut-outs. Codex's image generation drew
+them from our briefs, in one hand-inked illustration style: character sheets of the six named
+people first, then each of them in the poses the film needs, crowds for the queue and the square,
+and backdrops of the bakery, the clinic's waiting room, the school, the wedding marquee and the
+town square at golden hour. The signs and the tables were left blank, so the words on them are
+ours. Each figure is cut out of its sheet (`tools/cutout.py`) and animated the way paper
+cut-outs are: a card that sways on its feet, breathes, bobs on the beat and is swapped for
+another pose with a pop, moving on twos while the camera moves on every frame, with a thin paper
+edge and a soft shadow. Dave's waving forearm is a separate piece, pinned at the elbow.
 
-| Person | Brief | Drawn as |
+| Person | Brief | Seen as |
 |---|---|---|
-| Rosa | the bakery | sturdy, a teal dress with its sleeves rolled, a cream apron, her hair in a bun |
-| Gran | the clinic | small and stooped, curly white hair, glasses, a plum coat over a plaid skirt, a handbag, her phone held up to read |
-| A parent | the school | a green parka with a fur-rimmed hood, jeans, white trainers, a tote bag |
-| Jess | the wedding | a white gown and a veil the light shines through, arms folded, deadpan |
-| Dave | the wedding | round, bald, a navy suit and tie, waving |
-| Sue | the wedding | a red dress, long black hair, heels, arms crossed |
+| Rosa | the bakery | a baker in her apron, flour on her arms |
+| Gran | the clinic | curly white hair, glasses, a plum coat over a plaid skirt, her handbag; squinting at her phone held up at arm's length |
+| A parent | the school | a green parka, jeans, a tote bag |
+| Jess | the wedding | a white gown and a veil; her note held up, then arms folded, deadpan |
+| Dave | the wedding | round, bald, in a three-piece suit, beaming and waving |
+| Sue | the wedding | a red dress, long black hair, heels, arms crossed, glaring at him |
 
-Faces are dots, brows, a nose line and a mouth, set by mood: joy, deadpan, cross. Codex's image
-generation drew a reference sheet of the six first, for their builds, clothes and poses; the
-drawing is our own. Against the golden-hour sun they're in mid-tone violet shade with a gold rim,
-so their faces still read.
+Inside the box the lighting is the band's; outside it's the day, so each person comes in two
+lights: lit from the front, for the views through the cuts, and against the golden-hour sun,
+rimmed in gold, for the square.
 
 ## The look
 
@@ -188,11 +199,14 @@ more), over the band's last jam.
 ## How it was made
 
 - **Looks first, from a blank page.** Codex's built-in image generation drew style studies for
-  the world (a band in a box of mirrors, words cut out of the glass) as an oracle for the look.
-  None of them is in the film; they're kept out of the repo. The look was then built in
-  `look.js` as hero frames before any shots.
-- **Canvas 2D over a small 3D kit.** A camera and solids in centimetres place everything; what's
-  drawn is 2D and inked.
+  the world (a band in a box of mirrors, words cut out of the glass) as an oracle for the look;
+  none of them is in the film. The look was then built in `look.js` as hero frames before any
+  shots.
+- **Canvas 2D over a small 3D kit.** A camera and solids in centimetres place everything; the
+  band, the box and the lettering are drawn in 2D and inked.
+- **The people and places are generated,** then cut out and animated here as paper (above). The
+  sheets and briefs are kept out of the repo; the cut-outs and backdrops are in
+  `video/ep02/cutlight/cast/`.
 - **The first full cut was reviewed at full size and redrawn where it was weak.** Verse 1 had the
   words at the top, the member small at the bottom and an empty middle, and verse 2 looked like
   verse 1. So each member now faces his reflection in verse 1, and the oracles cut windows where
@@ -213,20 +227,26 @@ more), over the band's last jam.
   by eye. RUN AND RUN turns round its disc, so it's tilted (7). And the two PROVE!s are hit by
   the flash of the crash (4). Every word is lettered while it's sung, and every line reads in
   sung order.
-- **Motion:** `video/lib/motion.py` on the preview: five near-still seconds, all on the teaching
+- **Motion:** `video/lib/motion.py` on the master: five near-still seconds, all on the teaching
   card and the end card, which are there to be read.
 - **Shots:** `video/ep02/cutlight/tools/shots.mjs`: 60 shots and no gaps. Where two overlap, the
   next starts a fraction early on purpose, to cut its first word, and wins.
-- **Craft:** six full previews at 540 wide, each as a contact sheet at one frame a second; stills
-  of every shot that changed; and the lyric frames tiled at phone size, 390 px wide, and read as
-  a viewer would. At that size, two backing echoes sat on other words and were moved.
+- **Craft:** eight full previews at 540 wide, each as a contact sheet at one frame a second; stills
+  of every shot that changed; each view behind the wall rendered whole, to check what the letters
+  show; 30 fps strips of the cut-outs moving and of Dave's wave; and the lyric frames tiled at
+  phone size, 390 px wide, and read as a viewer would. At that size, two backing echoes sat on
+  other words and were moved.
 - **The master:** 1080×1920 at 30 fps, 174.83 s and 5,245 frames, counted by decoding it; stills
   pulled from it at every fix.
 
 ## Where it falls short
 
-- **The people are drawn simply,** in clean line and flat colour. They read as who they are,
-  but their poses are held rather than acted; a studio would give them more life.
+- **The people move as cards,** not as drawn animation: they sway, bob, swap poses and (Dave)
+  wave a pinned forearm, but they can't turn or walk. That's the paper cut-out style, and its
+  limit.
+- **Two hands in one film:** the band and the box are drawn in code, the people and the places
+  outside are generated illustrations. The box is ink and neon, and the day is a painted world;
+  the film is about crossing from one to the other, but it's a seam you may see.
 - **The timings rest on measurement and one listen.** Qing checked the karaoke version and chose
   the lead; nobody has checked this film's sync by ear yet.
 - **The storm's cuts follow the riff's rhythm, and its pitches only roughly:** the notes come

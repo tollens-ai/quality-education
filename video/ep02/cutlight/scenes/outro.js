@@ -12,15 +12,12 @@ import { singer } from '../playing.js';
 import { clawd } from '../clawd.js';
 import { tickPoly } from '../air.js';
 import { dayFrame, paneM, shardPoly } from '../day.js';
-import { ROSA, GRAN, PARENT, JESS, DAVE, SUE, sky } from '../world.js';
-import { stranger } from '../people.js';
+import { sky } from '../world.js';
 import { BAND, BRIEFS } from '../palette.js';
 import { INK } from '../ink.js';
 
 const C = s => cam(s.pos, s.at, { fov: s.fov, roll: s.roll || 0 });
 // The people, round the band in the square.
-const CROWD = [[ROSA, -260, -300, 172, { arms: 'hips', face: 'front' }], [GRAN, -110, -360, 160, { arms: 'down', face: 'front' }], [PARENT, 120, -340, 180, { arms: 'pockets', face: 'front' }], [JESS, 280, -300, 170, { arms: 'hold', face: 'front' }],
-  ...Array.from({ length: 10 }, (_, i) => [stranger(200 + i), -700 + i * 150 + hash(i) * 60, -700 - hash(i, 2) * 300, 170 * stranger(200 + i).height, { arms: ['down', 'pockets', 'cross', 'phone'][i % 4], face: 'front' }])];
 const DAYBAND = { cron: { pos: [0, 0, -120], riser: 0 }, null: { pos: [110, 0, -40], yaw: -.35 }, regex: { pos: [-110, 0, -30], yaw: .35 }, clawd: { pos: [0, 0, 40], yaw: 0 } };
 const CHECKS = [
   ['CHECKOUT', 'load test at twice the Saturday crowd, nothing lost'],
@@ -88,8 +85,9 @@ export function register(S) {
   const small = Array.from({ length: 14 }, (_, i) => ({ p: [(hash(i, 1) - .5) * 1100, 160 + hash(i, 2) * 620, -300 - hash(i, 3) * 700], s: 18 + hash(i, 4) * 36, seed: i }));
   const air = t => small.map(sm => ({ m: paneM([sm.p[0] + noise(t * .3, sm.seed) * 20, sm.p[1] + noise(t * .25, sm.seed + 3) * 16 - (t - 141.9) * 6, sm.p[2]], t * .6 + sm.seed, t * .4 + sm.seed * 2, sm.seed), poly: shardPoly(sm.s, sm.seed), seed: sm.seed }));
   // The four they built for, round the band, turned in to it; others further off.
-  const FOUR = [[ROSA, -330, 150, 172, { arms: 'hips', face: 'right' }], [GRAN, -215, 250, 160, { arms: 'down', face: 'right' }], [PARENT, 230, 240, 180, { arms: 'pockets', face: 'left' }], [JESS, 335, 150, 170, { arms: 'hold', face: 'left' }]];
-  const OTHERS = Array.from({ length: 9 }, (_, i) => [stranger(200 + i), -620 + i * 155 + hash(i) * 50, -520 - hash(i, 2) * 380, 170 * stranger(200 + i).height, { arms: ['down', 'pockets', 'cross', 'phone'][i % 4], face: 'front' }]);
+  const FOUR = [['rosa-stand', -330, 150, 172], ['gran-stand', -215, 250, 158], ['parent-stand', 230, 240, 180], ['jess-stand', 335, 150, 168]];
+  const TOWNF = ['town-1', 'town-2', 'town-3', 'town-4', 'town-5', 'town-6', 'town-7', 'town-8', 'town-9', 'town-10', 'town-11'];
+  const OTHERS = Array.from({ length: 9 }, (_, i) => [TOWNF[i], -620 + i * 155 + hash(i) * 50, -520 - hash(i, 2) * 380, 170 * (.94 + hash(i, 5) * .1)]);
   // Out of the flash of the box breaking: the day, fading up from white.
   overlay(141.9, 142.3, (g, t) => { g.fillStyle = `rgba(255,250,240,${.5 * (1 - clamp((t - 141.9) / .4))})`; g.fillRect(0, 0, W, H); });
   const tB = O2[0].v + .05;
@@ -142,17 +140,19 @@ export function register(S) {
   });
   // --- D: (I LOVE IT) x4: the four of them, facing him, each answering in their own hand, in the
   // colour of their brief, and cheering.
-  const who = [[ROSA, 'regex'], [GRAN, 'cron'], [PARENT, 'null'], [JESS, 'clawd']];
+  const who = [['rosa', 'regex'], ['gran', 'cron'], ['parent', 'null'], ['jess', 'clawd']];
   const setD = { pos: [0, 62, 560], at: [0, 140, -200], fov: .84 }, setD2 = { pos: [0, 60, 520], at: [0, 142, -200], fov: .84 };
   shot(loves[0][0].v - .3, dave[0].v - .2, (g, t, sh) => {
     const c = move(t, sh, setD, setD2, { hand: .8 });
-    const people = who.map(([sp], i) => {
-      const said = t >= loves[i][0].v - .1;
-      return [sp, -108 + i * 72, -60 - (i % 2) * 34, [170, 156, 178, 168][i], { arms: said ? 'cheer' : ['hips', 'phoneFar', 'strap', 'hold'][i], face: ['right', 'right', 'left', 'left'][i], joy: said, mood: said ? 'joy' : null, look: !said && i === 1 ? 'phone' : 'ahead', weight: (i - 1.5) * .3 }];
+    // Each is a card swapped for another as they answer: standing, then cheering, with a pop,
+    // bouncing on the beat from then on.
+    const people = who.map(([n], i) => {
+      const at = loves[i][0].v - .1, said = t >= at;
+      return [n + (said ? '-cheer' : '-stand'), -112 + i * 75, -60 - (i % 2) * 34, [170, 156, 178, 168][i], said ? { pop: at, bounce: .75, beatOff: i * .11 } : {}];
     });
     dayFrame(g, t, c, {
       sunAt: [-80, 600, -6000], people: [...OTHERS, ...people], shards: air(t),
-      band: [{ name: 'clawd', col: BAND.clawd.col, draw: (L, cc) => clawd(L, cc, { who: 'clawd', pos: [0, 0, 330], yaw: Math.PI, t, armL: { up: .3 }, armR: { up: .3 } }) }],
+      band: [{ name: 'clawd', col: BAND.clawd.col, draw: (L, cc) => clawd(L, cc, { who: 'clawd', pos: [0, 0, 170], yaw: Math.PI, t, armL: { up: .3 }, armR: { up: .3 } }) }],
       after: (g2) => {
         who.forEach(([sp, w], i) => {
           const L = loves[i];
@@ -178,7 +178,7 @@ export function register(S) {
     const c = move(t, sh, { pos: [40, 80, 560], at: [10, 130, -300], fov: .74 }, { pos: [36, 78, 520], at: [10, 130, -300], fov: .72 }, { hand: .7 });
     dayFrame(g, t, c, {
       sunAt: [-500, 700, -6000],
-      people: [[JESS, 50, 150, 170, { arms: 'cross', face: 'left', mood: 'deadpan' }], [DAVE, -190, -700, 176, { arms: 'wave', face: 'front', joy: true }], [SUE, 380, -900, 168, { arms: 'cross', face: 'left' }], ...OTHERS.slice(0, 5).map(([s, x, z, h, p]) => [s, x, z - 500, h, p])],
+      people: [['jess-deadpan', 50, 150, 170, { sway: .5 }], ['dave-wave', -190, -700, 176], ['sue-cross', 380, -900, 168], ...OTHERS.slice(0, 5).map(([s, x, z, h]) => [s, x, z - 500, h])],
       shards: air(t),
       after: (g2) => {
         const L = dave;

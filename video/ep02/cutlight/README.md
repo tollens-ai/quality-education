@@ -46,14 +46,14 @@ silent videos still render.
 | `clawd.js` | The four Clawds from the mascot's proportions, posed in 3D and drawn by hand: REGEX's visor, CRON's headphones, NULL's hooded cloak, Gran's glasses for NULL in verse 2 |
 | `gear.js` | The mic and stand, REGEX's offset guitar, NULL's long-horned bass, CRON's kit, the amps |
 | `playing.js` | The members playing to the record: the groove, hands on the riff, sticks on the drums, the singer at the mic |
-| `people.js` | The people, drawn with the film's pen: about six and a half heads, three-quarters when they face a way, the weight on one leg; clothes told by their lines (coats, a suit, a parka, dresses, an apron); hands, shoes, faces by mood; detail by size; strangers varied by seed |
-| `world.js` | What shows through the cuts: the sky, and the bakery, the clinic, the school and the wedding, each broken, tested or fine, as planes at depth that move like a view through a window; verse 2's windows (the booking site, the families in their cells, Jess's note); the people at the glass |
-| `day.js` | Outside, after the box breaks: the square at golden hour, the sun low behind it, the people rimmed in gold, and pieces of mirror in the air with the words cut in them |
-| `square.js` | The town square, inked: the four places, trees, and bunting in the band's four colours; clouds as a pen draws them |
-| `look.js` | Look development: the hero frames, a character sheet, the people, and the cast in the sun and against it (`--query v=wide`, `close`, `sheet`, `people`, `cast`) |
+| `paper.js` | The paper cut-outs: loads the cast and backdrops, and draws a figure as a card that sways, breathes, bobs on the beat, swaps poses with a pop and moves on twos, with a paper edge and a shadow; jointed pieces (Dave's wave); backdrops, and what stands in front of people in them |
+| `cast/` | The cut-outs (WebP with transparency) and backdrops, with `index.json` (each figure's size and where its crown is) and `backdrops.json` (the sign boards, the clinic's screen, the sun, the wedding table) |
+| `world.js` | What shows through the cuts: each place as its backdrop with its people in front (the bakery's queue, the clinic's booking screen and Gran, the parents at the school gate, Dave and Sue at the table), drawn in a reference camera's screen space so it moves like a view through a window; verse 2's windows; the people at the glass; the town square as a painted flat (`squarePlane`) |
+| `day.js` | Outside, after the box breaks: the square at golden hour, the people on its paving with their long shadows, and pieces of mirror in the air, the words cut in them; everything drawn far to near |
+| `look.js` | Look development: the hero frames, a character sheet, and every cut-out in the cast, moving (`--query v=wide`, `close`, `sheet`, `cast`) |
 | `scenes/` | `intro` (the dedication, the riff's storm of cuts, the members, the title), `verse1` (each member facing his reflection), `pre` (all three pre-choruses), `chorus` (all three), `brk`, `verse2` (the oracles' windows), `bridge` (the definition over four windows, the disc, the torch, DONE), `outro` (the evidence, the question, the answers, the teaching card and end card) |
 | `fonts/` | Big Shoulders Stencil Display and JetBrains Mono (OFL), Rock Salt (Apache 2.0), with their licences; `stencil-900.json` holds the stencil face's glyph outlines at its heaviest weight |
-| `tools/` | `glyphs.py` exports the glyph outlines; `typo-audit.mjs`, `typo-report.py` and `typo-run.sh` check every sung word; `shots.mjs` lists gaps and overlaps between shots |
+| `tools/` | `glyphs.py` exports the glyph outlines; `cutout.py` cuts figures out of generated sheets; `backdrops.py` prepares and measures the backdrops; `typo-audit.mjs`, `typo-report.py` and `typo-run.sh` check every sung word; `shots.mjs` lists gaps and overlaps between shots |
 
 ## How a word is cut
 

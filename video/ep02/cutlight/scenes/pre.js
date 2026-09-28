@@ -54,7 +54,7 @@ function prechorus(k) {
   const echoes = [0, 1].map(i => { try { return words(sec, 'something else', i); } catch { return null; } }).filter(Boolean);
   const start = L1[0].v - .3, pb = L1[6].v - .12, pc = L3[0].v - .12, pd = L3[11].v + .45;
   const end = { 1: 38.9, 2: 84.6, 3: 127.0 }[k];
-  const outsideOf = c => L => k === 3 ? onlookers(L, c, 0) : sky(L, c, 0, { sun: [0, 300, -6000] });
+  const outsideOf = (c, t = 0) => L => k === 3 ? onlookers(L, c, t) : sky(L, c, 0, { sun: [0, 300, -6000] });
   // --- PA: his back to us, his stub on the glass; his reflection looks back. BROKEN cracks out.
   {
     const set = { pos: [45, 82, 110], at: [-35, 76, -165], fov: .9, roll: -.01 };
@@ -69,7 +69,7 @@ function prechorus(k) {
       const clawdAt = { who: 'clawd', pos: [-30, 0, -118], yaw: Math.PI - .55, t, eyes: 'sad', armL: { to: [4, 6, 36], z: 12 }, armR: { up: -.1 } };
       boxFrame(g, t, c, {
         see: k === 3 ? .4 : 0,
-        lights: soloLights(), cuts, cutOpt: { outside: outsideOf(c), laser: BAND.clawd.col, light: .5 },
+        lights: soloLights(), cuts, cutOpt: { outside: outsideOf(c, t), laser: BAND.clawd.col, light: .5 },
         band: [{ name: 'clawd', col: BAND.clawd.col, rimDir: [-.5, -1], draw: (L, cc) => clawd(L, cc, clawdAt) }],
         refl: { floor: true, wall: 1, wallA: .85 }, post: { shafts: .3, glow: [.3, .35], glitch: t > brk ? hit('snare', t, .08) * .3 : 0 },
         behind: (B, E) => crack(B, c, handAt[0], handAt[1], clamp((t - brk + .12) / .5), k, E),
@@ -85,17 +85,18 @@ function prechorus(k) {
       const c = move(t, sh, set, set2, { hand: 1, ease: easeOut });
       boxFrame(g, t, c, {
         see: k === 3 ? .5 : 0,
-        lights: soloLights(), cuts, cutOpt: { outside: outsideOf(c), laser: BAND.clawd.col, light: .55 },
+        lights: soloLights(), cuts, cutOpt: { outside: outsideOf(c, t), laser: BAND.clawd.col, light: .55 },
         band: [{ name: 'clawd', col: BAND.clawd.col, rimDir: [.4, -1], draw: (L, cc) => clawd(L, cc, { who: 'clawd', pos: [60, 0, 120], yaw: Math.PI - .5, t, eyes: 'sad' }) }],
         refl: { floor: true, wall: 2, wallA: .6 }, rays: .6, post: { shafts: .35 },
       });
     });
-    // The echo, sung by his reflection: FOR, then MYSELF?, clear of the apps' buttons.
+    // The echo, sung by his reflection: FOR, then MYSELF?, in the gap between the words and his
+    // head, which in the next shot is his face.
     const px = 96, x0 = 920 - width100('FOR MYSELF?') / 100 * px;
     L2.slice(0, 2).forEach((e, i) => {
       overlay(e.v - .15, pc + .4, (g, t) => {
         const p = clamp((t - (e.v - .15)) / .2), a = clamp((pc + .4 - t) / .3);
-        etchFlat(g, i ? 'MYSELF?' : 'FOR', x0 + (i ? width100('FOR ') / 100 * px : 0), 1500, px, BAND.clawd.col, p, { alpha: a * .95, w0: e });
+        etchFlat(g, i ? 'MYSELF?' : 'FOR', x0 + (i ? width100('FOR ') / 100 * px : 0), 1045, px, BAND.clawd.col, p, { alpha: a * .95, w0: e });
       });
     });
   }
@@ -110,7 +111,7 @@ function prechorus(k) {
       const v = env('vocal', t);
       boxFrame(g, t, c, {
         see: k === 3 ? .55 : 0,
-        lights: soloLights(), cuts, cutOpt: { outside: outsideOf(c), laser: BAND.clawd.col, light: .55 },
+        lights: soloLights(), cuts, cutOpt: { outside: outsideOf(c, t), laser: BAND.clawd.col, light: .55 },
         band: [{ name: 'clawd', col: BAND.clawd.col, rimDir: [0, -1], draw: (L, cc) => clawd(L, cc, { who: 'clawd', pos: [0, 0, 150], yaw: .08, t, eyes: 'sad', mouth: clamp(v * 1.4), look: [0, .3] }) }],
         refl: { floor: true, wall: 4, wallA: .55 }, rays: .5, post: { shafts: .3 },
       });

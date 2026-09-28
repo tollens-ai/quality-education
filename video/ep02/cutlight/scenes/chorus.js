@@ -25,7 +25,7 @@ export function register(S) {
 function chorus(k) {
   const sec = 'Chorus ' + k;
   const L1 = words(sec, 'How do I'), L2 = words(sec, 'All of my'), L3 = words(sec, 'Give me a'), L4 = words(sec, 'I want you'), L5 = words(sec, 'love it'), L6 = words(sec, 'so give me');
-  const outOf = c => L => k === 3 ? onlookers(L, c, 0, { lit: true }) : sky(L, c, 0, { sun: [0, 380, -6000] });
+  const outOf = (c, t = 0) => L => k === 3 ? onlookers(L, c, t, { joy: true }) : sky(L, c, 0, { sun: [0, 380, -6000] });
   const flip = k === 2 ? -1 : 1;
   const tA = L1[0].v - .45, tB = L1[4].v - .12, tC = L2[0].v - .2, tD = L3[0].v - .2, tE = L4[3].v - .12, tF = L6[0].v - .1, end = ENDS[k];
   // The backing (ooh-ooh)s of chorus 2, etched by the reflections.
@@ -45,7 +45,7 @@ function chorus(k) {
       const c = move(t, sh, set, set2, { shake: 8, ease: easeOut });
       boxFrame(g, t, c, {
         see: k === 3 ? .7 : 0,
-        lights: STAGE_LIGHTS, cuts, cutOpt: { outside: outOf(c), light: .8, fall: 'blow', fallDur: .7 },
+        lights: STAGE_LIGHTS, cuts, cutOpt: { outside: outOf(c, t), light: .8, fall: 'blow', fallDur: .7 },
         band: bandLine(t, { jump: 1 }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
         refl: { floor: true, wall: 2 }, rays: 1, set: true, post: { shafts: .55, glow: [.32, .45], split: hit('crash', t, .12) * 7, focus: hit('crash', t, .18) },
       });
@@ -65,7 +65,7 @@ function chorus(k) {
       const c = move(t, sh, set, set2, { shake: 5 });
       boxFrame(g, t, c, {
         see: k === 3 ? .7 : 0,
-        lights: STAGE_LIGHTS, cuts: [...cuts, circle], cutOpt: { outside: outOf(c), laser: BAND.clawd.col, light: .75, fall: 'blow', fallDur: .6 },
+        lights: STAGE_LIGHTS, cuts: [...cuts, circle], cutOpt: { outside: outOf(c, t), laser: BAND.clawd.col, light: .75, fall: 'blow', fallDur: .6 },
         band: [{ name: 'clawd', col: BAND.clawd.col, rimDir: [0, -1], draw: (L, cc) => singer(L, cc, { pos: [0, 0, 250], yaw: flip * .15, t, eyes: 'narrow' }) }],
         beams: [STAGE_BEAMS[0]], smoke: [[0, 200, 220, 60, BAND.clawd.col, 12, .6]],
         refl: { floor: true, wall: 2 }, rays: .9, post: { shafts: .5, glow: [.3, .42] },
@@ -99,7 +99,7 @@ function chorus(k) {
       const c = move(t, sh, set, set2, { shake: 5 });
       boxFrame(g, t, c, {
         see: k === 3 ? .7 : 0,
-        lights: STAGE_LIGHTS, cuts: [...ticks, ...cuts], cutOpt: { outside: outOf(c), laser: BAND.regex.col, light: .75, fallDur: .45 },
+        lights: STAGE_LIGHTS, cuts: [...ticks, ...cuts], cutOpt: { outside: outOf(c, t), laser: BAND.regex.col, light: .75, fallDur: .45 },
         band: bandLine(t, { jump: .6 }).filter(b => b.name !== 'cron').map(b => ({ ...b, draw: (L, cc) => b.draw(L, cc) })), smoke: STAGE_SMOKE, beams: STAGE_BEAMS.slice(0, 3),
         refl: { floor: true, wall: 2 }, rays: .8, post: { shafts: .45, glow: [.3, .42] },
         after: (g2, E) => {
@@ -122,7 +122,7 @@ function chorus(k) {
       const c = move(t, sh, set, set2, { shake: 6, ease: easeOut });
       boxFrame(g, t, c, {
         see: k === 3 ? .7 : 0,
-        lights: STAGE_LIGHTS, cuts, cutOpt: { outside: outOf(c), laser: BAND.cron.col, light: .8, fall: 'blow', fallDur: .6 },
+        lights: STAGE_LIGHTS, cuts, cutOpt: { outside: outOf(c, t), laser: BAND.cron.col, light: .8, fall: 'blow', fallDur: .6 },
         band: bandLine(t, { jump: 1.2 }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
         refl: { floor: true, wall: 2 }, rays: .9, set: true, post: { shafts: .5, glow: [.32, .45], split: hit('crash', t, .1) * 5, focus: hit('crash', t, .18) },
         after: (g2, E) => {
@@ -147,7 +147,7 @@ function chorus(k) {
       const c = move(t, sh, set, set2, { shake: 3 });
       boxFrame(g, t, c, {
         see: k === 3 ? .7 : 0,
-        lights: STAGE_LIGHTS, cuts, cutOpt: { outside: outOf(c), laser: BAND.clawd.col, light: .8 },
+        lights: STAGE_LIGHTS, cuts, cutOpt: { outside: outOf(c, t), laser: BAND.clawd.col, light: .8 },
         band: [{ name: 'clawd', col: BAND.clawd.col, rimDir: [0, -1], draw: (L, cc) => singer(L, cc, { pos: [0, 0, 170], yaw: flip * .06, t, eyes: 'narrow' }) }],
         refl: { floor: true, wall: 4, wallA: .5 }, rays: .8, post: { shafts: .45 },
       });
@@ -185,7 +185,7 @@ function chorus(k) {
       const boom = clamp(1 - (t - prove - .12) / (k === 3 ? .22 : .35)) * (t >= prove + .12 ? 1 : 0) * (k === 3 ? 1.2 : .7);
       boxFrame(g, t, c, {
         see: k === 3 ? .7 : 0,
-        lights: STAGE_LIGHTS, cuts: [...cuts, ...shatter], cutOpt: { outside: outOf(c), light: .85, fall: 'blow', fallDur: .8 },
+        lights: STAGE_LIGHTS, cuts: [...cuts, ...shatter], cutOpt: { outside: outOf(c, t), light: .85, fall: 'blow', fallDur: .8 },
         band: bandLine(t, { jump: 1.3 }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
         // The third time the whole wall opens, so the light needs no help: a short flash, and the
         // pieces flying out stay visible through it.

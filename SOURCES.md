@@ -100,6 +100,9 @@ quality. Credit them here and on screen.
 - **The look** is our own: a box of one-way mirrors, inked like a manga page, with the words cut
   out of the glass. Hatching, scratchboard blacks and focus lines are the manga's and the
   engraver's familiar techniques, drawn by our code; no artwork is reproduced.
+- **The people and the places outside the box** (the bakery, the clinic, the school, the wedding
+  marquee, the town square) were drawn by OpenAI's image generation, used through Codex, from our
+  own briefs; we cut them out and animate them as paper cut-outs.
 - **Fonts,** with their licences in `video/ep02/cutlight/fonts/`: Big Shoulders Stencil Display
   (The Big Shoulders Project Authors, SIL Open Font License) for the sung words; JetBrains Mono
   (The JetBrains Mono Project Authors, SIL Open Font License) for labels and the teaching card;

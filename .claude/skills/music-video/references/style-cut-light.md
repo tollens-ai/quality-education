@@ -115,8 +115,12 @@ construction you could see (capsule limbs, oval hands, curls that were rings of 
 - **Animated as paper:** each figure is a card that sways on its feet, breathes, bobs on the beat
   and is swapped for another pose with a pop, on twos, while the camera moves on every frame. A
   thin paper edge and a soft shadow make each one read as card.
-- **The square is a painted flat** standing across the far side, its paving running up to its
-  fronts, so the people stand on painted stone and cast long shadows on it.
+- **The square is a painted flat** standing across the far side, softened and hazed with the low
+  sun so it sits back as distance. Its paving is drawn in the camera's own perspective and in the
+  places' manner (`world.js`: `squareGround`): flat-toned flagstones, warm in the sun's path and
+  violet in the fronts' shade, the joints inked and boiling on twos. The people stand on it, with a
+  dark patch under their feet and long shadows towards us; they're lit from behind, a gold edge
+  round each.
 
 ## The story leads
 
@@ -190,8 +194,15 @@ How the cut words behave:
 - **People built from shapes show their construction.** Flat shapes looked like paper dolls;
   inked shapes still showed their circles and capsules (Qing, 2026-09-28: "it's not really good
   art if I can see the circles"). Generated artwork, cut out and animated as paper, got past it.
-- **A plain ground in front of a painted backdrop reads as a gap.** Let the painting's own ground
-  run under the people, and anchor them with shadows.
+- **Cut-outs in front of a painted place float unless the ground is the camera's.** A plain
+  ground in front of the painting read as a gap; the painting's own paving, in its own
+  perspective, left the people hovering in the finale (Qing, 2026-09-28: "the finale scene (where
+  people hover against the cartoony background)"). What worked: stand the painting's fronts
+  across the far side, draw the ground in the camera's perspective up to them, in the film's own
+  hand and at human scale (a flagstone a third of a person's height), give each person a contact
+  shadow and a long cast shadow, and soften and haze the painting so it reads as distance and
+  doesn't compete with the inked people. A smooth gradient for the ground read as an empty CG
+  floor.
 - **Depth-sort people, props and pieces of glass together,** far to near, or a far piece lands on
   a near face.
 - **Dark materials go white under a strong key.** Shade by albedo, and scratch dark ones white on

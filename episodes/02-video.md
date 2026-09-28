@@ -7,9 +7,8 @@ The renderer is [video/ep02/cutlight/](../video/ep02/cutlight/README.md), and th
 is [Cut Light, ink and neon](../.claude/skills/music-video/references/style-cut-light.md). v2,
 "The Mirror", and v1, "The Garage", are kept below.
 
-Parked on 2026-09-28, with the story layer below built and previewed but not mastered, while
-another model has a go in a different art style (Qing: "I want them to have a go in a different
-art style").
+Qing, on its story layer (2026-09-28): "the previous is ASTONISHING". Her one note, on the
+finale, was fixed before the master.
 
 ## Qing's notes on v2 (2026-09-28, verbatim)
 
@@ -104,6 +103,17 @@ paper. On that cut (v3.2), from a frame of the school gate:
 > also the jumping up and down by the band feels VERY repetitive by the end. I think yeah, great
 > text design, even that gets a bit repetitive by the end. but it feels like yeah just.... way too
 > much band, way too much repetitiveness, not enough illustrating the content
+
+## Qing's notes on the story layer (2026-09-28, verbatim)
+
+She had asked to park the video so another model could try a different art style. Then, having
+watched the story layer's preview:
+
+> OK I changed my mind, the previous is ASTONISHING. let's finish this job, sonnet can do the next
+> song. AFAIct everything except the finale scene (where people hover against the cartoony
+> background) is good enough for me to post
+
+So the finale was redrawn (see *How it was made*).
 
 ## The world
 
@@ -280,22 +290,28 @@ more), over the band's last jam.
   middle in every verse and a verse 2 like verse 1. The next had the band everywhere and the
   story only through the letters; so every line's story now plays out big on the glass, the
   repeats progress, and the band jumps only on the big hits.
+- **The finale was redrawn after Qing's note** that the people "hover against the cartoony
+  background". The square's paving had been the painting's own, in the painting's perspective, so
+  the cut-outs never stood on it. Now the paving is drawn in the camera's perspective and in the
+  film's own hand: flagstones a third of a person's height, warm where the low sun's path comes
+  through between the fronts and violet in their shade, the joints inked and fading into the
+  distance. Each person has a dark patch under their feet and a long shadow towards us; the
+  painted fronts are softened and hazed with the low sun so they sit back as distance; and the
+  people are lit from behind, a gold edge round each.
 
 ## How it was checked
-
-As of the parked preview (the story layer, 540 wide, not mastered):
 
 - **Words:** the typography audit (`video/ep02/cutlight/tools/typo-audit.mjs`, `typo-report.py`,
   run by `typo-run.sh`) rendered the film every 0.1 s and judged all 487 sung words for size, time
   fully on screen, contrast at the letters' edges, cover, tilt, reading order and the phone apps'
-  UI zone. It flagged 33, all accounted for: the whispered dedication and the stuck words (GET
+  UI zone. It flags 32, all accounted for: the whispered dedication and the stuck words (GET
   THROUGH, BROKEN), etched with a glow the check reads as their edges blending (13); RUN AND RUN
   turning on its disc, and chorus 2's I WANT YOU TO seen from the side, tilted (11); the PROVE!s in
-  the crash's flash (4); THE LOAD, its glass falling out of the letters as it lands (2); and three
-  words over the town seen through the clearing glass (3). An earlier run put the backing echoes
+  the crash's flash (4); THE LOAD, its glass falling out of the letters as it lands (2); and two
+  words over the town seen through the clearing glass (2). An earlier run put the backing echoes
   in the phone apps' UI zone; they were moved. Every word is lettered while it's sung, and every
   line reads in sung order.
-- **Motion:** `video/lib/motion.py` on the preview: a median change of 7.8, and near-still seconds
+- **Motion:** `video/lib/motion.py` on the master: a median change of 7.7, and near-still seconds
   only on the teaching card and the end card, which are there to be read.
 - **Shots:** `video/ep02/cutlight/tools/shots.mjs`: 60 shots and no gaps.
 - **The story from the pictures alone:** three previews at 540 wide, each as contact sheets at a
@@ -304,11 +320,14 @@ As of the parked preview (the story layer, 540 wide, not mastered):
   Gran's problem read as a site that was down rather than one she couldn't use, that the leaked
   messages didn't say whose they were, that the isolation check didn't show anything being found,
   and a crack that ran over faces; all were redrawn.
-- **The preview:** 174.83 s and 5,245 frames, counted by decoding it.
+- **The master:** 1080×1920 at 30 fps, 174.83 s and 5,245 frames, counted by decoding it; stills
+  pulled from it at every fix and at every join between the parts it was rendered in. The upload
+  copy (H.264 High, AAC) decodes to the same 5,245 frames.
 
 ## Where it falls short
 
-- **It isn't finished:** the story layer was parked before a 1080 master, and Qing hasn't seen it.
+- **The square is still a painted flat:** hazed and set back, it's a softer hand than the inked
+  people standing in front of it.
 - **The people move as cards,** not as drawn animation: they sway, bob and swap poses, but they
   can't turn or walk. That's the paper cut-out style, and its limit.
 - **Some links are the lyric's, not the picture's:** the bakery's failure and its queue aren't

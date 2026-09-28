@@ -5,8 +5,8 @@
 import { W, H, clamp, lerp, mix, rgba, hash } from './kit.js';
 import { setLights, project, ap, M, T, RX, RY, RZ, STYLE, projPoly, tracePoly } from './space.js';
 import { drawCuts } from './type.js';
-import { layer, glow, shafts, grain, vignette, rimmed } from './post.js';
-import { squarePlane } from './world.js';
+import { layer, put, blurred, glow, shafts, grain, vignette, rimmed } from './post.js';
+import { squarePlane, squareGround } from './world.js';
 import { figure } from './paper.js';
 import { INK } from './ink.js';
 
@@ -49,12 +49,23 @@ function drawShard(g, c, m, poly, E, t, seed, text) {
   if (E && gl > .75) { E.save(); E.beginPath(); tracePoly(E, pp); E.strokeStyle = `rgba(255,245,220,${(gl - .75) * 3})`; E.lineWidth = 6; E.stroke(); E.restore(); }
 }
 
-// The square beyond, and the sky over it if a camera looks higher than the flat reaches.
+// The square beyond, and the sky over it if a camera looks higher than the flat reaches. The
+// painted fronts are softened a little and hazed with the low sun, so they sit back as distance
+// behind the people; the paving is the camera's own (world.js: squareGround).
 function scene(L, c) {
   const gr = L.createLinearGradient(0, 0, 0, H);
   gr.addColorStop(0, '#1f4f8f'); gr.addColorStop(1, '#f2a857');
   L.fillStyle = gr; L.fillRect(-W, -H, W * 3, H * 3);
-  return squarePlane(L, c);
+  const F = layer('squareFlat');
+  const sp = squarePlane(F, c);
+  put(L, blurred('squareFlatB', F, 2.2, .5));
+  if (sp) {
+    const hz = L.createRadialGradient(sp.x, sp.y, 0, sp.x, sp.y, H * .9);
+    hz.addColorStop(0, 'rgba(255,214,160,.34)'); hz.addColorStop(.5, 'rgba(255,196,150,.14)'); hz.addColorStop(1, 'rgba(120,110,160,.1)');
+    L.save(); L.globalCompositeOperation = 'screen'; L.fillStyle = hz; L.fillRect(-W, -H, W * 3, H * 3); L.restore();
+  }
+  squareGround(L, c, { rich: true, t: INK.t });
+  return sp;
 }
 
 // o: { lights, people: [[figure, x, z, height, figure options]], band: [{ name, col, draw(L, c) }],
@@ -67,7 +78,11 @@ export function dayFrame(g, t, c, o) {
   // with a gold rim, not hatched shade.
   setLights({ key: { dir: [-.35, .45, -.85], col: '#ffd9a0', k: 1.25 }, ambient: '#8a86a8', extra: [{ dir: [.2, .6, .8], col: '#dfe4f6', k: 1.05 }], ...o.lights, view: c.pos });
   const E = layer('emit');
-  const sp = scene(g, c) || { x: W / 2, y: H * .35 };
+  // The scene once a frame: behind everything, and through the words cut in the pieces of mirror.
+  const S = layer('dayScene');
+  const sp = scene(S, c) || { x: W / 2, y: H * .35 };
+  put(g, S);
+  const sceneOut = L => { L.save(); L.setTransform(1, 0, 0, 1, 0, 0); L.drawImage(S.canvas, 0, 0); L.restore(); };
   // The paving is the flat's own, painted running up to its fronts, so the people stand on it; only
   // their long shadows are laid on it here.
   // Their shadows on the stone first, long in the low sun, falling towards us.
@@ -75,15 +90,20 @@ export function dayFrame(g, t, c, o) {
     const a = project(c, [x, 0, z]), b = project(c, [x - (hh ?? 172) * .18, 0, z + (hh ?? 172) * .9]);
     if (a.z < c.near) continue;
     const w0 = 20 * a.s;
-    g.save(); g.fillStyle = 'rgba(46,26,30,.3)'; g.beginPath();
+    g.save(); g.fillStyle = 'rgba(46,26,40,.42)'; g.beginPath();
     g.moveTo(a.x - w0, a.y); g.lineTo(b.x - w0 * .7, b.y); g.lineTo(b.x + w0 * .7, b.y); g.lineTo(a.x + w0, a.y); g.closePath(); g.fill(); g.restore();
+    // And where they stand: a soft dark patch under the feet, so they're on the stone.
+    const r = w0 * 1.9, cs = g.createRadialGradient(a.x, a.y, 0, a.x, a.y, r);
+    cs.addColorStop(0, 'rgba(28,14,26,.6)'); cs.addColorStop(1, 'rgba(28,14,26,0)');
+    g.save(); g.translate(a.x, a.y); g.scale(1, .28); g.translate(-a.x, -a.y); g.fillStyle = cs; g.beginPath(); g.arc(a.x, a.y, r, 0, Math.PI * 2); g.fill(); g.restore();
   }
   // Then everything standing or hanging in the square, the far things first: the people as cards,
   // the pieces of mirror, the band.
   const items = [];
   (o.people || []).forEach(([name, x, z, hh, fo], i) => {
     const p = project(c, [x, 0, z]);
-    if (p.z > c.near) items.push({ z: p.z, draw: () => figure(g, name, p.x, p.y, (hh ?? 172) * p.s, { t, seed: 500 + i, edge: '#ffe9c4', edgeW: 1.3, shadow: [2.5, 2, .25], ...fo }) });
+    // Backlit by the low sun: the side facing us a little in shade, a gold edge round them.
+    if (p.z > c.near) items.push({ z: p.z, draw: () => figure(g, name, p.x, p.y, (hh ?? 172) * p.s, { t, seed: 500 + i, wash: ['#3a2838', .2], edge: '#ffcf8a', edgeW: 1.8, halo: ['#ffbe6e', .3, 7], shadow: false, ...fo }) });
   });
   for (const sh of o.shards || []) {
     const z = project(c, ap(sh.m, [0, 0, 0])).z;
@@ -91,7 +111,7 @@ export function dayFrame(g, t, c, o) {
       drawShard(g, c, sh.m, sh.poly, E, t, sh.seed || 0, !!sh.cuts);
       // The day through the words: lifted, so the deep blue at the top of the sky still reads as
       // light against the dark glass.
-      if (sh.cuts) drawCuts(g, c, t, sh.cuts, { outside: L => scene(L, c), E, laser: sh.laser || '#ff8a5c', light: .5, haze: .34, both: true, fall: 'blow', fallDur: .5 });
+      if (sh.cuts) drawCuts(g, c, t, sh.cuts, { outside: sceneOut, E, laser: sh.laser || '#ff8a5c', light: .5, haze: .34, both: true, fall: 'blow', fallDur: .5 });
       sh.after?.(g, E);
     } });
   }

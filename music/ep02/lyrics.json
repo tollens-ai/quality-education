@@ -1,0 +1,3527 @@
+[
+ {
+  "text": "(This one's for everyone we ever built an app for)",
+  "section": "Intro",
+  "back": true,
+  "start": 0.0,
+  "end": 2.26,
+  "words": [
+   {
+    "w": "(This",
+    "s": 0.0,
+    "e": 0.34,
+    "backing": true
+   },
+   {
+    "w": "one's",
+    "s": 0.34,
+    "e": 0.64,
+    "backing": true
+   },
+   {
+    "w": "for",
+    "s": 0.64,
+    "e": 0.76,
+    "backing": true
+   },
+   {
+    "w": "everyone",
+    "s": 0.76,
+    "e": 1.06,
+    "backing": true
+   },
+   {
+    "w": "we",
+    "s": 1.06,
+    "e": 1.3,
+    "backing": true
+   },
+   {
+    "w": "ever",
+    "s": 1.3,
+    "e": 1.44,
+    "backing": true
+   },
+   {
+    "w": "built",
+    "s": 1.44,
+    "e": 1.74,
+    "backing": true
+   },
+   {
+    "w": "an",
+    "s": 1.74,
+    "e": 1.86,
+    "backing": true
+   },
+   {
+    "w": "app",
+    "s": 1.86,
+    "e": 2.04,
+    "backing": true
+   },
+   {
+    "w": "for)",
+    "s": 2.04,
+    "e": 2.26,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "Your checkout just went down at eight with fifty in the queue",
+  "section": "Verse 1",
+  "back": false,
+  "start": 13.52,
+  "end": 16.98,
+  "words": [
+   {
+    "w": "Your",
+    "s": 13.52,
+    "e": 14.08,
+    "backing": false
+   },
+   {
+    "w": "checkout",
+    "s": 14.08,
+    "e": 14.42,
+    "backing": false
+   },
+   {
+    "w": "just",
+    "s": 14.42,
+    "e": 14.74,
+    "backing": false
+   },
+   {
+    "w": "went",
+    "s": 14.74,
+    "e": 14.96,
+    "backing": false
+   },
+   {
+    "w": "down",
+    "s": 14.96,
+    "e": 15.24,
+    "backing": false
+   },
+   {
+    "w": "at",
+    "s": 15.24,
+    "e": 15.38,
+    "backing": false
+   },
+   {
+    "w": "eight",
+    "s": 15.38,
+    "e": 15.7,
+    "backing": false
+   },
+   {
+    "w": "with",
+    "s": 15.7,
+    "e": 15.88,
+    "backing": false
+   },
+   {
+    "w": "fifty",
+    "s": 15.88,
+    "e": 16.24,
+    "backing": false
+   },
+   {
+    "w": "in",
+    "s": 16.24,
+    "e": 16.54,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 16.54,
+    "e": 16.72,
+    "backing": false
+   },
+   {
+    "w": "queue",
+    "s": 16.72,
+    "e": 16.98,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(oooh)",
+  "section": "Verse 1",
+  "back": true,
+  "start": 17.4,
+  "end": 17.74,
+  "words": [
+   {
+    "w": "(oooh)",
+    "s": 17.4,
+    "e": 17.74,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "Your clinic's booking site looked cute but Gran could not get through",
+  "section": "Verse 1",
+  "back": false,
+  "start": 17.18,
+  "end": 20.5,
+  "words": [
+   {
+    "w": "Your",
+    "s": 17.18,
+    "e": 17.66,
+    "backing": false
+   },
+   {
+    "w": "clinic's",
+    "s": 17.66,
+    "e": 18.08,
+    "backing": false
+   },
+   {
+    "w": "booking",
+    "s": 18.08,
+    "e": 18.3,
+    "backing": false
+   },
+   {
+    "w": "site",
+    "s": 18.3,
+    "e": 18.7,
+    "backing": false
+   },
+   {
+    "w": "looked",
+    "s": 18.7,
+    "e": 18.86,
+    "backing": false
+   },
+   {
+    "w": "cute",
+    "s": 18.86,
+    "e": 19.22,
+    "backing": false
+   },
+   {
+    "w": "but",
+    "s": 19.22,
+    "e": 19.42,
+    "backing": false
+   },
+   {
+    "w": "Gran",
+    "s": 19.42,
+    "e": 19.6,
+    "backing": false
+   },
+   {
+    "w": "could",
+    "s": 19.6,
+    "e": 19.84,
+    "backing": false
+   },
+   {
+    "w": "not",
+    "s": 19.84,
+    "e": 20.06,
+    "backing": false
+   },
+   {
+    "w": "get",
+    "s": 20.06,
+    "e": 20.32,
+    "backing": false
+   },
+   {
+    "w": "through",
+    "s": 20.32,
+    "e": 20.5,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(oooh)",
+  "section": "Verse 1",
+  "back": true,
+  "start": 20.98,
+  "end": 21.32,
+  "words": [
+   {
+    "w": "(oooh)",
+    "s": 20.98,
+    "e": 21.32,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "Your school's new feedback app let parents read each others' texts",
+  "section": "Verse 1",
+  "back": false,
+  "start": 20.8,
+  "end": 24.04,
+  "words": [
+   {
+    "w": "Your",
+    "s": 20.8,
+    "e": 21.16,
+    "backing": false
+   },
+   {
+    "w": "school's",
+    "s": 21.16,
+    "e": 21.42,
+    "backing": false
+   },
+   {
+    "w": "new",
+    "s": 21.42,
+    "e": 21.52,
+    "backing": false
+   },
+   {
+    "w": "feedback",
+    "s": 21.52,
+    "e": 21.96,
+    "backing": false
+   },
+   {
+    "w": "app",
+    "s": 21.96,
+    "e": 22.28,
+    "backing": false
+   },
+   {
+    "w": "let",
+    "s": 22.28,
+    "e": 22.4,
+    "backing": false
+   },
+   {
+    "w": "parents",
+    "s": 22.4,
+    "e": 22.84,
+    "backing": false
+   },
+   {
+    "w": "read",
+    "s": 22.84,
+    "e": 23.12,
+    "backing": false
+   },
+   {
+    "w": "each",
+    "s": 23.12,
+    "e": 23.36,
+    "backing": false
+   },
+   {
+    "w": "others'",
+    "s": 23.36,
+    "e": 23.68,
+    "backing": false
+   },
+   {
+    "w": "texts",
+    "s": 23.82,
+    "e": 24.04,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(oooh)",
+  "section": "Verse 1",
+  "back": true,
+  "start": 24.44,
+  "end": 24.68,
+  "words": [
+   {
+    "w": "(oooh)",
+    "s": 24.44,
+    "e": 24.68,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "Your wedding seating site put Dave next to his angry ex!",
+  "section": "Verse 1",
+  "back": false,
+  "start": 24.34,
+  "end": 27.66,
+  "words": [
+   {
+    "w": "Your",
+    "s": 24.34,
+    "e": 24.7,
+    "backing": false
+   },
+   {
+    "w": "wedding",
+    "s": 24.7,
+    "e": 25.0,
+    "backing": false
+   },
+   {
+    "w": "seating",
+    "s": 25.0,
+    "e": 25.36,
+    "backing": false
+   },
+   {
+    "w": "site",
+    "s": 25.36,
+    "e": 25.74,
+    "backing": false
+   },
+   {
+    "w": "put",
+    "s": 25.74,
+    "e": 25.92,
+    "backing": false
+   },
+   {
+    "w": "Dave",
+    "s": 25.92,
+    "e": 26.26,
+    "backing": false
+   },
+   {
+    "w": "next",
+    "s": 26.26,
+    "e": 26.48,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 26.48,
+    "e": 26.76,
+    "backing": false
+   },
+   {
+    "w": "his",
+    "s": 26.76,
+    "e": 26.96,
+    "backing": false
+   },
+   {
+    "w": "angry",
+    "s": 26.96,
+    "e": 27.32,
+    "backing": false
+   },
+   {
+    "w": "ex!",
+    "s": 27.32,
+    "e": 27.66,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "You can tell me it's broken, but how will I know for myself?",
+  "section": "Pre-chorus 1",
+  "back": false,
+  "start": 28.6,
+  "end": 31.58,
+  "words": [
+   {
+    "w": "You",
+    "s": 28.6,
+    "e": 28.96,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 28.96,
+    "e": 29.12,
+    "backing": false
+   },
+   {
+    "w": "tell",
+    "s": 29.12,
+    "e": 29.32,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 29.32,
+    "e": 29.44,
+    "backing": false
+   },
+   {
+    "w": "it's",
+    "s": 29.44,
+    "e": 29.6,
+    "backing": false
+   },
+   {
+    "w": "broken,",
+    "s": 29.6,
+    "e": 29.78,
+    "backing": false
+   },
+   {
+    "w": "but",
+    "s": 30.0,
+    "e": 30.22,
+    "backing": false
+   },
+   {
+    "w": "how",
+    "s": 30.22,
+    "e": 30.58,
+    "backing": false
+   },
+   {
+    "w": "will",
+    "s": 30.58,
+    "e": 30.8,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 30.8,
+    "e": 30.94,
+    "backing": false
+   },
+   {
+    "w": "know",
+    "s": 30.94,
+    "e": 31.08,
+    "backing": false
+   },
+   {
+    "w": "for",
+    "s": 31.08,
+    "e": 31.2,
+    "backing": false
+   },
+   {
+    "w": "myself?",
+    "s": 31.2,
+    "e": 31.58,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(for myself?)",
+  "section": "Pre-chorus 1",
+  "back": true,
+  "start": 31.62,
+  "end": 32.18,
+  "words": [
+   {
+    "w": "(for",
+    "s": 31.62,
+    "e": 31.76,
+    "backing": true
+   },
+   {
+    "w": "myself?)",
+    "s": 31.76,
+    "e": 32.18,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "So baby now I'm hoping, that you can give me something else",
+  "section": "Pre-chorus 1",
+  "back": false,
+  "start": 32.3,
+  "end": 35.18,
+  "words": [
+   {
+    "w": "So",
+    "s": 32.3,
+    "e": 32.52,
+    "backing": false
+   },
+   {
+    "w": "baby",
+    "s": 32.52,
+    "e": 32.78,
+    "backing": false
+   },
+   {
+    "w": "now",
+    "s": 32.82,
+    "e": 33.0,
+    "backing": false
+   },
+   {
+    "w": "I'm",
+    "s": 33.0,
+    "e": 33.18,
+    "backing": false
+   },
+   {
+    "w": "hoping,",
+    "s": 33.18,
+    "e": 33.38,
+    "backing": false
+   },
+   {
+    "w": "that",
+    "s": 33.38,
+    "e": 33.7,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 33.7,
+    "e": 33.82,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 33.82,
+    "e": 34.0,
+    "backing": false
+   },
+   {
+    "w": "give",
+    "s": 34.0,
+    "e": 34.2,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 34.2,
+    "e": 34.42,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 34.42,
+    "e": 34.7,
+    "backing": false
+   },
+   {
+    "w": "else",
+    "s": 34.7,
+    "e": 35.18,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(something else)",
+  "section": "Pre-chorus 1",
+  "back": true,
+  "start": 35.18,
+  "end": 36.44,
+  "words": [
+   {
+    "w": "(something",
+    "s": 35.18,
+    "e": 35.56,
+    "backing": true
+   },
+   {
+    "w": "else)",
+    "s": 35.56,
+    "e": 36.44,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "(something else)",
+  "section": "Pre-chorus 1",
+  "back": true,
+  "start": 36.44,
+  "end": 38.14,
+  "words": [
+   {
+    "w": "(something",
+    "s": 36.44,
+    "e": 37.2,
+    "backing": true
+   },
+   {
+    "w": "else)",
+    "s": 37.2,
+    "e": 38.14,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "How do I know, how can you show, what perfect means to you?",
+  "section": "Chorus 1",
+  "back": false,
+  "start": 38.96,
+  "end": 42.14,
+  "words": [
+   {
+    "w": "How",
+    "s": 38.96,
+    "e": 39.4,
+    "backing": false
+   },
+   {
+    "w": "do",
+    "s": 39.4,
+    "e": 39.58,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 39.58,
+    "e": 39.72,
+    "backing": false
+   },
+   {
+    "w": "know,",
+    "s": 39.72,
+    "e": 39.92,
+    "backing": false
+   },
+   {
+    "w": "how",
+    "s": 40.0,
+    "e": 40.28,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 40.28,
+    "e": 40.44,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 40.44,
+    "e": 40.58,
+    "backing": false
+   },
+   {
+    "w": "show,",
+    "s": 40.58,
+    "e": 40.8,
+    "backing": false
+   },
+   {
+    "w": "what",
+    "s": 40.8,
+    "e": 41.02,
+    "backing": false
+   },
+   {
+    "w": "perfect",
+    "s": 41.02,
+    "e": 41.38,
+    "backing": false
+   },
+   {
+    "w": "means",
+    "s": 41.38,
+    "e": 41.68,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 41.68,
+    "e": 41.9,
+    "backing": false
+   },
+   {
+    "w": "you?",
+    "s": 41.9,
+    "e": 42.14,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "All of my checks, all of my tests, don't find the bugs you do",
+  "section": "Chorus 1",
+  "back": false,
+  "start": 42.48,
+  "end": 45.68,
+  "words": [
+   {
+    "w": "All",
+    "s": 42.48,
+    "e": 42.92,
+    "backing": false
+   },
+   {
+    "w": "of",
+    "s": 42.92,
+    "e": 43.1,
+    "backing": false
+   },
+   {
+    "w": "my",
+    "s": 43.1,
+    "e": 43.22,
+    "backing": false
+   },
+   {
+    "w": "checks,",
+    "s": 43.22,
+    "e": 43.48,
+    "backing": false
+   },
+   {
+    "w": "all",
+    "s": 43.62,
+    "e": 43.88,
+    "backing": false
+   },
+   {
+    "w": "of",
+    "s": 43.88,
+    "e": 43.96,
+    "backing": false
+   },
+   {
+    "w": "my",
+    "s": 43.96,
+    "e": 44.12,
+    "backing": false
+   },
+   {
+    "w": "tests,",
+    "s": 44.12,
+    "e": 44.38,
+    "backing": false
+   },
+   {
+    "w": "don't",
+    "s": 44.46,
+    "e": 44.62,
+    "backing": false
+   },
+   {
+    "w": "find",
+    "s": 44.62,
+    "e": 44.84,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 44.84,
+    "e": 45.02,
+    "backing": false
+   },
+   {
+    "w": "bugs",
+    "s": 45.02,
+    "e": 45.26,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 45.26,
+    "e": 45.44,
+    "backing": false
+   },
+   {
+    "w": "do",
+    "s": 45.44,
+    "e": 45.68,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "Give me a guide, something to try, to make your dreams come true!",
+  "section": "Chorus 1",
+  "back": false,
+  "start": 45.68,
+  "end": 49.2,
+  "words": [
+   {
+    "w": "Give",
+    "s": 45.68,
+    "e": 46.42,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 46.42,
+    "e": 46.66,
+    "backing": false
+   },
+   {
+    "w": "a",
+    "s": 46.66,
+    "e": 46.78,
+    "backing": false
+   },
+   {
+    "w": "guide,",
+    "s": 46.78,
+    "e": 47.08,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 47.16,
+    "e": 47.38,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 47.38,
+    "e": 47.66,
+    "backing": false
+   },
+   {
+    "w": "try,",
+    "s": 47.66,
+    "e": 47.88,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 47.88,
+    "e": 48.08,
+    "backing": false
+   },
+   {
+    "w": "make",
+    "s": 48.08,
+    "e": 48.3,
+    "backing": false
+   },
+   {
+    "w": "your",
+    "s": 48.3,
+    "e": 48.52,
+    "backing": false
+   },
+   {
+    "w": "dreams",
+    "s": 48.52,
+    "e": 48.78,
+    "backing": false
+   },
+   {
+    "w": "come",
+    "s": 48.78,
+    "e": 48.96,
+    "backing": false
+   },
+   {
+    "w": "true!",
+    "s": 48.96,
+    "e": 49.2,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "I want you to love it",
+  "section": "Chorus 1",
+  "back": false,
+  "start": 49.2,
+  "end": 50.38,
+  "words": [
+   {
+    "w": "I",
+    "s": 49.2,
+    "e": 49.42,
+    "backing": false
+   },
+   {
+    "w": "want",
+    "s": 49.42,
+    "e": 49.56,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 49.56,
+    "e": 49.72,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 49.72,
+    "e": 49.86,
+    "backing": false
+   },
+   {
+    "w": "love",
+    "s": 49.86,
+    "e": 50.08,
+    "backing": false
+   },
+   {
+    "w": "it",
+    "s": 50.08,
+    "e": 50.38,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(love it)",
+  "section": "Chorus 1",
+  "back": true,
+  "start": 50.4,
+  "end": 51.08,
+  "words": [
+   {
+    "w": "(love",
+    "s": 50.4,
+    "e": 50.88,
+    "backing": true
+   },
+   {
+    "w": "it)",
+    "s": 50.88,
+    "e": 51.08,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "so give me something I can prove!",
+  "section": "Chorus 1",
+  "back": false,
+  "start": 51.1,
+  "end": 53.56,
+  "words": [
+   {
+    "w": "so",
+    "s": 51.1,
+    "e": 51.14,
+    "backing": false
+   },
+   {
+    "w": "give",
+    "s": 51.14,
+    "e": 51.34,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 51.34,
+    "e": 51.52,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 51.52,
+    "e": 52.02,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 52.02,
+    "e": 52.72,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 52.72,
+    "e": 53.08,
+    "backing": false
+   },
+   {
+    "w": "prove!",
+    "s": 53.08,
+    "e": 53.56,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "So give me something I can prove!",
+  "section": "Break 1",
+  "back": false,
+  "start": 57.7,
+  "end": 60.62,
+  "words": [
+   {
+    "w": "So",
+    "s": 57.7,
+    "e": 58.14,
+    "backing": false
+   },
+   {
+    "w": "give",
+    "s": 58.14,
+    "e": 58.34,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 58.34,
+    "e": 58.58,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 58.58,
+    "e": 59.08,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 59.08,
+    "e": 59.76,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 59.76,
+    "e": 60.14,
+    "backing": false
+   },
+   {
+    "w": "prove!",
+    "s": 60.14,
+    "e": 60.62,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "Give me a tool to run on every merge to check the load",
+  "section": "Verse 2",
+  "back": false,
+  "start": 60.62,
+  "end": 63.42,
+  "words": [
+   {
+    "w": "Give",
+    "s": 60.62,
+    "e": 60.92,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 60.92,
+    "e": 61.02,
+    "backing": false
+   },
+   {
+    "w": "a",
+    "s": 61.02,
+    "e": 61.22,
+    "backing": false
+   },
+   {
+    "w": "tool",
+    "s": 61.22,
+    "e": 61.46,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 61.46,
+    "e": 61.62,
+    "backing": false
+   },
+   {
+    "w": "run",
+    "s": 61.62,
+    "e": 61.8,
+    "backing": false
+   },
+   {
+    "w": "on",
+    "s": 61.8,
+    "e": 61.94,
+    "backing": false
+   },
+   {
+    "w": "every",
+    "s": 61.94,
+    "e": 62.16,
+    "backing": false
+   },
+   {
+    "w": "merge",
+    "s": 62.16,
+    "e": 62.48,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 62.48,
+    "e": 62.62,
+    "backing": false
+   },
+   {
+    "w": "check",
+    "s": 62.62,
+    "e": 62.82,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 62.82,
+    "e": 63.08,
+    "backing": false
+   },
+   {
+    "w": "load",
+    "s": 63.08,
+    "e": 63.42,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(ohhh)",
+  "section": "Verse 2",
+  "back": true,
+  "start": 63.66,
+  "end": 64.3,
+  "words": [
+   {
+    "w": "(ohhh)",
+    "s": 63.66,
+    "e": 64.3,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "I'll prompt a bot to act as Gran make sure she can go",
+  "section": "Verse 2",
+  "back": false,
+  "start": 64.0,
+  "end": 66.82,
+  "words": [
+   {
+    "w": "I'll",
+    "s": 64.0,
+    "e": 64.44,
+    "backing": false
+   },
+   {
+    "w": "prompt",
+    "s": 64.44,
+    "e": 64.66,
+    "backing": false
+   },
+   {
+    "w": "a",
+    "s": 64.66,
+    "e": 64.86,
+    "backing": false
+   },
+   {
+    "w": "bot",
+    "s": 64.86,
+    "e": 65.06,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 65.06,
+    "e": 65.28,
+    "backing": false
+   },
+   {
+    "w": "act",
+    "s": 65.28,
+    "e": 65.44,
+    "backing": false
+   },
+   {
+    "w": "as",
+    "s": 65.44,
+    "e": 65.58,
+    "backing": false
+   },
+   {
+    "w": "Gran",
+    "s": 65.58,
+    "e": 65.82,
+    "backing": false
+   },
+   {
+    "w": "make",
+    "s": 65.82,
+    "e": 65.94,
+    "backing": false
+   },
+   {
+    "w": "sure",
+    "s": 65.94,
+    "e": 66.1,
+    "backing": false
+   },
+   {
+    "w": "she",
+    "s": 66.1,
+    "e": 66.24,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 66.24,
+    "e": 66.48,
+    "backing": false
+   },
+   {
+    "w": "go",
+    "s": 66.48,
+    "e": 66.82,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(ohhh)",
+  "section": "Verse 2",
+  "back": true,
+  "start": 67.18,
+  "end": 67.84,
+  "words": [
+   {
+    "w": "(ohhh)",
+    "s": 67.18,
+    "e": 67.84,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "An isolation check to find the things that shouldn't show",
+  "section": "Verse 2",
+  "back": false,
+  "start": 67.44,
+  "end": 70.34,
+  "words": [
+   {
+    "w": "An",
+    "s": 67.44,
+    "e": 67.88,
+    "backing": false
+   },
+   {
+    "w": "isolation",
+    "s": 67.88,
+    "e": 68.32,
+    "backing": false
+   },
+   {
+    "w": "check",
+    "s": 68.32,
+    "e": 68.8,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 68.8,
+    "e": 68.92,
+    "backing": false
+   },
+   {
+    "w": "find",
+    "s": 68.92,
+    "e": 69.14,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 69.14,
+    "e": 69.22,
+    "backing": false
+   },
+   {
+    "w": "things",
+    "s": 69.22,
+    "e": 69.46,
+    "backing": false
+   },
+   {
+    "w": "that",
+    "s": 69.46,
+    "e": 69.72,
+    "backing": false
+   },
+   {
+    "w": "shouldn't",
+    "s": 69.8,
+    "e": 70.12,
+    "backing": false
+   },
+   {
+    "w": "show",
+    "s": 70.12,
+    "e": 70.34,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "But as for Dave and Sue, you really had to let me know!",
+  "section": "Verse 2",
+  "back": false,
+  "start": 70.34,
+  "end": 73.96,
+  "words": [
+   {
+    "w": "But",
+    "s": 70.34,
+    "e": 71.06,
+    "backing": false
+   },
+   {
+    "w": "as",
+    "s": 71.06,
+    "e": 71.22,
+    "backing": false
+   },
+   {
+    "w": "for",
+    "s": 71.22,
+    "e": 71.4,
+    "backing": false
+   },
+   {
+    "w": "Dave",
+    "s": 71.4,
+    "e": 71.72,
+    "backing": false
+   },
+   {
+    "w": "and",
+    "s": 71.72,
+    "e": 71.88,
+    "backing": false
+   },
+   {
+    "w": "Sue,",
+    "s": 71.88,
+    "e": 72.06,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 72.16,
+    "e": 72.3,
+    "backing": false
+   },
+   {
+    "w": "really",
+    "s": 72.3,
+    "e": 72.58,
+    "backing": false
+   },
+   {
+    "w": "had",
+    "s": 72.58,
+    "e": 72.96,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 72.96,
+    "e": 73.18,
+    "backing": false
+   },
+   {
+    "w": "let",
+    "s": 73.18,
+    "e": 73.38,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 73.38,
+    "e": 73.66,
+    "backing": false
+   },
+   {
+    "w": "know!",
+    "s": 73.66,
+    "e": 73.96,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(ohhh)",
+  "section": "Verse 2",
+  "back": true,
+  "start": 74.04,
+  "end": 74.66,
+  "words": [
+   {
+    "w": "(ohhh)",
+    "s": 74.04,
+    "e": 74.66,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "You can tell me it's broken, but how will I know for myself?",
+  "section": "Pre-chorus 2",
+  "back": false,
+  "start": 73.96,
+  "end": 77.4,
+  "words": [
+   {
+    "w": "You",
+    "s": 73.96,
+    "e": 74.8,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 74.8,
+    "e": 74.9,
+    "backing": false
+   },
+   {
+    "w": "tell",
+    "s": 74.9,
+    "e": 75.16,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 75.16,
+    "e": 75.3,
+    "backing": false
+   },
+   {
+    "w": "it's",
+    "s": 75.3,
+    "e": 75.42,
+    "backing": false
+   },
+   {
+    "w": "broken,",
+    "s": 75.42,
+    "e": 75.64,
+    "backing": false
+   },
+   {
+    "w": "but",
+    "s": 75.84,
+    "e": 76.06,
+    "backing": false
+   },
+   {
+    "w": "how",
+    "s": 76.06,
+    "e": 76.4,
+    "backing": false
+   },
+   {
+    "w": "will",
+    "s": 76.4,
+    "e": 76.62,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 76.62,
+    "e": 76.74,
+    "backing": false
+   },
+   {
+    "w": "know",
+    "s": 76.74,
+    "e": 76.88,
+    "backing": false
+   },
+   {
+    "w": "for",
+    "s": 76.88,
+    "e": 77.02,
+    "backing": false
+   },
+   {
+    "w": "myself?",
+    "s": 77.02,
+    "e": 77.4,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(for myself?)",
+  "section": "Pre-chorus 2",
+  "back": true,
+  "start": 77.4,
+  "end": 77.84,
+  "words": [
+   {
+    "w": "(for",
+    "s": 77.4,
+    "e": 77.547,
+    "backing": true
+   },
+   {
+    "w": "myself?)",
+    "s": 77.547,
+    "e": 77.84,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "So baby now I'm hoping, that you can give me something else",
+  "section": "Pre-chorus 2",
+  "back": false,
+  "start": 77.84,
+  "end": 80.98,
+  "words": [
+   {
+    "w": "So",
+    "s": 77.84,
+    "e": 78.28,
+    "backing": false
+   },
+   {
+    "w": "baby",
+    "s": 78.28,
+    "e": 78.6,
+    "backing": false
+   },
+   {
+    "w": "now",
+    "s": 78.62,
+    "e": 78.78,
+    "backing": false
+   },
+   {
+    "w": "I'm",
+    "s": 78.78,
+    "e": 79.02,
+    "backing": false
+   },
+   {
+    "w": "hoping,",
+    "s": 79.02,
+    "e": 79.2,
+    "backing": false
+   },
+   {
+    "w": "that",
+    "s": 79.2,
+    "e": 79.54,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 79.54,
+    "e": 79.64,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 79.64,
+    "e": 79.8,
+    "backing": false
+   },
+   {
+    "w": "give",
+    "s": 79.8,
+    "e": 80.02,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 80.02,
+    "e": 80.24,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 80.24,
+    "e": 80.56,
+    "backing": false
+   },
+   {
+    "w": "else",
+    "s": 80.56,
+    "e": 80.98,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(something else)",
+  "section": "Pre-chorus 2",
+  "back": true,
+  "start": 80.98,
+  "end": 82.4,
+  "words": [
+   {
+    "w": "(something",
+    "s": 80.98,
+    "e": 81.963,
+    "backing": true
+   },
+   {
+    "w": "else)",
+    "s": 81.963,
+    "e": 82.4,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "(something else)",
+  "section": "Pre-chorus 2",
+  "back": true,
+  "start": 82.4,
+  "end": 83.8,
+  "words": [
+   {
+    "w": "(something",
+    "s": 82.4,
+    "e": 83.369,
+    "backing": true
+   },
+   {
+    "w": "else)",
+    "s": 83.369,
+    "e": 83.8,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "How do I know, how can you show, what perfect means to you?",
+  "section": "Chorus 2",
+  "back": false,
+  "start": 84.48,
+  "end": 87.98,
+  "words": [
+   {
+    "w": "How",
+    "s": 84.48,
+    "e": 84.92,
+    "backing": false
+   },
+   {
+    "w": "do",
+    "s": 84.92,
+    "e": 85.36,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 85.36,
+    "e": 85.54,
+    "backing": false
+   },
+   {
+    "w": "know,",
+    "s": 85.54,
+    "e": 85.78,
+    "backing": false
+   },
+   {
+    "w": "how",
+    "s": 85.8,
+    "e": 86.08,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 86.08,
+    "e": 86.28,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 86.28,
+    "e": 86.42,
+    "backing": false
+   },
+   {
+    "w": "show,",
+    "s": 86.42,
+    "e": 86.64,
+    "backing": false
+   },
+   {
+    "w": "what",
+    "s": 86.64,
+    "e": 86.86,
+    "backing": false
+   },
+   {
+    "w": "perfect",
+    "s": 86.86,
+    "e": 87.2,
+    "backing": false
+   },
+   {
+    "w": "means",
+    "s": 87.2,
+    "e": 87.5,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 87.5,
+    "e": 87.7,
+    "backing": false
+   },
+   {
+    "w": "you?",
+    "s": 87.7,
+    "e": 87.98,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(ooh-ooh)",
+  "section": "Chorus 2",
+  "back": true,
+  "start": 87.98,
+  "end": 88.4,
+  "words": [
+   {
+    "w": "(ooh-ooh)",
+    "s": 87.98,
+    "e": 88.4,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "All of my checks, all of my tests, don't find the bugs you do",
+  "section": "Chorus 2",
+  "back": false,
+  "start": 88.32,
+  "end": 91.5,
+  "words": [
+   {
+    "w": "All",
+    "s": 88.32,
+    "e": 88.76,
+    "backing": false
+   },
+   {
+    "w": "of",
+    "s": 88.76,
+    "e": 88.94,
+    "backing": false
+   },
+   {
+    "w": "my",
+    "s": 88.94,
+    "e": 89.04,
+    "backing": false
+   },
+   {
+    "w": "checks,",
+    "s": 89.04,
+    "e": 89.44,
+    "backing": false
+   },
+   {
+    "w": "all",
+    "s": 89.44,
+    "e": 89.7,
+    "backing": false
+   },
+   {
+    "w": "of",
+    "s": 89.7,
+    "e": 89.82,
+    "backing": false
+   },
+   {
+    "w": "my",
+    "s": 89.82,
+    "e": 89.96,
+    "backing": false
+   },
+   {
+    "w": "tests,",
+    "s": 89.96,
+    "e": 90.2,
+    "backing": false
+   },
+   {
+    "w": "don't",
+    "s": 90.2,
+    "e": 90.42,
+    "backing": false
+   },
+   {
+    "w": "find",
+    "s": 90.42,
+    "e": 90.64,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 90.64,
+    "e": 90.84,
+    "backing": false
+   },
+   {
+    "w": "bugs",
+    "s": 90.84,
+    "e": 91.08,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 91.08,
+    "e": 91.26,
+    "backing": false
+   },
+   {
+    "w": "do",
+    "s": 91.26,
+    "e": 91.5,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(ooh-ooh)",
+  "section": "Chorus 2",
+  "back": true,
+  "start": 91.5,
+  "end": 92.26,
+  "words": [
+   {
+    "w": "(ooh-ooh)",
+    "s": 91.5,
+    "e": 92.26,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "Give me a guide, something to try, to make your dreams come true!",
+  "section": "Chorus 2",
+  "back": false,
+  "start": 91.5,
+  "end": 95.0,
+  "words": [
+   {
+    "w": "Give",
+    "s": 91.5,
+    "e": 92.26,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 92.26,
+    "e": 92.46,
+    "backing": false
+   },
+   {
+    "w": "a",
+    "s": 92.46,
+    "e": 92.62,
+    "backing": false
+   },
+   {
+    "w": "guide,",
+    "s": 92.62,
+    "e": 92.92,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 92.98,
+    "e": 93.22,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 93.22,
+    "e": 93.48,
+    "backing": false
+   },
+   {
+    "w": "try,",
+    "s": 93.48,
+    "e": 93.72,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 93.72,
+    "e": 93.88,
+    "backing": false
+   },
+   {
+    "w": "make",
+    "s": 93.88,
+    "e": 94.1,
+    "backing": false
+   },
+   {
+    "w": "your",
+    "s": 94.1,
+    "e": 94.34,
+    "backing": false
+   },
+   {
+    "w": "dreams",
+    "s": 94.34,
+    "e": 94.62,
+    "backing": false
+   },
+   {
+    "w": "come",
+    "s": 94.62,
+    "e": 94.76,
+    "backing": false
+   },
+   {
+    "w": "true!",
+    "s": 94.76,
+    "e": 95.0,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "I want you to love it",
+  "section": "Chorus 2",
+  "back": false,
+  "start": 95.0,
+  "end": 96.1,
+  "words": [
+   {
+    "w": "I",
+    "s": 95.0,
+    "e": 95.22,
+    "backing": false
+   },
+   {
+    "w": "want",
+    "s": 95.22,
+    "e": 95.4,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 95.4,
+    "e": 95.54,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 95.54,
+    "e": 95.66,
+    "backing": false
+   },
+   {
+    "w": "love",
+    "s": 95.66,
+    "e": 95.9,
+    "backing": false
+   },
+   {
+    "w": "it",
+    "s": 95.9,
+    "e": 96.1,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(love it)",
+  "section": "Chorus 2",
+  "back": true,
+  "start": 96.26,
+  "end": 96.88,
+  "words": [
+   {
+    "w": "(love",
+    "s": 96.26,
+    "e": 96.74,
+    "backing": true
+   },
+   {
+    "w": "it)",
+    "s": 96.74,
+    "e": 96.88,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "so give me something I can prove!",
+  "section": "Chorus 2",
+  "back": false,
+  "start": 96.88,
+  "end": 99.44,
+  "words": [
+   {
+    "w": "so",
+    "s": 96.88,
+    "e": 96.96,
+    "backing": false
+   },
+   {
+    "w": "give",
+    "s": 96.96,
+    "e": 97.14,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 97.14,
+    "e": 97.34,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 97.34,
+    "e": 97.84,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 97.84,
+    "e": 98.56,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 98.56,
+    "e": 98.9,
+    "backing": false
+   },
+   {
+    "w": "prove!",
+    "s": 98.9,
+    "e": 99.44,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "An oracle is something that can help me figure out what's wrong!",
+  "section": "Bridge",
+  "back": false,
+  "start": 102.4,
+  "end": 105.64,
+  "words": [
+   {
+    "w": "An",
+    "s": 102.4,
+    "e": 102.84,
+    "backing": false
+   },
+   {
+    "w": "oracle",
+    "s": 102.84,
+    "e": 103.28,
+    "backing": false
+   },
+   {
+    "w": "is",
+    "s": 103.28,
+    "e": 103.52,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 103.52,
+    "e": 103.8,
+    "backing": false
+   },
+   {
+    "w": "that",
+    "s": 103.8,
+    "e": 104.08,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 104.08,
+    "e": 104.38,
+    "backing": false
+   },
+   {
+    "w": "help",
+    "s": 104.38,
+    "e": 104.66,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 104.66,
+    "e": 104.78,
+    "backing": false
+   },
+   {
+    "w": "figure",
+    "s": 104.78,
+    "e": 105.04,
+    "backing": false
+   },
+   {
+    "w": "out",
+    "s": 105.04,
+    "e": 105.26,
+    "backing": false
+   },
+   {
+    "w": "what's",
+    "s": 105.26,
+    "e": 105.4,
+    "backing": false
+   },
+   {
+    "w": "wrong!",
+    "s": 105.4,
+    "e": 105.64,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(oh yeah)",
+  "section": "Bridge",
+  "back": true,
+  "start": 105.66,
+  "end": 106.3,
+  "words": [
+   {
+    "w": "(oh",
+    "s": 105.66,
+    "e": 105.873,
+    "backing": true
+   },
+   {
+    "w": "yeah)",
+    "s": 105.873,
+    "e": 106.3,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "Cos if I know your rules then I can run and run them all day long!",
+  "section": "Bridge",
+  "back": false,
+  "start": 105.64,
+  "end": 109.16,
+  "words": [
+   {
+    "w": "Cos",
+    "s": 105.64,
+    "e": 106.06,
+    "backing": false
+   },
+   {
+    "w": "if",
+    "s": 106.06,
+    "e": 106.4,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 106.4,
+    "e": 106.56,
+    "backing": false
+   },
+   {
+    "w": "know",
+    "s": 106.56,
+    "e": 106.86,
+    "backing": false
+   },
+   {
+    "w": "your",
+    "s": 106.86,
+    "e": 107.0,
+    "backing": false
+   },
+   {
+    "w": "rules",
+    "s": 107.0,
+    "e": 107.3,
+    "backing": false
+   },
+   {
+    "w": "then",
+    "s": 107.3,
+    "e": 107.44,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 107.44,
+    "e": 107.58,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 107.58,
+    "e": 107.9,
+    "backing": false
+   },
+   {
+    "w": "run",
+    "s": 107.9,
+    "e": 108.2,
+    "backing": false
+   },
+   {
+    "w": "and",
+    "s": 108.2,
+    "e": 108.34,
+    "backing": false
+   },
+   {
+    "w": "run",
+    "s": 108.34,
+    "e": 108.48,
+    "backing": false
+   },
+   {
+    "w": "them",
+    "s": 108.48,
+    "e": 108.66,
+    "backing": false
+   },
+   {
+    "w": "all",
+    "s": 108.66,
+    "e": 108.78,
+    "backing": false
+   },
+   {
+    "w": "day",
+    "s": 108.78,
+    "e": 108.92,
+    "backing": false
+   },
+   {
+    "w": "long!",
+    "s": 108.92,
+    "e": 109.16,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(oh yeah)",
+  "section": "Bridge",
+  "back": true,
+  "start": 109.16,
+  "end": 109.56,
+  "words": [
+   {
+    "w": "(oh",
+    "s": 109.16,
+    "e": 109.34,
+    "backing": true
+   },
+   {
+    "w": "yeah)",
+    "s": 109.34,
+    "e": 109.56,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "And even only heuristics I'd be better off than having none!",
+  "section": "Bridge",
+  "back": false,
+  "start": 109.6,
+  "end": 112.68,
+  "words": [
+   {
+    "w": "And",
+    "s": 109.6,
+    "e": 109.8,
+    "backing": false
+   },
+   {
+    "w": "even",
+    "s": 109.8,
+    "e": 110.02,
+    "backing": false
+   },
+   {
+    "w": "only",
+    "s": 110.02,
+    "e": 110.66,
+    "backing": false
+   },
+   {
+    "w": "heuristics",
+    "s": 110.66,
+    "e": 110.66,
+    "backing": false
+   },
+   {
+    "w": "I'd",
+    "s": 110.66,
+    "e": 111.0,
+    "backing": false
+   },
+   {
+    "w": "be",
+    "s": 111.0,
+    "e": 111.08,
+    "backing": false
+   },
+   {
+    "w": "better",
+    "s": 111.08,
+    "e": 111.46,
+    "backing": false
+   },
+   {
+    "w": "off",
+    "s": 111.46,
+    "e": 111.74,
+    "backing": false
+   },
+   {
+    "w": "than",
+    "s": 111.74,
+    "e": 112.0,
+    "backing": false
+   },
+   {
+    "w": "having",
+    "s": 112.0,
+    "e": 112.38,
+    "backing": false
+   },
+   {
+    "w": "none!",
+    "s": 112.38,
+    "e": 112.68,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(oh yeah)",
+  "section": "Bridge",
+  "back": true,
+  "start": 112.68,
+  "end": 113.1,
+  "words": [
+   {
+    "w": "(oh",
+    "s": 112.68,
+    "e": 112.82,
+    "backing": true
+   },
+   {
+    "w": "yeah)",
+    "s": 112.82,
+    "e": 113.1,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "So I can keep on checking till they pass before I say it's done!",
+  "section": "Bridge",
+  "back": false,
+  "start": 113.1,
+  "end": 116.16,
+  "words": [
+   {
+    "w": "So",
+    "s": 113.1,
+    "e": 113.26,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 113.26,
+    "e": 113.42,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 113.42,
+    "e": 113.58,
+    "backing": false
+   },
+   {
+    "w": "keep",
+    "s": 113.58,
+    "e": 113.9,
+    "backing": false
+   },
+   {
+    "w": "on",
+    "s": 113.9,
+    "e": 114.12,
+    "backing": false
+   },
+   {
+    "w": "checking",
+    "s": 114.12,
+    "e": 114.38,
+    "backing": false
+   },
+   {
+    "w": "till",
+    "s": 114.38,
+    "e": 114.64,
+    "backing": false
+   },
+   {
+    "w": "they",
+    "s": 114.64,
+    "e": 114.94,
+    "backing": false
+   },
+   {
+    "w": "pass",
+    "s": 114.94,
+    "e": 115.2,
+    "backing": false
+   },
+   {
+    "w": "before",
+    "s": 115.2,
+    "e": 115.38,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 115.38,
+    "e": 115.64,
+    "backing": false
+   },
+   {
+    "w": "say",
+    "s": 115.64,
+    "e": 115.8,
+    "backing": false
+   },
+   {
+    "w": "it's",
+    "s": 115.8,
+    "e": 115.96,
+    "backing": false
+   },
+   {
+    "w": "done!",
+    "s": 115.96,
+    "e": 116.16,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(oh yeah)",
+  "section": "Bridge",
+  "back": true,
+  "start": 116.16,
+  "end": 116.7,
+  "words": [
+   {
+    "w": "(oh",
+    "s": 116.16,
+    "e": 116.36,
+    "backing": true
+   },
+   {
+    "w": "yeah)",
+    "s": 116.36,
+    "e": 116.7,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "You can tell me it's broken, but how will I know for myself?",
+  "section": "Pre-chorus 3",
+  "back": false,
+  "start": 116.78,
+  "end": 119.64,
+  "words": [
+   {
+    "w": "You",
+    "s": 116.78,
+    "e": 117.08,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 117.08,
+    "e": 117.2,
+    "backing": false
+   },
+   {
+    "w": "tell",
+    "s": 117.2,
+    "e": 117.44,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 117.44,
+    "e": 117.54,
+    "backing": false
+   },
+   {
+    "w": "it's",
+    "s": 117.54,
+    "e": 117.7,
+    "backing": false
+   },
+   {
+    "w": "broken,",
+    "s": 117.7,
+    "e": 117.92,
+    "backing": false
+   },
+   {
+    "w": "but",
+    "s": 118.1,
+    "e": 118.28,
+    "backing": false
+   },
+   {
+    "w": "how",
+    "s": 118.28,
+    "e": 118.68,
+    "backing": false
+   },
+   {
+    "w": "will",
+    "s": 118.68,
+    "e": 118.9,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 118.9,
+    "e": 119.02,
+    "backing": false
+   },
+   {
+    "w": "know",
+    "s": 119.02,
+    "e": 119.2,
+    "backing": false
+   },
+   {
+    "w": "for",
+    "s": 119.2,
+    "e": 119.28,
+    "backing": false
+   },
+   {
+    "w": "myself?",
+    "s": 119.28,
+    "e": 119.64,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(for myself?)",
+  "section": "Pre-chorus 3",
+  "back": true,
+  "start": 119.7,
+  "end": 120.3,
+  "words": [
+   {
+    "w": "(for",
+    "s": 119.7,
+    "e": 119.9,
+    "backing": true
+   },
+   {
+    "w": "myself?)",
+    "s": 119.9,
+    "e": 120.3,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "So baby now I'm hoping, that you can give me something else",
+  "section": "Pre-chorus 3",
+  "back": false,
+  "start": 120.3,
+  "end": 124.16,
+  "words": [
+   {
+    "w": "So",
+    "s": 120.3,
+    "e": 120.58,
+    "backing": false
+   },
+   {
+    "w": "baby",
+    "s": 120.58,
+    "e": 120.86,
+    "backing": false
+   },
+   {
+    "w": "now",
+    "s": 120.9,
+    "e": 121.08,
+    "backing": false
+   },
+   {
+    "w": "I'm",
+    "s": 121.08,
+    "e": 121.3,
+    "backing": false
+   },
+   {
+    "w": "hoping,",
+    "s": 121.3,
+    "e": 121.48,
+    "backing": false
+   },
+   {
+    "w": "that",
+    "s": 121.48,
+    "e": 121.8,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 121.8,
+    "e": 121.92,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 121.92,
+    "e": 122.1,
+    "backing": false
+   },
+   {
+    "w": "give",
+    "s": 122.1,
+    "e": 122.36,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 122.36,
+    "e": 122.64,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 122.64,
+    "e": 123.16,
+    "backing": false
+   },
+   {
+    "w": "else",
+    "s": 123.16,
+    "e": 124.16,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(something else)",
+  "section": "Pre-chorus 3",
+  "back": true,
+  "start": 125.42,
+  "end": 126.3,
+  "words": [
+   {
+    "w": "(something",
+    "s": 125.42,
+    "e": 125.86,
+    "backing": true
+   },
+   {
+    "w": "else)",
+    "s": 125.86,
+    "e": 126.3,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "How do I know, how can you show, what perfect means to you?",
+  "section": "Chorus 3",
+  "back": false,
+  "start": 127.04,
+  "end": 130.24,
+  "words": [
+   {
+    "w": "How",
+    "s": 127.04,
+    "e": 127.48,
+    "backing": false
+   },
+   {
+    "w": "do",
+    "s": 127.48,
+    "e": 127.66,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 127.66,
+    "e": 127.8,
+    "backing": false
+   },
+   {
+    "w": "know,",
+    "s": 127.8,
+    "e": 128.06,
+    "backing": false
+   },
+   {
+    "w": "how",
+    "s": 128.1,
+    "e": 128.38,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 128.38,
+    "e": 128.54,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 128.54,
+    "e": 128.7,
+    "backing": false
+   },
+   {
+    "w": "show,",
+    "s": 128.7,
+    "e": 128.9,
+    "backing": false
+   },
+   {
+    "w": "what",
+    "s": 128.9,
+    "e": 129.12,
+    "backing": false
+   },
+   {
+    "w": "perfect",
+    "s": 129.12,
+    "e": 129.46,
+    "backing": false
+   },
+   {
+    "w": "means",
+    "s": 129.46,
+    "e": 129.74,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 129.74,
+    "e": 129.98,
+    "backing": false
+   },
+   {
+    "w": "you?",
+    "s": 129.98,
+    "e": 130.24,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "All of my checks, all of my tests, don't find the bugs you do",
+  "section": "Chorus 3",
+  "back": false,
+  "start": 130.56,
+  "end": 133.78,
+  "words": [
+   {
+    "w": "All",
+    "s": 130.56,
+    "e": 131.0,
+    "backing": false
+   },
+   {
+    "w": "of",
+    "s": 131.0,
+    "e": 131.18,
+    "backing": false
+   },
+   {
+    "w": "my",
+    "s": 131.18,
+    "e": 131.3,
+    "backing": false
+   },
+   {
+    "w": "checks,",
+    "s": 131.3,
+    "e": 131.56,
+    "backing": false
+   },
+   {
+    "w": "all",
+    "s": 131.7,
+    "e": 131.96,
+    "backing": false
+   },
+   {
+    "w": "of",
+    "s": 131.96,
+    "e": 132.04,
+    "backing": false
+   },
+   {
+    "w": "my",
+    "s": 132.04,
+    "e": 132.22,
+    "backing": false
+   },
+   {
+    "w": "tests,",
+    "s": 132.22,
+    "e": 132.46,
+    "backing": false
+   },
+   {
+    "w": "don't",
+    "s": 132.52,
+    "e": 132.72,
+    "backing": false
+   },
+   {
+    "w": "find",
+    "s": 132.72,
+    "e": 132.92,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 132.92,
+    "e": 133.1,
+    "backing": false
+   },
+   {
+    "w": "bugs",
+    "s": 133.1,
+    "e": 133.32,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 133.32,
+    "e": 133.54,
+    "backing": false
+   },
+   {
+    "w": "do",
+    "s": 133.54,
+    "e": 133.78,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "Give me a guide, something to try, to make your dreams come true!",
+  "section": "Chorus 3",
+  "back": false,
+  "start": 133.78,
+  "end": 137.26,
+  "words": [
+   {
+    "w": "Give",
+    "s": 133.78,
+    "e": 134.5,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 134.5,
+    "e": 134.72,
+    "backing": false
+   },
+   {
+    "w": "a",
+    "s": 134.72,
+    "e": 134.84,
+    "backing": false
+   },
+   {
+    "w": "guide,",
+    "s": 134.84,
+    "e": 135.18,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 135.22,
+    "e": 135.5,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 135.5,
+    "e": 135.74,
+    "backing": false
+   },
+   {
+    "w": "try,",
+    "s": 135.74,
+    "e": 135.96,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 135.96,
+    "e": 136.16,
+    "backing": false
+   },
+   {
+    "w": "make",
+    "s": 136.16,
+    "e": 136.38,
+    "backing": false
+   },
+   {
+    "w": "your",
+    "s": 136.38,
+    "e": 136.62,
+    "backing": false
+   },
+   {
+    "w": "dreams",
+    "s": 136.62,
+    "e": 136.88,
+    "backing": false
+   },
+   {
+    "w": "come",
+    "s": 136.88,
+    "e": 137.04,
+    "backing": false
+   },
+   {
+    "w": "true!",
+    "s": 137.04,
+    "e": 137.26,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "I want you to love it",
+  "section": "Chorus 3",
+  "back": false,
+  "start": 137.26,
+  "end": 138.46,
+  "words": [
+   {
+    "w": "I",
+    "s": 137.26,
+    "e": 137.52,
+    "backing": false
+   },
+   {
+    "w": "want",
+    "s": 137.52,
+    "e": 137.68,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 137.68,
+    "e": 137.82,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 137.82,
+    "e": 137.92,
+    "backing": false
+   },
+   {
+    "w": "love",
+    "s": 137.92,
+    "e": 138.16,
+    "backing": false
+   },
+   {
+    "w": "it",
+    "s": 138.16,
+    "e": 138.46,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(love it)",
+  "section": "Chorus 3",
+  "back": true,
+  "start": 138.46,
+  "end": 139.16,
+  "words": [
+   {
+    "w": "(love",
+    "s": 138.46,
+    "e": 138.96,
+    "backing": true
+   },
+   {
+    "w": "it)",
+    "s": 138.96,
+    "e": 139.16,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "so give me something I can prove!",
+  "section": "Chorus 3",
+  "back": false,
+  "start": 139.16,
+  "end": 141.68,
+  "words": [
+   {
+    "w": "so",
+    "s": 139.16,
+    "e": 139.22,
+    "backing": false
+   },
+   {
+    "w": "give",
+    "s": 139.22,
+    "e": 139.34,
+    "backing": false
+   },
+   {
+    "w": "me",
+    "s": 139.34,
+    "e": 139.6,
+    "backing": false
+   },
+   {
+    "w": "something",
+    "s": 139.6,
+    "e": 140.16,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 140.16,
+    "e": 140.82,
+    "backing": false
+   },
+   {
+    "w": "can",
+    "s": 140.82,
+    "e": 141.16,
+    "backing": false
+   },
+   {
+    "w": "prove!",
+    "s": 141.16,
+    "e": 141.68,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "Here are the checks, here are the tests, and how each one came through",
+  "section": "Outro",
+  "back": false,
+  "start": 141.68,
+  "end": 145.22,
+  "words": [
+   {
+    "w": "Here",
+    "s": 141.68,
+    "e": 142.12,
+    "backing": false
+   },
+   {
+    "w": "are",
+    "s": 142.12,
+    "e": 142.2,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 142.2,
+    "e": 142.3,
+    "backing": false
+   },
+   {
+    "w": "checks,",
+    "s": 142.3,
+    "e": 142.6,
+    "backing": false
+   },
+   {
+    "w": "here",
+    "s": 142.7,
+    "e": 142.98,
+    "backing": false
+   },
+   {
+    "w": "are",
+    "s": 142.98,
+    "e": 143.1,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 143.1,
+    "e": 143.22,
+    "backing": false
+   },
+   {
+    "w": "tests,",
+    "s": 143.22,
+    "e": 143.5,
+    "backing": false
+   },
+   {
+    "w": "and",
+    "s": 143.5,
+    "e": 143.72,
+    "backing": false
+   },
+   {
+    "w": "how",
+    "s": 143.72,
+    "e": 143.96,
+    "backing": false
+   },
+   {
+    "w": "each",
+    "s": 143.96,
+    "e": 144.36,
+    "backing": false
+   },
+   {
+    "w": "one",
+    "s": 144.36,
+    "e": 144.6,
+    "backing": false
+   },
+   {
+    "w": "came",
+    "s": 144.6,
+    "e": 144.86,
+    "backing": false
+   },
+   {
+    "w": "through",
+    "s": 144.86,
+    "e": 145.22,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "What I don't know, that I will show, and leave the rest to you",
+  "section": "Outro",
+  "back": false,
+  "start": 145.22,
+  "end": 148.76,
+  "words": [
+   {
+    "w": "What",
+    "s": 145.22,
+    "e": 145.58,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 145.58,
+    "e": 145.74,
+    "backing": false
+   },
+   {
+    "w": "don't",
+    "s": 145.74,
+    "e": 145.94,
+    "backing": false
+   },
+   {
+    "w": "know,",
+    "s": 145.94,
+    "e": 146.1,
+    "backing": false
+   },
+   {
+    "w": "that",
+    "s": 146.1,
+    "e": 146.46,
+    "backing": false
+   },
+   {
+    "w": "I",
+    "s": 146.46,
+    "e": 146.6,
+    "backing": false
+   },
+   {
+    "w": "will",
+    "s": 146.6,
+    "e": 146.74,
+    "backing": false
+   },
+   {
+    "w": "show,",
+    "s": 146.74,
+    "e": 146.94,
+    "backing": false
+   },
+   {
+    "w": "and",
+    "s": 146.94,
+    "e": 147.16,
+    "backing": false
+   },
+   {
+    "w": "leave",
+    "s": 147.16,
+    "e": 147.44,
+    "backing": false
+   },
+   {
+    "w": "the",
+    "s": 147.44,
+    "e": 147.62,
+    "backing": false
+   },
+   {
+    "w": "rest",
+    "s": 147.62,
+    "e": 147.9,
+    "backing": false
+   },
+   {
+    "w": "to",
+    "s": 147.9,
+    "e": 148.24,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 148.24,
+    "e": 148.76,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "So, do you love it?",
+  "section": "Outro",
+  "back": false,
+  "start": 150.84,
+  "end": 152.5,
+  "words": [
+   {
+    "w": "So,",
+    "s": 150.84,
+    "e": 151.4,
+    "backing": false
+   },
+   {
+    "w": "do",
+    "s": 151.4,
+    "e": 151.74,
+    "backing": false
+   },
+   {
+    "w": "you",
+    "s": 151.74,
+    "e": 151.96,
+    "backing": false
+   },
+   {
+    "w": "love",
+    "s": 151.96,
+    "e": 152.38,
+    "backing": false
+   },
+   {
+    "w": "it?",
+    "s": 152.38,
+    "e": 152.5,
+    "backing": false
+   }
+  ]
+ },
+ {
+  "text": "(I love it)",
+  "section": "Outro",
+  "back": true,
+  "start": 153.36,
+  "end": 154.3,
+  "words": [
+   {
+    "w": "(I",
+    "s": 153.36,
+    "e": 153.64,
+    "backing": true
+   },
+   {
+    "w": "love",
+    "s": 153.64,
+    "e": 153.98,
+    "backing": true
+   },
+   {
+    "w": "it)",
+    "s": 153.98,
+    "e": 154.3,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "(I love it)",
+  "section": "Outro",
+  "back": true,
+  "start": 154.86,
+  "end": 156.08,
+  "words": [
+   {
+    "w": "(I",
+    "s": 154.86,
+    "e": 155.36,
+    "backing": true
+   },
+   {
+    "w": "love",
+    "s": 155.36,
+    "e": 155.78,
+    "backing": true
+   },
+   {
+    "w": "it)",
+    "s": 155.78,
+    "e": 156.08,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "(I love it)",
+  "section": "Outro",
+  "back": true,
+  "start": 156.08,
+  "end": 156.96,
+  "words": [
+   {
+    "w": "(I",
+    "s": 156.08,
+    "e": 156.28,
+    "backing": true
+   },
+   {
+    "w": "love",
+    "s": 156.28,
+    "e": 156.64,
+    "backing": true
+   },
+   {
+    "w": "it)",
+    "s": 156.64,
+    "e": 156.96,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "(I love it)",
+  "section": "Outro",
+  "back": true,
+  "start": 156.96,
+  "end": 158.3,
+  "words": [
+   {
+    "w": "(I",
+    "s": 156.96,
+    "e": 157.14,
+    "backing": true
+   },
+   {
+    "w": "love",
+    "s": 157.14,
+    "e": 157.54,
+    "backing": true
+   },
+   {
+    "w": "it)",
+    "s": 157.54,
+    "e": 158.3,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "(Dave's still coming, though)",
+  "section": "Outro",
+  "back": true,
+  "start": 158.3,
+  "end": 159.78,
+  "words": [
+   {
+    "w": "(Dave's",
+    "s": 158.3,
+    "e": 158.636,
+    "backing": true
+   },
+   {
+    "w": "still",
+    "s": 158.636,
+    "e": 158.973,
+    "backing": true
+   },
+   {
+    "w": "coming,",
+    "s": 158.973,
+    "e": 159.376,
+    "backing": true
+   },
+   {
+    "w": "though)",
+    "s": 159.376,
+    "e": 159.78,
+    "backing": true
+   }
+  ]
+ },
+ {
+  "text": "(ooh)",
+  "section": "Tail",
+  "back": true,
+  "start": 165.9,
+  "end": 170.9,
+  "words": [
+   {
+    "w": "(ooh)",
+    "s": 165.9,
+    "e": 170.9,
+    "backing": true
+   }
+  ]
+ }
+]

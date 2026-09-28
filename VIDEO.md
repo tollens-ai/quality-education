@@ -11,6 +11,7 @@ locked.
   steps in order, and what to read at each.
 - **To draw in episode 1's style,** read
   [ink and gouache, with the lyrics lettered in](.claude/skills/music-video/references/style-ink-and-gouache.md).
+  Episode 2's is [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md).
   A new style gets its own reference beside it.
 - [CRAFT.md](CRAFT.md) holds the research and the decisions behind this file. The episode-1
   renderer is the worked example: [video/ep01/pier/](video/ep01/pier/README.md).
@@ -74,7 +75,8 @@ the two style lines.
 > - Either (episode 1's style): draw it in episode 1's ink-and-gouache style, with the lyrics
 >   lettered into the pictures; its reference says how.
 >   Or (a new style): a hand-drawn animation style, not a shiny one. There are myriad to choose
->   from; pick the one that suits this song, and write a reference for it as you go.
+>   from; pick the one that suits this song, and write a reference for it as you go. Keep the
+>   hand-drawing in the line art, not in a texture laid over the colouring.
 > - The typography is part of the art direction. Design where each sung line lives in its shot
 >   and what it's made of, so it never looks like a caption added afterwards. Hand-lettering, or
 >   judiciously chosen fonts and layouts.
@@ -153,3 +155,17 @@ For any style. The pitfalls of drawing in ink and gouache are in
   crashed a segment even at 540 wide, and three at full size ran clean.
 - On a shared box, another job can hang a render segment. Watch the segment files grow, and
   restart any that stop.
+
+## Pitfalls met on episode 2
+
+- A generated take doesn't sing the lyric sheet exactly: it repeats hooks, drops or adds backing
+  vocals, and holds notes where the sheet has an "ooh". Caption the take. Separate the vocal, then
+  lead from backing with a karaoke model, and check each backing vocal on its stem for loudness,
+  voicing and pitch. Whisper rarely writes down an "ooh", and a word list in its prompt makes it
+  invent those words, so don't prompt it. Say which spots rest on measurement alone.
+- Small subjects at the bottom of the frame under an empty field read as unfinished. Fill the
+  middle of the frame, between the words and the floor.
+- Lettering drawn over the shots (episode 2's backing pop-ups) needs its own writing clock, or a
+  word written before a cut un-writes itself after it.
+- A texture laid over the whole frame, like episode 1's paper, wasn't liked by everyone (Qing,
+  2026-09-28). Put the hand in the line.

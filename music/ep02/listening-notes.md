@@ -22,7 +22,8 @@ line word for word, and its section boundaries fall within a second of the measu
 bridge. Two things disagree with other evidence:
 
 - **Tempo:** it says 170 to 180 bpm; the beat tracker measured 136 bpm (a bar every 1.76 s).
-  Qing's ear decides.
+  Qing (2026-09-28): "138 sounds about right". The beat grid times cuts and motion only; words
+  are timed from the voice (VIDEO.md, "Word timing comes from the voice").
 - **Genre:** it hears 2000s pop-punk (Blink-182, Sum 41, Fall Out Boy, New Found Glory). Qing
   called the take "kind of experimental post-paramore". Qing's word wins; Gemini's is a second
   description of the same sound.

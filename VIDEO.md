@@ -183,7 +183,24 @@ For any style. The pitfalls of drawing in ink and gouache are in
 - On a shared box, another job can hang a render segment. Watch the segment files grow, and
   restart any that stop.
 
-## Pitfalls met on episode 2
+## Word timing comes from the voice
+
+In a lyric video every word lands on its sung onset, so every word needs its own measured time.
+Qing (2026-09-28), on the tempo: "138 sounds about right but you shouldn't rely on that for a
+lyric video that aligns perfectly word to word".
+
+- **The beat grid times the picture, not the words.** Cuts, camera and grooves go on the beat.
+  Singers push and pull against the beat, so a word snapped to the grid lands early or late.
+- **Align the known lyrics to the isolated voice.** Force-align the lyrics as sung to the vocal
+  stem with a phoneme-level aligner. Transcription timestamps (episode 2 v1 used Whisper's) drift
+  and aren't enough on their own. Then move each onset to the start of the voiced sound nearest it
+  on the stem.
+- **Backing vocals get the same, on the backing stem.** Episode 2 v1 spread the backing words
+  evenly across each measured phrase, which is a guess.
+- **Check the timings before building on them.** Report how far each onset moved from the
+  aligner's time, and flag any word whose onset doesn't sit on voiced sound on its stem. Then
+  render a plain karaoke preview (each word lighting up at its onset over the song) for Qing to
+  watch and hear before the shots are built. The model can't hear whether a word is early.
 
 - A generated take doesn't sing the lyric sheet exactly: it repeats hooks, drops or adds backing
   vocals, and holds notes where the sheet has an "ooh". Caption the take. Separate the vocal, then

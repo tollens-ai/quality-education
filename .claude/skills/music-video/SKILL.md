@@ -40,9 +40,11 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    it and what would clash. Check what it says against the measurements, and against Qing's word
    for the genre. Episode 2's is `music/ep02/listening-notes.md`. Then get the bars, the kick and
    the vocal's loudness into a file the renderer reads (episode 1:
-   `video/ep01/pier/tools/analyse.py`), and an onset for every sung word from the timed lyrics.
+   `video/ep01/pier/tools/analyse.py`). Time every sung word, lead and backing, from the voice
+   itself, never from the beat grid (VIDEO.md, "Word timing comes from the voice").
    *Done when* you can say how the song feels and what would clash with it, the characters can
-   groove on the beat, the camera can breathe with the kick, and every word has an onset.
+   groove on the beat, the camera can breathe with the kick, and Qing has watched a karaoke
+   preview and found every word on time.
 
 3. **Choose the world and the style together.** One world that follows the lesson. Episode 1's
    pier is dark while the agent works without context, lit when the chorus asks who it's for, and

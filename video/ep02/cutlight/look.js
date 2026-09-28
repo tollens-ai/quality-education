@@ -123,7 +123,32 @@ function peopleSheet(g, t) {
   glow(g, E, { k1: .4, k2: .3 });
 }
 
+// The cast, for drawing the people: each in the sun on the left, against the golden-hour sun on
+// the right (?v=cast), and a row of strangers.
+import { ROSA, GRAN, PARENT, JESS, DAVE, SUE } from './world.js';
+import { SHADE } from './people.js';
+import { sunlit } from './world.js';
+function castSheet(g, t) {
+  g.fillStyle = '#efe4cf'; g.fillRect(0, 0, W, H);
+  const gr = g.createLinearGradient(0, 0, 0, H * .5);
+  gr.addColorStop(0, '#5a86c6'); gr.addColorStop(1, '#ffc98a');
+  g.fillStyle = gr; g.fillRect(W / 2, 0, W / 2, H * .5);
+  g.fillStyle = '#d8b48a'; g.fillRect(W / 2, H * .5, W / 2, H * .5);
+  const cast = [[ROSA, { arms: 'hips', face: 'right', mood: 'joy' }], [GRAN, { arms: 'phoneFar', face: 'right', look: 'phone' }], [PARENT, { arms: 'strap', face: 'left' }], [JESS, { arms: 'cross', face: 'right', mood: 'deadpan' }], [DAVE, { arms: 'wave', face: 'front', mood: 'joy' }], [SUE, { arms: 'cross', face: 'left', mood: 'cross' }]];
+  const q = new URLSearchParams(location.search), big = +(q.get('h') || 600);
+  // Lit: three a row, big.
+  SHADE.lit = true;
+  sunlit(g, 'castLit', L => cast.forEach(([sp, pose], i) => person(L, 95 + (i % 3) * 170, 700 + Math.floor(i / 3) * 820 + (i % 3) * 0, big * .62, sp, pose, t)), -1);
+  SHADE.lit = false; const kc = { col: SHADE.col, k: SHADE.k }; SHADE.col = '#3a2c48'; SHADE.k = .48;
+  rimmed(g, 'castBack', L => cast.forEach(([sp, pose], i) => person(L, W / 2 + 95 + (i % 3) * 170, 700 + Math.floor(i / 3) * 820, big * .62, sp, pose, t)), [{ col: '#ffe0a6', lx: -.35, ly: -1, d: 3, k: 1, glow: .6 }]);
+  SHADE.col = kc.col; SHADE.k = kc.k;
+  // Strangers along the bottom, small, lit.
+  SHADE.lit = true;
+  sunlit(g, 'castStr', L => { for (let i = 0; i < 8; i++) { const sp = stranger(200 + i * 7); person(L, 70 + i * 128, 1880, 230 * sp.height, sp, { arms: ['down', 'pockets', 'cross', 'phone', 'hips', 'watch', 'cheer', 'down'][i], face: ['front', 'left', 'front', 'right', 'front', 'front', 'front', 'right'][i], look: i === 3 ? 'phone' : 'ahead', joy: i === 6 }, t); } }, -1);
+  SHADE.lit = false;
+}
 export function draw(g, t, S) {
+  if (new URLSearchParams(location.search).get('v') === 'cast') { setScale(g.canvas.width / W); return castSheet(g, t); }
   if (new URLSearchParams(location.search).get('v') === 'people') { setScale(g.canvas.width / W); return peopleSheet(g, t); }
   if (new URLSearchParams(location.search).get('v') === 'sheet') { setScale(g.canvas.width / W); STYLE.ink = true; INK.t = t; return sheet(g, t); }
   setScale(g.canvas.width / W);

@@ -97,7 +97,7 @@ export function dayFrame(g, t, c, o) {
     // an ink line round each, as the pen draws everything else.
     SHADE.lit = !gold;
     const keep = { col: SHADE.col, k: SHADE.k };
-    if (gold) { SHADE.col = '#3a2c48'; SHADE.k = .55; }
+    if (gold) { SHADE.col = '#3a2c48'; SHADE.k = .48; }
     rimmed(g, 'dayPeople', L => sunlit(L, 'dayPpl', L2 => {
       const ppl = o.people.slice().sort((a, b) => a[2] - b[2]);
       for (const [spec, x, z, hh, pose] of ppl) { const p = project(c, [x, 0, z]); if (p.z > c.near) person(L2, p.x, p.y, (hh ?? 172) * p.s, spec, pose || {}, t); }

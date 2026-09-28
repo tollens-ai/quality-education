@@ -83,12 +83,26 @@ The world is a box of mirrors, so the staging uses them:
 
 ## People
 
-Backlit silhouettes, inside and out, on seven-and-a-half-head anatomy: tapered limbs, weight on
-one leg, a pose that says one thing (`people.js`). A silhouette is all pose and proportion, so it
-forgives no clumsiness in either, and it's why people drawn this way read as people and not clip
-art. Lit flat from the front, the same figures looked like paper dolls; the outro puts the sun
-low behind the square, so they're rimmed in gold against a blazing sky and their shade sides keep
-their clothes' colours (`day.js`: golden hour). Poses carry the feeling: `cheer`, `wave`, `hold`.
+The same pen as everything else, not a style of their own (`people.js`): flat colour under a line
+that swells on the shade side, a few lines for the folds that say what the clothes are (a coat's
+opening and lapels, a suit's tie, a parka's hood and zip, a skirt's pleats), and hatching in the
+shade when a figure is big enough. The construction is a figure drawer's:
+
+- **About six and a half heads,** bigger than life, for appeal beside the Clawds.
+- **Three-quarters when they face a way:** the far side foreshortened, the front's middle line
+  moved, the far arm behind the body.
+- **Weight on one leg:** the hips tip, the spine turns back against them in a gentle S, the free
+  foot turns out.
+- **Hands with a thumb,** fists for gripping, an open hand for a wave; real shoes, heels for Sue.
+- **A build and clothes per person,** so each silhouette says who they are (Dave round, Rosa
+  sturdy, Gran small and stooped).
+- **Faces by mood:** dots for eyes (arcs for joy, lidded for deadpan), brows angled for anger, a
+  nose line, a mouth.
+- **Detail by size:** small figures keep their silhouette and line; faces from about 100 px
+  tall; fingers, folds and hatching from about 240 px.
+
+Against the golden-hour sun they sink into mid-tone violet shade (not black), rimmed in gold, so
+their faces still read.
 
 ## Lettering
 
@@ -125,6 +139,10 @@ How the cut words behave:
 ## Pitfalls met
 
 - **3D solids inked with hatching look like CG crates.** Pose in 3D, draw the silhouette by hand.
+- **People in flat shapes without a line look like paper dolls** beside an inked world: triangle
+  skirts, straight tubes for limbs, mitten hands. Draw them with the same pen, from a figure
+  drawer's construction, and calibrate against a reference sheet (Codex's image generation drew
+  one for the six named people).
 - **Dark materials go white under a strong key.** Shade by albedo, and scratch dark ones white on
   black.
 - **Daylight through a cut blows out to flat white** once glow and shafts are added on top. Give

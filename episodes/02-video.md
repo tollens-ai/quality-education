@@ -48,6 +48,17 @@ Then, as v3 started:
 
 > I want you to go all out
 
+## Qing's notes on v3's first cut (2026-09-28, verbatim)
+
+On the people, from the thumbnails and a frame of chorus 3:
+
+> I'extremely sceptical of the people based on your thumbnails
+
+> you need to apply a high quality bar for your own artistry before handing back to me. don't hand
+> back until you think it's good
+
+The people were redrawn from scratch in the film's own pen (see *The people*, below).
+
 ## The world
 
 The band plays inside a box of mirrors. Every check they run shows them only themselves. Every
@@ -102,6 +113,28 @@ colour, with a numbered label.
 Each is the mascot's own block, posed in 3D so the camera can go anywhere and drawn over the
 pose by hand. Their colours are the only colours inside the box, so you can tell them apart in
 any shot, even from the back.
+
+## The people
+
+Drawn with the same pen as everything else: a line that swells on the shade side, flat colour,
+a few lines for the folds that say what the clothes are, and hatching in the shade. They're about
+six and a half heads tall, turned three-quarters when they face a way, with the weight on one
+leg and the spine in a gentle S. Each named person has their own build and clothes, so their
+silhouette says who they are:
+
+| Person | Brief | Drawn as |
+|---|---|---|
+| Rosa | the bakery | sturdy, a teal dress with its sleeves rolled, a cream apron, her hair in a bun |
+| Gran | the clinic | small and stooped, curly white hair, glasses, a plum coat over a plaid skirt, a handbag, her phone held up to read |
+| A parent | the school | a green parka with a fur-rimmed hood, jeans, white trainers, a tote bag |
+| Jess | the wedding | a white gown and a veil the light shines through, arms folded, deadpan |
+| Dave | the wedding | round, bald, a navy suit and tie, waving |
+| Sue | the wedding | a red dress, long black hair, heels, arms crossed |
+
+Faces are dots, brows, a nose line and a mouth, set by mood: joy, deadpan, cross. Codex's image
+generation drew a reference sheet of the six first, for their builds, clothes and poses; the
+drawing is our own. Against the golden-hour sun they're in mid-tone violet shade with a gold rim,
+so their faces still read.
 
 ## The look
 
@@ -192,9 +225,8 @@ more), over the band's last jam.
 
 ## Where it falls short
 
-- **The people are simple:** flat colour with a few features, rimmed by the light. Against the
-  sun they read well; close up (Jess, in verse 2's window and at the end) they're paper-doll
-  plain.
+- **The people are drawn simply,** in clean line and flat colour. They read as who they are,
+  but their poses are held rather than acted; a studio would give them more life.
 - **The timings rest on measurement and one listen.** Qing checked the karaoke version and chose
   the lead; nobody has checked this film's sync by ear yet.
 - **The storm's cuts follow the riff's rhythm, and its pitches only roughly:** the notes come

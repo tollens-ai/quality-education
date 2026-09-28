@@ -93,7 +93,7 @@ Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2
 > - Every word legible and understandable on a phone: big enough, clear of what's behind it, on
 >   screen long enough to read, and read in the order it's sung.
 > - Crowds get the same attention to detail as the stars: overlaps drawn right, and people with
->   proper shapes, not filler.
+>   proper shapes, drawn with the same hand as everything else, not filler.
 > - One world, and it follows the lesson. The storyline serves the teaching.
 > - Clear at every moment: if I can't tell what's going on, I scroll away.
 > - Clawd sings. The bots appear with their real marks, unaltered. Tollens's ∴ is three dots
@@ -135,6 +135,10 @@ from rounds 3 and 4:
 - **Watch the first full cut at full size, then redraw what's weak.** Episode 2 v3's first cut
   had an empty middle in every verse and a verse 2 that looked like verse 1; both were only
   visible once the whole film was up.
+- **Don't hand back until it's good by your own bar.** If you'd list something as a shortfall,
+  fix it first. Qing (2026-09-28), after v3's people were delivered as "the weakest part": "you
+  need to apply a high quality bar for your own artistry before handing back to me. don't hand
+  back until you think it's good".
 
 ## Every episode draws its own
 

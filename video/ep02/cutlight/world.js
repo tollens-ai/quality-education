@@ -71,7 +71,7 @@ function terrace(L, c, x0, x1, z, h0, h1, col, seed, k) {
 // queue from the door along the pavement towards us. state: 'down' (the checkout's down: a
 // spinner on every phone, people fed up), 'load' (the load test: the queue doubled in cyan
 // ghosts, all moving), 'fine'.
-export const ROSA = { sex: 'f', skin: SKIN[2], hair: { style: 'bun', col: HAIRC.black }, top: { kind: 'apron', col: '#e7e2d6', col2: '#f6f1e6' }, legs: { col: '#2e3446' }, build: 1.02, seed: 11 };
+export const ROSA = { sex: 'f', skin: SKIN[2], hair: { style: 'bun', col: '#3a2c26' }, top: { kind: 'apron', col: '#ece6d8', col2: '#2f6b72' }, legs: { kind: 'dress' }, shape: 'sturdy', build: 1.04, seed: 11 };
 export function bakery(L, c, t, state = 'down', o = {}) {
   L.__k = L.getTransform().a;
   const sp = sky(L, c, t, { sun: [-200, 180, -6000], low: '#ffe0a8', hor: '#ffbf74' });
@@ -281,7 +281,7 @@ const backShift = Q => 0;
 function rr(L, x, y, w, h, r) { L.beginPath(); L.moveTo(x + r, y); L.arcTo(x + w, y, x + w, y + h, r); L.arcTo(x + w, y + h, x, y + h, r); L.arcTo(x, y + h, x, y, r); L.arcTo(x, y, x + w, y, r); L.closePath(); }
 
 // Gran, at the clinic's door: her coat, her bag, her phone held out as far as it'll go.
-export const GRAN = { sex: 'f', age: 'old', skin: SKIN[0], hair: { style: 'curly', col: HAIRC.white }, top: { kind: 'coat', col: '#8a4f7d' }, legs: { kind: 'skirt', col: '#5a4a5e' }, glasses: true, bag: '#6b3a2a', build: .95, seed: 12 };
+export const GRAN = { sex: 'f', age: 'old', skin: SKIN[0], hair: { style: 'curly', col: HAIRC.white }, top: { kind: 'coat', col: '#7a3452' }, legs: { kind: 'skirt', col: '#6b5a52', pattern: 'plaid' }, glasses: true, bag: '#7a4a2a', bagKind: 'handbag', build: .94, seed: 12 };
 
 // THE CLINIC: its booking site, which looked cute, big behind the line; Gran with her phone below.
 export function clinicView(L, t, state = 'down') {
@@ -355,9 +355,9 @@ export function schoolView(L, t, state = 'down') {
 
 // JESS'S WEDDING: the reception, fairy lights, round tables; at table 4, Dave, and next to him
 // the ex he's not speaking to.
-export const DAVE = { sex: 'm', skin: SKIN[1], hair: { style: 'bald', col: HAIRC.grey }, top: { kind: 'coat', col: '#2d3340' }, legs: { col: '#2d3340' }, build: 1.28, seed: 14 };
-export const SUE = { sex: 'f', skin: SKIN[3], hair: { style: 'long', col: HAIRC.black }, top: { kind: 'dress', col: '#8a2f3a' }, legs: { kind: 'skirt', col: '#8a2f3a' }, seed: 15 };
-export const JESS = { sex: 'f', skin: SKIN[1], hair: { style: 'bun', col: HAIRC.auburn }, top: { kind: 'gown', col: '#fbf8f2' }, legs: { kind: 'dress', col: '#fbf8f2' }, veil: '#ffffff', seed: 13 };
+export const DAVE = { sex: 'm', skin: SKIN[1], hair: { style: 'bald', col: HAIRC.grey }, top: { kind: 'suit', col: '#27304a', col2: '#3a5a9a' }, legs: { col: '#27304a' }, shape: 'round', build: 1.12, seed: 14 };
+export const SUE = { sex: 'f', skin: SKIN[3], hair: { style: 'long', col: HAIRC.black }, top: { kind: 'dress', col: '#9a2230' }, legs: { kind: 'dress' }, heels: true, bag: '#1e1a1c', bagKind: 'handbag', seed: 15 };
+export const JESS = { sex: 'f', skin: SKIN[1], hair: { style: 'bun', col: HAIRC.auburn }, top: { kind: 'gown', col: '#fbf8f2' }, legs: { kind: 'dress' }, veil: '#ffffff', build: .96, seed: 13 };
 export function weddingView(L, t, state = 'down') {
   const bg = L.createLinearGradient(0, 0, 0, H);
   bg.addColorStop(0, '#f6d9b8'); bg.addColorStop(.6, '#fbeee0'); bg.addColorStop(1, '#e9cfb2');
@@ -412,7 +412,7 @@ export function weddingView(L, t, state = 'down') {
 
 // The people the band built for, outside the box, looking in: Rosa, Gran, a parent, Jess, big
 // in the light behind the glass.
-export const PARENT = { sex: 'm', skin: SKIN[4], hair: { style: 'short', col: HAIRC.black }, top: { kind: 'coat', col: '#3f7a5a' }, legs: { col: '#2e3446' }, build: 1.05, seed: 21, bag: '#b8b24a' };
+export const PARENT = { sex: 'm', skin: SKIN[4], hair: { style: 'short', col: HAIRC.black }, top: { kind: 'parka', col: '#4d6a3a' }, legs: { col: '#3d5a80', jeans: true }, shoes: '#d9d2c3', build: 1.04, seed: 21, bag: '#e9e2cf', bagKind: 'tote' };
 export function onlookers(L, c, t, o = {}) {
   L.__k = L.getTransform().a;
   sky(L, c, t, { sun: [0, 420, -6000], low: '#ffe8c0' });
@@ -459,7 +459,9 @@ export function cellsView(L, t, cells) {
     L.fillStyle = mix('#b5553d', '#a24a36', hash(i, 2)); L.fillRect(x0 - 20, y0 - 20, w + 40, h * .62);
     L.fillStyle = '#e9f4f6'; L.fillRect(x0 + w * .58, y0 + h * .08, w * .3, h * .36); L.fillStyle = '#7fb3cf'; L.fillRect(x0 + w * .6, y0 + h * .1, w * .26, h * .32);
     L.fillStyle = '#cdbd9e'; L.fillRect(x0 - 20, y0 + h * .62, w + 40, h * .5);
-    sunlit(L, 'cell' + i, Q => person(Q, x0 + w * .3, y1 + h * .75, h * 1.7, stranger(90 + i * 3), { arms: 'phone', face: 'right', look: 'phone', screen: '#fff3c4' }, t), -1);
+    const lit = SHADE.lit; SHADE.lit = true;
+    sunlit(L, 'cell' + i, Q => person(Q, x0 + w * .32, y1 + h * .78, h * 1.7, { ...stranger(90 + i * 3), top: { kind: ['shirt', 'parka', 'coat', 'tee'][i], col: ['#c0492f', '#3f7a5a', '#2f5d8a', '#e3b04b'][i] } }, { arms: 'phone', face: 'right', look: 'phone', screen: '#fff3c4' }, t), -1);
+    SHADE.lit = lit;
     // The message, theirs alone, with a lock.
     const m = PRIVATE[i % PRIVATE.length];
     L.font = `600 ${Math.round(h * .085)}px Mono`;

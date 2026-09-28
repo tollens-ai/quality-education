@@ -143,16 +143,16 @@ export function register(S) {
   // --- D: (I LOVE IT) x4: the four of them, facing him, each answering in their own hand, in the
   // colour of their brief, and cheering.
   const who = [[ROSA, 'regex'], [GRAN, 'cron'], [PARENT, 'null'], [JESS, 'clawd']];
-  const setD = { pos: [0, 60, 460], at: [0, 150, -200], fov: .84 }, setD2 = { pos: [0, 58, 420], at: [0, 152, -200], fov: .84 };
+  const setD = { pos: [0, 62, 560], at: [0, 140, -200], fov: .84 }, setD2 = { pos: [0, 60, 520], at: [0, 142, -200], fov: .84 };
   shot(loves[0][0].v - .3, dave[0].v - .2, (g, t, sh) => {
     const c = move(t, sh, setD, setD2, { hand: .8 });
     const people = who.map(([sp], i) => {
       const said = t >= loves[i][0].v - .1;
-      return [sp, -150 + i * 100, -40 - (i % 2) * 30, [172, 160, 180, 170][i], { arms: said ? 'cheer' : 'down', face: 'front', joy: said, weight: (i - 1.5) * .3 }];
+      return [sp, -108 + i * 72, -60 - (i % 2) * 34, [170, 156, 178, 168][i], { arms: said ? 'cheer' : ['hips', 'phoneFar', 'strap', 'hold'][i], face: ['right', 'right', 'left', 'left'][i], joy: said, mood: said ? 'joy' : null, look: !said && i === 1 ? 'phone' : 'ahead', weight: (i - 1.5) * .3 }];
     });
     dayFrame(g, t, c, {
       sunAt: [-80, 600, -6000], people: [...OTHERS, ...people], shards: air(t),
-      band: [{ name: 'clawd', col: BAND.clawd.col, draw: (L, cc) => clawd(L, cc, { who: 'clawd', pos: [0, 0, 250], yaw: Math.PI, t, armL: { up: .3 }, armR: { up: .3 } }) }],
+      band: [{ name: 'clawd', col: BAND.clawd.col, draw: (L, cc) => clawd(L, cc, { who: 'clawd', pos: [0, 0, 330], yaw: Math.PI, t, armL: { up: .3 }, armR: { up: .3 } }) }],
       after: (g2) => {
         who.forEach(([sp, w], i) => {
           const L = loves[i];
@@ -178,7 +178,7 @@ export function register(S) {
     const c = move(t, sh, { pos: [40, 80, 560], at: [10, 130, -300], fov: .74 }, { pos: [36, 78, 520], at: [10, 130, -300], fov: .72 }, { hand: .7 });
     dayFrame(g, t, c, {
       sunAt: [-500, 700, -6000],
-      people: [[JESS, 75, 150, 170, { arms: 'hold', face: 'left' }], [DAVE, -190, -700, 176, { arms: 'wave', face: 'front', joy: true }], [SUE, 380, -900, 168, { arms: 'cross', face: 'left' }], ...OTHERS.slice(0, 5).map(([s, x, z, h, p]) => [s, x, z - 500, h, p])],
+      people: [[JESS, 50, 150, 170, { arms: 'cross', face: 'left', mood: 'deadpan' }], [DAVE, -190, -700, 176, { arms: 'wave', face: 'front', joy: true }], [SUE, 380, -900, 168, { arms: 'cross', face: 'left' }], ...OTHERS.slice(0, 5).map(([s, x, z, h, p]) => [s, x, z - 500, h, p])],
       shards: air(t),
       after: (g2) => {
         const L = dave;

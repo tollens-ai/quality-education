@@ -1,8 +1,8 @@
 # What the episode 2 take sounds like
 
-The model making the video can't hear the song, so Gemini 3.1 Pro (High) listened to the take,
-"How Will I Know", and described it for a director who can't hear (2026-09-28). It got the file
-alone under a neutral name, with no lyrics or notes to lean on.
+The model making the video can't hear the song, "How Will I Know". Two descriptions stand in
+for its ears: Suno's own style note for the take, and a listening by Gemini 3.1 Pro (High)
+(2026-09-28), which got the file alone under a neutral name, with no lyrics or notes to lean on.
 
 ## Suno's style note for the take (from Qing, 2026-09-28, verbatim)
 

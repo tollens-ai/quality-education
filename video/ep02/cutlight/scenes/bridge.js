@@ -2,14 +2,16 @@
 // its meaning, bracketed. RUN AND RUN THEM ALL DAY LONG round a disc of mirror that turns like a
 // clock while CRON keeps time. HEURISTICS, and NONE crossed through: NULL's empty set. DONE,
 // stamped. After each line the whole band shouts OH YEAH, four voices, four colours.
-import { W, H, clamp, lerp, hash, easeOut, easeInOut, words, hit, beatPos } from '../kit.js';
+import { W, H, clamp, lerp, hash, easeOut, easeInOut, words, hit, beatPos, eventsIn } from '../kit.js';
 import { cam, project, ap, M, T, RZ } from '../space.js';
 import { posterLine, etchFlat, flat, ringCut, drawCuts, CAPK, shardCut, width100, windowCut } from '../type.js';
 import { shot, move, overlay } from '../shots.js';
 import { boxFrame, KEY, STAGE_LIGHTS, STAGE_SMOKE, STAGE_BEAMS, bandLine } from '../box.js';
 import { WALL } from '../room.js';
 import { player, singer, drummer } from '../playing.js';
-import { sky, backdrop, fitView, bakeryView, clinicWindow, cellsView, noteView } from '../world.js';
+import { sky, backdrop } from '../world.js';
+import { story, aim } from '../story.js';
+import { sceneFit, HOLDK, KNOW } from '../windows.js';
 import { clawd } from '../clawd.js';
 import { tickPoly } from '../air.js';
 import { BAND } from '../palette.js';
@@ -40,12 +42,18 @@ export function register(S) {
     const cells = [[80, 850, 520, 1135], [560, 850, 1000, 1135], [80, 1170, 520, 1455], [560, 1170, 1000, 1455]];
     const who = ['regex', 'cron', 'null', 'clawd'];
     const wins = cells.map((b, i) => windowCut(cR, WALL, b, B1[3 + i * 2].v + .05, { dur: .22, r: 22, laser: BAND[who[i]].col, glowK: .25 }));
-    const views = (t, c) => L => { out(c)(L); backdrop(L, c, cR, D, L2 => {
-      fitView(L2, cells[0], [0, 760, 1080, 1560], L3 => bakeryView(L3, t, 'load', 420));
-      L2.save(); L2.beginPath(); L2.rect(cells[1][0] - 40, cells[1][1] - 40, cells[1][2] - cells[1][0] + 80, cells[1][3] - cells[1][1] + 80); L2.clip(); clinicWindow(L2, t, 'fine', cells[1]); L2.restore();
-      L2.save(); L2.beginPath(); L2.rect(cells[2][0] - 40, cells[2][1] - 40, cells[2][2] - cells[2][0] + 80, cells[2][3] - cells[2][1] + 80); L2.clip(); cellsView(L2, t, [cells[2]]); L2.restore();
-      L2.save(); L2.beginPath(); L2.rect(cells[3][0] - 40, cells[3][1] - 40, cells[3][2] - cells[3][0] + 80, cells[3][3] - cells[3][1] + 80); L2.clip(); noteView(L2, t, cells[3]); L2.restore();
-    }); };
+    // Each window, the oracle at work: the load test's doubled queue, the site booked, the
+    // messages locked, Jess's note.
+    const OR = [['bakery', 'load', {}], ['clinic', 'booked', {}], ['school', 'locked', { times: { lock: -9 } }], ['wedding', 'note', { hold: 1.5 }]];
+    const views = (t, c) => L => { out(c)(L); backdrop(L, c, cR, D, L2 => cells.forEach((b, i) => {
+      const [brief, state, so] = OR[i];
+      // Framed for a small window: the queue, the screen saying BOOKED, the gate, Jess and her note.
+      const bw = b[2] - b[0], cx = (b[0] + b[2]) / 2, cy = (b[1] + b[3]) / 2;
+      const fit = [{ u: .45, v: .68, x: cx, y: cy, w: bw * 2.1 }, { u: .5, v: .2, x: cx, y: cy, w: bw * 1.6 }, sceneFit(brief, b, 1.05), aim('wedding', 'jess-note', b, .26, { dy: .1 })][i];
+      L2.save(); L2.beginPath(); L2.rect(b[0] - 40, b[1] - 40, b[2] - b[0] + 80, b[3] - b[1] + 80); L2.clip();
+      story(L2, t, brief, state, [0, 0, W, H], { ...so, fit, clip: b, px: 22 });
+      L2.restore();
+    })); };
     shot(102.4, B2[0].v - .12, (g, t, sh) => {
       const c0 = move(t, sh, set, set2, { shake: 5 });
       const c = cam(c0.pos, c0.target, { fov: c0.fov * punch(t), roll: 0 });
@@ -55,6 +63,17 @@ export function register(S) {
         beams: [[[200, 460, 360], [0, 0, 300], 70, BAND.clawd.col, .9]],
         refl: { floor: true, wall: 1 }, rays: .6, post: { shafts: .35, split: hit('crash', t, .08) * 5 },
         after: (g2, E) => {
+          // What each window's oracle is, labelled as it opens.
+          ['LOAD TEST', 'BOT AS GRAN', 'ISOLATION CHECK', 'JESS'].forEach((lab, i) => {
+            const a = clamp((t - (B1[3 + i * 2].v + .12)) / .15);
+            if (a <= 0) return;
+            const [x0, y0] = cells[i];
+            g2.save(); g2.globalAlpha *= a;
+            g2.font = '800 24px Mono'; const lw = g2.measureText(lab).width;
+            g2.fillStyle = 'rgba(10,11,14,.85)'; g2.fillRect(x0 + 10, y0 + 10, lw + 24, 38);
+            flat(g2, lab, x0 + 22, y0 + 38, 24, 'monoB', { fill: BAND[who[i]].col });
+            g2.restore();
+          });
           // The definition's bracket: from under ORACLE down beside the rest.
           const k = clamp((t - (B1[2].v - .15)) / .3);
           if (k <= 0) return;
@@ -139,7 +158,13 @@ export function register(S) {
         } }],
         beams: [[[-240, 460, 60], nullAt, 60, BAND.null.col, .7]],
         refl: { floor: true, hero: true }, rays: .5, post: { shafts: .35, split: hit('crash', t, .08) * 5 },
-        see: .95, seeView: L => backdrop(L, c, cR, D, L2 => cellsView(L2, t, fam)),
+        // What the torch finds: the four of them, each with a rule of thumb on a card.
+        see: .95, seeView: L => backdrop(L, c, cR, D, L2 => fam.forEach((b, i) => {
+          const [brief, fig] = [['bakery', 'rosa-card'], ['clinic', 'gran-card'], ['school', 'parent-card'], ['wedding', 'jess-card']][i];
+          L2.save(); L2.beginPath(); L2.rect(b[0] - 20, b[1] - 20, b[2] - b[0] + 40, b[3] - b[1] + 40); L2.clip();
+          story(L2, t, brief, 'card', [0, 0, W, H], { fit: aim(brief, fig, b, .4, { dy: fig === 'rosa-card' ? -.2 : .06 }), hold: HOLDK[fig], text: KNOW[i] });
+          L2.restore();
+        })),
         seeMask: L => {
           const gr = L.createRadialGradient(sp.x, sp.y, rad * .2, sp.x, sp.y, rad);
           gr.addColorStop(0, 'rgba(0,0,0,1)'); gr.addColorStop(.7, 'rgba(0,0,0,.75)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
@@ -178,7 +203,7 @@ export function register(S) {
       const c = cam(c0.pos, c0.target, { fov: c0.fov * punch(t) });
       boxFrame(g, t, c, {
         lights: STAGE_LIGHTS, cuts: [...cuts, ...rows], cutOpt: { outside: out(c), laser: BAND.clawd.col, light: .8, fall: 'blow', fallDur: .5 },
-        band: bandLine(t, { jump: .8 }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
+        band: bandLine(t, { hops: eventsIn('crash', B4[0].v - .12, 116.9) }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
         refl: { floor: true, wall: 2 }, rays: .8, post: { shafts: .45, split: hit('crash', t, .08) * 5 },
         after: (g2, E) => {
           // The stamp: a heavy frame slammed round DONE.

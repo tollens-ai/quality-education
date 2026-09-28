@@ -2,10 +2,10 @@
 // them, the reflections, the floor, the smoke and the beams, the band rim-lit in their colours,
 // and the light. Scenes pass what's in the shot; this does the layering the same way every time.
 import { W, H, clamp, lerp, mix, rgba, hash, hit, env } from './kit.js';
-import { setLights, project, ap, STYLE, mirrored, reflector } from './space.js';
+import { setLights, project, ap, STYLE, mirrored, reflector, projPoly, tracePoly, screenToPlane } from './space.js';
 import { drawCuts } from './type.js';
 import { layer, put, glow, shafts, grain, vignette, rimmed, blurred, split, glitch } from './post.js';
-import { backWall, floorPlane, floorReflection, wallReflection, ROOM } from './room.js';
+import { backWall, floorPlane, floorReflection, wallReflection, ROOM, WALL } from './room.js';
 import { beamInk, smoke, rays, streaks } from './air.js';
 import { INK, focusLines } from './ink.js';
 import { amp } from './gear.js';
@@ -33,10 +33,12 @@ export function boxFrame(g, t, c, o) {
   const B = o.blurBack ? layer('back') : g;
   B.fillStyle = INK.col; B.fillRect(0, 0, W, H);
   const band = o.band || [];
-  const drawBand = (L, cc) => { for (const it of band) it.draw(L, cc); };
+  // A member with reflOnly stands behind the camera: only his reflection in the back wall is seen.
+  const drawBand = (L, cc) => { for (const it of band) if (!it.reflOnly) it.draw(L, cc); };
   backWall(B, c, { ink: true, col: INK.col, frame: o.frame || '#34343c', under: L => {
     if (o.refl?.hero) heroReflection(L, c, band, o.refl);
     if (o.see > 0) seeThrough(L, o.seeView || o.cutOpt?.outside, o.see, o.seeTint, o.seeFade, o.seeMask);
+    (o.panes || []).forEach((p, i) => litPanes(L, c, t, o.refl?.hero ? p : { ...p, ghost: 0 }, E, i));
   } });
   if (o.refl?.hero) {
     if (o.refl.wall) wallReflection(B, c, drawBand, { alpha: .12, levels: o.refl.wall, decay: .5 });
@@ -45,6 +47,7 @@ export function boxFrame(g, t, c, o) {
   if (o.cuts?.length) drawCuts(B, c, t, o.cuts, co);
   o.behind?.(B, E);
   floorPlane(B, c, { col: INK.col, frame: '#2a2a31' });
+  (o.panes || []).forEach((p, i) => { if (p.floor !== false) paneFloor(B, c, p, i); });
   if (o.refl?.floor !== false) floorReflection(B, c, (L, cc) => {
     if (o.cuts?.length) drawCuts(L, cc, t, o.cuts, { ...co, outside: L2 => co.outside(L2, cc), E: null, noAudit: true });
     drawBand(L, cc);
@@ -61,6 +64,7 @@ export function boxFrame(g, t, c, o) {
   if (o.blurBack) put(g, blurred('backBlur', B, o.blurBack, .5));
   o.before?.(g, E);
   for (const it of band) {
+    if (it.reflOnly) continue;
     const rims = [{ col: INK.paper, lx: it.rimDir?.[0] ?? 0, ly: it.rimDir?.[1] ?? -1, d: it.rim ?? 3.2, k: .95, glow: .5 }];
     if (it.col) rims.push({ col: it.col, lx: it.side ?? -(it.rimDir?.[0] ?? 0) * 2, ly: .2, d: (it.rim ?? 3.2) * .75, k: .9, glow: .5 });
     rimmed(g, 'm_' + it.name, L => it.draw(L, c), rims, { E });
@@ -116,6 +120,100 @@ function seeThrough(g, view, k, tint, fade = [640, 1080], mask = null) {
   put(g, L, { alpha: clamp(k) });
 }
 
+// Lit panes: where the far side of the one-way glass is lit, it's a window. p: { rect: [x0, y0,
+// x1, y1] on the back wall (world cm), view(L) (the outside, full frame), t0 (the lights come on),
+// t1 (they go off), dim (the glass's tint left, 0..1), ghost (how much of the reflection still
+// shows on it), light (its share of the glow) }. The wall's chrome grid splits the rect into
+// panes, and each comes on on its own, flickering like a tube starting, and goes off the same
+// way.
+export function paneOn(t, t0, t1, seed) {
+  const d = t - t0 - hash(seed, 1) * .16;
+  if (d < 0) return 0;
+  const on = d < .04 ? .85 : d < .08 ? .12 : d < .12 ? .95 : d < .15 ? .45 : 1;
+  if (t1 === undefined) return on;
+  const e = t - t1 - hash(seed, 2) * .1;
+  return e < 0 ? on : e < .03 ? .5 : e < .06 ? .9 : Math.max(0, .6 - (e - .06) * 12);
+}
+export function paneMask(c, rect, t, t0, t1, seed = 0, shape = null) {
+  const [x0, y0, x1, y1] = rect, z = ROOM.back, P = ROOM.pane;
+  // A porthole: the circle in the rect, lit all at once; or a quarter of it ('q0'..'q3').
+  if (shape === 'circle' || /^q\d$/.test(shape || '')) return L => {
+    const k = paneOn(t, t0, t1, seed * 31);
+    if (k <= 0) return;
+    const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, r = Math.min(x1 - x0, y1 - y0) / 2;
+    const q = shape === 'circle' ? -1 : +shape[1];
+    const pts = q < 0 ? Array.from({ length: 48 }, (_, i) => [cx + Math.cos(i / 48 * Math.PI * 2) * r, cy + Math.sin(i / 48 * Math.PI * 2) * r, z])
+      : [[cx, cy, z], ...Array.from({ length: 13 }, (_, i) => { const a = (q + i / 12) * Math.PI / 2; return [cx + Math.cos(a) * r, cy + Math.sin(a) * r, z]; })];
+    const pp = projPoly(c, pts);
+    if (!pp) return;
+    L.fillStyle = `rgba(0,0,0,${k})`; L.beginPath(); tracePoly(L, pp); L.fill();
+  };
+  return L => {
+    for (let gx = Math.floor(x0 / P) * P; gx < x1; gx += P) for (let gy = Math.floor(y0 / 150) * 150; gy < y1; gy += 150) {
+      const a = Math.max(x0, gx), b = Math.min(x1, gx + P), lo = Math.max(y0, gy), hi = Math.min(y1, gy + 150);
+      if (b <= a || hi <= lo) continue;
+      const k = paneOn(t, t0, t1, seed * 31 + gx * 7 + gy);
+      if (k <= 0) continue;
+      const pp = projPoly(c, [[a, lo, z], [b, lo, z], [b, hi, z], [a, hi, z]]);
+      if (!pp) continue;
+      L.fillStyle = `rgba(0,0,0,${k})`;
+      L.beginPath(); tracePoly(L, pp); L.fill();
+    }
+  };
+}
+function litPanes(g, c, t, p, E, i = 0) {
+  const mask = paneMask(c, p.rect, t, p.t0 ?? -1e9, p.t1, p.seed || 0, p.shape);
+  const L = layer('panes' + i);
+  p.view(L);
+  L.save(); L.setTransform(1, 0, 0, 1, 0, 0);
+  if (p.dim) { L.globalCompositeOperation = 'source-atop'; L.fillStyle = rgba(p.tint || '#0a1322', p.dim); L.fillRect(0, 0, L.canvas.width, L.canvas.height); }
+  L.restore();
+  // What's left of the reflection, faint over the view.
+  if (p.ghost) { const R = layer('heroRefl', { keep: true }); put(L, R, { alpha: p.ghost }); }
+  // The mask is built on its own (each pane its own fill), then cuts the view once.
+  const Mk = layer('paneMask');
+  mask(Mk);
+  L.save(); L.setTransform(1, 0, 0, 1, 0, 0); L.globalCompositeOperation = 'destination-in'; L.drawImage(Mk.canvas, 0, 0); L.restore();
+  put(g, L);
+  if (E && p.light !== 0) put(E, L, { alpha: p.light ?? .35 });
+}
+// The lit panes in the black mirror floor: the wall mirrored about the line where it meets the
+// floor (for a camera near level, a flip about that line on screen), softened and fading away.
+function paneFloor(g, c, p, i = 0) {
+  const L = layer('panes' + i, { keep: true });
+  const a = project(c, [p.rect[0], 0, ROOM.back]), b = project(c, [p.rect[2], 0, ROOM.back]);
+  const yf = (a.y + b.y) / 2;
+  const F = layer('paneFloor');
+  F.save(); F.setTransform(1, 0, 0, 1, 0, 0);
+  const k = F.canvas.width / W, Y = yf * k;
+  F.translate(0, Y * 2); F.scale(1, -1);
+  F.drawImage(L.canvas, 0, 0);
+  F.restore();
+  F.save(); F.globalCompositeOperation = 'destination-in';
+  const gr = F.createLinearGradient(0, yf, 0, yf + (p.floorFade ?? 260));
+  gr.addColorStop(0, 'rgba(0,0,0,.55)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+  F.fillStyle = gr; F.fillRect(0, yf, W, H - yf);
+  F.fillStyle = 'rgba(0,0,0,0)';
+  F.restore();
+  F.save(); F.setTransform(1, 0, 0, 1, 0, 0); F.globalCompositeOperation = 'destination-out'; F.fillStyle = '#000'; F.fillRect(0, 0, F.canvas.width, Math.max(0, Y)); F.restore();
+  put(g, blurred('paneFloorB', F, 2.5, .5), { alpha: p.floorA ?? .8 });
+}
+// A view drawn once a frame however often it's asked for (the letters, a pane and the floor's
+// reflection of both can all show the same outside): make it per frame with a layer name.
+export function once(draw, name) {
+  let done = false;
+  return L => {
+    const C = layer('once_' + name, { keep: done });
+    if (!done) { draw(C); done = true; }
+    L.save(); L.setTransform(1, 0, 0, 1, 0, 0); L.drawImage(C.canvas, 0, 0); L.restore();
+  };
+}
+// Where camera c's screen box falls on the back wall: the rect of wall (world cm) it shows.
+export function wallRect(c, box) {
+  const a = screenToPlane(c, WALL, box[0], box[1]), b = screenToPlane(c, WALL, box[2], box[3]);
+  return [Math.min(a[0], b[0]), Math.min(a[1], b[1]), Math.max(a[0], b[0]), Math.max(a[1], b[1])];
+}
+
 // The band's standard places on the stage, and their lights.
 export const LINEUP = {
   cron: { pos: [0, 0, -40], riser: 44 },
@@ -145,8 +243,14 @@ export const STAGE_BEAMS = [
 // The whole band in their places, playing; o.jump makes them jump on the beat (the choruses).
 import { player, singer, drummer } from './playing.js';
 import { beatPos } from './kit.js';
+// o.hops instead: a jump each only at those moments (the big hits), each a little after the last.
 export function bandLine(t, o = {}) {
-  const j = w => o.jump ? Math.max(0, Math.sin((beatPos(t) + (w === 'null' ? .5 : w === 'regex' ? .25 : 0)) * Math.PI)) * (o.jump * 22) : 0;
+  const hop = w => {
+    let h = 0;
+    for (const at of o.hops || []) { const q = (t - at - (w === 'null' ? .05 : w === 'regex' ? .09 : 0)) / .38; if (q > 0 && q < 1) h = Math.max(h, 4 * q * (1 - q) * 30); }
+    return h;
+  };
+  const j = w => o.jump ? Math.max(0, Math.sin((beatPos(t) + (w === 'null' ? .5 : w === 'regex' ? .25 : 0)) * Math.PI)) * (o.jump * 22) : hop(w);
   const at = o.at || LINEUP;
   return ['cron', 'null', 'regex', 'clawd'].map(w => ({
     name: w, col: BAND[w].col, rimDir: [w === 'regex' ? .6 : w === 'null' ? -.6 : 0, -1],

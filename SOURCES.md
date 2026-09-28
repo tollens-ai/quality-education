@@ -101,9 +101,11 @@ quality. Credit them here and on screen.
   out of the glass. Hatching, scratchboard blacks and focus lines are the manga's and the
   engraver's familiar techniques, drawn by our code; no artwork is reproduced.
 - **The people and the places outside the box** (the bakery, the clinic, the school, the wedding
-  marquee, the town square) were drawn by OpenAI's image generation, used through Codex, from our
-  own briefs; we cut them out and animate them as paper cut-outs.
+  marquee, the town square) and Gran's costume were drawn by OpenAI's image generation, used
+  through Codex, from our own briefs and frames of the film; we cut them out and animate them as
+  paper cut-outs. What's on their screens, cards and signs is drawn by our code.
 - **Fonts,** with their licences in `video/ep02/cutlight/fonts/`: Big Shoulders Stencil Display
   (The Big Shoulders Project Authors, SIL Open Font License) for the sung words; JetBrains Mono
-  (The JetBrains Mono Project Authors, SIL Open Font License) for labels and the teaching card;
+  (The JetBrains Mono Project Authors, SIL Open Font License) for labels, the machine's readouts
+  and the teaching card;
   Rock Salt (Font Diner, Apache License 2.0) for the people's handwriting.

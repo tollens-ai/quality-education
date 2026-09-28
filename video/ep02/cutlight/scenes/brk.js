@@ -1,6 +1,7 @@
 // The breaks. After chorus 1, the riff again: REGEX's hands close, the strings lit note by note,
-// the lasers slashing the glass behind; the band jumping; then SO GIVE ME SOMETHING I CAN PROVE!
-// cut again, the camera rolling. After chorus 2, a bar of drums: CRON, hit by hit.
+// the lasers slashing the glass behind; then the whole band, and through the slashes the town
+// outside, the people they built for; then SO GIVE ME SOMETHING I CAN PROVE! cut again, the
+// camera rolling. They jump only on the crashes. After chorus 2, a bar of drums: CRON, hit by hit.
 import { W, H, clamp, lerp, hash, easeOut, easeInOut, words, hit, A, eventsIn } from '../kit.js';
 import { cam, project, ap } from '../space.js';
 import { posterLine, shardCut } from '../type.js';
@@ -8,7 +9,7 @@ import { shot, move } from '../shots.js';
 import { boxFrame, KEY, STAGE_LIGHTS, STAGE_SMOKE, STAGE_BEAMS, bandLine } from '../box.js';
 import { WALL } from '../room.js';
 import { player, drummer } from '../playing.js';
-import { sky } from '../world.js';
+import { sky, onlookers } from '../world.js';
 import { slashes, slashesFrom } from '../air.js';
 import { BAND } from '../palette.js';
 
@@ -36,12 +37,13 @@ export function register(S) {
       behind: (B, E) => slashes(B, E, c, WALL, sl, t, BAND.regex.col),
     });
   });
-  // --- The band, jumping, the storm of cuts across the glass.
+  // --- The band, the storm of cuts across the glass, and through it the town.
+  const hops1 = eventsIn('crash', 56.0, 60.85);
   shot(56.0, 58.05, (g, t, sh) => {
     const c = move(t, sh, { pos: [-40, 90, 1000], at: [0, 170, -160], fov: .56, roll: -.03 }, { pos: [40, 100, 1060], at: [0, 175, -160], fov: .56, roll: .03 }, { shake: 7 });
     boxFrame(g, t, c, {
-      lights: STAGE_LIGHTS, cuts: shards, cutOpt: { outside: out(c), laser: BAND.regex.col, light: .9, fall: 'blow', fallDur: .6 },
-      band: bandLine(t, { jump: 1.4 }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
+      lights: STAGE_LIGHTS, cuts: shards, cutOpt: { outside: L => onlookers(L, c, t, { joy: true }), laser: BAND.regex.col, light: .9, fall: 'blow', fallDur: .6, haze: .12 },
+      band: bandLine(t, { hops: hops1 }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
       refl: { floor: true, wall: 2 }, post: { shafts: .5, glow: [.32, .45], split: hit('crash', t, .1) * 6 },
       behind: (B, E) => slashes(B, E, c, WALL, sl, t, BAND.regex.col),
     });
@@ -56,7 +58,7 @@ export function register(S) {
     const c = move(t, sh, set, set2, { shake: 7, ease: easeInOut });
     boxFrame(g, t, c, {
       lights: STAGE_LIGHTS, cuts, cutOpt: { outside: out(c), light: .85, fall: 'blow', fallDur: .7 },
-      band: bandLine(t, { jump: 1 }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
+      band: bandLine(t, { hops: hops1 }), smoke: STAGE_SMOKE, beams: STAGE_BEAMS,
       refl: { floor: true, wall: 2 }, rays: 1, post: { shafts: .55, glow: [.32, .45], split: hit('crash', t, .12) * 6 },
     });
   });

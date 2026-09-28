@@ -17,10 +17,7 @@ export async function loadCast() {
   const load = async n => { const img = new Image(); img.src = BASE + n + '.webp'; await img.decode(); return img; };
   await Promise.all([
     ...Object.entries(idx).map(async ([n, d]) => { CAST[n] = { ...d, img: await load(n) }; }),
-    ...Object.entries(bk).map(async ([n, d]) => {
-      BACK[n] = { ...d, img: await load(n) };
-      if (d.table) BACK[n].tableImg = await load(n + '-table');
-    }),
+    ...Object.entries(bk).map(async ([n, d]) => { BACK[n] = { ...d, img: await load(n) }; }),
   ]);
 }
 
@@ -57,10 +54,7 @@ function washed(name, col, k) {
 // Jointed figures: a piece of the card (a forearm and hand) cut free along a line and pinned, as a
 // paper puppet's limb is, swung about its pin each drawing. The piece is cut a little past its
 // joint and feathered there, so no gap opens as it swings. In image px: poly, pin, and the swing.
-export const JOINTS = {
-  'dave-wave': [{ poly: [[0, 0], [138, 0], [138, 150], [120, 212], [0, 224]], pin: [60, 216], swing: t => .11 * Math.sin(t * 2 * Math.PI * 2.1) }],
-  'dave-lit': [{ poly: [[0, 0], [130, 0], [130, 140], [112, 200], [0, 212]], pin: [55, 205], swing: t => .1 * Math.sin(t * 2 * Math.PI * 1.9 + 1) }],
-};
+export const JOINTS = {};
 function jointed(name, t) {
   const f = CAST[name], parts = JOINTS[name];
   const c = CACHE.get(name + '|j') || (() => { const cv = document.createElement('canvas'); cv.width = f.w; cv.height = f.h; CACHE.set(name + '|j', cv); return cv; })();
@@ -152,25 +146,4 @@ export function figure(g, name, x, y, h, o = {}) {
   o.draw?.(g, X, Y, w, hh);
   g.restore();
   return { crown: [x, y - h - bounce], box: [x - w / 2, y - hh, x + w / 2, y] };
-}
-
-// A backdrop, drawn with its top-left at (x, y), w wide. Returns a map from the image's own pixels
-// to g's units, for placing things on it.
-export function backImage(g, name, x, y, w, o = {}) {
-  const b = BACK[name];
-  if (!b) return null;
-  const k = w / b.w;
-  if (o.crop) {
-    const [cx0, cy0, cx1, cy1] = o.crop;
-    g.drawImage(b.img, cx0, cy0, cx1 - cx0, cy1 - cy0, x + cx0 * k, y + cy0 * k, (cx1 - cx0) * k, (cy1 - cy0) * k);
-  } else g.drawImage(b.img, x, y, w, b.h * k);
-  return { k, at: (ix, iy) => [x + ix * k, y + iy * k], b };
-}
-// What stands in front of people in a backdrop (the wedding table), drawn over them.
-export function frontOf(g, name, map) {
-  const b = BACK[name];
-  if (!b?.tableImg) return;
-  const [x0, y0] = b.table.box;
-  const [sx, sy] = map.at(x0, y0);
-  g.drawImage(b.tableImg, sx, sy, b.tableImg.width * map.k, b.tableImg.height * map.k);
 }

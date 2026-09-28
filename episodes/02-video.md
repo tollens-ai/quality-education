@@ -7,6 +7,10 @@ The renderer is [video/ep02/cutlight/](../video/ep02/cutlight/README.md), and th
 is [Cut Light, ink and neon](../.claude/skills/music-video/references/style-cut-light.md). v2,
 "The Mirror", and v1, "The Garage", are kept below.
 
+Parked on 2026-09-28, with the story layer below built and previewed but not mastered, while
+another model has a go in a different art style (Qing: "I want them to have a go in a different
+art style").
+
 ## Qing's notes on v2 (2026-09-28, verbatim)
 
 > hey, I don't love it yet but I see the angle you're going for.
@@ -65,33 +69,93 @@ The people were redrawn from scratch in the film's own pen. Then:
 > if we need to incorporate more generated images and like, paper cut animate them we can
 
 So the people and the places behind them became generated artwork, cut out and animated as
-paper (see *The people, and the places they stand in*, below).
+paper. On that cut (v3.2), from a frame of the school gate:
+
+> did you give gpt style guidance? this screenshot screams ai slop. I thought we were going for
+> hand drawn stylised anime inspired?
+
+> it's not in keeping with your art style at all
+
+> like, did you give chatgpt your art and ask what would be in keeping at least?
+
+> or your style concepts?
+
+> it can't veer even slightly to realistic style because it uncanny valleys the hell out of
+> people
+
+> also the verse 1 examples are not illustrated at all any more? the listener feedback was that
+> the song lyrics are only parse able if there is context animation
+
+> the lettering looks amazing though! and I love the band design
+
+> how do I get you to consistently uphold the quality bar? do we need a handover and compaction
+> or something?
+
+> also just watch out for static moments like the first "something else" - those can bore people
+
+> but yeah I'm like a whole minute through and all I've seen is the band which can't be right
+
+> also what happened to the bot acting as gran? like we can't skimp on the effort on how to best
+> illustrate the concepts described in the song
+
+> also I'm very confused by the horizontal lines texture that shows up on the claude's near the
+> end
+
+> also the jumping up and down by the band feels VERY repetitive by the end. I think yeah, great
+> text design, even that gets a bit repetitive by the end. but it feels like yeah just.... way too
+> much band, way too much repetitiveness, not enough illustrating the content
 
 ## The world
 
 The band plays inside a box of mirrors. Every check they run shows them only themselves. Every
 word they sing is laser-cut out of the mirror, and through the letters comes the daylight of the
-world outside, where the people they built for are. The film goes from mirror to window:
+world outside, where the people they built for are. The film is the story of the four briefs,
+told on the glass: the band frames it.
 
-- **Verse 1, the mirror.** Each member faces the glass and plays to his own reflection, clear and
-  lit, while what went wrong with his app is cut through the mirror above it. Through the
-  letters, only glimpses of the place: the bakery's queue, the clinic's error page, the school
-  gate, the wedding.
-- **Pre-choruses.** CLAWD alone at the glass, his hand on it. BROKEN cracks out from his hand;
-  his reflection sings the echo, "(for myself?)".
-- **Choruses.** The whole band, all four lasers. PERFECT is cut round a perfect circle; CHECKS
-  and TESTS are ticks cut all over the glass round the words, and then the bugs you'd find come
-  in through them as moths.
-- **Verse 2, the windows.** Each oracle cuts a window where the member's reflection was, and he
-  sees out: the load test's customers, the clinic's booking site as the bot playing Gran books,
-  each family's messages sealed in a cell of its own, and Jess holding up her note.
-- **The bridge** sets ORACLE as a dictionary headword over four windows, one for each oracle
-  so far. RUN AND RUN turns round a disc of mirror like a clock. For HEURISTICS, NULL shines a
-  torch at the glass, and it clears only where the beam falls: a partial view, better than
-  none. NONE is struck through and DONE stamped.
-- **Pre-chorus 3 and chorus 3.** The people have come to the glass. One-way glass turns clear
-  when the far side is the brighter, and it does: the four they built for, and others, stand
-  outside watching. On the last PROVE! the box shatters.
+- **Intro.** In the dark, the dedication, and on "everyone", dim behind the glass, the four they
+  built for, looking in. The riff as a storm of laser cuts. Then each member as an anime opening
+  brings on its cast: his name cut a letter a note, and behind him, washed in his colour like a
+  double exposure, the one he built for.
+- **Verse 1: they're shown.** We stand where each member stands, facing the mirror, and see
+  himself. Then the one-way glass lights from the far side where his reflection was, pane by pane
+  like tubes starting, and the line plays out in it as it's sung: Rosa's terminal goes to a red X,
+  the clock lands on eight, the view runs out of the door to the queue; the clinic's cute booking
+  site, all tiny pale slots, then Gran squinting at it, her thumb, bigger than any slot, landing
+  on the wrong one ("oops! try again"), then shaking her phone; four parents at the school gate,
+  and on READ their private messages, each with its sender's name, fly to each other's heads;
+  the seating plan, Dave beaming beside Sue, and on EX! the vein pops and Jess is aghast. At the line's end the glass
+  goes dark and he's alone with himself again.
+- **Pre-choruses: they tell him.** Four windows light and the four hold up what they have to
+  show: the first time what went wrong, the second what the checks put right (but Jess still has
+  her note), the third what they know, written on a card as we watch. BROKEN won't come out, and
+  the glass cracks. On BUT HOW WILL I KNOW the camera pulls back and the windows go dark a word at
+  a time. SOMETHING ELSE: back down the tunnel of reflections, and each member's light slams on
+  with a snare hit, a whip to each.
+- **Choruses: the argument.** HOW DO I KNOW is the band's hook. PERFECT is cut round a circle,
+  and a porthole below lights a quarter at a time onto what perfect is for each of them. ALL OF
+  MY CHECKS: the test report, typed a line a beat, every line PASS, while ticks are cut in the
+  glass below; DON'T FIND THE BUGS YOU DO: the glass lights where the ticks were, and there they
+  are holding up what the tests missed, moths coming in over the report. GIVE ME A GUIDE: they
+  hold up cards. Each chorus is further on: the first time the report's checks are the naive
+  ones and the cards say only "?"; the second, the report is verse 2's oracles, only Jess is left
+  at the glass, and the cards are half written; the third, the report is the users' own rules and
+  the cards say what they know.
+- **Verse 2: the oracles cut windows.** A load test on every merge: a simulated customer marches
+  in beside every real one in Rosa's queue, in cyan, and the readout counts LOAD 2.0x, CHECKOUT
+  OK. The bot: the prompt is typed on the glass ("act as: Gran, 84 / reading glasses, big thumbs
+  / book a check-up"), and NULL is dressed as her a piece at a time on the words (her glasses,
+  her curls, her shawl, her handbag), his phone held out at arm's length the way she holds hers,
+  the site on it now with big clear times, the real Gran in the window beside him; on GO the test
+  passes, and she holds hers up: BOOKED. The isolation check: four cells, a family in each; a scan
+  line runs down them, catches Amy's message showing in Rob's cell (SHOULDN'T SHOW) and sends it
+  home, and locks each one's message in. And for Dave and
+  Sue no check at all: Jess at the glass, writing her note as it's sung.
+- **The bridge** sets ORACLE as a dictionary headword over four windows, one for each oracle.
+  RUN AND RUN turns round a disc of mirror like a clock. For HEURISTICS, NULL shines a torch at
+  the glass, and where the beam falls the four show through, holding their rules of thumb. NONE
+  is struck through and DONE stamped.
+- **Chorus 3.** The people have come to the glass, and it clears. On the last PROVE! the box
+  shatters.
 - **The outro, in the square at golden hour.** The pieces of mirror hang in the air with the
   outro's lines cut in them, and four more carry the evidence, a brief's number and a tick
   each. A question mark comes down for what they can't know. CLAWD asks "SO, DO YOU LOVE IT?",
@@ -102,12 +166,12 @@ world outside, where the people they built for are. The film goes from mirror to
 Each app belongs to one member, is introduced with him, and comes back in the same order, in his
 colour, with a numbered label.
 
-| Brief | Built by | Verse 1: through the letters | Verse 2: the window |
+| Brief | Built by | Verse 1: the glass lights | Verse 2: the window |
 |---|---|---|---|
-| 1/4 Rosa's bakery, the checkout | REGEX, guitar (cyan) | the shop at eight, the queue | the queue doubled in cyan: a load test on every merge |
-| 2/4 the clinic, the booking site | CRON, drums (lime) | the cute site, spinning, "please try again later" | the booking site, tried by NULL playing Gran, and BOOKED |
-| 3/4 Parkside School, the feedback app | NULL, bass (violet) | parents reading each other's private messages | four cells, a family in each, their messages theirs alone |
-| 4/4 Jess's wedding, the seating plan | CLAWD, vocals (orange) | Dave next to his angry ex | Jess at the glass: "Dave + Sue: NOT the same table!!" |
+| 1/4 Rosa's bakery, the checkout | REGEX, guitar (cyan) | the terminal's red X, the clock at eight, the queue out of the door | a simulated customer beside every real one: a load test on every merge |
+| 2/4 the clinic, the booking site | CRON, drums (lime) | the cute site's tiny slots, and Gran's thumb missing them | NULL, prompted to act as Gran and dressed as her, books on the fixed site |
+| 3/4 Parkside School, the feedback app | NULL, bass (violet) | parents reading each other's private messages | four cells, a family in each; the scan finds the one that shouldn't show |
+| 4/4 Jess's wedding, the seating plan | CLAWD, vocals (orange) | Dave next to his angry ex | Jess at the glass, writing "Dave + Sue: NOT the same table!!" |
 
 ## The band
 
@@ -124,28 +188,29 @@ any shot, even from the back.
 
 ## The people, and the places they stand in
 
-The people, and the four places behind them, are paper cut-outs. Codex's image generation drew
-them from our briefs, in one hand-inked illustration style: character sheets of the six named
-people first, then each of them in the poses the film needs, crowds for the queue and the square,
-and backdrops of the bakery, the clinic's waiting room, the school, the wedding marquee and the
-town square at golden hour. The signs and the tables were left blank, so the words on them are
-ours. Each figure is cut out of its sheet (`tools/cutout.py`) and animated the way paper
-cut-outs are: a card that sways on its feet, breathes, bobs on the beat and is swapped for
-another pose with a pop, moving on twos while the camera moves on every frame, with a thin paper
-edge and a soft shadow. Dave's waving forearm is a separate piece, pinned at the elbow.
+The people and the places they stand in are generated artwork, cut out and animated as paper.
+Codex's image generation drew them, given the film's own frames and concepts: style studies
+first, from which Qing chose "ink and neon" ("ooh yeah I like 1, very bold and unusual"), then
+character sheets of the six named people, each in the poses the film needs, crowds for the queue
+and the square, Gran's costume as props for the bot, and the places. The people are angular and
+inked like the film, with a thin neon rim, and never realistic; their eyes are human eyes (the
+square eyes are the Clawds', "because he's a robot"). Every screen, card, board and sign was left
+blank, so what's on them is drawn by the film and moves with the story.
+
+Each figure is cut out of its sheet (`tools/cutout.py`), its blanks found (`tools/blanks.py`),
+and animated the way paper cut-outs are: a card that sways on its feet, breathes, bobs on the
+beat and is swapped for another pose with a pop, moving on twos while the camera moves on every
+frame, with a thin paper edge and a soft shadow. What they hold up to the glass (a phone, a card,
+Jess's note) is drawn as its own bigger piece of paper over their hands, so it reads.
 
 | Person | Brief | Seen as |
 |---|---|---|
-| Rosa | the bakery | a baker in her apron, flour on her arms |
-| Gran | the clinic | curly white hair, glasses, a plum coat over a plaid skirt, her handbag; squinting at her phone held up at arm's length |
-| A parent | the school | a green parka, jeans, a tote bag |
-| Jess | the wedding | a white gown and a veil; her note held up, then arms folded, deadpan |
-| Dave | the wedding | round, bald, in a three-piece suit, beaming and waving |
-| Sue | the wedding | a red dress, long black hair, heels, arms crossed, glaring at him |
-
-Inside the box the lighting is the band's; outside it's the day, so each person comes in two
-lights: lit from the front, for the views through the cuts, and against the golden-hour sun,
-rimmed in gold, for the square.
+| Rosa | the bakery | a baker in her fifties, teal dress, cream apron, a grey streak in her bun |
+| Gran | the clinic | small and sharp, curly white hair, big round glasses, a plum coat, her handbag |
+| A dad, and three other parents | the school | a green parka and a tote; a red jumper; a cap; a headscarf |
+| Jess | the wedding | an ivory gown, a short veil, an auburn bun; her note, then arms folded, deadpan |
+| Dave | the wedding | very large, bald, a navy three-piece suit, beaming and waving |
+| Sue | the wedding | a red dress, long black hair, arms crossed, glaring at him |
 
 ## The look
 
@@ -159,8 +224,8 @@ gold.
 
 The intro plays the riff as a storm of laser cuts: every note of the guitar stem is a cut across
 the mirror, and the cuts open into shards of sky. Each member is introduced with his name cut a
-letter a note, his instrument and his brief under it. Then the title, one letter on each of the
-bar's twelve notes.
+letter a note, his instrument and his brief under it, over the one he built for in his colour.
+Then the title, one letter on each of the bar's twelve notes.
 
 Borrowed ideas, drawn fresh: one-way glass, which turns see-through when the far side is the
 brighter; manga's hatching, scratchboard blacks and focus lines; and stencil lettering, whose
@@ -180,9 +245,10 @@ letters are already separate pieces, as a cutter needs.
   stamped.
 - **Echoes are etched, not cut:** the backing vocals are glowing lines drawn on the glass,
   in the colour of whoever sings them, beside the reflection that sings them.
-- **The machine's voice** (the labels, the brief tickets, the teaching card) is JetBrains Mono.
-- **The people's hand** (Jess's note, the four "I love it!"s, "Dave's still coming, though.") is
-  Rock Salt, written outside the glass, never cut into it.
+- **The machine's voice** (the labels, the brief tickets, the test report, the bot's prompt, the
+  load test's readout, the teaching card) is JetBrains Mono.
+- **The people's hand** (their cards, Jess's note, the four "I love it!"s, "Dave's still coming,
+  though.") is Rock Salt, written outside the glass, never cut into it.
 - **A sung line holds across cuts.** A line cut before a shot starts is carried into it already
   open.
 
@@ -204,55 +270,56 @@ more), over the band's last jam.
   shots.
 - **Canvas 2D over a small 3D kit.** A camera and solids in centimetres place everything; the
   band, the box and the lettering are drawn in 2D and inked.
-- **The people and places are generated,** then cut out and animated here as paper (above). The
-  sheets and briefs are kept out of the repo; the cut-outs and backdrops are in
-  `video/ep02/cutlight/cast/`.
-- **The first full cut was reviewed at full size and redrawn where it was weak.** Verse 1 had the
-  words at the top, the member small at the bottom and an empty middle, and verse 2 looked like
-  verse 1. So each member now faces his reflection in verse 1, and the oracles cut windows where
-  it was in verse 2. The last third got the one-way glass clearing. The outro square was redrawn
-  in ink at golden hour, and its small cards became pieces of mirror.
+- **The people and places are generated,** from the film's own frames and concepts, then cut out
+  and animated here as paper (above). The sheets and briefs are kept out of the repo; the
+  cut-outs and places are in `video/ep02/cutlight/cast/`.
+- **The story is a scene library.** `story.js` draws each brief in each state the song takes it
+  through, and every shot frames it for itself: in a lit pane (`box.js`: `panes`), a window, a
+  porthole, a cell. Code draws what's on the screens, cards and boards.
+- **Each cut was reviewed at full size and redrawn where it was weak.** The first had an empty
+  middle in every verse and a verse 2 like verse 1. The next had the band everywhere and the
+  story only through the letters; so every line's story now plays out big on the glass, the
+  repeats progress, and the band jumps only on the big hits.
 
 ## How it was checked
+
+As of the parked preview (the story layer, 540 wide, not mastered):
 
 - **Words:** the typography audit (`video/ep02/cutlight/tools/typo-audit.mjs`, `typo-report.py`,
   run by `typo-run.sh`) rendered the film every 0.1 s and judged all 487 sung words for size, time
   fully on screen, contrast at the letters' edges, cover, tilt, reading order and the phone apps'
-  UI zone. Each cut-out piece is recorded as its own polygon, so contrast is measured round the
-  letters themselves. The first run flagged 123 words and missed 21. Carrying lines across cuts,
-  starting rows below the brief labels, keeping low rows out of the button strip, keeping the
-  chorus's ticks and moths off the words, and thinning the glow round the stuck words brought it
-  to 24 flags, all there on purpose. The whispered dedication and the stuck words (GET THROUGH,
-  BROKEN) are etched with a glow the check reads as their edges blending (13); they read clearly
-  by eye. RUN AND RUN turns round its disc, so it's tilted (7). And the two PROVE!s are hit by
-  the flash of the crash (4). Every word is lettered while it's sung, and every line reads in
-  sung order.
-- **Motion:** `video/lib/motion.py` on the master: five near-still seconds, all on the teaching
-  card and the end card, which are there to be read.
-- **Shots:** `video/ep02/cutlight/tools/shots.mjs`: 60 shots and no gaps. Where two overlap, the
-  next starts a fraction early on purpose, to cut its first word, and wins.
-- **Craft:** eight full previews at 540 wide, each as a contact sheet at one frame a second; stills
-  of every shot that changed; each view behind the wall rendered whole, to check what the letters
-  show; 30 fps strips of the cut-outs moving and of Dave's wave; and the lyric frames tiled at
-  phone size, 390 px wide, and read as a viewer would. At that size, two backing echoes sat on
-  other words and were moved.
-- **The master:** 1080×1920 at 30 fps, 174.83 s and 5,245 frames, counted by decoding it; stills
-  pulled from it at every fix.
+  UI zone. It flagged 33, all accounted for: the whispered dedication and the stuck words (GET
+  THROUGH, BROKEN), etched with a glow the check reads as their edges blending (13); RUN AND RUN
+  turning on its disc, and chorus 2's I WANT YOU TO seen from the side, tilted (11); the PROVE!s in
+  the crash's flash (4); THE LOAD, its glass falling out of the letters as it lands (2); and three
+  words over the town seen through the clearing glass (3). An earlier run put the backing echoes
+  in the phone apps' UI zone; they were moved. Every word is lettered while it's sung, and every
+  line reads in sung order.
+- **Motion:** `video/lib/motion.py` on the preview: a median change of 7.8, and near-still seconds
+  only on the teaching card and the end card, which are there to be read.
+- **Shots:** `video/ep02/cutlight/tools/shots.mjs`: 60 shots and no gaps.
+- **The story from the pictures alone:** three previews at 540 wide, each as contact sheets at a
+  frame a second, 6 fps strips of the lines that change, and full-size stills. Then an independent
+  viewer's check: another model (GPT, through Codex) given only frames and the bar. It found that
+  Gran's problem read as a site that was down rather than one she couldn't use, that the leaked
+  messages didn't say whose they were, that the isolation check didn't show anything being found,
+  and a crack that ran over faces; all were redrawn.
+- **The preview:** 174.83 s and 5,245 frames, counted by decoding it.
 
 ## Where it falls short
 
-- **The people move as cards,** not as drawn animation: they sway, bob, swap poses and (Dave)
-  wave a pinned forearm, but they can't turn or walk. That's the paper cut-out style, and its
-  limit.
-- **Two hands in one film:** the band and the box are drawn in code, the people and the places
-  outside are generated illustrations. The box is ink and neon, and the day is a painted world;
-  the film is about crossing from one to the other, but it's a seam you may see.
+- **It isn't finished:** the story layer was parked before a 1080 master, and Qing hasn't seen it.
+- **The people move as cards,** not as drawn animation: they sway, bob and swap poses, but they
+  can't turn or walk. That's the paper cut-out style, and its limit.
+- **Some links are the lyric's, not the picture's:** the bakery's failure and its queue aren't
+  shown as cause and effect (the song doesn't claim it; verse 2's load test does), and "what
+  perfect means to you" is a porthole of four fragments.
+- **The band still has the hooks:** each pre-chorus's hoping close-up and build, and each
+  chorus's HOW DO I KNOW and PROVE!, are theirs, with the four only faint behind.
 - **The timings rest on measurement and one listen.** Qing checked the karaoke version and chose
   the lead; nobody has checked this film's sync by ear yet.
 - **The storm's cuts follow the riff's rhythm, and its pitches only roughly:** the notes come
   from a distorted guitar stem, where octaves are often wrong.
-- **Choruses 1 and 2 share their shots,** mirrored, with chorus 2's echoes added. Chorus 3 is
-  different: the people are at the glass, and it ends by breaking the box.
 - **The teaching card is teaching the song doesn't sing.** Its wording is a claim for Qing to
   check.
 

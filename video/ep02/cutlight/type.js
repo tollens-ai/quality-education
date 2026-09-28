@@ -215,7 +215,7 @@ export function drawCuts(g, c, t, cws, o) {
         }
         if (b) { back.beginPath(); tracePoly(back, b); back.fillStyle = '#fff'; back.fill(); }
       }
-      if (st.age < (o.fallDur ?? .42) && !cw.o.pre) falling.push([cw, st]);
+      if (st.age < (o.fallDur ?? .42) && !cw.o.pre && !cw.o.noFall) falling.push([cw, st]);
     } else if (st.p > 0) cutting.push([cw, st]);
     audit(c, cw, st, o);
   }
@@ -548,6 +548,7 @@ export function windowCut(c, m, box, v, o = {}) {
   const corner = (cx, cy, a0) => { for (let i = 0; i <= 5; i++) { const a = a0 + i / 5 * Math.PI / 2; pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } };
   corner(x1 - r, y0 + r, -Math.PI / 2); corner(x1 - r, y1 - r, 0); corner(x0 + r, y1 - r, Math.PI / 2); corner(x0 + r, y0 + r, Math.PI);
   const uv = pts.map(([x, y]) => screenToPlane(c, m, x, y));
-  return shardCut(uv, v, m, { dur: o.dur ?? .45, ...o });
+  // A window opens clean: no slab of glass falls out of it.
+  return shardCut(uv, v, m, { dur: o.dur ?? .45, noFall: true, ...o });
 }
 export function carry(cuts, a) { for (const cw of cuts) if ((cw.w.v ?? 0) < a) cw.o.pre = true; return cuts; }

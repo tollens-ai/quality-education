@@ -1,7 +1,9 @@
-// The intro. A whisper in the dark: the band waiting, only their colours showing, and the
-// dedication etched small on the glass. Then the riff, which is the laser: every note a cut
-// across the mirror, and on the hard notes a shard drops out and the day comes in. Each member
-// in turn, his name cut a letter a note, his label under it. Then the whole band, and the title,
+// The intro. A whisper in the dark: the band waiting, only their colours showing, the dedication
+// etched small on the glass, and on EVERYONE, dim behind the glass, the four they built for,
+// looking in. Then the riff, which is the laser: every note a cut across the mirror, and on the
+// hard notes a shard drops out and the day comes in. Each member in turn, as an anime opening
+// brings on its cast: his name cut a letter a note, his label under it, and behind him, washed in
+// his colour like a double exposure, the one he built for. Then the whole band, and the title,
 // HOW WILL I KNOW, one letter on each of the bar's twelve notes.
 import { W, H, clamp, lerp, hash, easeOut, easeInOut, words, hit, A, SONG } from '../kit.js';
 import { cam, project, screenToPlane, ap, M, T } from '../space.js';
@@ -11,6 +13,7 @@ import { boxFrame, KEY, LINEUP, STAGE_LIGHTS, STAGE_SMOKE, STAGE_BEAMS } from '.
 import { WALL } from '../room.js';
 import { player, singer, drummer } from '../playing.js';
 import { sky, backdrop } from '../world.js';
+import { scenePane, row } from '../windows.js';
 import { BAND } from '../palette.js';
 import { INK } from '../ink.js';
 
@@ -46,9 +49,12 @@ export function register(S) {
   const cWh = C({ pos: [0, 120, 820], at: [0, 200, -160], fov: .8 });
   const dedCuts = posterLine(ded, WALL, cWh, [150, 330, 930, 760], [{ w: [0, 1, 2] }, { w: [3, 4, 5] }, { w: [6, 7, 8, 9] }], { gap: .3 });
   for (const cw of dedCuts) cw.o.dur = .18;
+  const WHO = [['bakery', 'stand'], ['clinic', 'stand'], ['school', 'built'], ['wedding', 'stand']];
+  const lookIn = row(4, 40, 1040, 790, 1330, 18);
   shot(0, 2.27, (g, t, sh) => {
     const c = move(t, sh, { pos: [0, 120, 840], at: [0, 200, -160], fov: .8 }, { pos: [0, 118, 800], at: [0, 200, -160], fov: .78 }, { hand: .6 });
     boxFrame(g, t, c, {
+      panes: WHO.map(([b, st], i) => ({ ...scenePane(c, cWh, t, lookIn[i], b, st, {}, { t0: ded[3].v - .1 + i * .12, seed: 110 + i, k: 1.15 }), dim: .55, light: .12 })),
       lights: { key: { dir: [0, .5, -1], col: '#8a8fa8', k: .35 }, ambient: '#0a0b14', extra: [] },
       band: ['cron', 'null', 'regex', 'clawd'].map(w => ({ name: w, col: BAND[w].col, rimDir: [0, -1], rim: 1.6,
         draw: (L, cc) => w === 'cron' ? drummer(L, cc, { pos: LINEUP.cron.pos, riser: 44, t, col: BAND.cron.col }) : w === 'clawd' ? singer(L, cc, { pos: LINEUP.clawd.pos, t, mouth: 0, eyes: 'open' }) : player(L, cc, { who: w, ...LINEUP[w], t, play: 0, glow: .2 }) })),
@@ -114,9 +120,13 @@ export function register(S) {
     const f = fit(name, cRef, WALL, 60, 1020, 640);
     const cuts = lettersOn(name, notes.slice(0, name.length).map(x => x - .03), WALL, f.u, f.v, f.em, { dur: .08 });
     const done = notes[Math.min(name.length, notes.length) - 1] ?? a + .8;
+    // Behind him, washed in his colour, the one he built for.
+    const USER = { regex: ['bakery', 'built'], cron: ['clinic', 'built'], null: ['school', 'built'], clawd: ['wedding', 'show'] }[who];
+    const behind = [40, 690, 1040, 1560];
     shot(a, b, (g, t, sh) => {
       const c = move(t, sh, setA, setB, { shake: 5, ease: easeOut });
       boxFrame(g, t, c, {
+        panes: [{ ...scenePane(c, cRef, t, behind, USER[0], USER[1], who === 'cron' ? { fit: { u: .5, v: .46, x: 790, y: 690, w: 1100 } } : { chart: 'bad' }, { t0: (notes[0] ?? a) - .02, seed: 120 + n, k: 1.05 }), dim: .42, tint: BAND[who].col, light: .2 }],
         lights: lightFor(who),
         cuts, cutOpt: { outside: dayOut(c), laser: BAND[who].col, light: .8, fall: 'blow', fallDur: .6 },
         band: [MEMBER[who](t)],

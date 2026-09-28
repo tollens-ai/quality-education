@@ -97,6 +97,24 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    wide (`video/lib/sheet.sh <dir> 6 390`), and read them as a viewer would.
    *Done when* you'd post it yourself.
 
+   **Then pass the hand-back gate, every time, before Qing sees anything.** Judging a fix only
+   against the note it answers is how v3 of episode 2 kept slipping: people redrawn without their
+   circles but off-style, and a verse that lost its pictures while nobody checked. Answer each
+   item with frames from the cut, in writing:
+   - **Her notes, all of them.** Re-read every note Qing has given on this video, verbatim from
+     the episode's video file, and show where the cut answers each. Nothing she praised has got
+     worse, and nothing fixed has come back.
+   - **The story, from the pictures alone.** Every sung line has a picture of what it says,
+     animated, and a stranger with the sound off could follow each story. No stretch of the film
+     is only the band.
+   - **One world.** Everything is in the film's own style; nothing is even slightly realistic,
+     and nothing has the tells of generic AI illustration. Generated art is made from the
+     film's own frames and style concepts, never from earlier generations alone.
+   - **Motion.** No still stretches (`video/lib/motion.py`, then watch each flagged second).
+   - **Fresh eyes.** Give an independent model only the frames and the bar, and ask what a sharp
+     viewer would pick on. Answer each point: fix it, or say why it stays. This is an audience
+     check, not design by committee.
+
 9. **Render the master and verify it.** Render at 1080×1920 and 30 fps in parallel segments
    (`video/lib/render-parallel.sh`). Verify the file itself: its duration, the frame count from
    decoding it, and stills pulled from it at every fix. Make the upload copy and a thumbnail.

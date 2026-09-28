@@ -27,7 +27,8 @@ locked.
 | v4 | The same storyboard, redrawn by hand, with the lyrics lettered into every shot and the same care to the end. About two hours | "It looks amazing. It's exactly what I wanted." Two notes: one frame hard to read, which led to a typography check of every word, and crowds with wrong overlaps and crude people. Both fixed in a second pass |
 | Ep. 2 v1, "The Garage" | Episode 1's renderer copied and restyled, below maximum effort | Looked like episode 1 at thumbnail size, and didn't feel like the genre. Retired |
 | Ep. 2 v2, "The Mirror" | A blank page, to a brief full of references (00s alt-rock, visual kei, experimental anime) | "I see the angle you're going for", but lyrics in rows across the screen, a font against the genre, red and black only, clumsy people, and Japanese as decoration. "you've anchored way too hard on the suggestions I gave as guidance" |
-| Ep. 2 v3, "Cut Light" | A blank page, one condition at every stage: "do I stand behind this artistically?" Image-model style studies for the look, then a full cut reviewed at full size and redrawn where it was weak | The people were "extremely" doubtful, then "better" but showing their construction, so they and their places became generated paper cut-outs. Awaiting Qing's view of that |
+| Ep. 2 v3, "Cut Light" | A blank page, one condition at every stage: "do I stand behind this artistically?" Image-model style studies for the look, then a full cut reviewed at full size and redrawn where it was weak | The people were "extremely" doubtful, then "better" but showing their construction, so they and their places became generated paper cut-outs. Then: "the lettering looks amazing though! and I love the band design", but the new people were off-style ("screams ai slop"), verse 1 had lost its story, and "way too much band, way too much repetitiveness, not enough illustrating the content" |
+| Ep. 2 v3, story layer | The people and places regenerated from the film's own frames and concepts, in a style Qing chose from studies. A scene library of the four briefs in every state, and every line's story shown in lit panes and windows, progressing through the repeats; an independent model's viewing of the frames before hand-back | Parked before its master, unseen, while another model tries a different art style |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -129,9 +130,14 @@ from rounds 3 and 4:
   you've anchored way too hard on the suggestions I gave as guidance again and it's distracted
   you from your own artistry!"; "I can forgive most things if it's beautiful enough."
 - **An image model can be an oracle for looks.** Ask Codex to use its built-in image generation
-  for style studies (Qing: "not the api I mean codex"). Learn from them and draw your own; keep
-  them out of the film and the repo. A reference Qing sends ("don't copy steins gate, it's there
-  just to remind you what detailed artistry looks like") sets the level of detail, not the look.
+  for style studies (Qing: "not the api I mean codex"), and keep the studies out of the film and
+  the repo. A reference Qing sends ("don't copy steins gate, it's there just to remind you what
+  detailed artistry looks like") sets the level of detail, not the look; describe it, never name
+  it to the model.
+- **Give the image model the film.** Attach frames of the film and describe its concepts, and ask
+  what would be in keeping before generating anything for it (Qing, 2026-09-28: "like, did you give
+  chatgpt your art and ask what would be in keeping at least?"). Without them it drifts to glossy
+  semi-realism, and any realism in a stylised film "uncanny valleys the hell out of people".
 - **Watch the first full cut at full size, then redraw what's weak.** Episode 2 v3's first cut
   had an empty middle in every verse and a verse 2 that looked like verse 1; both were only
   visible once the whole film was up.
@@ -145,6 +151,13 @@ from rounds 3 and 4:
   and animated as paper cut-outs, is allowed (Qing: "if we need to incorporate more generated
   images and like, paper cut animate them we can"). Episode 2 v3's people and the places behind
   them are made this way; how is in [its style reference](.claude/skills/music-video/references/style-cut-light.md).
+
+- **The content leads.** Every sung line shows what it says, animated: a person, a place, the
+  thing going wrong or right on the words. Listeners could only parse the lyrics with context
+  animation, and a minute of the band alone lost Qing ("a whole minute through and all I've seen
+  is the band which can't be right"). The band frames the story; it isn't the story.
+- **Repeats progress.** A chorus that comes back shows the same things further on, and no shot
+  type plays twice in a row. The band jumping on every beat was "VERY repetitive by the end".
 
 ## Every episode draws its own
 
@@ -168,7 +181,9 @@ the drawings.
 
 - **Beauty:** any frame could be printed. There's one coherent world and style, and no default
   "AI slop" gloss.
-- **Clarity:** each shot has one main read, and the viewer can always tell what's happening.
+- **Clarity:** each shot has one main read, and the viewer can always tell what's happening. Each
+  line's story is shown big, not only glimpsed through the letters.
+- **Variety:** no shot type twice in a row; what repeats in the song progresses on screen.
 - **Kinetic typography, as motion design:** "motion design" is the discipline to draw on (Qing,
   2026-09-28: "one of the key words I'm looking for"). The words are the lead animation, not
   lettering on a picture. Each word has finished arriving just before it's sung, and keeps moving

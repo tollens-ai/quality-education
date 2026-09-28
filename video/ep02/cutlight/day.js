@@ -63,7 +63,9 @@ export function dayFrame(g, t, c, o) {
   STYLE.ink = true; INK.t = t;
   // Golden hour: the sun low behind the square, so everything faces us from the shade side,
   // rimmed with gold.
-  setLights({ key: { dir: [-.35, .45, -.85], col: '#ffd9a0', k: 1.25 }, ambient: '#6f6a90', extra: [{ dir: [.2, .6, .8], col: '#b9c3ea', k: .55 }], ...o.lights, view: c.pos });
+  // The sky and the stone light the side facing us, so in daylight the band reads as flat colour
+  // with a gold rim, not hatched shade.
+  setLights({ key: { dir: [-.35, .45, -.85], col: '#ffd9a0', k: 1.25 }, ambient: '#8a86a8', extra: [{ dir: [.2, .6, .8], col: '#dfe4f6', k: 1.05 }], ...o.lights, view: c.pos });
   const E = layer('emit');
   const sp = scene(g, c) || { x: W / 2, y: H * .35 };
   // The paving is the flat's own, painted running up to its fronts, so the people stand on it; only

@@ -128,9 +128,10 @@ export function swarm(g, from, t, t0, n, seed = 0, E = null, down = false) {
     const d = Math.max(0, age - hash(i, seed) * .35);
     if (d <= 0) continue;
     // down: they fly into the room and down, away from the words above.
-    const ang = down ? .15 + hash(i, seed, 2) * (Math.PI - .3) : hash(i, seed, 2) * Math.PI * 2;
+    // down: into the room and down; 'up': up and away from where they came in.
+    const ang = down === 'up' ? Math.PI + .25 + hash(i, seed, 2) * (Math.PI - .5) : down ? .15 + hash(i, seed, 2) * (Math.PI - .3) : hash(i, seed, 2) * Math.PI * 2;
     const r = 60 + d * (160 + hash(i, seed, 3) * 260);
-    const x = src[0] + Math.cos(ang) * r * .8 + Math.sin(t * 2.3 + i) * 30, y = src[1] + Math.sin(ang) * r * .5 + d * 120 + Math.cos(t * 1.7 + i) * 24;
+    const x = src[0] + Math.cos(ang) * r * .8 + Math.sin(t * 2.3 + i) * 30, y = src[1] + Math.sin(ang) * r * .5 + (down === 'up' ? -d * 90 : d * 120) + Math.cos(t * 1.7 + i) * 24;
     moth(g, x, y, 1.8 + hash(i, seed, 4) * 2.2, t, i + seed);
     if (E) { E.fillStyle = 'rgba(255,240,210,.25)'; E.beginPath(); E.arc(x, y, 18, 0, Math.PI * 2); E.fill(); }
   }

@@ -82,29 +82,62 @@ The world is a box of mirrors, so the staging uses them:
 
 ## People, and the places outside
 
-Paper cut-outs of generated artwork (`paper.js`). Drawing people in code never got past
-construction you could see (capsule limbs, oval hands, curls that were rings of circles), so
-Codex's image generation draws them, and the places behind them, in one hand-inked style from
-our briefs:
+The people and places are generated art, cut out and animated as paper (`paper.js`), and the
+story is composed from them in code (`story.js`). Drawing people in code never got past
+construction you could see (capsule limbs, oval hands, curls that were rings of circles).
 
-- **Character sheets first:** the six named people, lit from the front and against a low sun,
-  then each in the poses the film needs, with the sheets attached as references so every image
-  keeps their faces and clothes. Crowds for the queue and the square, a sheet of six at a time.
-- **Briefs for cutting out:** a flat pale background, whole figures well apart, no floor or
-  shadow. The tool floods the background away, splits the sheet into figures, and drops the
-  fringe and specks (`tools/cutout.py`). Where the model gives its own transparency, use it, but
-  tighten it: its soft edge carries stray colour.
-- **Backdrops with blank signs** and nothing tall where people will stand. `tools/backdrops.py`
-  measures the boards, the clinic's screen and the sun, and cuts out the table so people can
-  stand behind it.
+- **Give the image model the film.** The first generated cast came back as glossy semi-realism
+  that didn't belong ("this screenshot screams ai slop"; "did you give chatgpt your art and ask
+  what would be in keeping at least?", Qing, 2026-09-28). What worked: attach frames of the film
+  and describe its concepts, ask the model what would be in keeping, then generate studies in the
+  styles it proposes and choose. Qing chose "ink and neon": angular people about five heads tall,
+  heavy brush-ink contours, solid black shadow masses with white scratchboard hatching, one muted
+  local colour each and a thin neon rim, never realistic or semi-realistic ("it uncanny valleys
+  the hell out of people"), clearly less cute than the band. Their eyes are human eyes, small and
+  inked: the square eyes are the Clawds' own, because they're robots.
+- **Character sheets, then poses.** Each named person in the poses the film needs, with their sheet
+  attached as a reference so faces and clothes hold; crowds for the queue and the square ten at a
+  time; props (Gran's wig, glasses, shawl and handbag, for the bot that plays her). Ask for a flat
+  chroma-magenta background, whole figures well apart, and every screen, card and board blank.
+  `tools/cutout.py` removes the magenta and its spill and splits the sheet into figures;
+  `tools/blanks.py` finds each blank so the scenes can draw on it.
+- **Places are whole pictures, drawn as simply as the people:** big flat shapes, a few decisive
+  marks, blank signs and screens, room where people stand, fully opaque. `tools/backdrops.py`
+  measures the screens, boards, signs, table edge and sun as fractions of the picture.
+- **A scene library, not views.** `story.js` draws each brief in each state the song takes it
+  through (built, broken, what perfect means, shown, carded, loved), placing people by fractions
+  of their place so any shot can frame it (`fit`) or aim at what someone holds (`aim`). Code draws
+  what only code can say: the terminal's X, the clock landing on eight, the booking site and its
+  spinner, the leaked messages, the seating plan, the cards, the load test's readout.
+- **What they hold is its own paper piece.** The generated cards and phones are postcard-sized, so
+  the scenes draw a bigger one over the hands (`hold`), pushed up to the glass, and write on it in
+  the person's hand as we watch (`textP`).
 - **Animated as paper:** each figure is a card that sways on its feet, breathes, bobs on the beat
   and is swapped for another pose with a pop, on twos, while the camera moves on every frame. A
-  limb that must move (Dave's wave) is cut free and pinned at its joint, feathered so no gap
-  opens. A thin paper edge and a soft shadow make each one read as card.
-- **Two lights per person:** lit from the front for the views through the cuts; against the
-  golden-hour sun, rimmed in gold, in the square.
+  thin paper edge and a soft shadow make each one read as card.
 - **The square is a painted flat** standing across the far side, its paving running up to its
   fronts, so the people stand on painted stone and cast long shadows on it.
+
+## The story leads
+
+Qing, on the first cut with the new art (2026-09-28): "a whole minute through and all I've seen
+is the band", "way too much band, way too much repetitiveness, not enough illustrating the
+content". The rules that answered it:
+
+- **Every sung line shows what it says, animated:** a person, a place, a thing going wrong or
+  right on the words. The band frames it: a reflection, a silhouette, a close-up for a feeling.
+- **Lit panes** (`box.js`: `panes`): where the far side of the one-way glass is lit, it's a window,
+  lit pane by pane like tubes starting. In verse 1 the camera stands where the member stands
+  (`reflOnly`: he's seen only in the mirror), his reflection plays for a beat, then the glass
+  lights where it was and the disaster plays out in it, the view moving inside the pane on the
+  words; at the line's end it goes dark and he's alone with himself again.
+- **Windows onto the four** (`windows.js`): the users at the glass holding up what went wrong,
+  then what the checks fixed, then cards saying what they know; a porthole that lights a quarter
+  at a time; a row of them at the words that name them.
+- **A progression through the repeats.** The pre-choruses and choruses show the same things
+  further on each time: the report's lines change (the naive checks, then the oracles, then the
+  users' own rules); the cards are a question mark, then half written, then full.
+- **The band jumps only on the big hits** (`bandLine`'s `hops`), not on every beat.
 
 ## Lettering
 
@@ -114,10 +147,10 @@ Three voices, and each one is made of something different:
   weight: a stencil face, so every letter is already a set of separate pieces with no counters to
   fall out, which is what a laser cutter needs. The glyph outlines are exported with fonttools
   (`tools/glyphs.py`) so each piece can be traced, cut and dropped (`type.js`: `cutWord`).
-- **The machine's voice** (labels, test output, the brief tickets, the teaching card) is JetBrains
-  Mono.
-- **The people's hand** (Jess's note, "I love it!", "Dave's still coming, though.") is Rock
-  Salt, written outside the glass, never cut into it.
+- **The machine's voice** (labels, the brief tickets, the test report typed line by line with
+  its PASSes, the bot's prompt, the load test's readout) is JetBrains Mono.
+- **The people's hand** (their cards, Jess's note, "I love it!", "Dave's still coming, though.")
+  is Rock Salt, written outside the glass, never cut into it.
 
 How the cut words behave:
 
@@ -126,9 +159,9 @@ How the cut words behave:
   and the day comes in.
 - **Every line is a poster.** `posterLine()` sets the line in rows that fill a box on screen,
   words scaled by weight, so the lettering is the frame's composition, not a caption over it.
-- **Through the letters you see the place the line is about:** the bakery's queue, the clinic's
-  error page, the school gate, the wedding (`world.js`), drawn as planes at depth so they move
-  like a real view through a window.
+- **Through the letters you see the place the line is about:** the bakery, the clinic, the
+  school gate, the wedding (`story.js`), drawn at depth so they move like a real view through a
+  window (`world.js`: `backdrop`).
 - **A daylight haze and a bright rim** on every hole, so a letter keeps its shape whatever is
   behind it.
 - **Words mean with their cuts:** BROKEN cracks out from CLAWD's hand, THROUGH stays stuck in
@@ -139,6 +172,19 @@ How the cut words behave:
   in the colour of whoever sings it, beside the reflection that sings it.
 
 ## Pitfalls met
+
+- **The story only through the letters doesn't carry it.** Listeners could only parse the lyrics
+  with context animation; show each line's story big (a pane, a window), not only in the holes.
+- **A member in front of the pane blocks it,** and from behind a Clawd is a plain block. Stand the
+  camera where he stands and show him in the mirror.
+- **A Clawd just behind the camera is drawn across the whole frame** as a blur (his parts project
+  from behind the lens): draw him only in the mirror (`reflOnly`).
+- **A cut-out enlarged past about 1.6 times its own pixels goes soft.** Frame the people no
+  closer; for small things they hold, draw a bigger piece of paper over the hands.
+- **The floor cuts off windows set below where the wall meets it.** Keep the camera level and
+  near enough that the wall runs down to the foot of the frame.
+- **A prop's size in `figure()` is its height:** size a pair of glasses by its width and convert,
+  or it's four times too big.
 
 - **3D solids inked with hatching look like CG crates.** Pose in 3D, draw the silhouette by hand.
 - **People built from shapes show their construction.** Flat shapes looked like paper dolls;

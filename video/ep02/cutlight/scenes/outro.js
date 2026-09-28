@@ -2,7 +2,7 @@
 // mirror still in the air, and a card for each brief says how it was checked; one more says what
 // they can't know. SO, DO YOU LOVE IT? And the four people answer, in their own hands. Then
 // Jess, about Dave. Then the teaching card, and the end.
-import { W, H, clamp, lerp, hash, easeOut, easeInOut, words, hit, noise, beatPos } from '../kit.js';
+import { W, H, clamp, lerp, hash, easeOut, easeInOut, words, hit, noise, beatPos, eventsIn } from '../kit.js';
 import { cam, project, ap, M, T, RX, RY, RZ, screenToPlane } from '../space.js';
 import { posterLine, etchFlat, flat, auditFlat, CAPK, width100, drawCuts, cutWord, shardCut, carry } from '../type.js';
 import { shot, move, overlay } from '../shots.js';
@@ -12,7 +12,7 @@ import { singer } from '../playing.js';
 import { clawd } from '../clawd.js';
 import { tickPoly } from '../air.js';
 import { dayFrame, paneM, shardPoly } from '../day.js';
-import { sky } from '../world.js';
+import { sky, STANDING, CROWD } from '../world.js';
 import { BAND, BRIEFS } from '../palette.js';
 import { INK } from '../ink.js';
 
@@ -53,7 +53,8 @@ export function register(S) {
   const loves = [0, 1, 2, 3].map(i => words('Outro', 'I love it', i));
   const dave = words('Outro', "Dave's");
   const tail = words('Tail', 'ooh');
-  const bandDay = t => bandLine(t, { at: DAYBAND, jump: .5 });
+  const dayHops = eventsIn('crash', 141, 175);
+  const bandDay = t => bandLine(t, { at: DAYBAND, hops: dayHops });
   // --- A and B: low in the square, looking up past the band at the big piece of mirror, the
   // low sun right behind it, so what's cut in it blazes.
   const setA = { pos: [0, 40, 860], at: [0, 250, -150], fov: .76 }, setA2 = { pos: [0, 46, 780], at: [0, 256, -150], fov: .76 };
@@ -85,8 +86,8 @@ export function register(S) {
   const small = Array.from({ length: 14 }, (_, i) => ({ p: [(hash(i, 1) - .5) * 1100, 160 + hash(i, 2) * 620, -300 - hash(i, 3) * 700], s: 18 + hash(i, 4) * 36, seed: i }));
   const air = t => small.map(sm => ({ m: paneM([sm.p[0] + noise(t * .3, sm.seed) * 20, sm.p[1] + noise(t * .25, sm.seed + 3) * 16 - (t - 141.9) * 6, sm.p[2]], t * .6 + sm.seed, t * .4 + sm.seed * 2, sm.seed), poly: shardPoly(sm.s, sm.seed), seed: sm.seed }));
   // The four they built for, round the band, turned in to it; others further off.
-  const FOUR = [['rosa-stand', -330, 150, 172], ['gran-stand', -215, 250, 158], ['parent-stand', 230, 240, 180], ['jess-stand', 335, 150, 168]];
-  const TOWNF = ['town-1', 'town-2', 'town-3', 'town-4', 'town-5', 'town-6', 'town-7', 'town-8', 'town-9', 'town-10', 'town-11'];
+  const FOUR = [[STANDING.rosa, -330, 150, 172], [STANDING.gran, -215, 250, 158], [STANDING.parent, 230, 240, 180], [STANDING.jess, 335, 150, 168]];
+  const TOWNF = CROWD;
   const OTHERS = Array.from({ length: 9 }, (_, i) => [TOWNF[i], -620 + i * 155 + hash(i) * 50, -520 - hash(i, 2) * 380, 170 * (.94 + hash(i, 5) * .1)]);
   // Out of the flash of the box breaking: the day, fading up from white.
   overlay(141.9, 142.3, (g, t) => { g.fillStyle = `rgba(255,250,240,${.5 * (1 - clamp((t - 141.9) / .4))})`; g.fillRect(0, 0, W, H); });
@@ -148,7 +149,7 @@ export function register(S) {
     // bouncing on the beat from then on.
     const people = who.map(([n], i) => {
       const at = loves[i][0].v - .1, said = t >= at;
-      return [n + (said ? '-cheer' : '-stand'), -112 + i * 75, -60 - (i % 2) * 34, [170, 156, 178, 168][i], said ? { pop: at, bounce: .75, beatOff: i * .11 } : {}];
+      return [said ? n + '-cheer' : STANDING[n], -112 + i * 75, -60 - (i % 2) * 34, [170, 156, 178, 168][i], said ? { pop: at, bounce: .75, beatOff: i * .11 } : {}];
     });
     dayFrame(g, t, c, {
       sunAt: [-80, 600, -6000], people: [...OTHERS, ...people], shards: air(t),

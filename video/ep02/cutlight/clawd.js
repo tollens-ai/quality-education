@@ -188,8 +188,13 @@ function body(g, c, m, o, lw, who, t) {
     }
     const tone = 1 - v.L.l;
     if (tone > .38) {
-      const a = v.pp[0], b = v.pp[1];
-      hatch(g, v.pp, clamp((tone - .38) / .55), { dir: [b[0] - a[0], b[1] - a[1]], seed: hash(v.n[0], v.n[1], v.n[2]) + (o.seed || 0), col: 'rgba(60,18,16,.75)', w: clamp(lw * .32, .7, 2.4), max: clamp(size * .06, 6, 22), min: clamp(size * .022, 3, 9), t });
+      // Shade hatched on the diagonal of the face's own plane, the way a manga shades a form; along
+      // an edge, it read as a striped texture on a big face.
+      const a = v.pp[0], b = v.pp[1], d = v.pp[3];
+      const e1 = [b[0] - a[0], b[1] - a[1]], e2 = [d[0] - a[0], d[1] - a[1]];
+      const l1 = Math.hypot(...e1) || 1, l2 = Math.hypot(...e2) || 1;
+      const dir = [e1[0] / l1 + e2[0] / l2, e1[1] / l1 + e2[1] / l2];
+      hatch(g, v.pp, clamp((tone - .38) / .55), { dir, seed: hash(v.n[0], v.n[1], v.n[2]) + (o.seed || 0), col: 'rgba(60,18,16,.75)', w: clamp(lw * .32, .7, 2.4), max: clamp(size * .06, 6, 22), min: clamp(size * .022, 3, 9), t });
     }
     const [su, sv] = v.tag === 'front' || v.tag === 'back' ? [HX, HY] : v.tag === 'top' || v.tag === 'bottom' ? [HX, HZ] : [HZ, HY];
     grain(g, c, faceFrame(m, v.tag), -su, -sv, su, sv, clamp(tone * 1.1 + .12), rgba(PAINT.deep, .55), hash(v.n[0] + 3, v.n[1], v.n[2]), t);
@@ -401,17 +406,6 @@ const WEAR = {
       const fm = M(m, T(0, 0, HZ + 3.2));
       for (const sd of [-1, 1]) planeShape(g, c, fm, [[sd * 16 - 3.2, 1.6], [sd * 16 + 3.2, 1.6], [sd * 16 + 3.2 - sd * 1.2, 5], [sd * 16 - 3.2 - sd * 1.2, 4.6]], col);
       o.emit?.(E => { for (const sd of [-1, 1]) planeShape(E, c, fm, [[sd * 16 - 4.2, .6], [sd * 16 + 4.2, .6], [sd * 16 + 4.2, 6.4], [sd * 16 - 4.2, 6.4]], col); });
-      // Playing Gran: her reading glasses on his face, and her shawl's colour at the hem.
-      if (o.gran) {
-        const gm = M(m, T(0, 0, HZ + 3.6));
-        for (const sd of [-1, 1]) {
-          const ring = Array.from({ length: 24 }, (_, i) => { const a = i / 24 * Math.PI * 2; return [sd * 16 + Math.cos(a) * 6.2, 3.4 + Math.sin(a) * 5.2]; });
-          const pp = planeShape(g, c, gm, ring, rgba('#ffffff', .12));
-          if (pp) { g.strokeStyle = '#f3efe6'; g.lineWidth = Math.max(1.4, s * 1.1); g.beginPath(); pp.forEach((q, i) => i ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); g.closePath(); g.stroke(); }
-        }
-        const b0 = project(c, ap(gm, [-10, 3.4, 0])), b1 = project(c, ap(gm, [10, 3.4, 0]));
-        g.strokeStyle = '#f3efe6'; g.lineWidth = Math.max(1.2, s); g.beginPath(); g.moveTo(b0.x, b0.y); g.quadraticCurveTo((b0.x + b1.x) / 2, (b0.y + b1.y) / 2 - 2 * s, b1.x, b1.y); g.stroke();
-      }
     } });
   },
 };

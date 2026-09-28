@@ -363,13 +363,15 @@ export function micStand2d(g, c, o = {}) {
   const hp = project(c, hc);
   const r = 3.6 * hp.s;
   g.save();
-  const gr = g.createRadialGradient(hp.x - r * .35, hp.y - r * .4, r * .1, hp.x, hp.y, r);
-  gr.addColorStop(0, '#f4f7fb'); gr.addColorStop(.5, '#9aa4b2'); gr.addColorStop(1, '#3b424e');
-  g.fillStyle = gr; g.beginPath(); g.arc(hp.x, hp.y, r, 0, Math.PI * 2); g.fill();
+  // Inked, not rendered: a flat grey ball, a solid black shadow on one side with the grille
+  // hatched into it, and one white highlight.
+  g.fillStyle = '#8d96a3'; g.beginPath(); g.arc(hp.x, hp.y, r, 0, Math.PI * 2); g.fill();
   g.save(); g.beginPath(); g.arc(hp.x, hp.y, r, 0, Math.PI * 2); g.clip();
-  g.strokeStyle = 'rgba(20,24,30,.45)'; g.lineWidth = Math.max(.5, r * .06);
-  for (let k = -6; k <= 6; k++) { g.beginPath(); g.moveTo(hp.x + k * r * .18 - r, hp.y - r); g.lineTo(hp.x + k * r * .18 + r, hp.y + r); g.stroke(); g.beginPath(); g.moveTo(hp.x + k * r * .18 + r, hp.y - r); g.lineTo(hp.x + k * r * .18 - r, hp.y + r); g.stroke(); }
+  g.fillStyle = '#16181d'; g.beginPath(); g.arc(hp.x + r * .42, hp.y + r * .42, r * 1.02, 0, Math.PI * 2); g.fill();
+  g.strokeStyle = 'rgba(141,150,163,.6)'; g.lineWidth = Math.max(.5, r * .07);
+  for (let k = -5; k <= 5; k++) { g.beginPath(); g.moveTo(hp.x + k * r * .22 - r, hp.y - r); g.lineTo(hp.x + k * r * .22 + r, hp.y + r); g.stroke(); }
   g.restore();
+  g.fillStyle = '#f3efe6'; g.beginPath(); g.arc(hp.x - r * .4, hp.y - r * .42, r * .2, 0, Math.PI * 2); g.fill();
   g.strokeStyle = '#120b0a'; g.lineWidth = lw * .8; g.beginPath(); g.arc(hp.x, hp.y, r, 0, Math.PI * 2); g.stroke();
   g.restore();
   return { head: hc, hp };

@@ -1,103 +1,89 @@
-"""Prepare the generated backdrops for the film: save each as a WebP in cast/, and measure what
-the scenes need from them, into cast/backdrops.json (all in the image's own pixels):
+"""Prepare the generated places for the film: save each as a WebP in the cast folder, and write
+into its backdrops.json what the scenes need from it, as fractions of the picture:
 
-  - a sign board's rectangle, found by flooding out from a point on it (to letter it);
-  - an occluder: the part of a picture that stands in front of people (the wedding table), found
-    by flooding the tablecloth from a point on it, saved as its own cut-out;
-  - the sun: the centre of the brightest blob in the sky.
+  - a screen, a board or a sign: its rectangle, found by flooding out from a point on it;
+  - a table: the line of its top edge, the median of the flood's top across the middle;
+  - the sun: the centre and radius of the brightest blob in the sky;
+  - and the few things set by eye (a card terminal, a clock, a counter's top edge, a door).
 
-    python backdrops.py <cast sheets dir> <out dir>
+    python backdrops.py <places dir> <cast dir>
 
-Needs numpy, scipy and Pillow.
+The places dir holds counter.png, front.png, clinic.png, school.png, wedding.png and square.png.
+Writes a check image beside each, the measured boxes drawn in magenta. Needs numpy, scipy and
+Pillow.
 """
 import json
 import sys
-from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 from scipy import ndimage as ndi
 
+# name: (file, flood seeds {feature: (x, y, colour tolerance)}, features set by eye)
+PLACES = {
+    'bg-counter': ('counter.png', {}, {'terminal': [.797, .497, .865, .524], 'clock': [.518, .1226, .06], 'counterTop': .537}),
+    'bg-front': ('front.png', {}, {'sign': [.123, .149, .885, .231], 'door': [.8, .6], 'pave': .62}),
+    'bg-clinic': ('clinic.png', {'screen': (.5, .14, 30)}, {}),
+    'bg-school': ('school.png', {'sign': (.5, .395, 22)}, {}),
+    'bg-wedding': ('wedding.png', {'board': (.11, .4, 26), 'table': (.62, .83, 30)}, {}),
+    'bg-square': ('square.png', {}, {}),
+}
 
-def flood(a, seed, tol):
-    """The connected region round seed (x, y as fractions) within tol of the seed's colour."""
+
+def flood(a, fx, fy, tol):
     h, w, _ = a.shape
-    x, y = int(seed[0] * w), int(seed[1] * h)
+    x, y = int(fx * w), int(fy * h)
     ref = np.median(a[max(0, y - 3):y + 4, max(0, x - 3):x + 4].reshape(-1, 3), axis=0)
     near = np.sqrt(((a - ref) ** 2).sum(-1)) < tol
     lab, _ = ndi.label(near)
-    return lab == lab[y, x]
+    return ndi.binary_fill_holes(lab == lab[y, x])
 
 
-def box(m):
-    ys, xs = np.nonzero(m)
-    return [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())]
+def measure(im, seeds):
+    a = np.asarray(im).astype(np.float32)
+    h, w, _ = a.shape
+    d = {}
+    for feat, (fx, fy, tol) in seeds.items():
+        m = flood(a, fx, fy, tol)
+        ys, xs = np.nonzero(m)
+        if feat == 'table':
+            tops = np.where(m.any(0), m.argmax(0), h)
+            d['tableTop'] = round(float(np.median(tops[int(w * .2):int(w * .8)])) / h, 4)
+        else:
+            d[feat] = [round(float(xs.min()) / w, 4), round(float(ys.min()) / h, 4), round(float(xs.max()) / w, 4), round(float(ys.max()) / h, 4)]
+    return d
 
 
-def main():
-    src, out = Path(sys.argv[1]), Path(sys.argv[2])
-    out.mkdir(parents=True, exist_ok=True)
-    info = {}
-    jobs = {
-        'bg-bakery': ('j12/bakery-front.png', {'sign': ((.5, .125), 34)}),
-        'bg-school': ('j13/school-front.png', {'sign': ((.5, .378), 30)}),
-        'bg-wedding': ('j19/wedding-reception-2.png', {'table': (((.5, .86), (.5, .65), (.25, .66), (.75, .66), (.12, .72), (.88, .72)), 40)}),
-        'bg-square': ('j15/town-square.png', {'sun': True}),
-        'bg-clinic': ('j18/clinic-room.png', {'screen': ((.5, .26), 30)}),
-    }
-    for name, (path, want) in jobs.items():
-        p = src / path
-        if not p.exists():
-            print('missing', p)
-            continue
-        im = Image.open(p).convert('RGB')
-        a = np.asarray(im).astype(np.float32)
-        h, w, _ = a.shape
-        im.save(out / f'{name}.webp', 'WEBP', quality=88, method=6)
-        d = {'w': w, 'h': h}
-        for k, v in want.items():
-            if k in ('sign', 'screen'):
-                m = ndi.binary_fill_holes(flood(a, v[0], v[1]))
-                d[k] = box(m)
-            elif k == 'table':
-                # The cloth's skirt and its top, each flooded from points on it, joined across
-                # the ink line between them; what stands on the top fills in as holes.
-                m = np.zeros((h, w), bool)
-                for sd in v[0]:
-                    m |= flood(a, sd, v[1])
-                m = ndi.binary_closing(m, iterations=4)
-                m = ndi.binary_fill_holes(m)
-                m = ndi.binary_opening(m, iterations=2)
-                lab, n = ndi.label(m)
-                m = lab == lab[int(v[0][0][1] * h), int(v[0][0][0] * w)]
-                # Everything below the table's top edge is table (its skirt), all the way down.
-                tops = np.where(m.any(0), m.argmax(0), h)
-                m = np.arange(h)[:, None] >= tops[None, :]
-                alpha = np.clip(ndi.gaussian_filter(m.astype(np.float32), 1.2) * 1.4 - .2, 0, 1)
-                x0, y0, x1, y1 = box(m)
-                rgba = np.dstack([a, alpha * 255]).astype(np.uint8)[y0:y1 + 1, x0:x1 + 1]
-                Image.fromarray(rgba, 'RGBA').save(out / f'{name}-table.webp', 'WEBP', quality=90, method=6)
-                # The table's far edge, as a curve: its top in each tenth of the width.
-                edge = []
-                for i in range(11):
-                    x = min(w - 1, int(i / 10 * (w - 1)))
-                    col = np.nonzero(m[:, x])[0]
-                    edge.append([x, int(col.min()) if len(col) else h])
-                d['table'] = {'box': [x0, y0, x1, y1], 'edge': edge}
-            elif k == 'sun':
-                lum = a @ np.array([.2126, .7152, .0722])
-                sky = lum[: int(h * .6)]
-                thr = np.percentile(sky, 99.7)
-                m = sky >= thr
-                lab, n = ndi.label(m)
-                sizes = ndi.sum(np.ones_like(lab), lab, index=np.arange(1, n + 1))
-                big = int(np.argmax(sizes)) + 1
-                ys, xs = np.nonzero(lab == big)
-                d['sun'] = [int(xs.mean()), int(ys.mean()), int(max(np.ptp(xs), np.ptp(ys)) / 2)]
-        info[name] = d
-        print(name, d)
-    (out / 'backdrops.json').write_text(json.dumps(info, indent=1))
+def sun(im):
+    a = np.asarray(im).astype(np.float32)
+    h, w, _ = a.shape
+    lum = (a @ np.array([.2126, .7152, .0722]))[: h // 2]
+    lab, n = ndi.label(lum >= np.percentile(lum, 99.8))
+    sizes = ndi.sum(np.ones_like(lab), lab, index=np.arange(1, n + 1))
+    ys, xs = np.nonzero(lab == int(np.argmax(sizes)) + 1)
+    return [round(float(xs.mean()) / w, 4), round(float(ys.mean()) / h, 4), round(float(max(np.ptp(xs), np.ptp(ys))) / 2 / h, 4)]
+
+
+def main(src, out):
+    bk = {}
+    for name, (fn, seeds, byEye) in PLACES.items():
+        im = Image.open(f'{src}/{fn}').convert('RGB')
+        feat = {**byEye, **measure(im, seeds)}
+        if name == 'bg-square':
+            feat['sun'] = sun(im)
+        im.save(f'{out}/{name}.webp', 'WEBP', quality=88, method=6)
+        bk[name] = {'w': im.width, 'h': im.height, 'feat': feat}
+        ck = im.copy()
+        dr = ImageDraw.Draw(ck)
+        for r in feat.values():
+            if isinstance(r, list) and len(r) == 4:
+                dr.rectangle([r[0] * im.width, r[1] * im.height, r[2] * im.width, r[3] * im.height], outline=(255, 0, 255), width=5)
+        ck.thumbnail((330, 600))
+        ck.save(f'{src}/check-{name}.png')
+        print(name, im.size, feat)
+    with open(f'{out}/backdrops.json', 'w') as f:
+        json.dump(bk, f, indent=1)
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1], sys.argv[2])

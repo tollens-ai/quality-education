@@ -19,8 +19,8 @@ node video/lib/render.mjs --scene video/ep02/cutlight/main.js --song music/ep02 
 node video/lib/render.mjs --scene video/ep02/cutlight/look.js --song music/ep02 --stills 41 --w 1080 --query v=wide
 ```
 
-A 540-wide preview renders at about ten frames a second on four cores, and the 1080 master at
-about two, so split the film's 5,245 frames across machines with `--frames a:b` and join the parts
+A 540-wide preview renders at about two frames a second on four cores, and the 1080 master at
+about a half, so split the film's 5,245 frames across machines with `--frames a:b` and join the parts
 with ffmpeg's concat (on one machine, `video/lib/render-parallel.sh` does both). The take
 isn't in git. `music/ep02/` holds its beat grid, the word timings (`lyrics.json`) and the
 captions; `audio.json` here holds the drums, the guitar riff's notes and the loudness of each
@@ -41,19 +41,21 @@ silent videos still render.
 | `soft.js` | The hand-drawn outline over a 3D pose: hull, rounded corners, a line that swells on the shadow side, grain |
 | `palette.js` | Ink, paper, the four members' colours and the four briefs |
 | `room.js` | The mirror box: black glass walls and floor in chrome frames, and the reflections, down to a tunnel of them |
-| `box.js` | One frame inside the box, layered the same way every time: wall, cuts and the day behind them, reflections (`refl.hero`: a member's clear reflection when he faces the glass), one-way glass turning see-through (`see`, `seeMask`), smoke, beams, the band rim-lit, the light; the band's line-up and the stage set |
+| `box.js` | One frame inside the box, layered the same way every time: wall, cuts and the day behind them, reflections (`refl.hero`: a member's clear reflection when he faces the glass; `reflOnly`: a member behind the camera, seen only in the mirror), lit panes of one-way glass (`panes`: tube-flicker on and off, a ghost of the reflection, their reflection in the floor, portholes), glass turning see-through (`see`, `seeMask`), smoke, beams, the band rim-lit, the light; the band's line-up (`bandLine`, with `hops` on the big hits) and the stage set; `once()`, a view drawn once a frame |
 | `type.js` | The fonts; `posterLine()`, which lays a sung line into rows that fill a box on screen and keep out of the phone's button strip; `drawCuts()`, the laser, the hole, the light through it and the falling piece; `windowCut()`, a window cut out of the mirror; etched and flat lettering; the brief tickets; and the audit hook that records every sung word |
-| `clawd.js` | The four Clawds from the mascot's proportions, posed in 3D and drawn by hand: REGEX's visor, CRON's headphones, NULL's hooded cloak, Gran's glasses for NULL in verse 2 |
+| `clawd.js` | The four Clawds from the mascot's proportions, posed in 3D and drawn by hand: REGEX's visor, CRON's headphones, NULL's hooded cloak |
 | `gear.js` | The mic and stand, REGEX's offset guitar, NULL's long-horned bass, CRON's kit, the amps |
 | `playing.js` | The members playing to the record: the groove, hands on the riff, sticks on the drums, the singer at the mic |
-| `paper.js` | The paper cut-outs: loads the cast and backdrops, and draws a figure as a card that sways, breathes, bobs on the beat, swaps poses with a pop and moves on twos, with a paper edge and a shadow; jointed pieces (Dave's wave); backdrops, and what stands in front of people in them |
-| `cast/` | The cut-outs (WebP with transparency) and backdrops, with `index.json` (each figure's size and where its crown is) and `backdrops.json` (the sign boards, the clinic's screen, the sun, the wedding table) |
-| `world.js` | What shows through the cuts: each place as its backdrop with its people in front (the bakery's queue, the clinic's booking screen and Gran, the parents at the school gate, Dave and Sue at the table), drawn in a reference camera's screen space so it moves like a view through a window; verse 2's windows; the people at the glass; the town square as a painted flat (`squarePlane`) |
+| `paper.js` | The paper cut-outs: loads the cast and places, and draws a figure as a card that sways, breathes, bobs on the beat, swaps poses with a pop and moves on twos, with a paper edge and a shadow (and, if a figure has any, pinned limbs) |
+| `cast/` | The cut-outs (WebP with transparency) and the places, with `index.json` (each figure's size, where its crown is, and the blank it holds up) and `backdrops.json` (each place's size and its screens, boards, signs, table edge and sun, as fractions of the picture) |
+| `story.js` | The four briefs in every state the song takes them through (built, broken, what perfect means, shown, carded, loved), composed from the cut-outs and places to fill any box: people placed by fractions of their place, `fit` to frame it, `aim()` at what someone holds; and what only code draws: the card terminal, the clock, the booking site, the leaked messages, the seating plan, phones, cards and notes (the held thing as its own bigger piece, written as we watch) |
+| `windows.js` | Windows in the glass onto the four: what each holds up each time (`HOLD`, `KNOW`), panes aimed at them (`windowPanes`) or at a whole scene (`scenePane`), in rows and grids |
+| `world.js` | The sky; `backdrop()`, which draws a view in a reference camera's screen space so it moves like a view through a window; the town square as a painted flat (`squarePlane`) and its crowd (`onlookers`) |
 | `day.js` | Outside, after the box breaks: the square at golden hour, the people on its paving with their long shadows, and pieces of mirror in the air, the words cut in them; everything drawn far to near |
 | `look.js` | Look development: the hero frames, a character sheet, and every cut-out in the cast, moving (`--query v=wide`, `close`, `sheet`, `cast`) |
-| `scenes/` | `intro` (the dedication, the riff's storm of cuts, the members, the title), `verse1` (each member facing his reflection), `pre` (all three pre-choruses), `chorus` (all three), `brk`, `verse2` (the oracles' windows), `bridge` (the definition over four windows, the disc, the torch, DONE), `outro` (the evidence, the question, the answers, the teaching card and end card) |
+| `scenes/` | `intro` (the dedication and the four behind the glass, the riff's storm of cuts, each member over the one he built for, the title), `verse1` (the panes lighting with each disaster), `pre` (the four at the glass, the crack, the pull back, the build), `chorus` (the porthole, the report, the bugs, the cards, each time further on), `brk`, `verse2` (the load test, the bot as Gran, the isolation check, Jess's note), `bridge` (the definition over four windows, the disc, the torch, DONE), `outro` (the evidence, the question, the answers, the teaching card and end card) |
 | `fonts/` | Big Shoulders Stencil Display and JetBrains Mono (OFL), Rock Salt (Apache 2.0), with their licences; `stencil-900.json` holds the stencil face's glyph outlines at its heaviest weight |
-| `tools/` | `glyphs.py` exports the glyph outlines; `cutout.py` cuts figures out of generated sheets; `backdrops.py` prepares and measures the backdrops; `typo-audit.mjs`, `typo-report.py` and `typo-run.sh` check every sung word; `shots.mjs` lists gaps and overlaps between shots |
+| `tools/` | `glyphs.py` exports the glyph outlines; `cutout.py` cuts figures out of generated sheets; `blanks.py` finds the blank screens, cards and boards they hold; `backdrops.py` prepares and measures the places; `typo-audit.mjs`, `typo-report.py` and `typo-run.sh` check every sung word; `shots.mjs` lists gaps and overlaps between shots |
 
 ## How a word is cut
 

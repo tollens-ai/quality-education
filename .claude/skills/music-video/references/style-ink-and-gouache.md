@@ -37,10 +37,11 @@ It suits less well a song that needs photographic depth, or the slick feel of a 
 ## How it's built
 
 Everything is Canvas 2D in headless Chromium, and every frame is a pure function of the song's
-time. The episode-1 renderer splits into the style, which you keep, and the episode, which you
-replace:
+time. The episode-1 renderer splits into the style and the episode. The style is episode 1's
+alone: a later episode reads it as a map for building its own, and carries over only `tools/` and
+the plumbing (the song clock, the frame loop and the audit hooks).
 
-| Keep (the style) | What it gives you |
+| The style | What it gives you |
 |---|---|
 | `ink.js` | `inkify(ctx)`: every path comes out hand-made. Fills wander and take a gouache texture, and outlines are brush strokes that boil. Set `g.ink` to outline, and `g.plain` to draw exactly |
 | `post.js` | The paper, and a soft vignette |
@@ -49,12 +50,15 @@ replace:
 | `lyrics.js` | `sing` lays out a line in rows and writes each word on at its onset; `keyLine` holds episode 1's line to remember as one block; `writeDur` finishes each word before the cut; `backing` letters backing vocals |
 | `cast.js` | Clawd, the bots, and `person()`: a chunky picture-book person, waist up or whole, in eleven hairstyles |
 | `folk.js` | Crowds: `folk(i)` for varied strangers, `behind()` and `facing()` for people seen from the back and the front, `limb()` for arms and legs |
-| `world.js`, `props.js`, `band.js` | Sky, sea, bulb strings and fairground; phones, laptops and hands; the band. Keep what fits the new world |
+| `world.js`, `props.js`, `band.js` | Sky, sea, bulb strings and fairground; phones, laptops and hands; the band |
 | `tools/` | `analyse.py` measures the record; `typo-audit.mjs` and `typo-report.py` check the words |
 
-Replace (the episode): `main.js`'s shot list and `scenes/`. To start episode N:
+Replace (the episode): `main.js`'s shot list and `scenes/`. A new episode takes only the tools
+and the plumbing from here, never the drawings (VIDEO.md, "Every episode draws its own"). To
+start episode N:
 
-1. Copy the renderer to `video/epNN/<world>/`.
+1. Start `video/epNN/<world>/` with the plumbing only: the frame loop, the audio and the audit
+   hooks. Draw the alphabet, the cast, the crowds and the props new.
 2. Measure the new take into `audio.json` with `tools/analyse.py` (it needs Demucs's instrumental
    stem), and point `init` in `main.js` at it.
 3. Change the episode settings at the top of `tools/typo-audit.mjs` and `tools/typo-report.py`.

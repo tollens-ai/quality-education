@@ -27,6 +27,23 @@ auteur made it, with no reviewer committee, following the
 
 > I would actively prefer a different art style of your choice - to go with the new genre!
 
+## Qing's notes on v1 (2026-09-28, verbatim)
+
+> I saw the thumbnail of the episode 2 attempt from last night [...] and it just looks WAY too
+> much like episode 1 - so if people see that thumbnail they won't click it. what happened to
+> doing something completely different?
+
+> noooooooooo my number 1 problem is that the font looks the samr
+
+> like i don't think the plan to reuse any assets works at all.
+
+> it has to FEEL different. this video just doesn't match the genre.
+
+What went wrong: v1's renderer was episode 1's, copied and restyled. The alphabet was the same
+file, and the people, crowds and props were copied unchanged. The feel stayed episode 1's too: a
+cosy picture book at a boy band's pace, set to a 136 bpm pop-punk take. v2 is drawn from a blank
+page, and the rest of this file describes v1 until v2 replaces it.
+
 ## The world
 
 ASYNC, a boy band of five Clawds, practise in a garage with the roller door shut. Everything they

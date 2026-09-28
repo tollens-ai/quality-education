@@ -5,6 +5,10 @@ page on a hard shadow, and a felt-tip line that boils. The lyrics are marker cap
 of paper slapped down a word at a time. It was chosen for a pop-punk take (Qing, 2026-09-28: "I
 would actively prefer a different art style of your choice - to go with the new genre!").
 
+**Retired.** Qing turned v1 down (2026-09-28): it looked and felt like episode 1, because it kept
+episode 1's alphabet, cast and props under a new surface. See VIDEO.md, "Every episode draws its
+own". This file is a record of the attempt, not a look to reuse.
+
 The worked example is the episode-2 renderer, [video/ep02/garage/](../../../../video/ep02/garage/README.md).
 Its liner notes are in [episodes/02-video.md](../../../../episodes/02-video.md).
 
@@ -50,9 +54,9 @@ It suits less well a song that wants atmosphere, soft light or depth. The look i
 
 ## People and props
 
-- Clawd and `person()` from episode 1 work in this style with the texture off. Costumes go on
-  Clawd through `dress` (over the body) and `dressTop` (hats, hair). A costume must know the back
-  view (`b.back`): no face, fringe or tie on the back of a head.
+- v1 reused episode 1's Clawd and `person()` with the texture off, which is part of why it
+  looked like episode 1. Costumes went on Clawd through `dress` (over the body) and `dressTop`
+  (hats, hair). A costume must know the back view (`b.back`): no face, fringe or tie on the back of a head.
 - A subject must fill the middle band of the frame (y 800 to 1500). Episode 2's first cuts left
   small figures at the bottom under an empty field, and they read as unfinished.
 - Floating hands read as mistakes: a thumbs-up needs an arm.

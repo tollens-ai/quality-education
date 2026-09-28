@@ -14,8 +14,8 @@ far, for any style. Each style has a reference for drawing in it. Episode 1's is
 
 **Whose notes win.** Qing's. Keep her words verbatim in the episode's video file. Fold any lesson
 that generalises into VIDEO.md if it holds for any style, or into the style's reference if it's
-about drawing in that style. The model can't hear the song, so sync and feel need her eyes and
-ears.
+about drawing in that style. The model can't hear the song. Another model's description
+(step 2) helps, but sync and feel still need her eyes and ears.
 
 ## Steps
 
@@ -28,17 +28,23 @@ no rush.
    *Done when* you can say in one sentence what the viewer must understand by the end, and which
    line they'll remember.
 
-2. **Measure the record.** Get the bars, the kick and the vocal's loudness into a file the
-   renderer reads (episode 1: `video/ep01/pier/tools/analyse.py`), and an onset for every sung
-   word from the timed lyrics.
-   *Done when* the characters can groove on the beat, the camera can breathe with the kick, and
-   every word has an onset.
+2. **Hear and measure the record.** You can't hear it, so have a model that can describe it:
+   give Gemini the audio alone, under a neutral name with no lyrics beside it, and ask for the
+   genre, the instruments and the vocal section by section, the arc, the feel, what would match
+   it and what would clash. Check what it says against the measurements, and against Qing's word
+   for the genre. Episode 2's is `music/ep02/listening-notes.md`. Then get the bars, the kick and
+   the vocal's loudness into a file the renderer reads (episode 1:
+   `video/ep01/pier/tools/analyse.py`), and an onset for every sung word from the timed lyrics.
+   *Done when* you can say how the song feels and what would clash with it, the characters can
+   groove on the beat, the camera can breathe with the kick, and every word has an onset.
 
 3. **Choose the world and the style together.** One world that follows the lesson. Episode 1's
    pier is dark while the agent works without context, lit when the chorus asks who it's for, and
    in daylight once you answer. Decide the style and what the words are made of in the same
-   choice. To reuse a style, read its reference. For a new style, start a reference beside this
-   file and fill it in as you build, using the ink-and-gouache one as the model.
+   choice. Every episode gets a new style and draws everything new: the lettering, the cast, the
+   props and the palette (VIDEO.md, "Every episode draws its own"). Start a reference beside
+   this file and fill it in as you build. Earlier references show the shape of one, not the
+   look to reuse.
    *Done when* you can describe the world, the style and where the words live in three
    sentences.
 

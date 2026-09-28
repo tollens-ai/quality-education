@@ -9,10 +9,10 @@ locked.
 
 - **To make a video,** use the [music-video skill](.claude/skills/music-video/SKILL.md): the
   steps in order, and what to read at each.
-- **To draw in episode 1's style,** read
-  [ink and gouache, with the lyrics lettered in](.claude/skills/music-video/references/style-ink-and-gouache.md).
-  Episode 2's is [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md).
-  A new style gets its own reference beside it.
+- **Each episode has its own style** and its own reference. Episode 1's is
+  [ink and gouache, with the lyrics lettered in](.claude/skills/music-video/references/style-ink-and-gouache.md);
+  episode 2 v1's, since retired, is [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md).
+  Read them for the shape of a reference, not for a look to reuse.
 - [CRAFT.md](CRAFT.md) holds the research and the decisions behind this file. The episode-1
   renderer is the worked example: [video/ep01/pier/](video/ep01/pier/README.md).
 
@@ -58,9 +58,9 @@ effort level to max".
 
 ### The brief for the next video
 
-Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26). Run it at maximum effort, with
-the [music-video skill](.claude/skills/music-video/SKILL.md). Fill in the episode, and pick one of
-the two style lines.
+Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2 v1
+(2026-09-28). Run it at maximum effort, with the
+[music-video skill](.claude/skills/music-video/SKILL.md). Fill in the episode.
 
 > Make the music video for episode N, "TITLE". The song is locked, and the teaching plan and what
 > the song says are in episodes/NN-slug.md.
@@ -72,11 +72,10 @@ the two style lines.
 > humour, inspiration, joy and love.
 >
 > The bar, from episode 1:
-> - Either (episode 1's style): draw it in episode 1's ink-and-gouache style, with the lyrics
->   lettered into the pictures; its reference says how.
->   Or (a new style): a hand-drawn animation style, not a shiny one. There are myriad to choose
->   from; pick the one that suits this song, and write a reference for it as you go. Keep the
->   hand-drawing in the line art, not in a texture laid over the colouring.
+> - A new hand-drawn animation style, not a shiny one, and nothing drawn for an earlier episode.
+>   There are myriad to choose from; pick the one that suits this song's genre and feel, and
+>   write a reference for it as you go. Keep the hand-drawing in the line art, not in a texture
+>   laid over the colouring.
 > - The typography is part of the art direction. Design where each sung line lives in its shot
 >   and what it's made of, so it never looks like a caption added afterwards. Hand-lettering, or
 >   judiciously chosen fonts and layouts.
@@ -110,6 +109,24 @@ from rounds 3 and 4:
 - **Measure what eyes miss, then look at what the measures flag.** A check of every word found
   far more than the one frame Qing spotted. Some flags are the design.
 - **When a note names one fault, look for its kind everywhere.**
+
+## Every episode draws its own
+
+Each episode looks like a different film. Carry over the process and the checking tools, never
+the drawings.
+
+- **Carry over:** the audio analysis, the typography audit, the motion check, the render and
+  review scripts, and the pitfalls in this file.
+- **Draw new, from a blank page:** the alphabet and any fonts, Clawd's construction and the
+  band, the people and crowds, the props, the palette, the grounds and the layouts. Clawd must
+  still read as Clawd; draw him again in the new style, don't recolour the old one.
+- **Feel the genre, not just the look.** Pace, cutting, camera, how the characters move and how
+  the words hit should all come from the record as sung. A cosy picture book at a boy band's
+  pace doesn't fit a 136 bpm pop-punk take, however new its drawing (Qing, 2026-09-28: "it has
+  to FEEL different. this video just doesn't match the genre").
+- **Check at thumbnail size:** put the new thumbnail beside every earlier episode's at about
+  200 px wide. If the lettering, the characters or the palette could belong to an earlier
+  episode, it isn't new yet.
 
 ## The bar, as checks
 
@@ -169,3 +186,11 @@ For any style. The pitfalls of drawing in ink and gouache are in
   word written before a cut un-writes itself after it.
 - A texture laid over the whole frame, like episode 1's paper, wasn't liked by everyone (Qing,
   2026-09-28). Put the hand in the line.
+- **v1 looked like episode 1, and nobody would click it.** Its renderer was copied from episode
+  1's and restyled: the alphabet was the same file, byte for byte, and the people, crowds and
+  props were copied too. Only the surface treatment changed (flat colour and a felt-tip line
+  instead of texture). At thumbnail size, what people see is the lettering, the characters and
+  the palette, and all three were episode 1's. Qing (2026-09-28): "it just looks WAY too much
+  like episode 1 - so if people see that thumbnail they won't click it"; "my number 1 problem is
+  that the font looks the samr"; "i don't think the plan to reuse any assets works at all".
+  The rule is in [Every episode draws its own](#every-episode-draws-its-own).

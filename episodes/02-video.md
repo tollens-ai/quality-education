@@ -39,6 +39,16 @@ auteur made it, with no reviewer committee, following the
 
 > it has to FEEL different. this video just doesn't match the genre.
 
+> for me it's cool and kooky and alternative and slightly shocking, nothing like the cutesy and
+> bubblegum and childish vibe of episode 1. I'd imagine, like, geometric and anime like the steins
+> gate intro or something? and way more typography-focused with text appearing exactly word by
+> word aligned with the timing and moving and animated animated in a proper animated lyric video
+> way (though this is actually general feedback - episode 1 would have been better if it had this
+> too)
+
+Gemini's description of the take, with where it disagrees with the measurements, is in
+[music/ep02/listening-notes.md](../music/ep02/listening-notes.md).
+
 What went wrong: v1's renderer was episode 1's, copied and restyled. The alphabet was the same
 file, and the people, crowds and props were copied unchanged. The feel stayed episode 1's too: a
 cosy picture book at a boy band's pace, set to a 136 bpm pop-punk take. v2 is drawn from a blank

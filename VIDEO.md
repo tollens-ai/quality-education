@@ -79,6 +79,8 @@ Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2
 > - The typography is part of the art direction. Design where each sung line lives in its shot
 >   and what it's made of, so it never looks like a caption added afterwards. Hand-lettering, or
 >   judiciously chosen fonts and layouts.
+> - A proper animated lyric video: the typography leads. Each word appears exactly as it's sung,
+>   and the words move and animate with the music, rather than sitting still once written.
 > - The same artistic bar from the first second to the last. Verse 2, the bridge and the outro
 >   get the care the opening gets.
 > - Every word legible and understandable on a phone: big enough, clear of what's behind it, on
@@ -133,6 +135,12 @@ the drawings.
 - **Beauty:** any frame could be printed. There's one coherent world and style, and no default
   "AI slop" gloss.
 - **Clarity:** each shot has one main read, and the viewer can always tell what's happening.
+- **Kinetic typography:** the words are the lead animation, not lettering on a picture. Each
+  word lands exactly on its sung onset, never ahead of it, and keeps moving with the music while
+  it's on screen. Qing (2026-09-28): "way more typography-focused with text appearing exactly
+  word by word aligned with the timing and moving and animated [...] in a proper animated lyric
+  video way (though this is actually general feedback - episode 1 would have been better if it
+  had this too)".
 - **Words:** every sung word is on screen from its onset and is part of the picture. Words are
   readable on a phone and never cover a face. They stay clear of the bottom 400 px, and of the
   right 140 px in the lower half, where platform UI sits. Measure it rather than eyeball it,

@@ -135,7 +135,9 @@ the drawings.
 - **Beauty:** any frame could be printed. There's one coherent world and style, and no default
   "AI slop" gloss.
 - **Clarity:** each shot has one main read, and the viewer can always tell what's happening.
-- **Kinetic typography:** the words are the lead animation, not lettering on a picture. Each
+- **Kinetic typography, as motion design:** "motion design" is the discipline to draw on (Qing,
+  2026-09-28: "one of the key words I'm looking for"). The words are the lead animation, not
+  lettering on a picture. Each
   word lands exactly on its sung onset, never ahead of it, and keeps moving with the music while
   it's on screen. Qing (2026-09-28): "way more typography-focused with text appearing exactly
   word by word aligned with the timing and moving and animated [...] in a proper animated lyric

@@ -19,8 +19,13 @@ about drawing in that style. The model can't hear the song. Another model's desc
 
 ## Steps
 
-Work at maximum effort, and hold the bar to the end (VIDEO.md, *How the auteur works*). There's
-no rush.
+**Maximum effort, or don't start.** Before making a video Qing will judge, check that the effort
+setting is at maximum. You can't see the setting yourself, so ask her to confirm it, and don't
+begin until she has. Qing (2026-09-28): "you should refuse to do me the final video unless effort
+is set to max". Episode 1 v1 and v2 and episode 2 v1 all ran below maximum. Looks, tests and
+checks don't need it.
+
+Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
 
 1. **Orient.** Read the episode file: the teaching plan, what the song says, and the guardrails
    for the pictures. Read the lyric timings, and VIDEO.md's brief. Don't study earlier attempts

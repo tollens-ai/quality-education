@@ -46,6 +46,11 @@ auteur made it, with no reviewer committee, following the
 > way (though this is actually general feedback - episode 1 would have been better if it had this
 > too)
 
+> I think "motion design" is one of the key words I'm looking for btw.
+
+> also i realise I forgot to whack effort up to max last night - you should refuse to do me the
+> final video unless effort is set to max
+
 Gemini's description of the take, with where it disagrees with the measurements, is in
 [music/ep02/listening-notes.md](../music/ep02/listening-notes.md).
 

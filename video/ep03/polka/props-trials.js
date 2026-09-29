@@ -58,7 +58,7 @@ export const obX = name => OBX[name];
 // the chest), a basset hound (a loaf on stubs, ears to the ground), a great dane (big, dark, a gold collar)
 // and Bruce himself.
 export const LOOKS = [
-  { name: 'greyhound', coat: '#a7a2b0', shade: '#726d7c', muzzle: '#c4c0cb', collar: C.orange, legH: 118, bodyH: .62, length: .95, headS: .74, snoutL: 1.4, earS: .6, arch: 26, tuck: 56, chest: 36, legW: .55, k: 1 },
+  { name: 'greyhound', coat: '#a7a2b0', shade: '#726d7c', muzzle: '#c4c0cb', collar: C.orange, legH: 118, bodyH: .62, length: .95, headS: .74, snoutL: 1.4, earS: .6, arch: 26, tuck: 56, chest: 36, legW: .55, jacket: { col: '#e04a3d', text: '7' }, k: 1 },
   { name: 'basset', coat: '#f2e7cf', shade: '#a8672f', muzzle: '#f7eedb', collar: C.teal, legH: 38, bodyH: 1.08, length: .9, headS: 1.2, snoutL: .85, earS: 1.9, legW: 1.1, k: 1 },
   { name: 'dane', coat: '#4d5068', shade: '#2c2e42', muzzle: '#767a98', collar: '#f2b81c', tag: '#fff2c2', legH: 112, bodyH: .96, length: .92, headS: 1.02, snoutL: 1.15, earS: .8, arch: 10, tuck: 30, chest: 26, legW: .9, k: 1.14 },
   { name: 'bruce', coat: '#c9772f', shade: '#8f4a1c', muzzle: '#f0c48f', collar: C.blue, k: 1 },
@@ -241,7 +241,7 @@ export const TUBE = { w: 100, top: 300, bot: 522 };
 export const tubeY = v => TUBE.bot - (TUBE.bot - TUBE.top) * clamp(v / 100);
 const SIDE = [-1, 1, -1, 1];
 export const beadPos = (k, i) => [COLX[i] + SIDE[k] * 76, tubeY(SCORES[k][i])];
-export const crownPos = i => [COLX[i] + 76, TUBE.top - 34];
+export const crownPos = i => [COLX[i] + 96, TUBE.top - 46];          // (the four rosettes are the film's point here, so they are big)
 
 // A dog's face as a marker: its coat, its ears, its collar.
 export function bead(g, t, k, x, y, r, o = {}) {
@@ -327,7 +327,7 @@ export function scoreboard(g, t, st) {
     if (a > .9) line(g, [[COLX[i] + SIDE[k] * 52, by], [COLX[i] + SIDE[k] * 60, by]], { w: 4, col: GRAPHITE, seed: 340 + k * 4 + i, t, spline: false, passes: 1, alpha: .7 });
   }));
   if (cursor >= 0) DIALS.forEach((D, i) => bead(g, t, cursor, COLX[i], tubeY(lv[i]) - 2, 21, { seed: 400 + i }));
-  crowns.forEach(({ i, col, pop: p }) => { const [x, y] = crownPos(i); g.save(); g.translate(x, y); g.scale(p, p); rosetteAt(g, t, col, 34, i); g.restore(); });
+  crowns.forEach(({ i, col, pop: p }) => { const [x, y] = crownPos(i); g.save(); g.translate(x, y); g.scale(p, p); rosetteAt(g, t, col, 54, i); g.restore(); });
   g.restore();
 }
 export function rosetteAt(g, t, col, r, seed = 1, tilt = .12) { rosette(g, 0, 0, r, col, t, { seed: 900 + seed * 7, tilt }); }

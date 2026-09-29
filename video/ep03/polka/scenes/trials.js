@@ -453,7 +453,7 @@ function extras(g, t, k, b, pulse, dp) {
     let x = chest[0], y = chest[1] - 6, r = 46 * pop(t, tA, .3), tilt = .1;
     if (cs.flying) {
       const [cxp, cyp] = T.crownPos(T.WIN[j]), u = smooth(cs.p);
-      x = lerp(chest[0], cxp, u); y = lerp(chest[1], cyp, u) - Math.sin(u * Math.PI) * 200; r = lerp(46, 34, u); tilt = u * 1.2;
+      x = lerp(chest[0], cxp, u); y = lerp(chest[1], cyp, u) - Math.sin(u * Math.PI) * 200; r = lerp(46, 54, u); tilt = u * 1.2;
     } else if (t < tA + .5) {
       burst(g, chest[0], chest[1], 40, 110, t, { col: ROS[j], n: 10, seed: 750 + j, prog: easeOut(clamp((t - tA) / .3)), w: 8 });
       sparkle(g, chest[0] + 50, chest[1] - 50, 20 * clamp(1 - (t - tA) / .5), t, { seed: 760 + j });

@@ -4,6 +4,7 @@
 // median of the box's pixels). typo-report.py judges the result.
 //
 //   node video/ep03/polka/tools/typo-audit.mjs [--step 0.1] [--w 540] [--from 0] [--to 214] > audit.jsonl
+//   node video/ep03/polka/tools/typo-audit.mjs --fps 30 --w 120 --from 0 --to 71 > audit.jsonl    (every film frame, exact)
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -17,6 +18,7 @@ catch { ({ chromium } = require(path.join(process.env.NODE_GLOBAL || '/usr/lib/n
 const args = Object.fromEntries(process.argv.slice(2).reduce((acc, a, i, all) =>
   a.startsWith('--') ? [...acc, [a.slice(2), all[i + 1]]] : acc, []));
 const step = +(args.step || .1), w = +(args.w || 540), from = +(args.from || 0), to = +(args.to || 214);
+const fps = args.fps ? +args.fps : 0;      // with --fps N, sample every frame of an N fps film at exactly k/N
 const root = process.cwd();
 const types = { '.js': 'text/javascript', '.mjs': 'text/javascript', '.html': 'text/html', '.json': 'application/json', '.png': 'image/png', '.ttf': 'font/ttf' };
 const server = http.createServer((req, res) => {
@@ -32,8 +34,9 @@ const q = args.query ? '&' + args.query : '';
 await page.goto(`http://localhost:${server.address().port}/video/lib/player.html?scene=/video/ep03/polka/${args.scene || 'main.js'}&song=/music/ep03&w=${w}&render=1${q}`);
 await page.waitForFunction(() => window.ready === true, null, { timeout: 60000 });
 const end = Math.min(to, await page.evaluate(() => window.duration));
-for (let i = 0; from + i * step < end; i++) {
-  const t = +(from + i * step).toFixed(3);
+const k0 = fps ? Math.ceil(from * fps - 1e-9) : 0;
+for (let i = 0; fps ? (k0 + i) / fps < end : from + i * step < end; i++) {
+  const t = fps ? (k0 + i) / fps : +(from + i * step).toFixed(3);
   const recs = await page.evaluate(t => {
     const A = window.__audit;
     A.on = true; A.rec = [];

@@ -6,7 +6,7 @@ import { W, H, TAU, clamp, inv, lerp, easeOut, easeIn, easeInOut, backOut, smoot
 import { shot, join } from '../shots.js';
 import { write, layout } from '../hand.js';
 import { blob, line, dot, hatch, wash } from '../pencil.js';
-import { clawd, shaggy } from '../chars.js';
+import { clawd as clawdBody, shaggy } from '../chars.js';
 import { rosette, sparkle, burst, paw, bubble, clipboard } from '../props.js';
 import { dogFront } from '../people.js';
 import { groove, pop, ramp } from '../common.js';
@@ -29,6 +29,16 @@ function toLocal(c, wx, wy) {
   const sy = c.s * (1 - (c.squash || 0) * .13), sx = c.s * (1 + (c.squash || 0) * .1);
   return [(wx - c.x) / sx, (wy - (c.y - (c.bob || 0))) / sy];
 }
+// Clawd in the den is the agent, and wears a name tag that says so (Verse 2 is sung from the agent's side: the film's
+// "agent-facing" ilities are the ones that make his job possible). The tag is stuck to the lower left of his body.
+function agentTag(g2, t, flip) {
+  g2.save(); g2.translate(-96, -72); g2.rotate(-.05); if (flip < 0) g2.scale(-1, 1);
+  blob(g2, rrect(0, 0, 132, 52, 8, 2, 4321, .5), { fill: '#fbf8ef', line: GRAPHITE, lw: 4.6, seed: 4321, t, gap: 6, hw: 4.6, tone: .9, dens: .3 });
+  blob(g2, rrect(0, -18, 132, 16, 4, 2, 4322, .4), { fill: C.red, line: null, seed: 4322, t, gap: 5, hw: 4.6, tone: .9 });
+  write(g2, 'AGENT', 0, 20, 24, { col: GRAPHITE, seed: 4323, t, align: 'center', track: 5, w: .12 });
+  g2.restore();
+}
+const clawd = (g, o) => clawdBody(g, { ...o, prop: (g2, po) => { if (o.prop) o.prop(g2, po); agentTag(g2, o.t || 0, o.flip ?? 1); } });
 // Blob (huge): the softer-coated drawing in props-verse2.js; set SOFT_BLOB false for chars.js's own shaggy.
 const SOFT_BLOB = true;
 const BLOB = (g, o) => (SOFT_BLOB && !o.puppy ? blobDog : shaggy)(g, o);
@@ -461,11 +471,8 @@ function drawL6(g, t, ws) {
     const gr2 = g.createRadialGradient(905, 1330, 150, 905, 1330, 760);
     gr2.addColorStop(0, 'rgba(22,32,72,0)');
     gr2.addColorStop(1, `rgba(22,32,72,${.38 * dim})`);
-    g.save(); g.fillStyle = gr2; g.fillRect(0, 0, W, H);
-    // Darker still at the top, where the lyric is, so cream letters read (about 3:1) on the dimmed wall.
-    const gt = g.createLinearGradient(0, 0, 0, 800);
-    gt.addColorStop(0, `rgba(14,22,56,${.5 * dim})`); gt.addColorStop(1, 'rgba(14,22,56,0)');
-    g.fillStyle = gt; g.fillRect(0, 0, W, 800); g.restore();
+    // Only the picture dims (from y = 660 down): the lyric stays on the light wall, so its graphite letters keep their contrast.
+    g.save(); g.beginPath(); g.rect(0, 660, W, H - 660); g.clip(); g.fillStyle = gr2; g.fillRect(0, 660, W, H - 660); g.restore(); g.restore();
   }
   if (pk > .02) {
     const PX = 905, PY = 1552, PS = 1.35;
@@ -502,7 +509,7 @@ function drawL6(g, t, ws) {
   [76.48, 77.64].forEach((tt, i) => { if (t > tt && t < tt + .3) { const u = inv(tt, tt + .3, t); burst(g, S0.x, S0.y - 100, 30 + 30 * u, 70 + 60 * u, t, { col: C.yellow, seed: 15 + i, prog: easeOut(u), n: 10, w: 8 }); } });
   pigeon(g, t, 230, 698, .66, { flip: -1, state: t > 76.48 ? 'gasp' : 'perch', look: 1 });
   const out = { t0: ws[ws.length - 1].e + .3, dur: .3 };
-  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: '#25397c', tailBubble: { fill: '#5b6fc0', edge: '#0e163f', e: 2.0, f: 1.35 }, col: dim > .2 ? '#f5eedd' : undefined, hi: dim > .2 ? { 1: '#ffe08a', 5: '#ffe08a' } : { 1: C.red, 5: C.red }, seed: 26, out, w: .1 });
+  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: '#25397c', tailBubble: { fill: '#5b6fc0', edge: '#0e163f', e: 2.0, f: 1.35 }, hi: { 1: C.red, 5: C.red }, seed: 26, out, w: .1 });
 }
 
 
@@ -510,12 +517,13 @@ function drawL6(g, t, ws) {
 // Clawd on a wobbling stool with a thermometer in his mouth; beside him the small fluffy puppy from verse 1
 // grows a size on each stress and then, on "hurt", is huge and looms over him, its shadow covering him. On
 // "ill at ease" the big letters ILL AT EASE shake themselves into 'ILITIES.
-const YEL = { fill: '#ffe45c', edge: '#a87a10', e: 2.0, f: 1.35 };
+// A deep gold with a dark brown edge: on the pale wall these letters must read as the pun's two halves.
+const YEL = { fill: '#f6b02a', edge: '#5a3a08', e: 2.0, f: 1.35 };
 const SRC = 'ILL AT EASE', TGT = "'ILITIES";
 // source letter -> target slot (or a fall): I L L _ A T _ E A S E  ->  ' I L I T I E S
 const MORPH = { 0: 1, 1: 2, 2: 3, 4: -1, 5: 4, 7: 5, 8: -1, 9: 7, 10: 6 };
 function illAtEase(g, t, V13, V14, V15) {
-  const size = 128, track = 6, y = 745;
+  const size = 142, track = 6, y = 760;
   const ls = layout(SRC, size, { track, seed: 41 }), lt = layout(TGT, size, { track, seed: 42 });
   const x0 = W / 2 - ls.width / 2, x1 = W / 2 - lt.width / 2;
   const shk = ease(t, 82.76, 82.86) * (1 - ease(t, 83.15, 83.25));
@@ -658,6 +666,6 @@ function drawL8(g, t, ws) {
   // The pile of weighed tags on the floor.
   TAG_TOSS.forEach((tt, i) => { if (t > tt + .85) { const tg = TAGS[i]; g.save(); g.translate(975 + (i % 3) * 8, 1562 - Math.floor(i / 3) * 10); g.rotate((i - 2.5) * .18); g.scale(.85, .85); blob(g, rrect(0, 0, 100, 74, 10, 2, 1500 + i), { fill: '#fdfcf6', line: GRAPHITE, lw: 4.6, seed: 1500 + i, t, hw: 4.2, tone: .9, dens: .2 }); blob(g, rrect(0, -27, 100, 22, 7, 2, 1510 + i), { fill: tg.col, line: GRAPHITE, lw: 4, seed: 1510 + i, t, hw: 4.2, tone: .95 }); g.restore(); } });
   if (t > 85.9 && t < 86.4) sparkle(g, 840, 1360, 34 * pop(t, 85.9, .2), t, { col: C.yellow, seed: 64, rot: t * 3 });
-  pigeon(g, t, 745, 715, .66, { flip: -1, state: t > 84.0 ? 'smug' : 'perch', look: -1 });
+  pigeon(g, t, 166, 764, .62, { flip: 1, state: t > 84.0 ? 'smug' : 'perch', look: 1 });      // on the lamp, clear of the tail word
   lyric8(g, t, ws);
 }

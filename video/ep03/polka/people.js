@@ -78,8 +78,9 @@ export function person(g, o = {}) {
   } else if (hair.style === 'spikes') {
     for (let i = 0; i < 7; i++) { const a = -Math.PI + (i + .5) / 7 * Math.PI; blob(g, [[Math.cos(a - .18) * hr, HEAD[1] + Math.sin(a - .18) * hr], [Math.cos(a) * (hr + 30), HEAD[1] + Math.sin(a) * (hr + 30)], [Math.cos(a + .18) * hr, HEAD[1] + Math.sin(a + .18) * hr]], { fill: hair.col, line: ink, lw: 4.6, seed: sd + 34 + i, t, hw: 4.4, tone: .7 }); }
   } else if (hair.style === 'cap' || hat === 'cap') {
-    blob(g, spline([[-hr * 1.04, HEAD[1] - 6], [-hr * .9, HEAD[1] - hr * 1.0], [0, HEAD[1] - hr * 1.2], [hr * .9, HEAD[1] - hr * 1.0], [hr * 1.04, HEAD[1] - 6]], true, 5), { fill: hair.col, line: ink, lw: 5, seed: sd + 33, t, hw: 4.6, tone: .8 });
-    blob(g, rrect(hr * .55, HEAD[1] - 4, hr * 1.1, 16, 8, 2), { fill: hair.col, line: ink, lw: 5, seed: sd + 35, t, hw: 4.6, tone: .8 });
+    // (The cap sits on the crown: its edge and its peak are above the eyes, so a face under a cap is still a face.)
+    blob(g, spline([[-hr * 1.04, HEAD[1] - 26], [-hr * .9, HEAD[1] - hr * 1.0], [0, HEAD[1] - hr * 1.2], [hr * .9, HEAD[1] - hr * 1.0], [hr * 1.04, HEAD[1] - 26]], true, 5), { fill: hair.col, line: ink, lw: 5, seed: sd + 33, t, hw: 4.6, tone: .8 });
+    blob(g, rrect(hr * .55, HEAD[1] - 26, hr * 1.1, 14, 7, 2), { fill: hair.col, line: ink, lw: 5, seed: sd + 35, t, hw: 4.6, tone: .8 });
   }
   // Face.
   const ex = 20, eyy = HEAD[1] - 2;

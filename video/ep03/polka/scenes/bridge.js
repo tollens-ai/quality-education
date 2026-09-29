@@ -90,7 +90,7 @@ function drawL1(g, t, ws) {
   const wQ = ramp(t, V(1) - .4, V(1), lin), wD = ramp(t, V(2) - .5, V(2), lin), wS = ramp(t, 123.0, 123.8, lin);
   marker(g, 'QUALITY', BX, 758, 86, { col: C.blue, seed: 11, t, prog: wQ });
   marker(g, 'DIMENSION', BX, 848, 86, { col: C.blue, seed: 12, t, prog: wD });
-  marker(g, 'FOR SOMEONE WHO MATTERS', BX, 906, 38, { col: '#2a8a4a', seed: 13, t, prog: wS, track: 6 });
+  marker(g, 'FOR SOMEONE WHO MATTERS', BX, 912, 47, { col: '#22703c', seed: 13, t, prog: wS, track: 5 });
   // The slider.
   const sx = BX - 8, sy = 1100, sw = 470;
   const sl = ramp(t, 123.55, 123.95, lin);
@@ -183,10 +183,10 @@ function drawL2(g, t, ws) {
   whiteboard(g, t, { x: BX, y: 815, w: 860, h: 330, feet: 260, seed: 720 });
   marker(g, 'INDEPENDENT', BX, 802, 66, { col: C.blue, seed: 22, t, prog: ramp(t, V(3) - .6, V(3), lin) });
   const wOften = ramp(t, 126.5, 126.85, lin);
-  marker(g, 'OFTEN', BX - 188, 726, 44, { col: C.red, seed: 23, t, prog: wOften, w: .13 });
+  marker(g, 'OFTEN', BX - 188, 722, 58, { col: '#c93a2e', seed: 23, t, prog: wOften, w: .13 });
   if (wOften > .9) line(g, [[BX - 264, 824], [BX - 250, 808], [BX - 236, 824]], { w: 6, col: C.red, seed: 24, t, spline: false, passes: 1, over: 0, alpha: .95 });
-  marker(g, 'SEPARATE TO JUDGE.', BX, 872, 42, { col: '#25397c', seed: 25, t, prog: ramp(t, 126.85, 127.55, lin), track: 5 });
-  marker(g, 'LINKED TO BUILD.', BX, 930, 42, { col: '#2a8a4a', seed: 26, t, prog: ramp(t, 127.5, 128.15, lin), track: 5 });
+  marker(g, 'SEPARATE TO JUDGE.', BX, 876, 52, { col: '#25397c', seed: 25, t, prog: ramp(t, 126.85, 127.55, lin), track: 4 });
+  marker(g, 'LINKED TO BUILD.', BX, 940, 52, { col: '#22703c', seed: 26, t, prog: ramp(t, 127.5, 128.15, lin), track: 4 });
   // The pull: each dog lunges on its own beat in a cycle of six, and every dog's slider drifts at its own speed.
   const P = RING.map((d, i) => {
     const lu = slotPulse(t, d.slot, 6) * (mad ? 1.6 : 1) + (mad ? .5 * Math.max(0, Math.sin(t * 9 + i * 1.7)) : 0);
@@ -319,7 +319,7 @@ function drawL4(g, t, ws) {
   blob(g, ellipse(540, 1450, 470, 120, 16, 0, 45), { fill: POOL, line: null, seed: 45, t, gap: 6, hw: 5.4, tone: 1.6, dens: 1 });
   // The three odd collars on a line across the top, dropping in on the beats.
   line(g, [[30, 736], [540, 762], [1050, 736]], { w: 5, col: '#8d8c97', seed: 700, t, spline: true, passes: 1, over: 0, alpha: .9 });
-  const ODD = [{ txt: 'PERFORMANCE', x: 205, w: 350, col: C.orange, at: 132.45 }, { txt: 'COST', x: 545, w: 216, col: C.teal, at: 132.8 }, { txt: 'CORRECTNESS', x: 880, w: 350, col: C.pink, at: 133.2 }];
+  const ODD = [{ txt: 'PERFORMANCE', x: 232, w: 330, col: C.orange, at: 132.45 }, { txt: 'COST', x: 545, w: 210, col: C.teal, at: 132.8 }, { txt: 'CORRECTNESS', x: 852, w: 330, col: C.pink, at: 133.2 }];
   ODD.forEach((o, i) => {
     const k = pop(t, o.at, .3);
     if (k <= 0) return;
@@ -430,8 +430,8 @@ function drawL5(g, t, ws) {
       if (sz > 1) sparkle(g, DX + Math.cos(a) * r * 1.0, 1265 + Math.sin(a) * r * .85, sz, t, { col: i % 3 ? C.yellow : '#fff3b0', seed: 300 + i, rot: t * 1.5 + i });
     }
   }
-  pigeon(g, t, 150, 652, .6, { state: squashed ? 'gasp' : 'perch', look: 1 });
-  lyric(g, t, ws, { tailCol: C.yellow, tailBubble: bub('#f7d774', '#8a6a10'), seed: 13 });
+  pigeon(g, t, 862, 906, .56, { state: squashed ? 'gasp' : 'perch', look: 1 });
+  lyric(g, t, ws, { tailCol: '#c98d14', tailBubble: bub('#f3a51e', '#5a3a08'), seed: 13 });
 }
 
 // ------------------------------------------------------------------- 6 "Compliance... compliance... ...it's rocket science!"
@@ -494,7 +494,7 @@ function drawL6(g, t, ws) {
   check(c1, 0); check(c2, 1);
   if (grow > 0 && rk > 0) rocket(g, t, rx, ry, { s: 1.15 * rk, flame: t > scT - .4 ? .6 + lf * 1.6 : 0, seed: 12, tilt: Math.sin(t * 25) * .03 * (t > scT ? 1 : 0) });
   if (t > scT - .05) for (let i = 0; i < 6; i++) { const a = t - scT - i * .1; if (a > 0 && a < .8) { const p = a / .8; g.save(); g.globalAlpha *= 1 - p; blob(g, scallop(rx + Math.sin(i * 2 + a * 9) * 14, ry + 120 + p * 130 + i * 24, 30 + p * 24, 7, .2, i, 140 + i), { fill: '#fbf8ef', line: ink, lw: 4, seed: 140 + i, t, hw: 4.6, tone: 1.2, dens: .5 }); g.restore(); } }
-  pigeon(g, t, 150, 652, .6, { state: t > rkT ? 'flap' : 'perch', look: 1 });
+  pigeon(g, t, 862, 906, .56, { state: t > rkT ? 'flap' : 'perch', look: 1 });
   lyric(g, t, ws, { tailCol: C.red, tailBubble: bub('#f08a80', '#8a2620'), seed: 14 });
 }
 

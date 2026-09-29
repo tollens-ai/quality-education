@@ -261,7 +261,7 @@ export function tagBoard(g, x, y, s, t, o = {}) {
     blob(g, rrect(0, 0, 100, 74, 10, 2, seed + 10 + i), { fill: '#fdfcf6', line: ink, lw: 4.6, seed: seed + 10 + i, t, hw: 4.2, tone: .9, dens: .2 });
     blob(g, rrect(0, -27, 100, 22, 7, 2, seed + 20 + i), { fill: tg.col, line: ink, lw: 4, seed: seed + 20 + i, t, hw: 4.2, tone: .95 });
     if (named) write(g, tg.name, 0, 20, tg.name.length > 6 ? 16 : 20, { col: ink, seed: seed + 30 + i, t, align: 'center', track: 2, prog: clamp((named - i * .12) * 2), w: .12 });
-    else line(g, [[-32, 18], [32, 18]], { w: 3.4, col: '#9a9aa4', seed: seed + 30 + i, t, spline: false, passes: 1, alpha: .8, bow: 0, over: 0 });
+    else write(g, '?', 0, 24, 40, { col: tg.col === C.navy ? '#25397c' : tg.col, seed: seed + 30 + i, t, align: 'center', w: .16 });      // (a blank tag: something he's about to ask for)
     g.restore();
   });
   g.restore();
@@ -556,13 +556,13 @@ export function furTuft(g, t, x, y, s, o = {}) {
 export function dogBowl(g, t, x, y, s, o = {}) {
   const { seed = 1060, fill = 0 } = o;
   g.save(); g.translate(x, y); g.scale(s, s);
-  blob(g, [[-150, -100], [150, -100], [118, 0], [-118, 0]], { fill: '#5b8fd6', shade: '#3a5fa8', line: ink, lw: 6.4, seed, t, hw: 5, tone: .8, sh: .3 });
+  blob(g, [[-150, -100], [150, -100], [118, 0], [-118, 0]], { fill: '#2f57a8', shade: '#1d3878', line: ink, lw: 6.4, seed, t, hw: 5, tone: .9, sh: .3 });
   blob(g, ellipse(0, -100, 150, 30, 12, 0, seed + 1), { fill: '#7fb2e5', shade: '#3a5fa8', line: ink, lw: 6, seed: seed + 1, t, hw: 4.8, tone: .7, sh: .3 });
   for (let i = 0; i < fill; i++) {
     const u = (i % 5) / 4, row = Math.floor(i / 5);
     furTuft(g, t, -110 + u * 220 + Math.sin(i * 2.3) * 14, -112 - row * 44 - Math.abs(Math.sin(i * 1.7)) * 8, .85 + row * .06, { seed: seed + 10 + i, rot: Math.sin(i * 3.1) * .5 });
   }
-  write(g, 'CONTEXT', 0, -30, 40, { col: '#fbf8ef', seed: seed + 2, t, align: 'center', track: 5, w: .12 });
+  write(g, 'CONTEXT', 0, -28, 46, { col: '#fbf8ef', seed: seed + 2, t, align: 'center', track: 5, w: .13 });
   g.restore();
 }
 // Handwriting nobody could read, in rows across a region: `prog` 0..1 how much is there, `knot` 0..1 how tangled.
@@ -702,6 +702,15 @@ export function blobDog(g, o = {}) {
     const c0 = [Math.cos(a) * r0, cy + Math.sin(a) * r0 * .92];
     const sway_ = Math.sin(t * 1.4 + i) * 2 * life;
     line(g, [c0, [c0[0] + Math.cos(a + .3) * L * .5 + sway_, c0[1] + Math.sin(a + .3) * L * .5], [c0[0] + Math.cos(a + .1) * L + sway_, c0[1] + Math.sin(a + .1) * L]], { w: 5, col: '#5b5a66', seed: sd + 20 + i, t, passes: 1, alpha: .5, taper: [.1, .7], wob: 1 });
+  }
+  // A collar with a bone-shaped tag that says CODE: he is the code, and this is the one place the film says so.
+  if (o.tag !== false) {
+    const cyy = cy + R * .58, cw = R * .62;
+    line(g, [[-cw, cyy - R * .07], [-cw * .5, cyy + R * .05], [0, cyy + R * .09], [cw * .5, cyy + R * .05], [cw, cyy - R * .07]], { w: R * .09, col: '#3f6fd6', seed: sd + 91, t, spline: true, passes: 1, taper: [.02, .02], tooth: .5, over: 0, bow: 0 });
+    line(g, [[-cw, cyy - R * .07], [-cw * .5, cyy + R * .05], [0, cyy + R * .09], [cw * .5, cyy + R * .05], [cw, cyy - R * .07]], { w: 5, col: ink, seed: sd + 92, t, spline: true, passes: 1, alpha: .55, taper: [.02, .02], over: 0, bow: 0 });
+    const tx = 0, ty = cyy + R * .24 + beatRing(t, { f: 2.4, z: .16, amp: 4 }) * life, tw = R * .36, th = R * .17;
+    blob(g, roundPoly([[tx - tw, ty - th * .5], [tx - tw * .78, ty - th * .95], [tx - tw * .55, ty - th * .5], [tx + tw * .55, ty - th * .5], [tx + tw * .78, ty - th * .95], [tx + tw, ty - th * .5], [tx + tw, ty + th * .5], [tx + tw * .78, ty + th * .95], [tx + tw * .55, ty + th * .5], [tx - tw * .55, ty + th * .5], [tx - tw * .78, ty + th * .95], [tx - tw, ty + th * .5]], [10, 10, 4, 4, 10, 10, 10, 10, 4, 4, 10, 10], 2), { fill: '#f7d774', line: ink, lw: 5.4, seed: sd + 93, t, gap: 5, hw: 4.6, tone: .8 });
+    write(g, 'CODE', tx, ty + R * .05, R * .12, { col: ink, seed: sd + 94, t, align: 'center', track: 4, w: .12 });
   }
   // The face: a pale patch, a big nose, a mouth.
   const fy = cy + R * .1;

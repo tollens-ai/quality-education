@@ -14,20 +14,21 @@ import { GRAPHITE, C } from './palette.js';
 export const BOARD = { x: 60, y: 140, w: 960, h: 470 };
 export const WORDS = { x: W / 2, y: 270, maxW: 900, size: 90, minSize: 70, tail: 0, rows: 3, gap: 1.55 };
 
-// The y that centres a line's block of rows in the board.
-export function wordsY(ws) {
-  const L = layoutLine(ws, { ...WORDS, y: 0 });
-  const cap = L.size;
-  const blockH = L.bottom - L.size * (WORDS.gap - 1) - 0;
-  return BOARD.y + (BOARD.h - 60) / 2 - blockH / 2 + cap;
+// The y that centres a line's block of rows in the board (`extra`: options for this line's layout, such as a big tail).
+export function wordsY(ws, extra = {}) {
+  const L = layoutLine(ws, { ...WORDS, ...extra, y: 0 });
+  // Centre from the top of the first row's capitals to the last row's baseline.
+  const top = Math.min(...L.items.map(it => it.y - it.size)), bot = Math.max(...L.items.map(it => it.y));
+  return BOARD.y + (BOARD.h - 60) / 2 - (top + bot) / 2;
 }
 
 // A path for the ball across several lines: [{t, x, y, word}] one landing per beat while a line is
-// being sung, starting on the last beat before its first word.
-export function ballPath(lineWords, opt = {}) {
+// being sung, starting on the last beat before its first word. `perLine(i)` gives a line's own layout options.
+export function ballPath(lineWords, opt = {}, perLine = null) {
   const targets = [];
-  for (const ws of lineWords) {
-    const L = layoutLine(ws, { ...WORDS, y: wordsY(ws), ...opt });
+  for (let li = 0; li < lineWords.length; li++) {
+    const ws = lineWords[li], ex = perLine ? perLine(li) : {};
+    const L = layoutLine(ws, { ...WORDS, ...ex, y: wordsY(ws, ex), ...opt });
     const first = ws[0].s, last = ws[ws.length - 1].e;
     const bts = beatsIn(first - .30, last + .05);
     let prev = 0;
@@ -89,5 +90,5 @@ export function signBoard(g, t, o = {}) {
     blob(g, rrect(0, 0, 130, 34, 5, 2), { fill: '#f2d377', line: null, seed: 650 + i, t, hw: 4.4, tone: .85, dens: .5 });
     g.restore();
   });
-  if (label) write(g, 'SING ALONG!', b.x + 26, b.y + b.h - 20, 26, { col: C.red, seed: 660, t, track: 8 });
+  if (label) write(g, 'SING ALONG!', b.x + 26, b.y + b.h - 20, 34, { col: '#c93a2e', seed: 660, t, track: 7 });
 }

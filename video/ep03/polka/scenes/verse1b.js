@@ -72,8 +72,8 @@ function drawA(g, t, ws) {
     const k = pop(t, r0 - .03, .22) * (1 - ramp(t, 18.42 + i * .06, 18.6 + i * .06, lin));
     if (k <= .02) return;
     const jig = shake(t, mess, { dur: .5, amp: .07, f: 8 });
-    g.save(); g.translate(240, 758 - 68 * shift); g.rotate(jig * (i % 2 ? 1 : -1)); g.scale(k, k);
-    robotBubble(g, 0, 0, 270, 64, -50, 64, t, { seed: 300 + i * 4, size: 38, prog: ramp(t, r0 - .03, r0 + .16, lin) });
+    g.save(); g.translate(250, 748 - 88 * shift); g.rotate(jig * (i % 2 ? 1 : -1)); g.scale(k, k);
+    robotBubble(g, 0, 0, 330, 78, -60, 78, t, { seed: 300 + i * 4, size: 48, prog: ramp(t, r0 - .03, r0 + .16, lin) });
     g.restore();
   });
   // The question marks: B's from the start of the captions, then everyone's.

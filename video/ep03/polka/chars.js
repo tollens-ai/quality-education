@@ -9,6 +9,7 @@ import { clamp, lerp, hash, TAU, beatPos } from './kit.js';
 import { blob, line, dot, hatch, wash, outline, spline } from './pencil.js';
 import { rrect, ellipse, move, scale, rotate, capsule, warp, scallop, limb } from './shapes.js';
 import { idle, ring, downRing, beatRing, wordRing } from './life.js';
+import { write } from './hand.js';
 import { GRAPHITE, CLAWD, C } from './palette.js';
 
 const ink = GRAPHITE;
@@ -19,7 +20,7 @@ const hand = (pts, seed, amp = 4.5, lam = 90) => { const [cx, cy] = centre(pts);
 // ---------------------------------------------------------------- Clawd
 // The mascot's own block, as a child would draw him: a wide, lumpy loaf, two tall eyes set high and far
 // apart, a stub of an arm on each side, four short legs, and a tuft that bounces after him.
-//   eyes   'open' 'happy' 'wide' 'squint' 'sad' 'x' 'shut' 'half'      mouth  0..1 (how open)
+//   eyes   'open' 'happy' 'wide' 'squint' 'sad' 'x' 'shut' 'half' (or [left, right]: a wink)      mouth  0..1 (how open)
 //   look   [-1..1, -1..1]  where the eyes look      armL/armR  {up: -1..1 (down..up), out: 0..1} or {to: [x, y]}
 //   squash 0..1, lean radians, bob px, flip -1 for facing left, blink 0..1 (added to his own), sweat, spark
 //   brow   > 0 worried (inner ends up), < 0 cross         raise  0..1 (surprise)
@@ -91,9 +92,10 @@ export function clawd(g, o = {}) {
   const EY = [{ x: -84, w: 38, h: 88, r: -.05 }, { x: 82, w: 34, h: 80, r: .06 }];
   EY.forEach((E, i) => {
     const side = i ? 1 : -1;
+    const kind = Array.isArray(eyes) ? eyes[i] : eyes;          // eyes: one kind for both, or [left, right] (a wink)
     const ex = E.x + lk[0] * 9, eyy = ey + lk[1] * 8 + (i ? 3 : 0);
     const line1 = (pts, w = 9.5) => line(g, pts, { w, col: ink, seed: sd + 40 + i, t, spline: true, passes: 1, wob: 1 });
-    switch (eyes) {
+    switch (kind) {
       case 'happy': line1([[ex - 27, eyy + 13], [ex - 13, eyy - 10], [ex + 1, eyy - 18], [ex + 15, eyy - 10], [ex + 28, eyy + 13]]); break;
       case 'squint': line1([[ex - 28, eyy - 1], [ex, eyy + 3], [ex + 28, eyy - 2]], 10); break;
       case 'shut': line1([[ex - 28, eyy + 2], [ex, eyy + 14], [ex + 28, eyy + 2]], 9); break;
@@ -102,7 +104,7 @@ export function clawd(g, o = {}) {
         line(g, [[ex + 22, eyy - 26], [ex - 22, eyy + 26]], { w: 9.5, col: ink, seed: sd + 44 + i, t, spline: false, passes: 1 });
         break;
       default: {
-        const wide = eyes === 'wide', half = eyes === 'half', sad = eyes === 'sad';
+        const wide = kind === 'wide', half = kind === 'half', sad = kind === 'sad';
         const h0 = (wide ? E.h * 1.14 : sad ? E.h * .82 : E.h) * (half ? .55 : 1), w0 = E.w * (wide ? 1.1 : 1);
         const h = Math.max(7, h0 * (1 - bl * .93));
         const cy = eyy + (half ? h0 * .3 : 0) + (E.h - h) * .0;
@@ -115,8 +117,8 @@ export function clawd(g, o = {}) {
       }
     }
     // Brows: worried slopes the inner ends up, cross slopes them down, surprise lifts them both.
-    if (brow || raise || eyes === 'sad') {
-      const b = eyes === 'sad' && !brow ? 1 : brow;
+    if (brow || raise || kind === 'sad') {
+      const b = kind === 'sad' && !brow ? 1 : brow;
       const by = ey - 66 - raise * 16;
       const inner = [ex - side * -6, by - b * 12], outer = [ex + side * 34, by + b * 10];
       line(g, [outer, [(inner[0] + outer[0]) / 2, (inner[1] + outer[1]) / 2 - 3], inner], { w: 7.5, col: ink, seed: sd + 60 + i, t, spline: true, passes: 1 });
@@ -145,7 +147,7 @@ export function clawd(g, o = {}) {
 //   coat/shade/muzzle: colours, so other dogs can borrow the drawing.
 export function dachshund(g, o = {}) {
   const { x = 540, y = 1200, s = 1, t = 0, seed = 2, walk = 0, tail = null, wag = .6, ear = 0, mouth = 0, eyes = 'open', flip = 1, lean = 0, bob = 0, squash = 0,
-    coat = '#c9772f', shade = '#8f4a1c', muzzle = '#f0c48f', collar = C.blue, tag = C.yellow, length = 1, look = 0, tongue = false, brow = 0, legH = 66, bodyH = 1, headS = 1.12, snoutL = 1, earS = 1, life = 1, legPop = null, arch = 0, tuck = 0, chest = 0, legW = 1 } = o;
+    coat = '#c9772f', shade = '#8f4a1c', muzzle = '#f0c48f', collar = C.blue, tag = C.yellow, length = 1, look = 0, tongue = false, brow = 0, legH = 66, bodyH = 1, headS = 1.12, snoutL = 1, earS = 1, life = 1, legPop = null, arch = 0, tuck = 0, chest = 0, legW = 1, jacket = null } = o;
   const I = idle(t, seed);
   g.save();
   g.translate(x, y - bob);
@@ -186,6 +188,14 @@ export function dachshund(g, o = {}) {
     [X(-238), -150 * b], [X(-204), -(190 + arch * .4) * b], [X(-122), -(200 + arch * .8) * b], [X(-32), -(190 + arch) * b], [X(58), -(202 + arch * .9) * b], [X(140), -(198 + arch * .5) * b], [X(198), -178 * b], [X(220), -132 * b],
     [X(202), -(82 - chest * .5) * b], [X(150), -(58 - chest * .8) * b], [X(60), -(52 - chest * .4) * b], [X(-40), -(58 + tuck * .4) * b], [X(-132), -(62 + tuck * .8) * b], [X(-208), -(70 + tuck) * b], [X(-246), -104 * b]], sd + 11, 4.4, 100);
   blob(g, body, { fill: coat, shade, line: ink_, lw: 7.2, seed: sd + 11, t, hw: 5.4, sh: .3 });
+  // jacket: { col, text }: a racing bib with a number over the ribs, as a greyhound wears (so a slim grey dog reads as one).
+  if (jacket) {
+    const jw = 128, jh = Math.max(56, 96 * b), jx = X(-30), jy = -130 * b + (arch * .5);
+    blob(g, rrect(jx, jy, jw, jh, 14, 3, sd + 96, .5), { fill: jacket.col, line: ink_, lw: 5.4, seed: sd + 96, t, gap: 5, hw: 4.8, tone: .9 });
+    g.save(); g.translate(jx, jy); if (flip < 0) g.scale(-1, 1);          // (the number never mirrors when the dog faces left)
+    write(g, jacket.text, 0, jh * .27, jh * .62, { col: '#fbf8ef', seed: sd + 97, t, align: 'center', w: .15 });
+    g.restore();
+  }
   // The head: a big round one, with a long snout out of its lower half.
   const hz = headS;
   const hc = [X(268), -222 * b - 12];

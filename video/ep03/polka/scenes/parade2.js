@@ -26,7 +26,7 @@ const LINES = [
   { start: 'and flexibility', gi: [1, 2], gags: ['flex', 'detect'], cols: [C.teal, C.purple], hi: '#1f8f86', tail: { fill: '#b79be6', edge: '#4a2f8a' }, tailCol: C.purple },
   { start: 'and suitability', gi: [1, 2], gags: ['suit', 'reuse'], cols: [C.orange, C.pink], hi: '#c25a12', tail: { fill: '#f79ac0', edge: '#a3306a' }, tailCol: C.pink },
   { start: 'sustainability', gi: [0, 2], gags: ['sustain', 'change'], cols: [C.green, C.blue], hi: '#2f8a4a', tail: { fill: '#7ea6f0', edge: '#1f3f8f' }, tailCol: C.blue },
-  { start: 'deployability', gi: [0, 1], gags: ['deploy', 'enjoy'], cols: [C.red, '#f4c93a'], hi: C.red, tail: { fill: '#f7d774', edge: '#8a5f12' }, tailCol: '#c98d14' },
+  { start: 'deployability', gi: [0, 1], gags: ['deploy', 'enjoy'], cols: [C.red, '#f4c93a'], hi: '#c93a2e', tail: { fill: '#f7d774', edge: '#8a5f12' }, tailCol: '#c98d14' },
 ];
 const T_STREAM = [164.88, 165.18];               // the last pair leaves and the stream of dogs walks on
 const V = 420, T_STOP = [172.55, 173.35];        // the stream's speed (px/s) and when it stops to look at you

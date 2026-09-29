@@ -67,7 +67,7 @@ function gag2(g, t, ws, cx) {
   const crashed = t >= tc;
   hurdle(g, t, HX, GY, 1.5, { hit: crashed ? clamp((t - tc) / .7) : 0, dir: 1 });
   // The greyhound: a long-legged, thin dachshund in grey.
-  const D = { legH: 118, bodyH: .62, length: .95, headS: .74, snoutL: 1.4, earS: .6, arch: 26, tuck: 56, chest: 36, legW: .55, coat: '#a7a2b0', shade: '#726d7c', muzzle: '#c4c0cb', collar: C.orange, s: .92 };
+  const D = { legH: 118, bodyH: .62, length: .95, headS: .74, snoutL: 1.4, earS: .6, arch: 26, tuck: 56, chest: 36, legW: .55, jacket: { col: '#e04a3d', text: '7' }, coat: '#a7a2b0', shade: '#726d7c', muzzle: '#c4c0cb', collar: C.orange, s: .92 };
   const XR = 330;                                  // where he ends up
   let x, y = GY, rot = 0, walk = 0, eyes = 'wide', mouth = .3;
   if (t < tc) {

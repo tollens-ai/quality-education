@@ -51,11 +51,12 @@ export function registerChorus(o) {
     const bd = crash != null ? pop(t, crash, .5) : 1;
     g.save(); g.translate(0, -(1 - bd) * 760);
     signBoard(g, t, board);
+    // The ball is drawn first and the lyric over it: the ball hops on the words, but never hides a letter.
+    const bb = ballAt(path, t);
+    if (bb && !bb.gone) drawBall(g, t, bb.x, bb.y, 32, { sq: bb.sq || 0, stretch: bb.stretch || 0, spin: t * 4 });
     sing(g, t, ws, { ...WORDS, y: wordsY(ws), tailCol: null, col: ink, seed: 30 + idx, w: .1, dance: 8, out: { t0: ws[ws.length - 1].e + .22, dur: .24 } });
     const ledge = BOARD.y + BOARD.h + 66;
     line(g, [[BOARD.x + 20, ledge + 6], [BOARD.x + BOARD.w - 20, ledge + 6]], { w: 8, col: '#8b5f2a', seed: 860, t, spline: false, passes: 1 });
-    const bb = ballAt(path, t);
-    if (bb && !bb.gone) drawBall(g, t, bb.x, bb.y, 32, { sq: bb.sq || 0, stretch: bb.stretch || 0, spin: t * 4 });
     const lag = ballAt(path, t - .3), lag2 = ballAt(path, t - .55);
     const bx = lag ? clamp(lag.x, BOARD.x + 120, BOARD.x + BOARD.w - 120) : BOARD.x + 200;
     const bx2 = lag2 ? clamp(lag2.x, BOARD.x + 120, BOARD.x + BOARD.w - 120) : bx;

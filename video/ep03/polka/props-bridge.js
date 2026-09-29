@@ -288,7 +288,7 @@ export function puzzleTag(g, t, x, y, o = {}) {
   g.translate(x, y); g.rotate(swing); g.scale(s, s);
   if (ring) line(g, Array.from({ length: 13 }, (_, i) => [Math.cos(i / 12 * TAU) * 12, -8 + Math.sin(i / 12 * TAU) * 15]), { w: 6, col: '#8d8c97', seed: seed + 9, t, spline: true, passes: 1, closed: true, over: 0, alpha: .95 });
   blob(g, TAGP.stem, { fill: stemCol, shade: '#e3d3a0', line: ink, lw: 5.4, seed, t, hw: 4.8, tone: 1.1, sh: .22, gap: 6 });
-  marker(g, stem, 0, 41, 34, { col: ink, seed: seed + 2, t, w: .11, track: 4 });
+  marker(g, stem, 0, 44, Math.min(44, 205 * 100 / measure(stem, 100, 4)), { col: ink, seed: seed + 2, t, w: .11, track: 4 });      // (as big as the tag allows: the joke needs these read)
   if (ility) {
     g.save(); g.translate(ilOff[0], ilOff[1] + TAG.H1 * 0); g.translate(0, TAG.H1 + TAG.H2 / 2); g.rotate(ilOff[2]); g.scale(ilK, ilK); g.translate(0, -(TAG.H1 + TAG.H2 / 2));
     blob(g, TAGP.il, { fill: ilCol, shade: '#d99a1a', line: ink, lw: 5.4, seed: seed + 1, t, hw: 4.8, tone: 1.1, sh: .22, gap: 6 });
@@ -461,6 +461,9 @@ export function houndBits(g, t, o = {}) {
   const { sniff = 0, seed = 33 } = o;
   const sw = Math.sin(t * TAU * 3.5) * 6 * sniff;
   [-1, 1].forEach((sd, i) => blob(g, capsule([sd * 160, -214], [sd * 190 + sw * sd, -80], 22, 30, 5, seed + i), { fill: '#7b4b26', shade: '#4d2d14', line: ink, lw: 6, seed: seed + i, t, hw: 5, sh: .35 }));
+  // A strap across the top of his head holds the ears on (it is a costume: this is still Clawd, playing bloodhound).
+  line(g, [[-166, -226], [-90, -248], [0, -254], [90, -248], [166, -226]], { w: 16, col: '#4d2d14', seed: seed + 6, t, spline: true, passes: 1, taper: [.02, .02], over: 0, bow: 0 });
+  line(g, [[-166, -226], [-90, -248], [0, -254], [90, -248], [166, -226]], { w: 5, col: ink, seed: seed + 7, t, spline: true, passes: 1, alpha: .5, taper: [.02, .02], over: 0, bow: 0 });
   const k = 1 + Math.sin(t * TAU * 4) * .12 * sniff;
   blob(g, ellipse(0, -122, 36 * k, 26 * k, 8, 0, seed + 3), { fill: '#2b2a33', line: ink, lw: 4, seed: seed + 3, t, hw: 4.4, tone: 1, gap: 4 });
   dot(g, -10, -130, 6, { col: '#fbf8ef', seed: seed + 4, t, alpha: .8 });

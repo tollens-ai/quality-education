@@ -64,7 +64,8 @@ export function layoutLine(ws, o = {}) {
   let tailInfo = null;
   if (tl.length) {
     const str = tl.map(t => t.str).join(' ');
-    const tsz = o.tailSize || Math.min(tailMax, sz * 1.9, sz * 1.9 * maxW / measure(str, sz * 1.9, track));
+    // (The tail's outline reaches past its width, so it is fitted 44 px inside the maximum: clear of the frame's edges.)
+    const tsz = o.tailSize || Math.min(tailMax, sz * 1.9, sz * 1.9 * (maxW - 44) / measure(str, sz * 1.9, track));
     const tw = measure(str, tsz, track);
     const tsp = measure(' ', tsz, track) + track * tsz / 100;
     yy += tsz * tailGap * (rows.length ? 1 : 0);

@@ -5,7 +5,7 @@
 import { W, H, TAU, clamp, lerp, hash, inv, easeOut, backOut } from '../kit.js';
 import { paper } from '../paper.js';
 import { blob, line, dot } from '../pencil.js';
-import { write } from '../hand.js';
+import { write, measure } from '../hand.js';
 import { rrect, ellipse, scallop } from '../shapes.js';
 import { GRAPHITE, C } from '../palette.js';
 
@@ -45,26 +45,52 @@ export const QUALITIES = [
 ];
 const COLS = [C.red, C.orange, C.yellow, C.lime, C.green, C.teal, C.sky, C.blue, C.purple, C.pink];
 
-export function endCard(g, t) {
+// The card is two pages of sixteen (a viewer read the one dense card as unreadable at phone size): the verses' and the
+// bridge's qualities first, then the list's. Each page is a poster: two columns of eight, a name and its meaning wrapped
+// to two lines, big enough to read on a phone or to screenshot.
+export const PAGE_BREAK = 215.1;
+const PAGES = [
+  { from: 0, sub: 'FROM THE VERSES AND THE BRIDGE, IN PLAIN WORDS', tag: '1 OF 2' },
+  { from: 16, sub: 'FROM THE LIST, IN PLAIN WORDS', tag: '2 OF 2' },
+];
+// Break a string into at most two lines that each fit `room` px.
+function wrap2(str, size, track, room) {
+  const words = str.split(' ');
+  if (measure(str, size, track) <= room) return [str];
+  let best = [str, ''], bestGap = 1e9;
+  for (let k = 1; k < words.length; k++) {
+    const a = words.slice(0, k).join(' '), b = words.slice(k).join(' ');
+    const wa = measure(a, size, track), wb = measure(b, size, track);
+    if (wa <= room && wb <= room && Math.abs(wa - wb) < bestGap) { best = [a, b]; bestGap = Math.abs(wa - wb); }
+  }
+  return best[1] ? best : [str];
+}
+
+export function endCard(g, t, pageIdx = 0) {
+  const P = PAGES[pageIdx];
   paper(g, { base: '#f8efc9', vignette: .08 });
   // The poster's border, a red rope line with gold corners.
   blob(g, rrect(W / 2, 800, W - 70, 1500, 26, 3, 5), { fill: 'paper', line: C.red, lw: 9, seed: 5, t });
   blob(g, rrect(W / 2, 800, W - 110, 1462, 20, 3, 6), { fill: 'paper', line: '#c9a24a', lw: 5, seed: 6, t });
   write(g, "THE 'ILITIES", W / 2, 232, 86, { seed: 7, t, align: 'center', bubble: { fill: '#f5a03a', edge: '#8a4a1d', e: 2.0, f: 1.3 }, w: .09, track: 5 });
-  write(g, 'EVERY QUALITY IN THE SONG, IN PLAIN WORDS', W / 2, 296, 22, { col: C.blue, seed: 8, t, align: 'center', track: 6 });
-  const rows = 16, top = 380, dy = 66, cx = [66, 570];
-  QUALITIES.forEach(([name, gloss], i) => {
-    const col = Math.floor(i / rows), row = i % rows;
-    const x = cx[col], y = top + row * dy;
-    const c = COLS[i % COLS.length];
+  write(g, P.sub, W / 2, 298, 24, { col: '#2a4fa8', seed: 8, t, align: 'center', track: 5 });
+  const x0 = [72, 552], room = 392, top = 388, dy = 134;
+  QUALITIES.slice(P.from, P.from + 16).forEach(([name, gloss], i) => {
+    const col = Math.floor(i / 8), row = i % 8;
+    const x = x0[col], y = top + row * dy;
+    const c = COLS[(P.from + i) % COLS.length];
     // A small rosette in this quality's colour.
-    blob(g, scallop(x + 22, y - 6, 20, 9, .16, 0, 300 + i), { fill: c, line: GRAPHITE, lw: 3.6, seed: 300 + i, t, gap: 5, hw: 4, tone: .7 });
-    blob(g, ellipse(x + 22, y - 6, 9, 9, 8, 0, 340 + i), { fill: C.cream, line: null, seed: 340 + i, t, gap: 4, hw: 3.4, tone: .8 });
-    write(g, name.toUpperCase(), x + 60, y + 2, 25, { col: GRAPHITE, seed: 400 + i, t, track: 3, w: .1 });
-    write(g, gloss.toUpperCase(), x + 60, y + 32, 15, { col: '#3a4a7a', seed: 450 + i, t, track: 2, w: .1 });
+    blob(g, scallop(x + 26, y - 8, 26, 9, .16, 0, 300 + P.from + i), { fill: c, line: GRAPHITE, lw: 4, seed: 300 + P.from + i, t, gap: 5, hw: 4, tone: .7 });
+    blob(g, ellipse(x + 26, y - 8, 12, 12, 8, 0, 340 + P.from + i), { fill: C.cream, line: null, seed: 340 + P.from + i, t, gap: 4, hw: 3.4, tone: .8 });
+    const N = name.toUpperCase(), G = gloss.toUpperCase();
+    const ns = Math.min(40, 40 * room / measure(N, 40, 3));
+    write(g, N, x + 68, y + 4, ns, { col: GRAPHITE, seed: 400 + P.from + i, t, track: 3, w: .1 });
+    wrap2(G, 26, 2, room).forEach((ln, k) => write(g, ln, x + 68, y + 42 + k * 34, 26, { col: '#2f3f75', seed: 450 + (P.from + i) * 2 + k, t, track: 2, w: .1 }));
   });
-  write(g, 'WHICH ARE YOURS?', W / 2, 1452, 32, { col: C.red, seed: 9, t, align: 'center', track: 6, w: .1 });
+  write(g, P.tag, W - 96, 236, 24, { col: '#8d8c97', seed: 12, t, align: 'right', track: 6 });
+  // The share hook, big: the film asks it three times and the card asks it once more.
+  write(g, 'WHICH ARE YOURS?', W / 2, 1478, 58, { col: '#c93a2e', seed: 9, t, align: 'center', track: 7, w: .11 });
   // The artist's signature, as the poster's corner: small, in the film's own hand, with a flourish under it.
-  write(g, 'DOODLED BY SONNET', W / 2, 1516, 22, { col: '#3a4a7a', seed: 10, t, align: 'center', track: 7, w: .1 });
-  line(g, [[W / 2 - 150, 1530], [W / 2 - 70, 1524], [W / 2 + 10, 1532], [W / 2 + 90, 1524], [W / 2 + 150, 1530]], { w: 4, col: '#3a4a7a', seed: 11, t, spline: true, passes: 1, alpha: .8 });
+  write(g, 'DOODLED BY SONNET', W / 2, 1522, 22, { col: '#3a4a7a', seed: 10, t, align: 'center', track: 7, w: .1 });
+  line(g, [[W / 2 - 150, 1536], [W / 2 - 70, 1530], [W / 2 + 10, 1538], [W / 2 + 90, 1530], [W / 2 + 150, 1536]], { w: 4, col: '#3a4a7a', seed: 11, t, spline: true, passes: 1, alpha: .8 });
 }

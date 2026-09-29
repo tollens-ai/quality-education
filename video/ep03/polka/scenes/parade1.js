@@ -22,7 +22,7 @@ const LINES = [
   { start: 'Upgradability', gags: ['upgrade', 'replace'], hi: C.blue, tail: { fill: '#f6a04d', edge: '#8a4a12' }, tailCol: C.orange },
   { start: 'explainability', gags: ['explain', 'trace'], hi: '#2f8a4a', tail: { fill: '#f79ac0', edge: '#a3306a' }, tailCol: C.pink },
   { start: 'observability', gags: ['observe', 'undo'], hi: C.purple, tail: { fill: '#5fd0c4', edge: '#0f6b63' }, tailCol: C.teal },
-  { start: 'installability', gags: ['install', 'port'], hi: C.red, tail: { fill: '#f7d774', edge: '#8a5f12' }, tailCol: '#c98d14' },
+  { start: 'installability', gags: ['install', 'port'], hi: '#c93a2e', tail: { fill: '#f7d774', edge: '#8a5f12' }, tailCol: '#c98d14' },
 ];
 
 // A placeholder gag: a plain pup (while the real ones are built).

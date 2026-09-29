@@ -74,7 +74,7 @@ function drawL0(g, t, ws) {
   }
   // The pigeon watches the calendar from the top of the phone, and gasps at the rosette.
   pigeon(g, t, 690, 800, .78, { flip: -1, state: bril ? 'gasp' : 'perch', look: -1 });
-  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: C.blue, tailBubble: { fill: C.sky, edge: '#1f3f8f', e: 2.0, f: 1.35 }, hi: { 0: C.blue }, seed: 4, out, w: .1 });
+  sing(g, t, ws, { y: 262, size: 84, maxW: 980, tail: 1, tailCol: C.blue, tailBubble: { fill: C.sky, edge: '#1f3f8f', e: 2.0, f: 1.35 }, hi: { 0: '#2a4fa8' }, hiSize: { 0: 1.55 }, seed: 4, out, w: .1 });      // CORRECT? is the quality this line names: big, like the tails of the others
 }
 
 // ------------------------------------------------------------------- 2 "An older phone? The store says no..."
@@ -205,8 +205,8 @@ function drawL2(g, t, ws) {
     const x = 800 + Math.cos(a) * v * tt * (i % 2 ? 1 : -1), y = 1440 + Math.sin(a) * v * tt + 900 * tt * tt;
     if (y < 1560) blob(g, ellipse(x, y, 18, 26, 6), { fill: '#8ccff5', line: GRAPHITE, lw: 3.4, seed: 350 + i, t, hw: 4, tone: .8 });
   }
-  blob(g, rrect(px - 240, py + 170, 250, 66, 12, 2), { fill: '#fbf8ef', line: GRAPHITE, lw: 5, seed: 337, t, hw: 4.6, tone: .9, dens: .25 });
-  write(g, 'SERVER', px - 240, py + 190, 44, { col: C.blue, seed: 336, t, align: 'center', track: 6 });
+  blob(g, rrect(px - 240, py + 172, 310, 84, 12, 2), { fill: '#fbf8ef', line: GRAPHITE, lw: 5, seed: 337, t, hw: 4.6, tone: .9, dens: .25 });
+  write(g, 'SERVER', px - 240, py + 198, 56, { col: '#2a4fa8', seed: 336, t, align: 'center', track: 6 });
   // The counter on the tower: SIGN-UPS running up.
   const cnt = t < 10.25 ? 12 : Math.round(12 * Math.pow(9000 / 12, easeOut(inv(10.25, 11.5, t))));
   const cs = cnt.toLocaleString('en-GB');
@@ -219,7 +219,7 @@ function drawL2(g, t, ws) {
     const k = pop(t, 10.98, .25);
     const secs = 0.4 * Math.pow(150, ramp(t, 11.0, 12.5, x => x));
     const lab = secs < 10 ? secs.toFixed(1) : String(Math.round(secs));
-    g.save(); g.translate(bx0 + 480, 1150); g.scale(k, k);
+    g.save(); g.translate(310, 1320); g.scale(k * 1.35, k * 1.35);      // (big: this is how the viewer learns what "performance" is)
     blob(g, ellipse(0, 0, 84, 84, 14), { fill: '#fbf8ef', line: GRAPHITE, lw: 6, seed: 380, t, hw: 4.6, tone: .9, dens: .25 });
     blob(g, rrect(0, -100, 30, 26, 6, 2), { fill: '#a8a7b2', line: GRAPHITE, lw: 5, seed: 381, t, hw: 4.4 });
     write(g, lab + 'S', 0, 20, 58, { col: secs > 8 ? C.red : C.green, seed: 382, t, align: 'center', w: .12 });
@@ -261,15 +261,15 @@ function drawL3(g, t, ws) {
   [[-50, -40, 28], [38, 50, 20], [62, -62, 15]].forEach(([x, y, r], i) => blob(g, ellipse(x, y, r, r, 8), { fill: '#e0a93a', line: null, seed: 411 + i, t, hw: 4.4, tone: .6 }));
   // The moon has a face: content, then worried when the app dies, then weeping with the dogs.
   {
-    const dead = t > T(1), weep = t > T(5);
+    const dead = t > T(1), weep = t > T(5), FACE = '#2a1f08';
     [-1, 1].forEach((sd, i) => {
       const ex = sd * 58, ey = -14;
-      if (!dead) line(g, [[ex - 20, ey + 4], [ex, ey + 14], [ex + 20, ey + 4]], { w: 6, col: '#4a3a1a', seed: 420 + i, t, passes: 1 });
-      else { dot(g, ex, ey, 11, { col: '#4a3a1a', seed: 422 + i, t }); line(g, [[ex - 26, ey - 26 - sd * 0], [ex + 22 * sd * -1, ey - 36]], { w: 5, col: '#4a3a1a', seed: 424 + i, t, passes: 1, spline: false }); }
-      if (weep) line(g, [[ex, ey + 18], [ex + sd * 4, ey + 46 + ((t * 40) % 30)]], { w: 5, col: '#8ccff5', seed: 426 + i, t, passes: 1, spline: false, alpha: .9 });
+      if (!dead) line(g, [[ex - 20, ey + 4], [ex, ey + 14], [ex + 20, ey + 4]], { w: 8, col: FACE, seed: 420 + i, t, passes: 1 });
+      else { dot(g, ex, ey, 11, { col: FACE, seed: 422 + i, t }); line(g, [[ex - 26, ey - 26 - sd * 0], [ex + 22 * sd * -1, ey - 36]], { w: 7, col: FACE, seed: 424 + i, t, passes: 1, spline: false }); }
+      if (weep) line(g, [[ex, ey + 18], [ex + sd * 4, ey + 46 + ((t * 40) % 30)]], { w: 7, col: '#8ccff5', seed: 426 + i, t, passes: 1, spline: false, alpha: .9 });
     });
-    if (!dead) line(g, [[-30, 50], [-10, 62], [10, 62], [30, 50]], { w: 6, col: '#4a3a1a', seed: 428, t, passes: 1 });
-    else line(g, [[-26, 66], [0, 52], [26, 66]], { w: 6, col: '#4a3a1a', seed: 428, t, passes: 1 });
+    if (!dead) line(g, [[-30, 50], [-10, 62], [10, 62], [30, 50]], { w: 8, col: FACE, seed: 428, t, passes: 1 });
+    else line(g, [[-26, 66], [0, 52], [26, 66]], { w: 8, col: FACE, seed: 428, t, passes: 1 });
   }
   g.restore();
   // The ground and the houses.
@@ -299,8 +299,8 @@ function drawL3(g, t, ws) {
   if (t > T(7)) HX.forEach((hx, i) => {
     const a = T(7) + i * .12, p = clamp((t - a) / 1.2);
     if (p <= 0 || p >= 1) return;
-    g.save(); g.globalAlpha *= (1 - p);
-    write(g, 'AWOOO', hx + 30, 940 - p * 260, 54 + p * 24, { col: CREAM, seed: 460 + i, t, align: 'center', w: .11, rot: -.15 + i * .1 });
+    g.save(); g.globalAlpha *= (1 - p * p * p);
+    write(g, 'AWOOO', hx + 30, 940 - p * 260, 68 + p * 30, { col: CREAM, seed: 460 + i, t, align: 'center', w: .12, rot: -.15 + i * .1 });
     g.restore();
   });
   // The phone on the ground: alive, then flatlined at "died".
@@ -310,7 +310,7 @@ function drawL3(g, t, ws) {
   phone(g, 0, 0, 540, 320, t, { seed: 470, body: '#5b5a66', glow: dead ? '#15171f' : '#dcf5e4', screen: (g2, r) => {
     if (!dead) { write(g2, 'WALKIES', r.x + r.w / 2, r.y + 60, 44, { col: C.green, seed: 471, t, align: 'center' }); paw(g2, r.x + r.w / 2 + 150, r.y + 40, 34, t, { col: C.green, seed: 472 }); }
     else {
-      write(g2, "SORRY, WE'RE DOWN", r.x + r.w / 2, r.y + r.h / 2 + 44, 42, { col: '#ff8a80', seed: 473, t, align: 'center', track: 3, prog: ramp(t, T(1), T(1) + .4, x => x) });
+      write(g2, "SORRY, WE'RE DOWN", r.x + r.w / 2, r.y + r.h / 2 + 50, 50, { col: '#ffa898', seed: 473, t, align: 'center', track: 3, w: .11, prog: ramp(t, T(1), T(1) + .4, x => x) });
       write(g2, 'X X', r.x + r.w / 2, r.y + 62, 34, { col: CREAM, seed: 474, t, align: 'center' });
     }
   } });

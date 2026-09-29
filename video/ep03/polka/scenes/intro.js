@@ -23,8 +23,8 @@ function drawIntro(g, t) {
   const gr = groove(t, 1);
   // The rays go behind the title, so the letters sit on top of them.
   if (t > 1.85) burst(g, W / 2, 660, 250, 330 + 60 * ramp(t, 1.85, 2.2), t, { col: C.yellow, seed: 3, prog: ramp(t, 1.85, 2.15), n: 18, w: 8 });
-  write(g, 'SOFTWARE QUALITY THEORY 101', W / 2, 290, 40, { col: C.blue, seed: 3, t, align: 'center', prog: ramp(t, .25, 1.15, x => x), track: 7 });
-  write(g, 'EPISODE 3', W / 2, 352, 30, { col: C.blue, seed: 4, t, align: 'center', prog: ramp(t, .9, 1.35, x => x), track: 10 });
+  write(g, 'SOFTWARE QUALITY THEORY 101', W / 2, 300, 50, { col: '#2a4fa8', seed: 3, t, align: 'center', prog: ramp(t, .25, 1.15, x => x), track: 6 });
+  write(g, 'EPISODE 3', W / 2, 372, 40, { col: '#2a4fa8', seed: 4, t, align: 'center', prog: ramp(t, .6, 1.05, x => x), track: 10 });
   write(g, 'THE', W / 2, 540, 118, { col: GRAPHITE, seed: 5, t, align: 'center', prog: ramp(t, .35, .8, x => x) });
   const ip = ramp(t, .7, 1.85, x => x);
   write(g, 'ILITIES', W / 2, 780, 212, { seed: 6, t, align: 'center', prog: ip, bubble: { fill: '#f5a03a', edge: '#8a4a1d', e: 2.0, f: 1.35 }, w: .1, dance: 12, beat: beatPos(t), pulse: gr.bp, track: 5 });
@@ -40,9 +40,10 @@ function drawIntro(g, t) {
     pigeon(g, t, px, py, .8, { state: u < 1 ? 'flap' : 'perch', look: 1 });
   }
   butterfly(g, t, 800 + Math.sin(t * 1.4) * 70, 1030 + Math.sin(t * 2.2) * 26, .9, C.pink);
-  const jump = clamp(inv(1.06, 1.5, t));
-  const cy = 1340 - Math.sin(jump * Math.PI) * 120 * (t < 1.5 ? 1 : 0);
-  clawd(g, { x: 330, y: t < 1.06 ? 2100 : cy + 130, s: 1.34, t, seed: 1, eyes: t > 2.1 ? 'happy' : 'open', mouth: 0, bob: gr.bob, squash: t > 1.5 ? gr.sq : 0, lean: gr.lean, armR: { up: .6 + gr.bp * .4 }, armL: { up: .3 } });
+  // Clawd jumps in on the first beat of the flourish (0.233) and lands on the pah (0.653): something happens in the first half second.
+  const jump = clamp(inv(.233, .653, t));
+  const cy = 1340 - Math.sin(jump * Math.PI) * 150 * (t < .653 ? 1 : 0);
+  clawd(g, { x: 330, y: t < .233 ? 2400 : cy + 130, s: 1.34, t, seed: 1, eyes: t > 2.1 ? 'happy' : 'open', mouth: 0, bob: gr.bob, squash: t > .653 ? gr.sq : (jump > 0 && jump < 1 ? -.25 * Math.sin(jump * Math.PI) : 0), lean: gr.lean, armR: { up: .6 + gr.bp * .4 }, armL: { up: .3 } });
   const dx = 1300 - 540 * ramp(t, 1.5, 2.2);
   dachshund(g, { x: dx, y: 1600, s: .78, flip: -1, t, seed: 2, walk: (beatPos(t) * .5) % 1, tail: beatPos(t) * .5, ear: gr.lean * 20, eyes: 'happy', mouth: .1, bob: gr.bob * .6 });
 }

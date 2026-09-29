@@ -211,8 +211,11 @@ export const COATS = {
 
 // ---------------------------------------------------------------- the sing-along board, shared by the lead-in and the chorus
 let CL = null;
+// The last line sets its last word, "know!", big and gold on a row of its own: the film's climax word, held for 3.5 s.
+const LAST = { tail: 1, size: 68, minSize: 60, tailMax: 150 };
+const KNOW = { fill: '#f6b02a', edge: '#5a3a08', e: 2.0, f: 1.35 };
 export function chorus3Lines() {
-  if (!CL) { const lines = CHORUS_STARTS.map(s => words('Chorus 3', s)); CL = { lines, path: ballPath(lines) }; }
+  if (!CL) { const lines = CHORUS_STARTS.map(s => words('Chorus 3', s)); CL = { lines, path: ballPath(lines, {}, i => i === 5 ? LAST : {}) }; }
   return CL;
 }
 export function lineIdx(t) { const { lines } = chorus3Lines(); return Math.max(0, lines.findIndex((ws, i) => t < (lines[i + 1] ? lines[i + 1][0].v - .45 : 1e9))); }
@@ -249,10 +252,11 @@ export function boardLayer(g, t, gr, drop = 1) {
   const held = idx === 5 ? ws.map((w, i) => i === ws.length - 1 ? { ...w, e: T_HELD_END } : w) : ws;
   g.save(); g.translate(0, -(1 - drop) * 760);
   signBoard(g, t, {});
-  sing(g, t, held, { ...WORDS, y: wordsY(ws), tailCol: null, col: GRAPHITE, seed: 30 + idx, w: .1, dance: 8, out: idx === 5 ? { t0: 208.0, dur: .25 } : { t0: lastW.e + .22, dur: .24 } });
-  line(g, [[BOARD.x + 20, LEDGE + 6], [BOARD.x + BOARD.w - 20, LEDGE + 6]], { w: 8, col: '#8b5f2a', seed: 860, t, spline: false, passes: 1 });
+  // (As in chorus-core.js: the ball first, the lyric over it, so the ball never hides a letter.)
   const bb = ballPos(t);
   if (bb) drawBall(g, t, bb.x, bb.y, 32, { sq: bb.sq || 0, stretch: bb.stretch || 0, spin: t * 4 });
+  sing(g, t, held, { ...WORDS, ...(idx === 5 ? LAST : {}), y: wordsY(ws, idx === 5 ? LAST : {}), tailCol: idx === 5 ? '#c25a12' : null, tailBubble: idx === 5 ? KNOW : null, col: GRAPHITE, seed: 30 + idx, w: .1, dance: 8, out: idx === 5 ? { t0: 208.0, dur: .25 } : { t0: lastW.e + .22, dur: .24 } });
+  line(g, [[BOARD.x + 20, LEDGE + 6], [BOARD.x + BOARD.w - 20, LEDGE + 6]], { w: 8, col: '#8b5f2a', seed: 860, t, spline: false, passes: 1 });
   const lag = ballPos(t - .3), lag2 = ballPos(t - .55);
   const off = bb && Math.abs(bb.x - REST[0]) < 2 && bb.y > REST[1] - 6 ? 230 : 0;                // resting: Bruce sits beside the ball, not on it
   const bx = (lag ? clamp(lag.x, BOARD.x + 120, BOARD.x + BOARD.w - 120) : BOARD.x + 200) - off;
@@ -295,7 +299,7 @@ export function hushLight(g, t, k, spotBeam) {
   // (a soft dimming of the light towards the edges, as the shared softGlow and spotBeam are soft light: the middle, under the spot, stays lit)
   g.save();
   const gr = g.createRadialGradient(540, 1500, 150, 540, 1500, 1500);
-  gr.addColorStop(0, 'rgba(70,40,70,0)'); gr.addColorStop(.5, `rgba(70,40,70,${.22 * k})`); gr.addColorStop(1, `rgba(60,30,66,${.42 * k})`);
+  gr.addColorStop(0, 'rgba(70,40,70,0)'); gr.addColorStop(.5, `rgba(70,40,70,${.12 * k})`); gr.addColorStop(1, `rgba(60,30,66,${.3 * k})`);      // (lighter than it was: the hush should be quiet, not murky)
   g.fillStyle = gr; g.fillRect(0, 0, W, H);
   g.restore();
   // the pool of light comes down from the ring to the foot of the picture, on you

@@ -121,7 +121,7 @@ quality. Credit them here and on screen.
   [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) model sheet; the drawing
   is our own, in coloured pencil.
 - **The look** is our own: coloured-pencil doodles on paper, drawn by our code. The line boil (a
-  drawing redrawn a dozen times a second so it seems alive) is a hand-drawn animation staple; the
+  drawing redrawn fifteen times a second so it seems alive) is a hand-drawn animation staple; the
   bouncing ball hopping along the words follows the sing-along cartoons of the 1920s and 30s (the
   Fleischer Studios' "Follow the Bouncing Ball"), an idea and not artwork; the dog show's rosettes
   and agility course are the familiar ones. No artwork is reproduced.

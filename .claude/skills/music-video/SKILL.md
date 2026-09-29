@@ -120,14 +120,21 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
      check, not design by committee.
 
 9. **Render the master and verify it.** Render at 1080×1920 and 30 fps in parallel segments
-   (`video/lib/render-parallel.sh`). Verify the file itself: its duration, the frame count from
-   decoding it, and stills pulled from it at every fix. Make the upload copy and a thumbnail.
+   (`video/lib/render-parallel.sh`; episode 3's `tools/render-film.sh` wraps it, with the end card's
+   silence). Verify the file itself: its duration, the frame count from decoding it, and stills pulled from
+   it at every fix. Make the upload copy and a thumbnail: a 3:39 hand-drawn film at 1080×1920 was 311 MB at
+   CRF 23 and 156 MB at CRF 27 with no difference to see on a phone, so try a higher CRF before sending a big
+   file over a slow link. Keep the renders in `video/out/`, which git ignores, and name them in the video file.
    *Done when* stills from the master show every fix.
 
 10. **Document, land and report.** Write the liner notes in the episode's video file: how it was
-    made, how it was checked, and where it falls short. Commit and push. Then tell Qing where the
-    cut is, what changed (before-and-after stills help), what's worth her eye, and which
-    decisions are hers.
+    made, how it was checked, and where it falls short. Keep a table for each part of the song there
+    (time, line, picture, what it says), written from the built film: `video/lib/storyboard.py` turns
+    it and the film into a phone storyboard PDF, and the claims in it are what Qing judges. Check what
+    the docs promise against the frames (credits, counts, times) before it ships. Commit and push. Then
+    tell Qing where the cut is, what changed (before-and-after stills help), what's worth her eye, and
+    which decisions are hers. Send the film, and the storyboard, to her phone (she can't download from
+    the chat).
     *Done when* she has the cut and everything she needs to judge it.
 
 ## Revising after notes

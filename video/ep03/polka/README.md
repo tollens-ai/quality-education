@@ -7,9 +7,10 @@ of the song's time, drawn with Canvas 2D in headless Chromium, in the style desc
 written from a blank page for this song; only the render harness in `video/lib/` and the
 measurements in `music/ep03/` are shared with the other episodes.
 
-**Status:** being built, part by part (2026-09-29). Each part's scene file registers its own shots;
-`main.js` loads whichever exist, so a cut renders at any stage. See the episode's video file for the
-plan and what is done.
+**Status:** finished, and approved by Qing to ship (2026-09-29): 47 shots, 31 joins and 15 cuts, 6,576 frames at 30 a
+second (the take and six seconds of end card). Each part's scene file registers its own shots and `main.js`
+loads whichever exist, so a cut renders at any stage. The episode's video file has the plan, the picture for
+every sung line, how it was made and checked, and where it falls short.
 
 ## Render
 
@@ -31,6 +32,39 @@ holds its beat grid and sections (`beats.json`), the measurements (`audio.json`)
 `video/ep03/karaoke/` is the plain timing check (each word lights up 85 ms before its measured
 onset, with a dot on the beat), rendered the same way with `lead-085.js` as the scene.
 
+## Render the film
+
+Needs the take (not in git: it's the generator's output, so ask Qing for it), and a machine with Node.js, Playwright's
+Chromium and ffmpeg (and Pillow, for the storyboard). From the repo root:
+
+```
+bash video/ep03/polka/tools/render-film.sh take.wav video/out/the-ilities-master.mp4 3 1080
+```
+
+That pads the take with six seconds of silence for the end card, renders the 6,576 frames at 1080x1920 and 30
+a second in parallel segments (each is checked by its frame count and rendered again if it comes up short), and
+joins them with the audio. That script runs its segments on one machine; the master Qing approved was rendered as
+six segments spread over three machines, in about ten minutes, so expect longer. To change a few seconds, render
+only those frames, as a segment of the full render is (`node video/lib/render.mjs --scene video/ep03/polka/main.js
+--song music/ep03 --w 1080 --fps 30 --frames 6028:6576 --video seg.mp4 --crf 17`), and join the new segment with
+the unchanged ones and the audio (`ffmpeg -f concat -safe 0 -i list.txt -i take-padded.wav -map 0:v -map 1:a
+-c:v copy -c:a aac -b:a 256k -shortest`; `ffmpeg -i take.wav -af apad=pad_dur=6 take-padded.wav` makes the audio); the segments
+must meet exactly, each starting on the frame the one before it ended on.
+What shipped is made from the master (`video/out/` is not in git, and neither is any `.mp4`):
+
+```
+# the upload encode: the same picture at CRF 27 (CRF 23 was twice the size and looked the same on a phone)
+ffmpeg -i video/out/the-ilities-master.mp4 -c:v libx264 -crf 27 -preset medium -pix_fmt yuv420p -c:a copy -movflags +faststart video/out/the-ilities-upload.mp4
+# the thumbnail: the title page
+ffmpeg -ss 2.3 -i video/out/the-ilities-master.mp4 -frames:v 1 -q:v 2 video/out/the-ilities-thumb.jpg
+# the phone storyboard, from the tables in the episode's video file
+python3 video/lib/storyboard.py video/out/the-ilities-master.mp4 episodes/03-video.md video/out/storyboard --pdf video/out/the-ilities-storyboard.pdf
+```
+
+To check the words: `tools/typo-audit.mjs` records every sung word as drawn (`--fps 30` samples every film
+frame), `tools/typo-report.py` flags what is late, early, small, low in contrast or out of the safe area, and
+`tools/sync-report.py` reads off each word's lead. Their headers have the commands.
+
 ## Files
 
 | File | What it holds |
@@ -51,12 +85,13 @@ onset, with a dot on the beat), rendered the same way with `lead-085.js` as the 
 | `ringcast.js` | What belongs to the ring: the judge's bowler, Clawd as judge, the show dog with his WALKIES badge, a hurdle, confetti; and for the tables-turned chorus the bulldog judge and Clawd on the table |
 | `life.js` | What makes a drawing live: `idle` (blinks, wandering eyes, breath), `ring` and friends (damped springs set going by beats), `bounce`, and acting shapes `spring`, `shake`, `hop`, `gate`, `ease` |
 | `common.js` | `groove` (the dance), timing ramps and pops, the sky and the meadow |
-| `shots.js` | Shots (a time range and a draw function) and the joins between them: `push` and `iris` |
+| `shots.js` | Shots (a time range and a draw function) and the joins between them: `push`, `iris` and `irisclose` |
 | `palette.js` | Paper, graphite, the pencil colours, Clawd's terracotta |
-| `scenes/` | One file per part of the song (`intro`, `verse1`, `verse1b`, `chorus1`, `verse2`, `chorus2`, `trials`, `bridge`, `parade1`, `parade2`, `leadin`, `chorus3`, `outro`, and `joins` for the joins between parts); `chorus-core.js` is the machinery the three choruses share |
+| `scenes/` | One file per part of the song (`intro`, `verse1`, `verse1b`, `chorus1`, `verse2`, `chorus2`, `trials`, `bridge`, `parade1`, `parade2`, `leadin`, `chorus3`, `outro`, and `joins` for the joins between parts); `endcard.js` is the end card's two pages, which the outro's shots draw; `chorus-core.js` is the machinery the three choruses share, and `c1gags34`, `c1gags56`, `c2gags34` and `c2gags56` hold the choruses' later gags |
+| `props-*.js` | The props and set pieces of one part, named for it: `props-verse1b`, `props-verse2` (Blob's den), `props-c1a` and `props-c1b` (chorus 1's gags), `props-c2b`, `props-trials`, `props-bridge`, `props-parade1`, `props-parade2`, `props-c3` (the finale's three rings, camera and fireworks) |
 | `preview.js` | Renders one part alone: `--scene video/ep03/polka/preview.js --query part=verse2` |
 | `marks.js` | The corner marks |
-| `tools/` | The typography audit (`typo-audit.mjs` records every sung word as drawn, `typo-report.py` judges it), and `render-film.sh` (the whole film, with six seconds of end card held after the music) |
+| `tools/` | The typography audit (`typo-audit.mjs` records every sung word as drawn, `typo-report.py` judges it, `sync-report.py` reads off each word's lead), and `render-film.sh` (the whole film, with six seconds of end card held after the music) |
 | `look.js` | Look development |
 
 ## Building a shot
@@ -73,7 +108,7 @@ the sound. Read `scenes/verse1.js` for worked examples. What every shot needs:
    word `s` (its onset) and `e`; a picture that answers a word should land at `ws[i].s - .085`
    (`v`), or on the nearest beat (`beatTimes()`). Never hard-code a time that a word owns.
 3. **Nothing static.** Every character is alive by itself (`idle`); add the dance with
-   `groove(t, k)` (`bob`, `squash`, `lean`), and one thing that happens on each line. A picture that
+   `groove(t, k)` (`bob`, `sq`, `lean`), and one thing that happens on each line. A picture that
    only *sits* there is not finished.
 4. **Draw with the pen, not the canvas.** Shapes: `blob(g, rrect(...)/ellipse(...)/capsule(...), { fill,
    shade, line: GRAPHITE, lw, seed, t })`; lines: `line(g, pts, {...})`; give each shape its own

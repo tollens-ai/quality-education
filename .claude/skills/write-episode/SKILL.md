@@ -118,6 +118,7 @@ is the worked example of the finished shape.
   resolves, open a new question (e.g. an empty prompt box that fills in at the end).
 - **The end:** the final payoff pays off the question opened earlier, then the video loops. No end
   card or logo: people share teaching, not marketing (Qing, 2026-09-24). Invite replies in the post
-  text, as a question between builders.
+  text, as a question between builders. (Episode 3 ends on a two-page card that teaches, every quality the
+  song names in plain words to screenshot; the rule is against marketing.)
 - **Sound off:** the lyrics appear on screen as captions, so the video makes sense on mute.
 - **Credit:** credit on screen where an idea comes from Ed Pringle or another named source.

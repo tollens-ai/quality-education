@@ -30,6 +30,7 @@ locked.
 | Ep. 2 v2, "The Mirror" | A blank page, to a brief full of references (00s alt-rock, visual kei, experimental anime) | "I see the angle you're going for", but lyrics in rows across the screen, a font against the genre, red and black only, clumsy people, and Japanese as decoration. "you've anchored way too hard on the suggestions I gave as guidance" |
 | Ep. 2 v3, "Cut Light" | A blank page, one condition at every stage: "do I stand behind this artistically?" Image-model style studies for the look, then a full cut reviewed at full size and redrawn where it was weak | The people were "extremely" doubtful, then "better" but showing their construction, so they and their places became generated paper cut-outs. Then: "the lettering looks amazing though! and I love the band design", but the new people were off-style ("screams ai slop"), verse 1 had lost its story, and "way too much band, way too much repetitiveness, not enough illustrating the content" |
 | Ep. 2 v3, story layer | The people and places regenerated from the film's own frames and concepts, in a style Qing chose from studies. A scene library of the four briefs in every state, and every line's story shown in lit panes and windows, progressing through the repeats; an independent model's viewing of the frames before hand-back | "OK I changed my mind, the previous is ASTONISHING. let's finish this job"; "AFAIct everything except the finale scene (where people hover against the cartoony background) is good enough for me to post". The finale was redrawn so they stand in it |
+| Ep. 3, "Pencil Polka" | A blank page for a comic patter song, drawn entirely in code as coloured pencil. Two look proofs, then a pen that draws every shape as a hand does, after Qing's notes; one hand set the look, the kit and the first parts and Sonnet builders drew the rest in parallel, each to a standing brief; a frame-exact audit of every sung word, fresh readers of contact sheets, and a phone storyboard of the claims for the expert. One day | "Honestly the style is not that bad"; after the pen was redrawn: "omg this is adorable! [...] the style is fantastic", with two notes ("slightly _too_ clumsy"; the colouring "flashing a bit too much"), both fixed; on the finished film: "OK, I like this one and I will ship it" |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -169,6 +170,17 @@ from rounds 3 and 4:
   minutes (about four at a time, and ask for contact sheets rather than many single stills); give them
   what they need to check against (the storyboard's teaching and the guardrails); and their questions
   about claims go to Qing on the list, not into the picture.
+- **Show the expert the pictures as claims, on her phone.** Episode 3's video file has a table for each part
+  of the song (time, line, picture, what it says), and `video/lib/storyboard.py` turns it and the finished film
+  into phone-sized sheets and a PDF: three frames a line, with a "Says:" line under each. She can then judge
+  the teaching without hunting for it (she'd asked for storyboard images to give feedback on). Write the table
+  from the built film, not the plan: the plan of episode 3 called for page turns and paper as a place, and both
+  went when she asked for the art style to stay out of the content.
+- **Check what the docs promise against the finished film before it ships.** Episode 3's SOURCES.md said the end
+  card credits Ed Pringle's catalogue on screen. The master Qing approved had no credit; only writing the docs
+  up found it. Read each promise the docs make (credits, counts, times, what's on which screen) against the
+  frames; it takes minutes, and a fix this late only needs the seconds it touches rendered again. The same pass found
+  the title lettered with its apostrophe in three places and without it on the title page.
 - **The content leads.** Every sung line shows what it says, animated: a person, a place, the
   thing going wrong or right on the words. Listeners could only parse the lyrics with context
   animation, and a minute of the band alone lost Qing ("a whole minute through and all I've seen
@@ -193,6 +205,15 @@ the drawings.
 - **Check at thumbnail size:** put the new thumbnail beside every earlier episode's at about
   200 px wide. If the lettering, the characters or the palette could belong to an earlier
   episode, it isn't new yet.
+- **A style nobody has used yet: a Victorian toy theatre.** Asked what style they would choose for episode 3's
+  comic-opera patter song with no steer, eight of eight fresh Sonnets chose the same one: cut-card puppets on
+  sticks under a proscenium, cream card with crimson and navy, flat fills printed slightly off-register, hard
+  offset shadows, footlights, and the lyric on a ribbon of wood type with the sung word inking. Their reasons:
+  comic opera is already a stage, and cut paper is cheap to draw in code. Their shared worry: it reads as
+  clip-art unless the shadows, grain and misregistration are done well (the "rigid and simplistic" Qing named on
+  episode 3's first proofs). Her steer made episode 3 coloured pencil, so this is free for a later episode; the
+  toy theatre's old slogan, "penny plain, twopence coloured", suits a song about what colour costs. (The agents
+  saw this repository's notes, so it's not a clean poll; for one, run it from another working directory.)
 
 ## The bar, as checks
 

@@ -1,7 +1,8 @@
 # Episode 3: "The 'Ilities" (working title: "Name Your Ilities")
 
 **Status (2026-09-29):** the lyric is locked, in Qing's final Suno version, and the take exists
-("The _ilities_", 3:33). The video is in pre-production: [03-video.md](03-video.md). Qing's rules for
+("The _ilities_", 3:33). The video is finished and Qing is shipping it ("I like this one and I will ship
+it"): [03-video.md](03-video.md). The post text below is a draft for her to edit. Qing's rules for
 lyrics, including for this kind of song (a patter song), are in [LYRICS.md](../LYRICS.md).
 
 ## Where it sits in the series
@@ -26,7 +27,9 @@ different quality, and getting one right doesn't get you another.
 ## The song
 
 Qing's final lyric, as she pasted it with the take (2026-09-29). The take sings it word for word;
-the spoken line is spoken.
+the spoken line is spoken. (This is the copy Suno was given, with the sounded-out spellings it needs, such as
+"scale-ability" and no question mark after "Correct"; the film's lettering and captions use the ordinary spellings,
+in [music/ep03/captions.txt](../music/ep03/captions.txt).)
 
 ```
 [Verse 1]
@@ -199,6 +202,56 @@ don't, and their meaning here is standard usage.
 
 "Liability" is a moral in the refrain, not a quality: no rosette. "Steady" and "sound" in the
 chorus are everyday words for reliability and robustness, not named dimensions.
+
+## What to save
+
+The change to the brief (from [SERIES.md](../SERIES.md)): name the qualities that matter most to the people
+it's for, the ones you'll trade away, and how you'll know each one. The film asks it in the chorus three times
+("Which of the 'ilities are yours? I've got to know!") and leaves every quality the song names, in plain words, on
+the last card, to screenshot. Nobody learns from generalisations, so the reply under the post (below) gives one
+worked answer, for the dog-walking app the film runs on. The film itself ends on the question and the card, not on a
+rewritten brief.
+
+## Why they'd like it
+
+It opens on a talented child's doodle of dogs doing something silly, nothing like the other two episodes, and
+every three seconds there's a new drawn gag that finishes on the line's last word, each a failure they've met: the
+old phone, the sign-ups that sink the diving board, the app that dies at night, the one that needs a second app
+for cats. The comedy has an escalation (a quiet first verse, a night show where the tables turn, a parade of a
+hundred dogs, a held note, a hush before the last question), and the patter is a pleasure to hear go by.
+
+## Why they'd share it
+
+- **To clip:** the sign-ups piling onto the diving board over the server; the greyhound's cartwheel; the crate
+  ship that turns into a snail; the bugs swarming the ring; the bulldog flattened by a rolling pin who springs
+  back; the hundred-dog parade; the three rosettes flying to Clawd on the held "know!".
+- **To quote:** "Which of the 'ilities are yours? I've got to know!"
+- **To sing along:** the bouncing ball hops every chorus line.
+- **To save:** the last card, every quality the song names in plain words, to screenshot.
+- **To tag:** the friend who ships the moment it works.
+- **To reply:** the post text asks which of the 'ilities are theirs.
+
+**Post text (draft, for Qing to edit):**
+> "It works and it looks fine, so it's good."
+> Your app can be correct and still fall over on an old phone, at night, at 9,000 sign-ups, or the day you ask
+> your agent to fix it. Those are different qualities, the 'ilities, and being good at one doesn't make you good
+> at the others. They compete for the same time.
+> So tell your agent which are yours, for the people it's for and for the agent that has to work on it: what
+> matters most, what you'll trade away, how you'll know.
+> Ep 3 of Software Quality Theory 101: Clawd judges a dog-walking app, in a patter song. The last card has every
+> quality in the song in plain words, to screenshot.
+> Which of the 'ilities are yours?
+
+**Reply under it (draft, for Qing to edit):** what that looks like in a brief, for the dog-walking app:
+```text
+walkies: book dog walks
+for: owners at work, on old phones
+matters most: reliable (booked, or it says so), easy to use, works on old phones
+will trade away: fast, extensible (dogs only)
+how I'll know: a booking survives a bad signal; my mum books a walk unaided
+for you (the agent): debuggable, readable: a log line for each booking step
+```
+The last line is for the agent, because verse 2 is the agent's: what it needs from the code in order to fix it.
 
 ## Expert notes (Qing's words, verbatim)
 

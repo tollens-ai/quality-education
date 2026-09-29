@@ -62,7 +62,9 @@ training class on the meadow, a night, a golden hour.
   and moves by a pixel or two between drawings; the big crayon sky and meadow are still. (Qing, on
   the second round: "the colouring strokes are flashing a bit too much and it's kind of
   distracting". Measured, the meadow's change from one drawing to the next fell to a quarter and the sky's
-  to nothing.) Cameras, joins, pops and pulses run at the full 30 frames a second on top.
+  to nothing.) A shot is drawn on that same clock, so its camera pushes, bounces and pops also move
+  fifteen times a second, as in a film drawn on twos; only the joins between shots run at the full 30
+  frames a second.
 - **The pulse.** The beat map, not a fixed tempo, drives it. The cast bounces off each beat and lands
   on the next, squashing as it lands and stretching in the air, a little higher on the oom, and
   leans left and right (`common.js`: `groove`, `life.js`: `bounce`). Letters bob on the beats that
@@ -132,6 +134,14 @@ it is sung and finishes 85 ms before the voice, the lead Qing chose for episode 
   the important drawing above the phone's button strip.
 - **Scale things up:** the objects a line is about should be as big as they can be.
 - **Props in front of a face.** Put held things beside the head, not over an eye.
+- **A drawing clock that rounds down makes every picture late.** Flooring the film's time to a fifteenth
+  of a second put a drawing up to 67 ms behind the sound, so the 85 ms lead the lettering had been given
+  was eaten. Round to the nearest tick (`kit.js: twos`): a picture is then never more than 33 ms out.
+- **Pictures land as early as the lettering.** A picture that answers a word is timed to land 85 ms before
+  it, like the word's own lettering, so a stamp or a hit is that much early. The lead is one number for the
+  lettering and for anything timed from a word's `v` (`VLEAD` in `kit.js`), but about twenty gags write
+  `.085` out (`grep -rn '\.085' video/ep03/polka`), so a different lead is a small edit per gag. Qing approved
+  the film at 85 ms without comment on the timing.
 
 ## Tools
 

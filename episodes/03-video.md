@@ -1,9 +1,12 @@
 # Episode 3 video: "The 'Ilities", "Pencil Polka"
 
-**Status (2026-09-29): the whole film is drawn (213.2 s of song and six seconds of end card), reviewed by me
-shot by shot and by frame audits, and waiting for Qing's eyes and ears.** Qing's notes on the look are below,
-verbatim, with what was done about each; the claims her pictures make are on the questions list at the end. The
-word timings are measured and waiting for her ears (a karaoke check went to her phone).
+**Status (2026-09-29): finished, and Qing is shipping it: "OK, I like this one and I will ship it."** The whole
+film is drawn (213.2 s of song and six seconds of end card), reviewed by me shot by shot and by frame audits.
+Qing's notes on the look are below, verbatim, with what was done about each. She approved the film as built, and
+she hasn't answered the claims list at the end one by one, so each picture's claim stays mine until she says
+otherwise. Two small fixes were made after her approval, told to her with the new file: the end card's credit line and the
+title's apostrophe (*How it was checked*). She didn't comment on the word timings (a karaoke check went to her phone), so the 85 ms lead stays.
+The renders are local, not in git (see *What's built*).
 
 The take is Suno's "The _ilities_" (213.2 s), made to Qing's final lyric. The song, its style
 prompt and the teaching plan are in [03-name-your-ilities.md](03-name-your-ilities.md). What the take
@@ -93,21 +96,39 @@ After I asked whether to credit the doodler on the end card, and said the builde
 > to sign yourself off as the artist and you should just make it good by your standards. Don't
 > return something that you're not happy with. You can just keep going
 
-**What I took from them (mine, not hers).** (1) The world is the dogs and the dog-walking app, and
-the dog show; the sketchbook, the pencil and the paper are only how it is drawn, so no page turns,
-no pencil-scribble wipes, no graph or ruled paper as a place, and no gag about the pencil. (2)
-"Rigid and simplistic" is a fault of how the shapes were made (clean boxes and ovals given a pencil
-texture), and of how still and sparse the pictures were. (3) The fix she names is to draw every
-shape the way a hand does, as strokes: the pen now draws a box as a few separate strokes that run
-past a corner or stop short of it, a circle as a loop that doesn't quite close, and colour as one
-scribble that spills over the line and misses patches; and every drawn thing is opaque, like a
-drawing on paper. (4) "Life and you-ness" is acting and small delights: eyes
-that wander and blink, ears and tails that keep swinging, a bounce that squashes as it lands, small
-things happening in the corners, and jokes that are mine. (5) From the second round: the style is
-right; the hand is dialled down to about half (one number, `HAND.clumsy`, so she can have it either
-way), so shapes are tidier and lines more confident but still visibly hand-drawn. (6) The colouring
-was redrawn every drawing, which flickered; it now holds its scribble and only moves by a pixel or
-two, while the outlines keep redrawing, which is what reads as dancing. (7) From the last note: she gave permission to sign the film as its artist, so the end card carries "doodled by Sonnet"; and the bar is my own, not hers: nothing goes back to her that I'm not happy with.
+After the finished film reached her phone (the first message asks what I think of it and whether I would
+rather have made it in the style the unsteered Sonnets chose; my answer is in the liner notes):
+
+> thank! what do you think of it? would you rather redo it on the style the sonnets wanted?
+
+After I said I would keep the pencil look and take another pass at three weak stretches in a later version:
+
+> OK, I like this one and I will ship it. please update the repo, make sure have everything documented
+
+**What I took from them (mine, not hers).**
+
+1. **The world is the dogs, the dog-walking app and the dog show.** The sketchbook, the pencil and the paper are
+   only how it is drawn: no page turns, no pencil-scribble wipes, no graph or ruled paper as a place, and no gag
+   about the pencil.
+2. **"Rigid and simplistic"** is a fault of how the shapes were made (clean boxes and ovals given a pencil
+   texture), and of how still and sparse the pictures were.
+3. **The fix she names is to draw every shape the way a hand does, as strokes.** The pen now draws a box as a few
+   separate strokes that run past a corner or stop short of it, a circle as a loop that doesn't quite close, and
+   colour as one scribble that spills over the line and misses patches; and every drawn thing is opaque, like a
+   drawing on paper.
+4. **"Life and you-ness"** is acting and small delights: eyes that wander and blink, ears and tails that keep
+   swinging, a bounce that squashes as it lands, small things happening in the corners, and jokes that are mine.
+5. **From the second round:** the style is right; the hand is dialled down to about half (one number,
+   `HAND.clumsy`, so she can have it either way), so shapes are tidier and lines more confident but still visibly
+   hand-drawn.
+6. **The colouring** was redrawn every drawing, which flickered; it now holds its scribble and only moves by a
+   pixel or two, while the outlines keep redrawing, which is what reads as dancing.
+7. **From the note before the last:** she gave permission to sign the film as its artist, so the end card carries
+   "doodled by Sonnet"; and the bar is my own, not hers: nothing goes back to her that I'm not happy with.
+8. **From the last two:** she likes this film and is shipping it. I had said I'd take another pass at three weak
+   stretches (the trials, the bridge and the parade) in a later version; she didn't take that up, so they stay as
+   they are for this release. The notes for fixing them are kept (*Liner notes*), in case anyone makes a second
+   version.
 
 ## What the viewer must understand, and the line they'll remember
 
@@ -345,8 +366,8 @@ The lead-in's drum build puts twelve dogs on chalk marks and the bowler on Clawd
 | 191.8-194.6 | *Save on the checking, and the bugs can wreck the show;* | The camera whips back: the piggy bank, the booth, the bugs, the collapse. | As line 11. |
 | 195.2-198.1 | *Polish one part, and then another takes a blow:* | The camera whips again: the polish and the dryer. | As line 12. |
 | 200.6-205.1 | *Which of the "ilities" are yours? I've got to know!* | The camera pulls back on all three rings for a hush; every head turns to you; then it pushes in on Clawd; on the held 'know!' three rosettes fly to him under fireworks and ribbons. | The question, one last time; the three rosettes are the ones that are his. |
-| 208.6-213.0 | (no words) the last chord | On the band's last hits the dogs fall asleep in a heap; Clawd stays awake with the three rosettes on his hat and winks at you; then the end card. | The end. |
-| 212.0-219.0 | the end card | A show poster of every quality in the song with its meaning in plain words, in two pages, signed DOODLED BY SONNET. | A draft for Qing's claims (Q5). |
+| 208.6-211.9 | (no words) the last chord | On the band's last hits the dogs fall asleep in a heap; Clawd stays awake with the three rosettes on his hat and winks at you; then the end card. | The end. |
+| 211.9-219.2 | the end card | A show poster of every quality in the song with its meaning in plain words, in two pages, credited to Ed Pringle's catalogue and ISO/IEC 25010, and signed DOODLED BY SONNET. | The meanings are my wording, from Ed's pages and standard usage (Q5). |
 
 
 ## How it was made
@@ -371,16 +392,17 @@ are the shared harness's frame strips and motion check.
 
 **How it was checked.**
 
-- **The words.** A typography audit of every part (size, time on screen, contrast against what is behind, cover,
-  the phone's button strip), fixed until it was clean; then a frame-exact audit of the whole film (every one of
-  its 6,576 frames). 481 of the 487 sung words are drawn as words and each is fully written 55 to 125 ms before it
+- **The words.** A typography audit of every part (size, time on screen, contrast against what is behind, whether a word
+  goes before its line is finished, the phone's button strip), fixed until it was clean; then a frame-exact audit
+  of the whole song (every one of its 6,396 frames, to 213.2 s; the six seconds of end card have no sung words). 481 of the 487 sung words are drawn as words and each is fully written 55 to 125 ms before it
   is sung (median 87 ms; the aim is 85, the lead Qing chose for episode 2, until she says otherwise for this take).
   The other six (QUALITY, ILL AT EASE and the last "ILITIES) are lettered by their parts' own code and were
   checked by eye. Every tail word keeps 50 px clear of the frame's edges.
 - **Motion.** Nothing is still that shouldn't be: the motion check's median is 5.9 (out of 255) per second, and
   only the first fraction of a second, before the first beat, is near-still.
-- **The seams.** All 29 joins and 16 hard cuts between parts, looked at frame by frame across each; the ones that
-  showed a fault (the pun's picture cut off, the outro's jump) were changed.
+- **The seams.** Every join and hard cut between shots, looked at frame by frame across each (29 joins and 16
+  cuts when it was done); the ones that showed a fault (the pun's picture cut off, the outro's jump) were changed.
+  The outro's iris and the end card's push from page 1 to page 2 were added afterwards and looked at in the final master.
 - **A fresh-eyed read.** Three Sonnet subagents with no other context read contact sheets of the whole film (a
   frame every 1.5 seconds, with its lyric) and gave 32 points between them. Fixed: the ball hid letters; the
   title was empty for its first half second; the first line's quality (CORRECT?) wasn't the big word; several
@@ -394,6 +416,17 @@ are the shared harness's frame strips and motion check.
   parade's props are small (two words a line at the song's fastest pace); the choruses keep one layout for
   twenty seconds each (the gag changes every line, the camera pushes in on it, and the finale's three rings
   break it up); the hush's wide shot is small on a phone (it is the film's breath, and was made lighter).
+- **Last changes, after Qing approved the film.** Writing this up, I checked what the docs say against the finished
+  frames, and two things were wrong. (1) SOURCES.md says the end card credits Ed Pringle's catalogue and ISO/IEC
+  25010 on screen, as the series does for every idea it borrows, and the master Qing approved had no credit. Both
+  pages now carry a small credit line ("Meanings after Ed Pringle's catalogue, ISO/IEC 25010 and common use": six
+  of the meanings come from neither source, so the line says so); making room meant tightening the poster's rows and
+  moving its foot, which also freed the signature from the gold border that ran through it and from the phone's
+  button strip. (2) The title was lettered THE 'ILITIES on the end card, on the bridge's plaque and in verse 2's pun,
+  but THE ILITIES on the title page; it now has its apostrophe there too, with the pigeon moved to sit on the first I.
+  Only frames 0-1095 and 6028-6575 were rendered again and joined with the unchanged segments, and Qing was sent the
+  new file and told. The docs' numbers (the counts, the leads, the seams) come from the measurements above, not from
+  memory.
 
 **Risks.** About seventy compositions is the cost, so props were reused and the parade is eight short
 pictures on a fixed runway. The bottom 400 px of the frame is the phone's button strip: the ground runs to the foot
@@ -421,18 +454,36 @@ beat to land; they get one.
   oom, blue on the pah), which also checks the beat map.
 - **The music map:** `music/ep03/beats.json` (the beat and bar grid, the sections), `audio.json`
   (each stem's loudness at 20 Hz, percussion, orchestra and bass events), and the listening notes.
-- **The film:** 213.2 s of song and six seconds of end card, at 30 frames a second, drawn by code from the
-  word times and the beat map (`video/ep03/polka/`). Every one of the 53 sung lines has its own picture, the
-  instrumental (the agility trials), the lead-in and the outro are drawn, and the end card names all
-  thirty-two qualities in plain words (a draft for Qing's claims list) and is signed DOODLED BY SONNET. The
-  look went through three rounds with Qing before the parts were built (her notes, verbatim, near the top). A
-  frame from the first round of the look, before the hand was redrawn:
+- **The film:** 213.2 s of song and six seconds of end card (219.2 s, 6,576 frames at 30 a second), drawn by
+  code from the word times and the beat map (`video/ep03/polka/`), in 47 shots joined by 31 joins and 15 cuts.
+  Every one of the 53 sung lines has its own picture, the instrumental (the agility trials), the lead-in and the
+  outro are drawn, and the end card names all thirty-two qualities in plain words on two pages, credits the
+  sources of their meanings and is signed DOODLED BY SONNET. The look went through three rounds with Qing
+  before the parts were built (her notes, verbatim, near the top). A frame from the first round of the look,
+  before the hand was redrawn:
 
 ![Frames from the first look proof: the title page, verse 1's first four lines, and the first two lines of chorus 1 on the sing-along board](03-look-proof.jpg)
+
+- **The renders** are local, not in git (`*.mp4` and `video/out/` are ignored), in `video/out/`: the master
+  `the-ilities-master.mp4` (1080x1920, 30 fps, 219.2 s, x264 at CRF 17, about 700 MB); the upload encode
+  `the-ilities-upload.mp4` (the same picture at CRF 27, about 155 MB: CRF 23 was twice the size and looked the
+  same on a phone); the thumbnail `the-ilities-thumb.jpg` (the title page, 2.3 s in); and the phone storyboard
+  `the-ilities-storyboard.pdf` (one row per sung line: three frames, the picture and what it says). To make them
+  again, see [the renderer's README](../video/ep03/polka/README.md) (*Render the film*). The film and the storyboard
+  were sent to Qing's phone, and she posts it herself. The take is Suno's download of the generation she chose (44.1
+  kHz, 213.214 s); it isn't in git (it's the generator's output), so a fresh clone can't render the master with sound.
+- **The post text** for the release is a draft in [03-name-your-ilities.md](03-name-your-ilities.md), for Qing
+  to edit, as for the other episodes.
 
 ## Questions and decisions for Qing
 
 The lyric and the pictures are mine to make, so these are claims, plus what I need from her ears.
+
+**Where they stand (2026-09-29).** Qing has approved the film as built ("I like this one and I will ship it")
+without answering these one by one, so none is settled: each picture ships as the claim I drew, and each stays
+here so that a later correction knows where to look. Each picture lives in one part's file, so a change is contained. Her
+verdicts, when they come, go into CANON.md if they're truths for every episode, and here with the date if
+they're about this film.
 
 1. **Her ears, first: the karaoke check.** Each word lights 85 ms before its measured onset (the
    lead she chose for episode 2). Is any word early or late, and is 85 ms still right for this
@@ -480,19 +531,46 @@ The lyric and the pictures are mine to make, so these are claims, plus what I ne
 15. **Observability, the parade.** A corgi with a glass belly showing its works, and an onlooker asking
     "?". Does the question need to be specific (say "WHY IS IT SLOW?"), or is a plain "?" enough?
 
-## Liner notes, so far
+## Liner notes
 
 - **How it was made.** The take was separated with Demucs; the voice was timed as above; the beats
   come from a tracker on the mix, refined to the strongest onset and smoothed along the song. The
   renderer draws every frame on a Canvas 2D from the song's time, in headless Chromium, as episodes
-  1 and 2 do.
+  1 and 2 do. One Sonnet (5.5, at maximum effort) made the look, the shared drawing kit, the timing and the
+  first parts, and reviewed and fixed the rest, which Sonnet builders drew in parallel to a shared brief; a
+  Sonnet subagent fact-checked the pictures, and three fresh ones read the finished film cold (*How it was
+  made*, above). The end card is signed "Doodled by Sonnet", with Qing's permission.
+- **How it was checked.** Above: the frame-exact audit of every sung word's lettering, the motion check, the
+  seams, a fresh-eyed read, and a check of the docs' promises against the finished frames.
 - **Where it falls short.** The take was not heard by any model, so the arrangement is described from
   measurement, and the music-to-picture mapping (the instrumental's four phrases, the hit strengths and the
-  held notes are measured; the instruments are not identified) needs Qing's ears; so does the lead (85 ms).
-  Pictures that land on a word land 85 ms before it, like the lettering, which may feel early for a hit or a
-  stamp. The gags' timing is built from the word times, so a different lead is cheap for the lettering and
-  a small edit per gag. Some pictures need motion to read (the growing liability, the hush) and were judged
-  from stills; the claims the pictures make are for Qing (the questions above).
+  held notes are measured; the instruments are not identified) has only Qing's ears to judge it; so has the
+  lead (85 ms), which she didn't comment on. Pictures that land on a word land 85 ms before it, like the
+  lettering, which may feel early for a hit or a stamp. Three stretches are weaker than the rest, and Qing
+  approved the film with them:
+  - **The agility trials (108.4-121.8 s).** The dogs are small on a phone: the course runs edge to edge and
+    the scoreboard carries the teaching. An idea, untried: a camera that follows each runner, about twice as
+    close, with the scoreboard fixed as a strip above it.
+  - **The bridge (121.8-151.2 s).** Eight lines in one place, each with its own gag, is the most slide-like
+    stretch. An idea, untried: the chorus's slow push-in on each line, or a different framing of the board for
+    each.
+  - **The parade (151.7-178.0 s).** Two words a line at the song's fastest pace, so the props are small.
+    An idea, untried: fewer, bigger props to a line, or a slow track along the runway.
+
+  The choruses also keep one layout for twenty seconds each; the gag changes every line and the camera pushes
+  in on it, but a second version could vary it more. Some pictures need motion to read (the growing liability,
+  the hush) and were judged from stills. The claims the pictures make are Qing's to judge (the questions above),
+  and she hasn't yet. Two choices go against the write-episode skill's retention checks, on purpose, and Qing
+  approved the film with both. **The end card:** the skill says no end card, because people share teaching, not
+  marketing; this one teaches (every quality in plain words, to screenshot). **The opening:** the skill wants the
+  first frame, which is the thumbnail, to show a tension the viewer recognises rather than a title card; this film
+  opens on a title page that is written on over the first bars while Clawd leaps in on the first beat, and its
+  thumbnail is the finished title page (2.3 s in), chosen to look like nothing else in the series. Her answer to Q5
+  (whether to have the card, and its wording) is still open. **The ending:** SERIES.md says every episode ends
+  on a before-and-after brief; this film ends on the question and the glossary card, and the worked brief for the
+  dog-walking app is in the plan's post text instead ([03-name-your-ilities.md](03-name-your-ilities.md), *What to save*).
+  **The length:** 3:39 is over the 2:20 that standard X accounts could upload when episode 1 was made (its file has
+  the note; check the current limit), which is Qing's call to weigh when she posts it.
 - **What unsteered Sonnets would have made (2026-09-29, from Qing's curiosity).** Eight fresh Sonnet
   subagents were given the lyric, the generator's style note and the series' description (five also got the
   non-style parts of the brief: dogs, Clawd, lettering, instrumentals, a high bar) and asked to pick one
@@ -500,3 +578,14 @@ The lyric and the pictures are mine to make, so these are claims, plus what I ne
   proscenium stage, for the same reasons: comic opera is already theatre, and cut paper is cheap to draw
   with polygons and shadows. So the coloured-pencil look is Qing's steer, not the default. (Not a controlled
   experiment: the agents also had this repository's notes in their context, though none echoed the pencil look.)
+- **Whether to have made it as a toy theatre instead (2026-09-29).** Qing asked whether I'd rather redo the
+  film in the style the Sonnets chose. I wouldn't, and she chose this one. My reasons: it is the look she
+  asked for and called fantastic, and its best qualities are hers (strokes drawn as a hand draws them, the
+  clumsiness dialled down, the colour held still). The eight Sonnets are one taste sampled eight times, so
+  their agreement shows my default, not that it fits this song; their own worry was that it reads as clip-art
+  unless the craft is perfect, which is the failure Qing named early on ("rigid and simplistic"); and the song wants
+  dogs that act with their faces and bodies, which suits pencil better. The weak stretches above are staging
+  and scale, not style, so a new style wouldn't fix them, and the film's roughly seventy pictures would all be
+  drawn again. The toy theatre stays on the shelf for a later episode: comic opera is already a stage, and its
+  old slogan, "penny plain, twopence coloured", is close to this song's thesis (colour costs, so choose what to
+  colour).

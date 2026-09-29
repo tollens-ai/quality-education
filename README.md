@@ -19,21 +19,7 @@ Its line to remember:
 
 The idea it teaches: **software quality is value to someone who matters** (after Jerry Weinberg,
 and James Bach and Michael Bolton, via Ed Pringle). So tell your agent who it's for, and what good
-means for them. By the end of the video, "make it good" has become this:
-
-```text
-a gym log. just for me.
-for: me, mid-set, sweaty hands
-good = log a set in one tap
-fast to open, cheap to run
-a 🔥 when I beat my best
-skip: 2FA, Kubernetes, confetti
-ship it by Monday
-for you: tidy diags, ask if unsure
-```
-
-The last line is for the agent itself: agents are people who matter too, and tidy diagnostics
-("diags") help them do the job.
+means for them.
 
 More on episode 1:
 
@@ -92,21 +78,7 @@ The idea it teaches: **"good" is many different qualities, the "ilities",** and 
 doesn't get you another. Agents build the few everyone mentions and skip the rest unless asked
 (after Ed Pringle's catalogue of qualities, ISO/IEC 25010 and common use). So name the qualities
 that matter most to the people it's for, the ones you'll trade away, and how you'll know each one.
-The film ends on that question and a card of every quality the song names, in plain words; it
-doesn't rewrite the brief for you. Here is one worked example, not in the film, for its dog-walking
-app:
-
-```text
-walkies: book dog walks
-for: owners at work, on old phones
-matters most: reliable (booked, or it says so), easy to use, works on old phones
-will trade away: fast, extensible (dogs only)
-how I'll know: a booking survives a bad signal; my mum books a walk unaided
-for you (the agent): debuggable, readable: a log line for each booking step
-```
-
-The last line is for the agent, which has to work on the code: the song's second verse is about what
-the agent needs from it.
+The film ends on that question and a card of every quality the song names, in plain words.
 
 More on episode 3:
 

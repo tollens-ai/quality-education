@@ -72,7 +72,10 @@ export const BOIL_FPS = 15;
 const CYCLE = [0, 1, 2, 1, 0, 2, 0, 1, 2, 0, 2, 1, 1, 0, 2, 1, 2, 0];
 export const boil = t => Math.floor(t * BOIL_FPS + 1e-6);
 export const variant = t => CYCLE[((boil(t) % CYCLE.length) + CYCLE.length) % CYCLE.length];
-export const twos = t => Math.floor(t * BOIL_FPS + 1e-6) / BOIL_FPS;
+// The drawing clock is the NEAREST tick (not the last one), so a picture is at most half a tick (33 ms) early or late
+// against the sound instead of always up to 67 ms late; two 30 fps frames share each tick (the epsilon keeps the half
+// ticks, which are exact on the frame grid, from rounding both ways).
+export const twos = t => Math.floor(t * BOIL_FPS + .5 + 1e-6) / BOIL_FPS;
 export const NOW = { t: 0 };
 export const setNow = t => { NOW.t = t; };
 

@@ -110,7 +110,7 @@ quality. Credit them here and on screen.
   and the teaching card;
   Rock Salt (Font Diner, Apache License 2.0) for the people's handwriting.
 
-## Episode 3: what went into the video ("Pencil Polka", in progress)
+## Episode 3: what went into the video ("Pencil Polka")
 - **Song:** lyrics by Qing with Claude; performed by the Suno generation Qing chose, "The
   _ilities_". The form is the Gilbert and Sullivan patter song (public domain); no line or tune is
   reused.
@@ -127,4 +127,10 @@ quality. Credit them here and on screen.
   and agility course are the familiar ones. No artwork is reproduced.
 - **Fonts:** none. The lettering is the film's own hand-printed alphabet, drawn stroke by stroke in
   code.
+- **Small borrowed ideas,** all common property and none of them artwork: bunting and rosettes at a dog
+  show, an agility course (hurdle, tunnel, weave poles, seesaw), a glass-bellied "see how it works" cutaway,
+  a stamp on a counter, a phone box for a quick change, confetti, spotlights and a curtain for a finale.
+- **How it was made:** the look and the shared code are by one Sonnet; the film's parts were drawn by
+  Sonnet subagents to a shared brief and reviewed by the same one (the video file's *How it was made*).
+  Its end card is signed "doodled by Sonnet", with Qing's permission.
 

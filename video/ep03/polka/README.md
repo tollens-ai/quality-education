@@ -56,14 +56,15 @@ onset, with a dot on the beat), rendered the same way with `lead-085.js` as the 
 | `scenes/` | One file per part of the song (`intro`, `verse1`, `verse1b`, `chorus1`, `verse2`, `chorus2`, `trials`, `bridge`, `parade1`, `parade2`, `leadin`, `chorus3`, `outro`, and `joins` for the joins between parts); `chorus-core.js` is the machinery the three choruses share |
 | `preview.js` | Renders one part alone: `--scene video/ep03/polka/preview.js --query part=verse2` |
 | `marks.js` | The corner marks |
-| `tools/` | The typography audit (`typo-audit.mjs` records every sung word as drawn, `typo-report.py` judges it) |
+| `tools/` | The typography audit (`typo-audit.mjs` records every sung word as drawn, `typo-report.py` judges it), and `render-film.sh` (the whole film, with six seconds of end card held after the music) |
 | `look.js` | Look development |
 
 ## Building a shot
 
 A shot is `shot(a, b, draw, { id })` in a scene's `register(S)`: it draws the whole frame (page,
-picture and lettering) as a pure function of `t`, the drawing's own clock. Read `scenes/verse1.js` for
-worked examples. What every shot needs:
+picture and lettering) as a pure function of `t`, the drawing's own clock: the film's time rounded to the
+nearest fifteenth of a second (drawing on twos), so a picture is never more than 33 ms early or late against
+the sound. Read `scenes/verse1.js` for worked examples. What every shot needs:
 
 1. **Start from a backdrop, end on the words.** `park(g, t, opts)` (or your own place, always
    beginning with `paper(g)`), then the picture, then `sing(g, t, ws, {...})` last so the lyric is

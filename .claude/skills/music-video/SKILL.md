@@ -69,6 +69,10 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    *Done when* every line has its shot, and every word has finished arriving just before it's
    sung (VIDEO.md, "Land a little ahead of the voice"), and holds across the cuts until its line
    is done.
+   A long film can be built in parts: fix the look, the kit and a first part yourself, then give each
+   further part to a builder subagent with a standing brief, one file of its own, and a preview that
+   renders that part alone (episode 3's `preview.js`, `tools/`, and its video file's *How it was made*).
+   Review each part at full size; the joins and the checks stay yours.
 
 6. **Watch the whole film, early and often.** A 540-wide preview renders in minutes. Look at it
    three ways:

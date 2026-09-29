@@ -153,6 +153,22 @@ from rounds 3 and 4:
   images and like, paper cut animate them we can"). Episode 2 v3's people and the places behind
   them are made this way; how is in [its style reference](.claude/skills/music-video/references/style-cut-light.md).
 
+- **A hand-made look drawn in code is a process, not a path** (episode 3, 2026-09-29). Noise added
+  to a clean outline still reads as "a child's drawing made in Paint", however textured (Qing's
+  words). Draw the way a hand does: a box as a few strokes that overshoot a corner or stop short of
+  it, a circle as a loop that doesn't close, colour as a scribble that spills and misses; and make
+  drawn things opaque. Keep how hand-made it is on one dial, so her next note ("slightly too
+  clumsy") is a number and not a rewrite. And colour that is redrawn every frame flashes: hold the
+  fills still and let only the outlines boil.
+- **Parts can be drawn in parallel, by hands that share a kit, and the taste stays one.** Episode 3
+  had one hand fix the look, the kit and the first parts, then Sonnet builders draw the other
+  parts, each to a standing brief with its own file (a part previews alone, so nobody waits for the
+  rest), rendering and looking at their own work before handing it back. The auteur reviews every part
+  at full size, fixes what is wrong, and owns the joins and the tools. Builders are hands, not a
+  review committee. Three things learned: nine at once hit the account's usage limit in twenty
+  minutes (about four at a time, and ask for contact sheets rather than many single stills); give them
+  what they need to check against (the storyboard's teaching and the guardrails); and their questions
+  about claims go to Qing on the list, not into the picture.
 - **The content leads.** Every sung line shows what it says, animated: a person, a place, the
   thing going wrong or right on the words. Listeners could only parse the lyrics with context
   animation, and a minute of the band alone lost Qing ("a whole minute through and all I've seen

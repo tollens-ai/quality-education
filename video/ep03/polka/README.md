@@ -7,9 +7,9 @@ of the song's time, drawn with Canvas 2D in headless Chromium, in the style desc
 written from a blank page for this song; only the render harness in `video/lib/` and the
 measurements in `music/ep03/` are shared with the other episodes.
 
-**Status:** pre-production. The first 16.9 s (the title and verse 1's first four lines, two pushes
-and an iris) and the first two lines of chorus 1 with the sing-along board are built to test the
-style; the rest is planned in the episode's video file.
+**Status:** being built, part by part (2026-09-29). Each part's scene file registers its own shots;
+`main.js` loads whichever exist, so a cut renders at any stage. See the episode's video file for the
+plan and what is done.
 
 ## Render
 
@@ -47,11 +47,16 @@ onset, with a dot on the beat), rendered the same way with `lead-085.js` as the 
 | `people.js` | `person()` (posed, holding things) and `dogFront()`: front-on dogs in twelve breeds |
 | `props.js` | Rosettes (new, wilting, empty), ticks, bursts, sparkles, paw prints, speech bubbles, phones, a clipboard, a calendar, a rubber stamp |
 | `world.js` | The park and what lives in it: `park()`, `sun` (with a face), `cloud`, `tree`, `flower`, `pigeon`, `butterfly`, `bunting`, `crowdRow` |
+| `ring.js` | The dog show ring in three moods (`ringBackdrop`: day, night, golden hour), fairy lights, spotlights, the judge's table |
+| `ringcast.js` | What belongs to the ring: the judge's bowler, Clawd as judge, the show dog with his WALKIES badge, a hurdle, confetti; and for the tables-turned chorus the bulldog judge and Clawd on the table |
 | `life.js` | What makes a drawing live: `idle` (blinks, wandering eyes, breath), `ring` and friends (damped springs set going by beats), `bounce`, and acting shapes `spring`, `shake`, `hop`, `gate`, `ease` |
 | `common.js` | `groove` (the dance), timing ramps and pops, the sky and the meadow |
 | `shots.js` | Shots (a time range and a draw function) and the joins between them: `push` and `iris` |
 | `palette.js` | Paper, graphite, the pencil colours, Clawd's terracotta |
-| `scenes/` | One file per part of the song |
+| `scenes/` | One file per part of the song (`intro`, `verse1`, `verse1b`, `chorus1`, `verse2`, `chorus2`, `trials`, `bridge`, `parade1`, `parade2`, `leadin`, `chorus3`, `outro`, and `joins` for the joins between parts); `chorus-core.js` is the machinery the three choruses share |
+| `preview.js` | Renders one part alone: `--scene video/ep03/polka/preview.js --query part=verse2` |
+| `marks.js` | The corner marks |
+| `tools/` | The typography audit (`typo-audit.mjs` records every sung word as drawn, `typo-report.py` judges it) |
 | `look.js` | Look development |
 
 ## Building a shot

@@ -20,7 +20,7 @@ export async function init(S) {
     catch (e) { console.error(`part ${name} not drawn: ${e.message}`); }
   }
   SHOTS.sort((a, b) => a.a - b.a);
-  if (typeof window !== 'undefined') { window.__parts = loaded; window.__shots = SHOTS.map(s => [+s.a.toFixed(3), +s.b.toFixed(3)]); }
+  if (typeof window !== 'undefined') { window.__parts = loaded; window.__shots = SHOTS.map(s => [+s.a.toFixed(3), +s.b.toFixed(3)]); window.__joins = JOINS.map(j => [j.a, j.b]); }
 }
 
 export function draw(g, t, S) {

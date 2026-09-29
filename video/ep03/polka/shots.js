@@ -3,7 +3,7 @@
 // underneath and the outgoing one over it, moved out of the way: pushed off the side, or opened up by an
 // iris on the picture's subject. Joins move at the film's full frame rate; what is drawn inside a shot
 // steps on twos (`tq`, the drawing's own clock).
-import { W, H, clamp, lerp, hash, smooth, easeOut, easeInOut, inv, TAU, rng, beatPos } from './kit.js';
+import { W, H, clamp, lerp, hash, smooth, easeOut, easeIn, easeInOut, inv, TAU, rng, beatPos } from './kit.js';
 import { paper } from './paper.js';
 import { line } from './pencil.js';
 import { GRAPHITE } from './palette.js';
@@ -11,7 +11,8 @@ import { GRAPHITE } from './palette.js';
 export const SHOTS = [];
 export const JOINS = [];
 export function shot(a, b, draw, o = {}) { const s = { a, b, draw, ...o }; SHOTS.push(s); return s; }
-// kind: 'push' (o.dir: [dx, dy] the direction the old picture leaves in) or 'iris' (o.at: [x, y], the incoming picture opening from there).
+// kind: 'push' (o.dir: [dx, dy] the direction the old picture leaves in), 'iris' (o.at: [x, y], the incoming picture
+// opening from there) or 'irisclose' (the old picture closing to a circle on o.at).
 export function join(a, b, kind, o = {}) { JOINS.push({ a, b, kind, ...o }); }
 export function shotAt(t) { let s = null; for (const x of SHOTS) if (t >= x.a && t < x.b) s = x; return s; }
 export function shotEnding(t) { let s = null; for (const x of SHOTS) if (x.a <= t && (!s || x.a > s.a)) s = x; return s; }
@@ -57,6 +58,19 @@ export function drawFrame(g, t, tq = t) {
       g.save();
       g.setTransform(1, 0, 0, 1, 0, 0);
       g.drawImage(oc, 0, 0, oc.width, oc.height, dx * e * oc.width, dy * e * oc.height, oc.width, oc.height);
+      g.restore();
+    }
+  } else if (j.kind === 'irisclose') {
+    // The old picture closes to a circle on its subject, over the new one.
+    if (to) { g.save(); to.draw(g, tq, to); g.restore(); } else paper(g);
+    const [cx, cy] = j.at || [W / 2, H * .62];
+    const R = Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) * 1.05 * (1 - easeIn(p, 2));
+    if (from && R > 1) {
+      g.save(); g.beginPath(); g.arc(cx, cy, R, 0, TAU); g.clip();
+      g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(oc, 0, 0);
+      g.restore();
+      g.save(); g.setTransform(k, 0, 0, k, 0, 0);
+      line(g, Array.from({ length: 41 }, (_, i) => [cx + Math.cos(i / 40 * TAU) * R, cy + Math.sin(i / 40 * TAU) * R]), { w: 10, col: j.col || GRAPHITE, seed: 5, t: tq, spline: false, passes: 1, closed: true, alpha: .85 });
       g.restore();
     }
   } else {

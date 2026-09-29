@@ -11,6 +11,7 @@ import { GRAPHITE } from './palette.js';
 
 // Where every lettered string was drawn, for the typography audit (see tools/typo-audit.mjs).
 export const AUDIT = { on: false, rec: [], ctx: null };
+if (typeof window !== 'undefined') window.__audit = AUDIT;
 function note(kind, str, x, y, size, o = {}) {
   if (!AUDIT.on) return;
   AUDIT.rec.push({ kind, str, x, y, size, ...o, ctx: AUDIT.ctx });
@@ -123,7 +124,7 @@ export function sing(g, t, ws, o = {}) {
     const bub = it.tail && tailBubble ? tailBubble : null;
     write(g, it.str, it.x, it.y, it.size, { col: c, seed: seed * 7 + it.i * 3, t, prog, w, track, dance: dance * (it.tail ? 1.4 : 1), beat: bpos, pulse: bp, bubble: bub, wonk: it.tail ? .8 : 1 });
     g.restore();
-    note(it.tail ? 'tail' : 'word', it.str, it.x, it.y, it.size, { w: it.w, s: wd.s, v: wd.v, li: wd.li, wi: wd.wi, prog });
+    note(it.tail ? 'tail' : 'word', it.str, it.x, it.y, it.size, { w: it.w, s: wd.s, v: wd.v, li: wd.li, wi: wd.wi, prog, col: c, fill: bub ? bub.fill : null, alpha: fade * alpha });
   }
   g.restore();
   return L;

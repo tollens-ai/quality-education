@@ -25,8 +25,9 @@ export const CHORUS_STARTS = ['Good in a dozen', 'Fast, but it', 'Ship it by', '
 //   sunMood    six functions t -> mood of the sun (or moon) for each line
 //   board      { fill, edge } the sign's colours;  ink: the lyric's colour;  crash: t of the confetti burst (or null)
 //   pigeonAt   [x, y]      audience: { n, s, seed }
+//   scene      (g, t, cx) draws the whole world under the board instead of the standard ring, gag and audience
 export function registerChorus(o) {
-  const { id, section, t0, t1, mood = 'day', gags, sunMood = [], board = {}, ink = GRAPHITE, crash = null, pigeonAt = [1012, 1010], audience = { n: 7, s: .85, seed: 3 }, markInk = GRAPHITE, extra = null } = o;
+  const { id, section, t0, t1, mood = 'day', gags, sunMood = [], board = {}, ink = GRAPHITE, crash = null, pigeonAt = [1012, 1010], audience = { n: 7, s: .85, seed: 3 }, markInk = GRAPHITE, extra = null, scene = null } = o;
   const lines = CHORUS_STARTS.map(s => words(section, s));
   const path = ballPath(lines);
   shot(t0, t1, (g, t) => {
@@ -36,12 +37,15 @@ export function registerChorus(o) {
     const ws = lines[idx];
     const cx = { t, gr, vox, li: idx, mood, lines, idx };
     window.__markInk = markInk;
-    ringBackdrop(g, t, { mood, sunMood: (sunMood[idx] || (() => 'happy'))(t), look: [-.3, .8] });
-    if (extra && extra.before) extra.before(g, t, cx);
-    gags[idx](g, t, ws, cx);
-    if (extra && extra.after) extra.after(g, t, cx);
-    pigeon(g, t, pigeonAt[0], pigeonAt[1], .62, { flip: -1, state: (cx.pigeon && cx.pigeon(t)) || 'perch', look: -1 });
-    crowdRow(g, t, dogFront, 1845, { ...audience, sing: 1, x0: 90, x1: 990 });
+    if (scene) scene(g, t, cx);      // a chorus that builds its own world (chorus 3's three rings)
+    else {
+      ringBackdrop(g, t, { mood, sunMood: (sunMood[idx] || (() => 'happy'))(t), look: [-.3, .8] });
+      if (extra && extra.before) extra.before(g, t, cx);
+      gags[idx](g, t, ws, cx);
+      if (extra && extra.after) extra.after(g, t, cx);
+      pigeon(g, t, pigeonAt[0], pigeonAt[1], .62, { flip: -1, state: (cx.pigeon && cx.pigeon(t)) || 'perch', look: -1 });
+      crowdRow(g, t, dogFront, 1845, { ...audience, sing: 1, x0: 90, x1: 990 });
+    }
     // The board (dropping in if this chorus has a crash), its lyric, the ball and Bruce on his ledge.
     const bd = crash != null ? pop(t, crash, .5) : 1;
     g.save(); g.translate(0, -(1 - bd) * 760);

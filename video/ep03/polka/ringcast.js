@@ -3,7 +3,7 @@
 // differently: the bulldog judges and Clawd is on the table.)
 import { W, H, TAU, clamp, lerp, hash, beatPulse } from './kit.js';
 import { blob, line, dot } from './pencil.js';
-import { ellipse, rrect, scallop, star } from './shapes.js';
+import { ellipse, rrect, scallop, star, capsule } from './shapes.js';
 import { write } from './hand.js';
 import { clawd } from './chars.js';
 import { dogFront } from './people.js';
@@ -81,4 +81,31 @@ export function confetti(g, t, t0, dur = 1.6, o = {}) {
     const a = q * (6 + hash(seed, i, 3) * 6) + i;
     line(g, [[x - Math.cos(a) * 10, y - Math.sin(a) * 10], [x + Math.cos(a) * 10, y + Math.sin(a) * 10]], { w: 9, col: cols[i % cols.length], seed: seed * 100 + i, t, spline: false, passes: 1, alpha: .95 * (1 - Math.max(0, q - .8) * 5) });
   }
+}
+
+// ---------------------------------------------------------------- the tables turned (chorus 2)
+// A bowler for a bulldog's head (dogFront's hat callback: drawn above `top`, in the dog's own space).
+export function bowlerDog(g2, top, rx, t) {
+  blob(g2, [[-rx * .55, top + 22], [-rx * .42, top - 30], [-rx * .16, top - 58], [rx * .16, top - 58], [rx * .42, top - 30], [rx * .55, top + 22]], { fill: '#3a3947', shade: '#1a1a22', line: GRAPHITE, lw: 6, seed: 853, t, hw: 4.6, tone: .9, sh: .3 });
+  blob(g2, ellipse(0, top + 22, rx * .85, 12, 10, 0, 854), { fill: '#3a3947', line: GRAPHITE, lw: 6, seed: 854, t, hw: 4.6, tone: .9 });
+  line(g2, [[-rx * .5, top + 2], [0, top + 8], [rx * .5, top + 2]], { w: 10, col: C.red, seed: 855, t, spline: true, passes: 1 });
+}
+
+// The bulldog as judge, in his bowler, at the judge's place: `dogFront` options, and a paw `reach`: [x, y] in
+// master pixels that one paw stretches to (drawn as a limb from his chest).
+export function judgeBulldog(g, t, cx, o = {}) {
+  const J = SPOT.judge, { reach = null, x = J.x, y = J.y, s = 1.7, ...rest } = o;
+  const chin = y - 150 * (s / 1.7);
+  dogFront(g, { x, y: chin - cx.gr.bob * .5, s, t, seed: 11, breed: 'bulldog', body: true, collar: null, eyes: 'dot', mouth: 0, hat: (g2, top, rx) => bowlerDog(g2, top, rx, t), ...rest });
+  if (reach) {
+    const a = [x - (reach[0] < x ? 50 : -50) * (s / 1.7), chin + 92 * s], b = reach;
+    blob(g, capsule(a, b, 24, 20, 5, 861), { fill: '#d6a165', shade: '#a26f3a', line: GRAPHITE, lw: 5.6, seed: 861, t, hw: 4.8, tone: .5 });
+    blob(g, ellipse(b[0], b[1], 30, 22, 8, 0, 862), { fill: '#f3e2c4', line: GRAPHITE, lw: 5, seed: 862, t, hw: 4.6, tone: .6 });
+  }
+}
+
+// Clawd on the table, the one being judged.
+export function subjectClawd(g, t, cx, o = {}) {
+  const T = SPOT.table;
+  clawd(g, { x: T.x, y: T.y - 20, s: 1.3, t, seed: 1, eyes: 'open', mouth: clamp(cx.vox * 1.3), bob: cx.gr.bob, squash: cx.gr.sq, lean: cx.gr.lean, ...o });
 }

@@ -214,9 +214,11 @@ export function park(g, t, o = {}) {
 // A row of front-on dog heads along the bottom of the ring, mouths going on the sung words, swaying.
 // (dogFront is passed in to keep this file free of the people module's imports.)
 export function crowdRow(g, t, dogFront, y, o = {}) {
-  const { n = 6, s = .8, seed = 1, breeds = ['lab', 'beagle', 'corgi', 'poodle', 'pug', 'husky', 'mutt', 'dalmatian', 'bulldog'], sing = 0, x0 = 90, x1 = W - 90 } = o;
+  const { n = 6, s = .8, seed = 1, breeds = ['lab', 'beagle', 'corgi', 'poodle', 'pug', 'husky', 'mutt', 'dalmatian', 'bulldog'], sing = 0, x0 = 90, x1 = W - 90, special = null } = o;
   for (let i = 0; i < n; i++) {
     const x = lerp(x0, x1, n === 1 ? .5 : i / (n - 1)) + Math.sin(t * 2.2 + i) * 3;
+    // special: { index: (g, x, y, s) => draw } puts something else in a seat (a Clawd in the crowd).
+    if (special && special[i]) { special[i](g, x, y + (i % 2) * 22 - beatPulse(t + i * .01, .17) * 8, s); continue; }
     const b = breeds[(i + seed) % breeds.length];
     const bp = beatPulse(t + i * .01, .17);
     dogFront(g, { x, y: y + (i % 2) * 22 - bp * 8, s: s * (.92 + hash(seed, i) * .16), t, seed: seed * 20 + i, breed: b, eyes: i % 3 === 1 ? 'happy' : 'dot', mouth: sing ? clamp(loud('vocals', t) * 1.5 - .1 + (i % 2) * .1) : 0, tongue: false, collar: [C.red, C.blue, C.green, C.purple, C.orange][i % 5], tilt: Math.sin(t * 2.2 + i * 1.7) * .06 });

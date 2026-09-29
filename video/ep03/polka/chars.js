@@ -25,7 +25,7 @@ const hand = (pts, seed, amp = 4.5, lam = 90) => { const [cx, cy] = centre(pts);
 //   brow   > 0 worried (inner ends up), < 0 cross         raise  0..1 (surprise)
 export function clawd(g, o = {}) {
   const { x = 540, y = 1200, s = 1, t = 0, seed = 1, eyes = 'open', mouth = 0, look = [0, 0], armL = { up: .1 }, armR = { up: .1 },
-    squash = 0, lean = 0, bob = 0, flip = 1, blink: bl0 = 0, legs = 0, prop = null, cheeks = false, brow = 0, raise = 0, sweat = false, tuft = false, life = 1 } = o;
+    squash = 0, lean = 0, bob = 0, flip = 1, blink: bl0 = 0, legs = 0, prop = null, cheeks = false, brow = 0, raise = 0, sweat = false, tuft = false, life = 1, legPop = null } = o;
   const I = idle(t, seed);
   g.save();
   g.translate(x, y - bob);
@@ -36,11 +36,16 @@ export function clawd(g, o = {}) {
   // Legs: four stubs of slightly different lengths and lean, the outer pair splayed. `legs` walks them.
   const LX = [-114, -40, 44, 116], LL = [50, 44, 52, 46], LT = [-.06, .03, -.04, .07];
   LX.forEach((lx, i) => {
+    // legPop: { i: 0..3, p: 0..1 } sends that leg spinning off, up and away.
+    const pp = legPop && legPop.i === i ? legPop.p : 0;
+    g.save();
+    if (pp > 0) { g.translate(lx, -60); g.translate(pp * 120, -Math.sin(pp * Math.PI) * 260 + pp * pp * 300); g.rotate(pp * 7); g.translate(-lx, 60); }
     const sw = legs ? Math.sin((legs + (i % 2) * .5) * TAU) * 10 : 0;
     const lift = legs ? Math.max(0, Math.sin((legs + (i % 2) * .5) * TAU)) * 8 : 0;
     const top = [lx, -LL[i] - 40], foot = [lx + LT[i] * LL[i] * 4 + sw, -8 - lift];
     blob(g, capsule(top, foot, 20, 22, 5, sd + i), { fill: CLAWD.fill, shade: CLAWD.shade, line: ink, lw: 6.6, seed: sd + i, t, hw: 5, sh: .4 });
     blob(g, ellipse(foot[0] + (i < 2 ? -6 : 6), foot[1] + 2, 30, 13, 8, LT[i], sd + 9 + i), { fill: CLAWD.fill, line: ink, lw: 5.6, seed: sd + 5 + i, t, hw: 4.6, tone: .5 });
+    g.restore();
   });
   // The tuft: a cowlick of three strokes that swings with the beat and lags behind every lean.
   if (tuft) {

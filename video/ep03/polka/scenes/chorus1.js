@@ -16,6 +16,8 @@ import { registerChorus } from './chorus-core.js';
 import { gag3, gag4 } from './c1gags34.js';
 import { gag5, gag6 } from './c1gags56.js';
 
+export { gag1, gag2, gag3, gag4, gag5, gag6 };
+
 export function register(S) {
   registerChorus({
     id: 'c1', section: 'Chorus 1', t0: 30.56, t1: 52.6, mood: 'day', crash: 30.56,

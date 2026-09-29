@@ -23,7 +23,7 @@ export function register(S) {
   const lines = starts.map(s => words('Chorus 1', s));
   const path = ballPath(lines);
   shot(30.144, 39.2, (g, t) => draw(g, t, lines, path), { id: 'c1' });
-  join(30.144, 30.576, 'flip');
+  join(30.144, 30.576, 'push', { dir: [0, -1] });
 }
 
 function bunting(g, t) {

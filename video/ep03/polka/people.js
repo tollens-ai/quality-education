@@ -70,7 +70,7 @@ export function person(g, o = {}) {
   if (hold.L) hold.L(g, hL[0], hL[1]);
   if (hold.R) hold.R(g, hR[0], hR[1]);
   // Head and hair.
-  const hr = 54;
+  const hr = 58;
   if (hair.style === 'long') blob(g, spline([[-hr - 14, HEAD[1] - 20], [-hr - 22, HEAD[1] + 90], [0, HEAD[1] + 60], [hr + 22, HEAD[1] + 90], [hr + 14, HEAD[1] - 20]], true, 6), { fill: hair.col, line: ink, lw: 5, seed: sd + 30, t, hw: 4.8, tone: .5 });
   blob(g, ellipse(HEAD[0], HEAD[1], hr, hr * 1.02, 12), { fill: skin, shade: '#d9a878', line: ink, lw: 6, seed: sd + 31, t, hw: 5, tone: .5, sh: .2 });
   if (hair.style === 'bun') {
@@ -93,7 +93,7 @@ export function person(g, o = {}) {
     if (eyes === 'happy') line(g, [[cx - 11, cy + 4], [cx, cy - 8], [cx + 11, cy + 4]], { w: 6, col: ink, seed: sd + 40 + i, t, spline: true, passes: 1 });
     else if (eyes === 'squint') line(g, [[cx - 11, cy], [cx + 11, cy]], { w: 6, col: ink, seed: sd + 40 + i, t, spline: false, passes: 1 });
     else {
-      const r = eyes === 'wide' ? 9.5 : 6.5;
+      const r = eyes === 'wide' ? 11 : 8.4;
       if (eyes === 'wide') blob(g, ellipse(cx, cy, 15, 16, 8), { fill: '#fbf8ef', line: ink, lw: 4, seed: sd + 42 + i, t, hw: 4, tone: .95 });
       dot(g, cx + look[0] * 2, cy + look[1] * 2, r, { col: ink, seed: sd + 40 + i, t });
     }
@@ -197,7 +197,7 @@ export function dogFront(g, o = {}) {
     line(g, [[-sn.w * .3, my], [-sn.w * .1, my + 9], [0, my + 2], [sn.w * .1, my + 9], [sn.w * .3, my]], { w: 5.6, col: ink, seed: sd + 9, t, spline: true, passes: 1 });
   }
   // Eyes.
-  const ex = rx * .42, eyy = hc[1] - ry * .18, er = 10 * (B.eyeBig || 1);
+  const ex = rx * .42, eyy = hc[1] - ry * .18, er = 12.5 * (B.eyeBig || 1);
   [-1, 1].forEach((side, i) => {
     const cx = side * ex + look[0] * 5, cy = eyy + look[1] * 4;
     if (eyes === 'happy') line(g, [[cx - 14, cy + 6], [cx, cy - 10], [cx + 14, cy + 6]], { w: 7, col: ink, seed: sd + 20 + i, t, spline: true, passes: 1 });

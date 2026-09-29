@@ -19,11 +19,11 @@ export function register(S) {
   const l2 = words('Verse 1', 'The sign-ups');
   const l3 = words('Verse 1', 'It died at night');
   shot(2.321, 6.95, (g, t, sh) => { window.__markInk = GRAPHITE; drawL0(g, t, l0); }, { id: 'v1-0' });
-  join(6.524, 6.946, 'scribble', { col: '#8d8c97' });
+  join(6.524, 6.946, 'push', { dir: [-1, 0] });
   shot(6.524, 9.94, (g, t, sh) => { window.__markInk = GRAPHITE; drawL1(g, t, l1); }, { id: 'v1-1' });
-  join(9.503, 9.933, 'scribble', { col: '#8d8c97' });
+  join(9.503, 9.933, 'push', { dir: [-1, 0] });
   shot(9.503, 13.31, (g, t, sh) => { window.__markInk = GRAPHITE; drawL2(g, t, l2); }, { id: 'v1-2' });
-  join(12.9, 13.3, 'flip');
+  join(12.9, 13.3, 'iris', { at: [800, 700], col: '#f5eedd' });
   shot(12.9, 16.9, (g, t, sh) => { window.__markInk = '#f5eedd'; drawL3(g, t, l3); }, { id: 'v1-3' });
 }
 

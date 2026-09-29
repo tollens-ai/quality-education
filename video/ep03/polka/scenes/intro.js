@@ -13,7 +13,7 @@ import { GRAPHITE, C } from '../palette.js';
 export function register(S) {
   const flipA = 2.321, flipB = 2.737;
   shot(0, flipB + .05, drawIntro, { id: 'intro' });
-  join(flipA, flipB, 'flip');
+  join(flipA, flipB, 'push', { dir: [-1, 0] });
 }
 
 function drawIntro(g, t) {

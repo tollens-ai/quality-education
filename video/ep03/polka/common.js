@@ -1,15 +1,19 @@
 // Small things every scene uses: the ground and sky washes, timing ramps, the dancing pulse.
 import { W, H, clamp, lerp, inv, smooth, easeOut, backOut, elastic, beatPulse, downPulse, sway, beatPos } from './kit.js';
 import { scrub, line } from './pencil.js';
+import { bounce } from './life.js';
 import { GRAPHITE, C } from './palette.js';
 
 // A ramp 0..1 between two times, eased.
 export const ramp = (t, a, b, ease = easeOut) => ease(inv(a, b, t));
 export const pop = (t, a, dur = .22) => t < a ? 0 : backOut(inv(a, a + dur, t), 2.2);
-// A dance: {sq: squash on the oom, lean: sway, bob: lift on every beat}, scaled by `k`.
+// A dance: {sq: squash, lean: sway, bob: lift, bp, dp: pulses on every beat and on the oom}, scaled by `k`.
+// The body hops off each beat and lands on the next (squashing as it lands, stretching in the air), a
+// little higher on the oom, and leans left and right with the oom-pah.
 export function groove(t, k = 1) {
   const bp = beatPulse(t, .17), dp = downPulse(t, .22);
-  return { sq: dp * .32 * k, lean: sway(t) * .03 * k, bob: bp * 9 * k, bp, dp };
+  const b = bounce(t, k * .55);
+  return { sq: b.sq * 2.6, lean: sway(t) * .035 * k, bob: b.lift, bp, dp };
 }
 
 // Grass: a crayon scrub across a band, with the horizon drawn in graphite.
@@ -19,12 +23,14 @@ export function ground(g, t, y0 = 1200, y1 = 1500, o = {}) {
   scrub(g, [0, y0 + 30, W, y1], { col: col2, seed: seed + 4, t, gap: 34, w: 20, alpha: .38, angle: .18, wig: 22 });
   line(g, [[0, y0 + 6], [260, y0 - 6], [560, y0 + 8], [860, y0 - 4], [W, y0 + 4]], { w: 5.4, col: GRAPHITE, seed: seed + 8, t, wob: 3, passes: 2, alpha: .75 });
 }
-// A pale sky wash from the top of the page down to the horizon: stronger at the top, fading towards it.
+// A sky in blue crayon from the top of the page down to the horizon: heavier at the top, pale at the
+// horizon, where it runs out into the paper (as a sky does when the child gets bored of colouring it).
 export function sky(g, t, horizon = 1330, o = {}) {
   const { col = C.sky, alpha = .2, seed = 11 } = o;
-  const mid = horizon * .5;
+  const mid = horizon * .45;
   scrub(g, [0, 0, W, mid], { col, seed, t, gap: 30, w: 34, alpha, angle: .1, wig: 30 });
-  scrub(g, [0, mid - 60, W, horizon], { col, seed: seed + 3, t, gap: 36, w: 34, alpha: alpha * .55, angle: .06, wig: 30 });
+  scrub(g, [0, mid - 90, W, horizon * .82], { col, seed: seed + 3, t, gap: 36, w: 34, alpha: alpha * .8, angle: .06, wig: 30 });
+  scrub(g, [0, horizon * .62, W, horizon + 14], { col, seed: seed + 6, t, gap: 44, w: 34, alpha: alpha * .5, angle: .04, wig: 30 });
 }
 
 // The whole lower page as grass: the far meadow, then a darker foreground with tufts, to the bottom

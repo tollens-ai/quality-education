@@ -10,7 +10,7 @@ import { write, measure } from './hand.js';
 import { clawd, dachshund } from './chars.js';
 import { person, dogFront, BREED_NAMES } from './people.js';
 import { GRAPHITE, C, PAPER } from './palette.js';
-import { rrect, ellipse, star, scallop } from './shapes.js';
+import { rrect, ellipse, star, scallop, capsule } from './shapes.js';
 
 export const font = 'sans-serif';
 export async function init(S) { await loadRecord(S, '/music/ep03/audio.json'); }
@@ -38,6 +38,8 @@ export function draw(g, t, S) {
   const bp = beatPulse(t, .18), dp = downPulse(t, .22), sw = sway(t);
   const vox = loud('vocals', t);
   if (v === 'sheet') return sheet(g, t, S);
+  if (v === 'big') return big(g, t, S);
+  if (v === 'shapes') return shapes(g, t, S);
   if (v === 'type') return typeSheet(g, t, S);
   if (v === 'dogs') return dogSheet(g, t, S);
   if (v === 'people') return peopleSheet(g, t, S);
@@ -112,4 +114,24 @@ function peopleSheet(g, t, S) {
     { hair: { style: 'cap', col: '#3f6fd6' }, top: C.green, bottom: '#8b5f2a', skin: '#efc7a0' },
   ];
   specs.forEach((sp, i) => person(g, { x: 190 + (i % 3) * 350, y: 640 + Math.floor(i / 3) * 620, s: 1.1, t, seed: i + 2, ...sp, eyes: i === 2 ? 'happy' : 'dot', mouth: i === 1 ? 'open' : 'smile', armL: { up: i % 2 ? .4 : -.9, out: .3 }, armR: { up: -.6 + i * .15, out: .3 } }));
+}
+
+// Clawd and Bruce at the size they'll be in the film.
+function big(g, t, S) {
+  paper(g);
+  clawd(g, { x: 400, y: 620, s: 1.3, t, seed: 5, eyes: 'open', mouth: .55, cheeks: false });
+  clawd(g, { x: 400, y: 1180, s: 1.2, t, seed: 3, eyes: 'happy', mouth: 0, cheeks: true, armR: { up: .8 }, armL: { up: .3 } });
+  dachshund(g, { x: 470, y: 1640, s: 1.05, t, seed: 2, walk: 0, eyes: 'open', mouth: .5, tongue: true });
+  write(g, 'CLAWD', 860, 300, 46, { col: GRAPHITE, seed: 4, t, align: 'center' });
+}
+// The plain shapes, drawn by hand: boxes, circles, a star, a capsule.
+function shapes(g, t, S) {
+  paper(g);
+  blob(g, rrect(300, 300, 380, 240, 24, 3, 5), { fill: C.orange, line: GRAPHITE, lw: 7, seed: 5, t });
+  blob(g, rrect(780, 300, 300, 240, 8, 3, 6), { fill: C.sky, line: GRAPHITE, lw: 7, seed: 6, t });
+  blob(g, ellipse(300, 720, 170, 170, 12, 0, 7), { fill: C.yellow, line: GRAPHITE, lw: 7, seed: 7, t });
+  blob(g, ellipse(780, 720, 230, 120, 12, 0, 8), { fill: C.green, line: GRAPHITE, lw: 7, seed: 8, t });
+  blob(g, star(300, 1100, 140, 60, 5, -Math.PI / 2, 9), { fill: C.red, line: GRAPHITE, lw: 7, seed: 9, t });
+  blob(g, capsule([700, 1000], [860, 1200], 46, 40, 5, 10), { fill: C.purple, line: GRAPHITE, lw: 7, seed: 10, t });
+  blob(g, rrect(540, 1560, 900, 260, 40, 3, 11), { fill: C.teal, shade: '#1f7f78', line: GRAPHITE, lw: 7, seed: 11, t });
 }

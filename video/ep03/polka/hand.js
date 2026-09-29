@@ -148,10 +148,10 @@ export function write(g, str, x, y, size, o = {}) {
       const pts = st.p.map(p => [p[0], p[1] - 100]);
       if (bubble && st.sf) continue;
       if (bubble) {
-        line(g, pts, { w: lw * (bubble.e || 2.05), col: bubble.edge || '#2b2a33', seed: seed * 31 + i * 7 + si, t, from: f0, to: f1, spline: !!st.s, wob: wp * .7, passes: 1, flat: true, alpha: 1, tooth: .8 });
-        line(g, pts, { w: lw * (bubble.f || 1.3), col: bubble.fill, seed: seed * 37 + i * 7 + si, t, from: f0, to: f1, spline: !!st.s, wob: wp, passes: 1, flat: true, alpha: .95, tooth: .5 });
+        line(g, pts, { w: lw * (bubble.e || 2.05), col: bubble.edge || '#2b2a33', seed: seed * 31 + i * 7 + si, t, from: f0, to: f1, spline: !!st.s, wob: wp * .7, passes: 1, flat: true, alpha: 1, tooth: .8, over: 0, bow: 0 });
+        line(g, pts, { w: lw * (bubble.f || 1.3), col: bubble.fill, seed: seed * 37 + i * 7 + si, t, from: f0, to: f1, spline: !!st.s, wob: wp, passes: 1, flat: true, alpha: .95, tooth: .5, over: 0, bow: 0 });
       } else {
-        line(g, pts, { w: lw, col, seed: seed * 31 + i * 7 + si, t, from: f0, to: f1, spline: !!st.s, wob: wp, passes: 2, taper: [.08, .12], alpha });
+        line(g, pts, { w: lw, col, seed: seed * 31 + i * 7 + si, t, from: f0, to: f1, spline: !!st.s, wob: wp, passes: 2, taper: [.08, .12], alpha, over: 0, bow: 0 });
       }
     }
     g.restore();

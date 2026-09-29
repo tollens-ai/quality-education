@@ -54,6 +54,41 @@ Earlier, in the lyric work (2026-09-29, from the scratchbook): "lean into dog-sh
 per quality dimension, a best-in-show award (e.g. best intro to the app, or to Claude), jumping
 through hoops, chasing balls." The image set is dogs and dog-walking, not a uniform or medals.
 
+## Qing's notes on the look (2026-09-29, verbatim, in the order she sent them)
+
+On the first look proof and the storyboard:
+
+> On the design I want you to use your own judgement but just be careful with overdoing it. Just use
+> your creativity and do the best you can but just don't make it like I worry about the pencils and
+> the dogs. I think you don't need to make the art style a part of the content. That sounds too
+> confusing. Just focus on the dogs and the dogs on the app are going to be enough I think any
+> storyboard images that you could show me? I will happily look at those and give you my feedback.
+
+After she watched the proof clips (she had first worried about the lyric punctuation, seen from the
+timing track, then saw the words in the clip were right and dropped it):
+
+> Honestly the style is not that bad. There's a kind of charm to it. It's still a bit rigid and
+> simplistic, though, so I just wonder what we can do to give a bit more life and you-ness to it
+
+> But yeah do you see what I mean when I say a child's drawing, not a child drawing in Microsoft Paint?
+
+> I think you'll get a really good effect if you just went to every geometric shape you got and tried
+> to hand-draw it instead, just hand-draw as a actual pencil-to-paper scribble in JavaScript. And then
+> what you'll get is something that resembles the shape you planned but has that hand-drawn
+> appearance.
+
+**What I took from them (mine, not hers).** (1) The world is the dogs and the dog-walking app, and the
+dog show; the sketchbook, the pencil and the paper are only how it is drawn, so no page turns, no
+pencil-scribble wipes, no graph or ruled paper as a place, and no gag about the pencil. (2) "Rigid and
+simplistic" is a fault of how the shapes were made (clean boxes and ovals given a pencil texture), and
+of how still and sparse the pictures were. (3) The fix she names is to draw every shape the way a hand
+does, as strokes: the pen now draws a box as a few separate strokes that run past a corner or stop short
+of it, a circle as a loop that doesn't quite close, and colour as one scribble that spills over the
+line, misses patches and is redone every drawing; and every drawn thing is opaque, like a drawing on
+paper. (4) "Life and you-ness" is acting and small delights: eyes that wander and blink, ears and tails that keep
+swinging, a bounce that squashes as it lands, small things happening in the corners, and jokes that
+are mine.
+
 ## What the viewer must understand, and the line they'll remember
 
 **By the end:** good isn't one thing but many different, independent ways software can be good or

@@ -54,14 +54,20 @@ export function mix(a, b, p) {
   return toHex(A.map((v, i) => lerp(v, B[i], clamp(p))));
 }
 
-// ---------------------------------------------------------------- the boil
-// A hand-drawn line is redrawn about twelve times a second, each time a little differently, in a
-// short cycle of versions (three or four) that isn't a plain 1-2-3: that's what keeps it looking
-// drawn, not noisy. `boil(t)` is the drawing number; `variant(t)` is which of the cycle's versions.
-export const BOIL_FPS = 12;
-const CYCLE = [0, 1, 2, 1, 0, 2, 0, 1, 2, 0, 2, 1];
+// ---------------------------------------------------------------- the boil, and drawing on twos
+// A child's drawing that comes to life is redrawn every other frame (fifteen drawings a second), each
+// time a little differently, in a short cycle of versions that isn't a plain 1-2-3: that's what keeps it
+// looking drawn, not noisy. Everything but the camera is drawn at the drawing's own time, `twos(t)`, so
+// poses hold for two frames and step, as hand-drawn animation does. `boil(t)` is the drawing number;
+// `variant(t)` is which of the cycle's versions. `NOW.t` is the time of the drawing being made, so the
+// shape generators can morph a shape between versions without being passed the time.
+export const BOIL_FPS = 15;
+const CYCLE = [0, 1, 2, 1, 0, 2, 0, 1, 2, 0, 2, 1, 1, 0, 2, 1, 2, 0];
 export const boil = t => Math.floor(t * BOIL_FPS + 1e-6);
 export const variant = t => CYCLE[((boil(t) % CYCLE.length) + CYCLE.length) % CYCLE.length];
+export const twos = t => Math.floor(t * BOIL_FPS + 1e-6) / BOIL_FPS;
+export const NOW = { t: 0 };
+export const setNow = t => { NOW.t = t; };
 
 // ---------------------------------------------------------------- the record
 // B = beats.json: { beats: [{t, bar, beat, down}], bars, sections }, A = audio.json.
@@ -143,3 +149,10 @@ export function words(section, starts, nth = 0) {
   const li = lineIndex(l);
   return l.words.map((w, wi) => ({ ...w, v: w.s - VLEAD, li, wi, str: clean(w.w) }));
 }
+
+// ---------------------------------------------------------------- event times, for follow-through
+// Times of every beat, every downbeat, and every sung word's onset: what a body, an ear or a tail is
+// set moving by. (`LY` is filled by setLyrics.)
+export const beatTimes = () => REC._bts || (REC._bts = REC.beats.map(b => b.t));
+export const downTimes = () => REC._dts || (REC._dts = REC.downs.map(b => b.t));
+export const wordTimes = () => LY._wts || (LY._wts = LY.lines.flatMap(l => l.words.map(w => w.s)).sort((a, b) => a - b));

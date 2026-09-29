@@ -5,7 +5,7 @@
 // Each scene file registers its shots (start, end, draw) and the joins between them once the song and
 // its words are loaded. A shot draws its whole frame, lettering included, as a pure function of song
 // time; drawings change about twelve times a second (the boil) while everything else moves on every frame.
-import { W, H, loadRecord } from './kit.js';
+import { W, H, loadRecord, twos, setNow } from './kit.js';
 import { SHOTS, JOINS, drawFrame } from './shots.js';
 import { write } from './hand.js';
 import { AUDIT } from './lyrics.js';
@@ -24,8 +24,11 @@ export async function init(S) {
 }
 
 export function draw(g, t, S) {
-  window.__t = t;
-  drawFrame(g, t);
+  // Drawings are made every other frame (on twos); a drawing's clock is the time of its own frame.
+  const tq = twos(t);
+  window.__t = tq;
+  setNow(tq);
+  drawFrame(g, t, tq);
 }
 
 // The corner marks, small, in the film's own pencil: the handle and Tollens's ∴ (three dots at the

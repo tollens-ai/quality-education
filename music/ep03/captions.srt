@@ -1,6 +1,6 @@
 1
 00:00:03,274 --> 00:00:06,735
-Correct I built it, then I checked: it books the walks so brilliantly!
+Correct? I built it, then I checked: it books the walks so brilliantly!
 
 2
 00:00:06,774 --> 00:00:09,684
@@ -8,7 +8,7 @@ An older phone? The store says no, so where's compatibility?
 
 3
 00:00:10,089 --> 00:00:13,245
-The sign-ups soared, performance dived, and that's poor scale-ability!
+The sign-ups soared, performance dived, and that's poor scalability!
 
 4
 00:00:13,520 --> 00:00:16,580
@@ -16,7 +16,7 @@ It died at night; the dogs all cried: goodbye, reliability!
 
 5
 00:00:16,945 --> 00:00:20,074
-Accessibility's a mess and so is use-ability!
+Accessibility's a mess and so is usability!
 
 6
 00:00:20,236 --> 00:00:23,175

@@ -121,7 +121,7 @@ export function oldPhone(g, x, y, s, t, o = {}) {
 // ---------------------------------------------------------------- clipboard
 // A clipboard with a sheet, three tick boxes and their ticks written on by `prog` (an array of three, or one number).
 export function clipboard(g, x, y, s, t, o = {}) {
-  const { seed = 5, prog = [0, 0, 0], tilt = 0, col = C.green } = o;
+  const { seed = 5, prog = [0, 0, 0], tilt = 0, col = C.green, labels = null } = o;
   g.save();
   g.translate(x, y); g.rotate(tilt); g.scale(s, s);
   blob(g, rrect(0, 0, 250, 330, 20, 3), { fill: '#c99a5a', line: ink, lw: 6.6, seed, t, hw: 5, tone: .6, sh: .25, shade: '#8b5f2a' });
@@ -130,7 +130,8 @@ export function clipboard(g, x, y, s, t, o = {}) {
   for (let i = 0; i < 3; i++) {
     const y0 = -84 + i * 84;
     line(g, [[-84, y0], [-52, y0], [-52, y0 + 32], [-84, y0 + 32], [-84, y0]], { w: 5, col: ink, seed: seed + 10 + i, t, spline: false, passes: 1 });
-    line(g, [[-30, y0 + 16], [76, y0 + 14]], { w: 5, col: C.grey, seed: seed + 20 + i, t, spline: false, passes: 1, alpha: .8 });
+    if (labels) write(g, labels[i], -28, y0 + 30, 26, { col: ink, seed: seed + 20 + i, t, track: 3, w: .11 });
+    else line(g, [[-30, y0 + 16], [76, y0 + 14]], { w: 5, col: C.grey, seed: seed + 20 + i, t, spline: false, passes: 1, alpha: .8 });
     const p = Array.isArray(prog) ? prog[i] : (i < prog ? 1 : 0);
     if (p > 0) tick(g, -68, y0 + 12, 46, t, { col, seed: seed + 30 + i, prog: p, w: 10 });
   }

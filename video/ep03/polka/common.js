@@ -19,10 +19,12 @@ export function ground(g, t, y0 = 1200, y1 = 1500, o = {}) {
   scrub(g, [0, y0 + 30, W, y1], { col: col2, seed: seed + 4, t, gap: 34, w: 20, alpha: .38, angle: .18, wig: 22 });
   line(g, [[0, y0 + 6], [260, y0 - 6], [560, y0 + 8], [860, y0 - 4], [W, y0 + 4]], { w: 5.4, col: GRAPHITE, seed: seed + 8, t, wob: 3, passes: 2, alpha: .75 });
 }
-// A pale sky wash at the top of the page.
-export function sky(g, t, y1 = 640, o = {}) {
+// A pale sky wash from the top of the page down to the horizon: stronger at the top, fading towards it.
+export function sky(g, t, horizon = 1330, o = {}) {
   const { col = C.sky, alpha = .2, seed = 11 } = o;
-  scrub(g, [0, 0, W, y1], { col, seed, t, gap: 30, w: 34, alpha, angle: .1, wig: 30 });
+  const mid = horizon * .5;
+  scrub(g, [0, 0, W, mid], { col, seed, t, gap: 30, w: 34, alpha, angle: .1, wig: 30 });
+  scrub(g, [0, mid - 60, W, horizon], { col, seed: seed + 3, t, gap: 36, w: 34, alpha: alpha * .55, angle: .06, wig: 30 });
 }
 
 // The whole lower page as grass: the far meadow, then a darker foreground with tufts, to the bottom

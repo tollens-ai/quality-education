@@ -18,7 +18,7 @@ export function register(S) {
 
 function drawIntro(g, t) {
   paper(g);
-  sky(g, t, 780, { alpha: .26, col: '#79c2ef' });
+  sky(g, t, 1300, { alpha: .3, col: '#79c2ef' });
   const gr = groove(t, 1);
   write(g, 'SOFTWARE QUALITY THEORY 101', W / 2, 290, 40, { col: C.blue, seed: 3, t, align: 'center', prog: ramp(t, .25, 1.15, x => x), track: 7 });
   write(g, 'EPISODE 3', W / 2, 352, 30, { col: C.blue, seed: 4, t, align: 'center', prog: ramp(t, .9, 1.35, x => x), track: 10 });

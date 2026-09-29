@@ -1,13 +1,15 @@
 # Captions for episode 3's take ("The ilities", Suno), one per line, in sung order.
-# Text follows Qing's final lyric sheet (2026-09-29), which the take sings word for word.
+# Text follows Qing's final lyric sheet (2026-09-29), which the take sings word for word. The take was sung
+# from Suno's copy, which spells scalability and usability as they sound and drops the question mark after
+# "Correct"; the captions and the lettering use the sheet's spelling and punctuation.
 # Where the take differs, the captions follow the take. The break's spoken line is spoken, not sung.
 # Intro
 # Verse 1
-Correct I built it, then I checked: it books the walks so brilliantly!
+Correct? I built it, then I checked: it books the walks so brilliantly!
 An older phone? The store says no, so where's compatibility?
-The sign-ups soared, performance dived, and that's poor scale-ability!
+The sign-ups soared, performance dived, and that's poor scalability!
 It died at night; the dogs all cried: goodbye, reliability!
-Accessibility's a mess and so is use-ability!
+Accessibility's a mess and so is usability!
 Walk cats? It cost a second app. Good grief, extensibility!
 What you don't know can hurt you through a growing liability.
 So leave no stone unturned, and see the whole of software quality.

@@ -1,16 +1,17 @@
 [
  {
-  "text": "Correct I built it, then I checked: it books the walks so brilliantly!",
+  "text": "Correct? I built it, then I checked: it books the walks so brilliantly!",
   "section": "Verse 1",
   "back": false,
   "start": 3.274,
   "end": 6.335,
   "words": [
    {
-    "w": "Correct",
+    "w": "Correct?",
     "s": 3.274,
     "e": 3.717,
-    "backing": false
+    "backing": false,
+    "sung": "Correct"
    },
    {
     "w": "I",
@@ -156,7 +157,7 @@
   ]
  },
  {
-  "text": "The sign-ups soared, performance dived, and that's poor scale-ability!",
+  "text": "The sign-ups soared, performance dived, and that's poor scalability!",
   "section": "Verse 1",
   "back": false,
   "start": 10.089,
@@ -211,10 +212,11 @@
     "backing": false
    },
    {
-    "w": "scale-ability!",
+    "w": "scalability!",
     "s": 12.495,
     "e": 12.845,
-    "backing": false
+    "backing": false,
+    "sung": "scale-ability!"
    }
   ]
  },
@@ -288,7 +290,7 @@
   ]
  },
  {
-  "text": "Accessibility's a mess and so is use-ability!",
+  "text": "Accessibility's a mess and so is usability!",
   "section": "Verse 1",
   "back": false,
   "start": 16.945,
@@ -331,10 +333,11 @@
     "backing": false
    },
    {
-    "w": "use-ability!",
+    "w": "usability!",
     "s": 19.324,
     "e": 19.674,
-    "backing": false
+    "backing": false,
+    "sung": "use-ability!"
    }
   ]
  },

@@ -1,6 +1,6 @@
 // The page everything is drawn on: warm cream, a little lighter in the middle. It's the ground the
 // drawings sit on, laid down first, never over them.
-import { W, H, hash, noise2 } from './kit.js';
+import { W, H, hash, noise2, hexRgb } from './kit.js';
 import { PAPER } from './palette.js';
 
 let TILE = null;
@@ -29,7 +29,9 @@ export function paper(g, o = {}) {
   g.save();
   g.fillStyle = base;
   g.fillRect(0, 0, W, H);
-  try {
+  // The fibres are for light paper only: laid on dark paper they would wash it to grey.
+  const dark = hexRgb(base).reduce((a, b) => a + b, 0) < 330;
+  if (!dark) try {
     g.globalAlpha = .55;
     g.fillStyle = g.createPattern(paperTile(), 'repeat');
     g.fillRect(0, 0, W, H);
@@ -38,7 +40,7 @@ export function paper(g, o = {}) {
   if (vignette) {
     const gr = g.createRadialGradient(W / 2, H * .46, H * .25, W / 2, H * .5, H * .78);
     gr.addColorStop(0, 'rgba(255,250,235,0)');
-    gr.addColorStop(1, `rgba(120,90,50,${vignette})`);
+    gr.addColorStop(1, dark ? `rgba(5,8,25,${vignette * 2})` : `rgba(120,90,50,${vignette})`);
     g.fillStyle = gr;
     g.fillRect(0, 0, W, H);
   }

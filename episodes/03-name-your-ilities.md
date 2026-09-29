@@ -126,7 +126,7 @@ through hoops, chasing balls." How the pictures teach each line is in [03-video.
 | compatibility | verse 1, line 2 | it has to work on the devices people have: an older phone the store refuses |
 | performance | verse 1, line 3 | speed under load: "performance dived" |
 | scalability | verse 1, line 3 | coping with more users: "the sign-ups soared", "poor scale-ability" |
-| reliability | verse 1, line 4 | working when you need it: "it died at night" |
+| reliability | verse 1, line 4 | keeping working over time: "it died at night" |
 | accessibility | verse 1, line 5 | usable by people with different needs, not only the default user: "a mess" |
 | usability | verse 1, line 5 | easy to use: "a mess" |
 | extensibility | verse 1, line 6 | growing to do what you hadn't planned: walking cats "cost a second app" |
@@ -134,17 +134,71 @@ through hoops, chasing balls." How the pictures teach each line is in [03-video.
 | debuggability | verse 2, line 1 | can you make the problem happen again to study it |
 | diagnosability | verse 2, line 2 | does it tell you why, not just that it failed: "it's 'Oops'" |
 | recoverability (and stale docs) | verse 2, line 3 | getting back what you lost; docs that promise a backup that isn't there |
-| testability | verse 2, line 4 | can it be checked without walking it through by hand |
+| testability | verse 2, line 4 | can you poke it and tell whether it's good: walking it through by hand, it "misses a lot" |
 | readability (and lean context) | verse 2, line 5 | can an agent find its way in it, without burning its context |
 | maintainability | verse 2, line 6 | patching one bug shouldn't hatch two more |
 | resilience, compliance | bridge | two qualities that don't end in "-ility", to show the name is a nickname |
 | sixteen more | the break | there are many; the point is to name yours, not to learn them all |
 
 The chorus carries four trade-offs (fast against steady, ship by a date against ease of change, save
-on the checking against bugs, polish one part against another taking a blow), and the bridge says the
-dimensions are independent: knowing how good one is tells you nothing about another. Both are true
-and the video shows both (in the instrumental, four dogs score differently on speed, care, cost and
-fun; no dog wins everything).
+on the checking against bugs, polish one part against another taking a blow), and the bridge says
+each dimension is independent. Both are true, in different senses: being good on one doesn't
+guarantee, or rule out, being good on another, and yet they share limited time and design
+choices, so effort on one can cost another, and sometimes helps it. The video shows both (in the
+instrumental, four dogs score differently on speed, care, thrift and fun and no dog wins everything;
+in the bridge six dogs pull six ways on leads that end in one walker's hands).
+
+## The pictures, checked against Ed Pringle's catalogue
+
+A Sonnet subagent checked every ility and its planned picture against Ed Pringle's catalogue of
+quality attributes and, for the rest, standard usage (from memory: no web or standards text was
+consulted, so outside claims carry its confidence, medium for the newer ISO edition). Its flags
+are folded into the pictures ([03-video.md](03-video.md), *Guardrails*): five pictures taught a
+neighbouring quality (a dive read as a crash; obedience and paperwork instead of outsiders' rules;
+a searcher instead of a failure you'd notice; size instead of fit; a recycle arrow instead of reuse),
+accessibility was drawn as eyesight only, testability as "by hand is bad", and several pictures
+shared props. Seventeen of the 32 qualities the song names have a page in Ed's catalogue; the other 15
+don't, and their meaning here is standard usage.
+
+**Candidate glosses for the end card** (a claim: Qing to check; E is Ed's page, N is not in his catalogue):
+
+| Quality | In plain words | |
+|---|---|---|
+| functional correctness | Does it do what it should? | E |
+| compatibility | Works with the devices people already have | N: ISO/IEC 25010 |
+| performance | How fast does it respond? | E |
+| scalability | Can it cope as it grows? | E |
+| reliability | Does it keep working over time? | E |
+| accessibility | Can people with disabilities use it? | E |
+| usability | How easy is it to use? | E |
+| extensibility | How easy is it to add features? | E |
+| debuggability | Can you reproduce and fix bugs easily? | E |
+| diagnosability | How easy is it to tell what's wrong? | E |
+| recoverability | Can you get back to a good state? | E |
+| testability | Poking it, can you tell if it's good? | E |
+| readability | Can a newcomer or agent follow the code? | N: part of maintainability; Ed's agent-era notes |
+| maintainability | How easy is it to change the code? | E |
+| resilience | What happens when things go wrong? | E |
+| compliance | Does it meet the rules for its industry? | E |
+| upgradability | Can you move to newer versions easily? | N: ordinary usage |
+| replaceability | Can you swap it for another easily? | N: ISO/IEC 25010 |
+| explainability | Can it tell you why it did that? | N: AI usage |
+| traceability | Can you follow it back to its source? | Ed's diagnosability page names it |
+| observability | Can you see what it's doing, even normally? | E |
+| reversibility | Can you undo it? | N: interface design |
+| installability | How easy is it to set up? | N: ISO/IEC 25010 |
+| portability | Can it run in different places? | E |
+| flexibility | Can it adapt when needs change? | N: ISO/IEC 25010:2023 |
+| detectability | Would you notice when it goes wrong? | N: an unusual term; two readings |
+| suitability | Does it fit what the person needs? | N: ISO "functional suitability" |
+| reusability | Can you use it again elsewhere? | N: ISO/IEC 25010 |
+| sustainability | Does it last without wasting energy? | N: two senses, green and longevity |
+| changeability | How easy is it to make changes? | N: Ed's headline for maintainability |
+| deployability | How easy is it to ship changes live? | E |
+| enjoyability | Is it a pleasure to use? | N: a non-standard word |
+
+"Liability" is a moral in the refrain, not a quality: no rosette. "Steady" and "sound" in the
+chorus are everyday words for reliability and robustness, not named dimensions.
 
 ## Expert notes (Qing's words, verbatim)
 

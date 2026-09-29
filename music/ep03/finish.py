@@ -11,10 +11,33 @@ import json
 import sys
 
 
+# The take is sung from Suno's copy of the lyric, which spells two words as they sound and drops a
+# question mark that splits the first line (LYRICS.md, "Punctuation steers the generator's phrasing").
+# What is lettered on screen and captioned is the sheet's own spelling. The times don't change.
+SHEET = {("Verse 1", 0, "Correct"): "Correct?", ("Verse 1", 2, "scale-ability!"): "scalability!", ("Verse 1", 4, "use-ability!"): "usability!"}
+
+
+def to_sheet(L):
+    seen = {}
+    for l in L:
+        i = seen.get(l["section"], 0)
+        seen[l["section"]] = i + 1
+        changed = False
+        for w in l["words"]:
+            key = (l["section"], i, w["w"])
+            if key in SHEET:
+                w["sung"] = w["w"]
+                w["w"] = SHEET[key]
+                changed = True
+        if changed:
+            l["text"] = " ".join(w["w"] for w in l["words"])
+    return L
+
+
 def main(measure, lyr_path, out):
     B = json.load(open(f"{measure}/beats.json"))
     A = json.load(open(f"{measure}/audio.json"))
-    L = json.load(open(lyr_path))
+    L = to_sheet(json.load(open(lyr_path)))
     dur = B["duration"]
     fps = A["fps"]
     vdb = A["db"]["vocals"]
@@ -64,6 +87,13 @@ def main(measure, lyr_path, out):
     json.dump(B, open(f"{out}/beats.json", "w"))
     json.dump(A, open(f"{out}/audio.json", "w"))
     json.dump(L, open(f"{out}/lyrics.json", "w"), indent=1)
+
+    def ts(x):
+        ms = round(x * 1000)
+        return f"{ms // 3600000:02}:{ms // 60000 % 60:02}:{ms // 1000 % 60:02},{ms % 1000:03}"
+    with open(f"{out}/captions.srt", "w") as f:
+        for n, l in enumerate(sorted(L, key=lambda l: l["start"]), 1):
+            f.write(f"{n}\n{ts(l['start'])} --> {ts(l['end'] + 0.4)}\n{l['text']}\n\n")
     for s in secs:
         print(f"{s['name']:14s} {s['start']:7.2f} - {s['end']:7.2f}  {s['seconds']:6.2f} s  bars {s['bars'][0]:3d}-{s['bars'][1]:3d}  {s['kind']}")
 

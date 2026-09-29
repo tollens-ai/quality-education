@@ -1,6 +1,6 @@
 # Episode 3 video: "The 'Ilities", "Pencil Polka"
 
-**Status (2026-09-29): pre-production done and a look proof drawn; the film itself is not built.** The
+**Status (2026-09-29): pre-production done and a look proof drawn (the first 17 seconds and two chorus lines); the film itself is not built.** The
 word timings are measured and waiting for Qing's ears (a karaoke check went to her phone), the
 music is mapped, the storyboard and the plan are below, and the first ten seconds exist as a proof of
 the look and the motion. Nothing here has been reviewed by Qing yet.
@@ -10,7 +10,8 @@ prompt and the teaching plan are in [03-name-your-ilities.md](03-name-your-iliti
 sounds like is in [music/ep03/listening-notes.md](../music/ep03/listening-notes.md). The style is
 [Pencil Polka](../.claude/skills/music-video/references/style-pencil-polka.md), and its renderer is
 [video/ep03/polka/](../video/ep03/polka/README.md). A Sonnet is making the video, at maximum effort, with
-no reviewer committee, as Qing asked.
+no reviewer committee, as Qing asked. One Sonnet subagent fact-checked the ility pictures; the
+video's own drawing, timing and choices are one hand's.
 
 ## Qing's brief (2026-09-29, verbatim)
 
@@ -142,6 +143,35 @@ has the detail, and [video/ep03/polka/](../video/ep03/polka/README.md) the code.
 | **The owners and clerks** | an owner with an old phone (Ada), a bulldog shop clerk, the judge (a bulldog in a bowler), the cat who won't walk, the walkers | round-headed doodle people and front-on dog busts (bulldog, lab, poodle, corgi, sheepdog, beagle, pug, chihuahua, dalmatian, husky, greyhound) |
 | **The audience** | rows of dog heads at the bottom of the ring, singing and swaying; in chorus 2 some are Clawds | front-on busts, mouths going on the words |
 
+## Guardrails: what the pictures must not say
+
+From a fact-check of every picture against Ed Pringle's catalogue and standard usage (a Sonnet
+subagent; no web or standards text was consulted, so its outside claims are from memory, with
+its confidence noted). The song's words don't change; the pictures and captions keep to these.
+
+- **Not sealed boxes.** "Each is independent" is the song's word and it stays, but the careful
+  version is: good on one doesn't guarantee, or rule out, good on another, and they share limited
+  time and design choices, so effort on one can cost another, and sometimes helps it (a maintainable
+  app is easier to extend). The bridge's leads all end in one walker's two hands, and its board
+  says OFTEN and SEPARATE TO JUDGE. LINKED TO BUILD.
+- **Not one seesaw,** and **no overall winner:** no "Best in Show" that sums the rosettes. The
+  agility trials end with four different rosettes to four different dogs.
+- **Not a set to collect,** and **a rosette's colour names a quality, never a place** (blue is first
+  place in some countries' shows and second in others).
+- **Ticks don't prove a rosette:** verse 1's checks are few and narrow (BOOK, CANCEL, PAY), so the
+  failures that follow are what they never covered.
+- **Each dog is judged against its own kind:** a per-breed standard is the "who it's for" point.
+- **Some qualities aren't optional for everyone:** accessibility, privacy, security, compliance and
+  safety can be required by law or by a dealbreaker. "Which are yours?" is about priorities, not
+  about whether to look. (See the questions.)
+- **Agents are teammates and users,** so the card says "some agent-facing" and doesn't claim
+  verse 2's list is the list.
+- **No look-alike props for different ilities:** the heartbeat line is observability's only, the
+  magnifier is accessibility's and never detectability's, the recycle arrow is sustainability's,
+  and "one press and it appears" is installability's, not deployability's.
+- **The words on screen are the lyric sheet's,** not the take's phonetic copy: SCALABILITY,
+  USABILITY, and "Correct?".
+
 ## Storyboard
 
 One picture a line, in song order. Times are the first word's onset to the last word's end; the
@@ -156,14 +186,14 @@ quietest, plainest section: piano and a light orchestra with the voice alone.
 | Line | Picture: the one thing to read | What it teaches, and how | Beats on the words | Tail |
 |---|---|---|---|---|
 | **Title** 0.0-3.3 | the title page: SOFTWARE QUALITY THEORY 101 · EPISODE 3, "THE ILITIES" written on; three rosettes pop on the first three beats; Clawd jumps in, Bruce trots in; the page flips up on the beat at 2.32-2.74 | the series and the word the whole film is about | title writes bars 1-3; rosettes 1.06, 1.48, 1.91; flip 2.32-2.74 | |
-| **1** 3.3-6.3 *Correct I built it, then I checked: it books the walks so brilliantly!* | Clawd shows a big phone, the Walkies app, filling its calendar with paw stamps; his clipboard of checks ticks itself; a blue rosette pinned on with a burst | functional correctness: it does the job, and the checks pass. This is the naive first win: one rosette | phone pops in on "Correct"; ticks at "it," (4.16) "checked:" (4.59) "it" (4.98); stamps on "books" "walks" "so"; burst, rosette and BOOKED! on "brilliantly!" (5.99) | blue |
+| **1** 3.3-6.3 *Correct? I built it, then I checked: it books the walks so brilliantly!* | Clawd shows a big phone, the Walkies app, filling its calendar with paw stamps; his clipboard of checks, labelled BOOK, CANCEL and PAY, ticks itself; a blue rosette pinned on with a burst | functional correctness: it does the job, and the checks pass. The naive first win: one rosette. The checks are few and narrow on purpose, so the later failures show what they never covered | phone pops in on "Correct"; ticks at "it," (4.16) "checked:" (4.59) "it" (4.98); stamps on "books" "walks" "so"; burst, rosette and BOOKED! on "brilliantly!" (5.99) | blue |
 | **2** 6.8-9.3 *An older phone? The store says no, so where's compatibility?* | an owner holds up an old brick phone at an App Store counter; the bulldog clerk brings a rubber stamp down on "no," (8.20) and NO lands on the DOWNLOAD counter; question marks pop over her, and an empty green rosette with a "?" hangs | compatibility: it has to work on the devices people have | "older" "phone?" (6.89, 7.21) the old phone rises; stamp lifts on "store" and lands on "no,"; "?"s on "where's" | green |
-| **3** 10.1-12.9 *The sign-ups soared, performance dived, and that's poor scale-ability!* | a tall diving board over a paddling pool marked SERVER; a counter on its post spins up, dogs join the end of the board on each beat, 1, 2, 4; the board bends and dives into the pool, and snaps; the rosette sinks | performance (it slowed) and scalability (it can't take more); the board is a real limit, and it doubles as the "dived" pun | "sign-ups" (10.25) counter runs; dogs pile on at 10.36, 10.79, 11.2; "performance" (11.03) the board bends; "dived," (11.57) splash; "scale-ability" (12.49) crack | violet |
-| **4** 13.5-16.2 *It died at night; the dogs all cried: goodbye, reliability!* | the first dark page: night, a moon, three houses with lit windows; the app's screen goes black and flatlines; a dog howls at each window with a lead in its mouth; the red rosette floats up on a balloon string and away past the moon | reliability: it has to work when you need it, including at night | "died" (13.72) the screen goes out; "cried:" (14.98) tears and AWOOO; "goodbye," (15.29) paws wave; "reliability!" (15.83) the balloon rises and the letters droop like tears | red |
-| **5** 16.9-19.7 *Accessibility's a mess and so is use-ability!* | back to day, one picture in two halves: an owner squinting through a magnifier at tiny text, then Bruce's huge paw missing a tiny button; then the app is a maze of menus with the user lost in it; a purple rosette hangs crooked, an orange one is tangled in a lead | accessibility (people who can't read small print or tap tiny buttons, among others) and usability (a clear way through); two rosettes | "Accessibility's" (16.95, held) magnifier and paw; "a mess" (18.26, 18.47) everything wobbles; "use-ability!" (19.32) the maze draws itself | orange |
-| **6** 20.2-22.8 *Walk cats? It cost a second app. Good grief, extensibility!* | a speech bubble asks WALK MY CAT? and a grey cat on a tiny lead goes limp; Clawd has to build a second phone and coins pour out; hands on head; a teal rosette with a tiny ribbon taped on to reach | extensibility: can it grow to do what you didn't plan? | "cats?" (20.58) the cat flops; "second app." (21.36, 21.77) the second phone; "grief," (22.08) hands on head; "extensibility!" (22.43) tape and ribbon | teal |
-| **7** 23.8-26.6 *What you don't know can hurt you through a growing liability.* | Clawd admires his row of rosettes; behind him a small fluffy puppy grows a size on each stress; on the last word its shadow covers him and its wagging tail sweeps him off his feet | the refrain: the qualities you never thought about become a liability | "know" (24.39) "hurt" (24.86) "growing" (25.62) each a size; "liability." (26.25) the shadow, and the letters grow, one syllable bigger each | red |
-| **8** 27.2-30.4 *So leave no stone unturned, and see the whole of software quality.* | Clawd turns over stones in the meadow, a rosette under each; on "and see the whole" the camera pulls back on a meadow of turned stones and rosettes that turns out to be the ring, bunting unfurling; SOFTWARE QUALITY hangs as a banner | the refrain: look at all of them, not one | stones at "leave" (27.50) "stone" (27.78) "unturned," (28.06); pull-back from "see" (28.73); banner on "software" (29.48); a crash at 31.1 flips the page | many |
+| **3** 10.1-12.9 *The sign-ups soared, performance dived, and that's poor scalability!* | a diving board over a paddling pool marked SERVER, with a counter on its tower running up as dogs join the board on each beat; on "performance" a stopwatch on the tower (BOOK A WALK) climbs from 0.4 s to a minute while the board sags a little more with every dog; on "scalability" the board sinks into the pool and the dogs slide in, the rosette after them | performance is how fast it answers (the stopwatch) and scalability is coping as the load grows (the sag, dog by dog): load up, speed down. The sink is gentle, not a crash, so it isn't read as a failure to stay up | "sign-ups" (10.25) counter runs; dogs at 10.36, 10.79, 11.2; "performance" (11.03, where the band accents) the stopwatch; "CREEEAK" at "dived," (11.57); "scalability!" (12.49) the sink | violet |
+| **4** 13.5-16.2 *It died at night; the dogs all cried: goodbye, reliability!* | the first dark page: night, a moon, three houses with lit windows; the app's screen goes dark and says SORRY, WE'RE DOWN; a dog howls at each window with a lead in its mouth; the red rosette floats up on a balloon string and away past the moon | reliability: it keeps working, including at night. (No heartbeat line here: that belongs to observability in the list) | "died" (13.72) the screen goes out; "cried:" (14.98) tears and AWOOO; "goodbye," (15.29) paws wave; "reliability!" (15.83) the balloon rises and the letters droop like tears | red |
+| **5** 16.9-19.7 *Accessibility's a mess and so is usability!* | back to day, one screen and three owners shut out by how it's built: tiny text that a screen reader reads as "button, button, button"; a video with no captions for a deaf owner; a tiny target that a shaky hand keeps missing; then the app is a maze of menus that every one of them gets lost in; a purple rosette hangs crooked, an orange one is tangled in a lead. The joke is on the app, never on the person | accessibility (people with different abilities are shut out) and usability (everyone gets lost); the difference is drawn: some people can't get in, or everyone can't find the way | "Accessibility's" (16.95, held) the three owners in turn; "a mess" (18.26, 18.47) everything wobbles; "usability!" (19.32) the maze draws itself | orange |
+| **6** 20.2-22.8 *Walk cats? It cost a second app. Good grief, extensibility!* | a speech bubble asks WALK MY CAT? and the booking form has a dog-shaped slot the cat can't fit; Clawd has to copy the whole app into a second phone and coins pour out; hands on head; a teal rosette with a tiny ribbon taped on to reach | extensibility: can it grow to do what you didn't plan? The fault is in the form, not the cat | "cats?" (20.58) the slot; "second app." (21.36, 21.77) the second phone; "grief," (22.08) hands on head; "extensibility!" (22.43) tape and ribbon | teal |
+| **7** 23.8-26.6 *What you don't know can hurt you through a growing liability.* | Clawd admires his row of rosettes; behind him a small fluffy puppy grows a size on each stress; on the last word its shadow covers him, its wagging tail knocks the table with the rosettes over, and a bill drops out | the refrain: the qualities you never thought about become a risk to you. Liability is not a quality, so its letters are a red warning sign that grows, with no rosette | "know" (24.39) "hurt" (24.86) "growing" (25.62) each a size; "liability." (26.25) the shadow, the crash, the bill | red warning sign |
+| **8** 27.2-30.4 *So leave no stone unturned, and see the whole of software quality.* | Clawd turns over stones in the meadow, a rosette under each; on "and see the whole" the camera pulls back on a meadow of turned stones and rosettes that turns out to be the ring, bunting unfurling; SOFTWARE QUALITY hangs as a banner | the refrain: look at all of them, not one | stones at "leave" (27.50) "stone" (27.78) "unturned," (28.06); pull-back from "see" (28.73); banner on "software" (29.48); the crash at 30.56 (bar 36, second beat) is the page flip into the chorus | many |
 
 ### Chorus 1 (31.8-52.1 s): the ring by day
 
@@ -176,7 +206,7 @@ the board. Six gags, played three times, each time further on.
 |---|---|---|---|
 | **1** 31.8-34.3 *Good in a dozen ways, and bad in others, though:* | Clawd, as judge, presents the show dog (a scruffy mutt with a WALKIES badge) on the table; twelve rosettes appear round it on a string, one a beat; on "bad in others" four wilt and go grey | good is many things, and it is bad at some | rosettes on the beats through "dozen" (32.27); the four droop on "bad" (33.12) "others," (33.55) |
 | **2** 35.0-38.2 *Fast, but it crashes; is it steady? Sound? Oh, no.* | a greyhound streaks across the ring, hits the hurdle at "crashes;" (35.64) and cartwheels; Clawd runs a hand down its legs, "steady? Sound?" (36.42, 36.96), and on "Oh, no." (37.60) a leg pops off. In a dog show, a "sound" dog has good structure and movement | speed and reliability are different, and "sound" has two meanings | crash on 35.64; the leg on 37.60 |
-| **3** 38.6-41.0 *Ship it by Sunday; it's a pain to change, and slow;* | a doodle ship (a crate hull, a SUN flag) races right; at "pain to change" (39.82, 40.28) Clawd tries to turn the wheel and it comes off in his hands; "slow;" (40.68) the ship turns into a snail | shipping fast against being easy to change | flag at "Sunday;" (39.03); the wheel at "change," (40.28); the snail on "slow;" |
+| **3** 38.6-41.0 *Ship it by Sunday; it's a pain to change, and slow;* | a doodle ship (a crate hull, a SUN flag) races right; at "pain to change" (39.82, 40.28) Clawd tries to turn the wheel and it comes off in his hands; "slow;" (40.68) the ship turns into a snail carrying a crate marked CHANGES | shipping fast against being easy to change (the change is what's slow) | flag at "Sunday;" (39.03); the wheel at "change," (40.28); the snail on "slow;" |
 | **4** 42.0-44.8 *Save on the checking, and the bugs can wreck the show;* | a piggy bank grins beside a booth marked CHECKING, BACK IN 5 MIN; a line of beetles and fleas marches in through the gate and swarms the ring; the rope and bunting fall | saving on checks costs you the show | booth at "checking," (42.48); bugs at "bugs" (43.28); "wreck" (43.79) the collapse |
 | **5** 45.5-48.3 *Polish one part, and then another takes a blow:* | Clawd brushes one paw of the show dog to a shine (sparkles), and a blow-dryer, at "takes a blow" (47.06-47.90), blasts the other end into a mess | improving one thing can cost another | brush on "Polish" (45.46) "part," (45.91); the dryer on "takes" |
 | **6** 48.7-51.8 *Which of the "ilities" are yours? I've got to know!* | the twelve rosettes lift and orbit; a spotlight sweeps the ring and lands on the camera; Clawd points at you on "yours?" (50.15) and pushes in to a close-up for "I've got to know!" (50.45-51.43); a drum hit at 51.97 | the film's question | spotlight on "ilities" (49.35); point on "yours?"; the hit |
@@ -199,12 +229,12 @@ The tails are in cooler colours, so it's clearly the other family of ilities.
 
 | Line | Picture | What it teaches, and how | Beats | Tail |
 |---|---|---|---|---|
-| **1** 58.9-61.6 *Confused, why can't I reproduce it? No debuggability.* | Clawd, confused, tells Blob to "sit"; nothing; he does it again, again; a tiny flea in a top hat pops up only when he looks away and ducks when he swings a net | debuggability: can you make the problem happen again, to study it? | "reproduce" (60.12) the same trick three times; "No" (60.90) the flea ducks | teal |
-| **2** 62.5-65.0 *I ask it why: it's "Oops". Gee, thanks for diagnosability!* | Clawd holds a stethoscope to Blob and asks why; the answer is a small sheepish bubble that says OOPS, beside a broken vase; Clawd's deadpan thumbs-up | diagnosability: does it tell you why, not just that it failed? | "why:" (62.93) ask; "Oops" (63.45) bubble; "Gee," (63.78) thumb | sky |
-| **3** 65.9-68.6 *I wipe the payments? Stale docs: "Nightly saves!" Recoverability?* | Clawd wipes a piggy bank labelled PAYMENTS clean off the page; a dusty dog-eared manual reads NIGHTLY SAVES!; he opens the BACKUPS cabinet and it is empty, a moth flies out; a retriever comes back with nothing in its mouth | recoverability (getting back what you lost), and stale documentation that lies | "wipe" (66.14) the bank vanishes; "Stale docs:" (66.90, 67.23) the manual; "Recoverability?" (68.23) the empty cabinet, the retriever | green |
-| **4** 69.4-72.1 *We walk it through by hand, and miss a lot: low testability.* | Clawd literally walks Blob round a course on a lead, ticking a clipboard, while a line of fleas slips past behind him; an AUTO-TEST machine's plug doesn't fit Blob | testability: can it be checked automatically, or only by walking it through | "walk" (69.57) the lead; "miss a lot:" (70.84, 70.98, 71.08) the fleas file by; "low" (71.44) the plug | purple |
-| **5** 72.8-75.7 *The blob's so huge, I burn my context: not much readability.* | Blob fills the frame; Clawd, tiny, scoops kibble from a bowl marked CONTEXT to read each strand, and the bowl runs dry; the writing in the fur is unreadable | readability (can an agent find its way), and lean context | "blob's" (72.91) the bulk; "burn" (73.93) the bowl empties; "readability." (75.36) the fur scribbles | blue |
-| **6** 76.3-78.8 *I patch one bug, and two more hatch: so where's maintainability?* | Clawd whacks a flea; two eggs crack and two fleas hatch; he whacks those; four eggs; the empty pedestal for maintainability | maintainability: changing one thing shouldn't break others | "patch" (76.44) whack; "two more hatch:" (77.32, 77.68) the eggs, 1 then 2 then 4 on the beats | navy |
+| **1** 58.9-61.6 *Confused, why can't I reproduce it? No debuggability.* | Clawd, confused, presses a big AGAIN button beside Blob; a tiny flea in a top hat pops up at random, only when he looks away, and ducks when he swings a net; the button does nothing | debuggability: can you make the problem happen again, to study it? | "reproduce" (60.12) AGAIN pressed three times; "No" (60.90) the flea ducks | teal |
+| **2** 62.5-65.0 *I ask it why: it's "Oops". Gee, thanks for diagnosability!* | Clawd holds a stethoscope to a screen on Blob's side and asks why; the whole answer is a small error box that says OOPS, beside a broken vase; Clawd's deadpan thumbs-up | diagnosability: does it tell you why it broke, not just that it did? | "why:" (62.93) ask; "Oops" (63.45) the box; "Gee," (63.78) thumb | sky |
+| **3** 65.9-68.6 *I wipe the payments? Stale docs: "Nightly saves!" Recoverability?* | one chain: a dusty manual dated 2019 reads NIGHTLY SAVES!; Clawd wipes the piggy bank labelled PAYMENTS clean off the page; he opens the BACKUPS cabinet and it is empty, a moth flies out; a retriever comes back with nothing in its mouth | recoverability (getting back what you lost), and stale documentation that lies | "Stale docs:" (66.90, 67.23) the manual; "wipe" (66.14) the bank vanishes; "Recoverability?" (68.23) the empty cabinet, the retriever | green |
+| **4** 69.4-72.1 *We walk it through by hand, and miss a lot: low testability.* | Clawd walks Blob round a course on a lead, ticking a clipboard, while a line of fleas slips past behind him; he pokes Blob with a probe and no readout comes; the AUTO-TEST rig's plug doesn't fit | testability: can you poke it and tell whether it's good, and can a rig probe it? (Walking it through by hand is real testing, not the fault: episode 4 says so) | "walk" (69.57) the lead; "miss a lot:" (70.84, 70.98, 71.08) the fleas file by; "low" (71.44) the probe and the plug | purple |
+| **5** 72.8-75.7 *The blob's so huge, I burn my context: not much readability.* | Blob fills the frame; Clawd, tiny, tries to stuff the whole shaggy blob into a bowl marked CONTEXT and it overflows; the writing in the fur is unreadable | readability (can an agent find its way about in it) and lean context (a finite bowl) | "blob's" (72.91) the bulk; "burn" (73.93) the bowl overflows; "readability." (75.36) the fur scribbles | blue |
+| **6** 76.3-78.8 *I patch one bug, and two more hatch: so where's maintainability?* | Clawd's whack cracks two eggs and two fleas hatch; his next whack cracks four; the empty pedestal for maintainability | maintainability: changing one thing shouldn't break others | "patch" (76.44) whack; "two more hatch:" (77.32, 77.68) the eggs, 1 then 2 then 4 on the beats | navy |
 | **7** 79.7-83.2 *What you don't know can hurt me too: it goes and puts me ill at ease.* | the puppy from verse 1, now huge, looms over a Clawd on a wobbling stool with a thermometer in his mouth; on "ill at ease" the letters ILL AT EASE shake themselves into 'ILITIES | the refrain again, for the agent; and the pun | "hurt" (80.81) the shadow; "puts me ill at ease." (82.11-82.81) the letters rearrange | yellow |
 | **8** 83.2-86.3 *You'll make my day: just name and weigh the agent-facing "ilities".* | a smiling sun rises behind Clawd as he holds out his arms to you; a kitchen scale in front, rosettes on its pans; name tags handed out and weighed | your job: name them and say how much each matters | "day:" (83.82) the sun; "name" (84.28) the tags; "weigh" (84.69) the scale tips | multi |
 
@@ -222,15 +252,15 @@ bulldog and all the audience turning to look at you with him.
 
 Sixteen bars, no voice, full band, and the place to show what the bridge is about to say: each way
 of being good is separate. The ring is now an agility course (seesaw, tunnel, weave poles, hoop,
-hurdle) in daylight, with a scoreboard of four dials: SPEED, CARE (no faults), COST and FUN. Four
+hurdle) in daylight, with a scoreboard of four dials, each of which is better the higher it goes: SPEED, CARE (no faults), THRIFT (cheap to keep) and FUN. Four
 dogs run one course in four four-bar phrases, and no two score alike:
 
 | Bars, seconds | Dog | Run | Scoreboard |
 |---|---|---|---|
-| 127-130, 108.4-111.9 | a greyhound | flat out, and knocks down everything | speed high, care low |
-| 131-134, 111.9-115.3 | a basset hound | ambles through every obstacle, perfectly, while the crowd naps | speed low, care high, cost low, fun low |
-| 135-138, 115.3-118.7 | a great dane with a gold collar | fast and clean, and the price tag drops out of his collar | speed high, care high, cost very high |
-| 139-142, 118.7-122.2 | Bruce | wobbles, falls off things and is adored; the band thins to a bass climbing, stabs on the second beat and a high trill as he makes the last hurdle; the last bar's fill flips the scoreboard into the bridge | cost low, fun very high |
+| 127-130, 108.4-111.9 | a greyhound | flat out, and knocks down everything | speed high, care low, thrift middling |
+| 131-134, 111.9-115.3 | a basset hound | ambles through every obstacle, perfectly, while the crowd naps | speed low, care high, thrift high, fun low |
+| 135-138, 115.3-118.7 | a great dane with a gold collar | fast and clean, and the price tag drops out of his collar | speed high, care high, thrift very low |
+| 139-142, 118.7-122.2 | Bruce | wobbles, falls off things and is adored; the band thins to a bass climbing, stabs on the second beat and a high trill as he makes the last hurdle; the last bar's fill flips the scoreboard into the bridge | speed low, care low, thrift high, fun very high |
 
 No dog wins everything, so the judge hands out four different rosettes. The first hit of each
 phrase is a page-wide pulse, the third phrase's stabs are the great dane's paw-prints, and the
@@ -243,12 +273,12 @@ the hunt, at about 133-137 s.
 
 | Line | Picture | Beats |
 |---|---|---|
-| **1** *A quality dimension is a way it's good or bad,* | QUALITY DIMENSION written on the board; under it one slider from a puddle (BAD) to a rosette (GOOD) with a little dog on it, a pointer that slides | "dimension" (122.67); "good or bad," (124.43, 124.77) the pointer goes end to end |
-| **2** *and each is independent: that's the part that drives you mad!* | six dogs on six leads, each with its own slider, each pulling a different way: they move on their own beats, out of step, and Clawd is dragged apart with steam coming out of his ears | "independent:" (126.07); "mad!" (128.32) |
+| **1** *A quality dimension is a way it's good or bad,* | QUALITY DIMENSION written on the board, with "for someone who matters" under it in smaller chalk; one slider from a puddle (BAD) to a rosette (GOOD) with a little dog on it, a pointer that slides | "dimension" (122.67); "good or bad," (124.43, 124.77) the pointer goes end to end |
+| **2** *and each is independent: that's the part that drives you mad!* | six dogs on six leads, each with its own slider, each pulling a different way, out of step, and one Clawd holding all the leads with his two arms: independent in where they go, linked through what he has to give them. The board says OFTEN over "independent" in a small note, and SEPARATE TO JUDGE. LINKED TO BUILD. He is dragged apart with steam coming out of his ears | "independent:" (126.07); "mad!" (128.32) |
 | **3** *And most of them are "ilities", which rhyme: a lucky break!* | the dogs' collar tags all end in -ILITY and click together like puzzle pieces; on "break!" a dog biscuit snaps neatly in two | "rhyme:" (130.81); "break!" (131.73) |
 | **4** *But some of them are not, and so I hunt, for goodness' sake:* | three collars with odd endings (PERFORMANCE, COST, CORRECTNESS); Clawd, on all fours, sniffs like a bloodhound through a heap of dictionaries in a spotlight; the hush at 133-137 s is the hunt | "not," (133.64); "hunt," (134.59); the silence |
-| **5** *Resilience... resilience... ...a stroke of brilliance!* | a bulldog is flattened by a rolling pin and springs back, twice; then Clawd's pencil draws one confident stroke and it lights up | the springs on 137.53 and 138.43; "stroke" (139.37) |
-| **6** *Compliance... compliance... ...it's rocket science!* | a dog sits, stays, on a rulebook's orders, twice; then the rulebook's stack of forms is strapped to a rocket and lifts off | "compliance" 141.01 and 141.89; "rocket" (143.11) |
+| **5** *Resilience... resilience... ...a stroke of brilliance!* | a bulldog is flattened by a rolling pin but keeps hold of his ball, then re-inflates, twice; then Clawd's pencil draws one confident stroke and it lights up | the springs on 137.53 and 138.43; "stroke" (139.37) |
+| **6** *Compliance... compliance... ...it's rocket science!* | an inspector at the ring gate checks a dog's licence tag and vaccination card, twice, and stamps the entry (rules that come from outside); the inspector's checklist is so long that it needs a rocket to carry it | "compliance" 141.01 and 141.89; "rocket" (143.11) |
 | **7** *The "ilities"? A nickname for the family, the lot:* | a family portrait of the dogs on a frame labelled THE 'ILITIES, the odd-named ones in it too | "nickname" (145.53); "lot:" (147.22) |
 | **8** *the ending's not the point: they're all dimensions, rhyme or not!* | the -ILITY endings fall off every collar and each dog is left with a sash reading DIMENSION; the sliders all set differently | "ending's" (148.20); "dimensions," (149.73); "not!" (150.75) |
 
@@ -260,14 +290,14 @@ on a hundred; then a held note.
 
 | Bars | Words | Two dogs |
 |---|---|---|
-| 177-178, 151.7 | **upgradability, replaceability** | a doghouse grows a new floor; a row of identical kennels, one dog slides out and a new one in, the row unharmed |
-| 179-180, 153.2 | **explainability, traceability** | a guilty dog holds up a note that says BECAUSE; a hound follows a thread back to where it began |
-| 181-182, 155.0 | **observability, reversibility** | an X-ray dog with a heartbeat line, watched from outside; a dog jumps into mud and an UNDO arrow pulls it out clean |
-| 183-184, 156.7 | **installability, portability** | a flat-pack box, one paw on a button, a doghouse pops up ready; a chihuahua in a handbag carried through park, boat and bus |
-| 185-186, 158.5 | **flexibility, detectability** | a dachshund bends into an S through a hoop; a beagle with a magnifier finds a bug under a leaf |
-| 187-188, 160.2 | **suitability, reusability** | a dog in a suit that fits, a great dane in the same suit that doesn't; one ball fetched and fetched again with a recycle arrow |
-| 189-190, 162.0 | **sustainability, changeability** | a dog waters a sapling; a dog quick-changes hats in a phone box |
-| 191-192, 163.7 | **deployability, enjoyability!** | a dog parachutes into the ring when a red DEPLOY button is pressed; the happiest dog in the world, tongue out, in a burst of confetti |
+| 177-178, 151.7 | **upgradability, replaceability** | a doghouse gets a new roof swapped on while the dog stays inside; a puppy keeps eating while a hand swaps his bowl for a new one |
+| 179-180, 153.2 | **explainability, traceability** | a show judge holds up a scorecard that says FIRST BECAUSE and its reasons; a hound follows a thread back to where it began |
+| 181-182, 155.0 | **observability, reversibility** | a dog with a glass belly showing its works and gauges, someone outside asking a new question about it; a dog jumps into mud and an UNDO arrow pulls it out clean |
+| 183-184, 156.7 | **installability, portability** | a flat-pack box, one paw on a button, a doghouse pops up ready; the same chihuahua fits a handbag, a rucksack and a basket unchanged |
+| 185-186, 158.5 | **flexibility, detectability** | a dachshund reshapes for a hoop, a tunnel and a cat flap; a flea with a jingle bell, so you notice it the moment it appears |
+| 187-188, 160.2 | **suitability, reusability** | a dog in a raincoat for the wet walk beside one in a tuxedo, soaked; one ball used for fetch, then for tug, then for a hoop game |
+| 189-190, 162.0 | **sustainability, changeability** | a sapling that a dog waters grows into a tree as calendar pages flip, under a solar sun; a dog quick-changes hats in a phone box |
+| 191-192, 163.7 | **deployability, enjoyability!** | a dog glides down a gentle ramp into the ring at the press of a DEPLOY button, with a BACK lever beside it; the happiest dog in the world, tongue out, in a burst of confetti |
 
 Then **"I could name you a hundred, and still not be through,"** (165.4-168.8): the runway
 zooms out and the parade runs to the horizon in a doodled crowd of hundreds. **"but the ones that
@@ -321,8 +351,8 @@ contact sheet, motion per second, and frame strips across every join, before the
 | `chars.js` | Clawd with every expression and prop; Bruce side-on, walking and stretching | done for the first ten seconds; hoop, bend, jump poses to add |
 | `people.js` | people (posed, holding things); front-on dogs in twelve breeds; Blob; the cat | people and eleven breeds drawn; Blob, the cat, hats, a judge's bowler to add |
 | `props.js` | rosettes, phones, clipboard, calendar, stamp, ticks, bursts; then the diving board, moon, houses, magnifier, mallet, eggs, fleas, scales, cabinet, bowl, hurdles, tunnel, seesaw, poles, ship, crate, hoops, ribbons, bunting, ball, board | first dozen done; about fifty to add |
-| `scenes/` | one file per section, each shot a function of the words' times | intro and the first two lines done |
-| `board.js` (to write) | the sing-along board: lyric rows on a banner, the ball's path from the word times | |
+| `scenes/` | one file per section, each shot a function of the words' times | intro, verse 1's first four lines and chorus 1's first two done |
+| `board.js` | the sing-along board: lyric rows on a sign, the ball's path from the beat map and the word times, Bruce running after it | done; the rest of the chorus lines and the second and third choruses' variations to build |
 | `tools/` (to write) | the typography audit (every word's size, time on screen, cover, contrast, reading order), the shot lister, the preview and master render scripts | copied from episode 2 and adapted |
 
 Sonnet subagents draw props and breeds against the kit and its worked examples (one file each, to
@@ -361,24 +391,41 @@ a dog-show word and "hatch" as eggs are puns that need a beat to land; they get 
   oom, blue on the pah), which also checks the beat map.
 - **The music map:** `music/ep03/beats.json` (the beat and bar grid, the sections), `audio.json`
   (each stem's loudness at 20 Hz, percussion, orchestra and bass events), and the listening notes.
-- **The look proof:** the first 10.2 s (the title page, verse 1's first two lines, a page flip and a
-  pencil-scribble wipe) built at final quality to test the style, the lettering and the timing. Its
-  frames, and the character sheet, are the evidence for the style reference.
+- **The look proof:** built at final quality to test the style, the lettering and the timing: the
+  first 16.9 s (the title page; verse 1's first four lines: the app working, the store's NO, the
+  diving board and the night; a page flip, two pencil-scribble wipes, and the first dark page),
+  and the first two lines of chorus 1 with the sing-along board, its bouncing ball and Bruce racing
+  after it. The clips went to Qing's phone, and here are frames from them:
+
+![Frames from the look proof: the title page, verse 1's first four lines, and the first two lines of chorus 1 on the sing-along board](03-look-proof.jpg)
 
 ## Questions and decisions for Qing
 
-The lyric and the pictures are mine to make, so these are only claims, plus what I need from her ears.
+The lyric and the pictures are mine to make, so these are claims, plus what I need from her ears.
 
 1. **Her ears, first: the karaoke check.** Each word lights 85 ms before its measured onset (the
    lead she chose for episode 2). Is any word early or late, and is 85 ms still right for this
    take? "Earlier" or "later" is enough.
-2. **The ility pictures**, as claims. (The fact-check of every picture against Ed Pringle's
-   catalogue is summarised in [03-name-your-ilities.md](03-name-your-ilities.md), under its
-   questions.)
-3. **The end card's wording** is a claim about every ility the song names; I'd like her eye on it
-   before it is drawn. Should it be there at all?
-4. **The chorus's "sound".** I use the dog-show sense of the word (a dog with good structure and
-   movement) as a second meaning to a real one. Is that a helpful or a confusing joke?
+2. **"Each is independent".** The fact-check says this is only true in one sense: good on one
+   doesn't guarantee or rule out good on another, but they compete for the same time and effort and
+   sometimes help each other. The sung word stays. Is a small on-screen OFTEN and the caption
+   SEPARATE TO JUDGE. LINKED TO BUILD. the right way to say the careful version, or would she
+   word it differently, or leave it?
+3. **Accessibility.** The song's line gives no meaning, so the picture is the definition. I show
+   three owners shut out by how the app is built (a screen reader saying "button, button, button",
+   a video with no captions, a tiny target a shaky hand misses), with the joke on the app. Is that
+   the right spread?
+4. **Required floors.** "Which of the 'ilities' are yours?" can read as "every one is optional".
+   Should the film or the card say that some (accessibility, privacy, security, the law, safety)
+   choose you? If yes, a shelf of nailed-on rosettes marked NOT OPTIONAL, or one line on the card?
+5. **The end card's wording,** and whether to have it: a plain-words gloss for every quality the
+   song names, in [03-name-your-ilities.md](03-name-your-ilities.md). 17 of the 32 are Ed's
+   pages and I've used his sense; the other 15 are my wording from standard usage, and
+   "detectability" and "sustainability" have two senses each. Which do we want?
+6. **"Sound".** I use the dog-show sense (a dog with good structure and movement) as a second
+   meaning to a real one in the chorus. Helpful or confusing?
+7. **The lettering follows the lyric sheet's spelling** (SCALABILITY, USABILITY, "Correct?") rather
+   than the phonetic copy the take was sung from. Tell me if the sheet differs.
 
 ## Liner notes, so far
 

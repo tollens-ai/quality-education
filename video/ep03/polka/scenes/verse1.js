@@ -131,7 +131,7 @@ function drawL1(g, t, ws) {
     g.save(); g.translate(370, 760); g.scale(k, k); rosette(g, 0, 0, 100, C.green, t, { seed: 250, state: 'ghost', q: true }); g.restore();
   }
   // The pigeon on the awning's rail turns to look at the stamp.
-  pigeon(g, t, 560, 872, .7, { state: t > T(6) ? 'gasp' : 'perch', look: t > T(6) ? 1 : -1 });
+  pigeon(g, t, 985, 880, .7, { flip: -1, state: t > T(6) ? 'gasp' : 'perch', look: t > T(6) ? -1 : 1 });
   sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: C.green, tailBubble: { fill: C.lime, edge: '#245c1d', e: 2.0, f: 1.35 }, seed: 5, out, w: .1 });
 }
 

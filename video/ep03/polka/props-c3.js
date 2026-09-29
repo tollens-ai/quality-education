@@ -69,7 +69,8 @@ export function panorama(g, t, cam, o = {}) {
   scrub(g, [wx0, wy0, wx1, 405], { col: P.sky, seed, t, gap: 30 * sc, w: 34 * sc, alpha: P.skyA, angle: .1, wig: 30 * sc });
   scrub(g, [wx0, 315, wx1, 738], { col: P.sky, seed: seed + 3, t, gap: 36 * sc, w: 34 * sc, alpha: P.skyA * .8, angle: .06, wig: 30 * sc });
   scrub(g, [wx0, 558, wx1, 914], { col: P.sky, seed: seed + 6, t, gap: 44 * sc, w: 34 * sc, alpha: P.skyA * .5, angle: .04, wig: 30 * sc });
-  if (190 + 270 > v.x0 && 190 - 270 < v.x1) sun(g, t, 190, 880, 130, { mood: sunMood, look, seed: seed + 1, rays: 14 });
+  // (The same sun as ring.js's golden hour: low on the left but clear of the posts and the rope.)
+  if (215 + 250 > v.x0 && 215 - 250 < v.x1) sun(g, t, 215, 708, 104, { mood: sunMood, look, seed: seed + 1, rays: 14 });
   scrub(g, [wx0, 880, wx1, 1010], { col: P.hedge, seed: seed + 5, t, gap: 24 * sc, w: 28 * sc, alpha: .35, angle: -.06, wig: 16 * sc });
   for (let k = k0; k <= k1; k++) {
     [[70, .5], [230, .36], [860, .42], [1010, .34]].forEach(([tx, ts], i) => {

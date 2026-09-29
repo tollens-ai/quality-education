@@ -1,17 +1,18 @@
 # Episode 3 video: "The 'Ilities", "Pencil Polka"
 
-**Status (2026-09-29): pre-production done and the look proved and revised twice on Qing's notes (the first 17 seconds and two chorus lines are drawn); the film itself is not built.** The
-word timings are measured and waiting for Qing's ears (a karaoke check went to her phone), the
-music is mapped, the storyboard and the plan are below, and the first ten seconds exist as a proof of
-the look and the motion. Nothing here has been reviewed by Qing yet.
+**Status (2026-09-29): the whole film is drawn (213.2 s of song and six seconds of end card), reviewed by me
+shot by shot and by frame audits, and waiting for Qing's eyes and ears.** Qing's notes on the look are below,
+verbatim, with what was done about each; the claims her pictures make are on the questions list at the end. The
+word timings are measured and waiting for her ears (a karaoke check went to her phone).
 
 The take is Suno's "The _ilities_" (213.2 s), made to Qing's final lyric. The song, its style
 prompt and the teaching plan are in [03-name-your-ilities.md](03-name-your-ilities.md). What the take
 sounds like is in [music/ep03/listening-notes.md](../music/ep03/listening-notes.md). The style is
 [Pencil Polka](../.claude/skills/music-video/references/style-pencil-polka.md), and its renderer is
-[video/ep03/polka/](../video/ep03/polka/README.md). A Sonnet is making the video, at maximum effort, with
-no reviewer committee, as Qing asked. One Sonnet subagent fact-checked the ility pictures; the
-video's own drawing, timing and choices are one hand's.
+[video/ep03/polka/](../video/ep03/polka/README.md). A Sonnet made the video, at maximum effort, as Qing asked ("a pure sonnet effort"), and signed it
+as its artist with her permission: the end card says DOODLED BY SONNET. One Sonnet subagent fact-checked the
+ility pictures. The look, the shared drawing kit, the timing, the joins and every review are one hand's; the
+parts of the film were drawn by Sonnet builders working in parallel to a shared brief (see *How it was made*).
 
 ## Qing's brief (2026-09-29, verbatim)
 
@@ -194,11 +195,13 @@ has the detail, and [video/ep03/polka/](../video/ep03/polka/README.md) the code.
 
 | Who | What they are | Drawn as |
 |---|---|---|
-| **Clawd** | sings; the builder in verse 1, the agent in verse 2, the judge and the judged in the choruses | the mascot's block in terracotta: wide body, two tall eyes, stub arms at five-eighths height, four short legs; no mouth until he sings, then an O that follows the voice |
-| **Bruce** | the dachshund: the customer's dog in verse 1 (his ball is the bouncing ball), the hero of the agility trials | a long brown sausage with a big head and a blue collar; long enough to bend through a hoop |
-| **Blob** | the code, in verse 2: a huge shaggy sheepdog. He is the small fluffy puppy that grows behind Clawd's back in verse 1's last lines | a grey scribble of fur with two feet and a nose |
-| **The owners and clerks** | an owner with an old phone (Ada), a bulldog shop clerk, the judge (a bulldog in a bowler), the cat who won't walk, the walkers | round-headed doodle people and front-on dog busts (bulldog, lab, poodle, corgi, sheepdog, beagle, pug, chihuahua, dalmatian, husky, greyhound) |
-| **The audience** | rows of dog heads at the bottom of the ring, singing and swaying; in chorus 2 some are Clawds | front-on busts, mouths going on the words |
+| **Clawd** | sings; the builder in verse 1, the agent in verse 2, the judge and the judged in the choruses, the one who steps out of the crowd to hold out a lead to you | the mascot's block in terracotta as a doodle: a wide lumpy loaf, two tall dark eyes with a glint, stub arms (a long reach bows and ends in a mitten), four short legs; a small smile until he sings, then a mouth that opens with the vocal; he blinks and looks about by himself |
+| **Bruce** | the dachshund: the customer's dog in verse 1, the ball's chaser on the sing-along board, the hero of the agility trials, the one who winks on the last chord | a long loaf with a sag, a big round head and long snout, one long ear that swings, a blue collar with a bone-shaped tag, a tail that never stops; the same drawing, made tall and thin, low and long, in other coats, is the greyhound, the basset and the great dane |
+| **Blob** | the code, in verse 2: a huge shaggy sheepdog in his den; and the small fluffy puppy in verse 1 who grows behind Clawd | a mound of lobed grey fur with a fringe over two eyes, a big nose and two paws |
+| **The pigeon** | the film's witness: sits on things, bobs on the beat, gasps at what happens, sleeps at the end | a small grey doodle bird |
+| **The sun** (and the moon) | reacts to the story: sunglasses when it's fine, sweating when it strains, gasping at a crash; the moon weeps with the dogs | a round face with rays that pulse on the oom |
+| **The owners and clerks** | an owner with an old phone, a bulldog shop clerk, the judge (a bulldog in a bowler), the cat who won't walk, a training-class row of dogs, an inspector | round-headed doodle people and front-on dog busts in twelve breeds |
+| **The audience** | rows of dog heads at the bottom of the ring, singing and swaying, and in the parade a hundred; in chorus 2 some are Clawds | front-on busts, mouths going on the words |
 
 ## Guardrails: what the pictures must not say
 
@@ -392,44 +395,37 @@ about eight plain words, for screenshotting. It holds for about six seconds afte
 one place the film is still on purpose. (See the questions: this wording is a claim, checked against
 Ed Pringle's catalogue where it has a page.)
 
-## The plan
+## How it was made
 
-**How it is built.** One auteur (me), the shared renderer and one new style module. The film is built
-in layers so there is always a watchable cut: (1) the lyric video, every word written on in time,
-with a plain drawn background for each section and the joins; (2) each line's gag, hero
-shots first (verse 1, chorus 1, the agility trials, the parade); (3) the repeats, each further on
-(choruses 2 and 3, verse 2's callbacks); (4) the life in the corners (ambient animals, the audience
-singing, confetti) and the polish. Every layer is rendered as a 540-wide preview and looked at as a
-contact sheet, motion per second, and frame strips across every join, before the next.
+**In layers, and in parallel.** One hand (mine) wrote the renderer, the pen, the characters, the world
+(sun, clouds, pigeon, the show ring in its three moods), the shared machinery of the choruses, and the first
+parts of the film; that fixed the look, and Qing's three rounds of notes tuned it. Then the rest of the film was
+drawn by Sonnet builders, each given one part, one file to write and a standing brief: what good is here,
+the hard rules (draw everything with the pen; the lyric is drawn last and owns the top of the frame; the
+world is dogs, the app and the show; obey the guardrails), and how to render and look at their own work. The
+parts were verse 1's second half, break 1 and verse 2 (Blob's den), chorus 1's four later gags, chorus 2's
+last two, the agility trials, the bridge, the parade in two halves, and the finale (the lead-in and the last
+chorus). I reviewed every part at full size against the storyboard's teaching and the guardrails, and
+fixed what was wrong; the joins between parts, the review tools and the end card are mine. The first nine
+builders were all stopped at once by the account's usage limit, so the rest were resumed a few at a time.
 
-**Assets to draw, by file.**
+**The tools** (in `video/ep03/polka/tools/` and `video/lib/`). A part previews on its own
+(`preview.js`, `--query part=verse2`); the typography audit records every sung word as drawn and flags
+late, early, small, low-contrast and out-of-area lettering; `render-film.sh` renders the whole film with the
+six seconds of end card; the rest are the shared harness's frame strips and motion check.
 
-| File | What | Roughly |
-|---|---|---|
-| `chars.js` | Clawd with every expression and prop; Bruce side-on, walking and stretching | done for the first ten seconds; hoop, bend, jump poses to add |
-| `people.js` | people (posed, holding things); front-on dogs in twelve breeds; Blob; the cat | people and eleven breeds drawn; Blob, the cat, hats, a judge's bowler to add |
-| `props.js` | rosettes, phones, clipboard, calendar, stamp, ticks, bursts; then the diving board, moon, houses, magnifier, mallet, eggs, fleas, scales, cabinet, bowl, hurdles, tunnel, seesaw, poles, ship, crate, hoops, ribbons, bunting, ball, board | first dozen done; about fifty to add |
-| `scenes/` | one file per section, each shot a function of the words' times | intro, verse 1's first four lines and chorus 1's first two done |
-| `board.js` | the sing-along board: lyric rows on a sign, the ball's path from the beat map and the word times, Bruce running after it | done; the rest of the chorus lines and the second and third choruses' variations to build |
-| `tools/` (to write) | the typography audit (every word's size, time on screen, cover, contrast, reading order), the shot lister, the preview and master render scripts | copied from episode 2 and adapted |
+**Checks before Qing sees a cut.** The words (every one: size, time on screen, contrast, cover, reading
+order, the phone's button strip: the audit); the story from the pictures alone (each sung line has something
+drawn of what it says); motion per second (nothing still that shouldn't be); the seams between parts
+(frames every 1/15 s across each join); and a fresh-eyed reader's pass over contact sheets of the whole film.
 
-Sonnet subagents draw props and breeds against the kit and its worked examples (one file each, to
-a brief, with their own preview stills), and I look at and redraw everything they return; the
-drawing of the gags, the timing, the lettering and every review are mine.
+**Risks.** About seventy compositions is the cost, so props were reused and the parade is eight short
+pictures on a fixed runway. The bottom 400 px of the frame is the phone's button strip: the ground runs to the foot
+of the frame and no gag lives there. Colour on dark paper needs its own ink: the night ring uses cream
+lines and pale hatching. Drawing "sound" as a dog-show word and "hatch" as eggs are puns that need a
+beat to land; they get one.
 
-**Checks before Qing sees a cut.** The words (every one: size, time on screen, contrast, cover,
-reading order, the phone's button strip); the story from the pictures alone (each sung line has
-something drawn of what it says); motion per second (nothing still that shouldn't be); the crowd
-and props by eye; a contact sheet of the lyric frames at 390 px wide; and the hand-back gate in the
-music-video skill.
-
-**Risks.** The number of unique gags (about seventy compositions) is the cost, so props are reused
-and the parade is cut sixteen short pictures on a fixed runway. The bottom 400 px of the frame is
-the phone's button strip: the ground runs to the foot of the frame but no gag lives there. Colour
-on dark paper needs its own ink: the night ring uses cream lines and pale hatching. Drawing "sound" as
-a dog-show word and "hatch" as eggs are puns that need a beat to land; they get one.
-
-## What's done
+## What's built
 
 - **The timings** (`music/ep03/lyrics.json`, the captions in `captions.srt`): every one of the 487
   sung words, from the voice. Two aligners (torchaudio's MMS_FA and its English wav2vec2), each at
@@ -449,18 +445,14 @@ a dog-show word and "hatch" as eggs are puns that need a beat to land; they get 
   oom, blue on the pah), which also checks the beat map.
 - **The music map:** `music/ep03/beats.json` (the beat and bar grid, the sections), `audio.json`
   (each stem's loudness at 20 Hz, percussion, orchestra and bass events), and the listening notes.
-- **The look proof:** built at final quality to test the style, the lettering and the timing: the
-  first 16.9 s (the title; verse 1's first four lines: the app working, the store's NO, the diving
-  board and the night; two pushes and an iris), and the first two lines of chorus 1 with the
-  sing-along board, its bouncing ball and Bruce racing after it. Three rounds so far: the first went
-  to Qing's phone on 2026-09-29 and drew "a bit rigid and simplistic" and "a child's drawing, not one
-  made in Paint"; the second (shapes drawn as strokes, opaque, alive) drew "omg this is adorable! [...]
-  slightly _too_ clumsy but the style is fantastic. if we aim for, like, still obviously doodles on
-  paper but like, more of an expert doodler. it's sonnet the doodler" and "the colouring strokes are
-  flashing a bit too much"; the third is those two changes (the clumsiness dialled to about half, the
-  colouring held still) and is what the code now draws. Frames from the first round:
+- **The film:** 213.2 s of song and six seconds of end card, at 30 frames a second, drawn by code from the
+  word times and the beat map (`video/ep03/polka/`). Every one of the 53 sung lines has its own picture, the
+  instrumental (the agility trials), the lead-in and the outro are drawn, and the end card names all
+  thirty-two qualities in plain words (a draft for Qing's claims list) and is signed DOODLED BY SONNET. The
+  look went through three rounds with Qing before the parts were built (her notes, verbatim, near the top). A
+  frame from the first round of the look, before the hand was redrawn:
 
-![Frames from the look proof: the title page, verse 1's first four lines, and the first two lines of chorus 1 on the sing-along board](03-look-proof.jpg)
+![Frames from the first look proof: the title page, verse 1's first four lines, and the first two lines of chorus 1 on the sing-along board](03-look-proof.jpg)
 
 ## Questions and decisions for Qing
 

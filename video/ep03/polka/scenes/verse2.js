@@ -53,9 +53,12 @@ export function register(S) {
   shot(52.2, J[0][1] + .004, shotOf(drawBreak, wb), { id: 'v2-break' });
   for (let i = 0; i < 7; i++) {
     join(J[i][0], J[i][1], 'push', { dir: [-1, 0] });
-    const end = i < 6 ? J[i + 1][1] + .004 : 83.456;
+    const end = i < 6 ? J[i + 1][1] + .004 : 83.893;
     shot(J[i][0], end, shotOf(L[i][1], L[i][0]), { id: 'v2-' + (i + 1) });
   }
+  // "ill at ease" has no pick-up before the next line, so the pun's picture is pushed off over the next beat (83.456 is the oom)
+  // rather than cut, and 'ILITIES stays on screen half a second.
+  join(83.456, 83.889, 'push', { dir: [-1, 0] });
   shot(83.456, 87.404, shotOf(drawL8, L[7][0]), { id: 'v2-8' });
 }
 

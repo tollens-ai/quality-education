@@ -66,16 +66,20 @@ function wrap2(str, size, track, room) {
   return best[1] ? best : [str];
 }
 
+// The meanings follow Ed Pringle's catalogue of qualities and ISO/IEC 25010 (SOURCES.md), and the series credits its
+// sources on screen, so each page carries the credit in small print.
+const CREDIT = "MEANINGS AFTER ED PRINGLE'S QUALITY CATALOGUE AND ISO/IEC 25010";
+
 export function endCard(g, t, pageIdx = 0) {
   const P = PAGES[pageIdx];
   paper(g, { base: '#f8efc9', vignette: .08 });
   // The poster's border, a red rope line with gold corners.
-  blob(g, rrect(W / 2, 800, W - 70, 1500, 26, 3, 5), { fill: 'paper', line: C.red, lw: 9, seed: 5, t });
-  blob(g, rrect(W / 2, 800, W - 110, 1462, 20, 3, 6), { fill: 'paper', line: '#c9a24a', lw: 5, seed: 6, t });
+  blob(g, rrect(W / 2, 813, W - 70, 1526, 26, 3, 5), { fill: 'paper', line: C.red, lw: 9, seed: 5, t });
+  blob(g, rrect(W / 2, 813, W - 110, 1488, 20, 3, 6), { fill: 'paper', line: '#c9a24a', lw: 5, seed: 6, t });
   write(g, "THE 'ILITIES", W / 2, 232, 86, { seed: 7, t, align: 'center', bubble: { fill: '#f5a03a', edge: '#8a4a1d', e: 2.0, f: 1.3 }, w: .09, track: 5 });
   write(g, P.sub, W / 2, 298, 24, { col: '#2a4fa8', seed: 8, t, align: 'center', track: 5 });
   write(g, P.note, W / 2, 338, 19, { col: '#6b6b78', seed: 13, t, align: 'center', track: 3, w: .1 });
-  const x0 = [72, 552], room = 392, top = 398, dy = 132;
+  const x0 = [72, 552], room = 392, top = 398, dy = 128;
   QUALITIES.slice(P.from, P.from + 16).forEach(([name, gloss], i) => {
     const col = Math.floor(i / 8), row = i % 8;
     const x = x0[col], y = top + row * dy;
@@ -90,8 +94,9 @@ export function endCard(g, t, pageIdx = 0) {
   });
   write(g, P.tag, W - 96, 236, 24, { col: '#8d8c97', seed: 12, t, align: 'right', track: 6 });
   // The share hook, big: the film asks it three times and the card asks it once more.
-  write(g, 'WHICH ARE YOURS?', W / 2, 1478, 58, { col: '#c93a2e', seed: 9, t, align: 'center', track: 7, w: .11 });
+  write(g, 'WHICH ARE YOURS?', W / 2, 1448, 58, { col: '#c93a2e', seed: 9, t, align: 'center', track: 7, w: .11 });
+  write(g, CREDIT, W / 2, 1488, 22, { col: '#4a4a60', seed: 14, t, align: 'center', track: 2, w: .1 });
   // The artist's signature, as the poster's corner: small, in the film's own hand, with a flourish under it.
-  write(g, 'DOODLED BY SONNET', W / 2, 1522, 22, { col: '#3a4a7a', seed: 10, t, align: 'center', track: 7, w: .1 });
-  line(g, [[W / 2 - 150, 1536], [W / 2 - 70, 1530], [W / 2 + 10, 1538], [W / 2 + 90, 1530], [W / 2 + 150, 1536]], { w: 4, col: '#3a4a7a', seed: 11, t, spline: true, passes: 1, alpha: .8 });
+  write(g, 'DOODLED BY SONNET', W / 2, 1526, 22, { col: '#3a4a7a', seed: 10, t, align: 'center', track: 7, w: .1 });
+  line(g, [[W / 2 - 150, 1540], [W / 2 - 70, 1534], [W / 2 + 10, 1542], [W / 2 + 90, 1534], [W / 2 + 150, 1540]], { w: 4, col: '#3a4a7a', seed: 11, t, spline: true, passes: 1, alpha: .8 });
 }

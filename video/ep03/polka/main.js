@@ -4,8 +4,9 @@
 //
 // Each scene file registers its shots (start, end, draw) and the joins between them once the song and
 // its words are loaded. A shot draws its whole frame, lettering included, as a pure function of song
-// time; outlines are redrawn fifteen times a second (on twos) while the colouring holds still and the
-// cameras and joins move on every frame.
+// time; everything inside a shot (the outlines, the camera's pushes, the bounce) runs on the drawing's clock,
+// fifteen times a second (on twos), while the colouring holds still; only the joins between shots move on
+// every frame.
 import { W, H, loadRecord, twos, setNow } from './kit.js';
 import { SHOTS, JOINS, drawFrame } from './shots.js';
 // The film's parts, in song order. A part that isn't there yet (or fails to load) leaves its stretch blank

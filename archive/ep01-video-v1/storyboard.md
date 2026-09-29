@@ -1,7 +1,7 @@
 # Episode 1 storyboard: "Who Lives Here?"
 
 One continuous shot, 9:16, 3:20.7, on Qing's chosen take. It follows the approved teaching plan
-in [01-you-never-told-me.md](01-you-never-told-me.md): the whole lesson is **quality is value to
+in [01-you-never-told-me.md](../../episodes/01-you-never-told-me.md): the whole lesson is **quality is value to
 people who matter**. Chosen 2026-09-25 from a blind round of nine theme-first concepts (the
 funnel is in the episode file). Several ideas here came from the other concepts; they're marked
 *(from …)*.
@@ -236,7 +236,7 @@ The brief, exactly:
 
 ## What changed in the build (2026-09-26)
 
-Built in code in `video/ep01/who/` by six parallel builders on a shared plan, then screened by
+Built in code in [code/who/](code/who/) (first in `video/ep01/who/`) by six parallel builders on a shared plan, then screened by
 three fresh viewers (an editor and motion designer, a target-viewer panel, a quality teacher).
 The screening changed these things from the tables above:
 

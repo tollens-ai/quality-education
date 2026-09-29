@@ -1,7 +1,7 @@
 # Storyboarding a one-shot video
 
-Read this for step 4 of [SKILL.md](SKILL.md), once the song is locked. Episode 1 is the first
-episode made this way. The evidence behind each stage is in [CRAFT.md](../../../CRAFT.md),
+Read this for step 4 of [SKILL.md](../../.claude/skills/write-episode/SKILL.md), once the song is locked. Episode 1 is the first
+episode made this way. The evidence behind each stage is in [CRAFT.md](../../CRAFT.md),
 "Pre-production".
 
 Episode 1 is **one shot**: a single continuous camera, no cuts (Qing, 2026-09-25: "I really want
@@ -54,7 +54,7 @@ give the characters something to want and something to lose.
 
 **Picture and lyric carry different parts of the idea.** Tim Blais: showing "exactly what I was
 singing on the screen … that's a real waste of space"; "tell part of the story with the with
-visuals and part of the story with the lyrics" ([research](../../../research/tim-blais-craft.md)).
+visuals and part of the story with the lyrics" ([research](../../research/tim-blais-craft.md)).
 For every line, write what the picture adds that the words don't: the consequence, the
 counterexample, the person it's for. A shot that just illustrates the sung noun is a defect. The
 biggest idea goes on the song's emotional peak, and the hook lines get the most precise picture.
@@ -225,4 +225,4 @@ because I'm expecting you to be done in hours".
 - Calibrate first with questions you know the answer to (what's on screen at 0:30, when does the
   band stop). Episode 1's first ear test heard 180 bpm as 150.
 - Ask the same question at every 3-second mark: would you swipe here, and why?
-- Run 3–5 viewers from the simulated-viewer briefs in [reviewers.md](reviewers.md), each fresh.
+- Run 3–5 viewers from the simulated-viewer briefs in [reviewers.md](../../.claude/skills/write-episode/reviewers.md), each fresh.

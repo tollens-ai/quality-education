@@ -5,7 +5,7 @@ build was archived. Links are as they were written and may point to the old path
 
 ## Storyboard funnel (one shot, 2026-09-25)
 
-Run by the [storyboard guide](../.claude/skills/write-episode/storyboard.md). Working files
+Run by the [storyboard guide](process-storyboard-guide.md). Working files
 (briefs, every concept, every verdict) are local in `.private/ep01-storyboard/`.
 
 **Stage 2, world-rule concepts.** Seven separate generators wrote 21 concepts, three each: six
@@ -93,7 +93,7 @@ buildability.
 | Cast for Who? (a foundry; good is a fit to an imprint) | 3rd | 2nd | 3rd |
 
 **Chosen: Who Lives Here?**, with grafts from the others. The storyboard is in
-[01-storyboard.md](01-storyboard.md). Round-2 graveyard: *It's Behind You!* and *Can't Read Between
+[01-storyboard.md](storyboard.md). Round-2 graveyard: *It's Behind You!* and *Can't Read Between
 the Lines* failed the gimmick test with two of three judges (the premise fits any vague-prompt
 song); *The Shape of Good* (mine) was "a bar chart with a crab"; *Round the Clock* had twelve labels
 at phone size; *Made to Measure* and *The Best Seat* stayed abstract.
@@ -117,7 +117,7 @@ all-code plan and isn't any more: the singing is a MiniMax generation.
 
 **What it is.** A 3:20 one-shot animated music video, 1080×1920 at 30 fps. Every frame is drawn in
 code (Canvas 2D, a pure function of the song's time) by Claude Opus, from
-[the storyboard](01-storyboard.md); the code is in `video/ep01/who/`. The song is our lyrics, sung
+[the storyboard](storyboard.md); the code is in [code/who/](code/who/). The song is our lyrics, sung
 by a MiniMax generation Qing chose.
 
 **How it was made.**
@@ -134,7 +134,7 @@ by a MiniMax generation Qing chose.
 
 **How it was checked.**
 - **Timing:** word onsets from Whisper on the take, with four hook lines corrected by hand where
-  Whisper stretched them ([lyrics-fixes.json](../music/ep01/lyrics-fixes.json)).
+  Whisper stretched them ([lyrics-fixes.json](../../music/ep01/lyrics-fixes.json)).
 - **Continuity:** every section starts and ends on the shared handoff; the loop's last frame
   matches frame 0 to within an ordinary frame step.
 - **Rendering:** parallel segments, each verified by frame count before joining.
@@ -147,7 +147,7 @@ by a MiniMax generation Qing chose.
 - **Some text is still small on a phone:** the directory board's names and the ticket's
   handwriting in the chorus close-ups are readable when paused, less so at full speed.
 - **Two mascots are drawn by us:** Jolly in his flat and the Hermes bot are our own cartoons; the
-  Molty art, Jolly's portrait and the name-plate marks are official. See [SOURCES.md](../SOURCES.md).
+  Molty art, Jolly's portrait and the name-plate marks are official. See [SOURCES.md](../../SOURCES.md).
 - **It's long for X:** 3:20. Standard X accounts have capped uploads at 2:20 (longer needs
   Premium; check the current limit). A shorter cut is an open question for Qing.
 - **Frame 0's top-left** shows the lobby directory's names faintly behind the @yanqingcheng mark.

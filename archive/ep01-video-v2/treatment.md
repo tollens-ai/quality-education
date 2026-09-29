@@ -1,7 +1,7 @@
 # Episode 1 video, v2: "The Mobile"
 
 The second attempt at the video for "Good for Who?". The first is archived in
-[archive/ep01-video-v1/](../archive/ep01-video-v1/README.md).
+[archive/ep01-video-v1/](../ep01-video-v1/README.md).
 
 **Priorities** (CRAFT.md, "Decided"): teaching and beauty are both conditions for release, and
 holding attention ranks below them.

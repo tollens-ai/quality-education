@@ -74,6 +74,14 @@ craft for each stage; these are the repo-specific steps.
    estimates, the lines re-aligned, the words set by hand, and repeated lines that disagree. It
    needs torchaudio, and downloads its aligner models on the first run. VIDEO.md, "Word timing
    comes from the voice", says how to check the result by ear with Qing.
+   **For fast patter, align a line at a time with the voice slowed down.** Episode 3's song runs at 5
+   to 8 syllables a second, and the section-length alignment above put a third of its words 150 ms
+   or more apart between the two aligners. `music/ep03/align_multi.py` aligns each line inside a
+   window that also holds its neighbours, with the voice slowed to 0.8 and 0.65 of its speed (pitch
+   kept); `combine.py` votes, snaps to the voice and checks repeated lines by the shift most of
+   their words agree on; `view.py` draws the spectrogram with the word onsets on it, to look at a
+   doubtful word; `analyse.py`, `finish.py` and `map.py` make the beat grid, the sections and a
+   picture of the take. VIDEO.md has the measurements.
    **Transcribe the ornaments, not just the held notes.** Scoops, falls, turns, grace notes and
    backing echoes are much of why a take sounds good. Episode 1's first transcription kept only
    held notes, so the chorus tail read as near-monotone, and a whole round of rewrites was aimed

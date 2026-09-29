@@ -7,9 +7,12 @@ import { W, H, loadRecord, beatPulse, downPulse, sway, loud, hit, beatPos, clamp
 import { paper } from './paper.js';
 import { scrub, blob, line, hatch, dot } from './pencil.js';
 import { write, measure } from './hand.js';
-import { clawd, dachshund } from './chars.js';
+import { clawd, dachshund, shaggy } from './chars.js';
 import { person, dogFront, BREED_NAMES } from './people.js';
 import { GRAPHITE, C, PAPER } from './palette.js';
+import { park, pigeon, butterfly, sun, cloud, tree, flower, bunting } from './world.js';
+import { groove } from './common.js';
+import { ringBackdrop, judgeTable, spotlight } from './ring.js';
 import { rrect, ellipse, star, scallop, capsule } from './shapes.js';
 
 export const font = 'sans-serif';
@@ -39,6 +42,9 @@ export function draw(g, t, S) {
   const vox = loud('vocals', t);
   if (v === 'sheet') return sheet(g, t, S);
   if (v === 'big') return big(g, t, S);
+  if (v === 'park') return parkView(g, t, S);
+  if (v === 'blob') return blobView(g, t, S);
+  if (v === 'ring') return ringView(g, t, S);
   if (v === 'shapes') return shapes(g, t, S);
   if (v === 'type') return typeSheet(g, t, S);
   if (v === 'dogs') return dogSheet(g, t, S);
@@ -134,4 +140,35 @@ function shapes(g, t, S) {
   blob(g, star(300, 1100, 140, 60, 5, -Math.PI / 2, 9), { fill: C.red, line: GRAPHITE, lw: 7, seed: 9, t });
   blob(g, capsule([700, 1000], [860, 1200], 46, 40, 5, 10), { fill: C.purple, line: GRAPHITE, lw: 7, seed: 10, t });
   blob(g, rrect(540, 1560, 900, 260, 40, 3, 11), { fill: C.teal, shade: '#1f7f78', line: GRAPHITE, lw: 7, seed: 11, t });
+}
+
+// The park backdrop with the cast in it.
+function parkView(g, t, S) {
+  park(g, t, {});
+  const gr = groove(t, 1);
+  clawd(g, { x: 330, y: 1560, s: 1.3, t, seed: 1, eyes: 'happy', mouth: .3, bob: gr.bob, squash: gr.sq, lean: gr.lean, armR: { up: .7 }, armL: { up: .2 } });
+  dachshund(g, { x: 800, y: 1660, s: .8, flip: -1, t, seed: 2, walk: (beatPos(t) * .5) % 1, eyes: 'happy', mouth: .4, tongue: true, bob: gr.bob * .5 });
+  pigeon(g, t, 920, 1290, .9, { flip: -1 });
+  butterfly(g, t, 560 + Math.sin(t * 1.3) * 60, 1100 + Math.sin(t * 2.1) * 30, 1, C.pink);
+  butterfly(g, t, 220 + Math.sin(t * 1.1) * 40, 1000 + Math.sin(t * 1.7) * 30, .8, C.orange, { seed: 9 });
+}
+
+// Blob, the code: huge, and as a puppy.
+function blobView(g, t, S) {
+  paper(g);
+  shaggy(g, { x: 540, y: 1180, s: 1.55, t, seed: 8, state: 'awake', mouth: 0 });
+  shaggy(g, { x: 260, y: 1760, s: 1.3, t, seed: 9, puppy: true, state: 'awake', mouth: .5, tongue: true });
+  shaggy(g, { x: 800, y: 1760, s: 1.3, t, seed: 10, puppy: true, state: 'sleep' });
+  clawd(g, { x: 950, y: 640, s: .5, t, seed: 3 });
+}
+
+// The show ring in its three moods (?mood=day|night|gold).
+function ringView(g, t, S) {
+  const mood = new URLSearchParams(location.search).get('mood') || 'day';
+  ringBackdrop(g, t, { mood });
+  const gr = groove(t, 1);
+  judgeTable(g, t, 540, 1160, 600, { night: mood === 'night' });
+  clawd(g, { x: 250, y: 1450, s: 1.0, t, seed: 1, eyes: 'open', mouth: .3, bob: gr.bob, squash: gr.sq, lean: gr.lean });
+  dachshund(g, { x: 820, y: 1440, s: .6, flip: -1, t, seed: 2, walk: (beatPos(t) * .5) % 1, eyes: 'happy', mouth: .4, bob: gr.bob * .5 });
+  if (mood === 'night') spotlight(g, t, 540, 1300, 320);
 }

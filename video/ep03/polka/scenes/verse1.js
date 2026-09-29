@@ -10,6 +10,9 @@ import { rosette, sparkle, burst, tick, cross, paw, phone, oldPhone, clipboard, 
 import { ground, meadow, sky, groove, pop, ramp } from '../common.js';
 import { scrub } from '../pencil.js';
 import { sing } from '../lyrics.js';
+import { park, pigeon, butterfly, sun, cloud, tree, flower } from '../world.js';
+import { spring, shake, hop, gate, ease } from '../life.js';
+import { drawBall } from '../board.js';
 import { rrect, ellipse, scallop, star } from '../shapes.js';
 import { GRAPHITE, C } from '../palette.js';
 
@@ -24,21 +27,19 @@ export function register(S) {
   join(9.503, 9.933, 'push', { dir: [-1, 0] });
   shot(9.503, 13.31, (g, t, sh) => { window.__markInk = GRAPHITE; drawL2(g, t, l2); }, { id: 'v1-2' });
   join(12.9, 13.3, 'iris', { at: [800, 700], col: '#f5eedd' });
-  shot(12.9, 16.9, (g, t, sh) => { window.__markInk = '#f5eedd'; drawL3(g, t, l3); }, { id: 'v1-3' });
+  shot(12.9, 16.6, (g, t, sh) => { window.__markInk = '#f5eedd'; drawL3(g, t, l3); }, { id: 'v1-3' });
 }
 
 // ------------------------------------------------------------------- 1 "Correct I built it..."
 // Clawd shows the app booking walks: a clipboard of checks ticks itself, the calendar fills with paw
 // stamps on the beats, and on "brilliantly" a blue rosette is pinned on with a burst.
 function drawL0(g, t, ws) {
-  paper(g);
-  sky(g, t, 1330, { alpha: .3, col: '#79c2ef' });
   const gr = groove(t, 1);
   const T = i => ws[i].s;
-  meadow(g, t, 1330);
-  // The line, top of the page; its tail is the first ility.
+  const bril = t > T(12) - .05;
+  park(g, t, { horizon: 1330, mood: bril ? 'shades' : 'happy', look: [-.4, .5], seed: 11 });
+  // The line, top of the page; its tail is the first ility (lettered last, at the end, so it is never covered).
   const out = { t0: ws[ws.length - 1].e + .3, dur: .3 };
-  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: C.blue, tailBubble: { fill: C.sky, edge: '#1f3f8f', e: 2.0, f: 1.35 }, hi: { 0: C.blue }, seed: 4, out, w: .1 });
   // The phone on the right: WALKIES, a calendar that fills as walks are booked.
   const pk = pop(t, 2.9, .3);
   const stamps = t < T(8) ? 0 : 1 + (t > T(10) ? 1 : 0) + (t > T(11) ? 1 : 0) + (t > T(12) - .05 ? 2 : 0) + (t > T(12) + .3 ? 1 : 0);
@@ -71,19 +72,19 @@ function drawL0(g, t, ws) {
     sparkle(g, 600, 800, 30 * k, t, { seed: 61, rot: t * 2 });
     sparkle(g, 1000, 1060, 26 * k, t, { seed: 62, rot: -t * 2 });
   }
+  // The pigeon watches the calendar from the top of the phone, and gasps at the rosette.
+  pigeon(g, t, 690, 800, .78, { flip: -1, state: bril ? 'gasp' : 'perch', look: -1 });
+  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: C.blue, tailBubble: { fill: C.sky, edge: '#1f3f8f', e: 2.0, f: 1.35 }, hi: { 0: C.blue }, seed: 4, out, w: .1 });
 }
 
 // ------------------------------------------------------------------- 2 "An older phone? The store says no..."
 // An owner holds up an old phone at the App Store counter; the bulldog clerk stamps NO on the beat
 // of "no,"; question marks pop over her, and the COMPATIBILITY ribbon hangs empty.
 function drawL1(g, t, ws) {
-  paper(g);
-  sky(g, t, 1400, { alpha: .3, col: '#79c2ef' });
   const gr = groove(t, 1);
   const T = i => ws[i].s;
-  meadow(g, t, 1400, { seed: 8 });
+  park(g, t, { horizon: 1400, mood: t > T(6) ? 'worried' : 'happy', look: [-.6, .6], seed: 12, trees: false });
   const out = { t0: ws[ws.length - 1].e + .4, dur: .3 };
-  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: C.green, tailBubble: { fill: C.lime, edge: '#245c1d', e: 2.0, f: 1.35 }, seed: 5, out, w: .1 });
   // The shop: awning, clerk, counter, on the right. It slides in with the scribble.
   const cx = 730;
   const slide = 1 - ramp(t, 6.55, 6.95);
@@ -129,6 +130,9 @@ function drawL1(g, t, ws) {
     const k = pop(t, T(9) - .1, .3);
     g.save(); g.translate(370, 760); g.scale(k, k); rosette(g, 0, 0, 100, C.green, t, { seed: 250, state: 'ghost', q: true }); g.restore();
   }
+  // The pigeon on the awning's rail turns to look at the stamp.
+  pigeon(g, t, 560, 872, .7, { state: t > T(6) ? 'gasp' : 'perch', look: t > T(6) ? 1 : -1 });
+  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: C.green, tailBubble: { fill: C.lime, edge: '#245c1d', e: 2.0, f: 1.35 }, seed: 5, out, w: .1 });
 }
 
 // ------------------------------------------------------------------- 3 "The sign-ups soared..."
@@ -141,13 +145,10 @@ const DOGS = [
   { coat: '#b5533c', shade: '#7d2f21', at: 11.22, u: .38, }, { coat: '#8d8c97', shade: '#5b5a66', at: 11.22, u: .22, big: 1.2 }, { coat: '#d9a12b', shade: '#9a6d14', at: 11.22, u: .07 },
 ];
 function drawL2(g, t, ws) {
-  paper(g);
-  sky(g, t, 1330, { alpha: .3, col: '#79c2ef' });
   const gr = groove(t, 1);
   const T = i => ws[i].s;
-  meadow(g, t, 1330, { seed: 12 });
+  park(g, t, { horizon: 1330, mood: t > 12.4 ? 'gasp' : t > 11.0 ? 'sweat' : 'happy', look: [-.5, .7], seed: 13, trees: false });
   const out = { t0: ws[ws.length - 1].e + .4, dur: .3 };
-  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: C.purple, tailBubble: { fill: '#b79be6', edge: '#4a2f8a', e: 2.0, f: 1.35 }, seed: 6, out, w: .1, hi: { 1: C.blue, 3: C.red } });
   // Geometry: the tower on the left, the board out to the right, the pool under its tip.
   const bx0 = 170, by0 = 900, bx1 = 990, L = bx1 - bx0;
   const nDogs = DOGS.filter(d => t >= d.at).length;
@@ -233,6 +234,9 @@ function drawL2(g, t, ws) {
     const sink = ramp(t, T(8) + .9, T(8) + 1.6, x => x);
     g.save(); g.translate(bx0 + L * .55 + 40, y + sink * 120); g.scale(k, k); g.globalAlpha *= 1 - sink * .5; rosette(g, 0, 0, 84, C.purple, t, { seed: 370, state: f > .95 ? 'wilt' : 'new', tilt: f * .8 }); g.restore();
   }
+  // The pigeon on the tower's top, watching the board sag.
+  pigeon(g, t, bx0 - 8, 905, .72, { state: t > 12.4 ? 'gasp' : 'perch', look: 1 });
+  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: C.purple, tailBubble: { fill: '#b79be6', edge: '#4a2f8a', e: 2.0, f: 1.35 }, seed: 6, out, w: .1, hi: { 1: C.blue, 3: C.red } });
 }
 
 // ------------------------------------------------------------------- 4 "It died at night..."
@@ -255,6 +259,18 @@ function drawL3(g, t, ws) {
   g.save(); g.translate(800, 700); g.scale(mo, mo);
   blob(g, ellipse(0, 0, 175, 175, 16), { fill: '#f7d774', shade: '#e0a93a', line: CREAM, lw: 5, seed: 410, t, hw: 6, tone: .5, sh: .3 });
   [[-50, -40, 28], [38, 50, 20], [62, -62, 15]].forEach(([x, y, r], i) => blob(g, ellipse(x, y, r, r, 8), { fill: '#e0a93a', line: null, seed: 411 + i, t, hw: 4.4, tone: .6 }));
+  // The moon has a face: content, then worried when the app dies, then weeping with the dogs.
+  {
+    const dead = t > T(1), weep = t > T(5);
+    [-1, 1].forEach((sd, i) => {
+      const ex = sd * 58, ey = -14;
+      if (!dead) line(g, [[ex - 20, ey + 4], [ex, ey + 14], [ex + 20, ey + 4]], { w: 6, col: '#4a3a1a', seed: 420 + i, t, passes: 1 });
+      else { dot(g, ex, ey, 11, { col: '#4a3a1a', seed: 422 + i, t }); line(g, [[ex - 26, ey - 26 - sd * 0], [ex + 22 * sd * -1, ey - 36]], { w: 5, col: '#4a3a1a', seed: 424 + i, t, passes: 1, spline: false }); }
+      if (weep) line(g, [[ex, ey + 18], [ex + sd * 4, ey + 46 + ((t * 40) % 30)]], { w: 5, col: '#8ccff5', seed: 426 + i, t, passes: 1, spline: false, alpha: .9 });
+    });
+    if (!dead) line(g, [[-30, 50], [-10, 62], [10, 62], [30, 50]], { w: 6, col: '#4a3a1a', seed: 428, t, passes: 1 });
+    else line(g, [[-26, 66], [0, 52], [26, 66]], { w: 6, col: '#4a3a1a', seed: 428, t, passes: 1 });
+  }
   g.restore();
   // The ground and the houses.
   scrub(g, [0, 1440, W, H], { col: '#2f6b4e', seed: 420, t, gap: 22, w: 26, alpha: .7, angle: -.1, wig: 24 });

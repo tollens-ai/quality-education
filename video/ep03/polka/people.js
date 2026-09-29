@@ -2,19 +2,14 @@
 // mitten hands, faces from a few marks. Each is a handful of blobs, so a pose is a few numbers.
 import { clamp, lerp, hash, TAU } from './kit.js';
 import { blob, line, dot, spline, hatch } from './pencil.js';
-import { rrect, ellipse, scallop, rotate, move } from './shapes.js';
+import { rrect, ellipse, scallop, rotate, move, capsule } from './shapes.js';
 import { GRAPHITE, C } from './palette.js';
 
 const ink = GRAPHITE;
 
-// A limb segment as a sausage: a rounded band from a to b, half-width r.
-export function capsule(a, b, r, n = 4) {
-  const ang = Math.atan2(b[1] - a[1], b[0] - a[0]);
-  const pts = [];
-  for (let i = 0; i <= n; i++) { const t = ang - Math.PI / 2 + i / n * Math.PI; pts.push([b[0] + Math.cos(t) * r, b[1] + Math.sin(t) * r]); }
-  for (let i = 0; i <= n; i++) { const t = ang + Math.PI / 2 + i / n * Math.PI; pts.push([a[0] + Math.cos(t) * r, a[1] + Math.sin(t) * r]); }
-  return pts;
-}
+// A limb segment is a tapered sausage from a to b (shapes.js); re-exported for the scenes.
+export { capsule };
+
 // Two-link reach: where the elbow goes so a limb of lengths l1, l2 from p reaches the target.
 function elbow(p, target, l1, l2, bend = 1) {
   let dx = target[0] - p[0], dy = target[1] - p[1];
@@ -46,7 +41,7 @@ export function person(g, o = {}) {
   [-1, 1].forEach((side, i) => {
     const sw = walk ? Math.sin((walk + i * .5) * TAU) * 22 : 0;
     const top_ = [side * 22, HIP + 6], bot = [side * 26 + sw * .6, -6];
-    blob(g, capsule(top_, bot, 15), { fill: dress ? skin : bottom, line: ink, lw: 5.4, seed: sd + 1 + i, t, hw: 4.8, tone: .5 });
+    blob(g, capsule(top_, bot, 15, 15, 5, sd + 1 + i), { fill: dress ? skin : bottom, line: ink, lw: 5.4, seed: sd + 1 + i, t, hw: 4.8, tone: .5 });
     blob(g, ellipse(bot[0] + side * 6, bot[1] + 10, 30, 14, 8), { fill: shoes, line: ink, lw: 5, seed: sd + 3 + i, t, hw: 4.6, tone: .7 });
   });
   // Torso: a dress is a bell, otherwise a rounded block over the trousers.
@@ -61,8 +56,8 @@ export function person(g, o = {}) {
     if (a.to) target = a.to;
     else target = [sh[0] + side * (28 + (a.out ?? .1) * 70), sh[1] + 112 - ((a.up ?? -.9) + 1) * 108 * .98];
     const { e, h } = elbow(sh, target, 62, 58, side);
-    blob(g, capsule(sh, e, 13), { fill: top, line: ink, lw: 5, seed: sd + sdd, t, hw: 4.6, tone: .5 });
-    blob(g, capsule(e, h, 12), { fill: skin, line: ink, lw: 5, seed: sd + sdd + 1, t, hw: 4.6, tone: .5 });
+    blob(g, capsule(sh, e, 13, 13, 5, sd + sdd), { fill: top, line: ink, lw: 5, seed: sd + sdd, t, hw: 4.6, tone: .5 });
+    blob(g, capsule(e, h, 12, 12, 5, sd + sdd + 1), { fill: skin, line: ink, lw: 5, seed: sd + sdd + 1, t, hw: 4.6, tone: .5 });
     blob(g, ellipse(h[0], h[1], 16, 16, 8), { fill: skin, line: ink, lw: 4.6, seed: sd + sdd + 2, t, hw: 4.6, tone: .6 });
     return h;
   };

@@ -1,6 +1,6 @@
 // The title page: the notebook's first page. "THE ILITIES" is written on over the first four bars, the
 // pencil drawing a title card for Clawd and Bruce, who jump in on the oom.
-import { W, H, clamp, inv, easeOut, backOut, beatPos, beatPulse, downPulse } from '../kit.js';
+import { W, H, clamp, inv, easeOut, backOut, beatPos, beatPulse, downPulse, lerp } from '../kit.js';
 import { shot, join } from '../shots.js';
 import { paper } from '../paper.js';
 import { write, measure } from '../hand.js';
@@ -8,6 +8,8 @@ import { blob } from '../pencil.js';
 import { clawd, dachshund } from '../chars.js';
 import { rosette, sparkle, burst } from '../props.js';
 import { ground, meadow, sky, groove, pop, ramp } from '../common.js';
+import { park, pigeon, butterfly } from '../world.js';
+import { hop } from '../life.js';
 import { GRAPHITE, C } from '../palette.js';
 
 export function register(S) {
@@ -17,8 +19,7 @@ export function register(S) {
 }
 
 function drawIntro(g, t) {
-  paper(g);
-  sky(g, t, 1300, { alpha: .3, col: '#79c2ef' });
+  park(g, t, { horizon: 1300, sunAt: [965, 1150], sunR: 74, mood: t > 1.85 ? 'shades' : 'happy', look: [-.3, -.7], seed: 11, clouds: false });
   const gr = groove(t, 1);
   write(g, 'SOFTWARE QUALITY THEORY 101', W / 2, 290, 40, { col: C.blue, seed: 3, t, align: 'center', prog: ramp(t, .25, 1.15, x => x), track: 7 });
   write(g, 'EPISODE 3', W / 2, 352, 30, { col: C.blue, seed: 4, t, align: 'center', prog: ramp(t, .9, 1.35, x => x), track: 10 });
@@ -31,7 +32,13 @@ function drawIntro(g, t) {
     const k = pop(t, a);
     if (k > 0) { g.save(); g.translate(x, y); g.scale(k, k); g.translate(-x, -y); rosette(g, x, y, 62, col, t, { seed: 20 + i, tilt: tilt + gr.lean * 2 }); g.restore(); }
   });
-  meadow(g, t, 1300);
+  // A pigeon flaps in and lands on the first letter of the title; a butterfly drifts through.
+  if (t > 1.2) {
+    const u = clamp(inv(1.35, 1.95, t));
+    const px = lerp(-120, 168, easeOut(u, 2)), py = lerp(260, 592, u * u) - Math.sin(u * Math.PI) * 120;
+    pigeon(g, t, px, py, .8, { state: u < 1 ? 'flap' : 'perch', look: 1 });
+  }
+  butterfly(g, t, 800 + Math.sin(t * 1.4) * 70, 1030 + Math.sin(t * 2.2) * 26, .9, C.pink);
   const jump = clamp(inv(1.06, 1.5, t));
   const cy = 1340 - Math.sin(jump * Math.PI) * 120 * (t < 1.5 ? 1 : 0);
   clawd(g, { x: 330, y: t < 1.06 ? 2100 : cy + 130, s: 1.34, t, seed: 1, eyes: t > 2.1 ? 'happy' : 'open', mouth: 0, bob: gr.bob, squash: t > 1.5 ? gr.sq : 0, lean: gr.lean, armR: { up: .6 + gr.bp * .4 }, armL: { up: .3 } });

@@ -54,6 +54,13 @@ export function mix(a, b, p) {
   return toHex(A.map((v, i) => lerp(v, B[i], clamp(p))));
 }
 
+// ---------------------------------------------------------------- how clumsy the hand is
+// The first cut of the look was 1: Qing found it adorable and "slightly too clumsy" (2026-09-29) and
+// asked for an expert doodler, still obviously a doodle on paper. Shapes' lumps and slants, corner
+// overshoots, the wander of a line and the spill of the colour all scale with this one number.
+export const HAND = { clumsy: .5 };
+export const kk = (p = 1) => Math.pow(HAND.clumsy, p);
+
 // ---------------------------------------------------------------- the boil, and drawing on twos
 // A child's drawing that comes to life is redrawn every other frame (fifteen drawings a second), each
 // time a little differently, in a short cycle of versions that isn't a plain 1-2-3: that's what keeps it

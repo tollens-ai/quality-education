@@ -1,6 +1,6 @@
 # Episode 3 video: "The 'Ilities", "Pencil Polka"
 
-**Status (2026-09-29): pre-production done and a look proof drawn (the first 17 seconds and two chorus lines); the film itself is not built.** The
+**Status (2026-09-29): pre-production done and the look proved and revised twice on Qing's notes (the first 17 seconds and two chorus lines are drawn); the film itself is not built.** The
 word timings are measured and waiting for Qing's ears (a karaoke check went to her phone), the
 music is mapped, the storyboard and the plan are below, and the first ten seconds exist as a proof of
 the look and the motion. Nothing here has been reviewed by Qing yet.
@@ -77,17 +77,30 @@ timing track, then saw the words in the clip were right and dropped it):
 > what you'll get is something that resembles the shape you planned but has that hand-drawn
 > appearance.
 
-**What I took from them (mine, not hers).** (1) The world is the dogs and the dog-walking app, and the
-dog show; the sketchbook, the pencil and the paper are only how it is drawn, so no page turns, no
-pencil-scribble wipes, no graph or ruled paper as a place, and no gag about the pencil. (2) "Rigid and
-simplistic" is a fault of how the shapes were made (clean boxes and ovals given a pencil texture), and
-of how still and sparse the pictures were. (3) The fix she names is to draw every shape the way a hand
-does, as strokes: the pen now draws a box as a few separate strokes that run past a corner or stop short
-of it, a circle as a loop that doesn't quite close, and colour as one scribble that spills over the
-line, misses patches and is redone every drawing; and every drawn thing is opaque, like a drawing on
-paper. (4) "Life and you-ness" is acting and small delights: eyes that wander and blink, ears and tails that keep
-swinging, a bounce that squashes as it lands, small things happening in the corners, and jokes that
-are mine.
+After the second round of the look (the hand-drawn pen, on her phone; both messages came while it was
+being built on):
+
+> omg this is adorable! I think it's edgeing on the side of slightly _too_ clumsy but the style is
+> fantastic. if we aim for, like, still obviously doodles on paper but like, more of an expert
+> doodler. it's sonnet the doodler
+
+> also I think the colouring strokes are flashing a bit too much and it's kind of distracting.
+
+**What I took from them (mine, not hers).** (1) The world is the dogs and the dog-walking app, and
+the dog show; the sketchbook, the pencil and the paper are only how it is drawn, so no page turns,
+no pencil-scribble wipes, no graph or ruled paper as a place, and no gag about the pencil. (2)
+"Rigid and simplistic" is a fault of how the shapes were made (clean boxes and ovals given a pencil
+texture), and of how still and sparse the pictures were. (3) The fix she names is to draw every
+shape the way a hand does, as strokes: the pen now draws a box as a few separate strokes that run
+past a corner or stop short of it, a circle as a loop that doesn't quite close, and colour as one
+scribble that spills over the line and misses patches; and every drawn thing is opaque, like a
+drawing on paper. (4) "Life and you-ness" is acting and small delights: eyes
+that wander and blink, ears and tails that keep swinging, a bounce that squashes as it lands, small
+things happening in the corners, and jokes that are mine. (5) From the second round: the style is
+right; the hand is dialled down to about half (one number, `HAND.clumsy`, so she can have it either
+way), so shapes are tidier and lines more confident but still visibly hand-drawn. (6) The colouring
+was redrawn every drawing, which flickered; it now holds its scribble and only moves by a pixel or
+two, while the outlines keep redrawing, which is what reads as dancing.
 
 ## What the viewer must understand, and the line they'll remember
 
@@ -118,44 +131,47 @@ group of voices, a bass line in verse 2, drums in chorus 2, everything in chorus
 
 | Section | Seconds | Bars | What the picture does with it |
 |---|---|---|---|
-| Intro | 0.0-3.3 | 1-4 | the title page, written; Clawd and Bruce jump in; the page flips on the beat |
+| Intro | 0.0-3.3 | 1-4 | the title, written; Clawd and Bruce jump in; a push to the park on the beat |
 | Verse 1 | 3.3-30.9 | 5-36 | the park, in the morning: one gag a line, the app failing ility by ility |
 | Chorus 1 | 31.8-52.1 | 38-61 | the dog show ring by day: Clawd judges the app; a bouncing ball hops the words |
-| Break 1 | 52.8-56.8 | 63-67 | spoken, the band falls away: a page of graph paper, Clawd puts on a hard hat |
-| Verse 2 | 58.9-86.7 | 70-101 | inside the code, which is one huge shaggy dog: the agent's troubles |
+| Break 1 | 52.8-56.8 | 63-67 | spoken, the band falls away: Blob's den, Clawd puts on a hard hat |
+| Verse 2 | 58.9-86.7 | 70-101 | inside the code, which is one huge shaggy dog in his den: the agent's troubles |
 | Chorus 2 | 87.7-108.5 | 103-126 | the ring by night: now Clawd is the one being judged |
 | Instrumental | 108.5-121.8 | 127-142 | the agility trials, four runs in four phrases; independent scores |
-| Bridge | 121.8-151.2 | 143-176 | a ruled school page: what a dimension is |
+| Bridge | 121.8-151.2 | 143-176 | dog-training class on the meadow, a whiteboard on an easel: what a dimension is |
 | Break 2 | 151.7-178.0 | 177-206 | the runway parade of sixteen dogs, then a hundred, then the held "you" |
 | Lead-in | 178.0-181.4 | 207-210 | drum build: the ring assembles |
 | Chorus 3 | 181.4-208.6 | 211-242 | golden hour, the whole show at once; a hush; a held "know" |
-| Outro | 208.6-213.2 | 243-247 | the last chord; a wink; then the cheat sheet |
+| Outro | 208.6-213.2 | 243-247 | the last chord; a wink; then the cheat sheet, on a show poster |
 
 ![The take second by second: sections, then the voice, the piano and orchestra, the bass and the drums, then the held notes and stops](03-music-map.png)
 
 ## The world and the style, in three sentences
 
-The film is a page of a child's sketchbook that comes alive: a park where dogs are walked, and a dog
-show ring where software is judged, one rosette for each way it can be good. The pencil draws
-everything, including the words, which it writes on as they are sung, and the drawings redraw
-themselves twelve times a second and squash and lean on the oom-pah. The pack of dogs and the
-rosettes grow through the song from one blue ribbon to a whole ring, and end with you choosing the
-few that are yours.
+The film is a park where dogs are walked and a dog show ring where software is judged, one rosette for
+each way it can be good, drawn by an expert doodler: coloured pencil on cream paper, obviously a
+doodle, never a photograph of one. The world is the dogs, the dog-walking app and the show; the pencil,
+the paper and the sketchbook are only how it is drawn, and no picture is about them (Qing, 2026-09-29).
+The pack of dogs and the rosettes grow through the song from one blue ribbon to a whole ring, and
+end with you choosing the few that are yours.
 
 ## The look, the words and the motion
 
 Summarised here; [the style reference](../.claude/skills/music-video/references/style-pencil-polka.md)
 has the detail, and [video/ep03/polka/](../video/ep03/polka/README.md) the code.
 
-- **Look.** Coloured pencil on cream paper: every line is a ribbon-shaped pencil stroke with the
-  grain in the stroke, drawn twice and a little apart; colour is zigzag hatching that spills over
-  the outline; backgrounds are big loose crayon scribbles. No texture over the frame. Plain paper
-  for the park and the ring by day, graph paper for the code, ruled paper for the lesson, dark blue
-  paper and light pencils for the night ring, warm peach for the finale.
-- **Motion.** A 12-per-second boil in a three-version cycle; the whole cast squashes on the oom,
-  leans on the pah, and lifts on every beat, the amount following the music's loudness; camera
-  moves and pops at 30 frames a second. Joins: a top-bound notebook page turning up and away on
-  the big changes, a pencil scribble wiping the old picture out between lines.
+- **Look.** Coloured pencil on cream paper, drawn as a hand draws it: a box is a few strokes that
+  overshoot a corner or stop short of it, a circle a loop that doesn't quite close, colour a scribble
+  that spills over the line and misses patches, with no clip line, and every drawn thing is opaque.
+  The hand is dialled to "expert doodler" (Qing found the first cut adorable but slightly too clumsy),
+  and the colouring holds still from drawing to drawing (she found it flashing). No texture over the
+  frame. Places: a park by day, the ring by day, Blob's den for the code, a dog-training class for the
+  lesson, a dark blue night with cream pencil for the night ring, warm peach for the finale.
+- **Motion.** The outlines redraw fifteen times a second (drawing on twos) in a short cycle of
+  versions, while the colouring holds; the whole cast bounces on the oom-pah, landing with a squash and
+  leaning left and right; and everything alive does a little on its own (blinks, eyes that wander, ears
+  and tails that keep swinging, a sun that pulses, clouds that drift, flowers that lean with the beat).
+  Cameras and joins run at 30 frames a second. Joins are plain: a push off the side, an iris, or a cut.
 - **The words.** Hand-printed capitals, written on by the pencil so each word is finished 85 ms
   before it is sung (episode 2's lead, until Qing picks this take's). Each patter line is a poster:
   its body words in graphite, its last word, the "-ility", big on a row of its own in outlined
@@ -220,7 +236,7 @@ quietest, plainest section: piano and a light orchestra with the voice alone.
 
 | Line | Picture: the one thing to read | What it teaches, and how | Beats on the words | Tail |
 |---|---|---|---|---|
-| **Title** 0.0-3.3 | the title page: SOFTWARE QUALITY THEORY 101 · EPISODE 3, "THE ILITIES" written on; three rosettes pop on the first three beats; Clawd jumps in, Bruce trots in; the page flips up on the beat at 2.32-2.74 | the series and the word the whole film is about | title writes bars 1-3; rosettes 1.06, 1.48, 1.91; flip 2.32-2.74 | |
+| **Title** 0.0-3.3 | the title page: SOFTWARE QUALITY THEORY 101 · EPISODE 3, "THE ILITIES" written on; three rosettes pop on the first three beats; Clawd jumps in, Bruce trots in; a push into the park on the beat at 2.32-2.74 | the series and the word the whole film is about | title writes bars 1-3; rosettes 1.06, 1.48, 1.91; push 2.32-2.74 | |
 | **1** 3.3-6.3 *Correct? I built it, then I checked: it books the walks so brilliantly!* | Clawd shows a big phone, the Walkies app, filling its calendar with paw stamps; his clipboard of checks, labelled BOOK, CANCEL and PAY, ticks itself; a blue rosette pinned on with a burst | functional correctness: it does the job, and the checks pass. The naive first win: one rosette. The checks are few and narrow on purpose, so the later failures show what they never covered | phone pops in on "Correct"; ticks at "it," (4.16) "checked:" (4.59) "it" (4.98); stamps on "books" "walks" "so"; burst, rosette and BOOKED! on "brilliantly!" (5.99) | blue |
 | **2** 6.8-9.3 *An older phone? The store says no, so where's compatibility?* | an owner holds up an old brick phone at an App Store counter; the bulldog clerk brings a rubber stamp down on "no," (8.20) and NO lands on the DOWNLOAD counter; question marks pop over her, and an empty green rosette with a "?" hangs | compatibility: it has to work on the devices people have | "older" "phone?" (6.89, 7.21) the old phone rises; stamp lifts on "store" and lands on "no,"; "?"s on "where's" | green |
 | **3** 10.1-12.9 *The sign-ups soared, performance dived, and that's poor scalability!* | a diving board over a paddling pool marked SERVER, with a counter on its tower running up as dogs join the board on each beat; on "performance" a stopwatch on the tower (BOOK A WALK) climbs from 0.4 s to a minute while the board sags a little more with every dog; on "scalability" the board sinks into the pool and the dogs slide in, the rosette after them | performance is how fast it answers (the stopwatch) and scalability is coping as the load grows (the sag, dog by dog): load up, speed down. The sink is gentle, not a crash, so it isn't read as a failure to stay up | "sign-ups" (10.25) counter runs; dogs at 10.36, 10.79, 11.2; "performance" (11.03, where the band accents) the stopwatch; "CREEEAK" at "dived," (11.57); "scalability!" (12.49) the sink | violet |
@@ -228,7 +244,7 @@ quietest, plainest section: piano and a light orchestra with the voice alone.
 | **5** 16.9-19.7 *Accessibility's a mess and so is usability!* | back to day, one screen and three owners shut out by how it's built: tiny text that a screen reader reads as "button, button, button"; a video with no captions for a deaf owner; a tiny target that a shaky hand keeps missing; then the app is a maze of menus that every one of them gets lost in; a purple rosette hangs crooked, an orange one is tangled in a lead. The joke is on the app, never on the person | accessibility (people with different abilities are shut out) and usability (everyone gets lost); the difference is drawn: some people can't get in, or everyone can't find the way | "Accessibility's" (16.95, held) the three owners in turn; "a mess" (18.26, 18.47) everything wobbles; "usability!" (19.32) the maze draws itself | orange |
 | **6** 20.2-22.8 *Walk cats? It cost a second app. Good grief, extensibility!* | a speech bubble asks WALK MY CAT? and the booking form has a dog-shaped slot the cat can't fit; Clawd has to copy the whole app into a second phone and coins pour out; hands on head; a teal rosette with a tiny ribbon taped on to reach | extensibility: can it grow to do what you didn't plan? The fault is in the form, not the cat | "cats?" (20.58) the slot; "second app." (21.36, 21.77) the second phone; "grief," (22.08) hands on head; "extensibility!" (22.43) tape and ribbon | teal |
 | **7** 23.8-26.6 *What you don't know can hurt you through a growing liability.* | Clawd admires his row of rosettes; behind him a small fluffy puppy grows a size on each stress; on the last word its shadow covers him, its wagging tail knocks the table with the rosettes over, and a bill drops out | the refrain: the qualities you never thought about become a risk to you. Liability is not a quality, so its letters are a red warning sign that grows, with no rosette | "know" (24.39) "hurt" (24.86) "growing" (25.62) each a size; "liability." (26.25) the shadow, the crash, the bill | red warning sign |
-| **8** 27.2-30.4 *So leave no stone unturned, and see the whole of software quality.* | Clawd turns over stones in the meadow, a rosette under each; on "and see the whole" the camera pulls back on a meadow of turned stones and rosettes that turns out to be the ring, bunting unfurling; SOFTWARE QUALITY hangs as a banner | the refrain: look at all of them, not one | stones at "leave" (27.50) "stone" (27.78) "unturned," (28.06); pull-back from "see" (28.73); banner on "software" (29.48); the crash at 30.56 (bar 36, second beat) is the page flip into the chorus | many |
+| **8** 27.2-30.4 *So leave no stone unturned, and see the whole of software quality.* | Clawd turns over stones in the meadow, a rosette under each; on "and see the whole" the camera pulls back on a meadow of turned stones and rosettes that turns out to be the ring, bunting unfurling; SOFTWARE QUALITY hangs as a banner | the refrain: look at all of them, not one | stones at "leave" (27.50) "stone" (27.78) "unturned," (28.06); pull-back from "see" (28.73); banner on "software" (29.48); the crash at 30.56 (bar 36, second beat) is the cut into the chorus, on a burst of confetti | many |
 
 ### Chorus 1 (31.8-52.1 s): the ring by day
 
@@ -248,9 +264,10 @@ the board. Six gags, played three times, each time further on.
 
 ### Break 1 (52.8-56.8 s): the page of the code
 
-The band falls to almost nothing. The page flips up onto graph paper. Clawd turns from the ring to
-the camera and sighs on "Right." (52.77); a hard hat with a headlamp drops on his head, and behind
-him, in the corner of a graph-paper page, something huge and shaggy breathes. "You want me to fix
+The band falls to almost nothing. A push takes us from the ring into Blob's den, a wooden shed with a
+pegboard of tools and a huge dog bed. Clawd turns to the camera and sighs on "Right." (52.77); a hard
+hat with a headlamp drops on his head, and behind him, filling the bed, something huge and shaggy
+breathes. "You want me to fix
 the code?" (53.34-54.12): he points at it. "Then here's what I need from it." (55.03-56.58): he
 holds up a clipboard with blank name tags, one for each thing he's about to ask for. A held stillness
 that isn't still: the breath, the boil, a blink. The two seconds after (56.8-58.9) are the pick-up:
@@ -258,7 +275,7 @@ he walks up to the sleeping dog as a bass line starts under him. That is Blob, t
 
 ### Verse 2 (58.9-86.7 s): the agent in the code
 
-Graph paper, a headlamp, and Blob the shaggy dog as the codebase: the bugs are fleas, the docs a
+Blob's den, a headlamp, and Blob the shaggy dog as the codebase: the bugs are fleas, the docs a
 dog-eared manual, the context a dog bowl. A bass line has come in, and the pulse is a little bigger.
 The tails are in cooler colours, so it's clearly the other family of ilities.
 
@@ -275,7 +292,7 @@ The tails are in cooler colours, so it's clearly the other family of ilities.
 
 ### Chorus 2 (87.7-108.5 s): the ring by night, and the tables turn
 
-Dark blue paper, light pencils, fairy lights and spotlights; the bulldog is judge and Clawd is on
+A dark blue night, cream pencil, fairy lights and spotlights; the bulldog is judge and Clawd is on
 the table; the row of dog heads has Clawds among them, because agents are people who matter too. The
 drums come in, so the pulse and the confetti are bigger. Same six gags as chorus 1, with Clawd as the
 subject: he wears twelve rosettes and four wilt; he sprints and crashes and the judge feels his legs
@@ -303,8 +320,8 @@ trill is Bruce's legs.
 
 ### Bridge (121.8-151.2 s): the lesson
 
-A ruled school page with a red margin, Clawd at a board with a pointer. The band nearly stops for
-the hunt, at about 133-137 s.
+A dog-training class on the meadow: Clawd at a whiteboard on an easel with a pointer, a row of dogs
+sitting up to listen. The band nearly stops for the hunt, at about 133-137 s.
 
 | Line | Picture | Beats |
 |---|---|---|
@@ -312,7 +329,7 @@ the hunt, at about 133-137 s.
 | **2** *and each is independent: that's the part that drives you mad!* | six dogs on six leads, each with its own slider, each pulling a different way, out of step, and one Clawd holding all the leads with his two arms: independent in where they go, linked through what he has to give them. The board says OFTEN over "independent" in a small note, and SEPARATE TO JUDGE. LINKED TO BUILD. He is dragged apart with steam coming out of his ears | "independent:" (126.07); "mad!" (128.32) |
 | **3** *And most of them are "ilities", which rhyme: a lucky break!* | the dogs' collar tags all end in -ILITY and click together like puzzle pieces; on "break!" a dog biscuit snaps neatly in two | "rhyme:" (130.81); "break!" (131.73) |
 | **4** *But some of them are not, and so I hunt, for goodness' sake:* | three collars with odd endings (PERFORMANCE, COST, CORRECTNESS); Clawd, on all fours, sniffs like a bloodhound through a heap of dictionaries in a spotlight; the hush at 133-137 s is the hunt | "not," (133.64); "hunt," (134.59); the silence |
-| **5** *Resilience... resilience... ...a stroke of brilliance!* | a bulldog is flattened by a rolling pin but keeps hold of his ball, then re-inflates, twice; then Clawd's pencil draws one confident stroke and it lights up | the springs on 137.53 and 138.43; "stroke" (139.37) |
+| **5** *Resilience... resilience... ...a stroke of brilliance!* | a bulldog is flattened by a rolling pin but keeps hold of his ball, then re-inflates, twice; then Clawd strokes the bulldog's head, once, confidently, and the dog lights up in sparkles: a stroke of brilliance | the springs on 137.53 and 138.43; "stroke" (139.37) |
 | **6** *Compliance... compliance... ...it's rocket science!* | an inspector at the ring gate checks a dog's licence tag and vaccination card, twice, and stamps the entry (rules that come from outside); the inspector's checklist is so long that it needs a rocket to carry it | "compliance" 141.01 and 141.89; "rocket" (143.11) |
 | **7** *The "ilities"? A nickname for the family, the lot:* | a family portrait of the dogs on a frame labelled THE 'ILITIES, the odd-named ones in it too | "nickname" (145.53); "lot:" (147.22) |
 | **8** *the ending's not the point: they're all dimensions, rhyme or not!* | the -ILITY endings fall off every collar and each dog is left with a sash reading DIMENSION; the sliders all set differently | "ending's" (148.20); "dimensions," (149.73); "not!" (150.75) |
@@ -346,11 +363,11 @@ still boiling. It is the film's deliberate stillness.
 
 Silence from the voice, a drum build. The crowd scrambles into the ring, the curtain at the back goes
 up, Clawd swaps the hard hat for a judge's bowler, the bouncing ball appears; the last chorus's crash
-at 181.4 is a shower of confetti and a jump of the whole page.
+at 181.4 is a shower of confetti and a jump of the whole frame.
 
 ### Chorus 3 (181.4-208.6 s): golden hour, the whole show at once
 
-Warm peach paper, a low sun, everyone in the ring. Where chorus 1 gave one gag a line and chorus 2
+A warm peach light, a low sun, everyone in the ring. Where chorus 1 gave one gag a line and chorus 2
 turned them round, chorus 3 plays all six in three rings at once, and the camera whips to each on its
 line, the audience roaring. The dozen rosettes end on twelve different dogs, each standing on its own
 mark. Under "Polish one part..." (195.2-198.1) the last gag plays; then **a hush of about 2.5 s
@@ -363,8 +380,8 @@ three rosettes: the ones that are yours.
 ### Outro (208.6-213.2 s) and the end card
 
 The last chord: the confetti settles, the dogs sleep in a heap, Bruce lifts his head and winks at
-the camera on the last chord (211.27 s; the last strong drum hit is at 210.83), and the page closes. Then **the end card**: a page
-in the sketchbook with every quality the song names, a small doodle beside each and its meaning in
+the camera on the last chord (211.27 s; the last strong drum hit is at 210.83), and the page closes. Then **the end card**: a show
+poster with every quality the song names, a small doodle beside each and its meaning in
 about eight plain words, for screenshotting. It holds for about six seconds after the music ends, the
 one place the film is still on purpose. (See the questions: this wording is a claim, checked against
 Ed Pringle's catalogue where it has a page.)
@@ -373,7 +390,7 @@ Ed Pringle's catalogue where it has a page.)
 
 **How it is built.** One auteur (me), the shared renderer and one new style module. The film is built
 in layers so there is always a watchable cut: (1) the lyric video, every word written on in time,
-with a plain drawn background for each section and the page turns; (2) each line's gag, hero
+with a plain drawn background for each section and the joins; (2) each line's gag, hero
 shots first (verse 1, chorus 1, the agility trials, the parade); (3) the repeats, each further on
 (choruses 2 and 3, verse 2's callbacks); (4) the life in the corners (ambient animals, the audience
 singing, confetti) and the polish. Every layer is rendered as a 540-wide preview and looked at as a
@@ -427,10 +444,15 @@ a dog-show word and "hatch" as eggs are puns that need a beat to land; they get 
 - **The music map:** `music/ep03/beats.json` (the beat and bar grid, the sections), `audio.json`
   (each stem's loudness at 20 Hz, percussion, orchestra and bass events), and the listening notes.
 - **The look proof:** built at final quality to test the style, the lettering and the timing: the
-  first 16.9 s (the title page; verse 1's first four lines: the app working, the store's NO, the
-  diving board and the night; a page flip, two pencil-scribble wipes, and the first dark page),
-  and the first two lines of chorus 1 with the sing-along board, its bouncing ball and Bruce racing
-  after it. The clips went to Qing's phone, and here are frames from them:
+  first 16.9 s (the title; verse 1's first four lines: the app working, the store's NO, the diving
+  board and the night; two pushes and an iris), and the first two lines of chorus 1 with the
+  sing-along board, its bouncing ball and Bruce racing after it. Three rounds so far: the first went
+  to Qing's phone on 2026-09-29 and drew "a bit rigid and simplistic" and "a child's drawing, not one
+  made in Paint"; the second (shapes drawn as strokes, opaque, alive) drew "omg this is adorable! [...]
+  slightly _too_ clumsy but the style is fantastic. if we aim for, like, still obviously doodles on
+  paper but like, more of an expert doodler. it's sonnet the doodler" and "the colouring strokes are
+  flashing a bit too much"; the third is those two changes (the clumsiness dialled to about half, the
+  colouring held still) and is what the code now draws. Frames from the first round:
 
 ![Frames from the look proof: the title page, verse 1's first four lines, and the first two lines of chorus 1 on the sing-along board](03-look-proof.jpg)
 

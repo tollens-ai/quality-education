@@ -1,109 +1,100 @@
-// Chorus 1: the ring by day. A sing-along board across the top, its ball hopping the words on the beat
-// with Bruce running after it; under it, Clawd as judge presents the show dog (the app), and a row of
-// dog heads along the foot of the page sings along. Each line has one gag; this cut has the first two.
-import { W, H, clamp, inv, easeOut, backOut, beatPos, beatPulse, downPulse, words, lerp, hash, loud, sway, TAU } from '../kit.js';
-import { shot, join } from '../shots.js';
-import { paper } from '../paper.js';
-import { write } from '../hand.js';
-import { blob, line, scrub, dot } from '../pencil.js';
+// Chorus 1: the ring by day. The chorus's machinery (the board, the ball, Bruce, the audience, the pigeon)
+// is in chorus-core.js; under the board is the show: Clawd as judge, the app as a scruffy show dog. One gag
+// a line, six lines: the gags are drawn by gag1..gag6 (gag1 and gag2 here, the rest in c1gags34.js and
+// c1gags56.js), each given the line's words and a context, so the second and third choruses can play
+// them again with the tables turned.
+import { W, H, clamp, inv, easeOut, easeIn, backOut, beatPos, beatPulse, downPulse, beatTimes, words, lerp, hash, loud, sway, TAU } from '../kit.js';
+import { blob, line, dot } from '../pencil.js';
 import { clawd, dachshund } from '../chars.js';
-import { dogFront, person } from '../people.js';
+import { dogFront } from '../people.js';
 import { rosette, sparkle, burst } from '../props.js';
 import { groove, pop, ramp } from '../common.js';
-import { sing } from '../lyrics.js';
-import { BOARD, WORDS, ballPath, ballAt, drawBall, signBoard, wordsY } from '../board.js';
-import { rrect, ellipse, star } from '../shapes.js';
+import { SPOT, ROSETTES, judgeClawd, showDog, tableFront, hurdle, confetti } from '../ringcast.js';
+import { spring, shake, hop, gate, ease } from '../life.js';
 import { GRAPHITE, C } from '../palette.js';
-
-const ROSETTES = [C.red, C.orange, C.yellow, C.lime, C.green, C.teal, C.sky, C.blue, C.purple, C.pink, C.brown, C.grey];
-const AUDIENCE = ['bulldog', 'lab', 'poodle', 'corgi', 'beagle', 'pug', 'husky', 'dalmatian'];
+import { registerChorus } from './chorus-core.js';
+import { gag3, gag4 } from './c1gags34.js';
+import { gag5, gag6 } from './c1gags56.js';
 
 export function register(S) {
-  const starts = ['Good in a dozen', 'Fast, but it', 'Ship it by', 'Save on the', 'Polish one part', 'Which of the'];
-  const lines = starts.map(s => words('Chorus 1', s));
-  const path = ballPath(lines);
-  shot(30.144, 39.2, (g, t) => draw(g, t, lines, path), { id: 'c1' });
-  join(30.144, 30.576, 'push', { dir: [0, -1] });
+  registerChorus({
+    id: 'c1', section: 'Chorus 1', t0: 30.56, t1: 52.6, mood: 'day', crash: 30.56,
+    gags: [gag1, gag2, gag3, gag4, gag5, gag6],
+    sunMood: [t => 'happy', t => t > 35.64 ? 'gasp' : 'happy', t => t > 40.28 ? 'worried' : 'happy', t => t > 43.28 ? 'sweat' : 'happy', t => t > 47.06 ? 'worried' : 'happy', t => 'happy'],
+  });
 }
 
-function bunting(g, t) {
-  const y0 = 92, n = 13;
-  line(g, [[0, y0 - 6], [W / 2, y0 + 30], [W, y0 - 6]], { w: 5, col: GRAPHITE, seed: 810, t, spline: true, passes: 1, alpha: .8 });
-  for (let i = 0; i < n; i++) {
-    const u = (i + .5) / n, x = W * u, y = y0 - 6 + 36 * Math.sin(u * Math.PI);
-    const sw = Math.sin(beatPos(t) * Math.PI + i) * 4;
-    blob(g, [[x - 30, y], [x + 30, y], [x + sw, y + 62]], { fill: ROSETTES[(i * 5) % 12], line: GRAPHITE, lw: 4.4, seed: 820 + i, t, hw: 4.4, tone: .7 });
-  }
-}
-
-function ring(g, t) {
-  scrub(g, [0, 760, W, H], { col: '#e6c88f', seed: 830, t, gap: 24, w: 28, alpha: .55, angle: -.1, wig: 24 });
-  scrub(g, [0, 800, W, H], { col: '#d9a35a', seed: 831, t, gap: 40, w: 22, alpha: .25, angle: .2, wig: 20 });
-  // The rope, on two posts.
-  line(g, [[40, 800], [W / 2, 826], [W - 40, 800]], { w: 12, col: C.red, seed: 832, t, spline: true, passes: 1, tooth: .5 });
-  [[40, 800], [W - 40, 800]].forEach(([x, y], i) => line(g, [[x, y - 30], [x, y + 150]], { w: 20, col: '#8b5f2a', seed: 833 + i, t, spline: false, passes: 1 }));
-}
-
-function table(g, t) {
-  // A judging platform: a light wooden top over a blue front with white stars.
-  blob(g, [[W / 2 - 330, 1440], [W / 2 + 330, 1440], [W / 2 + 290, 1400], [W / 2 - 290, 1400]], { fill: '#e2b878', shade: '#a9793a', line: GRAPHITE, lw: 6.4, seed: 840, t, hw: 5, tone: .7, sh: .4 });
-  blob(g, rrect(W / 2, 1520, 660, 160, 14, 3), { fill: C.blue, shade: '#233b7a', line: GRAPHITE, lw: 6.4, seed: 841, t, hw: 5, tone: .6, sh: .25 });
-  for (let i = 0; i < 5; i++) blob(g, star(W / 2 - 240 + i * 120, 1520, 24, 10, 5, -Math.PI / 2 + i * .2), { fill: '#fbf8ef', line: null, seed: 842 + i, t, gap: 5, hw: 4.6, tone: .9 });
-}
-
-function bowler(g2, t, o) {
-  const { BW, BH, LH } = o;
-  const top = -LH - BH;
-  blob(g2, [[-90, top + 6], [-70, top - 50], [-30, top - 82], [30, top - 82], [70, top - 50], [90, top + 6]], { fill: '#3a3947', shade: '#1a1a22', line: GRAPHITE, lw: 6, seed: 850, t, hw: 4.6, tone: .9, sh: .3 });
-  blob(g2, ellipse(0, top + 8, 130, 15, 10), { fill: '#3a3947', line: GRAPHITE, lw: 6, seed: 851, t, hw: 4.6, tone: .9 });
-}
-
-function draw(g, t, lines, path) {
-  paper(g, { base: '#f8efc9' });
-  const gr = groove(t, 1.1);
-  const vox = loud('vocals', t);
-  bunting(g, t);
-  ring(g, t);
-  // The board and the current line on it.
-  signBoard(g, t);
-  const idx = lines.findIndex((ws, i) => t < (lines[i + 1] ? lines[i + 1][0].v - .45 : 1e9));
-  const ws = lines[Math.max(0, idx)];
-  sing(g, t, ws, { ...WORDS, y: wordsY(ws), tailCol: null, col: GRAPHITE, seed: 30 + idx, w: .1, dance: 8, out: { t0: ws[ws.length - 1].e + .22, dur: .24 }, hi: { } });
-  // The ball, and Bruce racing along under it on a ledge.
-  const ledge = BOARD.y + BOARD.h + 66;
-  line(g, [[BOARD.x + 20, ledge + 6], [BOARD.x + BOARD.w - 20, ledge + 6]], { w: 8, col: '#8b5f2a', seed: 860, t, spline: false, passes: 1 });
-  const bb = ballAt(path, t);
-  if (bb && !bb.gone) {
-    // A little shadow on the word it will land on.
-    drawBall(g, t, bb.x, bb.y, 32, { sq: bb.sq || 0, stretch: bb.stretch || 0, spin: t * 4 });
-  }
-  const lag = ballAt(path, t - .3);
-  const lag2 = ballAt(path, t - .55);
-  const bx = lag ? clamp(lag.x, BOARD.x + 120, BOARD.x + BOARD.w - 120) : BOARD.x + 200;
-  const bx2 = lag2 ? clamp(lag2.x, BOARD.x + 120, BOARD.x + BOARD.w - 120) : bx;
-  const dir = bx >= bx2 ? 1 : -1;
-  const moving = Math.abs(bx - bx2) > 3 ? 1 : 0;
-  dachshund(g, { x: bx, y: ledge, s: .46, flip: dir, t, seed: 2, walk: moving ? (t * 3.2) % 1 : 0, tail: beatPos(t), ear: gr.lean * 30, eyes: 'happy', mouth: .5, tongue: true, bob: gr.bp * 8 });
-  // The show: the table, Clawd as judge, the show dog wearing a dozen rosettes.
-  table(g, t);
-  const ck = pop(t, 30.7, .3);
-  clawd(g, { x: 215, y: 1560 - (1 - ck) * 500, s: 1.0, t, seed: 1, eyes: 'open', mouth: clamp(vox * 1.4 - .05), bob: gr.bob, squash: gr.sq, lean: gr.lean, armL: { up: .4 }, armR: { up: .1 }, prop: (g2, o) => bowler(g2, t, o) });
-  dogFront(g, { x: W / 2 + 40, y: 1418, s: 1.5, t, seed: 3, breed: 'mutt', eyes: t > 32.7 ? 'happy' : 'dot', mouth: gr.bp > .5 ? .5 : 0, tongue: true, body: true, bob: gr.bob * .5, collar: C.red, ear: gr.lean * 8 });
-  // A dozen rosettes round him, one every 0.15 s from "Good"; four wilt on "bad in others".
+// ------------------------------------------------------------------- 1 "Good in a dozen ways, and bad in others, though:"
+// Clawd, as judge, presents the show dog on the table; a dozen rosettes appear on a string round him, one a
+// beat; on "bad in others" four of them wilt and go grey.
+function gag1(g, t, ws, cx) {
+  const D = SPOT.dog;
+  const bad = t > ws[6].s;
+  tableFront(g, t);
+  // The string and the twelve rosettes: an arc over the dog, one every 0.13 s from just before "Good".
+  const arc = i => { const u = i / 11; return [lerp(110, 1010, u), 790 + Math.sin(u * Math.PI) * 120 - Math.sin(u * Math.PI * 2) * 0]; };
+  const n = clamp(Math.floor((t - 31.5) / .13) + 1, 0, 12);
+  if (n > 1) line(g, Array.from({ length: n }, (_, i) => arc(i)), { w: 5, col: '#8b5f2a', seed: 880, t, spline: true, passes: 1, alpha: .9 });
+  const WILT = [2, 5, 8, 10], WT = [ws[6].s, ws[7].s + .05, ws[8].s, ws[9].s - .05];
   for (let i = 0; i < 12; i++) {
-    const a0 = 31.5 + i * .15;
-    const k = pop(t, a0, .25);
+    const a0 = 31.5 + i * .13, k = pop(t, a0, .25);
     if (k <= 0) continue;
-    const ang = Math.PI * (1.06 + i / 11 * .88);
-    const x = W / 2 + 40 + Math.cos(ang) * 430, y = 1180 + Math.sin(ang) * 300;
-    const wilt = [2, 5, 8, 10].includes(i) && t > 33.15 + [2, 5, 8, 10].indexOf(i) * .16;
-    g.save(); g.translate(x, y); g.scale(k, k); g.translate(-x, -y);
-    rosette(g, x, y, 56, wilt ? '#a8a7b2' : ROSETTES[i], t, { seed: 900 + i, state: wilt ? 'wilt' : 'new', tilt: (wilt ? .3 : -.1 + i * .02) + gr.lean * 2 });
+    const wi = WILT.indexOf(i), wp = wi >= 0 ? clamp((t - WT[wi]) / .32) : 0;
+    const [x, y] = arc(i);
+    g.save(); g.translate(x, y + wp * 36); g.scale(k, k); g.translate(-x, -y - wp * 36);
+    rosette(g, x, y + wp * 36, 58, wp > .3 ? '#a8a7b2' : ROSETTES[i], t, { seed: 900 + i, state: wp > .2 ? 'wilt' : 'new', tilt: (wp > 0 ? .35 * wp : -.1 + i * .02) + cx.gr.lean * 2 + (1 - k) * .8 });
     g.restore();
   }
-  // The audience, along the foot of the page.
-  AUDIENCE.forEach((b, i) => {
-    const x = 70 + i * 134, ph = hash(i, 4);
-    dogFront(g, { x, y: 1840 + (i % 2) * 22, s: .78, t, seed: 40 + i, breed: b, eyes: 'happy', mouth: clamp(vox * 1.3 + Math.sin(t * 9 + i * 2) * .15 - .1), tongue: false, collar: ROSETTES[(i * 3) % 12], tilt: sway(t + ph * .3) * .09, bob: gr.bp * 6 * (.6 + ph * .6) });
-  });
+  showDog(g, t, cx, { eyes: bad ? 'dot' : 'happy', sad: bad ? 1 : 0, mouth: bad ? 0 : (cx.gr.bp > .5 ? .5 : .1) });
+  // The judge, pleased, then a doubtful hand on his chin as the rosettes wilt.
+  const sweep = Math.sin(clamp((t - 31.4) / .5) * Math.PI);
+  judgeClawd(g, t, cx, { eyes: bad ? 'squint' : 'happy', brow: bad ? .7 : 0, armR: { up: .5 + sweep * .4, out: .2 }, armL: { up: bad ? .9 : .2 }, look: [.6, -.2] });
+  // Sparkles as each rosette lands.
+  for (let i = 0; i < 12; i++) { const a0 = 31.5 + i * .13, d = t - a0; if (d > 0 && d < .3 && !WILT.includes(i)) { const [x, y] = arc(i); sparkle(g, x + 34, y - 34, 18 * (1 - d / .3), t, { seed: 950 + i, rot: d * 8 }); } }
+}
+
+// ------------------------------------------------------------------- 2 "Fast, but it crashes; is it steady? Sound? Oh, no."
+// A greyhound streaks across the ring, hits the hurdle at "crashes;" and cartwheels; the judge runs a hand down
+// its legs, "steady? Sound?", and on "Oh, no." a leg pops off like a toy's.
+function gag2(g, t, ws, cx) {
+  const HX = 520, GY = SPOT.ground;                       // the hurdle, and the ground line
+  const tc = ws[3].s;                              // "crashes;"
+  const t0 = ws[0].s - .5;
+  const crashed = t >= tc;
+  hurdle(g, t, HX, GY, 1.5, { hit: crashed ? clamp((t - tc) / .7) : 0, dir: 1 });
+  // The greyhound: a long-legged, thin dachshund in grey.
+  const D = { legH: 118, bodyH: .62, length: .95, headS: .74, snoutL: 1.4, earS: .6, arch: 26, tuck: 56, chest: 36, legW: .55, coat: '#a7a2b0', shade: '#726d7c', muzzle: '#c4c0cb', collar: C.orange, s: .92 };
+  const XR = 330;                                  // where he ends up
+  let x, y = GY, rot = 0, walk = 0, eyes = 'wide', mouth = .3;
+  if (t < tc) {
+    const u = clamp((t - t0) / (tc - t0));
+    x = lerp(-560, HX - 380, easeIn(u, 1.6)); walk = (t * 8) % 1; mouth = .5;
+    for (let k = 0; k < 4; k++) line(g, [[x - 300 - k * 40, y - 270 + k * 46], [x - 170 - k * 24, y - 270 + k * 46]], { w: 7, col: '#8d8c97', seed: 990 + k, t, spline: false, passes: 1, taper: [.3, .05], alpha: .7 * u });
+  } else {
+    const p = clamp((t - tc) / .75);
+    x = lerp(HX - 380, XR, easeOut(p, 1.6));
+    y = GY - Math.sin(p * Math.PI) * 250;
+    rot = easeOut(p, 1.3) * TAU * 1.5;
+    eyes = 'x'; mouth = 0;
+    if (p >= 1) { rot = 0; eyes = t > ws[5].s ? 'wide' : 'x'; }
+  }
+  const settled = t > tc + .75;
+  const leg = t > ws[8].s ? clamp((t - ws[8].s) / .55) : 0;
+  const pivotY = y - 130 * D.s;
+  g.save(); g.translate(x + 60, pivotY); g.rotate(rot); g.translate(-x - 60, -pivotY);
+  dachshund(g, { x, y: settled ? GY : y, s: D.s, t, seed: 40, ...D, walk, eyes: settled && t > ws[8].s ? 'wide' : eyes, mouth: settled ? (t > ws[8].s ? .6 : 0) : mouth, brow: settled && t > ws[8].s ? 1 : 0, tail: t * 3, legPop: leg > 0 ? { i: 3, p: leg } : null, life: 1 });
+  g.restore();
+  // The judge, from the right, trots up and runs a hand down the legs: "steady?" then "Sound?".
+  const near = ease(t, ws[4].s - .3, ws[6].s - .05);
+  const J = { x: lerp(1010, 885, near), y: SPOT.judge.y, s: 1.12 };
+  const per = (ws[8].s - ws[6].s) / 2, stroke = t > ws[6].s ? ((t - ws[6].s) / per) % 1 : 0;
+  const tx = 500 + (t > ws[7].s ? 80 : 0), ty = GY - 120 + stroke * 100;
+  const feeling = settled && t > ws[5].s && t < ws[8].s;
+  judgeClawd(g, t, cx, { x: J.x, y: J.y, s: J.s, flip: 1, lean: feeling ? -.16 : 0, bob: feeling ? -26 : cx.gr.bob, eyes: leg > 0 ? 'wide' : 'squint', brow: leg > 0 ? -.5 : .6, raise: leg > 0 ? .8 : 0,
+    armL: feeling ? { to: [(tx - J.x) / J.s, (ty - J.y) / J.s], reach: 160 } : { up: leg > 0 ? .9 : .2 }, armR: { up: leg > 0 ? .9 : .1 }, look: [-.8, .5] });
+  // "Boing": the popped leg's spring lines.
+  if (leg > 0 && leg < .9) {
+    const lx = XR + 250, ly = GY - 280;
+    line(g, [[lx - 30, ly + 30], [lx + 30, ly - 24], [lx - 20, ly - 54], [lx + 20, ly - 84]], { w: 6, col: C.red, seed: 995, t, passes: 1, alpha: 1 - leg });
+  }
 }

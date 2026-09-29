@@ -4,23 +4,23 @@
 //
 // Each scene file registers its shots (start, end, draw) and the joins between them once the song and
 // its words are loaded. A shot draws its whole frame, lettering included, as a pure function of song
-// time; drawings change about twelve times a second (the boil) while everything else moves on every frame.
+// time; outlines are redrawn fifteen times a second (on twos) while the colouring holds still and the
+// cameras and joins move on every frame.
 import { W, H, loadRecord, twos, setNow } from './kit.js';
 import { SHOTS, JOINS, drawFrame } from './shots.js';
-import { write } from './hand.js';
-import { AUDIT } from './lyrics.js';
-import { GRAPHITE } from './palette.js';
-import * as intro from './scenes/intro.js';
-import * as verse1 from './scenes/verse1.js';
-import * as chorus1 from './scenes/chorus1.js';
-
-const SCENES = [intro, verse1, chorus1];
+// The film's parts, in song order. A part that isn't there yet (or fails to load) leaves its stretch blank
+// and says so in the console, so a cut of the film can be rendered at any stage.
+const PARTS = ['intro', 'verse1', 'verse1b', 'chorus1', 'verse2', 'chorus2', 'trials', 'bridge', 'parade1', 'parade2', 'leadin', 'chorus3', 'outro', 'joins'];
 
 export async function init(S) {
   await loadRecord(S, '/music/ep03/audio.json');
-  for (const sc of SCENES) sc.register(S);
+  const loaded = [];
+  for (const name of PARTS) {
+    try { (await import(`./scenes/${name}.js`)).register(S); loaded.push(name); }
+    catch (e) { console.error(`part ${name} not drawn: ${e.message}`); }
+  }
   SHOTS.sort((a, b) => a.a - b.a);
-  if (typeof window !== 'undefined') window.__shots = SHOTS.map(s => [+s.a.toFixed(3), +s.b.toFixed(3)]);
+  if (typeof window !== 'undefined') { window.__parts = loaded; window.__shots = SHOTS.map(s => [+s.a.toFixed(3), +s.b.toFixed(3)]); }
 }
 
 export function draw(g, t, S) {
@@ -31,17 +31,4 @@ export function draw(g, t, S) {
   drawFrame(g, t, tq);
 }
 
-// The corner marks, small, in the film's own pencil: the handle and Tollens's ∴ (three dots at the
-// corners of an equilateral triangle, drawn so it is exact).
-export function drawMarks(g) {
-  const t = window.__t || 0;
-  const c = window.__markInk || GRAPHITE;
-  g.save();
-  g.globalAlpha = .72;
-  write(g, '@YANQINGCHENG', 40, 66, 24, { col: c, seed: 90, t, track: 6, w: .1 });
-  const x = W - 196, y = 54, r = 3.8, d = 12;
-  g.fillStyle = c;
-  for (const [px, py] of [[x, y - d * .58], [x - d / 2, y + d * .29], [x + d / 2, y + d * .29]]) { g.beginPath(); g.arc(px, py, r, 0, Math.PI * 2); g.fill(); }
-  write(g, 'TOLLENS', x + 20, 66, 24, { col: c, seed: 91, t, track: 6, w: .1 });
-  g.restore();
-}
+export { drawMarks } from './marks.js';

@@ -4,7 +4,7 @@
 // Every shape here gets a persistent character from its size (so it is the same shape however it is
 // moved) or from a seed you pass (so four legs of one size aren't four copies), and it morphs a little
 // between the boil's versions, so its lumps shift as it is redrawn.
-import { TAU, hash, noise2, NOW, variant } from './kit.js';
+import { TAU, hash, noise2, NOW, variant, kk } from './kit.js';
 
 const vv = () => variant(NOW.t);
 // Push points about by a slow noise field, measured from the shape's own centre (so it doesn't
@@ -14,12 +14,12 @@ export function warp(pts, cx, cy, seed, amp, lam) {
   const ox = hash(seed, 1) * 40, oy = hash(seed, 2) * 40;
   return pts.map(([x, y]) => {
     const u = (x - cx) / lam + ox + v * .34, w = (y - cy) / lam + oy - v * .29;
-    return [x + amp * noise2(u, w, seed), y + amp * noise2(u + 17.3, w + 9.1, seed + 3)];
+    return [x + amp * kk() * noise2(u, w, seed), y + amp * kk() * noise2(u + 17.3, w + 9.1, seed + 3)];
   });
 }
 // A shape's own slant and spin, fixed by its seed.
 function skew(pts, cx, cy, seed, k = 1) {
-  const sh = (hash(seed, 5) - .5) * .12 * k, rot = (hash(seed, 6) - .5) * .06 * k;
+  const sh = (hash(seed, 5) - .5) * .12 * k * kk(), rot = (hash(seed, 6) - .5) * .06 * k * kk();
   const c = Math.cos(rot), s = Math.sin(rot);
   return pts.map(([x, y]) => {
     const dx = x - cx, dy = y - cy;
@@ -34,10 +34,10 @@ export function ellipse(cx, cy, rx, ry, n = 12, rot = 0, seed) {
   seed = seed ?? key(rx, ry, 17);
   const v = vv();
   const M = Math.max(16, n * 2);
-  const a1 = .04 + hash(seed, 1) * .06, a2 = .03 + hash(seed, 3) * .05, a3 = .015 + hash(seed, 5) * .03;
+  const a1 = (.04 + hash(seed, 1) * .06) * kk(), a2 = (.03 + hash(seed, 3) * .05) * kk(), a3 = (.015 + hash(seed, 5) * .03) * kk();
   const p1 = hash(seed, 2) * TAU, p2 = hash(seed, 4) * TAU, p3 = hash(seed, 6) * TAU;
   const start = hash(seed, 10) * TAU;
-  const tilt = (hash(seed, 9) - .5) * .4 + rot;
+  const tilt = (hash(seed, 9) - .5) * .4 * kk() + rot;
   const c = Math.cos(tilt), s = Math.sin(tilt);
   const pts = [];
   for (let i = 0; i < M; i++) {
@@ -72,7 +72,7 @@ export function roundPoly(V, R, n = 3) {
 export function rrect(cx, cy, w, h, r = 20, n = 3, seed, wonk = 1) {
   seed = seed ?? key(w, h, r, 29);
   const m = Math.min(w, h);
-  const j = m * .045 * wonk;
+  const j = m * .045 * wonk * kk();
   const jit = i => [(hash(seed, 60 + i) - .5) * 2 * j, (hash(seed, 70 + i) - .5) * 2 * j];
   const C = [[cx - w / 2, cy - h / 2], [cx + w / 2, cy - h / 2], [cx + w / 2, cy + h / 2], [cx - w / 2, cy + h / 2]].map((p, i) => { const d = jit(i); return [p[0] + d[0], p[1] + d[1]]; });
   const rr = C.map((_, i) => r * (.6 + hash(seed, 40 + i) * .9));

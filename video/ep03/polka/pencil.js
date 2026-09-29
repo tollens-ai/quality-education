@@ -8,8 +8,8 @@
 // the edge and misses patches, with no clip line at the edge. All the randomness comes from a seed
 // and the boil's current version (kit.js: variant), so a frame is a pure function of the song's time
 // and the drawing changes fifteen times a second.
-import { clamp, lerp, hash, noise, rng, hexRgb, rgba, mix, variant, boil, TAU } from './kit.js';
-import { pageTone } from './paper.js';
+import { clamp, lerp, hash, noise, rng, hexRgb, rgba, mix, variant, boil, TAU, kk } from './kit.js';
+import { pageTone, PAGE } from './paper.js';
 
 // ---------------------------------------------------------------- the pencil's grain
 // A tile of alpha noise in one colour, tileable, with streaks along the stroke's usual direction.
@@ -162,9 +162,10 @@ function ribbon(g, P, widths, pat, alpha) {
 //   over    px the stroke runs past its end (default: half of all lines run on a little)
 //   bow     px a long line sags sideways (default: a hand never draws a straight line)
 export function line(g, pts, o = {}) {
-  const { w = 5, col = '#2b2a33', seed = 1, t = 0, from = 0, to = 1, wob = 1.9, wl = 80, passes = 2, taper = [.12, .18],
+  const { w = 5, col = '#2b2a33', seed = 1, t = 0, from = 0, to = 1, wob: wob0 = 1.9, wl = 80, passes = 2, taper = [.12, .18],
     alpha = .92, tooth = .62, spline: sp = true, closed = false, flat = false, press = .34, skip = 0 } = o;
   if (to - from <= 0.001) return;
+  const wob = wob0 * (.45 + .55 * kk());
   const v = variant(t), bo = boil(t);
   let base = sp ? spline(pts, closed, 7) : pts;
   const rs = resample(base, Math.max(3, w * .8), closed);
@@ -172,7 +173,7 @@ export function line(g, pts, o = {}) {
   const N = P.length;
   if (N < 2) return;
   // A hand doesn't draw a straight line: a long one sags to one side; and a stroke tends to run on past its end.
-  const bowAmt = o.bow ?? (closed || flat || rs.len < 70 ? 0 : (hash(seed, 13) - .5) * 2 * Math.min(rs.len * .018, 7));
+  const bowAmt = o.bow ?? (closed || flat || rs.len < 70 ? 0 : (hash(seed, 13) - .5) * 2 * Math.min(rs.len * .018, 7) * kk(.7));
   if (bowAmt) {
     const src = P;
     P = src.map((p, i) => {
@@ -187,7 +188,7 @@ export function line(g, pts, o = {}) {
   const i0 = Math.floor(from * (N - 1)), i1 = Math.max(i0 + 1, Math.ceil(to * (N - 1)));
   for (let pass = 0; pass < passes; pass++) {
     let Q = wobble(P, seed + pass * 17, v, wob * (pass ? 1.3 : 1), wl, .55, closed);
-    if (pass) { const ox = (hash(seed, v, 1) - .5) * w * 1.1, oy = (hash(seed, v, 2) - .5) * w * 1.1; Q = Q.map(p => [p[0] + ox, p[1] + oy]); }
+    if (pass) { const ox = (hash(seed, v, 1) - .5) * w * .8, oy = (hash(seed, v, 2) - .5) * w * .8; Q = Q.map(p => [p[0] + ox, p[1] + oy]); }
     // A hand overshoots the end of a line.
     if (over && !closed && pass === 0 && to >= 1) {
       const a = Q[N - 2], b = Q[N - 1];
@@ -206,7 +207,7 @@ export function line(g, pts, o = {}) {
       const blot = i < 3 && !flat ? 1.5 - i * .15 : 1;
       wd[i] = w * (pass ? .62 : 1) * lerp(.35, 1, Math.sqrt(clamp(tp))) * pr * blot;
     }
-    const pat = shift(g, grain(g, col, tooth), hash(seed, bo, pass, 1) * 128, hash(seed, bo, pass, 2) * 128);
+    const pat = shift(g, grain(g, col, tooth), hash(seed, pass, 1) * 128, hash(seed, pass, 2) * 128);
     // A skip: the pencil lifts for a moment, so the line is two pieces.
     if (skip && !flat && m > 30) {
       const cut = Math.floor(m * (.3 + hash(seed, pass, 8) * .4)), gap = 3 + Math.floor(hash(seed, pass, 9) * 4);
@@ -292,6 +293,8 @@ function bend(P, e0, e1, bow) {
 //   past it or stopping short; a shape without (an egg, a face) is one loop that doesn't quite close,
 //   drifting a little in or out where it overlaps itself, now and then gone round twice.
 export function outline(g, pts, o = {}) {
+  // On a dark page the film's graphite outlines are drawn in cream: the same pencil, the other paper.
+  if (PAGE.dark && (o.col === '#2c2b36' || o.col === '#2b2a33')) o = { ...o, col: '#efe6cf' };
   const { seed = 1, w = 6.6 } = o;
   const st = Math.max(4, w * .7);
   const P = closedSamples(pts, st);
@@ -299,7 +302,7 @@ export function outline(g, pts, o = {}) {
   if (n < 8) return;
   const rand = rng(hash(seed, 900) * 1e6 + 7);
   const per = n * st;
-  const base = clamp(per * .011, 4, 15);
+  const base = clamp(per * .011, 4, 15) * kk(.6);
   const corners = findCorners(P, st);
   const draw = (path, j, extra = {}) => line(g, path, { ...o, spline: false, closed: false, over: 0, seed: seed * 7 + j * 13, taper: [.07, .16], skip: path.length * st > 300 ? .22 : 0, ...extra });
   if (corners.length >= 3) {
@@ -356,14 +359,15 @@ export function outline(g, pts, o = {}) {
 //   gap     spacing of the strokes         angle   general direction in radians     w   line width
 //   spill   how far the strokes may wander past (or stop short of) the outline      dens   0..1 how much is covered
 export function hatch(g, pts, o = {}) {
-  const { col = '#d97757', seed = 1, t = 0, angle = -.9, gap = 6, w = 5.4, spill = 5, alpha = .9, tooth = .58, dens = 1, prog = 1, cross = false, slop = 1 } = o;
+  const { col = '#d97757', seed = 1, t = 0, angle = -.9, gap = 6, w = 5.4, spill: spill0 = 5, alpha = .9, tooth = .58, dens = 1, prog = 1, cross = false, slop = 1 } = o;
+  const spill = spill0 * (.5 + .5 * kk());
   const v = variant(t), bo = boil(t);
   const base = resample(pts, 10, true).p;
   // The colour is a little out of register with the line: shifted, and wandering more than the outline does.
-  const mx = (hash(seed, 60) - .5) * 7 * slop, my = (hash(seed, 61) - .5) * 7 * slop;
-  const poly = wobble(base.map(([x, y]) => [x + mx, y + my]), seed + 401, v, spill * .6, 55, 1.2, true);
+  const mx = (hash(seed, 60) - .5) * 7 * slop * kk(), my = (hash(seed, 61) - .5) * 7 * slop * kk();
+  const poly = wobble(base.map(([x, y]) => [x + mx, y + my]), seed + 401, 0, spill * .6, 55, 1.2, true);
   const b = bounds(poly);
-  const pat = shift(g, grain(g, col, tooth), hash(seed, bo, 5) * 128, hash(seed, bo, 6) * 128);
+  const pat = shift(g, grain(g, col, tooth), hash(seed, 5) * 128, hash(seed, 6) * 128);
   const A = g.globalAlpha;
   g.save();
   g.strokeStyle = pat;
@@ -373,13 +377,15 @@ export function hatch(g, pts, o = {}) {
   if (cross) layers.push({ a: angle + 1.05, gap: gap * 1.3, w: w * .9, al: alpha * .75, dens: dens * .7 });
   // Gone over again at another angle, more lightly and in places, as a child shades: pressed harder where they cared.
   layers.push({ a: angle + .55 + hash(seed, 62) * .7, gap: gap * .8, w: w * 1.08, al: alpha * .5, dens: .42 });
-  layers.forEach((L, li) => scribble(g, poly, L, rng(hash(seed, v, li, 77) * 1e6 + 1), spill, prog, A));
+  layers.forEach((L, li) => scribble(g, poly, L, rng(hash(seed, li, 77) * 1e6 + 1), spill, prog, A, hash(seed, li, 3) * 1000, v));
   g.restore();
 }
 // One layer of scribble over a polygon: rows across it, each row's stretch inside the polygon drawn as a
 // stroke that overruns or falls short of the edge, consecutive rows joined into one zigzag until the
 // pencil lifts.
-function scribble(g, poly, L, rand, spill, prog, A) {
+function scribble(g, poly, L, rand, spill, prog, A, js, v) {
+  // The strokes are decided once per shape; each drawing moves them by a hair (a pixel or two).
+  const J = (r, k) => (hash(js, v, r, k) - .5) * 2.2;
   const ca = Math.cos(L.a), sa = Math.sin(L.a);
   const Q = poly.map(([x, y]) => [x * ca + y * sa, -x * sa + y * ca]);
   let wmin = 1e9, wmax = -1e9;
@@ -421,7 +427,7 @@ function scribble(g, poly, L, rand, spill, prog, A) {
     let s0 = R.a - ea, s1 = R.b + eb;
     if (s1 - s0 < 3) { flush(); prev = null; continue; }
     if (dir < 0) [s0, s1] = [s1, s0];
-    const p0 = [s0, R.w + (rand() - .5) * L.gap * .9], p1 = [s1, R.w + (rand() - .5) * L.gap * .9];
+    const p0 = [s0 + J(r, 1), R.w + (rand() - .5) * L.gap * .9 + J(r, 2)], p1 = [s1 + J(r, 3), R.w + (rand() - .5) * L.gap * .9 + J(r, 4)];
     const bow = (rand() - .5) * L.gap * .8;
     const joined = prev && prev.r === R.r - 1 && prev.k === R.k && rand() > .1;
     if (!joined) { flush(); chain = []; gi = Math.floor(rand() * 3); }
@@ -449,7 +455,7 @@ function scribble(g, poly, L, rand, spill, prog, A) {
 // A pale wash under the colouring, so the paper doesn't show through a coloured area completely.
 export function wash(g, pts, col, a = .22, seed = 1, t = 0) {
   const v = variant(t);
-  const poly = wobble(resample(pts, 12, true).p, seed + 903, v, 3, 60, 1, true);
+  const poly = wobble(resample(pts, 12, true).p, seed + 903, 0, 3, 60, 1, true);
   g.save();
   g.fillStyle = rgba(col, a * (.7 + hash(seed, 66) * .5));
   g.beginPath();
@@ -494,6 +500,7 @@ export function blob(g, pts, o = {}) {
   const P = spline(pts, true, 8);
   // A drawn shape is opaque: what was drawn beneath it doesn't show through the gaps in its colour.
   if (fill && solid) knockOut(g, P);
+  if (fill === 'paper') { if (lc && lw) outline(g, pts, { col: lc, w: lw, seed: seed + 11, t, alpha: .86, tooth: .55 }); return; }
   if (fill) { wash(g, P, fill, tone * .55, seed, t); hatch(g, P, { col: fill, seed, t, gap, w: hw, angle: angle + (hash(seed, 64) - .5) * .7, dens: dens * (.9 + hash(seed, 65) * .1) }); }
   if (shade) {
     // The shade: a second, darker scribble across the lower part of the shape, its top edge the ragged ends of strokes.
@@ -522,12 +529,15 @@ export function dot(g, x, y, r, o = {}) {
   const P = spline(pts, true, 5);
   if (r >= 10) {
     g.save(); g.globalAlpha *= alpha;
-    hatch(g, P, { col, seed: seed + 3, t, gap: Math.max(3, r * .17), w: Math.max(4.4, r * .26), spill: r * .05, alpha: .95, tooth: .3, angle: -.9 + (hash(seed, 5) - .5) * 1.4, slop: 0 });
+    // Scribbled solid: two passes at different angles, so no paper shows through.
+    const gp = Math.max(2.6, r * .13), wd = Math.max(5, r * .3);
+    hatch(g, P, { col, seed: seed + 3, t, gap: gp, w: wd, spill: r * .04, alpha: 1, tooth: .8, angle: -.9 + (hash(seed, 5) - .5) * 1.4, slop: 0 });
+    hatch(g, P, { col, seed: seed + 4, t, gap: gp * 1.1, w: wd, spill: r * .04, alpha: .9, tooth: .8, angle: .5 + (hash(seed, 6) - .5) * 1.2, slop: 0 });
     g.restore();
     return;
   }
   g.save();
-  g.fillStyle = shift(g, grain(g, col, .8), hash(seed, boil(t), 9) * 128, hash(seed, boil(t), 10) * 128);
+  g.fillStyle = shift(g, grain(g, col, .8), hash(seed, 9) * 128, hash(seed, 10) * 128);
   g.globalAlpha *= alpha;
   g.beginPath(); P.forEach(([px, py], i) => i ? g.lineTo(px, py) : g.moveTo(px, py)); g.closePath(); g.fill();
   g.restore();
@@ -539,13 +549,13 @@ export function scrub(g, box, o = {}) {
   const { col = '#9ccb3b', seed = 1, t = 0, gap = 22, w = 26, alpha = .34, angle = -.35, wig = 30 } = o;
   const v = variant(t);
   const [x0, y0, x1, y1] = box;
-  const pat = shift(g, grain(g, col, .42), hash(seed, boil(t), 3) * 128, hash(seed, boil(t), 4) * 128);
+  const pat = shift(g, grain(g, col, .42), hash(seed, 3) * 128, hash(seed, 4) * 128);
   g.save();
-  // A ragged edge: the region's outline wanders by a hand's width.
+  // A ragged edge: the region's outline wanders by a hand's width, slowly (a soft edge, not a saw).
   const edge = [];
-  const N = 26;
-  for (let i = 0; i <= N; i++) edge.push([x0 + (x1 - x0) * i / N, y0 + 34 * noise(i * .45 + v * .3, seed)]);
-  for (let i = 0; i <= N; i++) edge.push([x1 - (x1 - x0) * i / N, y1 + 34 * noise(i * .5 + 9 + v * .3, seed + 1)]);
+  const N = 64;
+  for (let i = 0; i <= N; i++) edge.push([x0 + (x1 - x0) * i / N, y0 + 26 * noise(i * .11, seed) + 8 * noise(i * .37, seed + 4)]);
+  for (let i = 0; i <= N; i++) edge.push([x1 - (x1 - x0) * i / N, y1 + 26 * noise(i * .12 + 9, seed + 1) + 8 * noise(i * .41, seed + 5)]);
   g.beginPath();
   edge.forEach(([x, y], i) => i ? g.lineTo(x, y) : g.moveTo(x, y));
   g.closePath();
@@ -554,7 +564,7 @@ export function scrub(g, box, o = {}) {
   g.globalAlpha *= alpha;
   const ca = Math.cos(angle), sa = Math.sin(angle);
   const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, R = Math.hypot(x1 - x0, y1 - y0) / 2 + 40;
-  const rand = rng(hash(seed, v, 8) * 1e6 + 3);
+  const rand = rng(hash(seed, 8) * 1e6 + 3);
   g.beginPath();
   let dir = 1;
   const n = Math.ceil(2 * R / gap);

@@ -40,7 +40,6 @@ export function meadow(g, t, y0 = 1290, o = {}) {
   scrub(g, [0, y0, W, H], { col, seed, t, gap: 20, w: 26, alpha: .55, angle: -.12, wig: 26 });
   scrub(g, [0, y0 + 30, W, H], { col: col2, seed: seed + 4, t, gap: 36, w: 22, alpha: .38, angle: .18, wig: 22 });
   scrub(g, [0, y0 + 300, W, H], { col: '#2f8a4a', seed: seed + 9, t, gap: 30, w: 24, alpha: .3, angle: -.3, wig: 20 });
-  line(g, [[0, y0 + 6], [260, y0 - 6], [560, y0 + 8], [860, y0 - 4], [W, y0 + 4]], { w: 5.4, col: GRAPHITE, seed: seed + 8, t, wob: 3, passes: 2, alpha: .75 });
   // Tufts along the front.
   for (let i = 0; i < 9; i++) {
     const x = 60 + i * 125 + ((i * 37) % 40), y = 1600 + ((i * 53) % 220);

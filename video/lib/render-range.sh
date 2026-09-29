@@ -4,6 +4,7 @@
 #   video/lib/render-range.sh <scene.js> <song dir> <audio.wav> <out.mp4> <from s> <to s> [jobs=3] [fps=30] [width=1080]
 # Frame k of the song is at k/fps, so a range's frames match the same frames of a full render.
 # Run from the repo root on a machine with Playwright and ffmpeg (set FFMPEG if it isn't on PATH).
+# QUERY="part=verse2" is passed to the scene as its query (a preview entry's part).
 set -euo pipefail
 scene=$1 song=$2 audio=$3 out=$4 from=$5 to=$6 jobs=${7:-3} fps=${8:-30} w=${9:-1080}
 ff=${FFMPEG:-ffmpeg}
@@ -16,7 +17,7 @@ render_seg() {
   local i=$1 a=$(( f0 + total * $1 / jobs )) b=$(( f0 + total * ($1 + 1) / jobs ))
   for try in 1 2 3; do
     node video/lib/render.mjs --scene "$scene" --song "$song" --w "$w" --fps "$fps" \
-      --frames "$a:$b" --video "$tmp/seg$i.mp4" --crf 17 --out "$tmp/o$i" > "$tmp/log$i.txt" 2>&1 || true
+      --frames "$a:$b" --video "$tmp/seg$i.mp4" --crf 17 --out "$tmp/o$i" ${QUERY:+--query "$QUERY"} > "$tmp/log$i.txt" 2>&1 || true
     [ -s "$tmp/seg$i.mp4" ] && return 0
     echo "segment $i failed on try $try; retrying" >&2
     sleep 3

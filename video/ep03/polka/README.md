@@ -7,7 +7,7 @@ of the song's time, drawn with Canvas 2D in headless Chromium, in the style desc
 written from a blank page for this song; only the render harness in `video/lib/` and the
 measurements in `music/ep03/` are shared with the other episodes.
 
-**Status:** finished, and approved by Qing to ship (2026-09-29): 47 shots, 31 joins and 15 cuts, 6,576 frames at 30 a
+**Status:** finished, and shipped (2026-09-29): 47 shots, 31 joins and 15 cuts, 6,576 frames at 30 a
 second (the take and six seconds of end card). Each part's scene file registers its own shots and `main.js`
 loads whichever exist, so a cut renders at any stage. The episode's video file has the plan, the picture for
 every sung line, how it was made and checked, and where it falls short.

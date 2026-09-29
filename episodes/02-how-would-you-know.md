@@ -1,4 +1,4 @@
-# Episode 2: "How Do I Know?" (working title)
+# Episode 2: "How Will I Know" (working title: "How Do I Know?")
 
 **Concept:** tell your agent how it will know whether its work is good, and it can check its own
 work. The thing that tells you is an oracle, and there always is one: if it's good, somebody can

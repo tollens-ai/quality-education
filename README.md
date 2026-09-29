@@ -2,8 +2,9 @@
 
 Short animated music videos about software quality, for people who build with AI coding agents.
 Each episode teaches one idea from quality theory, and ends with what that idea changes about how
-you brief your agent. Episode 1 is out. The series is in development, and its outline, scripts
-and animation code are built in public here.
+you brief your agent. Episodes 1 to 3 are out: episode 2 came out on 2026-09-28 and episode 3 on
+2026-09-29. The series is in development, and its outline, scripts and animation code are built
+in public here.
 
 ![Three frames from episode 1. A laptop shows the prompt "make it good" under the words "You said make it good, so I made it GOOD!". A fairground sign over a packed pier at night asks "Make it good for WHO?". At sunrise, the same sign answers "ME!".](episodes/01-good-for-who.jpg)
 

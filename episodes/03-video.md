@@ -1,6 +1,6 @@
 # Episode 3 video: "The 'Ilities", "Pencil Polka"
 
-**Status (2026-09-29): finished, and Qing is shipping it: "OK, I like this one and I will ship it."** The whole
+**Status (2026-09-29): finished, and shipped by Qing that day: "OK, I like this one and I will ship it."** The whole
 film is drawn (213.2 s of song and six seconds of end card), reviewed by me shot by shot and by frame audits.
 Qing's notes on the look are below, verbatim, with what was done about each. She approved the film as built, and
 she hasn't answered the claims list at the end one by one, so each picture's claim stays mine until she says

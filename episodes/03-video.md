@@ -522,3 +522,10 @@ The lyric and the pictures are mine to make, so these are claims, plus what I ne
   described from measurement, and the music-to-picture mapping needs Qing's ears (the instrumental's
   four phrases and the hit strengths are measured, the instruments are not identified). The
   timings rest on measurement and a single listen by Qing to come.
+- **What unsteered Sonnets would have made (2026-09-29, from Qing's curiosity).** Eight fresh Sonnet
+  subagents were given the lyric, the generator's style note and the series' description (five also got the
+  non-style parts of the brief: dogs, Clawd, lettering, instrumentals, a high bar) and asked to pick one
+  style for a video drawn by code. All eight chose a Victorian toy theatre of cut-card puppets on a
+  proscenium stage, for the same reasons: comic opera is already theatre, and cut paper is cheap to draw
+  with polygons and shadows. So the coloured-pencil look is Qing's steer, not the default. (Not a controlled
+  experiment: the agents also had this repository's notes in their context, though none echoed the pencil look.)

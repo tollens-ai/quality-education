@@ -30,6 +30,23 @@ export function tentBack(g, t) {
   [176, 540, 904].forEach((x, i) => line(g, [[x - 6, 730], [x + 5, 990], [x - 3, STAGE_Y]], { w: 4, col: '#b8a888', seed: 510 + i, t, spline: true, passes: 1, alpha: .32, over: 0 }));
   bunting(g, t, -20, 744, W + 20, 752, { n: 7, sag: 42, seed: 41, size: 42 });
   bunting(g, t, -20, 794, W + 20, 786, { n: 6, sag: 54, seed: 47, size: 44, cols: [C.blue, C.pink, C.yellow, C.red, C.green, C.orange] });
+  // Strings of lamps across the tent's roof, in the band under the lyric: they glow a little on the beat.
+  bulbs(g, t, 418, 52, 21, 560, 0);
+  bulbs(g, t, 528, 44, 17, 590, 1.9);
+}
+
+// A string of lamps hung between the tent's sides: a sagging cord and a bulb at each of n points, each with a soft glow.
+function bulbs(g, t, y0, sag, n, seed, phase) {
+  const P = u => [lerp(-20, W + 20, u), y0 + Math.sin(u * Math.PI) * sag];
+  line(g, Array.from({ length: 17 }, (_, i) => P(i / 16)), { w: 4.4, col: '#8b7f60', seed, t, spline: true, passes: 1, alpha: .8, over: 0, bow: 0 });
+  const bp = beatPulse(t, .16);
+  for (let i = 1; i < n; i++) {
+    const [x, y] = P(i / n);
+    const gl = clamp(.62 + .3 * Math.sin(t * 3.4 + i * 1.7 + phase) + bp * .25);
+    g.save(); g.globalAlpha *= .2 * gl; g.fillStyle = '#ffd97a'; g.beginPath(); g.arc(x, y + 22, 34, 0, TAU); g.fill(); g.restore();
+    line(g, [[x, y], [x, y + 8]], { w: 3.4, col: '#8b7f60', seed: seed + i, t, spline: false, passes: 1, over: 0, bow: 0 });
+    dot(g, x, y + 22, 11, { col: i % 3 === 0 ? '#ff9f6b' : i % 3 === 1 ? '#ffe07a' : '#ffd0a0', seed: seed + 30 + i, t });
+  }
 }
 
 // The valance across the top of the picture zone: red, scalloped, with gold piping and tassels. It is

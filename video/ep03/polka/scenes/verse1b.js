@@ -357,7 +357,7 @@ function drawC(g, t, ws) {
     const k = spring(t, hit - .1, { f: 2.4, z: .42 }) * (1 + .05 * beatPulse(t, .2));
     [it.x - 100, it.x + it.w + 100].forEach((cx, i) => { g.save(); g.translate(cx, it.y - it.size * .55); g.scale(k, k); warnTri(g, 0, 0, 82, t, { seed: 650 + i * 7, tilt: (i ? .1 : -.1) }); g.restore(); });
   }
-  sing(g, t, ws, { ...LO, tailCol: C.red, tailBubble: { fill: '#e8504a', edge: '#7a1f1a', e: 2.0, f: 1.35 }, hi: { 3: C.red, 5: C.red, 9: C.red }, seed: 10, w: .1 });
+  sing(g, t, ws, { ...LO, tailCol: C.red, tailBubble: { fill: '#e8504a', edge: '#7a1f1a', e: 2.0, f: 1.35 }, hi: { 3: '#c93a2e', 5: '#c93a2e', 9: '#c93a2e' }, seed: 10, w: .1 });
 }
 
 // ================================================================= 8  So leave no stone unturned, and see the whole of software quality.

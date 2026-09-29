@@ -26,7 +26,8 @@ for (li, wi), rs in sorted(words.items()):
     if done is None:
         flags.append((r0['s'], tag, 'never fully written'))
         continue
-    if done > r0['v'] + .15:
+    # (A word already fully written in the first frame recorded was written before the audit window opened, so its lateness can't be judged.)
+    if r0['prog'] < .98 and done > r0['v'] + .15:
         flags.append((r0['s'], tag, f"finished {done - r0['v']:+.2f}s after due ({r0['v']:.2f})"))
     last = rs[-1]['t']
     if last < line_last[li] - .05:

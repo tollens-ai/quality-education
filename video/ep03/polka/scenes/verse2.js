@@ -458,7 +458,11 @@ function drawL6(g, t, ws) {
     const gr2 = g.createRadialGradient(905, 1330, 150, 905, 1330, 760);
     gr2.addColorStop(0, 'rgba(22,32,72,0)');
     gr2.addColorStop(1, `rgba(22,32,72,${.38 * dim})`);
-    g.save(); g.fillStyle = gr2; g.fillRect(0, 0, W, H); g.restore();
+    g.save(); g.fillStyle = gr2; g.fillRect(0, 0, W, H);
+    // Darker still at the top, where the lyric is, so cream letters read (about 3:1) on the dimmed wall.
+    const gt = g.createLinearGradient(0, 0, 0, 800);
+    gt.addColorStop(0, `rgba(14,22,56,${.5 * dim})`); gt.addColorStop(1, 'rgba(14,22,56,0)');
+    g.fillStyle = gt; g.fillRect(0, 0, W, 800); g.restore();
   }
   if (pk > .02) {
     const PX = 905, PY = 1552, PS = 1.35;
@@ -495,7 +499,7 @@ function drawL6(g, t, ws) {
   [76.48, 77.64].forEach((tt, i) => { if (t > tt && t < tt + .3) { const u = inv(tt, tt + .3, t); burst(g, S0.x, S0.y - 100, 30 + 30 * u, 70 + 60 * u, t, { col: C.yellow, seed: 15 + i, prog: easeOut(u), n: 10, w: 8 }); } });
   pigeon(g, t, 230, 698, .66, { flip: -1, state: t > 76.48 ? 'gasp' : 'perch', look: 1 });
   const out = { t0: ws[ws.length - 1].e + .3, dur: .3 };
-  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: '#25397c', tailBubble: { fill: '#5b6fc0', edge: '#0e163f', e: 2.0, f: 1.35 }, col: dim > .2 ? '#f5eedd' : undefined, hi: dim > .2 ? { 1: '#ff9a8a', 5: '#ff9a8a' } : { 1: C.red, 5: C.red }, seed: 26, out, w: .1 });
+  sing(g, t, ws, { y: 225, size: 90, maxW: 980, tail: 1, tailCol: '#25397c', tailBubble: { fill: '#5b6fc0', edge: '#0e163f', e: 2.0, f: 1.35 }, col: dim > .2 ? '#f5eedd' : undefined, hi: dim > .2 ? { 1: '#ffe08a', 5: '#ffe08a' } : { 1: C.red, 5: C.red }, seed: 26, out, w: .1 });
 }
 
 

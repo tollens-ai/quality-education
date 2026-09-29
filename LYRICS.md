@@ -93,7 +93,10 @@ where one already covers it.
 - **What makes a rhyme is the stressed vowel.** "See it", "leave it" and "believe it" all rhyme,
   though the consonants differ ("see it absolutely rhymes with leave it"). "Love it" and "leave
   it" don't, however alike they look, because the vowels differ ("love it and leave it do NOT
-  rhyme"; Qing, 2026-09-27). Check each claimed rhyme by its stressed vowel, in General American.
+  rhyme"; Qing, 2026-09-27). Check each claimed rhyme by its stressed vowel, in General American. A vowel-only half rhyme has to
+  end in exactly the target's stressed sounds: to answer "-ility" it needs a short "i" then a long "ee"
+  ("BIT for ME", "IT to BE"). "Bit of it" ends in the wrong sound and doesn't count (Qing, 2026-09-29:
+  "they have to actually end in those exact stressed vowels").
 - **Rhyme is predictability: repeat an internal rhyme in the same place.** If one line has an
   internal rhyme, the lines that answer it have one in the same slot; otherwise it sounds like an
   accident (Qing, 2026-09-27: "rhyming is about predictability"). Her sketch put a rhyming pair
@@ -127,6 +130,33 @@ where one already covers it.
   template: "Bot for the group chat? Make it fun" didn't scan; "Group chat bot? Make 'em laugh" was a
   syllable short; "Group chat bot? Just make 'em laugh" fits the seven-syllable pattern. Likewise "A
   launch demo?" limped and "Product demo?" fits.
+
+## Patter songs
+Qing's guidance while drafting episode 3 (2026-09-28 unless dated). The mechanics behind them are in
+[drafting with parallel drafters](.claude/skills/songwriting/references/drafting-with-parallel-drafters.md).
+- **Density is the point.** "The important thing about Gilbert and Sullivan style patter songs is the
+  density of rhyme - it's almost like rap." Some gymnastics to fit the words is expected ("think the
+  elements song"), though it needn't be as content-dense as that.
+- **Names that rhyme go at the line ends; the ones that don't live in the middle of a line.** A list of
+  terms (the ilities) splits by sound: the "-ility" words take the tails, and "performance", "cost" and
+  "correctness" sit inside lines, on a beat ("the stress on performance is on FOR").
+- **Group list items by stress pattern, and pad with unstressed words in front.** "A and B rhyme, as does
+  da-DUM-da-da, and DUM-da-da, you just have to put unstressed words in front." Long words can be fudged
+  ("vuln'rability", "recov'rability").
+- **Give every line the same stress grid, write it as beat positions, and put the internal rhyme in the
+  same beat slots on every line.** Precision here is what makes the density audible; check each line
+  against the first with the checker.
+- **Meaning first picks the scheme; then the scheme shapes the lines.** Choosing the rhyme and stress
+  scheme is where meaning comes first: pick one the words you must say will fit ("Software Quality",
+  "Quality Dimension", the ilities), because a scheme they can't fit is pointless. Once the scheme is
+  fixed, the other lines get massaged and tweaked to fit it, examples included ("massaging examples into
+  the rhyme structure sudoku, not vice versa", 2026-09-28). And don't be afraid to swap an idea for
+  something completely different, parked on the scratch sheet for later, as long as the key meaning
+  survives (Qing, 2026-09-29). This matches *Meaning first*: when a line's meaning starts to bend, change
+  the scheme or the idea, never the claim.
+- **A verse can end on a refrain that teaches.** A fixed closing line or pair, word for word in every
+  verse, can carry the moral (Qing, 2026-09-29). And a genre song needn't have a chorus: the recurring
+  section can be the promoted pre-chorus.
 
 ## Structure
 - **A tag breaks the pattern to wind into the next section.** It doesn't need a full rhyme;
@@ -184,6 +214,8 @@ where one already covers it.
   song*.
 
 ## Process
+- **Story labels the picture can carry stay out of the words.** Days of the week and the app's name were
+  storyboard details, not lyric (Qing, 2026-09-29). Keep the concrete failures, which the listener needs.
 - **Lyrics before storyboard.** Work on the lyric sheet, noting only the key frames a line
   depends on. Rebuild the storyboard once the lyrics are locked; before that, every lyric change
   throws storyboard work away. This applies to conversation too: lyric options come with no
@@ -198,6 +230,8 @@ where one already covers it.
   thing (a rhyme density, a tone), take that one thing and write your own lines. Copying her
   sketch's structure, or filling in its blanks, is over-fitting (2026-09-27: "there is no
   particular line structure that works!").
+- **Draft in parallel, with a brief and a checker.** How episode 3 did it, and what went wrong:
+  [drafting with parallel drafters](.claude/skills/songwriting/references/drafting-with-parallel-drafters.md).
 - **Bring the expert whole options.** Two or three finished lines to choose between, each with
   what it covers and what it costs, and a recommendation. Not open questions.
 
@@ -253,6 +287,10 @@ Qing's findings from the first generations of episode 1 (2026-09-24):
 - **Spell tricky words as they're said.** Acronyms and jargon ("2FA", "Kubernetes") come out wrong
   unless they're spelled phonetically in the pasted lyrics. Keep the real spelling on the lyric
   sheet and in the captions; only the generator's copy changes.
+- **Punctuation steers the generator's phrasing.** A comma or question mark after the first word of a
+  line (`Correct?`) made it pause there and lose the line's rhythm; taking it out fixed the take (Qing,
+  2026-09-29: "I had to remove the punctuation after correct to get the rhythm right"). Keep the
+  punctuation on the lyric sheet and drop what splits a line in the pasted copy, as with spellings.
 - **Spellings that worked** (Qing's copy for episode 1, 2026-09-25, kept in the episode file):
   "Two eff ay" (2FA), "Cuber Netease" (Kubernetes), "Twelve sub agents", "de bugging",
   "Dye ags" (Diags). Splitting a compound into separate words fixes most stress errors.

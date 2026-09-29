@@ -24,6 +24,8 @@ expensive after.
 1. **Words.** Write or revise the lyric. Read [lyrics.md](references/lyrics.md) for prosody,
    rhyme, hooks and titles, comedy and patter, teaching in a song, and writing for a synthetic
    voice.
+   To draft a whole song fast, use the parallel-drafter loop in
+   [drafting-with-parallel-drafters.md](references/drafting-with-parallel-drafters.md).
    Before rewriting, skim the song's scratchbook of past drafts and fragments; afterwards, add
    the replaced lines and any stray fragment worth keeping (LYRICS.md, *Keep every draft*).
    *Done when* each line says something new, every stressed word is a real, natural phrase, and

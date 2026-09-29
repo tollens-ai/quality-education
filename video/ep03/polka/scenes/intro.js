@@ -1,4 +1,4 @@
-// The title page: the notebook's first page. "THE ILITIES" is written on over the first four bars, the
+// The title page: the notebook's first page. "THE 'ILITIES" is written on over the first four bars, the
 // pencil drawing a title card for Clawd and Bruce, who jump in on the oom.
 import { W, H, clamp, inv, easeOut, backOut, beatPos, beatPulse, downPulse, lerp } from '../kit.js';
 import { shot, join } from '../shots.js';
@@ -27,16 +27,16 @@ function drawIntro(g, t) {
   write(g, 'EPISODE 3', W / 2, 372, 40, { col: '#2a4fa8', seed: 4, t, align: 'center', prog: ramp(t, .6, 1.05, x => x), track: 10 });
   write(g, 'THE', W / 2, 540, 118, { col: GRAPHITE, seed: 5, t, align: 'center', prog: ramp(t, .35, .8, x => x) });
   const ip = ramp(t, .7, 1.85, x => x);
-  write(g, 'ILITIES', W / 2, 780, 212, { seed: 6, t, align: 'center', prog: ip, bubble: { fill: '#f5a03a', edge: '#8a4a1d', e: 2.0, f: 1.35 }, w: .1, dance: 12, beat: beatPos(t), pulse: gr.bp, track: 5 });
+  write(g, "'ILITIES", W / 2, 780, 212, { seed: 6, t, align: 'center', prog: ip, bubble: { fill: '#f5a03a', edge: '#8a4a1d', e: 2.0, f: 1.35 }, w: .1, dance: 12, beat: beatPos(t), pulse: gr.bp, track: 5 });
   // Prize ribbons on the beat.
   [[130, 950, C.red, 1.06, -.25], [W - 130, 940, C.teal, 1.48, .25], [W / 2, 1000, C.yellow, 1.91, 0]].forEach(([x, y, col, a, tilt], i) => {
     const k = pop(t, a);
     if (k > 0) { g.save(); g.translate(x, y); g.scale(k, k); g.translate(-x, -y); rosette(g, x, y, 62, col, t, { seed: 20 + i, tilt: tilt + gr.lean * 2 }); g.restore(); }
   });
-  // A pigeon flaps in and lands on the first letter of the title; a butterfly drifts through.
+  // A pigeon flaps in and lands on the title's first I (after its apostrophe); a butterfly drifts through.
   if (t > 1.2) {
     const u = clamp(inv(1.35, 1.95, t));
-    const px = lerp(-120, 168, easeOut(u, 2)), py = lerp(260, 592, u * u) - Math.sin(u * Math.PI) * 120;
+    const px = lerp(-120, 214, easeOut(u, 2)), py = lerp(260, 592, u * u) - Math.sin(u * Math.PI) * 120;
     pigeon(g, t, px, py, .8, { state: u < 1 ? 'flap' : 'perch', look: 1 });
   }
   butterfly(g, t, 800 + Math.sin(t * 1.4) * 70, 1030 + Math.sin(t * 2.2) * 26, .9, C.pink);

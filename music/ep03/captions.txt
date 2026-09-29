@@ -1,0 +1,67 @@
+# Captions for episode 3's take ("The ilities", Suno), one per line, in sung order.
+# Text follows Qing's final lyric sheet (2026-09-29), which the take sings word for word.
+# Where the take differs, the captions follow the take. The break's spoken line is spoken, not sung.
+# Intro
+# Verse 1
+Correct I built it, then I checked: it books the walks so brilliantly!
+An older phone? The store says no, so where's compatibility?
+The sign-ups soared, performance dived, and that's poor scale-ability!
+It died at night; the dogs all cried: goodbye, reliability!
+Accessibility's a mess and so is use-ability!
+Walk cats? It cost a second app. Good grief, extensibility!
+What you don't know can hurt you through a growing liability.
+So leave no stone unturned, and see the whole of software quality.
+# Chorus 1
+Good in a dozen ways, and bad in others, though:
+Fast, but it crashes; is it steady? Sound? Oh, no.
+Ship it by Sunday; it's a pain to change, and slow;
+Save on the checking, and the bugs can wreck the show;
+Polish one part, and then another takes a blow:
+Which of the "ilities" are yours? I've got to know!
+# Break 1
+Right. You want me to fix the code? Then here's what I need from it.
+# Verse 2
+Confused, why can't I reproduce it? No debuggability.
+I ask it why: it's "Oops". Gee, thanks for diagnosability!
+I wipe the payments? Stale docs: "Nightly saves!" Recoverability?
+We walk it through by hand, and miss a lot: low testability.
+The blob's so huge, I burn my context: not much readability.
+I patch one bug, and two more hatch: so where's maintainability?
+What you don't know can hurt me too: it goes and puts me ill at ease.
+You'll make my day: just name and weigh the agent-facing "ilities".
+# Chorus 2
+Good in a dozen ways, and bad in others, though:
+Fast, but it crashes; is it steady? Sound? Oh, no.
+Ship it by Sunday; it's a pain to change, and slow;
+Save on the checking, and the bugs can wreck the show;
+Polish one part, and then another takes a blow:
+Which of the "ilities" are yours? I've got to know!
+# Instrumental
+# Bridge
+A quality dimension is a way it's good or bad,
+and each is independent: that's the part that drives you mad!
+And most of them are "ilities", which rhyme: a lucky break!
+But some of them are not, and so I hunt, for goodness' sake:
+Resilience... resilience... ...a stroke of brilliance!
+Compliance... compliance... ...it's rocket science!
+The "ilities"? A nickname for the family, the lot:
+the ending's not the point: they're all dimensions, rhyme or not!
+# Break 2
+Upgradability, replaceability,
+explainability, and traceability,
+observability, reversibility,
+installability, and portability,
+and flexibility, detectability,
+and suitability, reusability,
+sustainability, and changeability,
+deployability, enjoyability!
+I could name you a hundred, and still not be through,
+but the ones that you want? That's a question for you!
+# Chorus 3
+Good in a dozen ways, and bad in others, though:
+Fast, but it crashes; is it steady? Sound? Oh, no.
+Ship it by Sunday; it's a pain to change, and slow;
+Save on the checking, and the bugs can wreck the show;
+Polish one part, and then another takes a blow:
+Which of the "ilities" are yours? I've got to know!
+# Outro

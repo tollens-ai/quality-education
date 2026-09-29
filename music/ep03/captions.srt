@@ -1,0 +1,212 @@
+1
+00:00:03,274 --> 00:00:06,735
+Correct I built it, then I checked: it books the walks so brilliantly!
+
+2
+00:00:06,774 --> 00:00:09,684
+An older phone? The store says no, so where's compatibility?
+
+3
+00:00:10,089 --> 00:00:13,245
+The sign-ups soared, performance dived, and that's poor scale-ability!
+
+4
+00:00:13,520 --> 00:00:16,580
+It died at night; the dogs all cried: goodbye, reliability!
+
+5
+00:00:16,945 --> 00:00:20,074
+Accessibility's a mess and so is use-ability!
+
+6
+00:00:20,236 --> 00:00:23,175
+Walk cats? It cost a second app. Good grief, extensibility!
+
+7
+00:00:23,779 --> 00:00:27,000
+What you don't know can hurt you through a growing liability.
+
+8
+00:00:27,237 --> 00:00:30,768
+So leave no stone unturned, and see the whole of software quality.
+
+9
+00:00:31,759 --> 00:00:34,721
+Good in a dozen ways, and bad in others, though:
+
+10
+00:00:35,033 --> 00:00:38,593
+Fast, but it crashes; is it steady? Sound? Oh, no.
+
+11
+00:00:38,575 --> 00:00:41,431
+Ship it by Sunday; it's a pain to change, and slow;
+
+12
+00:00:42,046 --> 00:00:45,234
+Save on the checking, and the bugs can wreck the show;
+
+13
+00:00:45,459 --> 00:00:48,653
+Polish one part, and then another takes a blow:
+
+14
+00:00:48,744 --> 00:00:52,182
+Which of the "ilities" are yours? I've got to know!
+
+15
+00:00:52,767 --> 00:00:57,331
+Right. You want me to fix the code? Then here's what I need from it.
+
+16
+00:00:58,926 --> 00:01:02,004
+Confused, why can't I reproduce it? No debuggability.
+
+17
+00:01:02,467 --> 00:01:05,377
+I ask it why: it's "Oops". Gee, thanks for diagnosability!
+
+18
+00:01:05,921 --> 00:01:08,982
+I wipe the payments? Stale docs: "Nightly saves!" Recoverability?
+
+19
+00:01:09,387 --> 00:01:12,447
+We walk it through by hand, and miss a lot: low testability.
+
+20
+00:01:12,806 --> 00:01:16,110
+The blob's so huge, I burn my context: not much readability.
+
+21
+00:01:16,317 --> 00:01:19,245
+I patch one bug, and two more hatch: so where's maintainability?
+
+22
+00:01:19,732 --> 00:01:23,564
+What you don't know can hurt me too: it goes and puts me ill at ease.
+
+23
+00:01:23,197 --> 00:01:26,722
+You'll make my day: just name and weigh the agent-facing "ilities".
+
+24
+00:01:27,684 --> 00:01:30,646
+Good in a dozen ways, and bad in others, though:
+
+25
+00:01:30,941 --> 00:01:34,524
+Fast, but it crashes; is it steady? Sound? Oh, no.
+
+26
+00:01:34,541 --> 00:01:37,386
+Ship it by Sunday; it's a pain to change, and slow;
+
+27
+00:01:37,969 --> 00:01:41,218
+Save on the checking, and the bugs can wreck the show;
+
+28
+00:01:41,448 --> 00:01:44,648
+Polish one part, and then another takes a blow:
+
+29
+00:01:44,545 --> 00:01:48,200
+Which of the "ilities" are yours? I've got to know!
+
+30
+00:02:01,794 --> 00:02:05,517
+A quality dimension is a way it's good or bad,
+
+31
+00:02:05,481 --> 00:02:09,069
+and each is independent: that's the part that drives you mad!
+
+32
+00:02:08,975 --> 00:02:12,477
+And most of them are "ilities", which rhyme: a lucky break!
+
+33
+00:02:12,493 --> 00:02:16,651
+But some of them are not, and so I hunt, for goodness' sake:
+
+34
+00:02:17,526 --> 00:02:20,999
+Resilience... resilience... ...a stroke of brilliance!
+
+35
+00:02:21,009 --> 00:02:24,476
+Compliance... compliance... ...it's rocket science!
+
+36
+00:02:24,498 --> 00:02:27,970
+The "ilities"? A nickname for the family, the lot:
+
+37
+00:02:27,917 --> 00:02:31,500
+the ending's not the point: they're all dimensions, rhyme or not!
+
+38
+00:02:31,728 --> 00:02:33,230
+Upgradability, replaceability,
+
+39
+00:02:33,228 --> 00:02:35,012
+explainability, and traceability,
+
+40
+00:02:34,953 --> 00:02:36,591
+observability, reversibility,
+
+41
+00:02:36,717 --> 00:02:38,570
+installability, and portability,
+
+42
+00:02:38,453 --> 00:02:40,091
+and flexibility, detectability,
+
+43
+00:02:40,212 --> 00:02:41,821
+and suitability, reusability,
+
+44
+00:02:41,971 --> 00:02:43,766
+sustainability, and changeability,
+
+45
+00:02:43,718 --> 00:02:45,298
+deployability, enjoyability!
+
+46
+00:02:45,390 --> 00:02:49,159
+I could name you a hundred, and still not be through,
+
+47
+00:02:49,326 --> 00:02:54,065
+but the ones that you want? That's a question for you!
+
+48
+00:03:01,412 --> 00:03:04,397
+Good in a dozen ways, and bad in others, though:
+
+49
+00:03:04,889 --> 00:03:08,280
+Fast, but it crashes; is it steady? Sound? Oh, no.
+
+50
+00:03:08,298 --> 00:03:11,221
+Ship it by Sunday; it's a pain to change, and slow;
+
+51
+00:03:11,756 --> 00:03:15,018
+Save on the checking, and the bugs can wreck the show;
+
+52
+00:03:15,181 --> 00:03:18,462
+Polish one part, and then another takes a blow:
+
+53
+00:03:20,632 --> 00:03:25,451
+Which of the "ilities" are yours? I've got to know!
+

@@ -109,3 +109,22 @@ quality. Credit them here and on screen.
   (The JetBrains Mono Project Authors, SIL Open Font License) for labels, the machine's readouts
   and the teaching card;
   Rock Salt (Font Diner, Apache License 2.0) for the people's handwriting.
+
+## Episode 3: what went into the video ("Pencil Polka", in progress)
+- **Song:** lyrics by Qing with Claude; performed by the Suno generation Qing chose, "The
+  _ilities_". The form is the Gilbert and Sullivan patter song (public domain); no line or tune is
+  reused.
+- **Ideas:** the "ilities", or quality attributes: Ed Pringle's catalogue of what stakeholders care
+  about, and the quality model in ISO/IEC 25010 for the names it shares; independence and trade-offs
+  between them, as Qing teaches them (see CANON.md). Credited on screen on the end card.
+- **Clawd,** as before: Anthropic's mascot, its proportions learned from John Heibel's MIT-licensed
+  [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) model sheet; the drawing
+  is our own, in coloured pencil.
+- **The look** is our own: coloured-pencil doodles on paper, drawn by our code. The line boil (a
+  drawing redrawn a dozen times a second so it seems alive) is a hand-drawn animation staple; the
+  bouncing ball hopping along the words follows the sing-along cartoons of the 1920s and 30s (the
+  Fleischer Studios' "Follow the Bouncing Ball"), an idea and not artwork; the dog show's rosettes
+  and agility course are the familiar ones. No artwork is reproduced.
+- **Fonts:** none. The lettering is the film's own hand-printed alphabet, drawn stroke by stroke in
+  code.
+

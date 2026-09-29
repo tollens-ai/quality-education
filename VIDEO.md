@@ -13,7 +13,8 @@ locked.
   [ink and gouache, with the lyrics lettered in](.claude/skills/music-video/references/style-ink-and-gouache.md);
   episode 2 v1's and v2's, both since retired, are [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md)
   and [Mirror Kei, G-pen ink and title-card type](.claude/skills/music-video/references/style-mirror-kei.md);
-  episode 2 v3's is [Cut Light, ink and neon](.claude/skills/music-video/references/style-cut-light.md).
+  episode 2 v3's is [Cut Light, ink and neon](.claude/skills/music-video/references/style-cut-light.md);
+  episode 3's is [Pencil Polka, coloured pencil and paper](.claude/skills/music-video/references/style-pencil-polka.md).
   Read them for the shape of a reference, not for a look to reuse.
 - [CRAFT.md](CRAFT.md) holds the research and the decisions behind this file. The episode-1
   renderer is the worked example: [video/ep01/pier/](video/ep01/pier/README.md).
@@ -268,6 +269,20 @@ lyric video that aligns perfectly word to word".
   by that moment: "if the lyric is animated, you want it to ideally finish or be almost finished
   appearing by the time it's sung" (Qing, 2026-09-28).
 
+- **Fast patter needs an alignment a line at a time, slowed down.** Episode 3's song runs at 5 to 8
+  syllables a second, too fast for a character-level aligner: aligned a whole section at natural
+  speed, a third of the words came out 150 ms or more apart between the two aligners. Aligning each
+  line inside a window that also holds the line before and the line after (so a word at the window's
+  edge belongs to a real neighbour), with the voice slowed to 0.8 and 0.65 of its speed with the
+  pitch kept, brought their median gap to 16-26 ms (`music/ep03/align_multi.py`, `combine.py`).
+- **Look at the voice.** A spectrogram of the vocal stem with each word's onset drawn on it, and the
+  beat grid, shows in a glance whether a tick sits on the start of a sound (`music/ep03/view.py`);
+  a model can't hear a word late, but it can see one that starts in a gap.
+- **Check repeated lines by the shift most of their words agree on, not by their first word.**
+  Compared by first word, one wrong first word ("Polish", 400 ms early in chorus 3) made the other
+  seven words of its line look wrong. Take each repeat's shift from the median of its words, and
+  fix a single word far from the consensus only if the stem has sound there; several words drifting
+  together (a held or slowed last line) is real, and is flagged and left.
 - A generated take doesn't sing the lyric sheet exactly: it repeats hooks, drops or adds backing
   vocals, and holds notes where the sheet has an "ooh". Caption the take. Separate the vocal, then
   lead from backing with a karaoke model, and check each backing vocal on its stem for loudness,

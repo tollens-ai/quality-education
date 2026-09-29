@@ -7,7 +7,7 @@
 // parts that hang (ears, tail, tuft, arms) keep swinging after the body has stopped.
 import { clamp, lerp, hash, TAU, beatPos } from './kit.js';
 import { blob, line, dot, hatch, wash, outline, spline } from './pencil.js';
-import { rrect, ellipse, move, scale, rotate, capsule, warp, scallop } from './shapes.js';
+import { rrect, ellipse, move, scale, rotate, capsule, warp, scallop, limb } from './shapes.js';
 import { idle, ring, downRing, beatRing, wordRing } from './life.js';
 import { GRAPHITE, CLAWD, C } from './palette.js';
 
@@ -73,7 +73,15 @@ export function clawd(g, o = {}) {
       len = 46 + out * 18;
     }
     const hand_ = [sh[0] + Math.cos(ang) * len, sh[1] + Math.sin(ang) * len];
-    blob(g, capsule([sh[0] - side * 10, sh[1]], hand_, 21, 24, 5, sd + 30 + k), { fill: CLAWD.fill, shade: CLAWD.shade, line: ink, lw: 6, seed: sd + 30 + k, t, gap: 6, hw: 4.6, sh: .3 });
+    if (len > 92) {
+      // A stretched arm (he is reaching for something): it bows a little as a soft arm does, narrows to a wrist and ends in a
+      // mitten, so it reads as an arm and not as a stick.
+      const s0 = [sh[0] - side * 10, sh[1]];
+      const dx = hand_[0] - s0[0], dy = hand_[1] - s0[1], LL = Math.hypot(dx, dy) || 1;
+      const bow = LL * .11 * (dx >= 0 ? 1 : -1);        // the normal (-dy, dx) points down when the arm reaches right, up when left
+      blob(g, limb(s0, [hand_[0] - dx / LL * 14, hand_[1] - dy / LL * 14], 22, 15, bow, 10, sd + 30 + k), { fill: CLAWD.fill, shade: CLAWD.shade, line: ink, lw: 6, seed: sd + 30 + k, t, gap: 6, hw: 4.6, sh: .3 });
+      blob(g, ellipse(hand_[0], hand_[1], 27, 24, 10, Math.atan2(dy, dx), sd + 36 + k), { fill: CLAWD.fill, shade: CLAWD.shade, line: ink, lw: 5.6, seed: sd + 36 + k, t, gap: 6, hw: 4.6, sh: .3 });
+    } else blob(g, capsule([sh[0] - side * 10, sh[1]], hand_, 21, 24, 5, sd + 30 + k), { fill: CLAWD.fill, shade: CLAWD.shade, line: ink, lw: 6, seed: sd + 30 + k, t, gap: 6, hw: 4.6, sh: .3 });
     return hand_;
   };
   const hL = ar(-1, armL, 0), hR = ar(1, armR, 1);

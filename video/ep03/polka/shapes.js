@@ -90,6 +90,28 @@ export function capsule(a, b, r0, r1 = r0, n = 5, seed = 1) {
   return warp(pts, cx, cy, seed, Math.max(r0, r1) * .16, 70);
 }
 
+// A stretched limb: a band from a to b that bows to one side (`bend` px at its middle), radius r0 at a
+// narrowing to r1 at b, its ends rounded. For a long arm, so it reads as an arm and not as a stick.
+export function limb(a, b, r0, r1 = r0, bend = 0, n = 10, seed = 1) {
+  const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1;
+  let nx = -dy / L, ny = dx / L;
+  const c = [(a[0] + b[0]) / 2 + nx * bend * 2, (a[1] + b[1]) / 2 + ny * bend * 2];
+  const pt = u => [(1 - u) * (1 - u) * a[0] + 2 * (1 - u) * u * c[0] + u * u * b[0], (1 - u) * (1 - u) * a[1] + 2 * (1 - u) * u * c[1] + u * u * b[1]];
+  const P = [], N2 = [];
+  for (let i = 0; i <= n; i++) {
+    const u = i / n, q = pt(u), q2 = pt(Math.min(1, u + .02)), q1 = pt(Math.max(0, u - .02));
+    let tx = q2[0] - q1[0], ty = q2[1] - q1[1]; const l = Math.hypot(tx, ty) || 1; tx /= l; ty /= l;
+    const r = r0 + (r1 - r0) * u;
+    P.push([q[0] - ty * r, q[1] + tx * r]); N2.push([q[0] + ty * r, q[1] - tx * r]);
+  }
+  const cap = (q, dir, r) => { const pts = []; for (let k = 1; k < 4; k++) { const th = dir + Math.PI / 2 - k / 4 * Math.PI; pts.push([q[0] + Math.cos(th) * r, q[1] + Math.sin(th) * r]); } return pts; };
+  const t0 = pt(0), t1 = pt(1);
+  const ang0 = Math.atan2(pt(.02)[1] - t0[1], pt(.02)[0] - t0[0]), ang1 = Math.atan2(t1[1] - pt(.98)[1], t1[0] - pt(.98)[0]);
+  const pts = [...P, ...cap(t1, ang1 - Math.PI, r1).reverse().map(p => p), ...N2.slice().reverse(), ...cap(t0, ang0, r0).reverse()];
+  const cx = (a[0] + b[0]) / 2, cy = (a[1] + b[1]) / 2;
+  return warp(pts, cx, cy, seed, Math.max(r0, r1) * .12, 70);
+}
+
 // A bean: a body, lumpy and a little pinched.
 export function bean(cx, cy, w, h, pinch = .12, n = 14, lean = 0, seed) {
   seed = seed ?? key(w, h, 31);

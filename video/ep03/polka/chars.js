@@ -259,8 +259,14 @@ export function shaggy(g, o = {}) {
     blob(g, capsule([ex, ey], [ex + sd_ * R * .12 + sw, ey + R * .62], R * .17, R * .12, 5, sd + i), { fill: shade, line: ink, lw: 6, seed: sd + 3 + i, t, hw: 5.4, sh: .3 });
   });
   // The mound: a scalloped mass of fur.
-  const bumps = puppy ? 16 : 30;
-  const body = scallop(0, cy, R, bumps, puppy ? .09 : .1, 0, sd + 1).map(([px, py]) => [px * 1.08, cy + (py - cy) * .96]);
+  // The mound: a cloud of round lobes (spikes read as a circular saw at size).
+  const N = puppy ? 11 : 17, M = N * 6, body = [];
+  for (let k = 0; k < M; k++) {
+    const th = k / M * TAU, lobe = th * N / TAU, u = lobe - Math.floor(lobe);
+    const lr = 1 + (hash(sd, Math.floor(lobe), 1) - .5) * .09;
+    const r = R * lr * (1 - .105 * (1 - Math.pow(Math.sin(Math.PI * u), .7)));
+    body.push([Math.cos(th) * r * 1.08, cy + Math.sin(th) * r * .96]);
+  }
   blob(g, body, { fill: coat, shade, line: ink, lw: puppy ? 6.4 : 7.2, seed: sd + 1, t, hw: 5.8, gap: 6.6, sh: .34 });
   // Fur: strokes flowing out from the face, and tufts standing off the edge.
   const nF = puppy ? 20 : 46;

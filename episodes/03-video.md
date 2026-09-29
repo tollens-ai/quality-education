@@ -86,6 +86,12 @@ being built on):
 
 > also I think the colouring strokes are flashing a bit too much and it's kind of distracting.
 
+After I asked whether to credit the doodler on the end card, and said the builders were working:
+
+> Okay great. Obviously everything I've said is just my opinion. You can absolutely have permission
+> to sign yourself off as the artist and you should just make it good by your standards. Don't
+> return something that you're not happy with. You can just keep going
+
 **What I took from them (mine, not hers).** (1) The world is the dogs and the dog-walking app, and
 the dog show; the sketchbook, the pencil and the paper are only how it is drawn, so no page turns,
 no pencil-scribble wipes, no graph or ruled paper as a place, and no gag about the pencil. (2)
@@ -100,7 +106,7 @@ things happening in the corners, and jokes that are mine. (5) From the second ro
 right; the hand is dialled down to about half (one number, `HAND.clumsy`, so she can have it either
 way), so shapes are tidier and lines more confident but still visibly hand-drawn. (6) The colouring
 was redrawn every drawing, which flickered; it now holds its scribble and only moves by a pixel or
-two, while the outlines keep redrawing, which is what reads as dancing.
+two, while the outlines keep redrawing, which is what reads as dancing. (7) From the last note: she gave permission to sign the film as its artist, so the end card carries "doodled by Sonnet"; and the bar is my own, not hers: nothing goes back to her that I'm not happy with.
 
 ## What the viewer must understand, and the line they'll remember
 
@@ -483,6 +489,28 @@ The lyric and the pictures are mine to make, so these are claims, plus what I ne
    meaning to a real one in the chorus. Helpful or confusing?
 7. **The lettering follows the lyric sheet's spelling** (SCALABILITY, USABILITY, "Correct?") rather
    than the phonetic copy the take was sung from. Tell me if the sheet differs.
+
+8. **Extensibility, verse 1 line 6.** "It cost a second app": the picture is a booking form with a
+   dog-shaped slot the cat can't fit, and Clawd copying the whole app into a second phone (so it
+   costs). Is copying the whole app a fair picture of failing extensibility?
+9. **Accessibility, verse 1 line 5.** One of the three owners has a screen reader that reads the
+   unlabelled buttons out as just "button, button, button". Is that a fair example of an
+   accessibility fault?
+
+10. **Resilience, the bridge.** The picture is a bulldog flattened by a rolling pin who keeps hold of his
+    ball and springs back, twice. Is that her meaning of resilience, or should it also say "keeps doing
+    its job under stress"?
+11. **Compliance, the bridge.** An inspector at the ring gate checks a dog's licence tag and vaccination
+    card, twice, and stamps the entry: rules that come from outside. Should it also show that some of
+    those rules are the law?
+12. **The shared ending, the bridge.** The collar tags all end in -ILITY and click together. Does that
+    read as the family resemblance she means?
+13. **Upgradability, the parade.** A doghouse gets a new roof (V1 to V2) while the dog stays inside. Is that
+    the right picture?
+14. **Traceability, the parade.** A hound follows a red thread back to the ball of yarn it came from. Is
+    that a good "where it began"?
+15. **Observability, the parade.** A corgi with a glass belly showing its works, and an onlooker asking
+    "?". Does the question need to be specific (say "WHY IS IT SLOW?"), or is a plain "?" enough?
 
 ## Liner notes, so far
 

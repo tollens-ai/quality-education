@@ -52,7 +52,7 @@ export function endCard(g, t) {
   blob(g, rrect(W / 2, 800, W - 110, 1462, 20, 3, 6), { fill: 'paper', line: '#c9a24a', lw: 5, seed: 6, t });
   write(g, "THE 'ILITIES", W / 2, 232, 86, { seed: 7, t, align: 'center', bubble: { fill: '#f5a03a', edge: '#8a4a1d', e: 2.0, f: 1.3 }, w: .09, track: 5 });
   write(g, 'EVERY QUALITY IN THE SONG, IN PLAIN WORDS', W / 2, 296, 22, { col: C.blue, seed: 8, t, align: 'center', track: 6 });
-  const rows = 16, top = 380, dy = 68, cx = [66, 570];
+  const rows = 16, top = 380, dy = 66, cx = [66, 570];
   QUALITIES.forEach(([name, gloss], i) => {
     const col = Math.floor(i / rows), row = i % rows;
     const x = cx[col], y = top + row * dy;
@@ -63,5 +63,8 @@ export function endCard(g, t) {
     write(g, name.toUpperCase(), x + 60, y + 2, 25, { col: GRAPHITE, seed: 400 + i, t, track: 3, w: .1 });
     write(g, gloss.toUpperCase(), x + 60, y + 32, 15, { col: '#3a4a7a', seed: 450 + i, t, track: 2, w: .1 });
   });
-  write(g, 'WHICH ARE YOURS?', W / 2, 1490, 30, { col: C.red, seed: 9, t, align: 'center', track: 6, w: .1 });
+  write(g, 'WHICH ARE YOURS?', W / 2, 1452, 32, { col: C.red, seed: 9, t, align: 'center', track: 6, w: .1 });
+  // The artist's signature, as the poster's corner: small, in the film's own hand, with a flourish under it.
+  write(g, 'DOODLED BY SONNET', W / 2, 1516, 22, { col: '#3a4a7a', seed: 10, t, align: 'center', track: 7, w: .1 });
+  line(g, [[W / 2 - 150, 1530], [W / 2 - 70, 1524], [W / 2 + 10, 1532], [W / 2 + 90, 1524], [W / 2 + 150, 1530]], { w: 4, col: '#3a4a7a', seed: 11, t, spline: true, passes: 1, alpha: .8 });
 }

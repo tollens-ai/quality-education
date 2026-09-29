@@ -19,14 +19,15 @@ export function register(S) {
 }
 
 function drawIntro(g, t) {
-  park(g, t, { horizon: 1300, sunAt: [965, 1150], sunR: 74, mood: t > 1.85 ? 'shades' : 'happy', look: [-.3, -.7], seed: 11, clouds: false });
+  park(g, t, { horizon: 1300, sunAt: [965, 1150], sunR: 74, mood: t > 1.85 ? 'shades' : 'happy', look: [-.3, -.7], seed: 11, clouds: false, trees: false });
   const gr = groove(t, 1);
+  // The rays go behind the title, so the letters sit on top of them.
+  if (t > 1.85) burst(g, W / 2, 660, 250, 330 + 60 * ramp(t, 1.85, 2.2), t, { col: C.yellow, seed: 3, prog: ramp(t, 1.85, 2.15), n: 18, w: 8 });
   write(g, 'SOFTWARE QUALITY THEORY 101', W / 2, 290, 40, { col: C.blue, seed: 3, t, align: 'center', prog: ramp(t, .25, 1.15, x => x), track: 7 });
   write(g, 'EPISODE 3', W / 2, 352, 30, { col: C.blue, seed: 4, t, align: 'center', prog: ramp(t, .9, 1.35, x => x), track: 10 });
   write(g, 'THE', W / 2, 540, 118, { col: GRAPHITE, seed: 5, t, align: 'center', prog: ramp(t, .35, .8, x => x) });
   const ip = ramp(t, .7, 1.85, x => x);
   write(g, 'ILITIES', W / 2, 780, 212, { seed: 6, t, align: 'center', prog: ip, bubble: { fill: '#f5a03a', edge: '#8a4a1d', e: 2.0, f: 1.35 }, w: .1, dance: 12, beat: beatPos(t), pulse: gr.bp, track: 5 });
-  if (t > 1.85) burst(g, W / 2, 660, 250, 330 + 60 * ramp(t, 1.85, 2.2), t, { col: C.yellow, seed: 3, prog: ramp(t, 1.85, 2.15), n: 18, w: 8 });
   // Prize ribbons on the beat.
   [[130, 950, C.red, 1.06, -.25], [W - 130, 940, C.teal, 1.48, .25], [W / 2, 1000, C.yellow, 1.91, 0]].forEach(([x, y, col, a, tilt], i) => {
     const k = pop(t, a);

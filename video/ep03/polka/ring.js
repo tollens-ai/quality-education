@@ -22,7 +22,7 @@ export const RING = { cx: 540, cy: 1190, rx: 520, ry: 230, far: 960 };
 
 // The whole backdrop. o.mood: 'day' | 'night' | 'gold'; o.sunMood, o.look: the sun's face (day and gold).
 export function ringBackdrop(g, t, o = {}) {
-  const { mood = 'day', sunMood = 'happy', look = [0, .4], bunt = true, seed = 21 } = o;
+  const { mood = 'day', sunMood = 'happy', look = [0, .4], bunt = true, seed = 21, ropeDown = 0 } = o;
   const P = RING_MOODS[mood];
   paper(g, { base: P.paper, vignette: P.vignette });
   if (P.sky) sky(g, t, 900, { alpha: P.skyA, col: P.sky, seed });
@@ -48,10 +48,13 @@ export function ringBackdrop(g, t, o = {}) {
   // The rope on posts round the back of the ring, and the near side, low in front.
   const posts = [];
   for (let i = 0; i <= 8; i++) { const a = Math.PI * (1.02 + i / 8 * .96); posts.push([R.cx + Math.cos(a) * (R.rx + 24), R.cy + Math.sin(a) * (R.ry + 14)]); }
-  line(g, posts.map(([x, y]) => [x, y - 96]), { w: 11, col: P.rope, seed: seed + 9, t, spline: true, passes: 1, tooth: .5 });
+  // ropeDown 0..1: the posts lean over and the rope comes down to lie on the ground (a collapse).
+  const rd = clamp(ropeDown);
+  line(g, posts.map(([x, y], i) => [x + rd * (i - 4) * 16, y - 96 * (1 - rd) - 8 * rd + Math.sin(i * 1.7) * 10 * rd]), { w: 11, col: P.rope, seed: seed + 9, t, spline: true, passes: 1, tooth: .5 });
   posts.forEach(([x, y], i) => {
-    line(g, [[x, y - 118], [x, y + 8]], { w: 15, col: P.post, seed: seed + 20 + i, t, spline: false, passes: 1, flat: true });
-    dot(g, x, y - 120, 9, { col: mood === 'night' ? '#f5eedd' : '#fbf8ef', seed: seed + 40 + i, t });
+    const lean = rd * (i - 4) * 16;
+    line(g, [[x + lean, y - 118 * (1 - rd * .55)], [x, y + 8]], { w: 15, col: P.post, seed: seed + 20 + i, t, spline: false, passes: 1, flat: true });
+    dot(g, x + lean, y - 120 * (1 - rd * .55), 9, { col: mood === 'night' ? '#f5eedd' : '#fbf8ef', seed: seed + 40 + i, t });
   });
   // Bunting from the ring's posts across the top of the picture.
   if (bunt) {

@@ -22,6 +22,8 @@ export function register(S) {
   registerChorus({
     id: 'c1', section: 'Chorus 1', t0: 30.56, t1: 52.6, mood: 'day', crash: 30.56,
     gags: [gag1, gag2, gag3, gag4, gag5, gag6],
+    // "...the bugs can wreck the show": on "wreck" (43.79) the rope and posts come down; they are back up for the next line.
+    backdrop: t => (t > 43.79 && t < 45.3 ? { ropeDown: clamp((t - 43.79) / .5) * (t > 44.9 ? clamp((45.3 - t) / .4) : 1), bunt: false } : {}),
     sunMood: [t => 'happy', t => t > 35.64 ? 'gasp' : 'happy', t => t > 40.28 ? 'worried' : 'happy', t => t > 43.28 ? 'sweat' : 'happy', t => t > 47.06 ? 'worried' : 'happy', t => 'happy'],
   });
 }

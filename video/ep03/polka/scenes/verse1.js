@@ -37,7 +37,7 @@ function drawL0(g, t, ws) {
   const gr = groove(t, 1);
   const T = i => ws[i].s;
   const bril = t > T(12) - .05;
-  park(g, t, { horizon: 1330, mood: bril ? 'shades' : 'happy', look: [-.4, .5], seed: 11 });
+  park(g, t, { horizon: 1330, mood: bril ? 'shades' : 'happy', look: [.5, .5], seed: 11, sunAt: [135, 905], sunR: 84 });
   // The line, top of the page; its tail is the first ility (lettered last, at the end, so it is never covered).
   const out = { t0: ws[ws.length - 1].e + .3, dur: .3 };
   // The phone on the right: WALKIES, a calendar that fills as walks are booked.
@@ -111,7 +111,7 @@ function drawL1(g, t, ws) {
   if (t > T(6)) {
     const k = backOut(inv(T(6), T(6) + .18, t), 2.6);
     g.save(); g.translate(cx - 60, 1480); g.rotate(-.1); g.scale(k, k);
-    blob(g, rrect(0, 0, 300, 138, 18, 3), { fill: null, line: C.red, lw: 11, seed: 231, t });
+    blob(g, rrect(0, 0, 300, 138, 18, 3), { fill: '#f3e2c0', line: C.red, lw: 11, seed: 231, t, tone: .95, dens: .25 });
     write(g, 'NO', 0, 50, 112, { col: C.red, seed: 232, t, align: 'center', w: .14 });
     g.restore();
   }
@@ -147,7 +147,7 @@ const DOGS = [
 function drawL2(g, t, ws) {
   const gr = groove(t, 1);
   const T = i => ws[i].s;
-  park(g, t, { horizon: 1330, mood: t > 12.4 ? 'gasp' : t > 11.0 ? 'sweat' : 'happy', look: [-.5, .7], seed: 13, trees: false });
+  park(g, t, { horizon: 1330, mood: t > 12.4 ? 'gasp' : t > 11.0 ? 'sweat' : 'happy', look: [.7, .7], seed: 13, trees: false, sunAt: [975, 745], sunR: 62 });
   const out = { t0: ws[ws.length - 1].e + .4, dur: .3 };
   // Geometry: the tower on the left, the board out to the right, the pool under its tip.
   const bx0 = 170, by0 = 900, bx1 = 990, L = bx1 - bx0;

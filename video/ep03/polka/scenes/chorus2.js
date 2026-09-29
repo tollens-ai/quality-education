@@ -25,6 +25,8 @@ export function register(S) {
     id: 'c2', section: 'Chorus 2', t0: 87.2, t1: 108.2, mood: 'night', crash: 87.4, ink: CREAM, markInk: CREAM,
     board: { fill: '#2b3670', edge: CREAM },
     gags: [gag1, gag2, gag3, gag4, gag5, gag6],
+    // "...the bugs can wreck the show": on "wreck" (99.69) the rope and posts come down; back up for the next line.
+    backdrop: t => (t > 99.6 && t < 101.3 ? { ropeDown: clamp((t - 99.6) / .5) * (t > 100.9 ? clamp((101.3 - t) / .4) : 1), bunt: false } : {}),
     audience: {
       n: 7, s: .85, seed: 5,
       // Some of the audience are Clawds.
@@ -85,7 +87,7 @@ function gag2(g, t, ws, cx) {
   const near = ease(t, ws[4].s - .3, ws[6].s - .05);
   const per = (ws[8].s - ws[6].s) / 2, stroke = t > ws[6].s ? ((t - ws[6].s) / per) % 1 : 0;
   const feeling = settled && t > ws[5].s && t < ws[8].s;
-  judgeBulldog(g, t, cx, { x: lerp(1000, 840, near), eyes: leg > 0 ? 'wide' : 'squint', brow: leg > 0 ? 0 : 1, mouth: leg > 0 ? .4 : 0, look: [-.8, .6], reach: feeling ? [XR + 110 + (t > ws[7].s ? 60 : 0), GY - 150 + stroke * 130] : null });
+  judgeBulldog(g, t, cx, { x: lerp(1010, 745, near), eyes: leg > 0 ? 'wide' : 'squint', brow: leg > 0 ? 0 : 1, mouth: leg > 0 ? .4 : 0, look: [-.8, .6], reach: feeling ? [XR + 105 + (t > ws[7].s ? 45 : 0), GY - 150 + stroke * 130] : null });
   if (leg > 0 && leg < .9) {
     const lx = XR + 220, ly = GY - 250;
     line(g, [[lx - 30, ly + 30], [lx + 30, ly - 24], [lx - 20, ly - 54], [lx + 20, ly - 84]], { w: 6, col: C.red, seed: 1995, t, passes: 1, alpha: 1 - leg });

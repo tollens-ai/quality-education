@@ -3,8 +3,9 @@
 The ideas in this series come from three places.
 
 ## Ed Pringle's quality-brain
-Ed's working notes on quality strategy, used with permission. Where an episode uses one of his
-ideas, the video credits him on screen. From Ed:
+Ed's working notes on quality strategy, used with permission. They're public, in
+[quality-brain](https://github.com/tollens-ai/quality-assistant-prototype-03/tree/main/quality-brain).
+Where an episode uses one of his ideas, the video credits him on screen. From Ed:
 
 - Quality is value to someone (or something) who matters. This builds on Jerry Weinberg ("value to
   some person") and James Bach and Michael Bolton ("who matters")
@@ -114,8 +115,9 @@ quality. Credit them here and on screen.
 - **Song:** lyrics by Qing with Claude; performed by the Suno generation Qing chose, "The
   _ilities_". The form is the Gilbert and Sullivan patter song (public domain); no line or tune is
   reused.
-- **Ideas:** the "ilities", or quality attributes: Ed Pringle's catalogue of what stakeholders care
-  about, and the quality model in ISO/IEC 25010 for the names it shares; independence and trade-offs
+- **Ideas:** the "ilities", or quality attributes: Ed Pringle's
+  [catalogue](https://github.com/tollens-ai/quality-assistant-prototype-03/tree/main/quality-brain/quality-attributes)
+  of what stakeholders care about, and the quality model in ISO/IEC 25010 for the names it shares; independence and trade-offs
   between them, as Qing teaches them (see CANON.md). Credited on screen on the end card.
 - **Clawd,** as before: Anthropic's mascot, its proportions learned from John Heibel's MIT-licensed
   [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) model sheet; the drawing

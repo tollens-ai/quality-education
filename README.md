@@ -184,8 +184,9 @@ logos.
   Weyuker described the oracle problem, and James Bach and Michael Bolton treat them as fallible
   ways of spotting problems. The framing for coding agents is Qing's, from *Agentic coding and the
   problem of oracles*.
-- **The "ilities",** in episode 3, come from Ed Pringle's catalogue of what stakeholders care
-  about, the ISO/IEC 25010 quality model, and common use; the trade-offs between them are as Qing
+- **The "ilities",** in episode 3, come from Ed Pringle's
+  [catalogue](https://github.com/tollens-ai/quality-assistant-prototype-03/tree/main/quality-brain/quality-attributes)
+  of what stakeholders care about, the ISO/IEC 25010 quality model, and common use; the trade-offs between them are as Qing
   teaches them.
 - **Clawd** is Anthropic's Claude Code mascot. In episode 1, the other bots carry their makers'
   official logos, unaltered; [SOURCES.md](SOURCES.md) says where each one comes from.

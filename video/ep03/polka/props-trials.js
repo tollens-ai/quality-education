@@ -323,10 +323,10 @@ export function scoreboard(g, t, st) {
   beads.forEach(({ k, a }) => DIALS.forEach((D, i) => {
     const [bx, by] = beadPos(k, i);
     const x = lerp(COLX[i], bx, easeOut(a, 2.5));
-    bead(g, t, k, x, by, 17, { seed: 300 + k * 10 + i });
+    bead(g, t, k, x, by, 23, { seed: 300 + k * 10 + i });
     if (a > .9) line(g, [[COLX[i] + SIDE[k] * 52, by], [COLX[i] + SIDE[k] * 60, by]], { w: 4, col: GRAPHITE, seed: 340 + k * 4 + i, t, spline: false, passes: 1, alpha: .7 });
   }));
-  if (cursor >= 0) DIALS.forEach((D, i) => bead(g, t, cursor, COLX[i], tubeY(lv[i]) - 2, 21, { seed: 400 + i }));
+  if (cursor >= 0) DIALS.forEach((D, i) => bead(g, t, cursor, COLX[i], tubeY(lv[i]) - 2, 29, { seed: 400 + i }));
   crowns.forEach(({ i, col, pop: p }) => { const [x, y] = crownPos(i); g.save(); g.translate(x, y); g.scale(p, p); rosetteAt(g, t, col, 54, i); g.restore(); });
   g.restore();
 }

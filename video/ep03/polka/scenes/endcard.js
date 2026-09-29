@@ -50,8 +50,8 @@ const COLS = [C.red, C.orange, C.yellow, C.lime, C.green, C.teal, C.sky, C.blue,
 // to two lines, big enough to read on a phone or to screenshot.
 export const PAGE_BREAK = 215.1;
 const PAGES = [
-  { from: 0, sub: 'FROM THE VERSES AND THE BRIDGE, IN PLAIN WORDS', tag: '1 OF 2' },
-  { from: 16, sub: 'FROM THE LIST, IN PLAIN WORDS', tag: '2 OF 2' },
+  { from: 0, sub: 'FROM THE VERSES AND THE BRIDGE, IN PLAIN WORDS', note: 'DEBUGGABILITY TO MAINTAINABILITY: THE AGENT-FACING ONES (AND MORE)', tag: '1 OF 2' },
+  { from: 16, sub: 'FROM THE LIST, IN PLAIN WORDS', note: 'THERE ARE A HUNDRED MORE.', tag: '2 OF 2' },
 ];
 // Break a string into at most two lines that each fit `room` px.
 function wrap2(str, size, track, room) {
@@ -74,7 +74,8 @@ export function endCard(g, t, pageIdx = 0) {
   blob(g, rrect(W / 2, 800, W - 110, 1462, 20, 3, 6), { fill: 'paper', line: '#c9a24a', lw: 5, seed: 6, t });
   write(g, "THE 'ILITIES", W / 2, 232, 86, { seed: 7, t, align: 'center', bubble: { fill: '#f5a03a', edge: '#8a4a1d', e: 2.0, f: 1.3 }, w: .09, track: 5 });
   write(g, P.sub, W / 2, 298, 24, { col: '#2a4fa8', seed: 8, t, align: 'center', track: 5 });
-  const x0 = [72, 552], room = 392, top = 388, dy = 134;
+  write(g, P.note, W / 2, 338, 19, { col: '#6b6b78', seed: 13, t, align: 'center', track: 3, w: .1 });
+  const x0 = [72, 552], room = 392, top = 398, dy = 132;
   QUALITIES.slice(P.from, P.from + 16).forEach(([name, gloss], i) => {
     const col = Math.floor(i / 8), row = i % 8;
     const x = x0[col], y = top + row * dy;

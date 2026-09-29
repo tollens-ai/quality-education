@@ -3,7 +3,7 @@
 // pigeon on the far post, and, between them, the line's gag. The three choruses are the same six lines and
 // the same six gags told again (chorus 2 with the tables turned, chorus 3 all at once), so what changes
 // is passed in: the mood of the ring, the gags, the casting and how the board looks.
-import { W, H, clamp, beatPos, words, loud } from '../kit.js';
+import { W, H, clamp, beatPos, words, loud, easeInOut } from '../kit.js';
 import { shot } from '../shots.js';
 import { line } from '../pencil.js';
 import { dachshund } from '../chars.js';
@@ -40,11 +40,17 @@ export function registerChorus(o) {
     window.__markInk = markInk;
     if (scene) scene(g, t, cx);      // a chorus that builds its own world (chorus 3's three rings)
     else {
+      // A slow push-in on the ring through each line (about 6%), so the gag grows towards its payoff and the picture
+      // never sits still; it resets with the next line's new picture. The last line has its own, bigger camera.
+      const a0 = ws[0].v - .45, a1 = ws[ws.length - 1].e + .25;
+      const z = idx === 5 ? 1 : 1 + .065 * easeInOut(clamp((t - a0) / (a1 - a0)));
+      g.save(); g.translate(540, 1300); g.scale(z, z); g.translate(-540, -1300);
       ringBackdrop(g, t, { mood, sunMood: (sunMood[idx] || (() => 'happy'))(t), look: [-.3, .8], ...(backdrop ? backdrop(t, idx) : {}) });
       if (extra && extra.before) extra.before(g, t, cx);
       gags[idx](g, t, ws, cx);
       if (extra && extra.after) extra.after(g, t, cx);
       pigeon(g, t, pigeonAt[0], pigeonAt[1], .62, { flip: -1, state: (cx.pigeon && cx.pigeon(t)) || 'perch', look: -1 });
+      g.restore();
       crowdRow(g, t, dogFront, 1845, { ...audience, sing: 1, x0: 90, x1: 990 });
     }
     // The board (dropping in if this chorus has a crash), its lyric, the ball and Bruce on his ledge.

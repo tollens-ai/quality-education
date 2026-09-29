@@ -365,13 +365,35 @@ builders were all stopped at once by the account's usage limit, so the rest were
 
 **The tools** (in `video/ep03/polka/tools/` and `video/lib/`). A part previews on its own
 (`preview.js`, `--query part=verse2`); the typography audit records every sung word as drawn and flags
-late, early, small, low-contrast and out-of-area lettering; `render-film.sh` renders the whole film with the
-six seconds of end card; the rest are the shared harness's frame strips and motion check.
+late, early, small, low-contrast and out-of-area lettering (`--fps 30` samples every film frame and `sync-report.py`
+reads off each word's lead); `render-film.sh` renders the whole film with the six seconds of end card; the rest
+are the shared harness's frame strips and motion check.
 
-**Checks before Qing sees a cut.** The words (every one: size, time on screen, contrast, cover, reading
-order, the phone's button strip: the audit); the story from the pictures alone (each sung line has something
-drawn of what it says); motion per second (nothing still that shouldn't be); the seams between parts
-(frames every 1/15 s across each join); and a fresh-eyed reader's pass over contact sheets of the whole film.
+**How it was checked.**
+
+- **The words.** A typography audit of every part (size, time on screen, contrast against what is behind, cover,
+  the phone's button strip), fixed until it was clean; then a frame-exact audit of the whole film (every one of
+  its 6,576 frames). 481 of the 487 sung words are drawn as words and each is fully written 55 to 125 ms before it
+  is sung (median 87 ms; the aim is 85, the lead Qing chose for episode 2, until she says otherwise for this take).
+  The other six (QUALITY, ILL AT EASE and the last "ILITIES) are lettered by their parts' own code and were
+  checked by eye. Every tail word keeps 50 px clear of the frame's edges.
+- **Motion.** Nothing is still that shouldn't be: the motion check's median is 5.9 (out of 255) per second, and
+  only the first fraction of a second, before the first beat, is near-still.
+- **The seams.** All 29 joins and 16 hard cuts between parts, looked at frame by frame across each; the ones that
+  showed a fault (the pun's picture cut off, the outro's jump) were changed.
+- **A fresh-eyed read.** Three Sonnet subagents with no other context read contact sheets of the whole film (a
+  frame every 1.5 seconds, with its lyric) and gave 32 points between them. Fixed: the ball hid letters; the
+  title was empty for its first half second; the first line's quality (CORRECT?) wasn't the big word; several
+  things a viewer must read were tiny (the stopwatch, SERVER, the screen reader's BUTTONs, the whiteboard's notes,
+  the trials' rosettes and markers, the bridge's stem tags); "agent-facing" had no picture (Clawd now wears an
+  AGENT tag and Blob a CODE tag); low-contrast words; a pigeon sitting on a tail word; the bloodhound didn't
+  read as Clawd (its ears are on a strap); the inspector's face was hidden; the end card was unreadable at phone
+  size (it is now two pages); the film ended on a nap and now ends on Clawd, awake, winking at you. Not fixed, and why:
+  the trials' dogs are small (the course runs edge to edge; the scoreboard carries the teaching); the bridge's
+  whiteboard run is the most slide-like stretch (one place for eight lines, each with its own gag); the
+  parade's props are small (two words a line at the song's fastest pace); the choruses keep one layout for
+  twenty seconds each (the gag changes every line, the camera pushes in on it, and the finale's three rings
+  break it up); the hush's wide shot is small on a phone (it is the film's breath, and was made lighter).
 
 **Risks.** About seventy compositions is the cost, so props were reused and the parade is eight short
 pictures on a fixed runway. The bottom 400 px of the frame is the phone's button strip: the ground runs to the foot
@@ -464,10 +486,13 @@ The lyric and the pictures are mine to make, so these are claims, plus what I ne
   come from a tracker on the mix, refined to the strongest onset and smoothed along the song. The
   renderer draws every frame on a Canvas 2D from the song's time, in headless Chromium, as episodes
   1 and 2 do.
-- **Where it falls short, so far.** The take was not heard by any model, so the arrangement is
-  described from measurement, and the music-to-picture mapping needs Qing's ears (the instrumental's
-  four phrases and the hit strengths are measured, the instruments are not identified). The
-  timings rest on measurement and a single listen by Qing to come.
+- **Where it falls short.** The take was not heard by any model, so the arrangement is described from
+  measurement, and the music-to-picture mapping (the instrumental's four phrases, the hit strengths and the
+  held notes are measured; the instruments are not identified) needs Qing's ears; so does the lead (85 ms).
+  Pictures that land on a word land 85 ms before it, like the lettering, which may feel early for a hit or a
+  stamp. The gags' timing is built from the word times, so a different lead is cheap for the lettering and
+  a small edit per gag. Some pictures need motion to read (the growing liability, the hush) and were judged
+  from stills; the claims the pictures make are for Qing (the questions above).
 - **What unsteered Sonnets would have made (2026-09-29, from Qing's curiosity).** Eight fresh Sonnet
   subagents were given the lyric, the generator's style note and the series' description (five also got the
   non-style parts of the brief: dogs, Clawd, lettering, instrumentals, a high bar) and asked to pick one

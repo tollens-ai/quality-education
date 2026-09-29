@@ -24,7 +24,7 @@ const WINK = 211.27;
 // The pile of dogs: [breed, x, y, scale, tilt, the moment it goes to sleep].
 const PILE = [
   ['poodle', 240, 1190, 1.3, -.05, 209.3], ['lab', 520, 1175, 1.4, .03, 209.8], ['corgi', 800, 1190, 1.32, .05, 210.25], ['husky', 1000, 1215, 1.2, .08, 210.55],
-  ['beagle', 380, 1300, 1.3, -.07, 209.55], ['pug', 660, 1305, 1.35, .04, 210.05], ['bulldog', 920, 1315, 1.28, .06, 210.4], ['dalmatian', 150, 1330, 1.2, -.09, 210.7],
+  ['beagle', 380, 1300, 1.3, -.07, 209.55], ['pug', 660, 1305, 1.35, .04, 210.05], ['bulldog', 920, 1315, 1.28, .06, 210.4], ['dalmatian', 165, 1240, 1.2, -.09, 210.7],
 ];
 
 export function register(S) {
@@ -41,8 +41,8 @@ function drawOutro(g, t) {
   confetti(g, t, 205.4, 4.2, { seed: 9, n: 60, y0: 120, y1: 1450 });
   // Clawd, at the left, with the three rosettes that are his; he nods off after the last dog.
   const asleep = t > 210.83;
-  clawd(g, { x: 215, y: 1500, s: 1.0, t, seed: 1, eyes: asleep ? 'shut' : 'happy', mouth: asleep ? 0 : clamp(loud('vocals', t) * 1.4), bob: asleep ? 0 : gr.bob, squash: asleep ? .12 : gr.sq, lean: asleep ? -.08 : gr.lean, armL: { up: asleep ? -.5 : .4 }, armR: { up: asleep ? -.5 : .4 }, cheeks: true });
-  [[C.blue, 130, 1400], [C.purple, 205, 1380], [C.teal, 280, 1400]].forEach(([col, x, y], i) => rosette(g, x, y - (asleep ? 0 : Math.sin(t * 6 + i) * 4), 34, col, t, { seed: 700 + i, tilt: (i - 1) * .2 }));
+  clawd(g, { x: 175, y: 1545, s: .95, t, seed: 1, eyes: asleep ? 'shut' : 'happy', mouth: asleep ? 0 : clamp(loud('vocals', t) * 1.4), bob: asleep ? 0 : gr.bob, squash: asleep ? .12 : gr.sq, lean: asleep ? -.08 : gr.lean, armL: { up: asleep ? -.5 : .4 }, armR: { up: asleep ? -.5 : .4 }, cheeks: true });
+  [[C.blue, 95, 1500], [C.purple, 170, 1478], [C.teal, 250, 1500]].forEach(([col, x, y], i) => rosette(g, x, y - (asleep ? 0 : Math.sin(t * 6 + i) * 4), 34, col, t, { seed: 700 + i, tilt: (i - 1) * .2 }));
   // The heap.
   PILE.forEach(([breed, x, y, s, tilt, sleepAt], i) => {
     const down = t > sleepAt, k = clamp((t - sleepAt) / .25);

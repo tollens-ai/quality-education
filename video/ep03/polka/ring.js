@@ -28,7 +28,8 @@ export function ringBackdrop(g, t, o = {}) {
   if (P.sky) sky(g, t, 900, { alpha: P.skyA, col: P.sky, seed });
   // Far off: a sun (day: peeking in over the ring; gold: low and large), clouds, trees, a hedge.
   if (mood === 'day') { sun(g, t, 990, 700, 84, { mood: sunMood, look, seed: seed + 1 }); cloud(g, t, 190, 720, .9, { seed: seed + 2, drift: 3 }); }
-  if (mood === 'gold') sun(g, t, 190, 880, 130, { mood: sunMood === 'happy' ? 'happy' : sunMood, look, seed: seed + 1, rays: 14 });
+  // (Golden hour: the sun low on the left, but clear of the posts and the rope, so its face isn't crossed by them.)
+  if (mood === 'gold') sun(g, t, 215, 708, 104, { mood: sunMood === 'happy' ? 'happy' : sunMood, look, seed: seed + 1, rays: 14 });
   if (mood === 'night') {
     // A moon, and stars.
     for (let i = 0; i < 26; i++) {

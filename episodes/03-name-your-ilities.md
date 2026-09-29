@@ -1,7 +1,7 @@
 # Episode 3: "The 'Ilities" (working title: "Name Your Ilities")
 
 **Status (2026-09-29):** the lyric is locked, in Qing's final Suno version, and the take exists
-("The _ilities_", 3:33). The video is finished and Qing shipped it on 2026-09-29 ("I like this one and I will ship
+("The _ilities_", 3:33). The video is finished and Qing shipped it on 2026-09-29 ([on X](https://x.com/YanqingCheng/status/2104998740893561019); "I like this one and I will ship
 it"): [03-video.md](03-video.md). The post text below is a draft for her to edit. Qing's rules for
 lyrics, including for this kind of song (a patter song), are in [LYRICS.md](../LYRICS.md).
 

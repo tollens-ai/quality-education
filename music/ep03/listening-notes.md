@@ -23,7 +23,7 @@ This is the generator's own description of what it made, so it outranks anything
 - **Oom-pah.** The bass and low piano are stronger on the first beat of each bar than the second
   (of the bass notes that sit on the grid, 44 fall on beat 1 and 26 on beat 2). The stress falls
   where it would in a polka: down on 1, up on 2.
-- **Every sung line is four bars, starting on the second beat.** The first word is a pick-up on
+- **Every sung line is four bars, starting on the second beat (the list's lines are two).** The first word is a pick-up on
   the "pah" of the bar before, the first stressed syllable lands on the next downbeat, and the
   last stressed syllable lands on the last beat of the fourth bar. The patter lines have 16
   syllables over 8 beats. The sung list in the break is two bars a line; the choruses' lines are
@@ -51,7 +51,7 @@ by degrees, and each new chorus adds instruments.
 | Break 2 | 151.7-178.0 | 177-206 | the sung list, two bars a line, over a loud bass; "I could name you a hundred..." and then a held "you" (about 173.3-177.9 s, 4.6 s) |
 | Lead-in | 178.0-181.4 | 207-210 | no voice: a drum build into the last chorus |
 | Chorus 3 | 181.4-208.6 | 211-242 | the loudest: the full band and the group of voices. A pause of about 2.5 s before the last line (198.1-200.6 s); the last "know" is held about 3.5 s (204.7-208.2 s) |
-| Outro | 208.6-213.2 | 243-247 | the last chord, then the orchestra and a last drum hit at about 212.4 s |
+| Outro | 208.6-213.2 | 243-247 | after the voice stops, a short band tag: drum hits at 209.3, 209.8 and a strong one at 210.8 s, bass down to a low note at 210.4 s, the last chord at 211.3 s ringing out to about 212.5 s |
 
 The spoken break's words sit in the gap the band leaves, and the sung list's words are the
 fastest in the song: about 7 syllables a second.

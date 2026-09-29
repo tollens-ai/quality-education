@@ -77,7 +77,7 @@ the song in plain words and can be screenshotted.
 
 Measured from the take (details in the listening notes). 139.2 bpm, 2/4, an oom on the first beat
 and a pah on the second, steady all through. Every sung line is four bars and begins on the
-second beat (a pick-up); the patter lines have 16 syllables on 8 beats. Each section is louder and
+second beat (a pick-up), except the sung list's, which are two; the patter lines have 16 syllables on 8 beats. Each section is louder and
 fuller than the last: piano and light orchestra alone under the first verse, then a crash and the
 group of voices, a bass line in verse 2, drums in chorus 2, everything in chorus 3.
 
@@ -328,7 +328,7 @@ three rosettes: the ones that are yours.
 ### Outro (208.6-213.2 s) and the end card
 
 The last chord: the confetti settles, the dogs sleep in a heap, Bruce lifts his head and winks at
-the camera on the last drum hit (about 212.4 s), and the page closes. Then **the end card**: a page
+the camera on the last chord (211.27 s; the last strong drum hit is at 210.83), and the page closes. Then **the end card**: a page
 in the sketchbook with every quality the song names, a small doodle beside each and its meaning in
 about eight plain words, for screenshotting. It holds for about six seconds after the music ends, the
 one place the film is still on purpose. (See the questions: this wording is a claim, checked against

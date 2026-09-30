@@ -1,6 +1,6 @@
 # Episode 4: "Did You Actually Test It?"
 
-**Status:** revised lyric draft, 2026-09-30. The original swing-revue form is retained, with Clawd's early “test” claims in quotation marks and an eight-line breakdown contrasting a set rule with an investigation that develops from clues. The earlier ["What Happens If?" treatment](04-what-happens-if.md) holds the expert notes behind this episode; the [scratchbook](04-scratchbook.md) preserves replaced lyrics and alternatives. Qing reports inconsistent phrasing in the Suno trial at the screenshot couplet.
+**Status (2026-09-30):** Qing selected the Suno take “Did You Actually Test It?” and the lyrics below for the animated film. The original swing-revue form and eight-line definition breakdown are retained. The earlier ["What Happens If?" treatment](04-what-happens-if.md) holds the expert notes behind this episode; the [scratchbook](04-scratchbook.md) preserves replaced lyrics and alternatives. The film is [“The Green Room”](04-video.md), drawn in JavaScript by Sol. With Qing's invitation to use a little GPT, its lead is an original GPT named Sol and Clawd joins the testing crew. The earlier teaching notes' references to Clawd describe the same boastful agent role.
 
 An agent boasts about passing “tests”. A testing crew punctures that confidence, follows a disappearing gym record and shows how agents can investigate together. The practical lesson: **give testing agents tools, users, qualities to investigate and ways to judge what happens; let them follow discoveries; request findings, evidence and limits.**
 

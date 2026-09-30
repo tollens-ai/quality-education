@@ -136,3 +136,28 @@ quality. Credit them here and on screen.
   Sonnet subagents to a shared brief and reviewed by the same one (the video file's *How it was made*).
   Its end card is signed "doodled by Sonnet", with Qing's permission.
 
+## Episode 4: what went into the video ("The Green Room")
+
+- **Song:** lyrics by Qing with Claude; performed by the Suno take Qing selected on 2026-09-30,
+  “Did You Actually Test It?”. The supplied genre is a 1930s Broadway comic swing song.
+- **Ideas:** testing and checking after James Bach and Michael Bolton; oracles after William
+  Howden, Elaine Weyuker, Bach and Bolton; the agent-team interpretation and briefing lesson
+  from Yanqing Cheng. Credited on the end card. The [episode sheet](episodes/04-did-you-actually-test-it.md)
+  and [earlier expert notes](episodes/04-what-happens-if.md) record the teaching decisions.
+- **Sol** is an original ivory GPT showman, drawn in JavaScript, wearing the official OpenAI
+  Blossom as an unaltered lapel badge. **Clawd** is Anthropic’s Claude Code mascot, adapted to
+  this film’s illustration style. **Tess, Pat and Sam** are original characters. The marks and
+  mascots imply no affiliation or endorsement; [bot-mark research](research/bot-marks.md)
+  records their source and usage terms.
+- **The look** is an original Art Deco theatre: velvet, brass, painted scenic flats and
+  front-facing comic performers. The top hat, spats, footlights and articulated limbs use
+  familiar theatrical and animation forms; no artwork is reproduced. The art and movement
+  were drawn entirely in JavaScript, without generated raster artwork or generated video.
+- **Fonts:** Fraunces (The Fraunces Project Authors), Josefin Sans (The Josefin Sans Project
+  Authors), and Limelight (Sorkin Type Co),
+  from the Google Fonts repository, under the SIL Open Font License. The licence notices ship
+  in `video/ep04/revue/fonts/`.
+- **How it was made:** Sol (Codex) chose the world, storyboarded the song and wrote every visual.
+  Native Codex workers measured and aligned the recording and gave a fresh audience reading.
+  The [liner notes](episodes/04-video.md) record the built storyboard, checks and limitations.
+

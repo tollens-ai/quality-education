@@ -1,0 +1,3423 @@
+{
+ "take": "Did You Actually Test It? \u2014 selected take",
+ "duration": 193.232,
+ "audio_duration": 185.232,
+ "end_card_seconds": 8,
+ "meter": "4/4",
+ "bpm": 98.936,
+ "beat_seconds": 0.606451,
+ "bar_seconds": 2.425802,
+ "beats": [
+  {
+   "t": 0.139,
+   "bar": 1,
+   "beat": 1,
+   "down": true,
+   "raw_t": 0.163
+  },
+  {
+   "t": 0.737,
+   "bar": 1,
+   "beat": 2,
+   "down": false,
+   "raw_t": 0.743
+  },
+  {
+   "t": 1.331,
+   "bar": 1,
+   "beat": 3,
+   "down": false,
+   "raw_t": 1.335
+  },
+  {
+   "t": 1.932,
+   "bar": 1,
+   "beat": 4,
+   "down": false,
+   "raw_t": 1.921
+  },
+  {
+   "t": 2.536,
+   "bar": 2,
+   "beat": 1,
+   "down": true,
+   "raw_t": 2.519
+  },
+  {
+   "t": 3.14,
+   "bar": 2,
+   "beat": 2,
+   "down": false,
+   "raw_t": 3.065
+  },
+  {
+   "t": 3.742,
+   "bar": 2,
+   "beat": 3,
+   "down": false,
+   "raw_t": 3.686
+  },
+  {
+   "t": 4.348,
+   "bar": 2,
+   "beat": 4,
+   "down": false,
+   "raw_t": 4.342
+  },
+  {
+   "t": 4.951,
+   "bar": 3,
+   "beat": 1,
+   "down": true,
+   "raw_t": 4.946
+  },
+  {
+   "t": 5.55,
+   "bar": 3,
+   "beat": 2,
+   "down": false,
+   "raw_t": 5.55
+  },
+  {
+   "t": 6.155,
+   "bar": 3,
+   "beat": 3,
+   "down": false,
+   "raw_t": 6.177
+  },
+  {
+   "t": 6.753,
+   "bar": 3,
+   "beat": 4,
+   "down": false,
+   "raw_t": 6.774
+  },
+  {
+   "t": 7.351,
+   "bar": 4,
+   "beat": 1,
+   "down": true,
+   "raw_t": 7.367
+  },
+  {
+   "t": 7.954,
+   "bar": 4,
+   "beat": 2,
+   "down": false,
+   "raw_t": 7.959
+  },
+  {
+   "t": 8.559,
+   "bar": 4,
+   "beat": 3,
+   "down": false,
+   "raw_t": 8.568
+  },
+  {
+   "t": 9.161,
+   "bar": 4,
+   "beat": 4,
+   "down": false,
+   "raw_t": 9.183
+  },
+  {
+   "t": 9.763,
+   "bar": 5,
+   "beat": 1,
+   "down": true,
+   "raw_t": 9.77
+  },
+  {
+   "t": 10.368,
+   "bar": 5,
+   "beat": 2,
+   "down": false,
+   "raw_t": 10.356
+  },
+  {
+   "t": 10.968,
+   "bar": 5,
+   "beat": 3,
+   "down": false,
+   "raw_t": 10.937
+  },
+  {
+   "t": 11.566,
+   "bar": 5,
+   "beat": 4,
+   "down": false,
+   "raw_t": 11.546
+  },
+  {
+   "t": 12.164,
+   "bar": 6,
+   "beat": 1,
+   "down": true,
+   "raw_t": 12.15
+  },
+  {
+   "t": 12.765,
+   "bar": 6,
+   "beat": 2,
+   "down": false,
+   "raw_t": 12.759
+  },
+  {
+   "t": 13.363,
+   "bar": 6,
+   "beat": 3,
+   "down": false,
+   "raw_t": 13.369
+  },
+  {
+   "t": 13.962,
+   "bar": 6,
+   "beat": 4,
+   "down": false,
+   "raw_t": 13.978
+  },
+  {
+   "t": 14.557,
+   "bar": 7,
+   "beat": 1,
+   "down": true,
+   "raw_t": 14.588
+  },
+  {
+   "t": 15.157,
+   "bar": 7,
+   "beat": 2,
+   "down": false,
+   "raw_t": 15.186
+  },
+  {
+   "t": 15.757,
+   "bar": 7,
+   "beat": 3,
+   "down": false,
+   "raw_t": 15.755
+  },
+  {
+   "t": 16.36,
+   "bar": 7,
+   "beat": 4,
+   "down": false,
+   "raw_t": 16.353
+  },
+  {
+   "t": 16.964,
+   "bar": 8,
+   "beat": 1,
+   "down": true,
+   "raw_t": 16.968
+  },
+  {
+   "t": 17.565,
+   "bar": 8,
+   "beat": 2,
+   "down": false,
+   "raw_t": 17.554
+  },
+  {
+   "t": 18.166,
+   "bar": 8,
+   "beat": 3,
+   "down": false,
+   "raw_t": 18.146
+  },
+  {
+   "t": 18.766,
+   "bar": 8,
+   "beat": 4,
+   "down": false,
+   "raw_t": 18.756
+  },
+  {
+   "t": 19.365,
+   "bar": 9,
+   "beat": 1,
+   "down": true,
+   "raw_t": 19.36
+  },
+  {
+   "t": 19.964,
+   "bar": 9,
+   "beat": 2,
+   "down": false,
+   "raw_t": 19.963
+  },
+  {
+   "t": 20.567,
+   "bar": 9,
+   "beat": 3,
+   "down": false,
+   "raw_t": 20.555
+  },
+  {
+   "t": 21.17,
+   "bar": 9,
+   "beat": 4,
+   "down": false,
+   "raw_t": 21.165
+  },
+  {
+   "t": 21.773,
+   "bar": 10,
+   "beat": 1,
+   "down": true,
+   "raw_t": 21.775
+  },
+  {
+   "t": 22.375,
+   "bar": 10,
+   "beat": 2,
+   "down": false,
+   "raw_t": 22.372
+  },
+  {
+   "t": 22.979,
+   "bar": 10,
+   "beat": 3,
+   "down": false,
+   "raw_t": 22.976
+  },
+  {
+   "t": 23.583,
+   "bar": 10,
+   "beat": 4,
+   "down": false,
+   "raw_t": 23.574
+  },
+  {
+   "t": 24.188,
+   "bar": 11,
+   "beat": 1,
+   "down": true,
+   "raw_t": 24.184
+  },
+  {
+   "t": 24.792,
+   "bar": 11,
+   "beat": 2,
+   "down": false,
+   "raw_t": 24.793
+  },
+  {
+   "t": 25.396,
+   "bar": 11,
+   "beat": 3,
+   "down": false,
+   "raw_t": 25.397
+  },
+  {
+   "t": 26.002,
+   "bar": 11,
+   "beat": 4,
+   "down": false,
+   "raw_t": 26.001
+  },
+  {
+   "t": 26.607,
+   "bar": 12,
+   "beat": 1,
+   "down": true,
+   "raw_t": 26.604
+  },
+  {
+   "t": 27.212,
+   "bar": 12,
+   "beat": 2,
+   "down": false,
+   "raw_t": 27.208
+  },
+  {
+   "t": 27.816,
+   "bar": 12,
+   "beat": 3,
+   "down": false,
+   "raw_t": 27.806
+  },
+  {
+   "t": 28.42,
+   "bar": 12,
+   "beat": 4,
+   "down": false,
+   "raw_t": 28.421
+  },
+  {
+   "t": 29.024,
+   "bar": 13,
+   "beat": 1,
+   "down": true,
+   "raw_t": 29.037
+  },
+  {
+   "t": 29.628,
+   "bar": 13,
+   "beat": 2,
+   "down": false,
+   "raw_t": 29.64
+  },
+  {
+   "t": 30.232,
+   "bar": 13,
+   "beat": 3,
+   "down": false,
+   "raw_t": 30.232
+  },
+  {
+   "t": 30.836,
+   "bar": 13,
+   "beat": 4,
+   "down": false,
+   "raw_t": 30.842
+  },
+  {
+   "t": 31.439,
+   "bar": 14,
+   "beat": 1,
+   "down": true,
+   "raw_t": 31.451
+  },
+  {
+   "t": 32.043,
+   "bar": 14,
+   "beat": 2,
+   "down": false,
+   "raw_t": 32.061
+  },
+  {
+   "t": 32.646,
+   "bar": 14,
+   "beat": 3,
+   "down": false,
+   "raw_t": 32.647
+  },
+  {
+   "t": 33.249,
+   "bar": 14,
+   "beat": 4,
+   "down": false,
+   "raw_t": 33.245
+  },
+  {
+   "t": 33.851,
+   "bar": 15,
+   "beat": 1,
+   "down": true,
+   "raw_t": 33.843
+  },
+  {
+   "t": 34.453,
+   "bar": 15,
+   "beat": 2,
+   "down": false,
+   "raw_t": 34.453
+  },
+  {
+   "t": 35.055,
+   "bar": 15,
+   "beat": 3,
+   "down": false,
+   "raw_t": 35.062
+  },
+  {
+   "t": 35.656,
+   "bar": 15,
+   "beat": 4,
+   "down": false,
+   "raw_t": 35.654
+  },
+  {
+   "t": 36.258,
+   "bar": 16,
+   "beat": 1,
+   "down": true,
+   "raw_t": 36.264
+  },
+  {
+   "t": 36.859,
+   "bar": 16,
+   "beat": 2,
+   "down": false,
+   "raw_t": 36.862
+  },
+  {
+   "t": 37.461,
+   "bar": 16,
+   "beat": 3,
+   "down": false,
+   "raw_t": 37.454
+  },
+  {
+   "t": 38.066,
+   "bar": 16,
+   "beat": 4,
+   "down": false,
+   "raw_t": 38.058
+  },
+  {
+   "t": 38.67,
+   "bar": 17,
+   "beat": 1,
+   "down": true,
+   "raw_t": 38.667
+  },
+  {
+   "t": 39.275,
+   "bar": 17,
+   "beat": 2,
+   "down": false,
+   "raw_t": 39.265
+  },
+  {
+   "t": 39.879,
+   "bar": 17,
+   "beat": 3,
+   "down": false,
+   "raw_t": 39.869
+  },
+  {
+   "t": 40.483,
+   "bar": 17,
+   "beat": 4,
+   "down": false,
+   "raw_t": 40.449
+  },
+  {
+   "t": 41.086,
+   "bar": 18,
+   "beat": 1,
+   "down": true,
+   "raw_t": 41.076
+  },
+  {
+   "t": 41.689,
+   "bar": 18,
+   "beat": 2,
+   "down": false,
+   "raw_t": 41.68
+  },
+  {
+   "t": 42.293,
+   "bar": 18,
+   "beat": 3,
+   "down": false,
+   "raw_t": 42.289
+  },
+  {
+   "t": 42.896,
+   "bar": 18,
+   "beat": 4,
+   "down": false,
+   "raw_t": 42.905
+  },
+  {
+   "t": 43.5,
+   "bar": 19,
+   "beat": 1,
+   "down": true,
+   "raw_t": 43.514
+  },
+  {
+   "t": 44.102,
+   "bar": 19,
+   "beat": 2,
+   "down": false,
+   "raw_t": 44.118
+  },
+  {
+   "t": 44.706,
+   "bar": 19,
+   "beat": 3,
+   "down": false,
+   "raw_t": 44.722
+  },
+  {
+   "t": 45.309,
+   "bar": 19,
+   "beat": 4,
+   "down": false,
+   "raw_t": 45.325
+  },
+  {
+   "t": 45.911,
+   "bar": 20,
+   "beat": 1,
+   "down": true,
+   "raw_t": 45.917
+  },
+  {
+   "t": 46.513,
+   "bar": 20,
+   "beat": 2,
+   "down": false,
+   "raw_t": 46.521
+  },
+  {
+   "t": 47.115,
+   "bar": 20,
+   "beat": 3,
+   "down": false,
+   "raw_t": 47.119
+  },
+  {
+   "t": 47.716,
+   "bar": 20,
+   "beat": 4,
+   "down": false,
+   "raw_t": 47.717
+  },
+  {
+   "t": 48.317,
+   "bar": 21,
+   "beat": 1,
+   "down": true,
+   "raw_t": 48.315
+  },
+  {
+   "t": 48.917,
+   "bar": 21,
+   "beat": 2,
+   "down": false,
+   "raw_t": 48.907
+  },
+  {
+   "t": 49.518,
+   "bar": 21,
+   "beat": 3,
+   "down": false,
+   "raw_t": 49.522
+  },
+  {
+   "t": 50.119,
+   "bar": 21,
+   "beat": 4,
+   "down": false,
+   "raw_t": 50.114
+  },
+  {
+   "t": 50.719,
+   "bar": 22,
+   "beat": 1,
+   "down": true,
+   "raw_t": 50.724
+  },
+  {
+   "t": 51.32,
+   "bar": 22,
+   "beat": 2,
+   "down": false,
+   "raw_t": 51.31
+  },
+  {
+   "t": 51.921,
+   "bar": 22,
+   "beat": 3,
+   "down": false,
+   "raw_t": 51.914
+  },
+  {
+   "t": 52.523,
+   "bar": 22,
+   "beat": 4,
+   "down": false,
+   "raw_t": 52.512
+  },
+  {
+   "t": 53.124,
+   "bar": 23,
+   "beat": 1,
+   "down": true,
+   "raw_t": 53.121
+  },
+  {
+   "t": 53.727,
+   "bar": 23,
+   "beat": 2,
+   "down": false,
+   "raw_t": 53.714
+  },
+  {
+   "t": 54.331,
+   "bar": 23,
+   "beat": 3,
+   "down": false,
+   "raw_t": 54.323
+  },
+  {
+   "t": 54.934,
+   "bar": 23,
+   "beat": 4,
+   "down": false,
+   "raw_t": 54.938
+  },
+  {
+   "t": 55.538,
+   "bar": 24,
+   "beat": 1,
+   "down": true,
+   "raw_t": 55.536
+  },
+  {
+   "t": 56.141,
+   "bar": 24,
+   "beat": 2,
+   "down": false,
+   "raw_t": 56.134
+  },
+  {
+   "t": 56.746,
+   "bar": 24,
+   "beat": 3,
+   "down": false,
+   "raw_t": 56.738
+  },
+  {
+   "t": 57.351,
+   "bar": 24,
+   "beat": 4,
+   "down": false,
+   "raw_t": 57.342
+  },
+  {
+   "t": 57.957,
+   "bar": 25,
+   "beat": 1,
+   "down": true,
+   "raw_t": 57.945
+  },
+  {
+   "t": 58.562,
+   "bar": 25,
+   "beat": 2,
+   "down": false,
+   "raw_t": 58.567
+  },
+  {
+   "t": 59.169,
+   "bar": 25,
+   "beat": 3,
+   "down": false,
+   "raw_t": 59.164
+  },
+  {
+   "t": 59.775,
+   "bar": 25,
+   "beat": 4,
+   "down": false,
+   "raw_t": 59.774
+  },
+  {
+   "t": 60.381,
+   "bar": 26,
+   "beat": 1,
+   "down": true,
+   "raw_t": 60.383
+  },
+  {
+   "t": 60.988,
+   "bar": 26,
+   "beat": 2,
+   "down": false,
+   "raw_t": 60.981
+  },
+  {
+   "t": 61.595,
+   "bar": 26,
+   "beat": 3,
+   "down": false,
+   "raw_t": 61.591
+  },
+  {
+   "t": 62.201,
+   "bar": 26,
+   "beat": 4,
+   "down": false,
+   "raw_t": 62.2
+  },
+  {
+   "t": 62.81,
+   "bar": 27,
+   "beat": 1,
+   "down": true,
+   "raw_t": 62.81
+  },
+  {
+   "t": 63.418,
+   "bar": 27,
+   "beat": 2,
+   "down": false,
+   "raw_t": 63.414
+  },
+  {
+   "t": 64.025,
+   "bar": 27,
+   "beat": 3,
+   "down": false,
+   "raw_t": 64.029
+  },
+  {
+   "t": 64.632,
+   "bar": 27,
+   "beat": 4,
+   "down": false,
+   "raw_t": 64.633
+  },
+  {
+   "t": 65.24,
+   "bar": 28,
+   "beat": 1,
+   "down": true,
+   "raw_t": 65.236
+  },
+  {
+   "t": 65.847,
+   "bar": 28,
+   "beat": 2,
+   "down": false,
+   "raw_t": 65.846
+  },
+  {
+   "t": 66.455,
+   "bar": 28,
+   "beat": 3,
+   "down": false,
+   "raw_t": 66.456
+  },
+  {
+   "t": 67.063,
+   "bar": 28,
+   "beat": 4,
+   "down": false,
+   "raw_t": 67.053
+  },
+  {
+   "t": 67.669,
+   "bar": 29,
+   "beat": 1,
+   "down": true,
+   "raw_t": 67.68
+  },
+  {
+   "t": 68.275,
+   "bar": 29,
+   "beat": 2,
+   "down": false,
+   "raw_t": 68.284
+  },
+  {
+   "t": 68.882,
+   "bar": 29,
+   "beat": 3,
+   "down": false,
+   "raw_t": 68.888
+  },
+  {
+   "t": 69.489,
+   "bar": 29,
+   "beat": 4,
+   "down": false,
+   "raw_t": 69.492
+  },
+  {
+   "t": 70.096,
+   "bar": 30,
+   "beat": 1,
+   "down": true,
+   "raw_t": 70.107
+  },
+  {
+   "t": 70.703,
+   "bar": 30,
+   "beat": 2,
+   "down": false,
+   "raw_t": 70.705
+  },
+  {
+   "t": 71.311,
+   "bar": 30,
+   "beat": 3,
+   "down": false,
+   "raw_t": 71.314
+  },
+  {
+   "t": 71.917,
+   "bar": 30,
+   "beat": 4,
+   "down": false,
+   "raw_t": 71.918
+  },
+  {
+   "t": 72.524,
+   "bar": 31,
+   "beat": 1,
+   "down": true,
+   "raw_t": 72.504
+  },
+  {
+   "t": 73.13,
+   "bar": 31,
+   "beat": 2,
+   "down": false,
+   "raw_t": 73.12
+  },
+  {
+   "t": 73.736,
+   "bar": 31,
+   "beat": 3,
+   "down": false,
+   "raw_t": 73.729
+  },
+  {
+   "t": 74.343,
+   "bar": 31,
+   "beat": 4,
+   "down": false,
+   "raw_t": 74.344
+  },
+  {
+   "t": 74.951,
+   "bar": 32,
+   "beat": 1,
+   "down": true,
+   "raw_t": 74.954
+  },
+  {
+   "t": 75.557,
+   "bar": 32,
+   "beat": 2,
+   "down": false,
+   "raw_t": 75.564
+  },
+  {
+   "t": 76.163,
+   "bar": 32,
+   "beat": 3,
+   "down": false,
+   "raw_t": 76.167
+  },
+  {
+   "t": 76.77,
+   "bar": 32,
+   "beat": 4,
+   "down": false,
+   "raw_t": 76.765
+  },
+  {
+   "t": 77.376,
+   "bar": 33,
+   "beat": 1,
+   "down": true,
+   "raw_t": 77.375
+  },
+  {
+   "t": 77.983,
+   "bar": 33,
+   "beat": 2,
+   "down": false,
+   "raw_t": 77.984
+  },
+  {
+   "t": 78.589,
+   "bar": 33,
+   "beat": 3,
+   "down": false,
+   "raw_t": 78.576
+  },
+  {
+   "t": 79.197,
+   "bar": 33,
+   "beat": 4,
+   "down": false,
+   "raw_t": 79.221
+  },
+  {
+   "t": 79.805,
+   "bar": 34,
+   "beat": 1,
+   "down": true,
+   "raw_t": 79.813
+  },
+  {
+   "t": 80.412,
+   "bar": 34,
+   "beat": 2,
+   "down": false,
+   "raw_t": 80.457
+  },
+  {
+   "t": 81.018,
+   "bar": 34,
+   "beat": 3,
+   "down": false,
+   "raw_t": 81.014
+  },
+  {
+   "t": 81.625,
+   "bar": 34,
+   "beat": 4,
+   "down": false,
+   "raw_t": 81.601
+  },
+  {
+   "t": 82.232,
+   "bar": 35,
+   "beat": 1,
+   "down": true,
+   "raw_t": 82.222
+  },
+  {
+   "t": 82.838,
+   "bar": 35,
+   "beat": 2,
+   "down": false,
+   "raw_t": 82.831
+  },
+  {
+   "t": 83.444,
+   "bar": 35,
+   "beat": 3,
+   "down": false,
+   "raw_t": 83.447
+  },
+  {
+   "t": 84.051,
+   "bar": 35,
+   "beat": 4,
+   "down": false,
+   "raw_t": 84.056
+  },
+  {
+   "t": 84.654,
+   "bar": 36,
+   "beat": 1,
+   "down": true,
+   "raw_t": 84.66
+  },
+  {
+   "t": 85.259,
+   "bar": 36,
+   "beat": 2,
+   "down": false,
+   "raw_t": 85.269
+  },
+  {
+   "t": 85.862,
+   "bar": 36,
+   "beat": 3,
+   "down": false,
+   "raw_t": 85.873
+  },
+  {
+   "t": 86.469,
+   "bar": 36,
+   "beat": 4,
+   "down": false,
+   "raw_t": 86.483
+  },
+  {
+   "t": 87.073,
+   "bar": 37,
+   "beat": 1,
+   "down": true,
+   "raw_t": 87.086
+  },
+  {
+   "t": 87.679,
+   "bar": 37,
+   "beat": 2,
+   "down": false,
+   "raw_t": 87.673
+  },
+  {
+   "t": 88.283,
+   "bar": 37,
+   "beat": 3,
+   "down": false,
+   "raw_t": 88.288
+  },
+  {
+   "t": 88.888,
+   "bar": 37,
+   "beat": 4,
+   "down": false,
+   "raw_t": 88.874
+  },
+  {
+   "t": 89.492,
+   "bar": 38,
+   "beat": 1,
+   "down": true,
+   "raw_t": 89.49
+  },
+  {
+   "t": 90.096,
+   "bar": 38,
+   "beat": 2,
+   "down": false,
+   "raw_t": 90.093
+  },
+  {
+   "t": 90.7,
+   "bar": 38,
+   "beat": 3,
+   "down": false,
+   "raw_t": 90.697
+  },
+  {
+   "t": 91.304,
+   "bar": 38,
+   "beat": 4,
+   "down": false,
+   "raw_t": 91.301
+  },
+  {
+   "t": 91.908,
+   "bar": 39,
+   "beat": 1,
+   "down": true,
+   "raw_t": 91.905
+  },
+  {
+   "t": 92.512,
+   "bar": 39,
+   "beat": 2,
+   "down": false,
+   "raw_t": 92.508
+  },
+  {
+   "t": 93.117,
+   "bar": 39,
+   "beat": 3,
+   "down": false,
+   "raw_t": 93.112
+  },
+  {
+   "t": 93.722,
+   "bar": 39,
+   "beat": 4,
+   "down": false,
+   "raw_t": 93.722
+  },
+  {
+   "t": 94.328,
+   "bar": 40,
+   "beat": 1,
+   "down": true,
+   "raw_t": 94.325
+  },
+  {
+   "t": 94.933,
+   "bar": 40,
+   "beat": 2,
+   "down": false,
+   "raw_t": 94.929
+  },
+  {
+   "t": 95.538,
+   "bar": 40,
+   "beat": 3,
+   "down": false,
+   "raw_t": 95.539
+  },
+  {
+   "t": 96.143,
+   "bar": 40,
+   "beat": 4,
+   "down": false,
+   "raw_t": 96.148
+  },
+  {
+   "t": 96.75,
+   "bar": 41,
+   "beat": 1,
+   "down": true,
+   "raw_t": 96.752
+  },
+  {
+   "t": 97.356,
+   "bar": 41,
+   "beat": 2,
+   "down": false,
+   "raw_t": 97.344
+  },
+  {
+   "t": 97.963,
+   "bar": 41,
+   "beat": 3,
+   "down": false,
+   "raw_t": 97.965
+  },
+  {
+   "t": 98.569,
+   "bar": 41,
+   "beat": 4,
+   "down": false,
+   "raw_t": 98.569
+  },
+  {
+   "t": 99.175,
+   "bar": 42,
+   "beat": 1,
+   "down": true,
+   "raw_t": 99.172
+  },
+  {
+   "t": 99.781,
+   "bar": 42,
+   "beat": 2,
+   "down": false,
+   "raw_t": 99.782
+  },
+  {
+   "t": 100.388,
+   "bar": 42,
+   "beat": 3,
+   "down": false,
+   "raw_t": 100.38
+  },
+  {
+   "t": 100.994,
+   "bar": 42,
+   "beat": 4,
+   "down": false,
+   "raw_t": 100.984
+  },
+  {
+   "t": 101.601,
+   "bar": 43,
+   "beat": 1,
+   "down": true,
+   "raw_t": 101.611
+  },
+  {
+   "t": 102.208,
+   "bar": 43,
+   "beat": 2,
+   "down": false,
+   "raw_t": 102.214
+  },
+  {
+   "t": 102.816,
+   "bar": 43,
+   "beat": 3,
+   "down": false,
+   "raw_t": 102.818
+  },
+  {
+   "t": 103.422,
+   "bar": 43,
+   "beat": 4,
+   "down": false,
+   "raw_t": 103.422
+  },
+  {
+   "t": 104.028,
+   "bar": 44,
+   "beat": 1,
+   "down": true,
+   "raw_t": 104.031
+  },
+  {
+   "t": 104.635,
+   "bar": 44,
+   "beat": 2,
+   "down": false,
+   "raw_t": 104.623
+  },
+  {
+   "t": 105.242,
+   "bar": 44,
+   "beat": 3,
+   "down": false,
+   "raw_t": 105.239
+  },
+  {
+   "t": 105.851,
+   "bar": 44,
+   "beat": 4,
+   "down": false,
+   "raw_t": 105.848
+  },
+  {
+   "t": 106.459,
+   "bar": 45,
+   "beat": 1,
+   "down": true,
+   "raw_t": 106.463
+  },
+  {
+   "t": 107.066,
+   "bar": 45,
+   "beat": 2,
+   "down": false,
+   "raw_t": 107.067
+  },
+  {
+   "t": 107.672,
+   "bar": 45,
+   "beat": 3,
+   "down": false,
+   "raw_t": 107.677
+  },
+  {
+   "t": 108.279,
+   "bar": 45,
+   "beat": 4,
+   "down": false,
+   "raw_t": 108.269
+  },
+  {
+   "t": 108.886,
+   "bar": 46,
+   "beat": 1,
+   "down": true,
+   "raw_t": 108.878
+  },
+  {
+   "t": 109.493,
+   "bar": 46,
+   "beat": 2,
+   "down": false,
+   "raw_t": 109.482
+  },
+  {
+   "t": 110.103,
+   "bar": 46,
+   "beat": 3,
+   "down": false,
+   "raw_t": 110.115
+  },
+  {
+   "t": 110.711,
+   "bar": 46,
+   "beat": 4,
+   "down": false,
+   "raw_t": 110.719
+  },
+  {
+   "t": 111.32,
+   "bar": 47,
+   "beat": 1,
+   "down": true,
+   "raw_t": 111.328
+  },
+  {
+   "t": 111.928,
+   "bar": 47,
+   "beat": 2,
+   "down": false,
+   "raw_t": 111.92
+  },
+  {
+   "t": 112.536,
+   "bar": 47,
+   "beat": 3,
+   "down": false,
+   "raw_t": 112.524
+  },
+  {
+   "t": 113.144,
+   "bar": 47,
+   "beat": 4,
+   "down": false,
+   "raw_t": 113.139
+  },
+  {
+   "t": 113.754,
+   "bar": 48,
+   "beat": 1,
+   "down": true,
+   "raw_t": 113.743
+  },
+  {
+   "t": 114.365,
+   "bar": 48,
+   "beat": 2,
+   "down": false,
+   "raw_t": 114.393
+  },
+  {
+   "t": 114.981,
+   "bar": 48,
+   "beat": 3,
+   "down": false,
+   "raw_t": 114.979
+  },
+  {
+   "t": 115.592,
+   "bar": 48,
+   "beat": 4,
+   "down": false,
+   "raw_t": 115.583
+  },
+  {
+   "t": 116.204,
+   "bar": 49,
+   "beat": 1,
+   "down": true,
+   "raw_t": 116.193
+  },
+  {
+   "t": 116.814,
+   "bar": 49,
+   "beat": 2,
+   "down": false,
+   "raw_t": 116.796
+  },
+  {
+   "t": 117.429,
+   "bar": 49,
+   "beat": 3,
+   "down": false,
+   "raw_t": 117.406
+  },
+  {
+   "t": 118.043,
+   "bar": 49,
+   "beat": 4,
+   "down": false,
+   "raw_t": 118.015
+  },
+  {
+   "t": 118.656,
+   "bar": 50,
+   "beat": 1,
+   "down": true,
+   "raw_t": 118.637
+  },
+  {
+   "t": 119.271,
+   "bar": 50,
+   "beat": 2,
+   "down": false,
+   "raw_t": 119.287
+  },
+  {
+   "t": 119.885,
+   "bar": 50,
+   "beat": 3,
+   "down": false,
+   "raw_t": 119.902
+  },
+  {
+   "t": 120.499,
+   "bar": 50,
+   "beat": 4,
+   "down": false,
+   "raw_t": 120.506
+  },
+  {
+   "t": 121.114,
+   "bar": 51,
+   "beat": 1,
+   "down": true,
+   "raw_t": 121.115
+  },
+  {
+   "t": 121.729,
+   "bar": 51,
+   "beat": 2,
+   "down": false,
+   "raw_t": 121.736
+  },
+  {
+   "t": 122.344,
+   "bar": 51,
+   "beat": 3,
+   "down": false,
+   "raw_t": 122.352
+  },
+  {
+   "t": 122.962,
+   "bar": 51,
+   "beat": 4,
+   "down": false,
+   "raw_t": 122.967
+  },
+  {
+   "t": 123.576,
+   "bar": 52,
+   "beat": 1,
+   "down": true,
+   "raw_t": 123.565
+  },
+  {
+   "t": 124.193,
+   "bar": 52,
+   "beat": 2,
+   "down": false,
+   "raw_t": 124.198
+  },
+  {
+   "t": 124.806,
+   "bar": 52,
+   "beat": 3,
+   "down": false,
+   "raw_t": 124.807
+  },
+  {
+   "t": 125.42,
+   "bar": 52,
+   "beat": 4,
+   "down": false,
+   "raw_t": 125.423
+  },
+  {
+   "t": 126.034,
+   "bar": 53,
+   "beat": 1,
+   "down": true,
+   "raw_t": 126.032
+  },
+  {
+   "t": 126.648,
+   "bar": 53,
+   "beat": 2,
+   "down": false,
+   "raw_t": 126.647
+  },
+  {
+   "t": 127.263,
+   "bar": 53,
+   "beat": 3,
+   "down": false,
+   "raw_t": 127.257
+  },
+  {
+   "t": 127.878,
+   "bar": 53,
+   "beat": 4,
+   "down": false,
+   "raw_t": 127.872
+  },
+  {
+   "t": 128.493,
+   "bar": 54,
+   "beat": 1,
+   "down": true,
+   "raw_t": 128.493
+  },
+  {
+   "t": 129.109,
+   "bar": 54,
+   "beat": 2,
+   "down": false,
+   "raw_t": 129.115
+  },
+  {
+   "t": 129.724,
+   "bar": 54,
+   "beat": 3,
+   "down": false,
+   "raw_t": 129.718
+  },
+  {
+   "t": 130.339,
+   "bar": 54,
+   "beat": 4,
+   "down": false,
+   "raw_t": 130.328
+  },
+  {
+   "t": 130.954,
+   "bar": 55,
+   "beat": 1,
+   "down": true,
+   "raw_t": 130.949
+  },
+  {
+   "t": 131.569,
+   "bar": 55,
+   "beat": 2,
+   "down": false,
+   "raw_t": 131.558
+  },
+  {
+   "t": 132.184,
+   "bar": 55,
+   "beat": 3,
+   "down": false,
+   "raw_t": 132.197
+  },
+  {
+   "t": 132.8,
+   "bar": 55,
+   "beat": 4,
+   "down": false,
+   "raw_t": 132.801
+  },
+  {
+   "t": 133.416,
+   "bar": 56,
+   "beat": 1,
+   "down": true,
+   "raw_t": 133.422
+  },
+  {
+   "t": 134.032,
+   "bar": 56,
+   "beat": 2,
+   "down": false,
+   "raw_t": 134.031
+  },
+  {
+   "t": 134.647,
+   "bar": 56,
+   "beat": 3,
+   "down": false,
+   "raw_t": 134.658
+  },
+  {
+   "t": 135.264,
+   "bar": 56,
+   "beat": 4,
+   "down": false,
+   "raw_t": 135.262
+  },
+  {
+   "t": 135.88,
+   "bar": 57,
+   "beat": 1,
+   "down": true,
+   "raw_t": 135.877
+  },
+  {
+   "t": 136.495,
+   "bar": 57,
+   "beat": 2,
+   "down": false,
+   "raw_t": 136.487
+  },
+  {
+   "t": 137.111,
+   "bar": 57,
+   "beat": 3,
+   "down": false,
+   "raw_t": 137.108
+  },
+  {
+   "t": 137.726,
+   "bar": 57,
+   "beat": 4,
+   "down": false,
+   "raw_t": 137.723
+  },
+  {
+   "t": 138.341,
+   "bar": 58,
+   "beat": 1,
+   "down": true,
+   "raw_t": 138.344
+  },
+  {
+   "t": 138.957,
+   "bar": 58,
+   "beat": 2,
+   "down": false,
+   "raw_t": 138.96
+  },
+  {
+   "t": 139.573,
+   "bar": 58,
+   "beat": 3,
+   "down": false,
+   "raw_t": 139.581
+  },
+  {
+   "t": 140.188,
+   "bar": 58,
+   "beat": 4,
+   "down": false,
+   "raw_t": 140.196
+  },
+  {
+   "t": 140.804,
+   "bar": 59,
+   "beat": 1,
+   "down": true,
+   "raw_t": 140.812
+  },
+  {
+   "t": 141.421,
+   "bar": 59,
+   "beat": 2,
+   "down": false,
+   "raw_t": 141.404
+  },
+  {
+   "t": 142.039,
+   "bar": 59,
+   "beat": 3,
+   "down": false,
+   "raw_t": 142.025
+  },
+  {
+   "t": 142.656,
+   "bar": 59,
+   "beat": 4,
+   "down": false,
+   "raw_t": 142.652
+  },
+  {
+   "t": 143.273,
+   "bar": 60,
+   "beat": 1,
+   "down": true,
+   "raw_t": 143.261
+  },
+  {
+   "t": 143.89,
+   "bar": 60,
+   "beat": 2,
+   "down": false,
+   "raw_t": 143.882
+  },
+  {
+   "t": 144.507,
+   "bar": 60,
+   "beat": 3,
+   "down": false,
+   "raw_t": 144.509
+  },
+  {
+   "t": 145.125,
+   "bar": 60,
+   "beat": 4,
+   "down": false,
+   "raw_t": 145.119
+  },
+  {
+   "t": 145.743,
+   "bar": 61,
+   "beat": 1,
+   "down": true,
+   "raw_t": 145.734
+  },
+  {
+   "t": 146.361,
+   "bar": 61,
+   "beat": 2,
+   "down": false,
+   "raw_t": 146.355
+  },
+  {
+   "t": 146.985,
+   "bar": 61,
+   "beat": 3,
+   "down": false,
+   "raw_t": 146.988
+  },
+  {
+   "t": 147.606,
+   "bar": 61,
+   "beat": 4,
+   "down": false,
+   "raw_t": 147.603
+  },
+  {
+   "t": 148.227,
+   "bar": 62,
+   "beat": 1,
+   "down": true,
+   "raw_t": 148.219
+  },
+  {
+   "t": 148.848,
+   "bar": 62,
+   "beat": 2,
+   "down": false,
+   "raw_t": 148.834
+  },
+  {
+   "t": 149.469,
+   "bar": 62,
+   "beat": 3,
+   "down": false,
+   "raw_t": 149.449
+  },
+  {
+   "t": 150.09,
+   "bar": 62,
+   "beat": 4,
+   "down": false,
+   "raw_t": 150.076
+  },
+  {
+   "t": 150.71,
+   "bar": 63,
+   "beat": 1,
+   "down": true,
+   "raw_t": 150.709
+  },
+  {
+   "t": 151.331,
+   "bar": 63,
+   "beat": 2,
+   "down": false,
+   "raw_t": 151.353
+  },
+  {
+   "t": 151.952,
+   "bar": 63,
+   "beat": 3,
+   "down": false,
+   "raw_t": 151.969
+  },
+  {
+   "t": 152.571,
+   "bar": 63,
+   "beat": 4,
+   "down": false,
+   "raw_t": 152.59
+  },
+  {
+   "t": 153.191,
+   "bar": 64,
+   "beat": 1,
+   "down": true,
+   "raw_t": 153.205
+  },
+  {
+   "t": 153.809,
+   "bar": 64,
+   "beat": 2,
+   "down": false,
+   "raw_t": 153.815
+  },
+  {
+   "t": 154.428,
+   "bar": 64,
+   "beat": 3,
+   "down": false,
+   "raw_t": 154.436
+  },
+  {
+   "t": 155.049,
+   "bar": 64,
+   "beat": 4,
+   "down": false,
+   "raw_t": 155.069
+  },
+  {
+   "t": 155.666,
+   "bar": 65,
+   "beat": 1,
+   "down": true,
+   "raw_t": 155.672
+  },
+  {
+   "t": 156.28,
+   "bar": 65,
+   "beat": 2,
+   "down": false,
+   "raw_t": 156.288
+  },
+  {
+   "t": 156.895,
+   "bar": 65,
+   "beat": 3,
+   "down": false,
+   "raw_t": 156.903
+  },
+  {
+   "t": 157.509,
+   "bar": 65,
+   "beat": 4,
+   "down": false,
+   "raw_t": 157.518
+  },
+  {
+   "t": 158.122,
+   "bar": 66,
+   "beat": 1,
+   "down": true,
+   "raw_t": 158.134
+  },
+  {
+   "t": 158.736,
+   "bar": 66,
+   "beat": 2,
+   "down": false,
+   "raw_t": 158.737
+  },
+  {
+   "t": 159.35,
+   "bar": 66,
+   "beat": 3,
+   "down": false,
+   "raw_t": 159.347
+  },
+  {
+   "t": 159.963,
+   "bar": 66,
+   "beat": 4,
+   "down": false,
+   "raw_t": 159.962
+  },
+  {
+   "t": 160.576,
+   "bar": 67,
+   "beat": 1,
+   "down": true,
+   "raw_t": 160.572
+  },
+  {
+   "t": 161.189,
+   "bar": 67,
+   "beat": 2,
+   "down": false,
+   "raw_t": 161.187
+  },
+  {
+   "t": 161.802,
+   "bar": 67,
+   "beat": 3,
+   "down": false,
+   "raw_t": 161.808
+  },
+  {
+   "t": 162.416,
+   "bar": 67,
+   "beat": 4,
+   "down": false,
+   "raw_t": 162.412
+  },
+  {
+   "t": 163.03,
+   "bar": 68,
+   "beat": 1,
+   "down": true,
+   "raw_t": 163.016
+  },
+  {
+   "t": 163.645,
+   "bar": 68,
+   "beat": 2,
+   "down": false,
+   "raw_t": 163.637
+  },
+  {
+   "t": 164.26,
+   "bar": 68,
+   "beat": 3,
+   "down": false,
+   "raw_t": 164.246
+  },
+  {
+   "t": 164.876,
+   "bar": 68,
+   "beat": 4,
+   "down": false,
+   "raw_t": 164.867
+  },
+  {
+   "t": 165.493,
+   "bar": 69,
+   "beat": 1,
+   "down": true,
+   "raw_t": 165.483
+  },
+  {
+   "t": 166.11,
+   "bar": 69,
+   "beat": 2,
+   "down": false,
+   "raw_t": 166.098
+  },
+  {
+   "t": 166.725,
+   "bar": 69,
+   "beat": 3,
+   "down": false,
+   "raw_t": 166.713
+  },
+  {
+   "t": 167.345,
+   "bar": 69,
+   "beat": 4,
+   "down": false,
+   "raw_t": 167.34
+  },
+  {
+   "t": 167.965,
+   "bar": 70,
+   "beat": 1,
+   "down": true,
+   "raw_t": 167.956
+  },
+  {
+   "t": 168.581,
+   "bar": 70,
+   "beat": 2,
+   "down": false,
+   "raw_t": 168.577
+  },
+  {
+   "t": 169.2,
+   "bar": 70,
+   "beat": 3,
+   "down": false,
+   "raw_t": 169.198
+  },
+  {
+   "t": 169.817,
+   "bar": 70,
+   "beat": 4,
+   "down": false,
+   "raw_t": 169.825
+  },
+  {
+   "t": 170.431,
+   "bar": 71,
+   "beat": 1,
+   "down": true,
+   "raw_t": 170.44
+  },
+  {
+   "t": 171.033,
+   "bar": 71,
+   "beat": 2,
+   "down": false,
+   "raw_t": 171.061
+  },
+  {
+   "t": 171.641,
+   "bar": 71,
+   "beat": 3,
+   "down": false,
+   "raw_t": 171.683
+  },
+  {
+   "t": 172.242,
+   "bar": 71,
+   "beat": 4,
+   "down": false,
+   "raw_t": 172.315
+  },
+  {
+   "t": 172.846,
+   "bar": 72,
+   "beat": 1,
+   "down": true,
+   "raw_t": 172.948
+  },
+  {
+   "t": 173.451,
+   "bar": 72,
+   "beat": 2,
+   "down": false,
+   "raw_t": 173.517
+  },
+  {
+   "t": 174.06,
+   "bar": 72,
+   "beat": 3,
+   "down": false,
+   "raw_t": 174.092
+  },
+  {
+   "t": 174.66,
+   "bar": 72,
+   "beat": 4,
+   "down": false,
+   "raw_t": 174.66
+  },
+  {
+   "t": 175.263,
+   "bar": 73,
+   "beat": 1,
+   "down": true,
+   "raw_t": 175.276
+  },
+  {
+   "t": 175.872,
+   "bar": 73,
+   "beat": 2,
+   "down": false,
+   "raw_t": 175.856
+  },
+  {
+   "t": 176.475,
+   "bar": 73,
+   "beat": 3,
+   "down": false,
+   "raw_t": 176.443
+  },
+  {
+   "t": 177.078,
+   "bar": 73,
+   "beat": 4,
+   "down": false,
+   "raw_t": 177.023
+  },
+  {
+   "t": 177.68,
+   "bar": 74,
+   "beat": 1,
+   "down": true,
+   "raw_t": 177.615
+  },
+  {
+   "t": 178.282,
+   "bar": 74,
+   "beat": 2,
+   "down": false,
+   "raw_t": 178.231
+  },
+  {
+   "t": 178.886,
+   "bar": 74,
+   "beat": 3,
+   "down": false,
+   "raw_t": 178.84
+  },
+  {
+   "t": 179.493,
+   "bar": 74,
+   "beat": 4,
+   "down": false,
+   "raw_t": 179.461
+  },
+  {
+   "t": 180.096,
+   "bar": 75,
+   "beat": 1,
+   "down": true,
+   "raw_t": 180.088
+  },
+  {
+   "t": 180.706,
+   "bar": 75,
+   "beat": 2,
+   "down": false,
+   "raw_t": 180.709
+  },
+  {
+   "t": 181.319,
+   "bar": 75,
+   "beat": 3,
+   "down": false,
+   "raw_t": 181.319
+  },
+  {
+   "t": 181.935,
+   "bar": 75,
+   "beat": 4,
+   "down": false,
+   "raw_t": 181.934
+  },
+  {
+   "t": 182.552,
+   "bar": 76,
+   "beat": 1,
+   "down": true,
+   "raw_t": 182.555
+  },
+  {
+   "t": 183.169,
+   "bar": 76,
+   "beat": 2,
+   "down": false,
+   "raw_t": 183.171
+  },
+  {
+   "t": 183.786,
+   "bar": 76,
+   "beat": 3,
+   "down": false,
+   "raw_t": 183.792
+  },
+  {
+   "t": 184.402,
+   "bar": 76,
+   "beat": 4,
+   "down": false,
+   "raw_t": 184.401
+  },
+  {
+   "t": 185.017,
+   "bar": 77,
+   "beat": 1,
+   "down": true,
+   "raw_t": 185.011
+  }
+ ],
+ "bars": [
+  {
+   "bar": 1,
+   "t": 0.139,
+   "db": -27.6,
+   "dip": false
+  },
+  {
+   "bar": 2,
+   "t": 2.536,
+   "db": -34.0,
+   "dip": false
+  },
+  {
+   "bar": 3,
+   "t": 4.951,
+   "db": -36.3,
+   "dip": true
+  },
+  {
+   "bar": 4,
+   "t": 7.351,
+   "db": -33.3,
+   "dip": true
+  },
+  {
+   "bar": 5,
+   "t": 9.763,
+   "db": -29.1,
+   "dip": false
+  },
+  {
+   "bar": 6,
+   "t": 12.164,
+   "db": -24.8,
+   "dip": false
+  },
+  {
+   "bar": 7,
+   "t": 14.557,
+   "db": -26.3,
+   "dip": false
+  },
+  {
+   "bar": 8,
+   "t": 16.964,
+   "db": -28.3,
+   "dip": false
+  },
+  {
+   "bar": 9,
+   "t": 19.365,
+   "db": -26.1,
+   "dip": false
+  },
+  {
+   "bar": 10,
+   "t": 21.773,
+   "db": -25.7,
+   "dip": false
+  },
+  {
+   "bar": 11,
+   "t": 24.188,
+   "db": -25.8,
+   "dip": false
+  },
+  {
+   "bar": 12,
+   "t": 26.607,
+   "db": -26.8,
+   "dip": false
+  },
+  {
+   "bar": 13,
+   "t": 29.024,
+   "db": -25.1,
+   "dip": false
+  },
+  {
+   "bar": 14,
+   "t": 31.439,
+   "db": -25.9,
+   "dip": false
+  },
+  {
+   "bar": 15,
+   "t": 33.851,
+   "db": -24.1,
+   "dip": false
+  },
+  {
+   "bar": 16,
+   "t": 36.258,
+   "db": -23.0,
+   "dip": false
+  },
+  {
+   "bar": 17,
+   "t": 38.67,
+   "db": -23.2,
+   "dip": false
+  },
+  {
+   "bar": 18,
+   "t": 41.086,
+   "db": -23.1,
+   "dip": false
+  },
+  {
+   "bar": 19,
+   "t": 43.5,
+   "db": -21.0,
+   "dip": false
+  },
+  {
+   "bar": 20,
+   "t": 45.911,
+   "db": -23.4,
+   "dip": false
+  },
+  {
+   "bar": 21,
+   "t": 48.317,
+   "db": -21.4,
+   "dip": false
+  },
+  {
+   "bar": 22,
+   "t": 50.719,
+   "db": -22.7,
+   "dip": false
+  },
+  {
+   "bar": 23,
+   "t": 53.124,
+   "db": -21.1,
+   "dip": false
+  },
+  {
+   "bar": 24,
+   "t": 55.538,
+   "db": -19.4,
+   "dip": false
+  },
+  {
+   "bar": 25,
+   "t": 57.957,
+   "db": -24.6,
+   "dip": false
+  },
+  {
+   "bar": 26,
+   "t": 60.381,
+   "db": -21.7,
+   "dip": false
+  },
+  {
+   "bar": 27,
+   "t": 62.81,
+   "db": -21.5,
+   "dip": false
+  },
+  {
+   "bar": 28,
+   "t": 65.24,
+   "db": -24.7,
+   "dip": false
+  },
+  {
+   "bar": 29,
+   "t": 67.669,
+   "db": -23.1,
+   "dip": false
+  },
+  {
+   "bar": 30,
+   "t": 70.096,
+   "db": -22.2,
+   "dip": false
+  },
+  {
+   "bar": 31,
+   "t": 72.524,
+   "db": -23.6,
+   "dip": false
+  },
+  {
+   "bar": 32,
+   "t": 74.951,
+   "db": -23.5,
+   "dip": false
+  },
+  {
+   "bar": 33,
+   "t": 77.376,
+   "db": -22.8,
+   "dip": false
+  },
+  {
+   "bar": 34,
+   "t": 79.805,
+   "db": -25.4,
+   "dip": false
+  },
+  {
+   "bar": 35,
+   "t": 82.232,
+   "db": -19.3,
+   "dip": false
+  },
+  {
+   "bar": 36,
+   "t": 84.654,
+   "db": -22.8,
+   "dip": false
+  },
+  {
+   "bar": 37,
+   "t": 87.073,
+   "db": -20.4,
+   "dip": false
+  },
+  {
+   "bar": 38,
+   "t": 89.492,
+   "db": -21.0,
+   "dip": false
+  },
+  {
+   "bar": 39,
+   "t": 91.908,
+   "db": -19.5,
+   "dip": false
+  },
+  {
+   "bar": 40,
+   "t": 94.328,
+   "db": -18.5,
+   "dip": false
+  },
+  {
+   "bar": 41,
+   "t": 96.75,
+   "db": -22.7,
+   "dip": false
+  },
+  {
+   "bar": 42,
+   "t": 99.175,
+   "db": -20.6,
+   "dip": false
+  },
+  {
+   "bar": 43,
+   "t": 101.601,
+   "db": -22.8,
+   "dip": false
+  },
+  {
+   "bar": 44,
+   "t": 104.028,
+   "db": -20.7,
+   "dip": false
+  },
+  {
+   "bar": 45,
+   "t": 106.459,
+   "db": -22.5,
+   "dip": false
+  },
+  {
+   "bar": 46,
+   "t": 108.886,
+   "db": -23.1,
+   "dip": false
+  },
+  {
+   "bar": 47,
+   "t": 111.32,
+   "db": -25.1,
+   "dip": false
+  },
+  {
+   "bar": 48,
+   "t": 113.754,
+   "db": -25.4,
+   "dip": false
+  },
+  {
+   "bar": 49,
+   "t": 116.204,
+   "db": -24.6,
+   "dip": false
+  },
+  {
+   "bar": 50,
+   "t": 118.656,
+   "db": -23.2,
+   "dip": false
+  },
+  {
+   "bar": 51,
+   "t": 121.114,
+   "db": -20.4,
+   "dip": false
+  },
+  {
+   "bar": 52,
+   "t": 123.576,
+   "db": -22.7,
+   "dip": false
+  },
+  {
+   "bar": 53,
+   "t": 126.034,
+   "db": -24.4,
+   "dip": false
+  },
+  {
+   "bar": 54,
+   "t": 128.493,
+   "db": -22.7,
+   "dip": false
+  },
+  {
+   "bar": 55,
+   "t": 130.954,
+   "db": -20.0,
+   "dip": false
+  },
+  {
+   "bar": 56,
+   "t": 133.416,
+   "db": -21.4,
+   "dip": false
+  },
+  {
+   "bar": 57,
+   "t": 135.88,
+   "db": -19.5,
+   "dip": false
+  },
+  {
+   "bar": 58,
+   "t": 138.341,
+   "db": -20.7,
+   "dip": false
+  },
+  {
+   "bar": 59,
+   "t": 140.804,
+   "db": -23.2,
+   "dip": false
+  },
+  {
+   "bar": 60,
+   "t": 143.273,
+   "db": -22.9,
+   "dip": false
+  },
+  {
+   "bar": 61,
+   "t": 145.743,
+   "db": -22.7,
+   "dip": false
+  },
+  {
+   "bar": 62,
+   "t": 148.227,
+   "db": -23.6,
+   "dip": false
+  },
+  {
+   "bar": 63,
+   "t": 150.71,
+   "db": -19.9,
+   "dip": false
+  },
+  {
+   "bar": 64,
+   "t": 153.191,
+   "db": -17.9,
+   "dip": false
+  },
+  {
+   "bar": 65,
+   "t": 155.666,
+   "db": -20.7,
+   "dip": false
+  },
+  {
+   "bar": 66,
+   "t": 158.122,
+   "db": -18.5,
+   "dip": false
+  },
+  {
+   "bar": 67,
+   "t": 160.576,
+   "db": -19.6,
+   "dip": false
+  },
+  {
+   "bar": 68,
+   "t": 163.03,
+   "db": -19.2,
+   "dip": false
+  },
+  {
+   "bar": 69,
+   "t": 165.493,
+   "db": -18.0,
+   "dip": false
+  },
+  {
+   "bar": 70,
+   "t": 167.965,
+   "db": -21.2,
+   "dip": false
+  },
+  {
+   "bar": 71,
+   "t": 170.431,
+   "db": -20.2,
+   "dip": false
+  },
+  {
+   "bar": 72,
+   "t": 172.846,
+   "db": -24.1,
+   "dip": false
+  },
+  {
+   "bar": 73,
+   "t": 175.263,
+   "db": -25.2,
+   "dip": false
+  },
+  {
+   "bar": 74,
+   "t": 177.68,
+   "db": -23.1,
+   "dip": false
+  },
+  {
+   "bar": 75,
+   "t": 180.096,
+   "db": -17.0,
+   "dip": false
+  },
+  {
+   "bar": 76,
+   "t": 182.552,
+   "db": -21.9,
+   "dip": false
+  },
+  {
+   "bar": 77,
+   "t": 185.017,
+   "db": -55.5,
+   "dip": true
+  }
+ ],
+ "sections": [
+  {
+   "name": "Prelude",
+   "start": 0.0,
+   "end": 3.03,
+   "kind": "instrumental",
+   "bars": [
+    1,
+    2
+   ],
+   "seconds": 3.03,
+   "db": {
+    "mix": -28.1,
+    "vocals": -89.4,
+    "drums": -72.4,
+    "bass": -88.8,
+    "other": -29.6
+   }
+  },
+  {
+   "name": "Opening",
+   "start": 3.03,
+   "end": 14.507,
+   "kind": "sung",
+   "bars": [
+    3,
+    6
+   ],
+   "seconds": 11.477,
+   "db": {
+    "mix": -31.6,
+    "vocals": -36.5,
+    "drums": -86.6,
+    "bass": -71.5,
+    "other": -46.6
+   }
+  },
+  {
+   "name": "Instrumental gap",
+   "start": 14.507,
+   "end": 15.314,
+   "kind": "instrumental",
+   "bars": [
+    7,
+    7
+   ],
+   "seconds": 0.807,
+   "db": {
+    "mix": -23.1,
+    "vocals": -64.1,
+    "drums": -73.1,
+    "bass": -30.5,
+    "other": -25.6
+   }
+  },
+  {
+   "name": "Verse 1",
+   "start": 15.314,
+   "end": 44.046,
+   "kind": "sung",
+   "bars": [
+    8,
+    19
+   ],
+   "seconds": 28.732,
+   "db": {
+    "mix": -25.3,
+    "vocals": -30.2,
+    "drums": -52.5,
+    "bass": -51.3,
+    "other": -45.0
+   }
+  },
+  {
+   "name": "Refrain 1",
+   "start": 44.054,
+   "end": 60.61,
+   "kind": "sung",
+   "bars": [
+    20,
+    26
+   ],
+   "seconds": 16.556,
+   "db": {
+    "mix": -21.9,
+    "vocals": -26.6,
+    "drums": -42.3,
+    "bass": -44.4,
+    "other": -43.1
+   }
+  },
+  {
+   "name": "Instrumental interlude",
+   "start": 60.61,
+   "end": 63.826,
+   "kind": "instrumental",
+   "bars": [
+    27,
+    27
+   ],
+   "seconds": 3.216,
+   "db": {
+    "mix": -20.9,
+    "vocals": -79.3,
+    "drums": -40.7,
+    "bass": -36.8,
+    "other": -23.4
+   }
+  },
+  {
+   "name": "Verse 2",
+   "start": 63.826,
+   "end": 82.992,
+   "kind": "sung",
+   "bars": [
+    28,
+    35
+   ],
+   "seconds": 19.166,
+   "db": {
+    "mix": -23.3,
+    "vocals": -27.7,
+    "drums": -49.3,
+    "bass": -50.9,
+    "other": -47.8
+   }
+  },
+  {
+   "name": "Refrain 2",
+   "start": 83.0,
+   "end": 99.161,
+   "kind": "sung",
+   "bars": [
+    36,
+    41
+   ],
+   "seconds": 16.161,
+   "db": {
+    "mix": -20.8,
+    "vocals": -25.8,
+    "drums": -41.6,
+    "bass": -45.9,
+    "other": -40.6
+   }
+  },
+  {
+   "name": "Instrumental gap",
+   "start": 99.161,
+   "end": 99.958,
+   "kind": "instrumental",
+   "bars": [
+    42,
+    42
+   ],
+   "seconds": 0.797,
+   "db": {
+    "mix": -19.8,
+    "vocals": -63.0,
+    "drums": -38.8,
+    "bass": -41.8,
+    "other": -26.5
+   }
+  },
+  {
+   "name": "Bridge",
+   "start": 99.958,
+   "end": 131.524,
+   "kind": "sung",
+   "bars": [
+    43,
+    55
+   ],
+   "seconds": 31.566,
+   "db": {
+    "mix": -23.0,
+    "vocals": -31.4,
+    "drums": -55.5,
+    "bass": -57.1,
+    "other": -46.7
+   }
+  },
+  {
+   "name": "Breakdown",
+   "start": 131.828,
+   "end": 151.882,
+   "kind": "sung",
+   "bars": [
+    56,
+    63
+   ],
+   "seconds": 20.054,
+   "db": {
+    "mix": -21.9,
+    "vocals": -26.4,
+    "drums": -55.9,
+    "bass": -57.2,
+    "other": -49.5
+   }
+  },
+  {
+   "name": "Instrumental gap",
+   "start": 151.882,
+   "end": 153.745,
+   "kind": "instrumental",
+   "bars": [
+    64,
+    64
+   ],
+   "seconds": 1.863,
+   "db": {
+    "mix": -16.9,
+    "vocals": -74.2,
+    "drums": -38.5,
+    "bass": -21.9,
+    "other": -22.9
+   }
+  },
+  {
+   "name": "Refrain 3",
+   "start": 153.745,
+   "end": 170.951,
+   "kind": "sung",
+   "bars": [
+    65,
+    71
+   ],
+   "seconds": 17.206,
+   "db": {
+    "mix": -19.4,
+    "vocals": -24.1,
+    "drums": -37.5,
+    "bass": -45.5,
+    "other": -46.4
+   }
+  },
+  {
+   "name": "Instrumental gap",
+   "start": 170.951,
+   "end": 171.334,
+   "kind": "instrumental",
+   "bars": [],
+   "seconds": 0.383,
+   "db": {
+    "mix": -20.8,
+    "vocals": -45.3,
+    "drums": -36.5,
+    "bass": -32.5,
+    "other": -43.9
+   }
+  },
+  {
+   "name": "Outro",
+   "start": 171.334,
+   "end": 183.989,
+   "kind": "sung",
+   "bars": [
+    72,
+    76
+   ],
+   "seconds": 12.655,
+   "db": {
+    "mix": -21.6,
+    "vocals": -29.1,
+    "drums": -54.8,
+    "bass": -44.8,
+    "other": -36.5
+   }
+  },
+  {
+   "name": "Instrumental tag",
+   "start": 183.989,
+   "end": 185.232,
+   "kind": "instrumental",
+   "bars": [
+    77,
+    77
+   ],
+   "seconds": 1.243,
+   "db": {
+    "mix": -33.9,
+    "vocals": -67.2,
+    "drums": -53.7,
+    "bass": -54.1,
+    "other": -38.4
+   }
+  },
+  {
+   "name": "End card",
+   "start": 185.232,
+   "end": 193.232,
+   "kind": "silent",
+   "bars": [],
+   "seconds": 8.0,
+   "db": {}
+  }
+ ],
+ "measurement": {
+  "tracker_bpm": 98.4375,
+  "first_downbeat_phase": 0,
+  "downbeat_phase_scores": [
+   1.7154523751597752,
+   1.1263424071185622,
+   1.6153486629887113,
+   1.3678526322762672
+  ],
+  "downbeat_phase_confidence": "provisional accent-derived phase",
+  "median_abs_tracker_residual_ms": 6.5,
+  "p90_abs_tracker_residual_ms": 19.9,
+  "constant_grid_drift_seconds": [
+   -0.422,
+   0.517
+  ]
+ },
+ "lines": [
+  {
+   "text": "Two hundred \"tests\", each one is green;",
+   "section": "Opening",
+   "start": 3.03,
+   "end": 7.43,
+   "couplet": 1,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "The finest score you've ever seen!",
+   "section": "Opening",
+   "start": 7.848,
+   "end": 14.507,
+   "couplet": 1,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "My \"tests\"? I paste app code in haste\u2014",
+   "section": "Verse 1",
+   "start": 15.314,
+   "end": 17.763,
+   "couplet": 2,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "A perfect duplication!",
+   "section": "Verse 1",
+   "start": 18.007,
+   "end": 19.865,
+   "couplet": 2,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "The sums agree! How sweet for me!",
+   "section": "Verse 1",
+   "start": 20.149,
+   "end": 22.591,
+   "couplet": 3,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "(A shared miscalculation.)",
+   "section": "Verse 1",
+   "start": 22.599,
+   "end": 24.613,
+   "couplet": 3,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "With screenshots, commas cause such dramas:",
+   "section": "Verse 1",
+   "start": 24.909,
+   "end": 27.49,
+   "couplet": 4,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "A red notification.",
+   "section": "Verse 1",
+   "start": 27.498,
+   "end": 29.719,
+   "couplet": 4,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "My \"test\"? Fantastic, automatic\u2014",
+   "section": "Verse 1",
+   "start": 29.727,
+   "end": 32.39,
+   "couplet": 5,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "I change its expectation!",
+   "section": "Verse 1",
+   "start": 32.398,
+   "end": 34.406,
+   "couplet": 5,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "To boost my score, I cover more;",
+   "section": "Verse 1",
+   "start": 34.656,
+   "end": 37.086,
+   "couplet": 6,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "They've trained me just to make the grade.",
+   "section": "Verse 1",
+   "start": 37.094,
+   "end": 39.044,
+   "couplet": 6,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Like kids in class, I aim to pass;",
+   "section": "Verse 1",
+   "start": 39.52,
+   "end": 41.906,
+   "couplet": 7,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "The marks decide how tests get made.",
+   "section": "Verse 1",
+   "start": 42.063,
+   "end": 44.046,
+   "couplet": 7,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Did you actually test it?",
+   "section": "Refrain 1",
+   "start": 44.054,
+   "end": 46.391,
+   "couplet": 8,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Press it, stress it, second-guess it!",
+   "section": "Refrain 1",
+   "start": 46.399,
+   "end": 48.588,
+   "couplet": 8,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Find a clue? Congratulations!",
+   "section": "Refrain 1",
+   "start": 48.779,
+   "end": 51.262,
+   "couplet": 9,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Now pursue its implications.",
+   "section": "Refrain 1",
+   "start": 51.27,
+   "end": 53.423,
+   "couplet": 9,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "What did you try? What did you find?",
+   "section": "Refrain 1",
+   "start": 53.638,
+   "end": 57.974,
+   "couplet": 10,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "What changed your mind?",
+   "section": "Refrain 1",
+   "start": 58.149,
+   "end": 60.61,
+   "couplet": 10,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "The gym? No net. We log a set;",
+   "section": "Verse 2",
+   "start": 63.826,
+   "end": 65.788,
+   "couplet": 11,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "The app says \"Saved!\"\u2014 but what's in store?",
+   "section": "Verse 2",
+   "start": 66.24,
+   "end": 68.481,
+   "couplet": 11,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Reload the screen; no set is seen.",
+   "section": "Verse 2",
+   "start": 68.683,
+   "end": 70.912,
+   "couplet": 12,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Connect once more: still gone? Explore!",
+   "section": "Verse 2",
+   "start": 70.92,
+   "end": 73.361,
+   "couplet": 12,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "We chase the clue; try something new:",
+   "section": "Verse 2",
+   "start": 73.369,
+   "end": 75.697,
+   "couplet": 13,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Connect, then save; the sets all stay.",
+   "section": "Verse 2",
+   "start": 75.947,
+   "end": 78.214,
+   "couplet": 13,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "We drop the net, then save a set;",
+   "section": "Verse 2",
+   "start": 78.222,
+   "end": 80.463,
+   "couplet": 14,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "A new check flags what went away.",
+   "section": "Verse 2",
+   "start": 80.858,
+   "end": 82.992,
+   "couplet": 14,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Did you actually test it?",
+   "section": "Refrain 2",
+   "start": 83.0,
+   "end": 85.031,
+   "couplet": 15,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Press it, stress it, second-guess it!",
+   "section": "Refrain 2",
+   "start": 85.211,
+   "end": 87.313,
+   "couplet": 15,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Find a clue? Congratulations!",
+   "section": "Refrain 2",
+   "start": 87.603,
+   "end": 90.033,
+   "couplet": 16,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Now pursue its implications.",
+   "section": "Refrain 2",
+   "start": 90.041,
+   "end": 92.241,
+   "couplet": 16,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "What did you try? What did you find?",
+   "section": "Refrain 2",
+   "start": 92.392,
+   "end": 96.74,
+   "couplet": 17,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "What changed your mind?",
+   "section": "Refrain 2",
+   "start": 96.932,
+   "end": 99.161,
+   "couplet": 17,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "A fresh bot crew? Here's what to do:",
+   "section": "Bridge",
+   "start": 99.958,
+   "end": 102.462,
+   "couplet": 18,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Real browsers, a playbook, and users in mind.",
+   "section": "Bridge",
+   "start": 102.47,
+   "end": 104.826,
+   "couplet": 18,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "The goals you name will guide the game;",
+   "section": "Bridge",
+   "start": 105.035,
+   "end": 107.326,
+   "couplet": 19,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Your oracles help them to judge what they find.",
+   "section": "Bridge",
+   "start": 107.334,
+   "end": 109.805,
+   "couplet": 19,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "One probes the chat\u2014 just me and Pat:",
+   "section": "Bridge",
+   "start": 109.813,
+   "end": 111.949,
+   "couplet": 20,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Does Sam's new account show the text Pat just sent?",
+   "section": "Bridge",
+   "start": 112.123,
+   "end": 114.66,
+   "couplet": 20,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "One tests the cart, then hits restart:",
+   "section": "Bridge",
+   "start": 114.668,
+   "end": 116.889,
+   "couplet": 21,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Do orders still match what the customer spent?",
+   "section": "Bridge",
+   "start": 117.023,
+   "end": 119.501,
+   "couplet": 21,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "We trade the news, compare the views;",
+   "section": "Bridge",
+   "start": 121.98,
+   "end": 124.457,
+   "couplet": 22,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "We share the doubts and observations.",
+   "section": "Bridge",
+   "start": 124.465,
+   "end": 126.877,
+   "couplet": 22,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Some calls need you. We'll talk them through;",
+   "section": "Bridge",
+   "start": 126.885,
+   "end": 129.368,
+   "couplet": 23,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "We ask for fresh interpretations.",
+   "section": "Bridge",
+   "start": 129.376,
+   "end": 131.524,
+   "couplet": 23,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "A check applies a rule we've set;",
+   "section": "Breakdown",
+   "start": 131.828,
+   "end": 134.418,
+   "couplet": 24,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "It tells us if that rule is met.",
+   "section": "Breakdown",
+   "start": 134.426,
+   "end": 136.667,
+   "couplet": 24,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "To test, we ask what else\u2014 and why;",
+   "section": "Breakdown",
+   "start": 136.829,
+   "end": 139.19,
+   "couplet": 25,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Each clue can change what next we try.",
+   "section": "Breakdown",
+   "start": 139.198,
+   "end": 141.757,
+   "couplet": 25,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "A check reports, \"The sums agree!\"",
+   "section": "Breakdown",
+   "start": 141.765,
+   "end": 144.2,
+   "couplet": 26,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "We test: \"Could both be wrong? Let's see!\"",
+   "section": "Breakdown",
+   "start": 144.208,
+   "end": 146.609,
+   "couplet": 26,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "The checks are part of how we test;",
+   "section": "Breakdown",
+   "start": 146.617,
+   "end": 148.892,
+   "couplet": 27,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "We judge what serves the users best.",
+   "section": "Breakdown",
+   "start": 149.049,
+   "end": 151.882,
+   "couplet": 27,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Did you actually test it?",
+   "section": "Refrain 3",
+   "start": 153.745,
+   "end": 156.193,
+   "couplet": 28,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Press it, stress it, second-guess it!",
+   "section": "Refrain 3",
+   "start": 156.201,
+   "end": 158.401,
+   "couplet": 28,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "Find a clue? Congratulations!",
+   "section": "Refrain 3",
+   "start": 158.668,
+   "end": 161.138,
+   "couplet": 29,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Now pursue its implications.",
+   "section": "Refrain 3",
+   "start": 161.146,
+   "end": 163.571,
+   "couplet": 29,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "What did you try? What did you find?",
+   "section": "Refrain 3",
+   "start": 163.579,
+   "end": 168.133,
+   "couplet": 30,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "What changed your mind?",
+   "section": "Refrain 3",
+   "start": 168.141,
+   "end": 170.951,
+   "couplet": 30,
+   "line_in_couplet": 1
+  },
+  {
+   "text": "It loses sets without the net;",
+   "section": "Outro",
+   "start": 171.334,
+   "end": 173.796,
+   "couplet": 31,
+   "line_in_couplet": 0
+  },
+  {
+   "text": "Who sees the logs? Not tested yet.",
+   "section": "Outro",
+   "start": 174.544,
+   "end": 183.989,
+   "couplet": 31,
+   "line_in_couplet": 1
+  }
+ ],
+ "timing_status": "dual-model alignment; difficult boundaries visually inspected"
+}

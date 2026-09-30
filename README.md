@@ -3,8 +3,8 @@
 Short animated music videos about software quality, for people who build with AI coding agents.
 Each episode teaches one idea from quality theory, and ends with what that idea changes about how
 you brief your agent. Episodes 1 to 3 are out, episode 2 on 2026-09-28 and episode 3 on
-2026-09-29. The series is in development, and its outline, scripts and animation code are built in
-public here.
+2026-09-29. Episode 4’s film is ready for Qing to review. The series is in development,
+and its outline, scripts and animation code are built in public here.
 
 ![Three frames from episode 1. A laptop shows the prompt "make it good" under the words "You said make it good, so I made it GOOD!". A fairground sign over a packed pier at night asks "Make it good for WHO?". At sunrise, the same sign answers "ME!".](episodes/01-good-for-who.jpg)
 
@@ -87,16 +87,23 @@ More on episode 3:
   and where it falls short
 - [The code that draws it](video/ep03/polka/README.md)
 
-## Episode 4 in progress: "Did You Actually Test It?"
+## Episode 4: "Did You Actually Test It?"
 
-A swing revue about checking and testing: passing checks can leave a shared mistake undiscovered;
-an investigation follows clues and changes what it tries. The [current lyrics and teaching plan](episodes/04-did-you-actually-test-it.md)
-are still being revised after generated takes. The [scratchbook](episodes/04-scratchbook.md)
-keeps replaced lines, and an [independent alternative](episodes/04-space-bunny-did-you-actually-test-it.md)
-explores another structure. The [earlier treatment](episodes/04-what-happens-if.md) holds the original expert notes.
+**The film is ready for Qing to review; it has not been posted.** A 1930s swing revue in an
+Art Deco theatre, starring Sol, an original little GPT, with Clawd in the testing crew and Tess,
+a gym user whose workout disappears. An agent starts proud of 200 green checks, then follows a
+clue beyond the score. Its line to remember:
 
-For the lyric method, start with [LYRICS.md’s patter guidance](LYRICS.md#patter-songs)
-and the [parallel-drafting method](.claude/skills/songwriting/references/drafting-with-parallel-drafters.md).
+> What did you try? What did you find? What changed your mind?
+
+The idea it teaches: **checking applies a rule; testing investigates and can change what it
+tries as it learns.** Checks help with testing, but copied calculations can share an error and
+“Saved!” can fail to mean stored. Give a testing crew users, goals, real browsers, a playbook and
+oracles; let it follow clues; ask for evidence, doubts and limits.
+
+- [The lyrics and teaching plan](episodes/04-did-you-actually-test-it.md), with the expert’s notes
+- [The Green Room’s pictures and liner notes](episodes/04-video.md)
+- [The JavaScript that draws it](video/ep04/revue/README.md)
 
 ## How it's made
 
@@ -104,15 +111,15 @@ and the [parallel-drafting method](.claude/skills/songwriting/references/draftin
   quality, is the domain expert: she corrects what an episode claims about quality, and she has the
   final say. Episode 3's pictures and its end card's plain-word meanings are still waiting for her
   line-by-line answers; [its video notes](episodes/03-video.md) list the open questions.
-- **Claude made the videos in code.** Claude, Anthropic's AI model, designed each video and wrote
-  the code that draws it (episode 3's is by Claude Sonnet, which signs it): JavaScript on an HTML
-  canvas, one frame at a time, timed to the song, in a new look for each episode. Each sung word is
-  lettered on screen as it's sung. The exceptions are episode 1's bot logos, which are their makers'
-  own, and episode 2's people and the places they stand in: OpenAI's image generation drew them,
-  used through Codex, from the film's own frames, and the code cuts them out and animates them as
-  paper.
+- **The videos are drawn in code.** Claude designed and wrote episodes 1 to 3; Sol (Codex)
+  designed and wrote episode 4. Each is JavaScript on an HTML canvas, one frame at a time,
+  timed to the song, with a new look for every episode. Episode 3’s is by Claude Sonnet, which
+  signs it. The corporate badges are their makers’ supplied marks. Episode 2’s people and places
+  were drawn through Codex by OpenAI’s image generation, from the film’s own frames, then cut
+  out and animated as paper. Episode 4’s cast, scenery and movement are original JavaScript
+  drawings, with type from three openly licensed fonts.
 - **The songs** have lyrics by Qing with Claude. The music and the singing come from AI music
-  generators, in takes Qing chose: MiniMax for episode 1, Suno for episodes 2 and 3. The repo also
+  generators, in takes Qing chose: MiniMax for episode 1, Suno for episodes 2 to 4. The repo also
   has a band and a singing voice made entirely in code, which episode 1 tried before switching to a
   generator.
 - **Checks are measured where they can be.** Scripts check every sung word's size, contrast and time
@@ -124,7 +131,7 @@ and the [parallel-drafting method](.claude/skills/songwriting/references/draftin
   step-by-step [skills](.claude/skills/) an AI agent can follow to write an episode, its song and
   its video.
 
-Made by Qing (@yanqingcheng) at [Tollens](https://github.com/tollens-ai), with Claude. It isn't
+Made by Qing (@yanqingcheng) at [Tollens](https://github.com/tollens-ai), with Claude and Codex. It isn't
 affiliated with or endorsed by Anthropic, OpenAI, MiniMax, Suno, or any other company whose mascot,
 logo or product appears in it.
 

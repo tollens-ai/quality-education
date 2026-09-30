@@ -1,0 +1,247 @@
+1
+00:00:03,030 --> 00:00:07,830
+Two hundred "tests", each one is green;
+
+2
+00:00:07,848 --> 00:00:14,907
+The finest score you've ever seen!
+
+3
+00:00:15,314 --> 00:00:17,997
+My "tests"? I paste app code in haste—
+
+4
+00:00:18,007 --> 00:00:20,139
+A perfect duplication!
+
+5
+00:00:20,149 --> 00:00:22,589
+The sums agree! How sweet for me!
+
+6
+00:00:22,599 --> 00:00:24,899
+(A shared miscalculation.)
+
+7
+00:00:24,909 --> 00:00:27,488
+With screenshots, commas cause such dramas:
+
+8
+00:00:27,498 --> 00:00:29,717
+A red notification.
+
+9
+00:00:29,727 --> 00:00:32,388
+My "test"? Fantastic, automatic—
+
+10
+00:00:32,398 --> 00:00:34,646
+I change its expectation!
+
+11
+00:00:34,656 --> 00:00:37,084
+To boost my score, I cover more;
+
+12
+00:00:37,094 --> 00:00:39,444
+They've trained me just to make the grade.
+
+13
+00:00:39,520 --> 00:00:42,053
+Like kids in class, I aim to pass;
+
+14
+00:00:42,063 --> 00:00:44,044
+The marks decide how tests get made.
+
+15
+00:00:44,054 --> 00:00:46,389
+Did you actually test it?
+
+16
+00:00:46,399 --> 00:00:48,769
+Press it, stress it, second-guess it!
+
+17
+00:00:48,779 --> 00:00:51,260
+Find a clue? Congratulations!
+
+18
+00:00:51,270 --> 00:00:53,628
+Now pursue its implications.
+
+19
+00:00:53,638 --> 00:00:58,139
+What did you try? What did you find?
+
+20
+00:00:58,149 --> 00:01:01,010
+What changed your mind?
+
+21
+00:01:03,826 --> 00:01:06,188
+The gym? No net. We log a set;
+
+22
+00:01:06,240 --> 00:01:08,673
+The app says "Saved!"— but what's in store?
+
+23
+00:01:08,683 --> 00:01:10,910
+Reload the screen; no set is seen.
+
+24
+00:01:10,920 --> 00:01:13,359
+Connect once more: still gone? Explore!
+
+25
+00:01:13,369 --> 00:01:15,937
+We chase the clue; try something new:
+
+26
+00:01:15,947 --> 00:01:18,212
+Connect, then save; the sets all stay.
+
+27
+00:01:18,222 --> 00:01:20,848
+We drop the net, then save a set;
+
+28
+00:01:20,858 --> 00:01:22,990
+A new check flags what went away.
+
+29
+00:01:23,000 --> 00:01:25,201
+Did you actually test it?
+
+30
+00:01:25,211 --> 00:01:27,593
+Press it, stress it, second-guess it!
+
+31
+00:01:27,603 --> 00:01:30,031
+Find a clue? Congratulations!
+
+32
+00:01:30,041 --> 00:01:32,382
+Now pursue its implications.
+
+33
+00:01:32,392 --> 00:01:36,922
+What did you try? What did you find?
+
+34
+00:01:36,932 --> 00:01:39,561
+What changed your mind?
+
+35
+00:01:39,958 --> 00:01:42,460
+A fresh bot crew? Here's what to do:
+
+36
+00:01:42,470 --> 00:01:45,025
+Real browsers, a playbook, and users in mind.
+
+37
+00:01:45,035 --> 00:01:47,324
+The goals you name will guide the game;
+
+38
+00:01:47,334 --> 00:01:49,803
+Your oracles help them to judge what they find.
+
+39
+00:01:49,813 --> 00:01:52,113
+One probes the chat— just me and Pat:
+
+40
+00:01:52,123 --> 00:01:54,658
+Does Sam's new account show the text Pat just sent?
+
+41
+00:01:54,668 --> 00:01:57,013
+One tests the cart, then hits restart:
+
+42
+00:01:57,023 --> 00:01:59,901
+Do orders still match what the customer spent?
+
+43
+00:02:01,980 --> 00:02:04,455
+We trade the news, compare the views;
+
+44
+00:02:04,465 --> 00:02:06,875
+We share the doubts and observations.
+
+45
+00:02:06,885 --> 00:02:09,366
+Some calls need you. We'll talk them through;
+
+46
+00:02:09,376 --> 00:02:11,818
+We ask for fresh interpretations.
+
+47
+00:02:11,828 --> 00:02:14,416
+A check applies a rule we've set;
+
+48
+00:02:14,426 --> 00:02:16,819
+It tells us if that rule is met.
+
+49
+00:02:16,829 --> 00:02:19,188
+To test, we ask what else— and why;
+
+50
+00:02:19,198 --> 00:02:21,755
+Each clue can change what next we try.
+
+51
+00:02:21,765 --> 00:02:24,198
+A check reports, "The sums agree!"
+
+52
+00:02:24,208 --> 00:02:26,607
+We test: "Could both be wrong? Let's see!"
+
+53
+00:02:26,617 --> 00:02:29,039
+The checks are part of how we test;
+
+54
+00:02:29,049 --> 00:02:32,282
+We judge what serves the users best.
+
+55
+00:02:33,745 --> 00:02:36,191
+Did you actually test it?
+
+56
+00:02:36,201 --> 00:02:38,658
+Press it, stress it, second-guess it!
+
+57
+00:02:38,668 --> 00:02:41,136
+Find a clue? Congratulations!
+
+58
+00:02:41,146 --> 00:02:43,569
+Now pursue its implications.
+
+59
+00:02:43,579 --> 00:02:48,131
+What did you try? What did you find?
+
+60
+00:02:48,141 --> 00:02:51,324
+What changed your mind?
+
+61
+00:02:51,334 --> 00:02:54,196
+It loses sets without the net;
+
+62
+00:02:54,544 --> 00:03:04,389
+Who sees the logs? Not tested yet.

@@ -1,6 +1,7 @@
 # "The Counter" — episode 1, an alternative video
 
-**Status (2026-09-30): a cut exists and has been checked, but I would not hand it to Qing yet.**
+**Status (2026-09-30): a cut exists, has been watched section by section and checked, and is
+close to ready. It is not signed off, and the two faults below are the reason.**
 One auteur, no committee, drawn from a blank page: episode 1's song ("Good for Who?", the locked
 MiniMax take) with a world nobody else drew for it. It is deliberately *not* [the pier](../pier/),
 and it borrows nothing from episodes 2 or 3's films.
@@ -84,13 +85,15 @@ tools/                             the checks below, and the render
 - **The typography audit** (`tools/audit.mjs`, `tools/typo-report.py`): every sung word, every tenth
   of a second, recorded by the shot that drew it — its box, size, opacity, mark — and judged on four
   things: fully up before it is sung, up long enough to read, big enough for a phone, and clear of
-  the platform UI's corners. **386 words, 26 flags** on the last full run, of which 8 are a line's
-  last word (where holding longer would put two lines in one band). It went 453 → 158 → 72 → 30 → 26
-  over five passes, and it is what found the layout fault where the words were landing on the street
-  in front of the crates. Its honest limits: it samples at 0.1 s so it cannot resolve an arrival
-  finer than that, and words a shot letters by hand (the hook stamps, the inscription, the form's
-  answers) have to record themselves or the audit silently skips them — which it did for 74 words
-  until that was fixed, and it was the fix that made the coverage number trustworthy.
+  the platform UI's corners. **414 words, 29 flags** on the final run, of which 8 are a line's last
+  word (where holding longer would put two lines in one band) and the rest are words held between
+  0.1 s and 0.55 s after they are sung. No size flags and no UI flags are left. It went
+  453 → 158 → 72 → 30 → 26 → 29 over six passes, and it is what found the layout fault where the
+  words were landing on the street in front of the crates. Its honest limits: it samples at 0.1 s so
+  it cannot resolve an arrival finer than that, and words a shot letters by hand (the hook stamps,
+  the inscription, the form's answers) have to record themselves or the audit silently skips them —
+  which it did for 74 words until that was fixed, and fixing it is what took coverage from 386 words
+  to 414.
 - **The motion check** (`tools/motion.py`, the same measurement as `video/lib/motion.py` but straight
   out of the renderer). It found the film's worst fault: **median change 1.01, with 38 of the first
   64 seconds near-still.** The world was drawn correctly and nothing moved. Every shot now has its
@@ -98,8 +101,13 @@ tools/                             the checks below, and the render
   the beat with the chorus beating harder, and **median is 2.26 with no near-still second inside the
   film**. The still seconds that remain are the end card, which is meant to be still.
 - **The master.** 6270 frames at 1080×1920, 30 fps, 209.0 s, verified by counting decoded frames
-  rather than trusting the header. Stills pulled back out of the master are what the checks above
-  were re-checked on.
+  rather than trusting the header, and re-verified after the last fixes. Stills pulled back out of
+  the delivered master are what every fix above was re-checked on.
+- **Watching it.** Frame strips at 2 fps across the intro, the chorus, verse 2, the bridge, the break,
+  the last pre-chorus and the outro (`video/lib/strip.sh`). That is what found the three faults no
+  measurement had: the form sitting in the lyric band with the words running across its rules, four
+  chorus shots with no cast and no crowd at all, and the spotlight drawn as a translucent wedge over
+  the whole frame. All three were invisible in stills and obvious in strips.
 - **The credits.** Episode 1 owes them on screen and they are there: the definition the break
   paraphrases (Weinberg · Bach & Bolton, via Ed Pringle's catalogue), Clawd is Anthropic's, the
   other bots' marks belong to the people who made them, and the film is not affiliated with or
@@ -110,12 +118,13 @@ tools/                             the checks below, and the render
 
 Stated plainly, because this is why it is not for Qing yet:
 
-- **The film's middle is still repetitive.** Verse 2 is eight variations on one person and one crate,
-  which is clear but monotonous; it wants its own grammar rather than eight turns of the same shot.
-  The chorus is now loud and the hook grows each time, but it is still one idea three times.
-- **Several shots are the wall with one thing on it.** Legible and on-brand, and the compositions
-  are consistent to a fault. The camera moves now, which saved them, but the pictures could be more
-  various — the bar asks for no shot type twice in a row and this film repeats its own.
+- **Verse 2 has its own grammar now, and it is still the weakest verse.** Each of the eight lines
+  has its own composition as well as its own prop — the thing on the wall, on the kerb, held up in
+  the opening, or out in the street with the queue — so the verse changes shape every line. It reads
+  much better than eight turns of one shot and it is still the least musical passage in the film.
+- **Several shots are the wall with one thing on it.** Legible and on-brand, and the compositions are
+  consistent to a fault. The camera moves and the cast groove, which saved them, but the pictures
+  could be more various — the bar asks for no shot type twice in a row and this film repeats itself.
 - **The chorus could be much louder still.** It is the record's biggest moment and it is legible
   rather than thrilling.
 - **Verse 2's props and the people who want them are one idea each** — a demo, a subscription, a
@@ -123,14 +132,14 @@ Stated plainly, because this is why it is not for Qing yet:
 - **The break's inscription earns itself only just.** It lands in the frame, but it is the film's
   thesis stated rather than discovered, and a viewer who has not been paying attention will not feel
   the weight of it.
-- **The "hands out" shots are the weakest thing in the film.** They took three attempts — a grey
-  pillar, then a scribble, then a scalloped palm that reads — and they are still the pictures I would
-  redraw first.
-- **The audit's coverage is not yet complete.** It sees 386 of 417 sung words; the remainder are
-  drawn by paths that still do not record themselves.
-- **Not watched by anyone but me.** I have looked at frames and at a contact sheet, and the film has
-  been measured, but I have not watched it move end to end at full size. That is the honest reason it
-  is not ready: the checks can tell me a word lands on time, and cannot tell me whether it is moving.
+- **The "hands out" shots are still the weakest thing in the film.** They took three attempts — a
+  grey pillar, then a scribble, then a scalloped palm that reads — and they are what I would redraw
+  first.
+- **Watched section by section, not end to end at full size.** Frame strips at 2 fps found three
+  faults that every measurement had passed, which is the argument for watching rather than trusting
+  the checks. But a viewer watches the whole thing in one pass and I have not, and I cannot hear the
+  record, so I cannot tell you how the picture and the song sit together moment to moment. That is
+  the last thing between this and ready, and it is not mine to do.
 
 ## What Qing should decide
 

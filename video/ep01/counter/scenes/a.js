@@ -193,17 +193,17 @@ function quota(g, t, S) {
 }
 
 // Guess I didn't ask: the blank form, close, with nothing written on it. The film's turn.
+// Guess I didn't ask: the film's turn, and the only shot that is one object. The blank form fills
+// the frame and the line lands on its header, so nothing else is in the picture at all.
 function didntAsk(g, t, S) {
   const bt = b(t);
-  g.fillStyle = P.paper;
-  g.fillRect(0, 0, 1080, 1920);
-  ground(g, t, { boil: bt });
-  wall(g, bt);
-  g.save();
-  cam(g, t, { from: { x: 540, y: 1420, z: 1.1 }, to: { x: 540, y: 1400, z: 1.34 }, hold: [18.66, 20.8] });
-  form(g, 120, 1120, 840, 620, { rows: 5, head: 'FOR WHO?', boil: bt });
-  g.restore();
-  drawOn(g, S, t, LYRIC, { mark: 'stamp', colour: P.ox, accent: P.ink, size: 88, boil: bt });
+  base(g, t, S, { crowd: 0 });
+  // The form is the whole picture here, so nothing else is drawn — but it is pushed down and shot
+  // close, with Clawd's opening and the counter above it, so the frame is a place and not a void.
+  opening(g, bt);
+  clawed(g, t, -0.3, 0.5, S);
+  form(g, 110, 700, 860, 720, { rows: 5, head: 'FOR WHO?', boil: bt });
+  drawOn(g, S, t, { x: 456, y: 1592, w: 896, rows: 1, floor: 1900 }, { mark: 'stamp', colour: P.ox, accent: P.ink, size: 82, boil: bt });
 }
 
 // ---------------------------------------------------------------- pre-chorus 1

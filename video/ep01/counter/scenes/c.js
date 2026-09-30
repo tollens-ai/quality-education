@@ -82,13 +82,17 @@ function overTheWallShot(g, t, S) {
   drawOn(g, S, t, LYRIC, { mark: 'stamp', colour: P.ink, accent: P.ox, size: 80, boil: bt });
 }
 
-// But how do you know what to build or test: the form again, and one line ruled on it.
+// But how do you know what to build or test: the form again, and one line ruled on it for each
+// phrase, and nothing written in any of them. The camera keyframes here were still aimed at the old
+// layout, which put the form off the top of the frame and the words on bare wall.
 function buildOrTest(g, t, S) {
   const bt = b(t);
-  base(g, t, S);
-  g.save();
-  cam(g, t, { from: { x: 540, y: 1360, z: 1.15 }, to: { x: 540, y: 1300, z: 1.5 }, hold: [117.32, 123.36] });
-  const f = form(g, 90, 1300, 900, 560, { rows: 5, head: 'HOW WILL I KNOW?', boil: bt });
+  base(g, t, S, { crowd: 3, seed: 55 });
+  // Clawd stays in the opening above: an empty field between the words and the floor reads as an
+  // unfinished shot, and he is watching the form being ruled.
+  opening(g, bt);
+  clawed(g, t, 0.8, 0.4, S);
+  const f = form(g, 80, 1560, 920, 540, { rows: 5, head: 'HOW WILL I KNOW?', boil: bt });
   // the lines getting ruled on, one per phrase, and nothing written in them
   for (let i = 0; i < 3; i++) {
     const p = easeOut(between(t, 118 + i * 1.5, 119 + i * 1.5));
@@ -224,8 +228,12 @@ function debuggingWithYou(g, t, S) {
 // somebody's hand writes it, so the shot moves for the one time in the film that matters most.
 function tellMe(g, t, S) {
   const bt = b(t);
-  base(g, t, S, { crowd: 4, seed: 77 });
-  const f = form(g, 130, 1240, 820, 620, { rows: 5, head: 'FOR WHO?', boil: bt });
+  base(g, t, S, { crowd: 3, seed: 57 });
+  // The form takes the lower half only, so the words have the band above it; Clawd watches from the
+  // opening, because this is the moment he stops stamping.
+  opening(g, bt);
+  clawed(g, t, 0.25, 0.2, S);
+  const f = form(g, 120, 1576, 840, 560, { rows: 5, head: 'FOR WHO?', boil: bt });
   const answers = ['MUM, AT WORK', 'WHAT THEY NEED', 'A BAD SIGNAL', 'HOW I\u2019LL KNOW', 'FOR YOU TOO'];
   answers.forEach((a, i) => {
     const t0 = 147.8 + i * 2.2;
@@ -246,9 +254,8 @@ function tellMe(g, t, S) {
         { w: 11, colour: P.ox, boil: (bt + i + 1) % 3, rough: 0.7 });
     }
   });
-  opening(g, bt);
-  clawed(g, t, 0.15, 0, S);
-  queue(g, 4, CROWD, { beat: beatP(t, S), beatI: beatI(t, S), boil: bt, seed: 71, s: 1.4 });
+  // a hand held over the form, waiting for the next answer
+  handsOut(g, 'tf', 1, 1530, 150, { x0: 540, x1: 540, arm: 120, t, boil: bt });
   drawOn(g, S, t, LYRIC, { mark: 'marker', colour: P.ink, accent: P.ox, size: 74, boil: bt });
 }
 

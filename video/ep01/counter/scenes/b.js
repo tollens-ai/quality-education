@@ -97,7 +97,10 @@ function fastSturdy(g, t, S, o) {
   const bt = b(t);
   base(g, t, S);
   opening(g, bt);
-  balance(g, 'bal', 540, 1560, 200, t, { boil: bt });
+  opening(g, bt);
+  clawed(g, t, 0.55, 0.1, S);
+  queue(g, 5, CROWD, { beat: beatP(t, S), beatI: beatI(t, S), boil: bt, seed: 81 + o.cycle, s: 1.45 });
+  balance(g, 'bal', 540, KERB - 40, 190, t, { boil: bt });
   const p = between(t, S.lineAt(t).start + 0.2, S.lineAt(t).end);
   const lx = 540 - 200 * 1.6 + 40, rx = 540 + 200 * 1.6 - 40;
   crate(g, lx, KERB + 40 - Math.sin(p * 3) * 6, 250, 150, { text: 'FAST', mark: stencil, markColour: P.petrol, ang: -0.03, boil: bt, grounded: false });
@@ -112,6 +115,9 @@ function wowKeep(g, t, S, o) {
   base(g, t, S);
   opening(g, bt);
   crate(g, 320, KERB, 280, 170, { text: 'WOW', mark: stencil, markColour: P.ox, ang: -0.04, boil: bt });
+  opening(g, bt);
+  clawed(g, t, 0.5, 0.2, S);
+  queue(g, 5, CROWD, { beat: beatP(t, S), beatI: beatI(t, S), boil: bt, seed: 83 + o.cycle, s: 1.45 });
   const L = S.lineAt(t);
   const since = t - (L.start + 0.3);
   fireworks(g, 'fw', 320, 1060, Math.max(0, since), {});
@@ -138,6 +144,9 @@ function shipPolish(g, t, S, o) {
   const bt = b(t);
   base(g, t, S);
   opening(g, bt);
+  opening(g, bt);
+  clawed(g, t, 0.45, 0.3, S);
+  queue(g, 5, CROWD, { beat: beatP(t, S), beatI: beatI(t, S), boil: bt, seed: 85 + o.cycle, s: 1.45 });
   const p = (t - S.lineAt(t).start) / Math.max(0.1, S.lineAt(t).end - S.lineAt(t).start);
   line(g, 'belt', [[0, KERB - 130], [1080, KERB - 130]], { w: 14, colour: P.ink, boil: bt });
   for (let i = 0; i < 14; i++) {
@@ -155,15 +164,18 @@ function needShow(g, t, S, o) {
   const bt = b(t);
   base(g, t, S);
   opening(g, bt);
-  // the beam
+  opening(g, bt);
+  clawed(g, t, 0.6, 0.5, S);
+  queue(g, 5, CROWD, { beat: beatP(t, S), beatI: beatI(t, S), boil: bt, seed: 87 + o.cycle, s: 1.45 });
+  // the beam: from a lamp above the counter onto the one person holding the need
   g.save();
   g.globalAlpha = 0.22;
-  inkFill(g, 'beam', [[300, KERB + 120], [180, 200], [900, 200], [780, KERB + 120]], { colour: P.lampSoft, bleed: 0, w: 0 });
+  inkFill(g, 'beam', [[420, KERB + 180], [330, 240], [520, 240], [470, KERB + 180]], { colour: P.lampSoft, bleed: 0, w: 0 });
   g.restore();
-  outline(g, 'beamo', [[300, KERB + 120], [180, 200], [900, 200], [780, KERB + 120]], { w: 5, colour: P.paperDeep, boil: bt, rough: 1.6 });
-  person(g, 420, KERB + 180, 1.7, { kind: 3, holding: 'bag', boil: bt });
-  person(g, 760, KERB + 220, 1.5, { kind: 0, holding: null, boil: (bt + 1) % 3 });
-  crate(g, 960, KERB + 80, 220, 130, { text: 'NEED', mark: stencil, markColour: P.petrol, ang: 0.04, boil: (bt + 2) % 3 });
+  outline(g, 'beamo', [[420, KERB + 180], [330, 240], [520, 240], [470, KERB + 180]], { w: 4, colour: P.paperDeep, boil: bt, rough: 1.4 });
+  person(g, 430, KERB + 200, 1.6, { kind: 3, holding: 'bag', boil: bt });
+  person(g, 800, KERB + 250, 1.4, { kind: 0, holding: null, boil: (bt + 1) % 3 });
+  crate(g, 150, KERB + 40, 220, 130, { text: 'NEED', mark: stencil, markColour: P.petrol, ang: 0.04, boil: (bt + 2) % 3 });
   drawOn(g, S, t, LYRIC, { mark: 'stamp', colour: P.ox, accent: P.ink, size: 80, boil: bt });
 }
 
@@ -175,62 +187,110 @@ function needShow(g, t, S, o) {
 // two places only: on the kerb below the lyric band, or hung in the wall's clear band above it.
 // Nothing is ever set in the gap the words use — that is what makes the words legible at phone
 // size while the picture is still doing something.
+// The list of eight trades: one line, one person, one thing they were never asked about.
+//
+// Eight turns of one setup is eight shots of nothing, so each line gets its own composition as well
+// as its own prop: `stage` says where the thing goes and how big the frame is on it, so the verse
+// changes shape every line instead of only changing label.
 const LIST = [
-  { text: 'DEMO', mark: 'stencil', colour: P.petrol, kind: 3, hold: 'phone', prop: 'demo', side: 'wall' },
-  { text: 'SUBSCRIBE', mark: 'label', colour: P.ink, kind: 0, hold: 'phone', prop: 'card', side: 'wall' },
-  { text: 'HA HA', mark: 'marker', colour: P.ox, kind: 2, hold: 'phone', prop: 'joke', side: 'kerb' },
-  { text: 'PASS', mark: 'print', colour: P.ink, kind: 5, hold: 'bag', prop: 'tick', side: 'wall' },
-  { text: 'SWEET', mark: 'stencil', colour: P.ox, kind: 1, hold: null, prop: 'phone', side: 'kerb' },
-  { text: 'SPEAK', mark: 'stencil', colour: P.petrol, kind: 4, hold: null, prop: 'speaker', side: 'wall' },
-  { text: 'NO LEAK', mark: 'stamp', colour: P.petrol, kind: 3, hold: null, prop: 'leak', side: 'wall' },
-  { text: 'DIAGS', mark: 'print', colour: P.ink, kind: 0, hold: null, prop: 'log', side: 'kerb' },
+  { text: 'DEMO', mark: 'stencil', colour: P.petrol, kind: 3, hold: 'phone', prop: 'demo', stage: 0 },
+  { text: 'SUBSCRIBE', mark: 'label', colour: P.ink, kind: 0, hold: 'phone', prop: 'card', stage: 1 },
+  { text: 'HA HA', mark: 'marker', colour: P.ox, kind: 2, hold: 'phone', prop: 'joke', stage: 2 },
+  { text: 'PASS', mark: 'print', colour: P.ink, kind: 5, hold: 'bag', prop: 'tick', stage: 3 },
+  { text: 'SWEET', mark: 'stencil', colour: P.ox, kind: 1, hold: null, prop: 'phone', stage: 4 },
+  { text: 'SPEAK', mark: 'stencil', colour: P.petrol, kind: 4, hold: null, prop: 'speaker', stage: 5 },
+  { text: 'NO LEAK', mark: 'stamp', colour: P.petrol, kind: 3, hold: null, prop: 'leak', stage: 6 },
+  { text: 'DIAGS', mark: 'print', colour: P.ink, kind: 0, hold: null, prop: 'log', stage: 7 },
 ];
+
+// One thing, drawn big, in the band its stage gives it.
+function thingOn(g, id, prop, x, y, s, t, bt) {
+  if (prop === 'demo') {
+    g.fillStyle = P.petrolDeep;
+    g.fillRect(x - s, y - s * 0.62, s * 2, s * 1.24);
+    for (let i = 0; i < 5; i++) line(g, id + 'l' + i, [[x - s * 0.8, y - s * 0.36 + i * s * 0.24], [x + s * 0.8 - i * s * 0.22, y - s * 0.36 + i * s * 0.24]], { w: s * 0.075, colour: P.paperLit, boil: (bt + i) % 3, taper: 0.85 });
+    outline(g, id + 'o', rect(x - s, y - s * 0.62, s * 2, s * 1.24, 6), { w: 7, colour: P.ink, boil: bt });
+  } else if (prop === 'card') {
+    const c = rect(x - s * 0.9, y - s * 0.58, s * 1.8, s * 1.16, 10);
+    inkFill(g, id + 'c', c, { colour: P.ox, bleed: 1, w: 7 });
+    outline(g, id + 'co', c, { w: 7, colour: P.ink, boil: bt });
+    drawText(g, 'EVERY MONTH', x, y + s * 0.1, s * 0.26, { colour: P.paperLit, align: 'center', boil: bt, id: id + 't' });
+  } else if (prop === 'joke') {
+    marked(g, 'HA', x, y, s * 0.9, { colour: P.ox, align: 'center', boil: bt });
+    confetti(g, id, x, y - s * 0.2, Math.max(0, (t * 1.6) % 1.3) / 1.3, 34);
+  } else if (prop === 'tick') {
+    // A tick in a box, drawn as one: the earlier version was three strokes at a scale where they
+    // read as a black arrow.
+    const bxs = s * 1.5;
+    const bx = rect(x - bxs / 2, y - bxs / 2, bxs, bxs, s * 0.08);
+    inkFill(g, id + 'bx', bx, { colour: P.paperLit, bleed: 1, w: 7 });
+    outline(g, id + 'bxo', bx, { w: 7, colour: P.ink, boil: bt });
+    ticked(g, x - bxs * 0.2, y - bxs * 0.16, bxs * 0.44, { colour: P.ink, w: bxs * 0.075, boil: bt });
+  } else if (prop === 'phone') {
+    handset(g, id + 'p', x, y, s * 0.86, { boil: bt });
+  } else if (prop === 'speaker') {
+    speaker(g, id + 's', x, y - s * 0.2, s * 0.78, Math.max(0, t), { boil: bt });
+  } else if (prop === 'leak') {
+    // The pipe runs across the frame with the drip falling into a bucket, so it is unmistakably a
+    // leak and not a mark on the wall.
+    const py = y - s * 0.7;
+    line(g, id + 'p', [[x - s * 1.5, py], [x + s * 0.5, py], [x + s * 0.5, py + s * 0.4]],
+      { w: 26, colour: P.petrolDeep, boil: bt, rough: 0.7 });
+    outline(g, id + 'j', [[x + s * 0.2, py - s * 0.14], [x + s * 0.8, py - s * 0.14], [x + s * 0.8, py + s * 0.14], [x + s * 0.2, py + s * 0.14]],
+      { w: 5, colour: P.ink, boil: (bt + 1) % 3 });
+    leak(g, id + 'd', x + s * 0.5, py + s * 0.4, s * 0.5, t, { boil: bt });
+    const bucket = curve([[x + s * 0.1, py + s * 1.1], [x + s * 0.9, py + s * 1.1], [x + s * 0.76, py + s * 1.8], [x + s * 0.24, py + s * 1.8]], 0.3, 4);
+    inkFill(g, id + 'bkt', bucket, { colour: P.paperDeep, bleed: 1, w: 6 });
+    outline(g, id + 'bkto', bucket, { w: 6, colour: P.ink, boil: bt });
+  } else if (prop === 'log') {
+    logTape(g, id + 'g', x, y, s * 1.5, s * 0.6, { boil: bt });
+  }
+}
 
 function listShot(g, t, S, o) {
   const bt = b(t);
   const it = LIST[o.i - 20];
   const L = S.lineAt(t, 1.25);
-  base(g, t, { crowd: 4, seed: 60 + o.i });
-  opening(g, bt);
-  clawed(g, t, 0.55, 0.2, S);
-
   const markFn = it.mark === 'stencil' ? stencil : it.mark === 'marker' ? marked : it.mark === 'print' ? label : impression;
-  const onWall = it.side === 'wall';
+  const st = it.stage;
 
-  // The crate it ships in: on the kerb, below the words.
-  crate(g, 520, KERB + 40, 470, 290, { text: it.text, size: 70, mark: markFn, markColour: it.colour, boil: bt });
+  // Four compositions, used twice each, alternating sides: the thing is big on the wall; big on the
+  // kerb in the foreground; small, held up in the opening beside Clawd; and in the street with the
+  // queue. Nothing is ever in the lyric band.
+  const wall = st % 2 === 0;
+  base(g, t, S, { crowd: st === 3 || st === 7 ? 5 : 3, seed: 60 + o.i });
+  opening(g, bt);
 
-  // Their one thing, in whichever of the two clear bands it belongs to.
-  const px = onWall ? 250 : 800;
-  const py = onWall ? 1010 : KERB + 250;
-  if (it.prop === 'demo') {
-    g.fillStyle = P.petrolDeep;
-    g.fillRect(px, py, 420, 220);
-    for (let i = 0; i < 5; i++) line(g, 'dm' + i, [[px + 30, py + 34 + i * 38], [px + 390 - i * 54, py + 34 + i * 38]], { w: 9, colour: P.paperLit, boil: (bt + i) % 3, taper: 0.85 });
-    outline(g, 'dmo', rect(px, py, 420, 220, 6), { w: 6, colour: P.ink, boil: bt });
-  } else if (it.prop === 'card') {
-    const c = rect(px, py, 300, 190, 10);
-    inkFill(g, 'card', c, { colour: P.ox, bleed: 1, w: 6 });
-    outline(g, 'cardo', c, { w: 6, colour: P.ink, boil: bt });
-    drawText(g, 'EVERY MONTH', px + 150, py + 110, 38, { colour: P.paperLit, align: 'center', boil: bt, id: 'sub' });
-  } else if (it.prop === 'joke') {
-    marked(g, 'ha', px, py + 40, 150, { colour: P.ox, align: 'center', boil: bt });
-    confetti(g, 'joke' + o.i, px, py + 20, Math.max(0, (t - (L?.start ?? t)) % 1.4) / 1.4, 30);
-  } else if (it.prop === 'tick') {
-    ticked(g, px, py, 210, { colour: P.ink, boil: bt });
-  } else if (it.prop === 'phone') {
-    handset(g, 'ph' + o.i, px + 90, py + 210, 180, { boil: bt });
-  } else if (it.prop === 'speaker') {
-    speaker(g, 'sp' + o.i, px + 90, py + 120, 150, Math.max(0, t - (L?.start ?? t)), { boil: bt });
-  } else if (it.prop === 'leak') {
-    leak(g, 'lk' + o.i, px + 90, py + 40, 60, t, { boil: bt });
-  } else if (it.prop === 'log') {
-    logTape(g, 'lg' + o.i, px + 160, py + 100, 420, 200, { boil: bt });
+  // Nothing is ever drawn off the frame's edge: a prop cut by the border reads as a mistake.
+  g.save();
+  g.beginPath(); g.rect(18, 168, 1044, 1740); g.clip();
+  if (st === 2 || st === 6) {
+    // Clawd holds it up in the opening, so it is inside his world rather than outside on the wall:
+    // it goes at the tip of his raised claw, not floating on the wall beside him.
+    clawed(g, t, 0.95, 0.4, S);
+    thingOn(g, 'th' + o.i, it.prop, HATCH.x + HATCH.w - 40, HATCH.y + 150, 108, t, bt);
+  } else {
+    clawed(g, t, st === 1 ? 0.7 : 0.35, st === 1 ? -0.3 : 0.2, S);
+    // Each stage has its own place for the thing, so it never lands on the crate or the person.
+    const where = [
+      [540, 980, 190],    // 0: on the wall, centred and big
+      [250, 900, 170],    // 1: on the wall, to the left, so the crate can be right
+      null,               // 2: held in the opening (above)
+      [300, KERB - 60, 200], // 3: on the kerb, left, with the queue right
+      [540, 960, 210],    // 4: on the wall, centred
+      [780, 880, 160],    // 5: on the wall, right, small
+      null,               // 6: held in the opening (above)
+      [300, KERB - 40, 190], // 7: on the kerb, left, above the queue
+    ][st];
+    if (where) thingOn(g, 'th' + o.i, it.prop, where[0], where[1], where[2], t, bt);
   }
+  g.restore();
 
-  // The person it is for, standing on the kerb beside the crate.
-  person(g, 830, KERB + 190, 1.45, { kind: it.kind, holding: it.hold, boil: bt });
-  if (!onWall) person(g, 180, KERB + 250, 1.3, { kind: (it.kind + 3) % 8, holding: null, boil: (bt + 1) % 3 });
+  // the crate it ships in, always on the kerb and never in the words' band
+  crate(g, wall ? 640 : 640, KERB + 70, 420, 260, { text: it.text, size: 64, mark: markFn, markColour: it.colour, boil: bt });
+  // the person it is for, on the other side of the frame from the thing
+  person(g, wall ? 880 : 880, KERB + 230, 1.4, { kind: it.kind, holding: it.hold, boil: bt });
+  if (st === 3 || st === 7) person(g, 130, KERB + 280, 1.25, { kind: (it.kind + 3) % 8, holding: null, boil: (bt + 1) % 3 });
   drawOn(g, S, t, LYRIC, { mark: it.mark, colour: it.colour, accent: P.ox, size: 74, boil: bt });
 }
 

@@ -15,8 +15,9 @@ from a first script to "ready" in three rounds. Its *Review log* shows what each
   on screen for muted viewers.
 - **Stop** when a round reports nothing that would hold up the build. After each round, record
   what changed in the episode's *Review log*.
-- Every brief says: don't edit files, keep to a word cap, and ignore the *Expert notes* and
-  *Review log* sections, because a cold reader should only see what viewers see.
+- Audience cold reads omit *Expert notes* and *Review log*, so they see what viewers see.
+  Craft and factual reviewers receive the applicable expert notes and approved claims.
+  Every brief says: don’t edit files and keep to its assigned scope and word cap.
 - Every brief states the production facts: length, 9:16, tempo and bar length, the synthetic
   voice, locked lines, and that many viewers watch muted, some at 1.5x.
 
@@ -24,8 +25,10 @@ from a first script to "ready" in three rounds. Its *Review log* shows what each
 
 **Songwriter.** A professional songwriter in the episode's genre. Review scansion against the
 time slots, rhyme (including internal rhyme), singability for the synthetic voice, hooks and genre
-feel, applying [LYRICS.md](../../../LYRICS.md). Point out clunky, cringe or try-hard lines. Return a full rewritten lyric sheet with the same
-sections, timings and teaching content, and syllable counts marked on each line.
+feel, applying [LYRICS.md](../../../LYRICS.md). Point out clunky, cringe or try-hard lines. Return
+findings and complete alternatives for the affected sections, with syllable counts and claimed
+rhyme matches checked. Preserve successful lines and structure; a local repair does not need a
+whole replacement lyric sheet.
 
 **Short-form editor.** Someone who has grown educational and developer accounts on X, TikTok and
 Shorts, reviewing against CRAFT.md. Cover:

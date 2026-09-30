@@ -46,7 +46,7 @@ plus a slow-attack 4:1 bus compressor, and the mix bus a gentle 2:1.
 
 ## How it's checked
 
-The model can't hear, so `band_check.py` measures (see MUSIC.md, "Checking"):
+The model can't hear, so `band_check.py` measures (see the [archived music-craft notes](../../../archive/code-composition/music-craft.md), “Checking”):
 
 - **Sanity:** NaN, DC, sample peak and true peak for every stem, the mix and band+guide.
 - **Stops:** the maximum level inside every stop and cut. They should all read digital
@@ -54,7 +54,7 @@ The model can't hear, so `band_check.py` measures (see MUSIC.md, "Checking"):
 - **Drum onsets:** detected onsets against the event list, per instrument, after removing the
   detector's bias.
 - **Loudness shape:** loudness per section for the mix and each stem, then the checks from
-  `production.md`: chorus ≥ verse + 2 LU, final chorus ≥ chorus 1, and each pre-chorus rising
+  [archived production reference](../../../archive/code-composition/references/production.md): chorus ≥ verse + 2 LU, final chorus ≥ chorus 1, and each pre-chorus rising
   bar by bar.
 - **Dynamics and stereo:** PSR, PLR and crest factor. Per octave, side-to-mid ratio,
   correlation and mono loss. The cross-correlation of the two guitar sides.

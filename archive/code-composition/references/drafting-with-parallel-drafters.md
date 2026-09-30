@@ -1,9 +1,12 @@
+> **ARCHIVED — unsuccessful code-composition attempt.** Historical notes, not current instructions.
+> See  [archive status](../README.md).
+
 # Drafting a patter song with parallel drafters
 
 How episode 3's lyric got from a parked first pass to a checked, expert-corrected sheet in about a
 day (2026-09-28 to 2026-09-29). Qing on the result (2026-09-29): "it worked astonishingly well".
 This is the loop that produced it, what made it work, and what went wrong on the way. The rules
-about lyrics themselves live in [LYRICS.md](../../../../LYRICS.md); this file is only about the
+about lyrics themselves live in [LYRICS.md](../../../LYRICS.md); this file is only about the
 process.
 
 ## What good looked like
@@ -22,9 +25,10 @@ process.
    - The grid, written as a machine-checkable stress pattern (beats by syllable position), plus
      the shape a tail word must have. Choose the grid around the terms the lesson must say;
      sections can have different grids, but answering phrases share their grid and rhyme slots.
-     Check joins between breathing phrases as well as individual lines ([performer guidance](../../../../docs/lyrics/performers.md)).
-   - A **ledger** assigning coverage to sections and identifying deliberate refrains and callbacks.
-     Episode 3 named each quality at most once; that was its coverage plan, not a ban on repetition.
+     Check joins between breathing phrases as well as individual lines (LYRICS.md,
+     *Writing for the performer*).
+   - A **ledger** of which ideas go in which section, so nothing repeats (here: each quality
+     named at most once in the whole song).
    - The hard limits: never quote a real song (describe its rhythm as beat positions), write only
      to the assigned file, don't edit tracked files or commit.
 2. **Split by section, not by line, and run drafters in parallel.** Episode 3 used one drafter for
@@ -35,7 +39,7 @@ process.
    of lines it's unsure of, with why. The list of doubts is where the review starts.
 4. **Judge on meaning first, then report side by side.** The parent reads every recommended line
    for what it literally says and implies, then shows Qing whole options with a recommendation
-   ([complete expert options](../../../../docs/lyrics/structure-and-process.md#process)). Small swaps the parent makes itself get
+   (LYRICS.md, *Bring the expert whole options*). Small swaps the parent makes itself get
    re-checked before they're shown.
 5. **Fold each correction into the brief’s governing rule and redispatch.** Keep the expert’s
    dated wording alongside the updated interpretation, and remove superseded instructions.
@@ -67,28 +71,28 @@ process.
 ## How the density and the precision were produced
 
 Both came from making the rhyme and the stress into positions a program can check, then holding every
-line to them. Qing’s guidance (2026-09-28) is in the [patter reference](../../../../docs/lyrics/rhythm-and-rhyme.md#patter-songs).
+line to them. Qing's guidance (2026-09-28) is in [LYRICS.md](../../../LYRICS.md), *Patter songs*.
 
 - **One grid, written as beat positions.** The verse line is 16 syllables with a beat on every even
   syllable (2, 4, ... 16), and a beat may land on a function word; Qing's own line
   ("ac-CES-si-BI-li-TY's a MESS and SO is USE-a-BI-li-TY") is the reference. Every verse line
   used it, so the checker could compare any line to it, exactly. (The first version of this grid was
   wrong: see *What went wrong*.)
-- **The rhyme in recurring slots.** Mark the intended rhyme spans and their syllable positions
-  in the chosen pattern. In the displayed exemplar, the matching “-ility” tails occupy syllables
-  4–6 and 14–16. Compare answering lines against the declared spans; say when a couplet uses
-  a different pattern.
-- **The words that don't rhyme took a beat inside the line.** Performance keeps its stress on "for" inside the line; the "-ility" words took the tails. Grouping tails by stress meant a five-syllable word and a
+- **The rhyme in the same slots on every line.** The words on beats 4 and 10 rhymed, line after line, so
+  a listener could predict where the next rhyme would land. Where a couplet couldn't manage it, both
+  lines shared another pair of beats, and the drafter said so.
+- **The words that don't rhyme took a beat inside the line.** Performance sat on beat 4 with its stress
+  on "for"; the "-ility" words took the tails. Grouping tails by stress meant a five-syllable word and a
   six-syllable word each got a pattern (the six-syllable one starts a syllable earlier), fudging the long
   ones the way she allowed.
-- **Separate syllable positions, beats and word stress.** In the displayed exemplar, syllables
-  7–9 are “a MESS and”; MESS is a stressed content word on position 8. Function words can
-  take light musical beats, but neither their identity nor their stress should be inferred
-  from a numbered gap. Write the syllables and intended beat positions explicitly.
+- **A light lexical-stress span over the alternating beat grid.** Positions 7 to 9 are function words ("and so I've",
+  "as it was"); position 8 still takes a musical beat. Dictionary stress and beat placement
+  are different: write both in the brief. Planning around that span helped the lines read
+  as speech rather than filler.
 - **Every claim came with evidence.** Stress with the checker's line comparison, rhyme with its stressed
   vowels, half-rhyme tails with a tail check that the last stressed vowel is the short "i" and the line ends
   on "ee". Inspect flagged pronunciations before changing a line; keep sung overrides for jargon
-  and compressed words ([checking guidance](../../../../docs/lyrics/rhythm-and-rhyme.md#checking)). Record any intended stress bend. The checker
+  and compressed words (LYRICS.md, *Checking*). Record any intended stress bend. The checker
   compares text and dictionary pronunciations; it cannot prove where a singer puts a beat.
 - **The expert supplied the taste.** Her rules told the drafters what to optimise; her corrections
   ("those half rhymes don't work", "the chorus is weak") told us which of the checked lines to keep.
@@ -119,15 +123,16 @@ line to them. Qing’s guidance (2026-09-28) is in the [patter reference](../../
 ## Applying the method to generated swing patter
 
 Suno reused a verse melody under changed lyrics in episode 3 when the beat grid matched exactly
-(Qing, 2026-09-30). Read the [performer guidance](../../../../docs/lyrics/performers.md) when deciding whether
-verses share a melody: MiniMax’s episode 1 workaround does not constrain Suno’s form.
+(Qing, 2026-09-30). Read LYRICS.md’s *Writing for the performer* when deciding whether verses
+share a melody: MiniMax’s episode 1 workaround does not constrain Suno’s form.
 
 Episode 4’s Suno trial (2026-09-30) exposed an unreliable join from the screenshot line to
-“notification”, despite takes that sometimes managed it. Read the [performer guidance](../../../../docs/lyrics/performers.md) before setting the grid: a conversational genre still needs precise syllable and
+“notification”, despite takes that sometimes managed it. Read LYRICS.md’s *Writing for the
+performer* before setting the grid: a conversational genre still needs precise syllable and
 stress matches for the generator. Mark phrase joins on the grid and compare repeated shapes;
 use a generated take to hear uncertain joins before locking the lyric. Checker agreement
 establishes the chosen text pattern; the take and the expert ear establish how it phrases.
-The current [episode 4 draft](../../../../episodes/04-did-you-actually-test-it.md) remains
+The current [episode 4 draft](../../../episodes/04-did-you-actually-test-it.md) remains
 provisional, so its phrasing is evidence for a repair, not a validated template.
 
 ## Recipe

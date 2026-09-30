@@ -118,7 +118,8 @@ and the [parallel-drafting method](.claude/skills/songwriting/references/draftin
 - **Checks are measured where they can be.** Scripts check every sung word's size, contrast and time
   on screen, and how much each second of the video moves.
 - **The method is written down,** so the next episode can reuse it: [LYRICS.md](LYRICS.md) for
-  writing the lyrics, [MUSIC.md](MUSIC.md) for the music, [VIDEO.md](VIDEO.md) for the video,
+  writing the lyrics, [music/README.md](music/README.md) for generated takes and timing,
+  [VIDEO.md](VIDEO.md) for the video,
   [CRAFT.md](CRAFT.md) for the research on explainer videos people watch to the end, and
   step-by-step [skills](.claude/skills/) an AI agent can follow to write an episode, its song and
   its video.

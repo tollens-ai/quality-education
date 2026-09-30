@@ -1,12 +1,15 @@
+> **ARCHIVED — unsuccessful code-composition attempt.** Historical notes, not current instructions.
+> See  [archive status](../README.md).
+
 # Melody writing: the craft and its sources
 
 What corpus research, music psychology and songwriting teachers say about melody, rewritten as
 rules you can apply and check. Each rule is short and bold, then one or two sentences, then an
 example. The worked example is episode 1 of *Software Quality Theory 101*, "You Never Told Me": a
 pop-punk song in E♭ major at 180 bpm for a synthetic female voice, whose hook leaps to the high
-tonic ([song map](../../../../episodes/01-song-map.md), [score](../../../../music/ep01/score.mjs)).
+tonic ([song map](../../../episodes/01-song-map.md), [score](../../../music/ep01/score.mjs)).
 
-**House rules come first.** The Melody section of [MUSIC.md](../../../../MUSIC.md)
+**House rules come first.** The Melody section of [MUSIC.md](../music-craft.md)
 hold what the expert ear (Qing) has ruled on real drafts, and this file doesn't repeat them. Her
 central melody rule is "leaps are seasoning": keep big leaps rare so the hook's leap lands, because
 "the octave tonic is a waste for 'oops' when the fifth would do". Most of what follows explains

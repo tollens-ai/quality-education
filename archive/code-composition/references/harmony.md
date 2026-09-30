@@ -1,8 +1,11 @@
+> **ARCHIVED — unsuccessful code-composition attempt.** Historical notes, not current instructions.
+> See  [archive status](../README.md).
+
 # Harmony
 
 How to choose chords and audit a progression for pop, rock and pop-punk, informed by jazz where it
-helps. Part of the [songwriting skill](../SKILL.md). The examples come from episode 1 of
-*Software Quality Theory 101* ([song map](../../../../episodes/01-song-map.md)).
+helps. Part of the [songwriting skill](../workflow.md). The examples come from episode 1 of
+*Software Quality Theory 101* ([song map](../../../episodes/01-song-map.md)).
 
 Roman numerals name each chord by its place in the key. In E♭ major: I = E♭, ii = Fm, iii = Gm,
 IV = A♭, V = B♭, vi = Cm; borrowed from E♭ minor, ♭III = G♭, iv = A♭m, ♭VI = C♭, ♭VII = D♭.

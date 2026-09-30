@@ -29,7 +29,7 @@ day only arrives at the end.
   with white scratch lines, the way scratchboard is drawn (`space.js`: `drawSolid`, by albedo).
   Colour inside the box is only ever light: Clawd's terracotta body, the four members' lights,
   and the daylight through the cuts.
-- **The line boils on twos.** Hatching and grain are redrawn 12 times a second, so the page
+- **The line boils on a 12-Hz clock.** Hatching and grain are redrawn 12 times a second, so the page
   lives even when the camera holds.
 - **Four colours, one per member,** so you can always tell who's who: CLAWD orange `#ff8a5c`,
   REGEX cyan `#2ee6ff`, CRON lime `#bdff3f`, NULL violet `#a57bff`, over ink `#0c0b0d` and paper
@@ -113,13 +113,13 @@ construction you could see (capsule limbs, oval hands, curls that were rings of 
   the scenes draw a bigger one over the hands (`hold`), pushed up to the glass, and write on it in
   the person's hand as we watch (`textP`).
 - **Animated as paper:** each figure is a card that sways on its feet, breathes, bobs on the beat
-  and is swapped for another pose with a pop, on twos, while the camera moves on every frame. A
-  thin paper edge and a soft shadow make each one read as card.
+  and is swapped for another pose with a pop on the 12-Hz clock, while the camera moves on
+  every frame. A thin paper edge and a soft shadow make each one read as card.
 - **The square is a painted flat** standing across the far side, softened and hazed with the low
   sun so it sits back as distance. Its paving is drawn in the camera's own perspective and in the
   places' manner (`world.js`: `squareGround`): flat-toned flagstones, warm in the sun's path and
-  violet in the fronts' shade, the joints inked and boiling on twos. The people stand on it, with a
-  dark patch under their feet and long shadows towards us; they're lit from behind, a gold edge
+  violet in the fronts' shade, the joints inked and boiling on the 12-Hz clock. The people
+  stand on it, with a dark patch under their feet and long shadows towards us; they're lit from behind, a gold edge
   round each.
 
 ## The story leads

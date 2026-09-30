@@ -1,11 +1,14 @@
+> **ARCHIVED — unsuccessful code-composition attempt.** Historical notes, not current instructions.
+> See  [archive status](../README.md).
+
 # Lyric writing: the craft and its sources
 
 What the best writers on lyric craft agree on, as rules you can apply and check. Examples come
 from episode 1 of *Software Quality Theory 101*, a pop-punk song sung by a coding agent in a
-synthetic voice ([lyric sheet](../../../../episodes/01-you-never-told-me.md),
-[song map](../../../../episodes/01-song-map.md)).
+synthetic voice ([lyric sheet](../../../episodes/01-you-never-told-me.md),
+[song map](../../../episodes/01-song-map.md)).
 
-**House rules come first.** [LYRICS.md](../../../../LYRICS.md) records what the expert ear (Qing)
+**House rules come first.** [LYRICS.md](../../../LYRICS.md) records what the expert ear (Qing)
 has ruled on real drafts. Her verdicts outrank everything here, and this file doesn't repeat them.
 Where a rule below agrees with a house rule, or explains it, the note says **(house: …)**. Where
 theory and a house rule disagree, the note says so, and the house rule wins.
@@ -43,7 +46,7 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   (chorus, final line). Episode 1's pre-chorus is six bars and starts on the "&" of 1, and it hands
   over to the chorus on a band stop.
 - **Stressed syllables go on strong beats.** Prosody at the level of the syllable; see
-  [LYRICS.md](../../../../LYRICS.md#rhythm). (house: *Rhythm*, including when a bent stress is fine.)
+  [MUSIC.md](../music-craft.md). (house: *Rhythm*, including when a bent stress is fine.)
 - **Leave space after the big line.** Pattison: "put your most important lines in places that have
   a little space after them." "I'm only reading your prompt" is followed by a band stop. (house:
   *The payoff phrase goes last, once*.)
@@ -60,18 +63,17 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   "on a subliminal level". Each genre sets how strong its end rhymes are; episode 1's pop-punk
   chorus used perfect ones (keep/cheap, grow/show). (house: *Rhyme densely and inventively*.)
 - **Near rhymes where the section is meant to feel open.** This is where theory explains a house
-  rule. The house rules allow a half rhyme in the tag and deliberate vowel-only assonance.
-  A vowel-only family must actually share its target vowel in the intended accent. By Pattison's scale, assonance is right for a tag that winds into the
+  rule. The house rules allow a half rhyme in the tag, and a whole verse on one vowel family
+  (floss, log, blog, clock). By Pattison's scale, assonance is right for a tag that winds into the
   next section: it feels open, as the tag should. (house: *A tag breaks the pattern*; *Rhyme on a
   vowel family*.)
 - **Rhyme puts a word in the spotlight, so rhyme on the word that matters.** Sondheim: "All rhymes
   … draw attention to the rhymed word; if you don't want it to be spotlighted, you'd better not
   rhyme it." Put the idea or the joke on the rhyme, and keep structure words ("it", "the") off it.
   (house: *Hard-to-rhyme words go inside the line* is the fix when the key word won't rhyme.)
-- **Rhyme depends on accent.** Check the intended sounds rather than spelling. MiniMax did not
-  reliably deliver the requested British accent on episode 1, so the series checks rhymes in
-  General American. Vowel-only matches are assonance; perfect rhymes also match the following
-  sounds. (house: *Rhymes must hold in General American*.)
+- **Rhyme depends on accent.** Tom Lehrer sang "Harvard" and "discovered" in a Northeastern elite
+  accent to make them rhyme. Episode 1's verse 2 only rhymes in British English, and the generator sang
+  it in a generic American pop accent anyway, so rhymes now have to hold in General American. (house: *Rhymes must hold in General American*.)
 - **Internal rhyme adds density without adding lines.** Rap and *Hamilton* stack rhymes within the
   line (the *Wall Street Journal* mapped *Hamilton*'s into "rhyme families"). Each rhyme marks a
   beat, which helps fast lines. (house: *Rhyme densely and inventively*.)
@@ -95,7 +97,7 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   three syllables, stressed DUM-da-da ("GEN-er-al / MIN-er-al", respelled "Gineral" to match;
   live). Answering lines repeat their pattern exactly; other sections may use another shape.
   Triple rhymes are one device, not the required tail for every patter song. For the current
-  method, read the [patter guidance](../../../../docs/lyrics/rhythm-and-rhyme.md#patter-songs) and
+  method, read LYRICS.md’s *Patter songs* and
   [drafting with parallel drafters](drafting-with-parallel-drafters.md).
 - **A method for a writer who can't hear.** Fix the payoff phrase first and write back from it.
   Write out its vowel skeleton from the pronunciation dictionary, and list candidates that match
@@ -171,6 +173,12 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   breakdown. Every teaching line, joke included, must be true. (house: *Fact-check the jokes too*.)
 
 ## Writing for a synthetic voice
+- **Open vowels on high and long notes.** Once the pitch passes a vowel's first resonance, sopranos
+  retune that resonance to the pitch: louder and easier, "at some cost to intelligibility". Wagner
+  set soprano text so the vowel suited the pitch (Smith & Wolfe). Put AH, AW and OH on high held
+  notes, not EE or OO; for a female voice the risk starts around 500 Hz (B4). **Episode 1
+  flag:** "WHO" (a closed OO) sits on the hook's E♭5. The MiniMax take proved it sings, and "what"
+  beside it is open, but check it by ear in the code-built voice.
 - **Consonants are where mishearings happen.** In Collister and Huron's study, listeners confused
   consonants, "especially voiced stops and nasals", and vowel errors drifted towards central vowels.
   Avoid depending on a b/d/g or m/n contrast for the meaning of a fast line.
@@ -183,8 +191,8 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   for mishearings*.)
 
 ## Checkable
-Rules a script can flag before anyone listens; a person judges each flag. The
-[checking guidance](../../../../docs/lyrics/rhythm-and-rhyme.md#checking) lists CMUdict’s gaps (jargon, one-syllable stress, squashed words): keep a sung lexicon of overrides.
+Rules a script can flag before anyone listens; a person judges each flag. LYRICS.md *Checking*
+lists CMUdict's gaps (jargon, one-syllable stress, squashed words): keep a sung lexicon of overrides.
 - **Rhyme type per pair:** look up both words in CMUdict (`pronouncing`). Compare the phones from
   the last stressed vowel onward, and label the pair perfect, family, additive/subtractive,
   assonance, consonance or none. Flag weak rhymes (consonance or none where a rhyme is meant) and
@@ -192,21 +200,25 @@ Rules a script can flag before anyone listens; a person judges each flag. The
 - **Rhyme scheme and line count per section:** label the end-rhyme classes (AABB, ABAB, ABBA),
   count the lines, and report each section as stable or unstable. Flag a stable pre-chorus and an
   unstable final chorus.
-- **Stress against the intended grid:** compare dictionary stress with marked syllable positions
-  using `music/check/rhyme.py lines`; inspect flagged pronunciations and deliberate bends.
-  The old score-event checker is part of the archived code-composition route.
-- **Syllables per second:** divide sung syllables by each phrase’s measured duration in the
-  chosen recording. Flag lines above the song-fit limits in the write-episode skill (about 3–4 per second
+- **Stress on the beat:** score each syllable's dictionary stress against its metric position.
+  `music/check/prosody.py` does this, calibrated on the expert's past verdicts.
+- **Vowel openness on exposed notes:** for each note of a beat or longer, or above a set pitch (C5
+  for a female voice), map the ARPAbet vowel to open (AA, AO, AH, AE, AW, AY, OW) or closed (IY,
+  IH, UW, UH, ER). Flag the closed ones.
+- **Syllables per second:** divide sung syllables by duration for each line, from the score's
+  events. Flag lines above the song-fit limits in the write-episode skill (about 3–4 per second
   outside patter; the "Fire" verses run at 6).
-- **Consonant clusters at speed:** inspect consecutive consonant phones across word boundaries
-  in fast phrases. Flag likely tongue-twisters, then check their clarity in the generated take.
+- **Consonant clusters at speed:** count consecutive consonant phones across each note boundary,
+  including across words. Flag three or more on notes shorter than an eighth at the song's tempo.
 - **Title and hook placement:** check that the hook line appears in the first or last line of every
   chorus, and that it is identical each time.
 - **Repeated words:** count the content words across the sheet, excluding the hook. Flag any used
   more than twice, and any rhyme word used twice in one section.
 - **Homophones and resegmentation:** list the words whose CMU phones match another word's. Then run
-  Whisper on the rendered vocal and diff it against the sheet, as [music/README.md](../../../../music/README.md) describes. Whisper
+  Whisper on the rendered vocal and diff it against the sheet, as MUSIC.md describes. Whisper
   guesses from context, so a pass is a floor, not proof.
+- **Leaps on the right words:** list every leap of five semitones or more (`music/ep01/leaps.mjs`)
+  and check each falls on a hook word.
 
 ## Sources
 - Multi-syllable rhyme research (2026-09-27): Wikipedia, "Multisyllabic rhymes" (citing Paul

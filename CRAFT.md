@@ -160,7 +160,7 @@ Fireship format: https://read.engineerscodex.com/p/how-fireship-became-youtubes-
   something so shiny". A standard: "uphold the high quality bar artistically throughout", after
   the third video's quality dropped from verse 2. The fourth video answers all four.
 - Audio: first decided as all code, including vocals (Qing 2026-09-24). Episode 1 shipped a
-  MiniMax take instead; the current route is in [music/README.md](music/README.md#two-routes).
+  MiniMax take instead; the current route is in [music/README.md](music/README.md#from-takes-to-timings).
 - Every episode ships liner notes: how it was checked, where it falls short.
 - ~~Episode 1 is one shot~~ (Qing, 2026-09-25). Withdrawn with the v1 build on 2026-09-26: the
   continuous camera made that video dizzying. See
@@ -195,7 +195,10 @@ brief for an AI-made music video (Donald Jewkes on X). We don't copy its style. 
 - **Know your real capabilities and design to them.** Pick a style and a toolchain that play to
   what the tools do well, rather than fighting their weak spots.
 
-## Open decisions
+## Original research-pass questions (historical)
+
+These were open at the initial research pass; the current episode notes and skills record
+what has since been decided. They are not a current decision backlog.
 Aspect ratio master · voice (human / synthetic / text-only) · length cap · characters and running
 app · visual vocabulary · how much episodes reference each other · episode order (foundation vs
 strongest hook first) · takeaway format · success metric · toolchain (multi-aspect + burned captions).

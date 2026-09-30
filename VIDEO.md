@@ -4,7 +4,7 @@ How to make an episode's music video, whatever its style. Episode 1 took four at
 third met the bar to share, and the fourth fixed the style notes Qing gave on it; she called the
 result "so good! I think it's good to go" (2026-09-26). This file records the brief, the bar and
 the pitfalls behind those two, so the next episode can start from them. Make the song first:
-[MUSIC.md](MUSIC.md) and [LYRICS.md](LYRICS.md) cover it, and the video starts only once it's
+[music/README.md](music/README.md) and [LYRICS.md](LYRICS.md) cover it, and the video starts only once it's
 locked.
 
 - **To make a video,** use the [music-video skill](.claude/skills/music-video/SKILL.md): the
@@ -238,7 +238,8 @@ the drawings.
   readable on a phone and never cover a face. They stay clear of the bottom 400 px, and of the
   right 140 px in the lower half, where platform UI sits. Measure it rather than eyeball it,
   every word at every tenth of a second: size, time on screen, contrast, cover, tilt and reading
-  order (in the ep01 renderer, `tools/typo-audit.mjs` and `typo-report.py`). Then look at the
+  order (`video/ep02/cutlight/tools/typo-audit.mjs` and `typo-report.py` include the UI-zone checks;
+  ep01’s report checks frame bounds but not those zones). Then look at the
   flags; some are the design.
 - **Crowds:** everyone stands on the ground and nearer people hide those behind, never the
   reverse. Nobody is cut off in mid-air: a cut belongs to the frame's edge or to something in front.
@@ -283,7 +284,8 @@ lyric video that aligns perfectly word to word".
 - **The beat grid times the picture, not the words.** Cuts, camera and grooves go on the beat.
   Singers push and pull against the beat, so a word snapped to the grid lands early or late.
 - **Align the known lyrics to the isolated voice.** Force-align the lyrics as sung to the vocal
-  stem with a phoneme-level aligner. Transcription timestamps (episode 2 v1 used Whisper's) drift
+  stem. The current episode 2 and 3 scripts use character-level forced alignment. Transcription
+  timestamps (episode 2 v1 used Whisper’s) drift
   and aren't enough on their own. Then move each onset to the start of the voiced sound nearest it
   on the stem.
 - **Backing vocals get the same, on the backing stem.** Episode 2 v1 spread the backing words

@@ -1,3 +1,6 @@
+> **ARCHIVED — unsuccessful code-composition attempt.** Historical notes, not current instructions.
+> See  [archive status](../README.md).
+
 # Arrangement, production and mixing in code
 
 How to make a song built in code (the score is data, with a bar-by-bar arrangement such as

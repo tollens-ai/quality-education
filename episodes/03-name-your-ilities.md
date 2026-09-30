@@ -255,6 +255,14 @@ The last line is for the agent, because verse 2 is the agent's: what it needs fr
 
 ## Expert notes (Qing's words, verbatim)
 
+2026-09-30, on repeating a verse melody:
+
+> oh btw on the writing for the performer section - Suno can manage to repeat a verse melody if the beat grid matches exactly, it's only minimax that can't
+
+> it managed on episode 3
+
+2026-09-29, on the final lyric:
+
 > I did make a couple of final changes to the lyrics. Here is what I have in Suno and here is the
 > Suno-style prompt pasted below (2026-09-29)
 

@@ -88,7 +88,9 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
      and reading order, and whether it strays into the phone apps' button strip. In the ep01
      renderer, `tools/typo-audit.mjs` records a frame every 0.1 s (run it in three parallel time
      ranges on a small box) and `tools/typo-report.py` judges the result. A new renderer needs
-     the same record: every lettered string, with its box, size, opacity, how far it's written,
+     the same record. For phone UI zones, use ep02 Cut Light’s `tools/typo-report.py` as the
+     reference; ep01’s report only checks frame bounds. Record every lettered string, with
+     its box, size, opacity, how far it's written,
      and the sung word it shows.
    - **The crowds and props,** by eye, shot by shot: overlaps in the right order, nobody
      floating, props in hands.

@@ -54,11 +54,11 @@ is the worked example of the finished shape.
      earlier as the common-sense care behind it ("does it install?", "is it safe?") without its
      jargon. That grounds the example, and it sets up the later episode.
    - *Play the genre all the way.* Use its recognisable moves, straight, with Weird-Al-level
-     specifics; see LYRICS.md, *Borrow a genre's moves and titles*.
+     specifics; see [rhythm guidance](../../../docs/lyrics/rhythm-and-rhyme.md#rhythm).
 
    When revising after feedback, identify what the listener must learn or do differently, then
-   repair the sections that obscure it while preserving successful craft (LYRICS.md,
-   *Revise at the scale of the problem*). A definition may need more lines to make its
+   repair the sections that obscure it while preserving successful craft
+   ([meaning and teaching guidance](../../../docs/lyrics/meaning.md#every-line-every-axis)). A definition may need more lines to make its
    distinction audible. Check each use of its key terms against CANON.md and the expert notes.
 
    Work on the lyric sheet alone, section by section, and note only the **key frames** a line
@@ -67,7 +67,7 @@ is the worked example of the finished shape.
    *Done when* the line to remember is quotable out of context and still true, and Qing has
    locked the lyrics.
 
-   **Song-fit limits.** Write each song's genre conventions ([MUSIC.md](../../../MUSIC.md)). In
+   **Song-fit limits.** State the song’s genre and intended lyric phrasing. In
    4/4, one bar lasts 240 ÷ bpm seconds. Outside patter, a line fits about 3–4 sung syllables a
    second: at episode 1's 180 bpm, 8–12 in a 2-bar line of 2.7 s. More than that blurs when sung,
    and the words on screen can't be read in time. For a synthetic singer, prefer short words, open

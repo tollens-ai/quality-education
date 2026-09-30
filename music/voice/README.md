@@ -3,7 +3,7 @@
 A singing voice written as DSP code in plain JavaScript (Node 22, no dependencies). It uses no
 audio samples and no trained voice or speech models. It is the lead-vocal candidate for episode 1.
 If it isn't good enough, an external singing voice renders the same score instead (see
-[MUSIC.md](../../MUSIC.md), "Sound design").
+[archived music-craft notes](../../archive/code-composition/music-craft.md), "Sound design").
 
 ## Interface
 

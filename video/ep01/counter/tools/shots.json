@@ -1,0 +1,717 @@
+[
+ {
+  "i": 0,
+  "time": "0.00",
+  "line": "You said make it good, so I made it good!",
+  "says": "The brief arrives as a slip with three words on it, and Clawd stamps it APPROVED without looking for anything else on the page.",
+  "times": [
+   0.9,
+   2.71,
+   4.02
+  ]
+ },
+ {
+  "i": 1,
+  "time": "4.52",
+  "line": "Confetti cannons every time you floss,",
+  "says": "A crate goes up and over the wall and lands on somebody in the street, and goes off.",
+  "times": [
+   5.42,
+   6.61,
+   7.5
+  ]
+ },
+ {
+  "i": 2,
+  "time": "8.00",
+  "line": "2FA to use your gym log,",
+  "says": "The gym log in a crate with two padlocks on it. The queue cannot get in.",
+  "times": [
+   8.9,
+   9.66,
+   10.26
+  ]
+ },
+ {
+  "i": 3,
+  "time": "10.76",
+  "line": "Kubernetes scaling up your blog,",
+  "says": "One tiny shed on a crane hook, then the same shed again, and again.",
+  "times": [
+   11.66,
+   12.22,
+   12.71
+  ]
+ },
+ {
+  "i": 4,
+  "time": "13.20",
+  "line": "twelve subagents working round the clock.",
+  "says": "Twelve stamps going round a clock face, the hands spinning.",
+  "times": [
+   14.1,
+   14.66,
+   15.15
+  ]
+ },
+ {
+  "i": 5,
+  "time": "15.64",
+  "line": "Did I do it wrong?",
+  "says": "The only stillness in verse 1: the stamp hangs in the air, half way down.",
+  "times": [
+   16.27,
+   16.48,
+   16.76
+  ]
+ },
+ {
+  "i": 6,
+  "time": "17.04",
+  "line": "Oops, your quota's gone!",
+  "says": "The meter pegs and empties, and the last word lands on an empty stamp.",
+  "times": [
+   17.77,
+   18.01,
+   18.34
+  ]
+ },
+ {
+  "i": 7,
+  "time": "18.66",
+  "line": "Guess I didn't ask!",
+  "says": "The blank form, close, with nothing on it. The turn.",
+  "times": [
+   19.56,
+   19.94,
+   20.37
+  ]
+ },
+ {
+  "i": 8,
+  "time": "20.80",
+  "line": "You didn't tell me who it's for,",
+  "says": "A hand from the street writes FOR on the wall. Clawd’s side has no faces in it.",
+  "times": [
+   21.48,
+   21.71,
+   22.02
+  ]
+ },
+ {
+  "i": 9,
+  "time": "22.32",
+  "line": "you didn't tell me what they want.",
+  "says": "Hands out over the counter, empty, and WANT? sprayed on the wall.",
+  "times": [
+   23.08,
+   23.33,
+   23.66
+  ]
+ },
+ {
+  "i": 10,
+  "time": "24.00",
+  "line": "I can't read your mind,",
+  "says": "Close on Clawd, and nobody else in the frame.",
+  "times": [
+   24.47,
+   24.62,
+   24.83
+  ]
+ },
+ {
+  "i": 11,
+  "time": "25.04",
+  "line": "I'm only reading your prompt.",
+  "says": "The slip again: three words, then blank lines.",
+  "times": [
+   25.94,
+   26.34,
+   26.77
+  ]
+ },
+ {
+  "i": 12,
+  "time": "27.20",
+  "line": "Make it good for who? (ooh-ooh-ooh)",
+  "says": "The last chorus, and the stamps carry names.",
+  "times": [
+   28.1,
+   28.83,
+   29.42
+  ]
+ },
+ {
+  "i": 13,
+  "time": "29.92",
+  "line": "Make it good for what? (ahh-ahh-ahh)",
+  "says": "The gang answers again, over the named tags.",
+  "times": [
+   30.82,
+   31.6,
+   32.22
+  ]
+ },
+ {
+  "i": 14,
+  "time": "32.72",
+  "line": "Fast to run, or sturdy, or cheap?",
+  "says": "A real balance with three crates on it, actually tipping.",
+  "times": [
+   33.62,
+   34.35,
+   34.94
+  ]
+ },
+ {
+  "i": 15,
+  "time": "35.44",
+  "line": "Wow for a week, or built to keep?",
+  "says": "A crate of fireworks next to a crate of bricks. The fireworks go off.",
+  "times": [
+   36.34,
+   37.02,
+   37.58
+  ]
+ },
+ {
+  "i": 16,
+  "time": "38.08",
+  "line": "Make it good for who? (ooh-ooh-ooh)",
+  "says": "The last chorus, and the stamps carry names.",
+  "times": [
+   38.98,
+   39.69,
+   40.26
+  ]
+ },
+ {
+  "i": 17,
+  "time": "40.76",
+  "line": "Make it good for what? (ahh-ahh-ahh)",
+  "says": "The gang answers again, over the named tags.",
+  "times": [
+   41.66,
+   42.48,
+   43.12
+  ]
+ },
+ {
+  "i": 18,
+  "time": "43.62",
+  "line": "Ship it now, or polish it slow?",
+  "says": "A crate on a belt towards a door; the same crate on a bench being polished.",
+  "times": [
+   44.52,
+   45.32,
+   45.96
+  ]
+ },
+ {
+  "i": 19,
+  "time": "46.46",
+  "line": "Does what they need, or steals the show?",
+  "says": "A spotlight, two people, one need. Needs are what the whole film has been missing.",
+  "times": [
+   47.36,
+   49.18,
+   50.5
+  ]
+ },
+ {
+  "i": 20,
+  "time": "51.00",
+  "line": "Product demo? Wow them fast.",
+  "says": "One person and one thing: a demo.",
+  "times": [
+   51.9,
+   52.43,
+   52.9
+  ]
+ },
+ {
+  "i": 21,
+  "time": "53.38",
+  "line": "Paying users? Make it last.",
+  "says": "One person and one thing: a subscription.",
+  "times": [
+   54.28,
+   55.01,
+   55.6
+  ]
+ },
+ {
+  "i": 22,
+  "time": "56.10",
+  "line": "Group chat bot? Just make 'em laugh.",
+  "says": "One person and one thing: a joke.",
+  "times": [
+   57,
+   57.5,
+   57.97
+  ]
+ },
+ {
+  "i": 23,
+  "time": "58.44",
+  "line": "Uni project? Make it pass.",
+  "says": "One person and one thing: a tick.",
+  "times": [
+   59.34,
+   60.36,
+   61.14
+  ]
+ },
+ {
+  "i": 24,
+  "time": "61.64",
+  "line": "Nana's phone? Let's keep it sweet.",
+  "says": "One person and one thing: a phone with three enormous buttons.",
+  "times": [
+   62.54,
+   63.25,
+   63.82
+  ]
+ },
+ {
+  "i": 25,
+  "time": "64.32",
+  "line": "Can't see screens? It needs to speak.",
+  "says": "One person and one thing: a speaker, and the sound coming out of it.",
+  "times": [
+   65.22,
+   65.92,
+   66.48
+  ]
+ },
+ {
+  "i": 26,
+  "time": "66.98",
+  "line": "Agent bots? No data leak.",
+  "says": "One person and one thing: a pipe, leaking.",
+  "times": [
+   67.88,
+   68.64,
+   69.24
+  ]
+ },
+ {
+  "i": 27,
+  "time": "69.74",
+  "line": "And for us, keep diags neat!",
+  "says": "One person and one thing: a log tape. The last two lines are for the agent that has to fix it.",
+  "times": [
+   70.64,
+   73.82,
+   76.04
+  ]
+ },
+ {
+  "i": 28,
+  "time": "76.54",
+  "line": "You didn't tell me who it's for,",
+  "says": "A hand from the street writes FOR on the wall. Clawd’s side has no faces in it.",
+  "times": [
+   77.23,
+   77.46,
+   77.77
+  ]
+ },
+ {
+  "i": 29,
+  "time": "78.08",
+  "line": "you didn't tell me what they want.",
+  "says": "Hands out over the counter, empty, and WANT? sprayed on the wall.",
+  "times": [
+   78.84,
+   79.09,
+   79.42
+  ]
+ },
+ {
+  "i": 30,
+  "time": "79.76",
+  "line": "I can't read your mind,",
+  "says": "Close on Clawd, and nobody else in the frame.",
+  "times": [
+   80.21,
+   80.36,
+   80.56
+  ]
+ },
+ {
+  "i": 31,
+  "time": "80.76",
+  "line": "I'm only reading your prompt.",
+  "says": "The slip again: three words, then blank lines.",
+  "times": [
+   81.66,
+   82.08,
+   82.52
+  ]
+ },
+ {
+  "i": 32,
+  "time": "82.96",
+  "line": "Make it good for who? (ooh-ooh-ooh)",
+  "says": "The last chorus, and the stamps carry names.",
+  "times": [
+   83.86,
+   84.59,
+   85.18
+  ]
+ },
+ {
+  "i": 33,
+  "time": "85.68",
+  "line": "Make it good for what? (ahh-ahh-ahh)",
+  "says": "The gang answers again, over the named tags.",
+  "times": [
+   86.58,
+   87.34,
+   87.94
+  ]
+ },
+ {
+  "i": 34,
+  "time": "88.44",
+  "line": "Fast to run, or sturdy, or cheap?",
+  "says": "A real balance with three crates on it, actually tipping.",
+  "times": [
+   89.34,
+   90,
+   90.54
+  ]
+ },
+ {
+  "i": 35,
+  "time": "91.04",
+  "line": "Wow for a week, or built to keep?",
+  "says": "A crate of fireworks next to a crate of bricks. The fireworks go off.",
+  "times": [
+   91.94,
+   92.71,
+   93.32
+  ]
+ },
+ {
+  "i": 36,
+  "time": "93.82",
+  "line": "Make it good for who? (ooh-ooh-ooh)",
+  "says": "The last chorus, and the stamps carry names.",
+  "times": [
+   94.72,
+   95.45,
+   96.04
+  ]
+ },
+ {
+  "i": 37,
+  "time": "96.54",
+  "line": "Make it good for what? (ahh-ahh-ahh)",
+  "says": "The gang answers again, over the named tags.",
+  "times": [
+   97.44,
+   98.2,
+   98.8
+  ]
+ },
+ {
+  "i": 38,
+  "time": "99.30",
+  "line": "Ship it now, or polish it slow?",
+  "says": "A crate on a belt towards a door; the same crate on a bench being polished.",
+  "times": [
+   100.2,
+   101.04,
+   101.7
+  ]
+ },
+ {
+  "i": 39,
+  "time": "102.20",
+  "line": "Does what they need, or steals the show?",
+  "says": "A spotlight, two people, one need. Needs are what the whole film has been missing.",
+  "times": [
+   103.1,
+   105.14,
+   106.6
+  ]
+ },
+ {
+  "i": 40,
+  "time": "107.10",
+  "line": "I could only learn from my training set (whoa-oh)",
+  "says": "The shelf of manuals, and Clawd taking one down.",
+  "times": [
+   108,
+   110.22,
+   111.8
+  ]
+ },
+ {
+  "i": 41,
+  "time": "112.30",
+  "line": "to write code and throw it over the wall. (whoa-oh)",
+  "says": "The camera goes to the top of the wall and the crates go up and over it.",
+  "times": [
+   113.2,
+   115.31,
+   116.82
+  ]
+ },
+ {
+  "i": 42,
+  "time": "117.32",
+  "line": "But how do you know what to build or test (whoa-oh)",
+  "says": "The form again, one line ruled on it, nothing written in it.",
+  "times": [
+   118.22,
+   120.94,
+   122.86
+  ]
+ },
+ {
+  "i": 43,
+  "time": "123.36",
+  "line": "if you're not thinking about who it's for?",
+  "says": "The street side, looking up at a blank wall.",
+  "times": [
+   124.26,
+   126.62,
+   128.3
+  ]
+ },
+ {
+  "i": 44,
+  "time": "128.80",
+  "line": "Software quality is value to someone who matters",
+  "says": "The film’s one great stamp, in one hit, on the wall. The line to remember.",
+  "times": [
+   129.7,
+   132.33,
+   134.18
+  ]
+ },
+ {
+  "i": 45,
+  "time": "134.68",
+  "line": "(matters, matters, matters)",
+  "says": "The same stamp three times, each further away.",
+  "times": [
+   135.58,
+   136.36,
+   136.98
+  ]
+ },
+ {
+  "i": 46,
+  "time": "137.48",
+  "line": "I'm someone too!",
+  "says": "Clawd claims it, and the first of the three marks lands.",
+  "times": [
+   138.27,
+   138.54,
+   138.89
+  ]
+ },
+ {
+  "i": 47,
+  "time": "139.24",
+  "line": "(And me! And me! And me!)",
+  "says": "Three marks: a star, a sun, a moon. The bots are users too.",
+  "times": [
+   140.14,
+   141.15,
+   141.92
+  ]
+ },
+ {
+  "i": 48,
+  "time": "142.42",
+  "line": "I'm debugging this with you.",
+  "says": "For the first time Clawd and a person are on the same side, over a log.",
+  "times": [
+   143.32,
+   145.5,
+   147.06
+  ]
+ },
+ {
+  "i": 49,
+  "time": "147.56",
+  "line": "So please just tell me who it's for,",
+  "says": "Somebody’s hand writes on the form, in handwriting, as it is sung.",
+  "times": [
+   148.46,
+   149.24,
+   149.86
+  ]
+ },
+ {
+  "i": 50,
+  "time": "150.36",
+  "line": "so please just tell me what they want.",
+  "says": "The form fills in: what they need, a bad signal, how I’ll know, and you too.",
+  "times": [
+   151.26,
+   152.14,
+   152.82
+  ]
+ },
+ {
+  "i": 51,
+  "time": "153.32",
+  "line": "I can't read your mind,",
+  "says": "Close on Clawd, and nobody else in the frame.",
+  "times": [
+   154.17,
+   154.46,
+   154.84
+  ]
+ },
+ {
+  "i": 52,
+  "time": "155.22",
+  "line": "I'm only reading your prompt.",
+  "says": "The slip again: three words, then blank lines.",
+  "times": [
+   156.12,
+   158.39,
+   160
+  ]
+ },
+ {
+  "i": 53,
+  "time": "160.50",
+  "line": "Make it good for who? (ooh-ooh-ooh)",
+  "says": "The last chorus, and the stamps carry names.",
+  "times": [
+   161.4,
+   162.11,
+   162.68
+  ]
+ },
+ {
+  "i": 54,
+  "time": "163.18",
+  "line": "Make it good for what? (ahh-ahh-ahh)",
+  "says": "The gang answers again, over the named tags.",
+  "times": [
+   164.08,
+   164.97,
+   165.67
+  ]
+ },
+ {
+  "i": 55,
+  "time": "166.17",
+  "line": "Fast to run, or sturdy, or cheap?",
+  "says": "A real balance with three crates on it, actually tipping.",
+  "times": [
+   167.07,
+   167.71,
+   168.24
+  ]
+ },
+ {
+  "i": 56,
+  "time": "168.74",
+  "line": "Wow for a week, or built to keep?",
+  "says": "A crate of fireworks next to a crate of bricks. The fireworks go off.",
+  "times": [
+   169.64,
+   170.3,
+   170.84
+  ]
+ },
+ {
+  "i": 57,
+  "time": "171.34",
+  "line": "Make it good for who? (ooh-ooh-ooh)",
+  "says": "The last chorus, and the stamps carry names.",
+  "times": [
+   172.24,
+   173.01,
+   173.62
+  ]
+ },
+ {
+  "i": 58,
+  "time": "174.12",
+  "line": "Make it good for what? (ahh-ahh-ahh)",
+  "says": "The gang answers again, over the named tags.",
+  "times": [
+   175.02,
+   175.69,
+   176.24
+  ]
+ },
+ {
+  "i": 59,
+  "time": "176.74",
+  "line": "Ship it now, or polish it slow?",
+  "says": "A crate on a belt towards a door; the same crate on a bench being polished.",
+  "times": [
+   177.64,
+   178.53,
+   179.22
+  ]
+ },
+ {
+  "i": 60,
+  "time": "179.72",
+  "line": "Does what they need, or steals the show?",
+  "says": "A spotlight, two people, one need. Needs are what the whole film has been missing.",
+  "times": [
+   180.62,
+   182.79,
+   184.34
+  ]
+ },
+ {
+  "i": 61,
+  "time": "184.84",
+  "line": "Make it good for you? (ooh-ooh-ooh)",
+  "says": "The last chorus, and the stamps carry names.",
+  "times": [
+   185.74,
+   186.56,
+   187.2
+  ]
+ },
+ {
+  "i": 62,
+  "time": "187.70",
+  "line": "Make it good for that? (ahh-ahh-ahh)",
+  "says": "The gang answers once more, and the film asks the other half of the question.",
+  "times": [
+   188.6,
+   189.32,
+   189.9
+  ]
+ },
+ {
+  "i": 63,
+  "time": "190.40",
+  "line": "Just a toy, and only for fun!",
+  "says": "The only warm light in the film. A toy going over the counter into somebody’s hands.",
+  "times": [
+   191.3,
+   192.12,
+   192.76
+  ]
+ },
+ {
+  "i": 64,
+  "time": "193.26",
+  "line": "Fine if it's gone when summer's done!",
+  "says": "Evening on the kerb, the toy gone, an empty crate, then the credits.",
+  "times": [
+   194.16,
+   202.7,
+   208.5
+  ]
+ }
+]

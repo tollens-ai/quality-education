@@ -8,6 +8,8 @@ episodes (2 and 3). Talking points and section sketch were agreed (2026-09-26), 
 reopens once episodes 2 and 3 are agreed, because the viewer will arrive knowing about oracles
 and ilities (see *What changes now oracles come first*).
 
+**Current musical proposal (2026-09-30):** Qing suggested a Cole Porter style number with dense rhyming and the patter-song guidelines. The new [swing-revue draft, "Did You Actually Test It?"](04-did-you-actually-test-it.md) uses the oracles and ilities basis; the earlier talking points, lyrics and expert notes below remain its source material.
+
 ## Why it moved (Qing, 2026-09-27, verbatim)
 
 > I was mauling over the testing song overnight and I really do think that we have the order of

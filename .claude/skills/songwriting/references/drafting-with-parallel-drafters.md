@@ -20,7 +20,10 @@ process.
 1. **Write the brief before drafting.** One file, which every drafter reads first. It holds:
    - Qing's rules *verbatim* with dates, kept apart from our interpretation of them.
    - The grid, written as a machine-checkable stress pattern (beats by syllable position), plus
-     the shape a tail word must have.
+     the shape a tail word must have. Choose the grid around the terms the lesson must say;
+     sections can have different grids, but answering phrases share their grid and rhyme slots.
+     Check joins between breathing phrases as well as individual lines (LYRICS.md,
+     *Writing for the performer*).
    - A **ledger** of which ideas go in which section, so nothing repeats (here: each quality
      named at most once in the whole song).
    - The hard limits: never quote a real song (describe its rhythm as beat positions), write only
@@ -35,17 +38,19 @@ process.
    for what it literally says and implies, then shows Qing whole options with a recommendation
    (LYRICS.md, *Bring the expert whole options*). Small swaps the parent makes itself get
    re-checked before they're shown.
-5. **Turn each of her corrections into a numbered amendment** at the bottom of the brief, headed
-   "these override everything above", and redispatch. Redirect drafters that are still running with
-   a short message rather than waiting. Episode 3 ran four such rounds; the amendments stayed
-   short because each one changed one thing.
+5. **Fold each correction into the brief’s governing rule and redispatch.** Keep the expert’s
+   dated wording alongside the updated interpretation, and remove superseded instructions.
+   Redirect drafters that are still running with a short message rather than waiting. Episode 3 ran four such rounds; the amendments stayed
+   short because each one changed one thing. A clarity repair should target the unclear
+   claim or actionable and retain the successful rhyme, rhythm and comic structure; preserve
+   displaced material in the scratchbook.
 6. **Assemble, then re-read the whole sheet.** Conflicts show up only now: a quality named twice,
    an image that belongs to a rejected idea, a word in a rhyme that another fix changed.
 
 ## What made it work
 
 - **A grid you can verify.** The brief gave the beat positions of the target rhythm, so every
-  drafter's claim of "this scans" was a checker run, not an opinion. The checker's `lines` mode
+  drafter’s proposed text pattern came with checker output. The checker’s `lines` mode
   compares each line to a reference; its rhyme and tail modes check the stressed vowels.
 - **Per-drafter pronunciation overrides.** The dictionary lacks jargon ("installability") and has a
   few wrong stresses. Each drafter copied the checker wrapper under its own name and added
@@ -77,12 +82,15 @@ line to them. Qing's guidance (2026-09-28) is in [LYRICS.md](../../../../LYRICS.
   on "for"; the "-ility" words took the tails. Grouping tails by stress meant a five-syllable word and a
   six-syllable word each got a pattern (the six-syllable one starts a syllable earlier), fudging the long
   ones the way she allowed.
-- **Three unstressed syllables between the beats.** Positions 7 to 9 are function words ("and so I've",
-  "as it was"). Planning each line around that gap was the hard part, and it is why the lines read as
-  speech and not as filler.
+- **A light lexical-stress span over the alternating beat grid.** Positions 7 to 9 are function words ("and so I've",
+  "as it was"); position 8 still takes a musical beat. Dictionary stress and beat placement
+  are different: write both in the brief. Planning around that span helped the lines read
+  as speech rather than filler.
 - **Every claim came with evidence.** Stress with the checker's line comparison, rhyme with its stressed
   vowels, half-rhyme tails with a tail check that the last stressed vowel is the short "i" and the line ends
-  on "ee". A line the checker rejected was fixed or dropped, and any tolerated bend was listed.
+  on "ee". Inspect flagged pronunciations before changing a line; keep sung overrides for jargon
+  and compressed words (LYRICS.md, *Checking*). Record any intended stress bend. The checker
+  compares text and dictionary pronunciations; it cannot prove where a singer puts a beat.
 - **The expert supplied the taste.** Her rules told the drafters what to optimise; her corrections
   ("those half rhymes don't work", "the chorus is weak") told us which of the checked lines to keep.
 
@@ -109,10 +117,21 @@ line to them. Qing's guidance (2026-09-28) is in [LYRICS.md](../../../../LYRICS.
 - **Silent waits.** Drafters take 10 to 20 minutes each. Say what is running, and what will come
   back, while they work.
 
+## Applying the method to generated swing patter
+
+Episode 4’s Suno trial (2026-09-30) exposed an unreliable join from the screenshot line to
+“notification”, despite takes that sometimes managed it. Read LYRICS.md’s *Writing for the
+performer* before setting the grid: a conversational genre still needs precise syllable and
+stress matches for the generator. Mark phrase joins on the grid and compare repeated shapes;
+use a generated take to hear uncertain joins before locking the lyric. Checker agreement
+establishes the chosen text pattern; the take and the expert ear establish how it phrases.
+The current [episode 4 draft](../../../../episodes/04-did-you-actually-test-it.md) remains
+provisional, so its phrasing is evidence for a repair, not a validated template.
+
 ## Recipe
 
 1. Read the expert's rules and the last session's outputs. 2. Fix the grid, ledger and hard limits
 in a brief. 3. Dispatch one drafter per section, in parallel, asking for options, checker
 evidence and doubts. 4. Judge on meaning, show whole options with a recommendation. 5. Turn each
-correction into an amendment and redispatch, redirecting live drafters. 6. Assemble, re-read the
+correction into an updated brief rule and redispatch, redirecting live drafters. 6. Assemble, re-read the
 whole sheet, and only then take it to her ear.

@@ -90,9 +90,12 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   the character" (secondary). Miranda made "My Shot" dense to show Hamilton's intellect "not just
   in what he was saying but in the way he was saying it" (secondary). An agent can carry dense
   rhyme; each rhyme still lands on a word people say.
-- **Patter: one syllable per note, triple rhymes, one stress pattern.** Gilbert rhymes the last
+- **Patter: one syllable per note, with recurring rhyme and stress slots.** Gilbert rhymes the last
   three syllables, stressed DUM-da-da ("GEN-er-al / MIN-er-al", respelled "Gineral" to match;
-  live). Both lines must repeat the pattern exactly, which is also what the generator needs.
+  live). Answering lines repeat their pattern exactly; other sections may use another shape.
+  Triple rhymes are one device, not the required tail for every patter song. For the current
+  method, read LYRICS.md’s *Patter songs* and
+  [drafting with parallel drafters](drafting-with-parallel-drafters.md).
 - **A method for a writer who can't hear.** Fix the payoff phrase first and write back from it.
   Write out its vowel skeleton from the pronunciation dictionary, and list candidates that match
   it: perfect first, then consonant family, then assonance (Pattison's order: "look in your

@@ -17,6 +17,10 @@ where one already covers it.
   (Qing, 2026-09-27: "when you 'ship it' EVERY line has to be right [...] anything weak stands
   out"). Get the content right first, then fit the sound to it; audit each line on all six
   before anyone hears it.
+- **Revise at the scale of the problem and preserve what works.** A clarity concern alone does
+  not justify replacing a song's successful rhyme, rhythm and comic structure. Qing's verdict
+  on episode 4's broad rewrite (2026-09-30): "The original set of lyrics was brilliant, it was
+  just a bit unclear about the actionables".
 - **Once the scene is set, go straight to the point.** A later verse that spends lines
   re-setting the frame ("so give me ways to tell…") wastes the slots that should teach.
 - **Every section serves the episode's idea.** A bridge about the people who'd judge the app
@@ -43,7 +47,9 @@ where one already covers it.
   connotation?"). This goes for the words chosen to fill a rhyme, too. Before
   changing a line for its literal meaning, check whether it's a deliberate allusion: in a genre
   song, the genre's stock phrases carry their own meaning ("perfect" in a love song is the genre
-  talking, not a claim about perfection).
+  talking, not a claim about perfection). Check domain meanings too: an everyday rhyme word
+  can suggest a different technical topic (Qing, 2026-09-30, on "ease the load": "load makes
+  me think of load testing").
 - **Pack in as much information as possible.** Workshopping drifts towards lines that recap,
   repeat or fill. Every line should teach something new. A spelled-out simile is filler when the song's
   frame already makes the comparison: in a boy-band love song, "cold, just like an ex" spent a
@@ -268,7 +274,11 @@ perform [...] Together that's the best"). For a lyrics-to-song generator, that m
   other (a template borrowed for one verse needn't bind the next), but lines that answer each other inside a section should share a stress pattern and
   syllable count exactly. This is the key thing for MiniMax, whatever the line structure (Qing,
   2026-09-27: "the key thing for minimax is that syllable stress matches need to be exact"). The more obviously the syllables fit, the easier the generator finds
-  the phrasing. It still isn't guaranteed. Qing (2026-09-25), after the first consistent take:
+  the phrasing. Check joins between phrases as well as answering lines. Keep the syllable and
+  stress grid tight in generated patter, including in genres with flexible phrasing. Tighten
+  the grid when takes are inconsistent, even when some manage it. Qing's Suno trial of episode 4
+  (2026-09-30) found "the dramas to notification line is a bit flaky" and "they can do it
+  sometimes but it's obviously difficult". It still isn't guaranteed. Qing (2026-09-25), after the first consistent take:
   "it works _better_ if we can sudoku the lyric stress patterns MORE, to match the intended
   phrasing". Her edits between the semi-decent copy and that take:
   - "So please tell me who it's for, please tell me" became "So please just tell me who it's for,

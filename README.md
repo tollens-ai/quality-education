@@ -87,6 +87,17 @@ More on episode 3:
   and where it falls short
 - [The code that draws it](video/ep03/polka/README.md)
 
+## Episode 4 in progress: "Did You Actually Test It?"
+
+A swing revue about checking and testing: passing checks can leave a shared mistake undiscovered;
+an investigation follows clues and changes what it tries. The [current lyrics and teaching plan](episodes/04-did-you-actually-test-it.md)
+are still being revised after generated takes. The [scratchbook](episodes/04-scratchbook.md)
+keeps replaced lines, and an [independent alternative](episodes/04-space-bunny-did-you-actually-test-it.md)
+explores another structure. The [earlier treatment](episodes/04-what-happens-if.md) holds the original expert notes.
+
+For the lyric method, start with [LYRICS.md’s patter guidance](LYRICS.md#patter-songs)
+and the [parallel-drafting method](.claude/skills/songwriting/references/drafting-with-parallel-drafters.md).
+
 ## How it's made
 
 - **An expert checks what each episode teaches.** Qing (Yanqing Cheng), who writes about software

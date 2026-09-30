@@ -38,6 +38,9 @@ is the worked example of the finished shape.
    helps. Qing's reaction to episode 1's line ("made me well up a little") is the benchmark to aim
    for. Write lyrics by [LYRICS.md](../../../LYRICS.md); add a lesson there only as a principle,
    checked against its rules and a song that worked, merged rather than appended.
+   For patter, use the [songwriting skill](../songwriting/SKILL.md) and its
+   [drafting method](../songwriting/references/drafting-with-parallel-drafters.md): establish
+   the meaning ledger, stress grid and rhyme slots before drafting sections.
    **Examples and cast.** These decide whether the idea feels rich or trivial:
    - *Spread the concept across scenarios.* When the idea has several facets, give each facet
      its own example, from whichever scenario makes it most vivid, one per line as in episode 1's
@@ -52,6 +55,11 @@ is the worked example of the finished shape.
      jargon. That grounds the example, and it sets up the later episode.
    - *Play the genre all the way.* Use its recognisable moves, straight, with Weird-Al-level
      specifics; see LYRICS.md, *Borrow a genre's moves and titles*.
+
+   When revising after feedback, identify what the listener must learn or do differently, then
+   repair the sections that obscure it while preserving successful craft (LYRICS.md,
+   *Revise at the scale of the problem*). A definition may need more lines to make its
+   distinction audible. Check each use of its key terms against CANON.md and the expert notes.
 
    Work on the lyric sheet alone, section by section, and note only the **key frames** a line
    depends on (a gag, a clip moment, an on-screen device). Don't storyboard yet: every lyric

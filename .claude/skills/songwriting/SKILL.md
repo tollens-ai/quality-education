@@ -24,12 +24,15 @@ expensive after.
 1. **Words.** Write or revise the lyric. Read [lyrics.md](references/lyrics.md) for prosody,
    rhyme, hooks and titles, comedy and patter, teaching in a song, and writing for a synthetic
    voice.
+   Read LYRICS.md’s *Every line, every axis*, *Rhythm* and *Writing for the performer*;
+   for dense comic lyrics, also read *Patter songs*. These contain the current expert
+   corrections, including matching phrase joins for generated patter.
    To draft a whole song fast, use the parallel-drafter loop in
    [drafting-with-parallel-drafters.md](references/drafting-with-parallel-drafters.md).
    Before rewriting, skim the song's scratchbook of past drafts and fragments; afterwards, add
    the replaced lines and any stray fragment worth keeping (LYRICS.md, *Keep every draft*).
-   *Done when* each line says something new, every stressed word is a real, natural phrase, and
-   the title or hook sits in a power position.
+   *Done when* each line passes the six-axis review in LYRICS.md, every phrase is natural,
+   and the title or hook sits in a power position. Repeated refrains can consolidate the lesson.
 
 2. **Song map.** Fix the form, bar counts, tempo, key, a chord for every bar, and every syllable
    on the rhythm grid, before making any sound. Read
@@ -58,6 +61,10 @@ expensive after.
    pass.
 
 ## Changing the song later
+
+Name the specific claim, actionable or phrasing problem before revising. Preserve successful rhyme,
+rhythm and comic structure, and park replaced lines in the scratchbook. Check technical
+connotations as well as literal meaning (LYRICS.md, *Every line, every axis* and *Meaning first*).
 
 Go back to the earliest stage the change touches and redo the checks from there on. A new rhythm
 means re-checking melody and harmony; a new chord means re-checking the melody against it.

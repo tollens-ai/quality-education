@@ -4,7 +4,7 @@
 import { TAU, clamp, lerp, noise, boil, hash } from './kit.js';
 import { INK, CREAM, CORAL, C } from './palette.js';
 
-export const DISPLAY = 'Corben', PATTER = 'Lilita', SCRIPT = 'Oleo';
+export const DISPLAY = 'Corben', PATTER = 'Lilita';
 const widthCache = new Map();
 export function textW(g, s, font, size) {
   const k = font + '|' + s;

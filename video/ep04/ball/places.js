@@ -1,182 +1,319 @@
-// The painted places, each baked once: Clawd's workshop, the circus ring, the schoolroom, the
-// factory, Mabel's basement gym, the crew's office (by day and by night), the title card's sunburst
-// and the breakdown's bare stage.
-import { W, H, TAU, clamp, lerp, rng, noise, mix, rgba } from './kit.js';
-import { INK, CREAM, CARD, PAPER, SKY, MINT, TEAL, DEEP, CORAL, OCHRE, ROSE, PLUM, WOOD, WOOD_SH, BROWN, GOLD, RED, GREEN, SLATE, WHITE } from './palette.js';
-import { spline, ellipse, rrect } from './ink.js';
-import { bake, wash, sky, cloud, paper, house, bunting, cobbles, lamp, tree, BGINK } from './paint.js';
+// The painted places. Each is built around a lit centre, where the action stands, and a dark, calm
+// apron below the floor line, where the lyric sits. World coordinates are the place canvas's own;
+// a scene's camera puts the floor line at screen y FLOOR_Y.
+import { W, H, TAU, clamp, lerp, rng, noise, hash, mix, rgba } from './kit.js';
+import { C } from './palette.js';
+import { bake, wash, glaze, light, gloom, shadow, streaks, dabs, inkLine, paper, ao, path, wob, dense, box } from './bg.js';
+import { ellipse, spline, rrect } from './ink.js';
 
-const PW = 1300, PH = 2200;   // places are painted a little bigger than the frame, for the camera
-export const PLACE_OFF = [(PW - W) / 2, (PH - H) / 2];
+export const FLOOR_Y = 1100;          // where every place's floor line sits on screen at rest
 
-function planks(g, x0, y0, x1, y1, col, seed, vertical = true) {
+// ---------------------------------------------------------------- shared pieces
+// Planks: vertical boards with grain and gaps, lit by a radial light.
+function planks(g, x0, y0, x1, y1, col, seed, o = {}) {
   const R = rng(seed);
-  const n = Math.round((vertical ? x1 - x0 : y1 - y0) / 90);
-  for (let i = 0; i < n; i++) {
-    const c = mix(col, R() < .5 ? '#ffffff' : '#3a2010', R() * .12);
-    if (vertical) { const a = x0 + i * (x1 - x0) / n, b = x0 + (i + 1) * (x1 - x0) / n; wash(g, [[a, y0], [b, y0], [b, y1], [a, y1]], c, { seed: seed + i, ink: 2, inkA: .5, amt: 1, blooms: 12, bloomScale: 1.4 }); }
-    else { const a = y0 + i * (y1 - y0) / n, b = y0 + (i + 1) * (y1 - y0) / n; wash(g, [[x0, a], [x1, a], [x1, b], [x0, b]], c, { seed: seed + i, ink: 2, inkA: .5, amt: 1, blooms: 12 }); }
+  let a = x0, i = 0;
+  while (a < x1) {
+    const bw = (o.bw ?? 96) * lerp(.75, 1.3, R()), b = Math.min(x1, a + bw);
+    const c = mix(mix(col, R() < .5 ? '#c0603a' : '#9a7a3a', R() * .25), R() < .5 ? '#ffe6c0' : '#1c0c04', R() * .12);
+    const P = box(a, y0, b - a, y1 - y0);
+    wash(g, P, c, { seed: seed + i * 7, gran: .6, rim: .2, blooms: 8, amt: .8, bloom: 1.4 });
+    streaks(g, P, c, { seed: seed + i * 13, ang: Math.PI / 2 + (R() - .5) * .02, len: 200, n: Math.round((b - a) * (y1 - y0) / 1100), a: .14, w: 1.5 });
+    // a joint where two boards meet end to end, with its nails
+    const jy = lerp(y0 + 200, y1 - 200, R());
+    g.save(); g.fillStyle = rgba('#1c0c04', .35); g.fillRect(a, jy, b - a, 2); g.restore();
+    for (const ny of [jy - 14, jy + 14]) { g.save(); g.fillStyle = rgba('#1c0c04', .5); g.beginPath(); g.arc(a + 12, ny, 2.6, 0, TAU); g.arc(b - 12, ny, 2.6, 0, TAU); g.fill(); g.restore(); }
+    if (R() < .4) { const kx = lerp(a + 20, b - 20, R()), ky = lerp(y0 + 60, y1 - 60, R()); g.save(); g.strokeStyle = rgba(mix(c, '#1c0c04', .5), .28); g.lineWidth = 2; for (let k = 0; k < 3; k++) { g.beginPath(); g.ellipse(kx, ky, 6 + k * 6, 14 + k * 10, 0, 0, TAU); g.stroke(); } g.restore(); }
+    // the gap between boards, soft
+    g.save(); g.filter = 'blur(1.2px)'; g.fillStyle = rgba('#140804', .4); g.fillRect(b - 1.5, y0, 2.5, y1 - y0); g.restore();
+    a = b; i++;
   }
 }
-function windowFrame(g, x, y, w, h, seed, inside) {
-  wash(g, [[x - 18, y - 18], [x + w + 18, y - 18], [x + w + 18, y + h + 26], [x - 18, y + h + 26]], WOOD_SH, { seed, ink: 3 });
-  g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip(); inside(g); g.restore();
-  g.strokeStyle = BGINK; g.lineWidth = 12; g.strokeRect(x, y, w, h);
-  g.beginPath(); g.moveTo(x + w / 2, y); g.lineTo(x + w / 2, y + h); g.moveTo(x, y + h / 2); g.lineTo(x + w, y + h / 2); g.stroke();
-}
-function shelf(g, x, y, w, seed, items) {
-  wash(g, [[x, y], [x + w, y], [x + w, y + 22], [x, y + 22]], WOOD, { seed, ink: 2.5 });
-  items(g, x, y);
-}
-function tin(g, x, y, w, h, col, text, seed) {
-  wash(g, [[x, y - h], [x + w, y - h], [x + w, y], [x, y]], col, { seed, ink: 2.5, grad: .15 });
-  if (text) { g.save(); g.fillStyle = CREAM; g.font = `${Math.round(h * .28)}px Lilita`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text, x + w / 2, y - h / 2); g.restore(); }
-}
 
-// Clawd's workshop: plank walls, a window on the town, shelves of boxed checks, a workbench.
-export function workshop() {
-  return bake('workshop', PW, PH, (g) => {
-    planks(g, 0, 0, PW, PH, '#a86b3e', 101);
-    // a darker band high up, behind the lyric
-    const gr = g.createLinearGradient(0, 0, 0, 900); gr.addColorStop(0, 'rgba(40,20,8,.45)'); gr.addColorStop(1, 'rgba(40,20,8,0)'); g.fillStyle = gr; g.fillRect(0, 0, PW, 900);
-    windowFrame(g, 110, 820, 330, 380, 111, (g) => { sky(g, 1300, 2200, '#a9d7cf', '#f4e2c0', { clouds: 2, y0: 850, y1: 950, seed: 3 }); house(g, 100, 1210, 150, 260, '#e7b99c', 5, { chimney: true }); house(g, 260, 1210, 170, 300, '#9dc4b9', 6); });
-    shelf(g, 700, 900, 520, 121, (g, x, y) => { for (let i = 0; i < 4; i++) tin(g, x + 20 + i * 125, y, 105, 130, [CORAL, TEAL, OCHRE, ROSE][i], 'CHECKS', 122 + i); });
-    shelf(g, 700, 1180, 520, 131, (g, x, y) => { for (let i = 0; i < 3; i++) tin(g, x + 30 + i * 165, y, 140, 110, [OCHRE, CORAL, TEAL][i], i === 1 ? 'PASTE' : 'CHECKS', 132 + i); });
-    // pegboard with tools
-    wash(g, [[470, 800], [660, 800], [660, 1260], [470, 1260]], '#d6b489', { seed: 141, ink: 2.5 });
-    for (let i = 0; i < 5; i++) for (let j = 0; j < 9; j++) { g.fillStyle = rgba(BGINK, .5); g.beginPath(); g.arc(490 + i * 38, 820 + j * 50, 4, 0, TAU); g.fill(); }
-    // workbench
-    wash(g, [[0, 1640], [PW, 1640], [PW, 1720], [0, 1720]], '#8a5129', { seed: 151, ink: 3, grad: .2 });
-    planks(g, 0, 1720, PW, PH, '#6e4128', 152, false);
-    paper(g, PW, PH, 7, .8);
-  });
-}
-
-// The circus ring: a striped big top, a ring of sawdust, a spotlight.
-export function circus() {
-  return bake('circus', PW, PH, (g) => {
-    g.fillStyle = '#2a1a22'; g.fillRect(0, 0, PW, PH);
-    const cx = PW / 2, cy = -200;
-    for (let i = 0; i < 24; i++) {
-      const a0 = Math.PI * .05 + i / 24 * Math.PI * .9, a1 = Math.PI * .05 + (i + 1) / 24 * Math.PI * .9;
-      wash(g, [[cx, cy], [cx + Math.cos(a0) * 2600, cy + Math.sin(a0) * 2600], [cx + Math.cos(a1) * 2600, cy + Math.sin(a1) * 2600]], i % 2 ? '#b33a3a' : '#efd9b0', { seed: 201 + i, amt: 0, blooms: 20, rim: .2 });
+// A night town seen through a window: three rows of roofs, chimneys, a spire and a water tower,
+// the far rows paler in the haze, windows lit. Clip to the window first.
+export function nightTown(g, x0, x1, base, seed = 120, o = {}) {
+  const rows = o.rows || [['#3a5278', 0, 60, 140], ['#273b5e', 50, 90, 190], ['#182742', 110, 110, 240]];
+  rows.forEach(([col, dy, hmin, hmax], row) => {
+    const RR = rng(seed + row); let x = x0 - 30;
+    while (x < x1 + 30) {
+      const bw = lerp(48, 100, RR()), bh = lerp(hmin, hmax, RR()), by = base + dy;
+      const kind = RR();
+      let roof;
+      if (kind < .45) roof = [[x, by - bh], [x + bw / 2, by - bh - bw * .5], [x + bw, by - bh]];
+      else if (kind < .7) roof = [[x, by - bh], [x + bw * .2, by - bh - 16], [x + bw * .8, by - bh - 16], [x + bw, by - bh]];
+      else roof = [[x, by - bh], [x + bw, by - bh]];
+      const P = [[x, by + 400], ...roof, [x + bw, by + 400]];
+      wash(g, P, col, { seed: seed + 9 + x, gran: .35, rim: .15, blooms: 1, amt: .5 });
+      if (RR() < .5) wash(g, box(x + bw * .65, by - bh - 40 - bw * .2, 14, 50), col, { seed: seed + 11 + x, gran: .3, rim: .1, amt: .3 });
+      if (row === 1 && RR() < .12) { wash(g, [[x + bw / 2 - 10, by - bh], [x + bw / 2, by - bh - 120], [x + bw / 2 + 10, by - bh]], col, { seed: seed + 13 + x, gran: .3, rim: .1, amt: .3 }); }
+      for (let k = 0; k < 4; k++) if (RR() < .45) { const lx = x + lerp(8, bw - 16, RR()), ly = by - bh + lerp(16, bh - 10, RR()); g.fillStyle = C(RR() < .7 ? '#f3c96a' : '#e58b4a'); g.fillRect(lx, ly, 8, 11); light(g, lx + 4, ly + 5, 16, '#f3c96a', .2); }
+      x += bw + lerp(0, 8, RR());
     }
-    const gr = g.createLinearGradient(0, 0, 0, PH); gr.addColorStop(0, 'rgba(20,10,20,.55)'); gr.addColorStop(.45, 'rgba(20,10,20,.1)'); gr.addColorStop(1, 'rgba(20,10,20,.5)'); g.fillStyle = gr; g.fillRect(0, 0, PW, PH);
-    // the ring
-    wash(g, ellipse(cx, 1700, 760, 230, 0, 60), '#d9b27a', { seed: 211, ink: 0, blooms: 40 });
-    wash(g, ellipse(cx, 1700, 760, 230, 0, 60).concat(ellipse(cx, 1700, 700, 195, 0, 60).reverse()), '#c0392b', { seed: 212, amt: 0 });
-    for (let i = 0; i < 16; i++) { const a = i / 16 * TAU; g.fillStyle = CREAM; g.beginPath(); g.arc(cx + Math.cos(a) * 730, 1700 + Math.sin(a) * 212, 8, 0, TAU); g.fill(); }
-    // spotlight
-    g.save(); g.globalCompositeOperation = 'lighter'; const sp = g.createRadialGradient(cx, 1500, 50, cx, 1500, 700); sp.addColorStop(0, 'rgba(255,240,200,.35)'); sp.addColorStop(1, 'rgba(255,240,200,0)'); g.fillStyle = sp; g.beginPath(); g.moveTo(cx - 90, 0); g.lineTo(cx + 90, 0); g.lineTo(cx + 600, 1900); g.lineTo(cx - 600, 1900); g.closePath(); g.fill(); g.restore();
-    paper(g, PW, PH, 8, .6);
+    // haze between the rows
+    g.save(); g.globalAlpha = .18; g.fillStyle = C('#8aa2c8'); g.fillRect(x0 - 40, base + dy - hmin * .3, x1 - x0 + 80, 400); g.restore();
   });
 }
 
-// The schoolroom: a chalkboard wall and rows of little desks.
-export function schoolroom() {
-  return bake('school', PW, PH, (g) => {
-    wash(g, [[0, 0], [PW, 0], [PW, PH], [0, PH]], '#cfd9b8', { seed: 301, amt: 0, blooms: 60, bloomScale: 2 });
-    const gr = g.createLinearGradient(0, 0, 0, 900); gr.addColorStop(0, 'rgba(30,40,20,.5)'); gr.addColorStop(1, 'rgba(30,40,20,0)'); g.fillStyle = gr; g.fillRect(0, 0, PW, 900);
-    // chalkboard
-    wash(g, [[140, 700], [1160, 700], [1160, 1230], [140, 1230]], WOOD, { seed: 311, ink: 3 });
-    wash(g, [[170, 730], [1130, 730], [1130, 1200], [170, 1200]], '#2f4a3c', { seed: 312, ink: 2, blooms: 40, bloom: 1.4 });
-    wash(g, [[160, 1200], [1140, 1200], [1140, 1228], [160, 1228]], WOOD_SH, { seed: 313, ink: 2 });
-    // floor
-    planks(g, 0, 1500, PW, PH, '#b98a55', 321, false);
-    paper(g, PW, PH, 9, .8);
-  });
-}
-
-// The factory: brick, pipes and a gauge; the press and conveyor are drawn as props.
-export function factory() {
-  return bake('factory', PW, PH, (g) => {
-    wash(g, [[0, 0], [PW, 0], [PW, PH], [0, PH]], '#a4533e', { seed: 401, amt: 0, blooms: 50 });
-    const R = rng(402);
-    for (let y = 0; y < PH; y += 56) for (let x = ((y / 56) % 2) * 60 - 60; x < PW; x += 120) wash(g, [[x + 4, y + 4], [x + 116, y + 4], [x + 116, y + 52], [x + 4, y + 52]], mix('#b5604a', R() < .5 ? '#ffffff' : '#401810', R() * .15), { seed: 403 + x + y * 7, amt: .5, blooms: 1, rim: .25, ink: 1.5, inkA: .35 });
-    const gr = g.createLinearGradient(0, 0, 0, PH); gr.addColorStop(0, 'rgba(30,10,5,.55)'); gr.addColorStop(.5, 'rgba(30,10,5,.1)'); gr.addColorStop(1, 'rgba(30,10,5,.45)'); g.fillStyle = gr; g.fillRect(0, 0, PW, PH);
-    for (const x of [120, 1180]) wash(g, [[x - 26, 600], [x + 26, 600], [x + 26, PH], [x - 26, PH]], '#6d7f7c', { seed: 410 + x, ink: 2.5, grad: .3 });
-    wash(g, [[0, 1700], [PW, 1700], [PW, PH], [0, PH]], '#4a4440', { seed: 420, ink: 3 });
-    paper(g, PW, PH, 10, .6);
-  });
-}
-
-// Mabel's basement gym: brick walls, a high window at pavement level, a rubber floor, the kit.
-export function gym(o = {}) {
-  return bake('gym', PW, PH, (g) => {
-    wash(g, [[0, 0], [PW, 0], [PW, PH], [0, PH]], '#b77b5c', { seed: 501, amt: 0, blooms: 50 });
-    const R = rng(502);
-    for (let y = 0; y < 1560; y += 50) for (let x = ((y / 50) % 2) * 55 - 55; x < PW; x += 110) wash(g, [[x + 3, y + 3], [x + 107, y + 3], [x + 107, y + 47], [x + 3, y + 47]], mix('#c68d6c', R() < .5 ? '#ffffff' : '#401810', R() * .16), { seed: 503 + x + y * 7, amt: .5, blooms: 1, rim: .2, ink: 1.2, inkA: .3 });
-    // painted wall stripe and a sign
-    wash(g, [[0, 1080], [PW, 1080], [PW, 1130], [0, 1130]], TEAL, { seed: 510, ink: 2 });
-    const gr = g.createLinearGradient(0, 0, 0, 900); gr.addColorStop(0, 'rgba(30,12,6,.6)'); gr.addColorStop(1, 'rgba(30,12,6,0)'); g.fillStyle = gr; g.fillRect(0, 0, PW, 900);
-    // the high window at pavement level, with passing feet outside
-    windowFrame(g, 820, 720, 360, 150, 520, (g) => { g.fillStyle = '#c9e1d6'; g.fillRect(800, 700, 400, 200); wash(g, [[800, 820], [1200, 820], [1200, 900], [800, 900]], '#9a9486', { seed: 521, amt: 0 }); });
-    // rack of dumbbells
-    wash(g, [[80, 1290], [520, 1290], [520, 1310], [80, 1310]], SLATE, { seed: 530, ink: 2 });
-    for (let i = 0; i < 5; i++) { const x = 120 + i * 85; wash(g, ellipse(x, 1270, 26, 26, 0, 20), INK, { seed: 531 + i, amt: .3 }); }
-    wash(g, [[90, 1310], [110, 1310], [110, 1560], [90, 1560]], SLATE, { seed: 540, ink: 2 }); wash(g, [[490, 1310], [510, 1310], [510, 1560], [490, 1560]], SLATE, { seed: 541, ink: 2 });
-    // Indian clubs hanging, a skipping rope
-    for (let i = 0; i < 3; i++) wash(g, spline([[960 + i * 70, 1150], [975 + i * 70, 1160], [985 + i * 70, 1300], [965 + i * 70, 1360], [945 + i * 70, 1300], [955 + i * 70, 1160]], true, 4), [CREAM, CORAL, CREAM][i], { seed: 550 + i, ink: 2.5 });
-    // floor: green rubber mats
-    wash(g, [[0, 1560], [PW, 1560], [PW, PH], [0, PH]], '#5d7a5c', { seed: 560, ink: 0, blooms: 40, grad: .15 });
-    for (let x = -100; x < PW + 200; x += 260) { g.strokeStyle = rgba(INK, .35); g.lineWidth = 3; g.beginPath(); g.moveTo(PW / 2 + (x - PW / 2) * .6, 1560); g.lineTo(x, PH); g.stroke(); }
-    g.strokeStyle = rgba(INK, .35); g.beginPath(); g.moveTo(0, 1800); g.lineTo(PW, 1800); g.stroke();
-    paper(g, PW, PH, 11, .7);
-  });
-}
-
-// The crew's office: wallpaper, a corkboard of evidence, a window on the square; night version darker.
-export function office(night = false) {
-  return bake('office' + (night ? 'n' : ''), PW, PH, (g) => {
-    wash(g, [[0, 0], [PW, 0], [PW, PH], [0, PH]], night ? '#3e4a5c' : '#e3cf9f', { seed: 601, amt: 0, blooms: 60 });
-    // wallpaper: little diamonds
-    g.save(); g.globalAlpha = night ? .25 : .3;
-    for (let y = 20; y < 1560; y += 80) for (let x = ((y / 80) % 2) * 50; x < PW; x += 100) { g.fillStyle = night ? '#8ca0b0' : '#c58b5a'; g.beginPath(); g.moveTo(x, y - 12); g.lineTo(x + 9, y); g.lineTo(x, y + 12); g.lineTo(x - 9, y); g.fill(); }
+// ---------------------------------------------------------------- the workshop
+// Clawd's workshop at night: a long bench under a green-shaded lamp, a round window on the moonlit
+// town, a pegboard of tools, shelves of toys. The bench's front edge is the floor line.
+export const WS = { w: 1400, h: 2400, floor: 1350, cx: 700 };
+export function workshop() {
+  return bake('workshop', WS.w, WS.h, (g, w, h) => {
+    const F = WS.floor, cx = WS.cx;
+    // the back wall: warm planks
+    planks(g, 0, 0, w, F - 70, '#7c4a2a', 101, { bw: 118 });
+    // a dado rail
+    wash(g, box(0, 1040, w, 24), '#5e3418', { seed: 102, gran: .4, rim: .3, blooms: 3, ink: 1.6, inkA: .4 });
+    ao(g, 0, 1064, w, 1064, 26, .3);
+    // the round window on the town
+    const wx = 330, wy = 760, wr = 186;
+    g.save(); g.beginPath(); g.arc(wx, wy, wr, 0, TAU); g.clip();
+    wash(g, box(wx - wr, wy - wr, wr * 2, wr * 2), '#1d3354', { seed: 110, grad: [[0, '#0e1a33'], [.55, '#23406a'], [1, '#41648f']], gran: .6, rim: 0, blooms: 10, amt: 0 });
+    const R = rng(111);
+    for (let i = 0; i < 46; i++) { g.fillStyle = rgba('#fff3cf', .4 + R() * .6); g.beginPath(); g.arc(wx - wr + R() * wr * 2, wy - wr + R() * wr * 1.1, .7 + R() * 1.7, 0, TAU); g.fill(); }
+    light(g, wx + 70, wy - 90, 130, '#fff0c0', .3);
+    wash(g, ellipse(wx + 70, wy - 90, 40, 40, 0, 40), '#f6ebc6', { seed: 112, gran: .4, rim: .3, blooms: 3 });
+    wash(g, ellipse(wx + 84, wy - 98, 34, 36, 0, 40), '#20385e', { seed: 113, gran: .3, rim: 0, blooms: 0, amt: .5 });
+    nightTown(g, wx - wr, wx + wr, wy + 30, 120);
     g.restore();
-    const gr = g.createLinearGradient(0, 0, 0, 900); gr.addColorStop(0, `rgba(30,15,6,${night ? .6 : .5})`); gr.addColorStop(1, 'rgba(30,15,6,0)'); g.fillStyle = gr; g.fillRect(0, 0, PW, 900);
-    // wainscot
-    wash(g, [[0, 1250], [PW, 1250], [PW, 1560], [0, 1560]], night ? '#3a2a24' : '#8a5129', { seed: 610, ink: 2.5, grad: .15 });
-    wash(g, [[0, 1240], [PW, 1240], [PW, 1262], [0, 1262]], night ? '#2a1c16' : WOOD_SH, { seed: 611, ink: 2 });
-    // window with the square beyond
-    windowFrame(g, 120, 760, 320, 400, 620, (g) => {
-      if (night) { g.fillStyle = '#1c2a44'; g.fillRect(100, 740, 360, 440); for (let i = 0; i < 20; i++) { g.fillStyle = '#f5ecd0'; g.beginPath(); g.arc(130 + (i * 71) % 300, 770 + (i * 53) % 200, 2.5, 0, TAU); g.fill(); } wash(g, ellipse(360, 830, 34, 34, 0, 30), '#f3e6b8', { seed: 625, amt: .5 }); }
-      else sky(g, 1300, 2200, '#a9d7cf', '#f4e2c0', { clouds: 2, y0: 780, y1: 880, seed: 4 });
-      house(g, 110, 1160, 150, 250, night ? '#4b5870' : '#e7b99c', 7); house(g, 270, 1160, 170, 300, night ? '#3c4c5e' : '#9dc4b9', 8);
-    });
-    // corkboard
-    wash(g, [[640, 720], [1200, 720], [1200, 1160], [640, 1160]], WOOD, { seed: 630, ink: 3 });
-    wash(g, [[665, 745], [1175, 745], [1175, 1135], [665, 1135]], night ? '#8d6a45' : '#c9955c', { seed: 631, ink: 2, blooms: 50, bloom: 1.5 });
-    // floor boards
-    planks(g, 0, 1560, PW, PH, night ? '#4a3226' : '#a0673c', 640, false);
-    paper(g, PW, PH, 12, .7);
+    // the window's frame, cross and sill
+    const ring = (r0, r1) => { const P = []; for (let i = 0; i <= 64; i++) { const a = i / 64 * TAU; P.push([wx + Math.cos(a) * r1, wy + Math.sin(a) * r1]); } for (let i = 64; i >= 0; i--) { const a = i / 64 * TAU; P.push([wx + Math.cos(a) * r0, wy + Math.sin(a) * r0]); } return P; };
+    shadow(g, ring(wr + 10, wr + 52).map(([x, y]) => [x + 10, y + 14]), .4, 12);
+    wash(g, ring(wr - 2, wr + 40), '#6a3a1c', { seed: 140, gran: .5, rim: .4, blooms: 4, amt: .4, ink: 2.2, grad: [[0, '#8a5230'], [1, '#4a260f']], dir: [[wx - wr, wy - wr], [wx + wr, wy + wr]] });
+    wash(g, box(wx - 8, wy - wr, 16, wr * 2), '#5e3418', { seed: 141, gran: .4, rim: .3, blooms: 1, amt: .3 });
+    wash(g, box(wx - wr, wy - 8, wr * 2, 16), '#5e3418', { seed: 142, gran: .4, rim: .3, blooms: 1, amt: .3 });
+    light(g, wx + 40, wy - 60, 240, '#9fb8d8', .12);
+
+    // shelves of toys, high on the left and right
+    const shelf = (x0, x1, y, seed) => {
+      shadow(g, box(x0 + 10, y + 26, x1 - x0, 34), .4, 14);
+      wash(g, box(x0, y, x1 - x0, 24), '#6a3a1c', { seed, gran: .5, rim: .4, blooms: 2, amt: .5, ink: 2 });
+      for (const bx of [x0 + 30, x1 - 44]) wash(g, [[bx, y + 24], [bx + 14, y + 24], [bx + 14, y + 74], [bx, y + 52]], '#5a3018', { seed: seed + bx, gran: .4, rim: .3, blooms: 1, amt: .3 });
+    };
+    const SY = 470;
+    shelf(-10, 450, SY, 150); shelf(950, w + 10, SY, 160);
+    const toy = {
+      drum: (x, y) => { wash(g, box(x - 46, y - 70, 92, 70), '#b0402e', { seed: 170, gran: .4, rim: .4, blooms: 2, ink: 2, grad: [[0, '#c85a40'], [1, '#8a2c1e']], dir: [[x - 46, 0], [x + 46, 0]] }); wash(g, ellipse(x, y - 70, 46, 12, 0, 30), '#e8d9b0', { seed: 171, gran: .3, rim: .3, ink: 2 }); for (let i = 0; i < 4; i++) inkLine(g, [[x - 46 + i * 30, y - 66], [x - 30 + i * 30, y - 6]], { w: 2, seed: 172 + i, col: '#e8d9b0' }); },
+      top: (x, y) => { wash(g, [[x, y], [x - 40, y - 46], [x, y - 72], [x + 40, y - 46]], '#2f7f86', { seed: 175, gran: .4, rim: .4, blooms: 2, ink: 2 }); wash(g, box(x - 40, y - 50, 80, 8), '#e6b84a', { seed: 176, gran: .3, rim: .2, amt: .3 }); inkLine(g, [[x, y - 72], [x, y - 92]], { w: 4, col: '#3a2010', a: .9 }); },
+      ball: (x, y) => { wash(g, ellipse(x, y - 34, 34, 34, 0, 40), '#d8b04a', { seed: 177, gran: .4, rim: .4, blooms: 2, ink: 2 }); wash(g, [[x - 34, y - 34], [x, y - 68], [x + 2, y - 34], [x, y]], '#c24a3a', { seed: 178, gran: .3, rim: .2, amt: .3 }); },
+      train: (x, y) => { wash(g, box(x - 70, y - 46, 110, 40), '#356a8a', { seed: 180, gran: .4, rim: .4, blooms: 2, ink: 2 }); wash(g, box(x + 10, y - 86, 34, 44), '#356a8a', { seed: 181, gran: .4, rim: .4, ink: 2 }); wash(g, box(x - 60, y - 70, 18, 26), '#2a2a2a', { seed: 182, gran: .3, rim: .3, ink: 2 }); for (const k of [-50, -10, 26]) wash(g, ellipse(x + k, y - 6, 13, 13, 0, 24), '#2a2a2a', { seed: 183 + k, gran: .3, rim: .3, ink: 2 }); },
+      soldier: (x, y) => { wash(g, box(x - 14, y - 88, 28, 60), '#b0402e', { seed: 186, gran: .4, rim: .4, ink: 2 }); wash(g, box(x - 12, y - 122, 24, 34), '#2a2a2a', { seed: 187, gran: .3, rim: .3, ink: 2 }); wash(g, ellipse(x, y - 94, 11, 11, 0, 20), '#efc9a0', { seed: 188, gran: .2, rim: .2, ink: 1.6 }); wash(g, box(x - 12, y - 30, 10, 30), '#2a2a50', { seed: 189, gran: .3, rim: .2, ink: 1.6 }); wash(g, box(x + 2, y - 30, 10, 30), '#2a2a50', { seed: 190, gran: .3, rim: .2, ink: 1.6 }); },
+      boat: (x, y) => { wash(g, [[x - 50, y - 30], [x + 50, y - 30], [x + 34, y], [x - 34, y]], '#8a4a26', { seed: 192, gran: .4, rim: .4, ink: 2 }); wash(g, [[x, y - 30], [x, y - 130], [x + 46, y - 40]], '#efe2c0', { seed: 193, gran: .3, rim: .3, ink: 2 }); inkLine(g, [[x, y - 30], [x, y - 134]], { w: 3, seed: 194 }); },
+      bear: (x, y) => { for (const [ex, ey, r] of [[-26, -112, 14], [26, -112, 14]]) wash(g, ellipse(x + ex, y + ey, r, r, 0, 20), '#a8703c', { seed: 195 + ex, gran: .4, rim: .4, ink: 1.8 }); wash(g, ellipse(x, y - 40, 40, 42, 0, 34), '#a8703c', { seed: 197, gran: .4, rim: .4, ink: 2 }); wash(g, ellipse(x, y - 96, 32, 30, 0, 30), '#b47c44', { seed: 198, gran: .4, rim: .4, ink: 2 }); wash(g, ellipse(x, y - 88, 12, 9, 0, 16), '#e8c896', { seed: 199, gran: .2, rim: .2, ink: 1.4 }); },
+    };
+    toy.drum(90, SY); toy.top(205, SY); toy.boat(330, SY);
+    toy.train(1060, SY); toy.bear(1185, SY); toy.soldier(1290, SY);
+
+    // the pegboard of tools on the right
+    const px0 = 920, py0 = 640, pw = 400, ph = 360;
+    shadow(g, box(px0 + 14, py0 + 16, pw, ph), .45, 16);
+    wash(g, box(px0, py0, pw, ph), '#b48a5a', { seed: 200, gran: .6, rim: .5, blooms: 8, amt: .8, ink: 2.4 });
+    g.save(); g.fillStyle = rgba('#3a2010', .45);
+    for (let yy = py0 + 24; yy < py0 + ph - 10; yy += 34) for (let xx = px0 + 22; xx < px0 + pw - 10; xx += 34) { g.beginPath(); g.arc(xx, yy, 3.6, 0, TAU); g.fill(); }
+    g.restore();
+    const steel = '#7d8a8c', handle = '#8c3a26';
+    const tool = (P, col, seed) => { shadow(g, P.map(([x, y]) => [x + 6, y + 8]), .35, 5); wash(g, P, col, { seed, gran: .3, rim: .4, ink: 2, blooms: 1 }); };
+    tool(box(px0 + 60, py0 + 70, 22, 220), steel, 210); tool(ellipse(px0 + 71, py0 + 66, 30, 30, 0, 30), steel, 211); wash(g, box(px0 + 62, py0 + 34, 18, 30), '#b48a5a', { seed: 212, gran: .2, rim: 0, amt: 0, blooms: 0 });
+    tool(box(px0 + 150, py0 + 76, 20, 220), handle, 213); tool(box(px0 + 116, py0 + 58, 88, 36), '#5d6668', 214);
+    tool([[px0 + 250, py0 + 60], [px0 + 380, py0 + 60], [px0 + 380, py0 + 130], [px0 + 250, py0 + 100]], '#a9b2b0', 215); tool(box(px0 + 228, py0 + 50, 34, 60), handle, 216);
+    for (let i = 0; i < 4; i++) { const x = px0 + 236 + i * 36; tool(box(x, py0 + 180, 14, 80), ['#d0a03c', '#2f7f86', '#b0402e', '#d0a03c'][i], 217 + i); wash(g, box(x + 5, py0 + 260, 4, 66), steel, { seed: 221 + i, gran: .2, rim: .2, ink: 1.4 }); }
+
+    // the lamp's cord
+    inkLine(g, [[cx, 0], [cx, 330]], { w: 5, a: .9, gap: 0 });
+    // the light: a cone from the shade, warming the wall, pooling on the bench
+    g.save(); g.globalCompositeOperation = 'screen';
+    const cone = g.createLinearGradient(0, 430, 0, F);
+    cone.addColorStop(0, rgba('#ffd590', .3)); cone.addColorStop(1, rgba('#ffcf80', .08));
+    g.fillStyle = cone; g.filter = 'blur(30px)'; g.beginPath(); g.moveTo(cx - 150, 450); g.lineTo(cx + 150, 450); g.lineTo(cx + 600, F); g.lineTo(cx - 600, F); g.closePath(); g.fill();
+    g.restore();
+    // darkness gathering in the corners and up under the ceiling, cool in the shadows
+    gloom(g, w, F, cx, 860, 180, 980, '#120814', .9);
+    g.save(); g.globalCompositeOperation = 'multiply'; const cool = g.createRadialGradient(cx, 860, 300, cx, 860, 1100); cool.addColorStop(0, 'rgba(255,255,255,1)'); cool.addColorStop(1, 'rgba(150,140,190,1)'); g.fillStyle = cool; g.fillRect(0, 0, w, F); g.restore();
+    light(g, cx, 760, 420, '#ffc070', .3);
+    light(g, cx, F - 80, 600, '#ffd08a', .4, 200);
+
+    // the lamp: a green enamel shade, its cream inside, the bulb
+    const lx = cx, ly = 380;
+    wash(g, [[lx - 20, ly - 66], [lx + 20, ly - 66], [lx + 26, ly - 38], [lx - 26, ly - 38]], '#3a3a36', { seed: 230, gran: .3, rim: .3, ink: 2.4 });
+    wash(g, spline([[lx - 165, ly + 70], [lx - 120, ly - 10], [lx - 40, ly - 48], [lx + 40, ly - 48], [lx + 120, ly - 10], [lx + 165, ly + 70]], false, 6).concat([[lx + 165, ly + 76], [lx - 165, ly + 76]]), '#2f6b4a', { seed: 231, grad: [[0, '#5a9a74'], [.45, '#2f6b4a'], [1, '#183a28']], dir: [[lx - 160, 0], [lx + 160, 0]], gran: .5, rim: .5, blooms: 4, ink: 3 });
+    wash(g, ellipse(lx - 70, ly + 6, 28, 12, -.5, 20), '#9fd0b0', { seed: 234, gran: .1, rim: 0, blooms: 0, amt: .3 });
+    wash(g, ellipse(lx, ly + 74, 165, 22, 0, 50), '#f7e6b8', { seed: 232, gran: .2, rim: .2, blooms: 2, ink: 2.4 });
+    light(g, lx, ly + 84, 120, '#fff2c8', .9, 50);
+    wash(g, ellipse(lx, ly + 86, 34, 24, 0, 30), '#fffbe8', { seed: 233, gran: 0, rim: 0, blooms: 0 });
+    light(g, lx, ly + 90, 70, '#ffffff', .75);
+
+    // the bench: its top in the light, its front in shadow (the lyric's apron)
+    const top0 = F - 78;
+    wash(g, box(0, top0, w, 80), '#b98250', { seed: 240, grad: [[0, '#7a4a28'], [1, '#c8925c']], gran: .55, rim: .2, blooms: 10, amt: .6 });
+    streaks(g, box(0, top0, w, 80), '#b98250', { seed: 241, ang: 0, len: 260, n: 160, a: .2, w: 1.6 });
+    light(g, cx, F - 30, 560, '#ffdca0', .35, 60);
+    wash(g, box(0, F - 4, w, 22), '#d7a56c', { seed: 242, gran: .3, rim: .2, blooms: 2, amt: .4, grad: [[0, '#e6b882'], [1, '#a8743e']] });
+    wash(g, box(0, F + 18, w, h - F - 18), '#3a2212', { seed: 243, grad: [[0, '#4a2c16'], [.2, '#2c180c'], [1, '#140904']], gran: .5, rim: 0, blooms: 14, amt: 0 });
+    streaks(g, box(0, F + 18, w, h - F - 18), '#3a2212', { seed: 244, ang: 0, len: 300, n: 220, a: .08, w: 2 });
+    ao(g, 0, F + 18, w, F + 18, 70, .55);
+    for (const dx of [cx - 520, cx + 160]) { wash(g, box(dx, F + 150, 360, 180), '#2a1709', { seed: 250 + dx, gran: .4, rim: .4, blooms: 2, amt: .5, ink: 1.6, inkA: .3 }); wash(g, ellipse(dx + 180, F + 240, 22, 10, 0, 20), '#5a3c22', { seed: 252 + dx, gran: .2, rim: .3, amt: .3 }); }
+    // clutter at the bench's ends: a jar of brushes, paint pots, a vice
+    const bx = 120, by = top0 + 30;
+    shadow(g, box(bx - 34, by - 6, 280, 20), .4, 8);
+    wash(g, box(bx - 40, by - 110, 80, 110), '#9cb0a6', { seed: 260, gran: .3, rim: .4, blooms: 2, ink: 2, grad: [[0, '#b8cbc1'], [1, '#6f847a']], dir: [[bx - 40, 0], [bx + 40, 0]] });
+    for (let i = 0; i < 5; i++) { const x = bx - 28 + i * 14; inkLine(g, [[x, by - 100], [x - 6 + i * 3, by - 210]], { w: 6, col: '#7a4a24', a: .9, gap: 0 }); wash(g, ellipse(x - 6 + i * 3, by - 214, 7, 16, .1, 16), ['#c24a3a', '#e6b84a', '#2f7f86', '#efe2c0', '#7a4a8a'][i], { seed: 261 + i, gran: .2, rim: .3, ink: 1.6 }); }
+    for (const [x, c] of [[250, '#c24a3a'], [320, '#2f7f86']]) { wash(g, box(x - 32, by - 62, 64, 62), '#c9c2b0', { seed: 270 + x, gran: .3, rim: .4, ink: 2, grad: [[0, '#ddd6c4'], [1, '#9a9282']], dir: [[x - 32, 0], [x + 32, 0]] }); wash(g, ellipse(x, by - 62, 32, 9, 0, 26), c, { seed: 271 + x, gran: .2, rim: .3, ink: 1.8 }); }
+    const vx = 1230;
+    shadow(g, box(vx - 110, by - 6, 260, 20), .4, 8);
+    wash(g, box(vx - 70, by - 120, 140, 90), '#4c5a5a', { seed: 280, gran: .4, rim: .4, blooms: 3, ink: 2.4, grad: [[0, '#6c7a7a'], [1, '#34403f']], dir: [[0, by - 120], [0, by - 30]] });
+    wash(g, box(vx - 110, by - 92, 40, 30), '#4c5a5a', { seed: 281, gran: .3, rim: .3, ink: 2 });
+    inkLine(g, [[vx + 70, by - 70], [vx + 140, by - 70]], { w: 8, col: '#3a4444', a: 1, gap: 0 });
+    paper(g, w, h, .45);
   });
 }
 
-// The title card: a sunburst of teal and cream rays.
-export function sunburst(g, cx, cy, rot, cols = [TEAL, '#e7d4a6']) {
-  const n = 28;
+// ---------------------------------------------------------------- the theatre
+// A vaudeville stage: a carved gold proscenium with a shell at its crown, red velvet swags and side
+// curtains, a painted sunburst backdrop with clouds, three tiers of risers for the chorus of
+// checks, a plank stage, shell footlights along its front edge (the floor line), and the dark
+// orchestra pit below for the lyric. TH.tiers are the risers' standing lines, back to front.
+export const TH = { w: 1700, h: 2700, floor: 1650, cx: 850, tiers: [1190, 1310, 1430], stage: [1470, 1650], open: [190, 1510, 250] };
+function sunburst(g, cx, cy, n, r, cols, rot = 0) {
   for (let i = 0; i < n; i++) {
     const a0 = rot + i / n * TAU, a1 = rot + (i + 1) / n * TAU;
-    g.fillStyle = i % 2 ? cols[0] : cols[1];
-    g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + Math.cos(a0) * 2600, cy + Math.sin(a0) * 2600); g.lineTo(cx + Math.cos(a1) * 2600, cy + Math.sin(a1) * 2600); g.closePath(); g.fill();
+    g.fillStyle = C(cols[i % cols.length]);
+    g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + Math.cos(a0) * r, cy + Math.sin(a0) * r); g.lineTo(cx + Math.cos(a1) * r, cy + Math.sin(a1) * r); g.closePath(); g.fill();
   }
 }
-
-// The bare stage for the breakdown: cream boards, a black drop, one spotlight.
-export function stage() {
-  return bake('stage', PW, PH, (g) => {
-    g.fillStyle = '#20150f'; g.fillRect(0, 0, PW, PH);
-    wash(g, [[0, 1500], [PW, 1500], [PW, PH], [0, PH]], '#6b4a30', { seed: 701, amt: 0, blooms: 30 });
-    for (let x = 0; x < PW; x += 110) { g.strokeStyle = rgba(INK, .5); g.lineWidth = 3; g.beginPath(); g.moveTo(x, 1500); g.lineTo(PW / 2 + (x - PW / 2) * 1.5, PH); g.stroke(); }
-    paper(g, PW, PH, 13, .5);
+// Velvet: a curtain's folds as vertical bands of light and shadow, in a deep red.
+function velvet(g, P, x0, x1, seed, o = {}) {
+  const b = { x0, x1 };
+  wash(g, P, '#8e1c1c', { seed, gran: .5, rim: .3, blooms: 6, amt: .4 });
+  g.save(); path(g, P); g.clip();
+  const n = Math.round((x1 - x0) / (o.fold ?? 70));
+  for (let i = 0; i <= n; i++) {
+    const x = lerp(x0, x1, i / n), w2 = (x1 - x0) / n;
+    const gr = g.createLinearGradient(x - w2 / 2, 0, x + w2 / 2, 0);
+    gr.addColorStop(0, 'rgba(40,0,6,.55)'); gr.addColorStop(.35, 'rgba(255,120,110,.18)'); gr.addColorStop(.55, 'rgba(255,150,130,.24)'); gr.addColorStop(1, 'rgba(40,0,6,.55)');
+    g.fillStyle = gr; g.fillRect(x - w2 / 2, -10, w2, 4000);
+  }
+  g.restore();
+}
+function goldFrame(g, P, seed) {
+  wash(g, P, '#c9962e', { seed, gran: .45, rim: .5, blooms: 6, amt: .3, ink: 2.4, inkCol: '#5a3a0c', grad: [[0, '#f0cf6a'], [.5, '#c9962e'], [1, '#8a5f12']] });
+}
+export function theatre(o = {}) {
+  return bake('theatre' + (o.closed ? 'c' : ''), TH.w, TH.h, (g, w, h) => {
+    const F = TH.floor, cx = TH.cx, [ox0, ox1, oy] = TH.open;
+    // the backdrop: a sunburst over painted clouds
+    g.save(); g.beginPath(); g.rect(ox0, oy, ox1 - ox0, F - oy); g.clip();
+    wash(g, box(ox0, oy, ox1 - ox0, F - oy), '#e9c98a', { seed: 301, gran: .5, rim: 0, blooms: 20, amt: 0 });
+    sunburst(g, cx, 1060, 36, 1400, ['#f1d796', '#e4b36a'], .02);
+    g.save(); g.globalAlpha = .55; wash(g, box(ox0, oy, ox1 - ox0, F - oy), '#f2d79a', { seed: 302, gran: .7, rim: 0, blooms: 30, amt: 0, bloom: 2 }); g.restore();
+    light(g, cx, 1060, 520, '#fff2c8', .6);
+    wash(g, ellipse(cx, 1060, 150, 150, 0, 60), '#f6dd92', { seed: 303, gran: .4, rim: .4, blooms: 6, radial: [cx, 1040, 20, 150, [[0, '#fff3c2'], [1, '#f0c868']]] });
+    // painted clouds along the bottom of the backdrop
+    const R = rng(304);
+    for (let i = 0; i < 9; i++) { const x = lerp(ox0 - 60, ox1 + 60, i / 8), y = 1120 + R() * 40, s = lerp(.8, 1.3, R()); const P = []; for (let k = 0; k <= 9; k++) { const a = Math.PI + k / 9 * Math.PI; P.push([x + Math.cos(a) * 150 * s, y + Math.sin(a) * (k % 2 ? 70 : 100) * s]); } P.push([x + 150 * s, y + 80], [x - 150 * s, y + 80]); wash(g, spline(P, true, 4), '#f7ecd2', { seed: 305 + i, gran: .4, rim: .35, blooms: 4, amt: 1.5, grad: [[0, '#fff8e6'], [1, '#e8cfa4']] }); }
+    gloom(g, w, F, cx, 1000, 300, 900, '#3a0a10', .55);
+    // the risers: three tiers, red-carpeted fronts, gold edging
+    TH.tiers.forEach((ty, i) => {
+      const inset = (2 - i) * 70, x0 = ox0 + 40 + inset, x1 = ox1 - 40 - inset;
+      shadow(g, box(x0, ty - 10, x1 - x0, 30), .45, 10);
+      wash(g, box(x0, ty, x1 - x0, 34), '#d9b26a', { seed: 310 + i, gran: .4, rim: .3, blooms: 3, amt: .4, grad: [[0, '#f0d08a'], [1, '#b8893e']] });
+      wash(g, box(x0, ty + 34, x1 - x0, 86), '#7a1a22', { seed: 313 + i, gran: .5, rim: .3, blooms: 4, amt: .4, grad: [[0, '#9a2a2e'], [1, '#4e0e14']] });
+      inkLine(g, [[x0, ty + 34], [x1, ty + 34]], { w: 2.4, a: .6 });
+    });
+    // the stage floor: planks running back to the backdrop, lit warm
+    const [s0, s1] = TH.stage;
+    wash(g, [[ox0 - 20, s0], [ox1 + 20, s0], [w, F], [0, F]], '#b07a46', { seed: 320, gran: .55, rim: .2, blooms: 16, amt: 0, grad: [[0, '#8a5a30'], [1, '#c98e52']] });
+    for (let i = -12; i <= 12; i++) inkLine(g, [[cx + i * 52, s0], [cx + i * 120, F]], { w: 2, a: .35, gap: 0, seed: 321 + i });
+    for (const yy of [1520, 1580]) inkLine(g, [[0, yy], [w, yy]], { w: 1.6, a: .25, gap: .3 });
+    g.restore();
+    // side curtains (tormentors), gathered and tied back with gold rope
+    for (const d of [-1, 1]) {
+      const xa = d < 0 ? ox0 - 40 : ox1 + 40, xb = d < 0 ? ox0 + 190 : ox1 - 190;
+      const P = d < 0 ? [[xa, oy - 40], [xb, oy - 40], [xb - 30, 900], [xa + 70, 1140], [xb - 40, 1400], [xb, F + 10], [xa, F + 10]] : [[xb, oy - 40], [xa, oy - 40], [xa, F + 10], [xb, F + 10], [xb + 40, 1400], [xa - 70, 1140], [xb + 30, 900]];
+      velvet(g, spline(P, true, 4), Math.min(xa, xb) - 40, Math.max(xa, xb) + 40, 330 + d, { fold: 55 });
+      const ry = 1140; wash(g, ellipse(d < 0 ? xa + 74 : xa - 74, ry, 22, 34, 0, 24), '#e2b84c', { seed: 333 + d, gran: .3, rim: .4, ink: 2 });
+      inkLine(g, [[d < 0 ? xa + 74 : xa - 74, ry + 30], [d < 0 ? xa + 86 : xa - 86, ry + 140]], { w: 6, col: '#c99a3a', a: 1, gap: 0 });
+    }
+    // the valance: swags of red velvet with gold fringe across the top
+    for (let i = 0; i < 5; i++) {
+      const x0 = lerp(ox0 - 60, ox1 + 60, i / 5), x1 = lerp(ox0 - 60, ox1 + 60, (i + 1) / 5), mx = (x0 + x1) / 2;
+      const P = spline([[x0, oy - 60], [x1, oy - 60], [x1, oy + 20], [mx, oy + 120], [x0, oy + 20]], true, 6);
+      velvet(g, P, x0, x1, 340 + i, { fold: 48 });
+      for (let k = 0; k <= 16; k++) { const u = k / 16, fx = lerp(x0, x1, u), fy = oy + 20 + Math.sin(u * Math.PI) * 100; inkLine(g, [[fx, fy], [fx, fy + 26]], { w: 4, col: '#d8a83a', a: 1, gap: 0 }); }
+    }
+    // the proscenium: carved gold, a shell at its crown
+    const pw = 70;
+    goldFrame(g, box(0, 0, w, oy - 60), 350);
+    goldFrame(g, box(0, 0, ox0 - 40, F + 10), 351);
+    goldFrame(g, box(ox1 + 40, 0, w - ox1 - 40, F + 10), 352);
+    g.save(); g.globalCompositeOperation = 'multiply'; g.globalAlpha = .55; g.fillStyle = '#5a3008'; g.fillRect(0, 0, w, oy - 60); g.fillRect(0, 0, ox0 - 40, F); g.fillRect(ox1 + 40, 0, w - ox1 - 40, F); g.restore();
+    // carving: scrolls and flutes, painted in light and shade
+    for (const d of [-1, 1]) for (let k = 0; k < 9; k++) { const x = d < 0 ? (ox0 - 40) / 2 : ox1 + 40 + (w - ox1 - 40) / 2, y = 300 + k * 150; wash(g, ellipse(x, y, 52, 60, 0, 30), '#d9a83c', { seed: 360 + k + d * 20, gran: .3, rim: .5, ink: 2, inkCol: '#5a3a0c', radial: [x - 14, y - 18, 4, 64, [[0, '#ffe7a0'], [1, '#9a6a18']]] }); }
+    const shx = cx, shy = 120;
+    const shell = []; for (let k = 0; k <= 14; k++) { const a = Math.PI + k / 14 * Math.PI; shell.push([shx + Math.cos(a) * 170, shy + 40 + Math.sin(a) * 150 * (k % 2 ? .86 : 1)]); }
+    wash(g, shell, '#e6b84a', { seed: 370, gran: .3, rim: .5, ink: 2.6, inkCol: '#5a3a0c', radial: [shx, shy, 10, 190, [[0, '#ffe9a6'], [1, '#a8741a']]] });
+    for (let k = 1; k < 14; k += 2) { const a = Math.PI + k / 14 * Math.PI; inkLine(g, [[shx, shy + 40], [shx + Math.cos(a) * 150, shy + 40 + Math.sin(a) * 130]], { w: 2.4, col: '#7a5010', a: .6 }); }
+    // footlights: shells along the stage's front edge, glowing up
+    wash(g, box(0, F - 6, w, 26), '#5a3418', { seed: 380, gran: .4, rim: .3, blooms: 2, amt: .3, grad: [[0, '#8a5a30'], [1, '#3a2010']] });
+    for (let k = 0; k < 9; k++) {
+      const x = lerp(ox0 + 40, ox1 - 40, k / 8), y = F;
+      light(g, x, y - 30, 170, '#ffd88a', .38, 120);
+      const P = []; for (let q = 0; q <= 10; q++) { const a = Math.PI + q / 10 * Math.PI; P.push([x + Math.cos(a) * 46, y + Math.sin(a) * 40]); }
+      wash(g, P, '#e2b04a', { seed: 381 + k, gran: .3, rim: .4, ink: 2, inkCol: '#5a3a0c', radial: [x, y - 10, 4, 46, [[0, '#fff2c0'], [1, '#c58a24']]] });
+    }
+    // the orchestra pit: dark, with the music stands' lamps glowing faintly far below
+    wash(g, box(0, F + 20, w, h - F - 20), '#1a0d08', { seed: 390, grad: [[0, '#2a140a'], [.3, '#150a05'], [1, '#0a0503']], gran: .5, rim: 0, blooms: 10, amt: 0 });
+    ao(g, 0, F + 20, w, F + 20, 90, .6);
+    for (let k = 0; k < 6; k++) { const x = 220 + k * 250, y = F + 560 + (k % 2) * 40; light(g, x, y, 60, '#f0b860', .22); wash(g, box(x - 30, y + 6, 60, 8), '#3a2412', { seed: 391 + k, gran: .2, rim: 0, amt: .3 }); }
+    paper(g, w, h, .4);
   });
 }
-// A spotlight pool: drawn live so it can move.
-export function spot(g, x, y, r, a = .5) {
-  g.save(); g.globalCompositeOperation = 'lighter';
-  const sp = g.createRadialGradient(x, y, r * .1, x, y, r); sp.addColorStop(0, `rgba(255,240,205,${a})`); sp.addColorStop(.7, `rgba(255,240,205,${a * .6})`); sp.addColorStop(1, 'rgba(255,240,205,0)');
-  g.fillStyle = sp; g.beginPath(); g.ellipse(x, y, r, r * .32, 0, 0, TAU); g.fill();
-  const cone = g.createLinearGradient(0, 0, 0, y); cone.addColorStop(0, `rgba(255,240,205,${a * .05})`); cone.addColorStop(1, `rgba(255,240,205,${a * .35})`);
-  g.fillStyle = cone; g.beginPath(); g.moveTo(x - r * .15, -50); g.lineTo(x + r * .15, -50); g.lineTo(x + r, y); g.lineTo(x - r, y); g.closePath(); g.fill();
+// The main curtain, closed: drawn live so it can rise. Covers the proscenium opening from y0 down.
+export function mainCurtain(g, lift = 0, t = 0) {
+  const [ox0, ox1, oy] = TH.open, F = TH.floor, y1 = lerp(F + 10, oy - 80, lift);
+  if (y1 <= oy - 70) return;
+  g.save(); g.beginPath(); g.rect(ox0 - 40, oy - 60, ox1 - ox0 + 80, y1 - oy + 60); g.clip();
+  const c = bake('curtain', ox1 - ox0 + 80, F - oy + 120, (cg, cw, ch) => {
+    velvet(cg, box(0, 0, cw, ch), 0, cw, 395, { fold: 64 });
+    // a gold fringe at the hem
+    for (let k = 0; k <= 70; k++) inkLine(cg, [[k / 70 * cw, ch - 40], [k / 70 * cw, ch - 6]], { w: 5, col: '#d8a83a', a: 1, gap: 0 });
+    wash(cg, box(0, ch - 52, cw, 16), '#c9962e', { seed: 396, gran: .3, rim: .3, amt: .3 });
+    paper(cg, cw, ch, .35);
+  });
+  // the hem sways a little as it rises
+  g.drawImage(c, ox0 - 40, y1 - (F - oy + 120) + 10);
   g.restore();
+}
+
+// ---------------------------------------------------------------- the workshop's door
+// The other wall of the workshop: planks, a heavy door frame, and beyond it (once the door bursts
+// open) a blaze of light. The door itself is drawn live. DOOR.open is the doorway's box.
+export const DOOR = { w: 1400, h: 2400, floor: 1350, cx: 700, open: [470, 520, 460, 830] };
+export function workshopDoor() {
+  return bake('door', DOOR.w, DOOR.h, (g, w, h) => {
+    const F = DOOR.floor, [dx, dy, dw, dh] = DOOR.open;
+    planks(g, 0, 0, w, F, '#6e4024', 151, { bw: 120 });
+    // the light beyond the doorway
+    wash(g, box(dx, dy, dw, dh), '#fff2cc', { seed: 152, gran: .2, rim: 0, blooms: 4, amt: 0, radial: [dx + dw / 2, dy + dh * .6, 20, dh * .8, [[0, '#ffffff'], [.5, '#fff0c0'], [1, '#f2c878']]] });
+    // the frame
+    for (const P of [box(dx - 60, dy - 60, dw + 120, 60), box(dx - 60, dy, 60, dh), box(dx + dw, dy, 60, dh)]) wash(g, P, '#4a2a14', { seed: 153 + P[0][0], gran: .5, rim: .4, blooms: 3, ink: 2.4, grad: [[0, '#6a3e20'], [1, '#3a1e0c']] });
+    gloom(g, w, F, dx + dw / 2, dy + dh * .6, 300, 1000, '#120804', .88);
+    // the floor and the apron
+    wash(g, box(0, F, w, h - F), '#2a1810', { seed: 154, grad: [[0, '#4a2c18'], [.25, '#24140a'], [1, '#100804']], gran: .5, rim: 0, blooms: 8, amt: 0 });
+    for (let k = 0; k < 12; k++) inkLine(g, [[w / 2 + (k - 6) * 70, F], [w / 2 + (k - 6) * 240, h]], { w: 2, a: .25, gap: 0 });
+    ao(g, 0, F, w, F, 60, .5);
+    paper(g, w, h, .4);
+  });
+}
+// The door: a slab of planks hinged at the doorway's left edge; open 0..1 swings it flat to the wall.
+export function door(g, open, t = 0) {
+  const [dx, dy, dw, dh] = DOOR.open;
+  const k = Math.cos(open * Math.PI * .5), w2 = dw * k;
+  if (w2 < 4) return;
+  const skew = (1 - k) * 60;
+  const P = [[dx, dy], [dx + w2, dy + skew], [dx + w2, dy + dh - skew * .4], [dx, dy + dh]];
+  wash(g, P, '#7a4a28', { seed: 160, gran: .5, rim: .4, blooms: 3, ink: 2.6, grad: [[0, '#8a5a32'], [1, '#5a3218']], dir: [[dx, 0], [dx + w2, 0]], amt: .4 });
+  for (let i = 1; i < 4; i++) inkLine(g, [[dx + w2 * i / 4, dy + skew * i / 4 + 10], [dx + w2 * i / 4, dy + dh - skew * .4 * i / 4 - 10]], { w: 2, a: .5, gap: 0 });
+  wash(g, ellipse(dx + w2 * .85, dy + dh * .52 + skew * .5, 14 * k + 4, 16, 0, 20), '#d9a83c', { seed: 161, gran: .2, rim: .3, ink: 2 });
 }

@@ -19,7 +19,9 @@ const server = http.createServer((req, res) => {
 const browser = await chromium.launch({ args: ['--disable-dev-shm-usage'] });
 const page = await browser.newPage({ viewport: { width: 300, height: 600 } });
 page.on('pageerror', e => console.error('page error:', e.message));
-await page.goto(`http://localhost:${server.address().port}/video/lib/player.html?scene=/video/ep04/ball/main.js&song=/music/ep04/piano&w=135&render=1`);
+// the lyric is drawn over every shot whatever the parts, so --query part=intro (any one part) makes it fast
+const query = args.query ? `&${args.query}` : '';
+await page.goto(`http://localhost:${server.address().port}/video/lib/player.html?scene=/video/ep04/ball/main.js&song=/music/ep04/piano&w=135&render=1${query}`);
 await page.waitForFunction(() => window.ready === true, null, { timeout: 60000 });
 const from = +(args.from || 0), to = +(args.to || 191), step = +(args.step || .1);
 for (let k = Math.round(from / step); k * step < to; k++) {

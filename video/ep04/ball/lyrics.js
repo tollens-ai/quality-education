@@ -1,218 +1,294 @@
-// The sung words and the bouncing ball. After the sing-along cartoons of the 1920s and '30s, a ball
-// hops along the lyric and lands on each word as it's sung; here each landing stamps its word into
-// being. A couplet is one block that builds word by word and holds until it's sung, whatever the
-// pictures do underneath. The ball carries on from block to block.
-import { W, clamp, lerp, easeOut, backOut, smooth, bell, REC, beatPos, sinceBeat, noise, now, hash, TAU } from './kit.js';
-import { INK, CREAM, CORAL, GOLD, RED, RED_SH, WHITE, ROSE, C } from './palette.js';
-import { word, textW, DISPLAY, PATTER, SCRIPT } from './type.js';
-import { shape, ellipse } from './ink.js';
+// The sung words and the bouncing ball. One sung line at a time, in one place for the whole film:
+// centred, just below the middle of the frame, where eyes go for subtitles, over the dark apron of
+// every set. Each word springs up a hair before it's sung (LEAD), and a red ball, after the
+// sing-along cartoons of the 1920s and '30s, hops along and lands on it. The line holds as one
+// block across the cuts until the next line is about to arrive, then drops away.
+// Quoted speech ("Saved!") sits in a speech bubble pointing at whoever says it; the scare quotes on
+// Clawd's "tests" are in the crew's rose, as if they'd pencilled them in.
+import { W, H, clamp, lerp, easeOut, backOut, smooth, bell, REC, beatPos, noise, hash, TAU } from './kit.js';
+import { INK, CREAM, GOLD, RED, RED_SH, WHITE, ROSE, C } from './palette.js';
+import { word, textW, DISPLAY, PATTER } from './type.js';
+import { shape, ellipse, spline, line } from './ink.js';
 
 export const LEAD = .085;      // words finish arriving this long before the voice (episode 2's measured choice)
-const POP = .11;               // how long a word takes to spring up
+const POP = .12;               // how long a word takes to spring up
+export const LYRIC_TOP = 1190; // the top of every block, in master pixels
+const BALL_CEIL = 1112;       // the ball's top never rises above this: it stays in the lyric's band, out of the picture
+// The column the lyric sits in: centred a hair left of the frame's middle, so the widest row stays
+// clear of the phone apps' buttons down the right edge of the lower half (x 940 and beyond).
+export const LYRIC_X = 500;
+const MAXW = 850;
 
-// How each part of the song is lettered. y is the top of the block; the block is centred on x.
+// How each part of the song is lettered.
 const STYLE = {
-  Intro: { font: DISPLAY, size: 104, y: 150, maxRows: 5 },
-  'Verse 1': { font: PATTER, size: 92, y: 150 },
-  Chorus: { font: DISPLAY, size: 110, y: 160, maxRows: 3 },
-  'Verse 2': { font: PATTER, size: 92, y: 150 },
-  Bridge: { font: PATTER, size: 86, y: 150 },
-  Breakdown: { font: DISPLAY, size: 84, y: 150 },
-  Outro: { font: DISPLAY, size: 90, y: 150, maxRows: 5 },
+  Intro: { font: DISPLAY, size: 96, min: 80 },
+  'Verse 1': { font: PATTER, size: 94, min: 78 },
+  Chorus: { font: DISPLAY, size: 108, min: 86 },
+  'Verse 2': { font: PATTER, size: 94, min: 78 },
+  Bridge: { font: PATTER, size: 92, min: 76 },
+  Breakdown: { font: DISPLAY, size: 88, min: 74 },
+  Outro: { font: DISPLAY, size: 96, min: 80 },
 };
-// Per-block changes, keyed by the block's first words: set by the scenes (a block lettered lower,
-// or in the crew's colour for an aside).
-export const BLOCK_STYLE = {};
-export const LINE_STYLE = {};
-export const STYLE_SOLO = {};
+// Speech in a bubble, keyed by the line's first words: {from, to} word indices (inclusive), and
+// tail, the screen point the bubble's tail reaches toward (the speaker).
+export const BUBBLE = {};
+// Lines split into two blocks where they'd otherwise need three rows: key -> word index to split at.
+export const SPLIT = {};
+// Where a two-row line should break, when the phrase wants it: key -> index of the second row's first word.
+export const BREAK = { 'Did you actually t': 3, 'Press it, stress i': 4, 'What did you try? ': 4, 'Find a clue? Congr': 3 };
 
 let BLOCKS = null, LAND = null;
-const measureCtx = () => { const c = document.createElement('canvas'); return c.getContext('2d'); };
-
+const measureCtx = () => document.createElement('canvas').getContext('2d');
 function sectionKey(sec) { for (const k of Object.keys(STYLE)) if (sec.startsWith(k)) return k; return 'Verse 1'; }
+const key18 = l => l.text.slice(0, 18);
+const isQuote = ch => '"“”'.includes(ch);
+const mixHex = (a, b, p) => { const A = parseInt(a.slice(1), 16), B = parseInt(b.slice(1), 16); const m = sh => Math.round(((A >> sh) & 255) + ((((B >> sh) & 255) - ((A >> sh) & 255)) * p)); return '#' + [16, 8, 0].map(sh => m(sh).toString(16).padStart(2, '0')).join(''); };
 
-// Build the blocks (couplets) and lay each out once.
+// Lay out the blocks once: each sung line (or a half, if SPLIT) as one block of one or two rows.
 export function build() {
   if (BLOCKS) return BLOCKS;
   const g = measureCtx();
-  const lines = REC.lines;
   const groups = [];
-  lines.forEach((l, i) => {
-    const key = `${l.section}|${l.couplet}`;
-    const last = groups[groups.length - 1];
-    // a refrain's lines are big, so each is a block of its own; elsewhere a couplet is one block
-    const solo = l.section.startsWith('Chorus') || (STYLE_SOLO[l.text.slice(0, 18)]);
-    if (last && last.key === key && last.lines.length < 2 && !solo && !last.solo) last.lines.push(l); else groups.push({ key, lines: [l], solo });
-  });
+  for (const l of REC.lines) {
+    const sp = SPLIT[key18(l)];
+    if (sp) { groups.push({ line: l, words: l.words.slice(0, sp), part: 0 }); groups.push({ line: l, words: l.words.slice(sp), part: 1 }); }
+    else groups.push({ line: l, words: l.words, part: 0 });
+  }
   BLOCKS = groups.map((b, bi) => {
-    const st = { ...STYLE[sectionKey(b.lines[0].section)], ...(BLOCK_STYLE[b.lines[0].text.slice(0, 18)] || {}) };
-    const maxW = st.maxW || 930;
-    // rows: each sung line starts a row; long lines wrap
-    let size = st.size;
-    let rows;
-    for (let tries = 0; tries < 12; tries++) {
-      rows = [];
-      for (const l of b.lines) {
-        const ls = LINE_STYLE[l.text.slice(0, 18)] || {};
-        const space = textW(g, ' ', st.font, size) * (st.font === DISPLAY ? 1.45 : 1.05);
-        const ws = l.words.map(w => ({ ...w, ww: textW(g, w.w, st.font, size), x: 0 }));
-        // the fewest rows that fit, then the split into that many rows whose longest row is shortest
-        const widthOf = (a, b) => ws.slice(a, b).reduce((acc, w) => acc + w.ww, 0) + space * (b - a - 1);
-        let k = 1;
-        for (;;) { let r = 1, cur = 0; for (const w of ws) { const add = cur ? space + w.ww : w.ww; if (cur && cur + add > maxW) { r++; cur = w.ww; } else cur += add; } k = r; break; }
-        const n = ws.length, best = {};
-        const solve = (i, rleft) => {
-          const key = i + '|' + rleft; if (key in best) return best[key];
-          if (rleft === 1) return best[key] = { cost: widthOf(i, n) > maxW ? 1e8 : widthOf(i, n), cuts: [] };
-          let res = { cost: 1e9, cuts: [] };
-          for (let j = i + 1; j <= n - rleft + 1; j++) { const sub = solve(j, rleft - 1); const pen = /[,;:.!?\u2014-]$/.test(ws[j - 1].w) ? 0 : size * 4; const c = Math.max(widthOf(i, j) + pen, sub.cost); if (c < res.cost && widthOf(i, j) <= maxW) res = { cost: c, cuts: [j, ...sub.cuts] }; }
-          return best[key] = res;
-        };
-        const cuts = [0, ...solve(0, Math.min(k, n)).cuts, n];
-        for (let c = 0; c < cuts.length - 1; c++) rows.push({ words: ws.slice(cuts[c], cuts[c + 1]), w: widthOf(cuts[c], cuts[c + 1]), ls });
+    const st = STYLE[sectionKey(b.line.section)];
+    const bub = BUBBLE[key18(b.line)];
+    let size = st.size, rows;
+    // a line that sits in a wide speech bubble gets a narrower column, so the bubble has room to the frame's edge
+    const mw = bub && bub.to - bub.from >= 2 ? MAXW - 80 : MAXW;
+    const display = w => bub && b.line.words.indexOf(w) >= bub.from && b.line.words.indexOf(w) <= bub.to ? [...w.w].filter(c => !isQuote(c) && c !== '\u2014').join('') : w.w;
+    for (;;) {
+      const space = textW(g, ' ', st.font, size) * (st.font === DISPLAY ? 1.4 : 1.22);
+      const ws = b.words.map(w => ({ ...w, shown: display(w), x: 0 }));
+      ws.forEach(w => { w.ww = textW(g, w.shown, st.font, size); });
+      const widthOf = (a, c) => ws.slice(a, c).reduce((acc, w) => acc + w.ww, 0) + space * (c - a - 1);
+      const n = ws.length;
+      // one row if it fits; else the two-row split with the shortest longest row, preferring a break
+      // after punctuation
+      let cuts = null;
+      const brk = BREAK[key18(b.line)];
+      if (widthOf(0, n) <= mw) cuts = [0, n];
+      else if (brk && b.words === b.line.words && widthOf(0, brk) <= mw && widthOf(brk, n) <= mw) cuts = [0, brk, n];
+      else if (!brk || b.words !== b.line.words) {
+        let best = 1e9;
+        for (let j = 1; j < n; j++) {
+          const a = widthOf(0, j), c = widthOf(j, n);
+          if (a > mw || c > mw) continue;
+          const pen = /[,;:.!?—-]$/.test(ws[j - 1].w) ? 0 : size * 2.2;
+          const cost = Math.max(a, c) + pen;
+          if (cost < best) { best = cost; cuts = [0, j, n]; }
+        }
       }
-      if (rows.length <= (st.maxRows || 4) && rows.every(r => r.w <= maxW)) break;
-      size *= .93;
+      if (cuts || size <= 56) {
+        if (!cuts) { console.error('lyric line too wide:', b.line.text); const j = Math.ceil(n / 2); cuts = [0, j, n]; }
+        rows = [];
+        for (let c = 0; c < cuts.length - 1; c++) rows.push({ words: ws.slice(cuts[c], cuts[c + 1]), w: widthOf(cuts[c], cuts[c + 1]) });
+        const lh = size * (st.font === DISPLAY ? 1.44 : 1.4);   // room for the ball between rows
+        rows.forEach((r, ri) => {
+          let x = LYRIC_X - r.w / 2;
+          r.y = LYRIC_TOP + size * .86 + ri * lh;
+          for (const w of r.words) { w.x = x; w.y = r.y; w.size = size; x += w.ww + space; }
+        });
+        break;
+      }
+      size -= 2;
     }
-    const lh = size * (st.font === DISPLAY ? 1.22 : 1.13);
-    const cx = st.x ?? W / 2;
-    rows.forEach((r, ri) => {
-      const space = textW(g, ' ', st.font, size) * (st.font === DISPLAY ? 1.45 : 1.05);
-      let x = cx - r.w / 2;
-      r.y = st.y + size + ri * lh;
-      for (const w of r.words) { w.x = x; w.y = r.y; w.size = size; x += w.ww + space; }
-    });
-    const words = rows.flatMap(r => r.words.map(w => ({ ...w, ls: r.ls })));
+    rows.forEach((r, ri) => r.words.forEach(w => { w.row = ri; }));
+    const words = rows.flatMap(r => r.words);
     const first = words[0].s, lastE = Math.max(...words.map(w => w.e ?? w.s));
-    return { i: bi, lines: b.lines, rows, words, st, size, first, lastE, top: st.y, bottom: st.y + size * .3 + rows.length * lh };
+    const row2 = rows.length > 1 ? rows[1].words[0].s - LEAD : null;
+    const inBub = bub ? words.filter(w => { const i = b.line.words.findIndex(v => v.s === w.s); return i >= bub.from && i <= bub.to; }) : [];
+    return { i: bi, line: b.line, rows, words, st, size, first, lastE, row2, bub: inBub.length ? { words: inBub, tail: bub.tail } : null };
   });
   BLOCKS.forEach((b, i) => {
     const next = BLOCKS[i + 1];
-    const nextIn = next ? next.first - LEAD - POP - .11 : 1e9;
-    // hold until the next block is about to arrive (but no more than 1.5 s after the voice stops), and
-    // never take the last word away within a quarter second of its being sung
+    const nextIn = next ? next.first - LEAD - POP - .1 : 1e9;
     const lastS = b.words[b.words.length - 1].s;
-    b.out = Math.max(lastS + .25, Math.min(nextIn, b.lastE + 1.5));
-    b.in = b.first - LEAD - POP - .5;
+    // hold until the next block is about to arrive (no more than 1.6 s after the voice stops), and
+    // never take the last word away within a quarter second of its being sung
+    // a section's last line doesn't linger into the next section's first pictures
+    const hold = next && next.line.section !== b.line.section ? .45 : 1.6;
+    b.out = Math.max(lastS + .16, Math.min(nextIn, b.lastE + hold));
+    b.in = b.first - LEAD - POP;
   });
-  // the ball's landings, in order, across the whole song
+  // where the singer runs one line into the next, the next block's first words wait until the last
+  // block has gone, and spring up faster to land on time
+  BLOCKS.forEach((b, i) => { b.floor = i ? BLOCKS[i - 1].out + .09 : -1e9; b.in = Math.max(b.in, Math.min(b.floor, b.first - LEAD - .04)); });
+  // the backing voices' echoes don't get lettering of their own (a second line to read): the lead
+  // word they repeat glows rose as they sing it
+  const norm = s => s.toLowerCase().replace(/[^a-z']/g, '');
+  for (const l of REC.echo || []) {
+    const blk = BLOCKS.filter(b => b.words[0].s <= l.words[0].s).pop();
+    if (!blk) continue;
+    // the run of lead words the echo repeats, whole: "What did you find?" lights the second row's
+    // phrase, not the first row's "What did you"
+    const n = l.words.length;
+    for (let i = blk.words.length - n; i >= 0; i--) {
+      if (l.words.every((e, j) => norm(blk.words[i + j].w) === norm(e.w))) { l.words.forEach((e, j) => (blk.words[i + j].echo ||= []).push(e.s)); break; }
+    }
+  }
   LAND = [];
-  for (const b of BLOCKS) for (const w of b.words) LAND.push({ t: w.s - LEAD, x: w.x + w.ww / 2, y: w.y - w.size * .92, size: w.size, b });
+  for (const b of BLOCKS) for (const w of b.words) LAND.push({ t: w.s - LEAD, x: w.x + w.ww / 2, w, size: w.size, b });
   return BLOCKS;
 }
+// When the singing moves to the second row, the first lifts a little, opening room for the ball.
+export function lift(b, t) { return b.row2 == null ? 0 : b.size * .5 * smooth((t - (b.row2 - .3)) / .26); }
+const wordY = (b, w, t) => w.y - (w.row === 0 ? lift(b, t) : 0);
 export const blocks = () => build();
-export function blockAt(t) { for (const b of build()) if (t >= b.in && t < b.out + .2) return b; return null; }
+export function blockAt(t) { for (const b of build()) if (t >= b.in && t < b.out) return b; return null; }
 
-// Draw the lyric at t (all blocks on screen, then the ball).
+// Draw the lyric at t: a soft dark pool behind the block, the block, its echo, then the ball.
 export function drawLyrics(g, t, o = {}) {
   build();
   let shown = null;
-  for (const b of BLOCKS) if (t >= b.in && t < b.out + .1) { drawBlock(g, b, t, o); if (t < b.out) shown = b; }
-  if (shown) drawEchoes(g, t, shown);
-  if (o.ball !== false) drawBall(g, t, o);
+  for (const b of BLOCKS) if (t >= b.in - .02 && t < b.out + .14) { if (!shown || t < b.out) shown = b; }
+  if (typeof window !== 'undefined') window.__textTag = 'lyric';
+  for (const b of BLOCKS) if (t >= b.in - .02 && t < b.out + .09) { pool(g, b, t); drawBlock(g, b, t); }
+  if (o.ball !== false) drawBall(g, t);
+  if (typeof window !== 'undefined') window.__textTag = null;
+}
+// A soft darkness behind the block, so the letters read on any picture.
+function pool(g, b, t) {
+  const a = clamp((t - b.in) / .2) * (1 - clamp((t - b.out) / .14));
+  if (a <= 0) return;
+  const top = LYRIC_TOP - 20 - lift(b, t), bottom = b.rows[b.rows.length - 1].y + b.size * .45, cx = LYRIC_X, cy = (top + bottom) / 2;
+  const wmax = Math.max(...b.rows.map(r => r.w));
+  g.save(); g.globalAlpha = .42 * a;
+  const gr = g.createRadialGradient(cx, cy, 10, cx, cy, Math.max(wmax * .62, 260));
+  gr.addColorStop(0, 'rgba(18,9,4,.9)'); gr.addColorStop(.6, 'rgba(18,9,4,.5)'); gr.addColorStop(1, 'rgba(18,9,4,0)');
+  g.fillStyle = gr; g.translate(cx, cy); g.scale(1, Math.max(.45, (bottom - top) / (wmax * 1.1))); g.translate(-cx, -cy);
+  g.beginPath(); g.arc(cx, cy, Math.max(wmax * .62, 260), 0, TAU); g.fill();
+  g.restore();
 }
 
-// The backing voices' echoes ("What did you try?" under the held "try?"): small script lettering in
-// the crew's rose, under the block, each word arriving as it's sung.
-function drawEchoes(g, t, b) {
-  for (const l of REC.echo || []) {
-    if (t < l.words[0].s - LEAD - .1 || t > l.end + .5) continue;
-    const size = 58, font = SCRIPT, sp = textW(g, ' ', font, size) * 1.1;
-    const total = l.words.reduce((a, w) => a + textW(g, w.w, font, size), 0) + sp * (l.words.length - 1);
-    let x = W / 2 - total / 2 + 60;
-    const y = b.bottom + size * .9;
-    const fade = 1 - clamp((t - l.end - .2) / .3);
-    for (const w of l.words) {
-      const ww = textW(g, w.w, font, size);
-      const p = (t - (w.s - LEAD - POP)) / POP;
-      if (p > 0) {
-        const sc = p < 1 ? backOut(p, 2.4) : 1;
-        g.save(); g.globalAlpha = fade; g.translate(x + ww / 2, y); g.rotate(-.04); g.scale(sc, sc);
-        word(g, w.w, -ww / 2, 0, size, font, { fill: '#f7c6d0', seed: 300 + x });
-        g.restore();
-      }
-      x += ww + sp;
-    }
-  }
-}
-
-function drawBlock(g, b, t, o) {
-  const st = b.st;
-  const outP = clamp((t - b.out) / .09);
+function drawBlock(g, b, t) {
+  const st = b.st, outP = clamp((t - b.out) / .08);
   const bp = beatPos(t);
+  // the speech bubble behind quoted words
+  if (b.bub) bubbleBehind(g, b, t, outP);
   b.words.forEach((w, wi) => {
-    const land = w.s - LEAD;
-    const p = (t - (land - POP)) / POP;
+    const land = w.s - LEAD, start = Math.min(land - .04, Math.max(land - POP, b.floor));
+    const p = (t - start) / (land - start);
     if (p <= 0) return;
     const nextW = b.words[wi + 1];
     const current = t >= land && t < (nextW ? nextW.s - LEAD : (w.e ?? w.s) + .1);
     const since = t - land;
-    // spring up, overshoot, settle; a squash where the ball lands
-    let sc = p < 1 ? backOut(p, 2.4) : 1;
-    let sy = 1, sx = 1;
-    if (since >= 0 && since < .16) { const k = Math.sin(since / .16 * Math.PI); sy = 1 - .16 * k; sx = 1 + .09 * k; }
-    // the rubber bounce on the beat, word by word like a chorus line
-    const wob = Math.sin((bp + wi * .12) * Math.PI) * .018;
-    const exitY = -outP * 30, exitA = 1 - outP;
-    const ls = w.ls || {};
-    const fill = current ? '!' + (ls.accent || st.accent || GOLD) : (ls.fill || st.fill || CREAM);
+    let sc = p < 1 ? lerp(.5, 1, backOut(p, 1.35)) : 1, sy = 1, sx = 1;
+    if (since >= 0 && since < .16) { const k = Math.sin(since / .16 * Math.PI); sy = 1 - .12 * k; sx = 1 + .05 * k; }
+    const wob = Math.sin((bp + wi * .13) * Math.PI) * .016;
+    const rise = (1 - clamp(p)) * w.size * .15;
+    const exitY = outP * outP * 60, exitA = 1 - outP;
+    const inBub = b.bub && b.bub.words.includes(w);
+    const echo = (w.echo || []).reduce((m, e) => Math.max(m, t >= e - LEAD - .04 && t < e - LEAD + .45 ? 1 - (t - (e - LEAD)) / .45 : 0), 0);
+    const fill = current ? '!' + GOLD : echo > .05 ? '!' + mixHex(CREAM, '#f08fa8', Math.min(1, echo * 1.6)) : CREAM;
+    if (echo > 0) { sc *= 1 + echo * .06; }
     g.save();
     g.globalAlpha = exitA;
-    const bx = w.x + w.ww / 2, by = w.y;
-    g.translate(bx, by + exitY);
-    g.rotate(ls.rot || 0);
-    g.scale(sc * sx * (1 + (current ? .05 : 0)) * (1 - outP * .3), sc * sy * (1 + wob) * (1 - outP * .3));
-    word(g, w.w, -w.ww / 2, 0, w.size, ls.font || st.font, { fill, ink: ls.ink || st.ink, shadow: ls.shadow || st.shadow, seed: wi * 3.1 + b.i * 17 });
-    if (typeof window !== 'undefined' && window.__typo) window.__typo.push({ w: w.w, s: w.s, line: b.lines.indexOf(b.lines.find(l => l.words.some(x => x.s === w.s))) + '|' + b.i, x0: bx - w.ww / 2 * sc, x1: bx + w.ww / 2 * sc, y0: by + exitY - w.size * .8 * sc, y1: by + exitY + w.size * .25 * sc, size: w.size * sc, a: exitA, full: p >= 1 && outP === 0 });
+    const bx = w.x + w.ww / 2, by = wordY(b, w, t);
+    g.translate(bx, by + exitY + rise);
+    g.scale(sc * sx, sc * sy * (1 + wob));
+    const chars = [...w.shown];
+    if (inBub) word(g, w.shown, -w.ww / 2, 0, w.size, st.font, { fill: current ? '!#cf7a12' : INK, ow: current ? .1 : 0, shadow: null, seed: wi * 3.1 + b.i * 17 });   // a deeper gold reads on the cream
+    else word(g, w.shown, -w.ww / 2, 0, w.size, st.font, {
+      fill, seed: wi * 3.1 + b.i * 17,
+      fillAt: i => isQuote(chars[i]) ? C('!' + ROSE) : C(fill),
+    });
+    if (typeof window !== 'undefined' && window.__typo) window.__typo.push({ w: w.w, s: w.s, line: b.i, x0: bx - w.ww / 2 * sc, x1: bx + w.ww / 2 * sc, y0: by + exitY + rise - w.size * .78 * sc, y1: by + exitY + rise + w.size * .22 * sc, size: w.size * sc, a: exitA, full: p >= 1 && outP === 0 });
     g.restore();
   });
 }
+// A rounded speech bubble around the quoted words, with its tail reaching toward the speaker. It grows
+// with its words, each one stretching it as it springs up, so it's never an empty slab.
+function bubbleBehind(g, b, t, outP) {
+  const ws = b.bub.words, startOf = w => { const land = w.s - LEAD; return [Math.min(land - .04, Math.max(land - POP, b.floor)), land]; };
+  let box = null;
+  for (const w of ws) {
+    const [st0, land] = startOf(w), p = clamp((t - st0) / (land - st0));
+    if (p <= 0) continue;
+    const wy = wordY(b, w, t), wb = [w.x, wy - w.size * .82, w.x + w.ww, wy + w.size * .26];
+    if (!box) { box = wb; continue; }
+    const e = easeOut(p);
+    box = [Math.min(box[0], lerp(box[0], wb[0], e)), Math.min(box[1], lerp(box[1], wb[1], e)), Math.max(box[2], lerp(box[2], wb[2], e)), Math.max(box[3], lerp(box[3], wb[3], e))];
+  }
+  if (!box) return;
+  const [s0, l0] = startOf(ws[0]), p = clamp((t - s0) / (l0 - s0));
+  const [x0, y0, x1, y1] = box;
+  const pad = 26, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  // it grows without overshooting: a wide line's bubble already reaches close to the frame's left edge
+  const sc = lerp(.6, 1, easeOut(p)) * (1 - outP * .2);
+  g.save(); g.globalAlpha = 1 - outP;
+  g.translate(cx, cy); g.scale(sc, sc); g.translate(-cx, -cy);
+  const [tx, ty] = b.bub.tail || [cx, y0 - 140];
+  const bw = (x1 - x0) / 2 + pad, bh = (y1 - y0) / 2 + pad * .7;
+  // under a row that isn't in the bubble, the tail leaves from the bubble's end, clear of that row
+  const below = ws[0].row > 0;
+  const base = below ? [x1 + pad * .1, cy - bh * .25] : null;
+  const ang = below ? Math.atan2(ty - base[1], tx - base[0]) : Math.atan2(ty - cy, tx - cx);
+  const root = base || [cx + Math.cos(ang) * bw * .55, cy + Math.sin(ang) * bh * .7];
+  const tipLen = Math.min(150, Math.hypot(tx - root[0], ty - root[1]) * .5);
+  const tip = [root[0] + Math.cos(ang) * tipLen, root[1] + Math.sin(ang) * tipLen];
+  const nx = -Math.sin(ang) * 26, ny = Math.cos(ang) * 26;
+  const body = spline([[x0 - pad, cy], [x0 - pad * .6, y0 - pad * .5], [cx, y0 - pad * .8], [x1 + pad * .6, y0 - pad * .5], [x1 + pad, cy], [x1 + pad * .6, y1 + pad * .5], [cx, y1 + pad * .8], [x0 - pad * .6, y1 + pad * .5]], true, 6);
+  shape(g, [[root[0] + nx, root[1] + ny], tip, [root[0] - nx, root[1] - ny]], { fill: '#fffaf0', w: 7, seed: 811, form: false });
+  shape(g, body, { fill: '#fffaf0', shade: '#d8ccb6', form: 'block', k: .6, w: 8, seed: 812 });
+  // cover the tail's root so the bubble and tail read as one shape
+  g.fillStyle = C('#fffaf0'); g.beginPath(); g.ellipse(root[0], root[1], 30, 22, ang, 0, TAU); g.fill();
+  g.restore();
+}
 
 // The ball: hops from landing to landing; waits on a held word with little bounces on the beat.
-function drawBall(g, t, o) {
+const landY = (L, t) => wordY(L.b, L.w, t) - L.size * .74 - clamp(L.size * .22, 15, 23) - 8;   // a hair above the letters, so it never sits on them
+function drawBall(g, t) {
   if (!LAND.length) return;
+  for (const L of LAND) L.y = landY(L, t);
   let i = -1;
   for (let k = 0; k < LAND.length; k++) { if (LAND[k].t <= t) i = k; else break; }
-  const R = L => clamp(L.size * .25, 16, 25);
+  const R = L => clamp(L.size * .22, 15, 23);
   let x, y, r, sq = 0, alpha = 1;
   const cur = LAND[i], nxt = LAND[i + 1];
-  const enter = (L, u) => { // arriving from the upper left, off the block
-    const u2 = easeOut(u, 2);
-    return [lerp(L.x - 260, L.x, u2), lerp(L.y - 420, L.y, u) - Math.sin(u * Math.PI) * 60];
-  };
+  const enter = (L, u) => [lerp(L.x - 340, L.x, easeOut(u, 2)), L.y - Math.sin(u * Math.PI) * Math.min(40, L.y - BALL_CEIL - R(L))];
   if (!cur) {
-    if (!nxt || nxt.t - t > .55) return;
-    const u = 1 - (nxt.t - t) / .55; [x, y] = enter(nxt, u); r = R(nxt); alpha = clamp(u * 3);
-  } else if (!nxt || nxt.b !== cur.b && nxt.t - cur.t > 2.2) {
-    // end of a phrase with a long gap: rest on the last word, then drop off below the block
+    if (!nxt || nxt.t - t > .5) return;
+    const u = 1 - (nxt.t - t) / .5; [x, y] = enter(nxt, u); r = R(nxt); alpha = clamp(u * 3);
+  } else if (!nxt || (nxt.b !== cur.b && (nxt.t - cur.t > 2.4 || cur.b.out < nxt.t - .5))) {
+    // the block leaves well before the next one lands: rest on the last word, then bounce away off
+    // the right of the block, so the ball never waits alone where a line used to be
     const rest = cur.b.out - .05;
     if (t < rest) { x = cur.x; y = cur.y - restBounce(t, cur); r = R(cur); sq = landSquash(t - cur.t); }
-    else { const u = clamp((t - rest) / .45); x = cur.x + u * 160; y = cur.y - Math.sin(u * Math.PI) * 90 + u * u * 520; r = R(cur); alpha = 1 - clamp((u - .6) / .4); if (u >= 1) return; }
-    if (nxt && nxt.t - t < .55) { const u = 1 - (nxt.t - t) / .55; [x, y] = enter(nxt, u); r = R(nxt); alpha = clamp(u * 3); }
+    else { const u = clamp((t - rest) / .45); x = cur.x + u * 260; y = cur.y - Math.sin(u * Math.PI) * Math.min(30, cur.y - BALL_CEIL - R(cur)) + u * u * 120; r = R(cur); alpha = 1 - clamp((u - .5) / .5); if (u >= 1) return; }
+    if (nxt && nxt.t - t < .5) { const u = 1 - (nxt.t - t) / .5; [x, y] = enter(nxt, u); r = R(nxt); alpha = clamp(u * 3); }
   } else {
-    const dt = nxt.t - cur.t, hopT = Math.min(dt, .42), start = nxt.t - hopT;
+    const dt = nxt.t - cur.t;
+    // between blocks the ball waits on the last word until its block goes, then makes the carriage
+    // return over the empty band: it never crosses a line still on screen, nor waits where one was
+    const hopT = nxt.b !== cur.b ? Math.max(.1, Math.min(dt, nxt.t - (cur.b.out - .02))) : Math.min(dt, .44), start = nxt.t - hopT;
     r = lerp(R(cur), R(nxt), clamp((t - start) / hopT));
     if (t < start) { x = cur.x; y = cur.y - restBounce(t, cur); sq = landSquash(t - cur.t); }
     else {
       const u = (t - start) / hopT;
       const dist = Math.hypot(nxt.x - cur.x, nxt.y - cur.y);
-      const h = clamp(dist * .32 + hopT * 110, 34, 230) + (nxt.y > cur.y + 10 ? 50 : 0);
+      const low = nxt.w.row > 0 && cur.w.row === nxt.w.row;
+      const room = Math.min(cur.y, nxt.y) - BALL_CEIL - r;
+      const h = Math.max(4, Math.min(room, low ? clamp(dist * .16 + hopT * 50, 16, 40) : clamp(dist * .3 + hopT * 100, 30, 170)));
       x = lerp(cur.x, nxt.x, u); y = lerp(cur.y, nxt.y, u) - 4 * h * u * (1 - u);
-      sq = -.12 * Math.sin(u * Math.PI);   // stretched in flight
+      sq = -.12 * Math.sin(u * Math.PI);
     }
   }
   g.save(); g.globalAlpha *= alpha;
   g.translate(x, y + r);
   const sxy = sq > 0 ? [1 + sq * .8, 1 - sq] : [1 + sq * .5, 1 - sq];
   g.scale(sxy[0], sxy[1]);
-  shape(g, ellipse(0, -r, r, r, 0, 28), { fill: '!' + (o.ballCol || RED), shade: '!' + RED_SH, shadeOff: [-r * .3, -r * .3], w: Math.max(3, r * .28), seed: 777, amt: .3, gloss: { x: .32, y: .26, w: .13, h: .11, a: .95 } });
+  shape(g, ellipse(0, -r, r, r, 0, 30), { fill: '!' + RED, shade: '!' + RED_SH, lit: '!#ff9a80', form: 'round', w: Math.max(3, r * .26), seed: 777, amt: .2, gloss: { x: .3, y: .24, w: .13, h: .11, a: .95, dot: false } });
   g.restore();
 }
-function landSquash(since) { return since >= 0 && since < .12 ? .32 * Math.sin((since / .12) * Math.PI) : 0; }
-// On a long held word the ball keeps time: small hops on each beat.
+function landSquash(since) { return since >= 0 && since < .12 ? .3 * Math.sin((since / .12) * Math.PI) : 0; }
 function restBounce(t, L) {
   const held = t - L.t;
   if (held < .3) return 0;
-  const f = (beatPos(t) % 1);
-  return Math.sin(f * Math.PI) * 16 * clamp((held - .3) / .3);
+  const f = ((beatPos(t) % 1) + 1) % 1;
+  return Math.sin(f * Math.PI) * Math.min(18, Math.max(0, L.y - BALL_CEIL - 20)) * clamp((held - .3) / .3);
 }

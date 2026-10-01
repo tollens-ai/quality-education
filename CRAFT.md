@@ -12,6 +12,8 @@ come from marketers and are weak.
    not a single tidy example.
 3. **Sound-off first.** X autoplays muted; captions are the primary track. Captions = narration;
    other on-screen text limited to highlighted keywords (resolves Mayer's redundancy principle).
+   In the music videos the lyric is the caption, and the rule is now stricter: no words on screen
+   that aren't lyrics ([VIDEO.md, One place to look](VIDEO.md#one-place-to-look), 2026-10-01).
 4. **First frame is the hook and the thumbnail.** Tension, not a title card.
 5. **Retention is the constraint, not idea count** (Qing 2026-09-24: more than one idea is fine if
    people keep watching for both). Short is still the default — Guo/Kim/Rubin 2014 (edX): shorter,

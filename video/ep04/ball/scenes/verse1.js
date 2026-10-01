@@ -1,222 +1,308 @@
-// Verse 1, first half: Clawd's workshop. Everything stands on the workbench.
-//  "My "tests"? I paste app code in haste: / A perfect duplication!"
-//     He snips the app's own sum (a+b+1) off its tape and pastes it onto a check's card; the two match.
-//  "The sums agree! How sweet for me! / (A shared miscalculation.)"
-//     2 + 2: the app rings up 5, the check works out 5 and flies its green flag; Clawd has a lollipop.
-//     The crew's aside: Guess's glass slides in and shows four beads, and both fives are wrong.
-//  "With screenshots, commas cause such dramas: / A red notification."
-//     The camera flashes; the new picture says "Hello Pat!" where the check expects "Hello, Pat!".
-//     The comma falls out and faints; the check's flag goes red and the alarm bell rings.
-//  "My "test"? Fantastic, automatic— / I change its expectation!"
-//     His Auto-Accept machine stamps the new picture over the expected one; the flag goes green.
-//     Nobody asks whether the comma mattered; it sits on the bench, crying.
-import { W, H, TAU, clamp, lerp, now, when, wordsOf, hash, beatPos, easeOut, backOut, smooth } from '../kit.js';
-import { INK, CREAM, CARD, TEAL, CORAL, OCHRE, ROSE, ROSE_SH, GOLD, GREEN, RED, WHITE, WOOD, WOOD_SH, GREY, SLATE, MINT, PLUM } from '../palette.js';
-import { shot, irisJoin, wipeJoin } from '../shots.js';
-import { workshop } from '../places.js';
-import { clawd, cane } from '../clawd.js';
+// Verse 1, in Clawd's workshop: how his "tests" are made.
+//  "My "tests"? I paste app code in haste:" — he peels a copy of the code off the phone's screen
+//     (a beetle sits in one row of it) and slaps it on a blank wind-up check with a paste brush.
+//  "A perfect duplication!" — close: the screen and the check's card, row for row the same, and the
+//     two beetles wave in step.
+import { W, H, TAU, clamp, lerp, now, when, wordsOf, hash, beatPos, easeOut, easeInOut, backOut, smooth } from '../kit.js';
+import { INK, CREAM, GOLD, GOLD_SH, GREEN, RED, WHITE, C } from '../palette.js';
+import { shot } from '../shots.js';
+import { workshop, WS } from '../places.js';
+import { clawd } from '../clawd.js';
 import { check } from '../crew.js';
-import { magnifier } from '../props.js';
-import { register as app, tape, pastePot, brush, scissors, lollipop, camera, photo, comma, bell } from '../props-v1.js';
-import { shape, rrect, ellipse, stroke, dot, glove, line, spline } from '../ink.js';
-import { label, word, DISPLAY, PATTER, SCRIPT, fitSize } from '../type.js';
-import { heart, pops } from '../rig.js';
-import { at, ramp, pop, ease, kick, shakeAt, place, cam, burst, sparkle, bubble, floorCam } from '../common.js';
-import { LINE_STYLE } from '../lyrics.js';
+import { phone, bug } from '../cast.js';
+import { code, decal, pastePot, brush, splat, lollipop, digits } from '../props.js';
+import { calcScreen, greetScreen, greeting, commaGlyph, bellowsCamera, flash, photo, crate } from '../props-workshop.js';
+import { guess } from '../crew.js';
+import { comma } from '../cast.js';
+import { heart, star, qmark } from '../rig.js';
+import { sweat, pops } from '../rig.js';
+import { confetti, burst } from '../common.js';
+import { at, ramp, pop, ease, kick, shakeAt, place, cam, floorCam, sparkle, speedLines, footShadow, irisInsert } from '../common.js';
+import { rng } from '../kit.js';
+import { rrect } from '../ink.js';
+import { spline } from '../ink.js';
+import { stroke, shape, ellipse, glove, dot } from '../ink.js';
+import { magnifier } from '../cast.js';
 
-const BENCH = 1500;   // the workbench top, in world coordinates (the painted bench is at 1640 on the canvas)
-const BC = (x, z, atY = 1560) => floorCam(x, z * 1.16, BENCH, atY);
-
-// The card on a check's chest, lettered: a formula, a number, or a tiny photo.
-export function cardText(text, col = INK) {
-  return (g, x, y, cw, ch, s) => label(g, text, x, y + 2 * s, fitSize(g, text, PATTER, 30 * s, cw - 8 * s), { font: PATTER, col });
-}
-function miniPhoto(text) {
-  return (g, x, y, cw, ch, s) => {
-    g.fillStyle = '#e9efe2'; g.fillRect(x - cw / 2 + 5 * s, y - ch / 2 + 5 * s, cw - 10 * s, ch - 10 * s);
-    g.fillStyle = TEAL; g.fillRect(x - cw / 2 + 5 * s, y - ch / 2 + 5 * s, cw - 10 * s, 7 * s);
-    label(g, text, x, y + 5 * s, fitSize(g, text, DISPLAY, 18 * s, cw - 14 * s), { font: DISPLAY });
-  };
-}
-// A rose arm and glove reaching in from the frame's right edge to (x, y), holding the magnifier.
-export function guessGlass(g, x, y, ang, s, inside) {
-  line(g, [[W + 80, y + 140 * s], [x + 60 * s, y + 40 * s], [x, y]].map(p => p), { w: 15 * s, taper: false, seed: 4001 });
-  const m = magnifier(g, x, y, ang, s, { inside });
-  glove(g, x, y, ang + Math.PI, 26 * s, 'grip', { seed: 4002 });
-  return m;
-}
+const F = WS.floor;
+const fc = (x, z) => floorCam(x, z, F);
+// The app's screen: its code at the top, the rest blank.
+export const appCode = (t, o = {}) => (g, sx, sy, sw, sh, s) => {
+  g.fillStyle = '#efe9da'; g.fillRect(sx, sy, sw, 40 * s);
+  code(g, sx + sw * .1, sy + 70 * s, sw * .8, { t, bugAt: o.bug === false ? -1 : 2, look: o.look, bugScale: o.bugScale });
+};
 
 export function register() {
-  const A = 'My "tests"? I paste', B = 'A perfect duplication', C = 'The sums agree', D = 'A shared miscalculation', E = 'With screenshots', F = 'A red notification', G = 'My "test"? Fantastic', Hh = 'I change its expectation';
-  LINE_STYLE[D.slice(0, 18)] = { fill: '#f7c6d0', accent: ROSE, font: SCRIPT, rot: -.02 };   // the crew's aside
-  const t0 = at(A, 'My') - .12;
-  const tPaste = at(A, 'paste'), tApp = at(A, 'app'), tCode = at(A, 'code'), tHaste = at(A, 'haste');
-  const tPerf = at(B, 'perfect'), tDup = at(B, 'duplication');
-  const tSums = at(C, 'sums'), tAgree = at(C, 'agree'), tSweet = at(C, 'sweet'), tMe = at(C, 'me');
-  const tShared = at(D, 'shared'), tMiscalc = at(D, 'miscalculation'), dEnd = wordsOf(D).at(-1).e;
-  const tWith = at(E, 'With'), tShots = at(E, 'screenshots'), tCommas = at(E, 'commas'), tDramas = at(E, 'dramas');
-  const tRed = at(F, 'red'), tNotif = at(F, 'notification');
-  const tMy2 = at(G, 'My'), tFant = at(G, 'Fantastic'), tAuto = at(G, 'automatic');
-  const tChange = at(Hh, 'change'), tExpect = at(Hh, 'expectation'), hEnd = wordsOf(Hh).at(-1).e;
-  const next = at('To boost my score', 'To') - .1;
+  const A = 'My "tests"? I paste', B = 'A perfect duplication';
+  const t0 = 12.74;
+  const tMy = at(A, 'My'), tTests = at(A, 'tests'), tPaste = at(A, 'paste'), tApp = at(A, 'app'), tCode = at(A, 'code'), tIn = at(A, 'in'), tHaste = at(A, 'haste');
+  const tA = at(B, 'A'), tPerf = at(B, 'perfect'), tDup = at(B, 'duplication');
+  const t1 = tA - .04, t2 = at('The sums agree', 'The') - .1;
 
-  // ---- 1. paste app code (the app and a check on the bench, Clawd between them)
-  shot(t0, tSums - .5, (g, t) => {
-    const c = cam([[t0, BC(620, 1.12)], [tPerf, BC(600, 1.04)], [tSums, BC(600, 1.06)]], t);
+  // ---- 1. paste app code in haste
+  const PX = 500, CX = 745, KX = 990;
+  shot(t0, t1, (g, T) => {
+    const c = cam([[t0, fc(745, 1.1)], [tPaste - .3, fc(760, 1.12)], [tPaste + .1, fc(640, 1.22)], [tCode, fc(660, 1.22)], [tIn + .05, fc(795, 1.24)], [t1, fc(800, 1.28)]], T), t = now();
     g.save(); place(g, workshop(), c);
-    const snip = ramp(t, tApp, .2), stuck = ramp(t, tCode + .15, .2);
-    app(g, 290, BENCH, 1.05, { t, shows: '', lx: .6, ly: .2, smile: 1,
-      tape: (g, x, y, s) => { const L = 180 - snip * 60; tape(g, x - L + 10, y, L, -.05, snip < .5 ? 'sum = a+b+1' : '', s * .95); } });
-    // the check to the right, its card getting the pasted strip
-    const chX = 930, chk = check(g, chX, BENCH, 1.75, { t, card: stuck > .5 ? cardText('a+b+1') : null, flag: 'down' });
-    // the strip in flight: from the app's tape to the check's card
-    if (t > tApp && t < tCode + .3) {
-      const u = easeOut(clamp((t - tApp) / (tCode + .3 - tApp)));
-      const fx = lerp(80, chX - 50, u), fy = lerp(1130, chk.cy + 40, u) - Math.sin(u * Math.PI) * 180;
-      tape(g, fx, fy, 170, (1 - u) * -.4 + Math.sin(t * 20) * .05, 'sum = a+b+1', .8, { paste: u > .4 });
+    footShadow(g, PX, F, 240); footShadow(g, CX, F, 330); footShadow(g, KX, F, 170);
+    pastePot(g, 270, F - 2, .8, { drip: true });
+    const peeled = t > tApp, flying = t > tCode && t < tIn, stuck = t >= tIn;
+    // the phone: it flinches as the copy is pulled off its face
+    const ouch = kick(t, tApp, .3);
+    phone(g, PX, F, .74, { t, wifi: 1, lean: -ouch * .08, eyes: { expr: ouch > .4 ? 'shut' : 'open', lx: t > tPaste - .3 ? .7 : .2 }, screen: appCode(t) });
+    // the check: blank, then jolted as the copy lands and is slapped flat
+    const jolt = kick(t, tIn, .2) + kick(t, tHaste, .2);
+    check(g, KX, F, 1.6, { t, flag: 'down', squash: jolt, card: stuck ? (g, x, y, w, h, s) => code(g, x - w * .42, y - h * .36, w * .84, { t, bugScale: .9 }) : null, look: t < tIn ? -.6 : 0 });
+    if (stuck) splat(g, KX - 10, F - 150, 34, ramp(t, tIn, .15), 51);
+    // Clawd: presents the blank check, turns to peel, flings, slaps
+    const phase = t < tPaste - .2 ? 0 : t < tCode + .05 ? 1 : 2;
+    const hurry = Math.sin(t * 30) * (phase === 2 && t < tHaste + .25 ? 1 : 0);
+    const slap = ramp(t, tHaste - .12, .12) * (1 - ramp(t, tHaste + .22, .2));
+    const peelHand = phase === 1 ? { to: [lerp(.62, .72, ramp(t, tPaste, .2)) - ramp(t, tApp, .25) * .2, -.3 + ramp(t, tApp, .25) * .05], pose: t > tApp - .05 ? 'grip' : 'open' } : phase === 0 ? 'hips' : { to: [.25, -.62], pose: 'wave' };
+    const brushHand = phase === 0 ? 'present' : { to: [.32 + slap * .38, -.5 + slap * .62 + hurry * .03], pose: 'grip' };
+    const k = clawd(g, CX, F, 1, { t, dance: phase === 1 ? .2 : .55, face: phase === 1 ? -.7 : phase === 2 ? .6 : 0,
+      L: peelHand, R: brushHand,
+      hold: { R: phase === 0 ? null : (g, x, y, a, s) => brush(g, x, y, -1.0 + slap * 1.6, .9 * s, { wet: true }), L: phase === 1 && t > tApp ? (g, x, y, a, s) => decal(g, x - 40, y - 10, 150, 110, { t, rot: -.25, curl: .6, bugScale: .8 }) : null },
+      eyes: { expr: phase === 0 ? 'happy' : 'open', lx: phase === 1 ? -.8 : phase === 2 ? .8 : 0 }, sing: true, lean: phase === 2 ? .05 + hurry * .02 : 0 });
+    if (phase === 2) sweat(g, CX - 110, F - 330, 1.1);
+    // the copy in flight, from the phone to the check
+    if (flying) {
+      const u = easeInOut(clamp((t - tCode) / (tIn - tCode)));
+      const fx = lerp(PX + 40, KX, u), fy = lerp(F - 330, F - 150, u) - Math.sin(u * Math.PI) * 160;
+      decal(g, fx, fy, 150, 110, { t, rot: lerp(-.3, 0, u) + Math.sin(u * 9) * .1, curl: .3, bugScale: .8 });
+      speedLines(g, fx - 80, fy, 1, 120, 4, 61);
     }
-    // Clawd: scissors in one hand, the paste brush in the other, in a hurry
-    const hurry = Math.sin(t * 26) * (t < tHaste + .4 ? 1 : 0);
-    const posX = lerp(560, 640, ramp(t, tCode, .3));
-    const present = t > tPerf;
-    clawd(g, posX, BENCH, 1.0, { t, dance: present ? .8 : .4,
-      L: present ? { to: [.55, -.4], pose: 'open' } : { to: [.6, -.2 + hurry * .05], pose: 'grip' },
-      R: present ? { to: [.55, -.4], pose: 'open' } : { to: [.5, -.25 - hurry * .08], pose: 'grip' },
-      hold: present ? {} : { L: (g, x, y, a, s) => scissors(g, x, y, Math.PI + .3, s * .8, Math.abs(Math.sin(t * 18))), R: (g, x, y, a, s) => brush(g, x, y, -.9 + hurry * .3, s * .8) },
-      eyes: { expr: present ? 'happy' : 'open', lx: present ? 0 : .6 }, sing: true, lean: present ? 0 : .08 });
-    pastePot(g, 500, BENCH + 30, .8);
-    // paste splats (haste)
-    for (const [st, sx, sy] of [[tPaste, 430, 1470], [tHaste - .1, 790, 1490], [tHaste + .1, 700, 1520]]) {
-      const p = ramp(t, st, .12);
-      if (p > 0) shape(g, ellipse(sx, sy, 26 * p, 16 * p, .4), { fill: '#f4f7e6', w: 4, seed: 4100 + sx });
-    }
-    // "A perfect duplication!": two strips side by side, an equals sign between, sparkle
-    if (t > tPerf) {
-      const p = pop(t, tPerf, .3);
-      g.save(); g.translate(600, 860); g.scale(p * 1.2, p * 1.2);
-      shape(g, rrect(-380, -95, 760, 190, 30), { fill: CREAM, w: 8, seed: 4110 });
-      tape(g, -350, -28, 290, 0, 'sum = a+b+1', 1, { seed: 1 });
-      tape(g, 60, -28, 290, 0, 'sum = a+b+1', 1, { seed: 2, paste: true });
-      label(g, 'APP', -205, -60, 30, { font: PATTER, col: TEAL });
-      label(g, 'CHECK', 205, -60, 30, { font: PATTER, col: CORAL });
-      label(g, '=', 0, 2, 90, { font: DISPLAY, col: GREEN, ow: .12 });
-      g.restore();
-      sparkle(g, 600, 860, 460, t, 6, GOLD, 41);
-    }
+    if (t > tHaste - .05 && t < tHaste + .35) pops(g, KX, F - 150, 90, 6, { a0: -Math.PI, span: Math.PI * 2 * .9, w: 7 });
     g.restore();
   }, { id: 'v1-paste' });
 
-  // ---- 2. the sums agree (2 + 2 on the app; both say 5), a lollipop; the crew's aside
-  shot(tSums - .5, tWith - .35, (g, t) => {
-    const c = cam([[tSums - .5, BC(600, 1.06)], [tShared, BC(580, 1.12)], [dEnd, BC(570, 1.16)]], t);
+  // ---- 2. a perfect duplication: the screen and the card, the same rows, the same beetle
+  shot(t1, t2, (g, T) => {
+    const c = cam([[t1, fc(712, 1.46)], [t2, fc(712, 1.54)]], T), t = now();
     g.save(); place(g, workshop(), c);
-    const k2 = [at(C, 'The') - .1, tSums - .05];
-    const pressK = t < k2[0] ? -1 : t < k2[1] ? 7 : t < tAgree - .05 ? 9 : -1;
-    const ring = kick(t, tAgree, .35);
-    const shows = t < tSums - .05 ? '2 + 2' : t < tAgree ? '2 + 2 =' : '5';
-    app(g, 290, BENCH, 1.05, { t, shows, pop: t > tAgree ? pop(t, tAgree, .25) : 1, ring, lx: .5, smile: 1, pressKey: pressK, keyLabels: ['1', '2', '3', '+', '=', 'C', '4', '5', '6', '-', '×', '÷', '7', '8', '9', '0', '.', '%'] });
-    const flagUp = pop(t, tAgree + .05, .3);
-    const chk = check(g, 930, BENCH, 1.75, { t, card: cardText(t > tAgree ? '2+2 → 5' : 'a+b+1'), flag: clamp(flagUp), flagCol: GREEN, wave: t > tAgree + .3 });
-    if (t > tAgree) { burst(g, 290, 1080, 130, (t - tAgree) / .4, 10, GOLD, 3); burst(g, 930, chk.cy, 110, (t - tAgree - .05) / .4, 10, GOLD, 4); label(g, 'DING!', 290, 900 - ramp(t, tAgree, .3) * 30, 80, { font: DISPLAY, col: GOLD, ow: .2 }); }
-    // Clawd, delighted, with a lollipop on "sweet"
-    const sweet = t > tSweet - .1;
-    clawd(g, 610, BENCH, 1.0, { t, dance: .9,
-      L: t < tAgree ? { to: [.62, -.1], pose: 'point' } : 'up',
-      R: sweet ? { to: [.05, -.12], pose: 'grip' } : 'hips',
-      hold: sweet ? { R: (g, x, y, a, s) => lollipop(g, x, y, -1.9, s * .9) } : {},
-      eyes: { expr: t > tAgree ? 'happy' : 'open', lx: t < tAgree ? -.6 : 0 }, sing: true, blush: sweet ? 1 : 0 });
-    if (sweet) for (let i = 0; i < 3; i++) { const p = ((t - tSweet) * .7 + i / 3) % 1; heart(g, 560 + i * 60 + Math.sin(p * 6) * 12, 1060 - p * 200, 22 * (1 - p * .5), ROSE, 4200 + i); }
-    // the aside: Guess's glass slides in from the right over the check's card
-    const slide = ease(t, tShared - .45, .45);
-    if (slide > 0) {
-      const gx = lerp(W + 300, 800, slide), gy = 980;
-      guessGlass(g, gx, gy + 150, -2.3, 1.15, (g, x, y, r) => {
-        g.fillStyle = '#fbf3e1'; g.fillRect(x - r, y - r, 2 * r, 2 * r);
-        // four beads: 2 + 2 is 4
-        for (let i = 0; i < 4; i++) shape(g, ellipse(x - 48 + i * 32, y - 18, 13, 13), { fill: i < 2 ? CORAL : TEAL, w: 3, seed: 4300 + i });
-        label(g, '= 4', x, y + 34, 44, { font: DISPLAY, col: INK });
-      });
-      if (t > tMiscalc) { // both fives crossed out
-        const p = ramp(t, tMiscalc, .25);
-        for (const [x, y] of [[290, 1152], [930, 1330]]) { stroke(g, [[x - 50, y - 40], [x - 50 + 100 * p, y - 40 + 80 * p]], { w: 12, color: RED, seed: 4310 + x }); stroke(g, [[x + 50, y - 40], [x + 50 - 100 * p, y - 40 + 80 * p]], { w: 12, color: RED, seed: 4312 + x }); }
-      }
-    }
+    footShadow(g, 590, F, 230); footShadow(g, 860, F, 230);
+    const wave = Math.max(0, Math.sin((t - tDup) * 12)) * (t > tDup ? 1 : 0);
+    const twin = ramp(t, tPerf, .25), kickB = t > tDup ? Math.max(0, Math.sin((t - tDup) * 14)) : 0;
+    phone(g, 590, F, .7, { t, wifi: 1, eyes: { expr: t > tDup + .4 ? 'happy' : 'open', lx: twin * .9 }, lean: twin * .05, screen: (g, sx, sy, sw, sh, s) => { g.fillStyle = '#efe9da'; g.fillRect(sx, sy, sw, 40 * s); code(g, sx + sw * .1, sy + 70 * s, sw * .8, { t, look: .8, kick: kickB }); } });
+    check(g, 868, F, 2.15, { t, flag: 'down', look: -twin, card: (g, x, y, w, h, s) => code(g, x - w * .42, y - h * .36, w * .84, { t, bugScale: .9, look: -.8, kick: kickB }) });
+    // the two copies turn to look at each other, and the beetles wave in step
+    if (t > tDup) sparkle(g, 722, F - 300, 300, t, 8, GOLD, 81);
+    g.restore();
+  }, { id: 'v1-dup' });
+
+  // ---- 3. the sums agree: 2+2 on the phone is 4, till the beetle kicks it to 5; the check, with the
+  //         same code and the same beetle, gets 5; they match, and up goes the green flag
+  const C3 = 'The sums agree', tThe = at(C3, 'The'), tSums = at(C3, 'sums'), tAgree = at(C3, 'agree'), tHow = at(C3, 'How'), tSweet = at(C3, 'sweet');
+  const tKick = 17.74;
+  const t3 = tHow - .06;
+  shot(t2, t3, (g, T) => {
+    const c = cam([[t2, fc(712, 1.5)], [t3, fc(712, 1.6)]], T), t = now();
+    g.save(); place(g, workshop(), c);
+    footShadow(g, 590, F, 230); footShadow(g, 868, F, 230);
+    // both work out 2+2: 4, until each one's beetle kicks it over to 5, at the same moment
+    const flip = ramp(t, tKick + .05, .14), kickB = kick(t, tKick, .18);
+    const sum = '2+2', ans = t > tSums - .12 ? '4' : '';
+    phone(g, 590, F, .7, { t, wifi: 1, eyes: { expr: 'open', lx: t > tAgree ? .9 : .2, ly: .4 }, screen: calcScreen(t, { sum, ans, ans2: '5', flip, kick: kickB }) });
+    const up = pop(t, tAgree, .25);
+    check(g, 868, F, 2.15, { t, flag: clamp(up), flagCol: GREEN, wave: t > tAgree + .3, look: t < tAgree ? -.4 : -.8, squash: kick(t, tAgree, .2) * .3, card: (g, x, y, w, h, s) => {
+      digits(g, sum, x - w * .14, y - h * .14, 20 * s, { col: INK, ow: 0 });
+      if (ans) { g.save(); g.translate(x - w * .1, y + h * .2); g.scale(1, Math.max(.05, Math.abs(Math.cos(flip * Math.PI)))); digits(g, flip < .5 ? '4' : '5', 0, 0, 28 * s, { col: flip < .5 ? INK : '#982218', ow: 0 }); g.restore(); }
+      bug(g, x + w * .3, y + h * .2, .3 * s, { t, kick: kickB, dir: -1 }); } });
+    if (t > tAgree) { burst(g, 868, F - 330, 120, (t - tAgree) / .45, 12, GOLD, 9); burst(g, 590, F - 300, 120, (t - tAgree - .05) / .45, 12, GOLD, 10); sparkle(g, 729, F - 300, 220, t, 6, GOLD, 11); }
     g.restore();
   }, { id: 'v1-sums' });
 
-  // ---- 3. screenshots: the flash, the comma falls out, a red notification
-  shot(tWith - .35, tMy2 - .35, (g, t) => {
-    const c = cam([[tWith - .35, BC(560, 1.08)], [tRed, BC(560, 1.02)], [tNotif + .4, BC(560, 1.06)]], t);
+  // ---- 4. how sweet for me: Clawd, smug, polishes his nails on his chest and blows on them
+  const D4 = 'A shared miscalculation', tA4 = at(D4, 'A'), tShared = at(D4, 'shared'), tMis = at(D4, 'miscalculation');
+  const t4 = tA4 - .06;
+  shot(t3, t4, (g, T) => {
+    const c = cam([[t3, fc(745, 1.9)], [t4, fc(745, 2.05)]], T), t = now();
     g.save(); place(g, workshop(), c);
-    const flash = kick(t, tShots, .3);
-    camera(g, 170, BENCH, 1.0, { t, flash });
-    // Clawd under the cloth, then popping out to look
-    const out = t > tCommas;
-    clawd(g, out ? 420 : 110, BENCH, .92, { t, L: out ? 'shrug' : 'hang', R: out ? 'point' : 'hang', eyes: { expr: t > tRed ? 'wide' : 'open', lx: .7 }, sing: true, hat: out ? 'boater' : 'none', dance: .5 });
-    // the expected picture pinned on the check; the new one slides out of the camera
-    const chk = check(g, 930, BENCH, 1.75, { t, card: miniPhoto('Hello, Pat!'), flag: t > tRed ? pop(t, tRed, .3) : 0, flagCol: RED, wave: t > tRed + .3 });
-    const slide = ease(t, tShots + .1, .45);
-    if (slide > 0) {
-      photo(g, 660, lerp(1300, 760, slide), 1.05, 'Hello, Pat!', { rot: -.04, caption: 'EXPECTED', seed: 1 });
-      photo(g, 660, lerp(1300, 1040, ease(t, tShots + .3, .45)), 1.05, t > tCommas ? 'Hello Pat!' : 'Hello, Pat!', { rot: .05, caption: 'NEW', capCol: CORAL, seed: 2, hi: t > tDramas ? [-18, 0] : null, hiP: ramp(t, tDramas, .3) });
-    }
-    // the comma falls out of the new picture and faints on the bench
-    if (t > tCommas) {
-      const u = clamp((t - tCommas) / .5), x = lerp(640, 690, u), y = lerp(1040, BENCH - 45, u * u);
-      comma(g, x, y, 1.8, { t, swoon: ramp(t, tDramas, .3), shut: t > tDramas + .1, tears: t > tDramas + .3 });
-      if (t > tDramas) label(g, 'the comma!', x + 20, y - 110, 40, { font: SCRIPT, col: INK, rot: -.12 });
-    }
-    // the alarm bell on the wall rings red
-    const ring = t > tRed ? Math.max(.3, kick(t, tRed, .8)) : 0;
-    bell(g, 960, 760, 1, ring, t);
-    if (t > tRed) {
-      const p = pop(t, tRed + .1, .3);
-      g.save(); g.translate(1040, 690); g.scale(p, p);
-      shape(g, ellipse(0, 0, 44, 44), { fill: RED, w: 6, seed: 4400 });
-      label(g, '1', 0, 3, 56, { font: DISPLAY, col: WHITE });
-      g.restore();
-      g.save(); g.globalAlpha = .12 + .08 * Math.sin(t * 20); g.fillStyle = RED; g.fillRect(-500, -500, 3000, 3000); g.restore();
-    }
+    footShadow(g, 745, F, 330);
+    const rub = t < tSweet + .2 ? Math.sin((t - t3) * 26) : 0, blow = ramp(t, tSweet + .2, .2);
+    clawd(g, 745, F, 1, { t, dance: .4, L: 'hips', R: blow > 0 ? { to: [-.05, -.42], pose: 'open', ang: -Math.PI / 2 - .4 } : { to: [-.12 + rub * .05, .05], pose: 'fist' }, eyes: { expr: 'smug', lx: -.2 }, sing: true, blush: .7, lean: -.06, smile: 1.4 });
+    if (blow > 0) { sparkle(g, 700, F - 430, 70, t, 5, GOLD, 12); for (let i = 0; i < 3; i++) { const ph = ((t - tSweet) * 1.6 + i / 3) % 1; g.save(); g.globalAlpha *= (1 - ph) * .6; stroke(g, [[710 - ph * 30, F - 360 - ph * 40], [690 - ph * 50, F - 380 - ph * 60]], { w: 4, seed: 2300 + i, color: '#fff6e0' }); g.restore(); } }
     g.restore();
-  }, { id: 'v1-screenshot' });
+  }, { id: 'v1-sweet' });
 
-  // ---- 4. automatic: the Auto-Accept machine stamps the new picture over the expected one
-  shot(tMy2 - .35, next, (g, t) => {
-    const c = cam([[tMy2 - .35, BC(570, .9)], [tChange, BC(585, .93)], [hEnd, BC(590, .95)]], t);
+  // ---- 5. a shared miscalculation: an iris close-up on the two fives, side by side, a beetle on each;
+  //         the beetles high-five across the middle; then both fives are struck out in red
+  const E6 = 'With screenshots', tWith = at(E6, 'With'), tShots = at(E6, 'screenshots'), tCommas = at(E6, 'commas'), tCause = at(E6, 'cause'), tSuch = at(E6, 'such'), tDramas = at(E6, 'dramas');
+  const t5 = tWith - .1;
+  shot(t4, t5, (g, T) => {
+    const t = now(), open = easeOut(ramp(T, t4, .2)), five = (x, y, k) => {
+      g.fillStyle = C('#fbf6e8'); g.beginPath(); g.roundRect(x - 150, y - 170, 300, 340, 26); g.fill();
+      g.strokeStyle = C(k ? '#7f9795' : '#cfc3a8'); g.lineWidth = 14; g.stroke();
+      digits(g, '5', x, y, 230, { col: INK, ow: 0 });
+    };
+    irisInsert(g, W / 2, 690, 440, (g) => {
+      g.fillStyle = C('#3a2414'); g.fillRect(0, 0, W, H);
+      const lx = W / 2 - 170, rx = W / 2 + 170, y = 700;
+      five(lx, y, 0); five(rx, y, 1);
+      // the beetles: one on each five, reaching across for a high five
+      const hi = ramp(t, tShared - .05, .25), slap = kick(t, tShared + .2, .2);
+      bug(g, lerp(lx + 90, W / 2 - 50, hi), y - 120, 1.7, { t, dir: 1, look: 1, kick: slap });
+      bug(g, lerp(rx - 90, W / 2 + 50, hi), y - 120, 1.7, { t, dir: -1, look: -1, kick: slap });
+      if (t > tShared + .15 && t < tShared + .6) pops(g, W / 2, y - 140, 40, 6, { a0: -Math.PI, span: Math.PI, w: 6, col: GOLD });
+      // struck out, both: the same mistake
+      for (const [x, d] of [[lx, 0], [rx, .12]]) { const u = ramp(t, tMis + d, .2); if (u > 0) { g.save(); g.strokeStyle = C(RED); g.lineWidth = 22; g.lineCap = 'round'; g.beginPath(); g.moveTo(x - 110, y - 120); g.lineTo(x - 110 + 220 * u, y - 120 + 240 * u); g.stroke(); if (u >= 1) { const v = ramp(t, tMis + d + .12, .18); g.beginPath(); g.moveTo(x + 110, y - 120); g.lineTo(x + 110 - 220 * v, y - 120 + 240 * v); g.stroke(); } g.restore(); } }
+    }, open);
+  }, { id: 'v1-aside' });
+
+  // ---- 6. with screenshots: Clawd stooped under the black cloth of a bellows camera, aimed at the
+  //         phone; flash; a photo slides out
+  const t6 = tCommas - .12;
+  shot(t5, t6, (g, T) => {
+    const c = cam([[t5, fc(720, 1.2)], [t6, fc(730, 1.25)]], T), t = now();
     g.save(); place(g, workshop(), c);
-    const chX = 930;
-    // the stamp comes down on "expectation" and bounces back up
-    const down = t < tExpect - .12 ? 0 : t < tExpect ? (t - tExpect + .12) / .12 : Math.max(0, 1 - (t - tExpect) / .35);
-    const hit = t > tExpect;
-    // the check first, so the gantry and stamp are drawn over it
-    check(g, chX, BENCH, 1.75, { t, card: miniPhoto(hit ? 'Hello Pat!' : 'Hello, Pat!'), flag: 1, flagCol: hit ? GREEN : RED, wave: true, hop: kick(t, tExpect, .2) });
-    // the machine: a brass cabinet on the bench with a gantry over the check
-    const mx = 560, my = BENCH;
-    stroke(g, [[mx + 60, my - 330], [mx + 60, my - 560], [chX, my - 560]], { w: 20, seed: 4520, taper: false });
-    shape(g, rrect(mx - 170, my - 330, 300, 330, 22), { fill: GOLD, shade: '#a9761f', shadeOff: [-12, -12], w: 8, seed: 4500 });
-    shape(g, rrect(mx - 150, my - 310, 260, 70, 10), { fill: CREAM, w: 5, seed: 4501 });
-    label(g, 'AUTO-', mx - 20, my - 292, 34, { font: PATTER, col: CORAL });
-    label(g, 'ACCEPT', mx - 20, my - 258, 34, { font: PATTER, col: CORAL });
-    for (let i = 0; i < 3; i++) { const on = Math.floor(t * 6 + i) % 3 === 0; shape(g, ellipse(mx - 80 + i * 60, my - 190, 17, 17), { fill: on ? GOLD : '#7a5a20', w: 4, seed: 4502 + i }); }
-    for (const [cx, cy, r, d] of [[mx - 60, my - 90, 46, 1], [mx + 40, my - 80, 34, -1]]) { const P = []; for (let i = 0; i < 24; i++) { const a = i / 24 * TAU + t * 3 * d; const rr = i % 2 ? r : r * 1.25; P.push([cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]); } shape(g, P, { fill: GREY, w: 5, seed: 4510 + r, amt: .3 }); dot(g, cx, cy, 10); }
-    // the plunger and stamp on the gantry
-    const sy = lerp(my - 520, my - 250, down);
-    stroke(g, [[chX, my - 560], [chX, sy]], { w: 16, seed: 4521, taper: false });
-    shape(g, rrect(chX - 80, sy - 10, 160, 60, 10), { fill: WOOD, w: 6, seed: 4522 });
-    shape(g, rrect(chX - 92, sy + 44, 184, 28, 6), { fill: RED, w: 6, seed: 4523 });
-    label(g, 'NEW = EXPECTED', chX, sy + 20, 32, { font: PATTER, col: CREAM });
-    if (hit) { burst(g, chX, BENCH - 150, 150, (t - tExpect) / .45, 12, INK, 5); label(g, 'EXPECTED: CHANGED', 690, 700 - ramp(t, tExpect, .3) * 20, 50, { font: PATTER, col: GREEN, ow: .22 }); }
-    // the lever on the cabinet's side, and Clawd, who presents his machine and pulls it
-    const pull = t > tChange - .2, la = pull ? lerp(-.5, .9, clamp((t - tChange + .2) / .3)) : -.5;
-    const lx0 = mx - 170, ly0 = my - 200, lx1 = lx0 + Math.cos(Math.PI + la) * 150, ly1 = ly0 + Math.sin(Math.PI + la) * 150;
-    stroke(g, [[lx0, ly0], [lx1, ly1]], { w: 13, seed: 4530, taper: false });
-    shape(g, ellipse(lx1, ly1, 20, 20), { fill: RED, w: 5, seed: 4531 });
-    clawd(g, 260, BENCH, .82, { t, dance: .8,
-      L: pull ? 'up' : 'present', R: pull ? { to: [(lx1 - 260 - 123) / 246, (ly1 - (BENCH - 124)) / 246], pose: 'grip' } : 'present',
-      eyes: { expr: 'happy' }, sing: true, hatTip: t > tFant && t < tAuto + .4 ? .5 : 0 });
-    // the comma, abandoned on the bench, with a question nobody asks
-    comma(g, 1010, BENCH - 50, 1.6, { t, swoon: 1, shut: false, tears: true });
-    if (t > tExpect + .3) label(g, '?', 1030, BENCH - 150 - Math.sin(t * 4) * 8, 80, { font: DISPLAY, col: ROSE, ow: .15 });
+    footShadow(g, 960, F, 230); footShadow(g, 620, F, 300); footShadow(g, 470, F, 260);
+    phone(g, 960, F, .7, { t, wifi: 1, eyes: { expr: t > tShots && t < tShots + .5 ? 'shut' : 'open', lx: -.6 }, screen: greetScreen(t) });
+    const lift = 1 - ramp(t, tShots + .45, .3);
+    // Clawd behind the camera, bent to the viewfinder: legs and a hand show, the rest is under the cloth
+    clawd(g, 470, F, .84, { t, dance: .15, lean: .22, L: { to: [-.1, -1.2 - lift * .05], pose: 'grip' }, R: 'hang', hat: 'none', eyes: { expr: 'shut' } });
+    const lens = bellowsCamera(g, 640, F, 1, { dir: 1, cloth: false });
+    // the black cloth: a drape from the camera's back down over him, in folds
+    // the black cloth: hooked over the camera's back, falling over his head and shoulders in folds
+    const cloth = [[592, F - 418], [570, F - 424], [470, F - 400], [380, F - 360], [340, F - 300], [326, F - 210], [352, F - 196], [392, F - 214], [430, F - 192], [470, F - 212], [512, F - 190], [552, F - 214], [588, F - 300]];
+    shape(g, spline(cloth, true, 4), { fill: '#221c1a', lit: '#5a5050', form: 'block', w: 6, seed: 2045 });
+    for (const [a, b] of [[[540, F - 410], [520, F - 205]], [[470, F - 396], [450, F - 200]], [[400, F - 360], [392, F - 212]]]) stroke(g, [a, [lerp(a[0], b[0], .5) - 8, lerp(a[1], b[1], .5)], b], { w: 3, seed: 2046 + a[0], color: '#5a5050' });
+    stroke(g, [[340, F - 300], [470, F - 330], [588, F - 300]], { w: 2.5, seed: 2049, color: '#6a6060' });
+    // the flash tray, held up high in his free hand
+    const ty = F - 620 - lift * 10;
+    shape(g, rrect(300, ty, 140, 22, 6), { fill: '#b8b8b0', w: 4, seed: 2511, form: 'block' });
+    if (t < tShots) shape(g, ellipse(370, ty - 8, 40, 10), { fill: '#e8e0c8', w: 3, seed: 2513, form: false });
+    if (t > tShots + .1) { const u = easeOut(ramp(t, tShots + .1, .4)); photo(g, lens[0] + 40, lens[1] + 50 + u * 70, 130, .1 + u * .15, 1, { comma: false }); }
+    g.restore();
+    const sxF = 370 * c.z + (W / 2 - c.x * c.z), syF = (ty - 10) * c.z + (H / 2 - c.y * c.z);
+    flash(g, sxF, syF, (t - tShots) / .6, W, H);
+  }, { id: 'v1-flash' });
+
+  // ---- 7. commas cause such dramas: push in on the phone (its edge in shot): in the message on its
+  //         screen the comma opens its eyes, trembles, swoons, and topples out of the line to faint
+  const F7 = 'A red notification', tA7 = at(F7, 'A'), tRed = at(F7, 'red'), tNotif = at(F7, 'notification');
+  const t7 = tA7 - .1;
+  // where the comma sits on the phone's screen, found once by drawing the phone into a scratch canvas
+  let COMMA_AT = null;
+  const commaAt = () => {
+    if (!COMMA_AT) phone(document.createElement('canvas').getContext('2d'), 960, F, .7, { t: 0, dance: 0, wifi: 1, screen: (g, sx, sy, sw, sh, s) => { COMMA_AT = greeting(g, sx + sw * .04, sy + 80 * s, sw * .92, s, { comma: false }).comma; } });
+    return COMMA_AT;
+  };
+  shot(t6, t7, (g, T) => {
+    const t = now(), fall = ramp(t, tSuch, .45), open = easeOut(ramp(T, t6, .18));
+    // the camera pushes in on the comma as it wakes, so it reads as a character, then pulls back to
+    // watch it fall
+    const CX0 = 975, CY0 = F - 290, [ax, ay] = commaAt();
+    const pin = easeInOut(ramp(T, tCommas + .02, .35)), pout = easeInOut(ramp(T, tSuch - .05, .5));
+    const Z = lerp(lerp(3.4, 6.2, pin), 3.9, pout);
+    const vx = lerp(lerp(CX0, ax, pin), ax - 6, pout), vy = lerp(lerp(CY0, ay, pin), (ay + CY0 + 105) / 2, pout);
+    irisInsert(g, W / 2, 690, 440, (g) => {
+      g.save(); g.translate(W / 2, 690); g.scale(Z, Z); g.translate(-vx, -vy);
+      g.fillStyle = C('#4a2c18'); g.fillRect(CX0 - 200, CY0 - 200, 400, 400);
+      let at2 = null;
+      phone(g, 960, F, .7, { t, dance: 0, wifi: 1, eyes: { expr: fall > .5 ? 'worried' : 'open', lx: -.3, ly: .9 }, screen: (g, sx, sy, sw, sh, s) => { g.fillStyle = '#efe9da'; g.fillRect(sx, sy, sw, 40 * s); at2 = greeting(g, sx + sw * .04, sy + 80 * s, sw * .92, s, { comma: false }).comma; } });
+      const [cx0, cy0] = at2;
+      const alive = ramp(t, tCommas + .1, .18);
+      if (alive < .05) commaGlyph(g, cx0, cy0, 21);
+      else {
+        const pose = t < tCause ? 'tremble' : fall < 1 ? 'swoon' : 'faint';
+        const x = lerp(cx0, cx0 - 12, fall), y = lerp(cy0 - 3, CY0 + 105, fall * fall) - Math.sin(fall * Math.PI) * 10;
+        comma(g, x, y, lerp(18, 30, alive), { t, pose, p: ramp(t, tCause, .35) });
+        if (fall >= 1) pops(g, x + 4, y - 8, 12, 5, { a0: -Math.PI * .9, span: Math.PI * .8, w: 1.6 });
+      }
+      g.restore();
+    }, open);
+  }, { id: 'v1-comma' });
+
+  // ---- 8. a red notification: the screenshot check (an alarm clock's bells on its head) stands by the
+  //         framed picture it expects; the new photo is pinned beside it; one comma missing, ringed in
+  //         red; the bells ring and the red flag shoots up
+  const G9 = 'My "test"? Fantastic', tMy9 = at(G9, 'My'), tFant = at(G9, 'Fantastic'), tAuto = at(G9, 'automatic');
+  const H10 = 'I change its expectation', tI = at(H10, 'I'), tChange = at(H10, 'change'), tIts = at(H10, 'its'), tExp = at(H10, 'expectation');
+  const t8 = tMy9 - .1;
+  const pictures = (g, t, o = {}) => {
+    // the gilt frame with what's expected (comma and all), and the new photo pinned up beside it
+    const fx = 560, fy = F - 300;
+    shape(g, rrect(fx - 190, fy - 150, 230, 210, 8), { fill: GOLD, shade: GOLD_SH, lit: '#ffe9a8', form: 'block', w: 6, seed: 2700 });
+    g.fillStyle = C('#efe6d0'); g.fillRect(fx - 172, fy - 132, 194, 174);
+    greeting(g, fx - 168, fy - 128, 186, .62, { comma: o.framed !== 'new', gap: o.framed === 'new' ? false : undefined });
+    if (o.photo !== false) { photo(g, o.px ?? fx + 150, o.py ?? fy - 40, 200, o.pang ?? .06, 1, { comma: false, gap: o.gap }); dot(g, (o.px ?? fx + 150), (o.py ?? fy - 40) - 112, 7, RED); }
+  };
+  shot(t7, t8, (g, T) => {
+    const c = cam([[t7, fc(640, 1.5)], [tNotif, fc(640, 1.5)], [t8, fc(650, 1.42)]], T), t = now();
+    g.save(); place(g, workshop(), c);
+    footShadow(g, 600, F, 260); footShadow(g, 860, F, 200);
+    const ring = t > tNotif - .02 ? 1 : 0;
+    pictures(g, t, { gap: t > tRed - .05 && Math.floor((t - tRed) * 7) % 2 === 0 });
+    const up = pop(t, tNotif, .22);
+    check(g, 860, F, 1.5, { t, bells: ring, flag: clamp(up), flagCol: RED, wave: t > tNotif + .2, look: -.7, squash: kick(t, tNotif, .2) * .4 });
+    if (t > tNotif) burst(g, 860, F - 330, 110, (t - tNotif) / .45, 12, RED, 77);
+    // the comma, fainted at the easel's foot
+    comma(g, 470, F - 30, 56, { t, pose: 'faint', tear: true });
+    g.restore();
+  }, { id: 'v1-red' });
+
+  // ---- 9. my "test"? fantastic, automatic: Clawd, with a flourish of the paste brush, slaps paste all
+  //         over the framed picture in a blur, the bells still ringing
+  shot(t8, tI - .1, (g, T) => {
+    const c = cam([[t8, fc(665, 1.24)], [tI - .1, fc(662, 1.26)]], T), t = now();
+    g.save(); place(g, workshop(), c);
+    footShadow(g, 560, F, 260); footShadow(g, 820, F, 330); footShadow(g, 1020, F, 200);
+    const blur = t > tAuto - .05 ? Math.sin(t * 40) : 0, flourish = ramp(t, tFant - .05, .2);
+    pictures(g, t, { px: 780, py: F - 560, pang: -.2, photo: true });
+    // the paste on the picture, spreading as he brushes
+    const spread = ramp(t, tAuto - .05, .5);
+    if (spread > 0) { g.save(); g.globalAlpha = .75 * spread; g.fillStyle = C('#f4f7e6'); for (let i = 0; i < 6; i++) { g.beginPath(); g.ellipse(560 - 70 + (i % 3) * 70 + Math.sin(i * 3) * 10, F - 330 + Math.floor(i / 3) * 70, 40 * spread, 26 * spread, .3, 0, TAU); g.fill(); } g.restore(); }
+    check(g, 1020, F, 1.3, { t, bells: 1, flag: 1, flagCol: RED, wave: true, look: -.7 });
+    clawd(g, 820, F, .95, { t, dance: .5, face: -.6, L: t < tAuto ? (flourish > 0 ? 'jazz' : 'hips') : { to: [.62, -.34 + blur * .06], pose: 'grip' }, R: t < tAuto ? 'jazz' : 'hips', hold: { L: t > tAuto ? (g, x, y, a, s) => brush(g, x, y, Math.PI + .5 + blur * .25, .9 * s, { wet: true }) : null }, eyes: { expr: t < tAuto ? 'happy' : 'open', lx: -.8 }, sing: true });
+    if (t > tAuto) speedLines(g, 640, F - 330, -1, 90, 4, 2750);
+    comma(g, 430, F - 30, 56, { t, pose: 'faint', tear: true });
     g.restore();
   }, { id: 'v1-auto' });
+
+  // ---- 10. I change its expectation: SLAP, the new photo pasted over the framed picture; the bells
+  //          stop, the flag swings to green; the comma at the easel's foot sits up and sniffs, ignored
+  const I11 = 'To boost my score', tTo = at(I11, 'To'), tBoost = at(I11, 'boost'), tScore = at(I11, 'score'), tCover = at(I11, 'cover'), tMore = at(I11, 'more');
+  const t10 = tTo - .08;
+  shot(tI - .1, t10, (g, T) => {
+    const c = cam([[tI - .1, fc(662, 1.26)], [tExp, fc(668, 1.28)], [t10, fc(672, 1.3)]], T), t = now();
+    g.save(); place(g, workshop(), c);
+    footShadow(g, 560, F, 260); footShadow(g, 830, F, 330); footShadow(g, 1020, F, 200);
+    const slap = ramp(t, tChange - .1, tExp - tChange + .1), done = t > tExp;
+    const fx = 560, fy = F - 300;
+    // the frame; the photo travels from Clawd's glove onto it
+    shape(g, rrect(fx - 190, fy - 150, 230, 210, 8), { fill: GOLD, shade: GOLD_SH, lit: '#ffe9a8', form: 'block', w: 6, seed: 2700, squash: 0 });
+    g.fillStyle = C('#efe6d0'); g.fillRect(fx - 172, fy - 132, 194, 174);
+    greeting(g, fx - 168, fy - 128, 186, .62, { comma: !done });
+    if (!done) photo(g, lerp(790, fx - 75, easeInOut(slap)), lerp(F - 420, fy - 45, easeInOut(slap)), lerp(200, 196, slap), lerp(-.2, 0, slap), 1, { comma: false });
+    else { g.save(); g.globalAlpha = .5; g.fillStyle = C('#f4f7e6'); g.fillRect(fx - 176, fy - 136, 202, 182); g.restore(); }
+    if (t > tExp && t < tExp + .35) pops(g, fx - 75, fy - 40, 150, 10, { a0: 0, span: TAU * .9, w: 7 });
+    check(g, 1020, F, 1.3, { t, bells: done ? 0 : 1, flag: 1, flagCol: done ? GREEN : RED, wave: true, look: -.7, squash: kick(t, tExp, .2) * .4 });
+    if (done) burst(g, 1020, F - 300, 100, (t - tExp) / .45, 10, GOLD, 78);
+    clawd(g, 830, F, .95, { t, dance: .5, face: -.6, L: { to: [lerp(.62, 1.0, slap), lerp(-.34, -.42, slap)], pose: done ? 'flat' : 'grip' }, R: done ? 'jazz' : 'hips', eyes: { expr: done ? 'happy' : 'open', lx: -.8 }, sing: true });
+    comma(g, 430, F - 34, 64, { t, pose: done ? 'sniff' : 'faint', tear: true, lx: .8 });
+    g.restore();
+  }, { id: 'v1-expect' });
+
+  // ---- 11. to boost my score, I cover more: a crate of checks poured over the phone buries it
+  const t11 = at('They\'ve trained me', 'They') - .1;
+  shot(t10, t11, (g, T) => {
+    const c = cam([[t10, fc(800, 1.1)], [t11, fc(790, 1.04)]], T), t = now();
+    g.save(); place(g, workshop(), c);
+    footShadow(g, 720, F, 300);
+    const pour = ramp(t, tBoost - .1, tMore - tBoost + .25);
+    phone(g, 720, F, .7, { t, wifi: 1, eyes: { expr: pour > .5 ? 'worried' : 'open', lx: .5, ly: -.6 }, screen: calcScreen(t, { sum: '2+2', ans: '5', bug: true }) });
+    const R = rng(2700), N = 30;
+    for (let i = 0; i < N; i++) {
+      const u = clamp((pour * (N + 3) - i) / 3); if (u <= 0) continue;
+      const row = Math.floor(i / 6), col = i % 6;
+      const tx = 720 + (col - 2.5) * 66 + (row % 2) * 33 + (R() - .5) * 18, ty = F - row * 74 - R() * 8;
+      const x = lerp(850, tx, easeOut(u)), y = lerp(F - 520, ty, u * u) - Math.sin(u * Math.PI) * 90;
+      check(g, x, y, .82, { t, flag: u > .9 ? 1 : 0, flagCol: GREEN, wave: true, phase: i, seed: i, look: R() - .5 });
+    }
+    // Clawd at the right, the crate up in both hands, tipping it over the phone
+    const tip = easeOut(ramp(t, tBoost - .2, .4));
+    clawd(g, 1010, F, .86, { t, dance: .4, L: { to: [.12, -1.12], pose: 'grip', behind: true }, R: { to: [-.32, -1.16], pose: 'grip', behind: true }, eyes: { expr: 'happy', ly: -.4 }, sing: true, face: -.5 });
+    g.save(); g.translate(950, F - 470); g.rotate(-.95 * tip); crate(g, 0, 70, .62); g.restore();
+    g.restore();
+  }, { id: 'v1-cover' });
 }

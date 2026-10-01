@@ -224,7 +224,8 @@ excluded from git. The output names are:
 - `episodes/04-did-you-actually-test-it.jpg`: the composed poster.
 - [captions.srt](../music/ep04/captions.srt): the measured caption track.
 
-Lyrics: Qing with Claude. Music and voice: Suno, in the take selected by Qing. Drawings and
+Lyrics: Qing with gpt-6.1-sol (corrected 2026-10-01; this film's end card, rendered earlier, still
+says "Qing with Claude"). Music and voice: Suno, in the take selected by Qing. Drawings and
 animation: Sol. Testing/checking: James Bach and Michael Bolton; oracles: William Howden,
 Elaine Weyuker, Bach and Bolton; agent teamwork and the briefing interpretation: Yanqing Cheng.
 The film credits these sources on its end card; [SOURCES.md](../SOURCES.md) gives the provenance.

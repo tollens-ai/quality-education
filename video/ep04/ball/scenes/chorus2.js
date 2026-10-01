@@ -1,137 +1,313 @@
-// Chorus 2, in the gym: the same questions, now about a real user's lost work.
-//  "Did you actually test it?"  Mabel sings it too, the crew around her phone.
-//  "Press it, stress it, second-guess it!"  Press hammers SAVE with no net; Stress yanks the plug in
-//     and out; Guess asks the next thing: OLD SETS TOO?
-//  "Find a clue? Congratulations!"  The red-flag check wins the CLUE! rosette; Mabel presses the whole
-//     crew overhead on her barbell.
-//  "Now pursue its implications."  The camera pans along the gym: other lifters, logging offline too.
-//  "What did you try? What did you find?"  The notebook, case 2.
-//  "What changed your mind?"  The phone's "Saved!" is stamped: SAVED ≠ STORED.
-import { W, H, TAU, clamp, lerp, now, when, wordsOf, hash, easeOut } from '../kit.js';
-import { INK, CREAM, TEAL, CORAL, OCHRE, ROSE, PLUM, GOLD, GREEN, RED, WHITE, MINT } from '../palette.js';
-import { shot, irisJoin } from '../shots.js';
-import { gym } from '../places.js';
+// Chorus 2, still in Mabel's gym: the crew's refrain, with Clawd the tester asking now.
+//  "Did you actually test it?"        Clawd, glass to his eye, leans in at us: his eye fills the lens.
+//  "Press it, stress it,              Three cuts: Press mashes save with no net (tick, tick, tick);
+//   second-guess it!"                 Stress yanks the plug in and out (the waves flicker); Guess
+//                                     squints at the "Saved!" tick through his monocle.
+//  "Find a clue? Congratulations!"    Mabel hoists the whole crew and the red-flag check overhead on
+//                                     her barbell; confetti.
+//  "Now pursue its implications."     The camera pulls back out of her basement to the street: a row
+//                                     of basement gyms, every lifter's phone with no net; Guess's
+//                                     glass sweeps along them.
+//  "What did you try?                 Clawd answers with evidence: a snapshot of the pulled plug and a
+//   What did you find?"               barbell; then one of the dashed empty row.
+//  "What changed your mind?"          The "Saved!" tick on the phone cracks and falls off: behind it,
+//                                     the store's drawer, empty. Mabel takes out her own notebook and
+//                                     pencil and jots her sets down herself.
+import { W, H, TAU, clamp, lerp, now, easeOut, easeInOut, backOut, wordsOf } from '../kit.js';
+import { GOLD, RED, WHITE, ROSE, CLAWD, C } from '../palette.js';
+import { shot } from '../shots.js';
+import { GYM, PLUG, gymSet, street, ST } from '../places-gym.js';
 import { clawd } from '../clawd.js';
-import { guess, press, stress, check } from '../crew.js';
-import { mabel, person } from '../people.js';
-import { phone, socket, barbell } from '../props-gym.js';
-import { notebook, rosette } from '../props-crew.js';
-import { shape, rrect, ellipse, stroke } from '../ink.js';
-import { label, DISPLAY, PATTER, SCRIPT, fitSize } from '../type.js';
-import { at, ramp, pop, ease, kick, place, cam, burst, sparkle, confetti } from '../common.js';
-import { FL, GC, glass } from './verse2.js';
+import { check } from '../crew.js';
+import { mabel } from '../people.js';
+import { magnifier, socket, plug, router } from '../cast.js';
+import { mabelPhone, mabelLift, member, reach, barbell, barbellIcon, tick, crackedTick, snapshot, notebook, pencil, ghostRow, shelfPhone, lifter, moth, PINK } from '../props-gym.js';
+import { pops, qmark, sweat } from '../rig.js';
+import { at, ramp, ease, kick, cam, floorCam, sparkle, footShadow, confetti, place, look } from '../common.js';
+import { shape, ellipse, eye, stroke, rrect, glove, line } from '../ink.js';
+import { logInsert, ruleCard, IS, ITOP } from './verse2.js';
+import { LEAD } from '../lyrics.js';
 
-const ROWS = [{ text: 'SET 1  60 kg', tick: true }, { text: 'SET 2  60 kg', tick: true }, { text: 'SET 3  80 kg', tick: true }];
-const offCheck = (g, x, y, cw, ch, s) => { label(g, 'SAVED OFFLINE,', x, y - 9 * s, fitSize(g, 'SAVED OFFLINE,', PATTER, 18 * s, cw - 6 * s), { font: PATTER }); label(g, 'STILL THERE?', x, y + 11 * s, fitSize(g, 'STILL THERE?', PATTER, 18 * s, cw - 6 * s), { font: PATTER }); };
+const F = GYM.floor, PX = GYM.phone, MX = GYM.mabel, PS = .72, MS = .9, CS = .78;
+const fc = (x, z) => floorCam(x, z, F);
+// Mabel's log as verse 2 left it: two old sets, the set saved with the net on, and the outline where
+// the set saved without it was lost.
+const FINAL = [{}, {}, {}, { ghost: true }];
 
 export function register() {
-  const n = 1;
-  const A = 'Did you actually', B = 'Press it, stress', C = 'Find a clue', D = 'Now pursue', E = 'What did you try', F = 'What changed';
-  const t0 = at(A, 'Did', n) - .12;
-  const tPress = at(B, 'Press', n), tStress = at(B, 'stress', n), tSecond = at(B, 'second', n);
-  const tFind = at(C, 'Find', n), tClue = at(C, 'clue', n), tCongr = at(C, 'Congratulations', n);
-  const tNow = at(D, 'Now', n), tImpl = at(D, 'implications', n);
-  const tWhat = at(E, 'What', n), tTry = at(E, 'try', n), tFound = at(E, 'find', n);
-  const tWhat2 = at(F, 'What', n), tChanged = at(F, 'changed', n), tMind = at(F, 'mind', n), fEnd = wordsOf(F, n).at(-1).e;
-  const bridge = at('A fresh bot crew', 'A') - .12;
+  const C1 = 'Did you actually', C2 = 'Press it, stress', C3 = 'Find a clue?', C4 = 'Now pursue', C5 = 'What did you try?', C6 = 'What changed';
+  const w5 = wordsOf(C5, 1);
+  const T = {
+    did: at(C1, 'Did', 1), actually: at(C1, 'actually', 1), test: at(C1, 'test', 1), it: at(C1, 'it', 1),
+    press: at(C2, 'Press', 1), stress: at(C2, 'stress', 1), guess: at(C2, 'second', 1),
+    find: at(C3, 'Find', 1), clue: at(C3, 'clue', 1), congrats: at(C3, 'Congratulations', 1),
+    now: at(C4, 'Now', 1), pursue: at(C4, 'pursue', 1), its: at(C4, 'its', 1), impl: at(C4, 'implications', 1),
+    what1: w5[0].s - LEAD, try: w5[3].s - LEAD, what2: w5[4].s - LEAD, find2: w5[7].s - LEAD,
+    what6: at(C6, 'What', 1), changed: at(C6, 'changed', 1), your: at(C6, 'your', 1), mind: at(C6, 'mind', 1),
+  };
+  const end = 96.4;
 
-  // ---- 1-2. sing it together; press, stress, second-guess the gym log
-  shot(t0, tFind - .15, (g, t) => {
-    const c = cam([[t0, GC(560, 1.0)], [tSecond, GC(600, 1.04)]], t);
-    g.save(); place(g, gym(), c);
-    const pressing = t > tPress - .1 && t < tStress;
-    const yank = t > tStress - .1 && t < tSecond + .2, plugged = yank ? Math.floor(t * 8) % 2 === 0 : false;
-    const ph = phone(g, 760, FL, 1, { t, bars: plugged ? 4 : 0, rows: [...ROWS, ...(pressing ? [{ text: 'SET 4  80 kg', fresh: (t * 8) % 1 }] : [])], toast: pressing ? (t * 4) % 1 : 0, face: pressing ? 'worried' : 'open', lx: -.5, reloadPress: 0 });
-    socket(g, 210, 1010, .9, plugged, [ph.port[0] - 60, ph.port[1] + 20], { sag: 60, plugAt: [300, 1150 + Math.sin(t * 30) * 20], spark: plugged ? .5 : 0 });
-    stress(g, 290, FL, .62, { t, L: 'hips', R: yank ? { to: [.2, -1.6 + Math.sin(t * 50) * .3], pose: 'grip' } : 'hips', gauge: yank ? .98 : .4, steam: yank ? 1 : 0, shake: yank ? 1 : 0, sing: t < tPress });
-    mabel(g, 520, FL, .8, { t, L: 'cheer', R: 'hips', eyes: { expr: t < tPress ? 'happy' : 'open', lx: .6 }, sing: t < tPress + .3 });
-    press(g, 1000, FL, .56, { t, L: pressing ? { to: [-2.1, -3.2 + Math.sin(t * 60) * .15], pose: 'point' } : 'up', R: 'up', pressed: pressing ? 1 : 0, eyes: { lx: -.7, expr: pressing ? 'wide' : 'happy' }, sing: t < tPress + .3 });
-    // Guess on "second-guess": what about the sets saved before?
-    const gin = ease(t, tSecond - .45, .35);
-    if (gin > 0) {
-      guess(g, lerp(1250, 980, gin), FL, .66, { t, L: 'chin', R: 'hang', brow: 1, eyes: { lx: -.6 } });
-      g.save(); const p = pop(t, tSecond, .3); g.translate(700, 780); g.scale(p, p);
-      shape(g, rrect(-200, -60, 400, 120, 50), { fill: WHITE, w: 6, seed: 8001 });
-      shape(g, [[80, 50], [150, 110], [130, 45]], { fill: WHITE, w: 5, seed: 8002 });
-      label(g, 'OLD SETS TOO?', 0, 3, 48, { font: DISPLAY, col: PLUM });
-      g.restore();
-    }
-    for (const [tw, x, y, s] of [[tPress, 900, 1040, 11], [tStress, 290, 1060, 12], [tSecond, 980, 900, 13]]) burst(g, x, y, 140, (t - tw) / .4, 10, OCHRE, s);
+  // ---- 1. Did you actually test it? (Clawd raises his glass: his eye fills it; he leans in at us)
+  const c0 = T.did, c1 = T.press - .02;
+  shot(c0, c1, (g, t) => {
+    const d = now();
+    const c = cam([[c0, fc(MX, 1.92)], [T.test - .12, fc(MX, 2.02)], [T.test + .14, fc(MX, 2.34)], [c1, fc(MX, 2.4)]], t);
+    g.save(); gymSet(g, c, t, { soft: 2.6 });
+    footShadow(g, MX, F, 260);
+    const up = ease(d, T.actually - .12, .2), ptg = d > T.test - .04;
+    // the glass held up over his right eye, the lens showing that eye, big
+    const eyeX = MX + 234 * .19, eyeY = F - 42 - 83 - 167 * .1;
+    const ang = lerp(-1.2, -2.05, up), ls = CS * .9, reachL = 95 * ls + 70 * ls;
+    const lens = [lerp(MX + 150, eyeX, up), lerp(F - 120, eyeY, up)];
+    const hand = [lens[0] - Math.cos(ang) * reachL, lens[1] - Math.sin(ang) * reachL];
+    const sh = [MX + 234 * .52, F - 125 + 13];
+    const blink = Math.abs(d - (T.it + .12)) < .05 ? 1 : 0;
+    clawd(g, MX, F, CS, { t: d, hat: 'helmet', dance: .25, lean: ptg ? .05 : 0,
+      L: ptg ? { to: [.2, .1], pose: 'point', ang: Math.PI * .78 } : 'hips',
+      R: { to: [(hand[0] - sh[0]) / 234, (hand[1] - sh[1]) / 234], pose: 'grip' },
+      hold: { R: (g2, x, y, a, s) => magnifier(g2, x, y, ang, s * .9, { inside: up < .6 ? null : (g3, lx, ly, r) => {
+        g3.fillStyle = C(CLAWD); g3.fillRect(lx - r, ly - r, r * 2, r * 2);
+        eye(g3, lx + (eyeX - lens[0]) * .5, ly + (eyeY - lens[1]) * .5, 17 * CS * 2.3, 37 * CS * 2.3, { lx: 0, ly: 0, blink, lw: 7, seed: 4301, col: CLAWD });
+        if (d > T.it) { stroke(g3, [[lx - r * .55, ly - r * .62], [lx - r * .1, ly - r * .78], [lx + r * .35, ly - r * .7]], { w: 7, seed: 4302 }); }
+      } }) },
+      eyes: { lx: 0, ly: 0, cock: d > T.it ? 1 : 0 }, sing: true });
+    if (ptg && d < T.test + .4) pops(g, MX - 205, F - 50, 46, 5, { a0: Math.PI * .3, span: Math.PI * 1.1, w: 5 });
+    g.restore();
+  }, { id: 'c2-ask' });
+
+  // ---- 2. Press it, (Press mashes the phone's button with no net: "Saved!", "Saved!", "Saved!")
+  const c2 = T.stress - .04;
+  shot(c1, c2, (g, t) => {
+    const d = now();
+    g.save(); gymSet(g, cam([[c1, fc(PX - 60, 1.5)], [c2, fc(PX - 60, 1.58)]], t), t);
+    footShadow(g, PX, F, 220); footShadow(g, PX - 200, F, 130);
+    const n = Math.floor((d - T.press) * 12), jab = d > T.press - .04 && n % 2 === 0 ? 1 : 0;
+    mabelPhone(g, PX, F, PS, { rows: FINAL, big: d > T.press - .04 ? (jab ? 1 : .86) : 0, wifi: 0 }, { eyes: { expr: 'wide', lx: Math.sin(d * 30) * .7 }, lean: -jab * .03 });
+    const btn = [PX - 2, F - 46], po = { t: d, dance: .2 };
+    member(g, 'press', PX - 200, F, .7, { ...po, helmet: 1, pressed: jab, R: reach('press', PX - 200, F, .7, 'R', jab ? btn : [btn[0] - 46, btn[1] - 30], { ...po, pose: 'point' }), L: { to: [.2, -1.3], pose: 'fist' }, eyes: { lx: .9, ly: .5 }, sing: true });
+    if (jab) pops(g, btn[0], btn[1], 30, 5, { a0: -Math.PI * .9, span: Math.PI * .8, w: 4 });
     g.restore();
   }, { id: 'c2-press' });
 
-  // ---- 3. the clue, congratulated: the check's rosette; Mabel lifts the crew
-  shot(tFind - .15, tNow - .1, (g, t) => {
-    const c = cam([[tFind - .15, GC(540, 1.0)], [tCongr + .6, GC(540, 1.06)]], t);
-    g.save(); place(g, gym(), c);
-    const lift = ease(t, tCongr - .3, .35);
-    const by = lerp(1080, 780, lift) + (lift >= 1 ? Math.sin(t * 8) * 10 : 0);
-    mabel(g, 540, FL, .9, { t, L: { to: [.95, (by - 1030) / 150 - .3], pose: 'grip' }, R: { to: [.95, (by - 1030) / 150 - .3], pose: 'grip' }, eyes: { expr: 'happy' }, sing: true });
-    barbell(g, 540, by, .95);
-    guess(g, 540 - 280, by - 30, .42, { t, L: 'up', R: 'up', bang: 1, eyes: { expr: 'happy' }, dance: 0, sing: true });
-    press(g, 540 + 280, by - 40, .4, { t, L: 'up', R: 'up', eyes: { expr: 'happy' }, dance: 0, sing: true });
-    clawd(g, 540 - 160, by - 40, .32, { t, L: 'up', R: 'up', eyes: { expr: 'happy' }, dance: 0, sing: true });
-    stress(g, 540 + 160, by - 40, .34, { t, L: 'up', R: 'up', eyes: { expr: 'shut' }, dance: 0, steam: 1, sing: true });
-    // the check that found it, wearing the rosette
-    check(g, 900, FL, 1.4, { t, card: offCheck, flag: 1, flagCol: RED, wave: true, hop: kick(t, tClue, .25) });
-    if (t > tClue) { const p = pop(t, tClue, .35); g.save(); g.translate(900, 1180); g.scale(p * .75, p * .75); rosette(g, 0, 0, 1, 'CLUE!'); g.restore(); }
-    confetti(g, t, tCongr - .05, 80, { seed: 9 });
+  // ---- 3. stress it, (Stress yanks the plug in and out; the waves flicker on and off)
+  const c3 = T.guess - .04, SX = 745;
+  shot(c2, c3, (g, t) => {
+    const d = now();
+    const k = Math.floor((d - T.stress) * 6), inNow = d >= T.stress && k % 2 === 0;
+    const at2 = inNow ? PLUG.in : [PLUG.in[0] + 70, PLUG.in[1] - 24];
+    g.save(); gymSet(g, cam([[c2, fc(590, 1.42)], [c3, fc(585, 1.5)]], t), t, { net: inNow ? 1 : 0, plug: { at: at2, ang: Math.PI }, spark: inNow ? ((d - T.stress) * 6 % 1) * 2 : 0 });
+    footShadow(g, SX, F, 230);
+    const so = { t: d, lean: -.08, ang: Math.PI };
+    member(g, 'stress', SX, F, CS, { ...so, L: reach('stress', SX, F, CS, 'L', [at2[0] - 6, at2[1]], so), R: 'hips', helmet: 1, gauge: .98, steam: 1, shake: .6, frown: 1, eyes: { lx: -1, ly: -.2 }, sing: true });
     g.restore();
-  }, { id: 'c2-clue' });
+  }, { id: 'c2-stress' });
 
-  // ---- 4. implications: other lifters, logging offline too
-  shot(tNow - .1, tWhat - .15, (g, t) => {
-    const u = ease(t, tNow, tImpl + .5 - tNow);
-    const c = cam([[tNow - .1, GC(380, 1.0)], [tImpl + .6, GC(760, 1.0)]], t);
-    g.save(); place(g, gym(), c);
-    const lifters = [['pat', 260], ['sam', 560], ['me', 860], ['customer', 1160]];
-    for (const [k, x] of lifters) {
-      person(g, x, FL, .95, { t, kind: k, eyes: { ly: .6 } });
-      // each on a little phone with NO NET
-      shape(g, rrect(x - 40, FL - 150, 80, 120, 12), { fill: ROSE, w: 5, seed: 8100 + x });
-      shape(g, rrect(x - 30, FL - 138, 60, 90, 6), { fill: CREAM, w: 3, seed: 8101 + x });
-      label(g, 'NO NET', x, FL - 118, 16, { font: PATTER, col: RED });
-      const q = ramp(t, tNow + (x - 260) / 900 * (tImpl - tNow), .2);
-      if (q > 0) label(g, '?', x, FL - 440 - Math.sin(t * 5 + x) * 10, 110 * pop(t, tNow + (x - 260) / 900 * (tImpl - tNow), .3), { font: DISPLAY, col: RED, ow: .12 });
-    }
-    if (t > tImpl - .3) { const p = pop(t, tImpl - .3, .3); g.save(); g.translate(c.x, 760); g.scale(p, p); shape(g, rrect(-250, -46, 500, 92, 20), { fill: WHITE, w: 6, seed: 8150 }); label(g, 'EVERYONE OFFLINE?', 0, 3, 48, { font: DISPLAY, col: RED }); g.restore(); }
-    // Guess sweeping his glass along them
-    const gx = lerp(150, 1000, u);
-    guess(g, gx, FL, .7, { t, walk: t * 3, R: { to: [.9, -.9], pose: 'grip' }, hold: { R: glass(1) }, eyes: { lx: .6 }, bang: 1, sing: true });
+  // ---- 4. second-guess it! (Guess squints at the "Saved!" tick through his monocle)
+  const c4 = T.find - .02, GX = PX + 200;
+  shot(c3, c4, (g, t) => {
+    const d = now();
+    g.save(); gymSet(g, cam([[c3, fc(PX + 90, 1.62)], [c4, fc(PX + 96, 1.72)]], t), t);
+    footShadow(g, PX, F, 220); footShadow(g, GX, F, 150);
+    mabelPhone(g, PX, F, PS, { rows: FINAL, big: 1, wifi: 0 }, { eyes: { expr: 'worried', lx: .9 } });
+    const doubt = d > 82.12;
+    const r = member(g, 'guess', GX, F, CS, { t: d, helmet: 1, lean: -.22, face: -.8, L: 'chin', R: 'hips', eyes: { expr: 'smug', lx: -1, ly: .2 }, brow: doubt ? 1.6 : 1.1, sing: true });
+    sweat(g, PX - 110, F - 420, 1, '#8fd0e8');
+    if (doubt) { const p = backOut(ramp(d, 82.12, .2), 2.4); g.save(); g.translate(GX - 30, r.cy - 330); g.scale(p, p); qmark(g, 0, 0, 120, ROSE); g.restore(); }
     g.restore();
-  }, { id: 'c2-impl' });
+  }, { id: 'c2-guess' });
 
-  // ---- 5-6. notebook, case 2; then SAVED ≠ STORED
-  shot(tWhat - .15, bridge, (g, t) => {
-    const c = cam([[tWhat - .15, GC(560, 1.0)], [fEnd, GC(620, 1.06)]], t);
-    g.save(); place(g, gym(), c);
-    const away = ease(t, tWhat2 - .2, .4);
-    if (away < 1) {
-      g.save(); g.translate(0, away * 900);
-      notebook(g, 540, 1110, 1.1, [
-        ['TRIED:', 'save a set with no net, reload', tTry - .2, TEAL],
-        ['FOUND:', 'it said "Saved!"; the set was gone', tFound - .2, RED],
-        ['AND:', 'with the net on, sets stay', tFound + .7, PLUM],
-      ], t, { title: 'CASE 2: THE GYM', h: 520 });
-      g.restore();
-    }
-    if (away > 0) {
-      const ph = phone(g, 700, FL, 1, { t, bars: 0, rows: ROWS, toast: .5, face: t > tMind ? 'worried' : 'wink', hole: true });
-      mabel(g, 330, FL, .82, { t, L: 'hips', R: t > tChanged ? { to: [1.05, -.6], pose: 'point' } : 'hips', eyes: { expr: t > tChanged ? 'open' : 'happy', lx: .7 }, sing: true, smile: 1 });
-      if (t > tWhat2 - .1) {
-        // before and after: "Saved!" used to mean safe; now she knows it isn't, until it's stored
-        g.save(); g.translate(540, 800);
-        shape(g, rrect(-380, -90, 760, 180, 18), { fill: CREAM, w: 7, seed: 8201 });
-        label(g, '"Saved!"', -190, 0, 66, { font: SCRIPT, col: GREEN });
-        const k = ramp(t, tChanged, .3);
-        if (k > 0) stroke(g, [[-320, 10], [-320 + 260 * k, -10]], { w: 10, color: RED, seed: 8202 });
-        if (t > tMind - .1) { const p = pop(t, tMind - .1, .3); g.save(); g.translate(170, 0); g.scale(p, p); label(g, '≠ STORED', 0, 4, 62, { font: DISPLAY, col: RED }); g.restore(); }
-        g.restore();
+  // ---- 5. Find a clue? Congratulations! (Mabel hoists the crew and the red-flag check; confetti)
+  const c5 = T.now;
+  const hoist = (g, d, x, y, s, o = {}) => {
+    const p = o.p ?? (d < T.find + .05 ? 0 : easeOut(ramp(d, T.find + .05, .22), 2));
+    const bend = .55 + Math.sin(d * 7.2) * .12 * (p >= 1 ? 1 : 0);
+    const rs = .55 * s / MS;
+    mabelLift(g, x, y, s, p, { t: d, barW: 1.35 * s / MS, bend, eyes: { expr: p > 0 && p < 1 ? 'happy' : 'happy' }, smile: 1.5, sing: 0, load: (g2, bx, by, ss, bw) => {
+      if (p < .6) return;
+      const L = 300 * bw, yb = u => by + bend * 40 * bw * u * u - 8 * s / MS;
+      const riders = [
+        ['press', -1.0, -62], ['stress', -.6, 0], ['check', -.12, 0], ['clawd', .3, 0], ['guess', 1.0, -62],
+      ];
+      for (const [who, u, dy] of riders) {
+        const rx = bx + u * L, ry = yb(Math.abs(u)) + dy * s / MS;
+        if (who === 'check') check(g2, rx, ry, 1.0 * s / MS, { t: d, flag: 1, flagCol: RED, wave: true, look: .2, card: ruleCard });
+        else if (who === 'clawd') clawd(g2, rx, ry, rs, { t: d, hat: 'helmet', L: 'cheer', R: 'up', eyes: { expr: 'happy' }, sing: true, dance: .8 });
+        else member(g2, who, rx, ry, rs * (who === 'press' ? .9 : 1), { t: d, helmet: 1, L: 'cheer', R: 'up', eyes: { expr: 'happy' }, bang: who === 'guess' ? 1 : 0, sing: true, dance: .8 });
       }
-      guess(g, 1010, FL, .62, { t, L: 'cheer', R: 'hips', eyes: { expr: 'happy', lx: -.5 }, bang: 1 });
-      clawd(g, 900, FL + 20, .45, { t, L: 'up', R: 'hips', eyes: { expr: 'happy' } });
-    }
+    } });
+  };
+  shot(c4, c5, (g, t) => {
+    const d = now();
+    g.save(); gymSet(g, cam([[c4, fc(MX, .9)], [c5, fc(MX, .86)]], t), t);
+    footShadow(g, MX, F, 380);
+    hoist(g, d, MX, F, MS);
     g.restore();
-  }, { id: 'c2-mind' });
-  irisJoin(bridge - .05, { close: .5, open: .45, x: 700, y: 1100 });
+    g.save(); g.beginPath(); g.rect(0, 0, W, 1112); g.clip(); confetti(g, t, T.congrats - .05, 80, { seed: 11, y0: -40 }); g.restore();
+  }, { id: 'c2-hoist' });
+
+  // ---- 6. Now pursue its implications. (pull back out of her gym to the street: a row of basement
+  //         gyms. Guess's glass comes in from the side and stops over each one's phone in turn,
+  //         Mabel's first, then her neighbours': in the lens, the same struck-through fan and the same
+  //         empty dashed row.)
+  const c6 = T.what1 - .3, room = i => ST.rooms[i];
+  const KINDS = ['bunny', 'strongman', null, 'piglet', 'strongman', 'bunny'];
+  const PHC = ['#9cc2b0', '#a8b8e0', PINK, '#e0c080', '#b0d0a0', '#d0a8c8'];
+  const SF = ST.floor, GR = ST.ground, PHY = 1600, phX = i => room(i) - 140, phY = PHY - 64;
+  const drawStreet = (g, c, t, d) => {
+    place(g, street(), c);
+    for (let i = 0; i < 6; i++) {
+      const cx = room(i);
+      router(g, phX(i), GR + 200, .42, { t: d, on: 0 });
+      shelfPhone(g, phX(i), PHY, 1.0, PHC[i]);
+      footShadow(g, cx + 100, SF, 180);
+      if (i === 2) { hoist(g, d, cx + 100, SF, .38, { p: 1 }); continue; }
+      lifter(g, KINDS[i], cx + 100, SF, .62, d + i * .37, (Math.sin((d + i * .4) * 5.6) + 1) / 2);
+    }
+  };
+  const z0 = .774 / .38, Z = 1.0;
+  const stops = [[85.12, 2], [85.48, 3], [85.98, 3], [86.32, 4], [86.78, 4]];
+  const camKeys = [[c5, floorCam(room(2) + 100, z0, SF)], [c5 + .48, floorCam(phX(2), Z, SF)], ...stops.map(([tt, i]) => [tt, floorCam(phX(i), Z, SF)]), [c6, floorCam(phX(4) + 260, Z, SF)]];
+  shot(c5, c6, (g, t) => {
+    const d = now();
+    const sc = cam(camKeys, t);
+    const fade = ramp(t, c5, .38);
+    if (fade < 1) { g.save(); gymSet(g, cam([[c5, fc(MX, .86)], [c5 + .4, fc(MX, .8)]], t), t); hoist(g, d, MX, F, MS); g.restore(); }
+    g.save(); g.globalAlpha = fade; drawStreet(g, sc, t, d); g.restore();
+    // the glass: in from the left at the phones' height, then it stays in the middle as the street
+    // moves past under it, stopping on each phone
+    const enter = easeOut(ramp(t, c5 + .3, .42));
+    if (enter <= 0) return;
+    const R = 205, M = 2.5;
+    const lx = lerp(-R - 40, W / 2, enter), ly = H / 2 + (phY - sc.y) * sc.z;
+    const wx0 = sc.x + (lx - W / 2) / sc.z, wy0 = sc.y + (ly - H / 2) / sc.z;
+    g.save(); g.beginPath(); g.arc(lx, ly, R, 0, TAU); g.clip();
+    drawStreet(g, { x: wx0, y: wy0, z: sc.z * M, sx: lx - W / 2, sy: ly - H / 2 }, t, d);
+    g.restore();
+    // its rim, and a glint
+    shape(g, ellipse(lx, ly, R + 30, R + 30, 0, 64), { fill: null, w: 9, seed: 5133 });
+    g.save(); g.strokeStyle = C(GOLD); g.lineWidth = 22; g.beginPath(); g.arc(lx, ly, R + 15, 0, TAU); g.stroke(); g.restore();
+    shape(g, ellipse(lx, ly, R + 2, R + 2, 0, 64), { fill: null, w: 7, seed: 5134 });
+    g.save(); g.strokeStyle = 'rgba(255,255,255,.65)'; g.lineWidth = 10; g.beginPath(); g.arc(lx, ly, R * .8, -2.6, -1.9); g.stroke(); g.restore();
+    // Guess walks the pavement above, holding it down on a long handle; he walks only while the
+    // street moves
+    g.save(); look(g, sc);
+    const gx = wx0 + 60, moving = Math.abs(cam(camKeys, t + .03).x - sc.x) > 1.5 || enter < 1;
+    const hand = [gx - 18, GR - 250], lensTop = [wx0, wy0 - (R + 30) / sc.z];
+    line(g, [hand, lensTop], { w: 24, taper: false, seed: 5131 });
+    line(g, [hand, lensTop], { w: 13, taper: false, seed: 5132, color: '#6e4128' });
+    footShadow(g, gx, GR, 150);
+    const go = { t: d, walk: moving ? d * 2.4 : undefined, face: .2 };
+    member(g, 'guess', gx, GR, .8, { ...go, helmet: 1, L: reach('guess', gx, GR, .8, 'L', hand, go), R: 'hips', eyes: { lx: -.3, ly: 1 }, lean: 0, bang: moving ? 0 : 1 });
+    g.restore();
+  }, { id: 'c2-street' });
+
+  // ---- 7. What did you try? (Clawd answers with a snapshot: the pulled plug beside a barbell)
+  const c7 = T.what2 - .02, CX = MX - 210;
+  const holdPhoto = (g, d, which, pop, flick) => {
+    const k = clawd(g, CX, F, CS, { t: d, hat: 'helmet', lean: 0, L: 'hips', R: { to: [.3, -.6], pose: 'grip' }, eyes: { lx: .5, ly: -.1 }, sing: true });
+    const h = k.hands.R, s = backOut(clamp(pop), 2.2);
+    if (s <= 0) return;
+    g.save(); g.translate(h.x, h.y); g.scale(s, s); g.translate(-h.x, -h.y);
+    snapshot(g, h.x + 135, h.y - 40, 300, 330, -.05 + Math.sin(d * 3) * .02 + flick, which === 1 ? photoTry : photoFind, { seed: 7700 + which });
+    g.restore();
+  };
+  shot(c6, c7, (g, t) => {
+    const d = now();
+    g.save(); gymSet(g, cam([[c6, fc(CX + 167, 1.2)], [c7, fc(CX + 165, 1.24)]], t), t);
+    footShadow(g, CX, F, 250);
+    holdPhoto(g, d, 1, ramp(d, T.what1, .2), kick(d, T.try, .25) * .08);
+    g.restore();
+  }, { id: 'c2-try' });
+
+  // ---- 8. What did you find? (a second snapshot: the dashed empty row)
+  const c8 = T.what6 - .02;
+  shot(c7, c8, (g, t) => {
+    const d = now();
+    g.save(); gymSet(g, cam([[c7, fc(CX + 165, 1.24)], [c8, fc(CX + 163, 1.28)]], t), t);
+    footShadow(g, CX, F, 250);
+    // the first flies off to the left as the second comes up
+    const off = ramp(d, c7, .25);
+    if (off < 1) { g.save(); g.translate(-off * 700, -off * 200); g.rotate(-off * .5); holdPhoto(g, d, 1, 1, 0); g.restore(); }
+    holdPhoto(g, d, 2, ramp(d, c7 + .05, .22), kick(d, T.find2, .25) * .08);
+    g.restore();
+  }, { id: 'c2-find' });
+
+  // ---- 9. What changed your (close: the "Saved!" tick cracks and falls away: the drawer, empty)
+  const c9 = T.mind + .9;
+  shot(c8, c9, (g, t) => {
+    const d = now();
+    const crack = ramp(d, T.changed, .2), apart = ramp(d, T.your, .14), fall = clamp((d - T.your - .1) / .5);
+    const hole = ramp(d, T.your + .05, .25);
+    logInsert(g, t, c8, { rows: FINAL, big: 1, bigTick: { crack: apart > 0 ? 0 : crack, gone: apart > 0 ? 1 : 0 }, hole, wifi: 0 }, {
+      top: 210, open: easeOut(ramp(t, c8, .12)), eyes: { expr: d > T.mind ? 'worried' : 'open', lx: 0, ly: d > T.mind ? .8 : .3 },
+      after: (g2, sx, sy, s) => {
+        const bx = W / 2, by = sy + 442 * s * .47, r = 256 * s * .36;
+        if (hole > .6) { const u = (d - T.your - .2) / 1.2; if (u > 0 && u < 1) moth(g2, bx + Math.sin(u * 7) * 60 + u * 120, by + 20 - u * 520, 1.2, d, { rot: Math.sin(u * 5) * .3, trail: [.5, -1] }); }
+        if (apart <= 0) return;
+        for (const side of [-1, 1]) {
+          g2.save(); g2.translate(bx + side * (apart * 60 + fall * 120), by + fall * fall * 900); g2.rotate(side * (apart * .2 + fall * 1.4)); g2.translate(-bx, -by);
+          crackedTick(g2, bx, by, r, 1, 0, side);
+          g2.restore();
+        }
+      } });
+  }, { id: 'c2-crack' });
+
+  // ---- 10. mind? (Mabel takes out her own notebook and pencil and jots her sets down herself)
+  shot(c9, end, (g, t) => {
+    const d = now();
+    g.save(); gymSet(g, cam([[c9, fc(MX + 30, 1.34)], [end, fc(MX + 40, 1.5)]], t), t);
+    barbell(g, MX + 40, F - 120, .92, { r: .92 });
+    footShadow(g, MX, F, 330);
+    const out = ease(d, c9, .2), pen = ease(d, c9 + .08, .2);
+    const jot = [94.2, 94.48, 94.76, 95.05].map(x => x - .08), show = ease(d, 95.25, .3);
+    const n = jot.filter(x => d >= x).length, last = n ? clamp((d - jot[n - 1]) / .22) : 0;
+    const writing = d > jot[0] - .1 && d < jot[3] + .25, lick = d > 93.82 && d < 94.1;
+    const nbTo = [lerp(-.2, lerp(-.15, .45, show), out), lerp(.85, lerp(.05, -.6, show), out)];
+    const scribble = writing ? Math.sin(d * 40) * .05 : 0;
+    const penTo = lick ? [-.2, -.62] : writing ? [-.5 + scribble, -.12 + n * .06] : show > 0 ? [.1, .5] : [lerp(.1, -.2, pen), lerp(-1.1, -.4, pen)];
+    let page = null;
+    const M = mabel(g, MX, F, MS, { t: d, dance: .3,
+      L: { to: nbTo, pose: 'grip' }, R: { to: penTo, pose: 'grip' },
+      hold: {
+        L: (g2, x, y, a, s) => {
+          if (out <= .05) return;
+          const ns = lerp(.62, .95, show) * out, nx = x + 46 - 20 * show, ny = y - 30 - 30 * show;
+          notebook(g2, nx, ny, ns, n, last, { rot: lerp(-.12, .05, show) });
+          glove(g2, x, y, a, 28 * s, 'grip', { flip: true, seed: 613 });
+          page = [nx, ny - 190 * ns * .5 + (n + .3) * 190 * ns / 7];
+        },
+        R: (g2, x, y, a, s) => {
+          if (pen <= .05 || show >= .5) return;
+          const target = lick ? [MX, F - 376] : page || [x - 100, y];
+          pencil(g2, x + 6, y - 4, Math.atan2(target[1] - y, target[0] - x), s * .9);
+        },
+      },
+      eyes: { expr: show > .5 ? 'happy' : 'open', lx: show > .5 ? 0 : -.4, ly: show > .5 ? 0 : .6 }, smile: show > .5 ? 1.5 : 1, sing: lick ? .5 : 0 });
+    if (show > .6) sparkle(g, MX - 40, F - 420, 200, d, 5, GOLD, 81);
+    g.restore();
+  }, { id: 'c2-notebook' });
+}
+
+// ---------------------------------------------------------------- the snapshots
+// What did you try? The plug pulled out and lying on the floor by its socket, beside a barbell.
+function photoTry(g, x0, y0, w, h) {
+  g.fillStyle = C('#9a5a40'); g.fillRect(x0, y0, w, h);
+  for (let r = 0; r < 9; r++) for (let c = 0; c < 6; c++) { g.fillStyle = C(((r + c) % 3) ? '#a8644a' : '#8e4e36'); g.fillRect(x0 + c * 46 + (r % 2) * 23 - 10, y0 + r * 22, 42, 18); }
+  g.fillStyle = C('#6a4a30'); g.fillRect(x0, y0 + h * .68, w, h * .32);
+  socket(g, x0 + w * .26, y0 + h * .4, .78);
+  plug(g, [x0 - 20, y0 + h * .12], [x0 + w * .2, y0 + h * .84], .1, .8, { sag: 10 });
+  barbell(g, x0 + w * .64, y0 + h * .84, .2, { r: 1.25 });
+}
+// What did you find? Her log, with a dashed empty row where a set was saved.
+function photoFind(g, x0, y0, w, h) {
+  g.fillStyle = C('#fdf5f0'); g.fillRect(x0, y0, w, h);
+  g.fillStyle = C('#f6c4cf'); g.fillRect(x0, y0, w, 30);
+  const rw = w - 30, rh = 40;
+  [{}, { ghost: true }, {}].forEach((r, i) => {
+    const y = y0 + 52 + i * 62;
+    if (r.ghost) { ghostRow(g, x0 + 15, y, rw, rh, .8); g.save(); g.strokeStyle = C(ROSE); g.lineWidth = 5; g.beginPath(); g.ellipse(x0 + w / 2, y + rh / 2, rw * .62, rh * 1.0, -.04, 0, TAU); g.stroke(); g.restore(); return; }
+    shape(g, rrect(x0 + 15, y, rw, rh, 10), { fill: WHITE, form: false, w: 3, seed: 7760 + i });
+    barbellIcon(g, x0 + 15 + rw * .3, y + rh / 2, rw * .36, '#3a2c2c');
+    tick(g, x0 + 15 + rw * .8, y + rh / 2, 13, { seed: 7765 + i });
+  });
 }

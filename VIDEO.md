@@ -32,7 +32,8 @@ locked.
 | Ep. 2 v3, "Cut Light" | A blank page, one condition at every stage: "do I stand behind this artistically?" Image-model style studies for the look, then a full cut reviewed at full size and redrawn where it was weak | The people were "extremely" doubtful, then "better" but showing their construction, so they and their places became generated paper cut-outs. Then: "the lettering looks amazing though! and I love the band design", but the new people were off-style ("screams ai slop"), verse 1 had lost its story, and "way too much band, way too much repetitiveness, not enough illustrating the content" |
 | Ep. 2 v3, story layer | The people and places regenerated from the film's own frames and concepts, in a style Qing chose from studies. A scene library of the four briefs in every state, and every line's story shown in lit panes and windows, progressing through the repeats; an independent model's viewing of the frames before hand-back | "OK I changed my mind, the previous is ASTONISHING. let's finish this job"; "AFAIct everything except the finale scene (where people hover against the cartoony background) is good enough for me to post". The finale was redrawn so they stand in it |
 | Ep. 3, "Pencil Polka" | A blank page for a comic patter song, drawn entirely in code as coloured pencil. Two look proofs, then a pen that draws every shape as a hand does, after Qing's notes; one hand set the look, the kit and the first parts and Sonnet builders drew the rest in parallel, each to a standing brief; a frame-exact audit of every sung word, fresh readers of contact sheets, and a phone storyboard of the claims for the expert. One day | "Honestly the style is not that bad"; after the pen was redrawn: "omg this is adorable! [...] the style is fantastic", with two notes ("slightly _too_ clumsy"; the colouring "flashing a bit too much"), both fixed; on the finished film: "OK, I like this one and I will ship it" |
-| Ep. 4 (piano take), "Press, Stress & Guess" | A blank page for a piano patter remix: a 1930s rubber-hose sing-along cartoon with a bouncing ball, drawn by one hand (Opus) with no builders. Character sheets, a font specimen and a hero frame first; contact sheets after every part; a word-by-word audit; an independent viewer's reading of every second before hand-back, which caught a teaching error (a bug posed as a judgement call) | Awaiting Qing's verdict |
+| Ep. 4 (piano take), "Press, Stress & Guess" | A blank page for a piano patter remix: a 1930s rubber-hose sing-along cartoon with a bouncing ball, drawn by one hand (Opus) with no builders. Character sheets, a font specimen and a hero frame first; contact sheets after every part; a word-by-word audit; an independent viewer's reading of every second before hand-back, which caught a teaching error (a bug posed as a judgement call). Built below maximum effort by mistake | "no good": she liked "the idea and character design direction", but "the text layouts and background work ended up really sloppy" |
+| Ep. 4 (piano take) v2 | The storyboard restarted from a blank page under a new rule from an expert who had watched episode 3 ([One place to look](#one-place-to-look)). The cast refined toward *Cuphead*, every place repainted in watercolour and gouache, and close-ups in irises. The lead built the look, the kits, the lyric system and the first parts; three Opus builders drew the rest to a standing brief, each part reviewed at full size. An audit of every lettering call, a word audit, and an independent viewer before hand-back | Awaiting Qing's verdict |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -104,7 +105,9 @@ Round 3's brief, plus what Qing asked of v3 and v4 (2026-09-26) and of episode 2
 > - Clawd sings. The bots appear with their real marks, unaltered. Tollens's ∴ is three dots
 >   at the corners of an equilateral triangle.
 > - The typography is a graphic design element in its own right, not rows running across the
->   screen, in fonts that suit the genre. Every label and layout is clear.
+>   screen, in fonts that suit the genre. Every layout is clear.
+> - One place to look: the subject in the centre, the lyric just below it, and no words on
+>   screen that aren't lyrics. Tell each line as a silent film would.
 > - The characters are told apart at a glance: give each their own colour, not one shared palette.
 > - No lettering in a language that's there as decoration (episode 2 v2's Japanese: "super
 >   cringe and I can't post that").
@@ -217,12 +220,56 @@ the drawings.
   toy theatre's old slogan, "penny plain, twopence coloured", suits a song about what colour costs. (The agents
   saw this repository's notes, so it's not a clean poll; for one, run it from another working directory.)
 
+## One place to look
+
+An expert who watched episode 3, as Qing relayed it (2026-10-01): "you're making me read something
+at the top of the screen while something else happens at the bottom of the screen--i can't really
+do both. similarly, sometimes there's lyrics but then there's other text i'm supposed to read as
+well. that doesn't work at all, afaict humans can't do that. if it were my work i'd say keep the
+focus of attention smack in the center of the frame, and use quicker cutting if you need to see
+multiple things at once. bias to putting the words slightly below that where humans are used to
+glancing down for subtitles, and tell claude to impose a strict "no words that aren't lyrics"
+rule". Qing added: "consider carefully how to illustrate each concept the best way, using minimal
+additional text, thinking about mime and silent movies and early animations and other such
+mediums. the viewer should never be left wondering "what am I looking at?" and in a vertical
+video format, prefer to use shorter sections of lyric nearer the middle of the screen."
+
+A viewer can follow one thing at a time; made to choose between the lyric and the picture, they
+lose both. Settle this in the storyboard, before anything is drawn.
+
+- **No words but the lyric.** No labels, signs, name plates, captions, notes or lettered props. A
+  picture that needs a word to be understood needs a better picture. The title and the credits go
+  where nothing is sung. A few symbols read at a glance, like pictures (a tick, a question mark, a
+  padlock, a Wi-Fi fan, a short sum); use them sparingly, and never as a sentence in disguise. A
+  sung word that's also in the picture (a phone saying "Saved!") lives in the lyric, shaped to
+  point at whoever says it.
+- **One subject, in the centre.** Each moment has one thing to look at, in the middle of the frame.
+  To show two things, cut between them or bring them together in the middle, never at opposite
+  ends of the frame.
+- **The lyric just below the subject,** where eyes go for subtitles, in the same place all film: one
+  sung line at a time, two rows at most, big. Nothing that matters sits below it.
+- **Tell it as a silent film would.** Mime, staging and gesture carry the meaning: a clear
+  silhouette, one broad action, a visual gag, a figure of speech drawn literally. Ask of every line:
+  with the sound off, would a stranger know what they're looking at? The
+  [Tim Blais research](research/tim-blais-craft.md) adds what the picture is for: the part of the
+  story the words don't tell, the most exact picture on the hook, the biggest idea on the climax.
+- **Big enough, long enough, at phone size.** An independent viewer of episode 4's piano film, at
+  phone size, missed what the storyboard had planned in four ways.
+  - A gag about a small thing failed, and so did its callback later: push in on the small thing, or
+    give it an iris close-up.
+  - A 0.4 s shot was too short to read.
+  - A wide shot of many small figures became specks: show one example at a time, magnified.
+  - A held prop with no visible hand looked like it was floating.
+
+  Read every line's picture at 390 px wide before calling it done.
+
 ## The bar, as checks
 
 - **Beauty:** any frame could be printed. There's one coherent world and style, and no default
   "AI slop" gloss.
-- **Clarity:** each shot has one main read, and the viewer can always tell what's happening. Each
-  line's story is shown big, not only glimpsed through the letters.
+- **Clarity:** each shot has one main read, in the centre of the frame, and the viewer can always
+  tell what's happening. Each line's story is shown big, not only glimpsed through the letters.
+  The only words on screen are the lyric ([One place to look](#one-place-to-look)).
 - **Variety:** no shot type twice in a row; what repeats in the song progresses on screen.
 - **Kinetic typography, as motion design:** "motion design" is the discipline to draw on (Qing,
   2026-09-28: "one of the key words I'm looking for"). The words are the lead animation, not

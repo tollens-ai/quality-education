@@ -56,16 +56,28 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    *Done when* you can describe the world, the style and where the words live in three
    sentences.
 
-4. **Build the look before any shots.** In this order: the drawing kit, the layer that makes the
+4. **Storyboard every line before drawing any of it.** Read VIDEO.md's *One place to look* and
+   the [Tim Blais research](../../../research/tim-blais-craft.md) first. Then, line by line, write
+   down the one thing to look at; the action that shows the line's meaning without a word (mime: a
+   gesture, a gag, a figure of speech drawn literally, as silent films and early cartoons told
+   their stories); what the picture adds that the words don't; and, where a second thing must be
+   seen, the cut that shows it. Try several pictures for each idea and keep the clearest, not the
+   first. Give the hook the most exact picture, put the biggest idea on the climax, and make each
+   repeat move the story on.
+   *Done when* every sung line has one subject in the centre and an action a stranger could follow
+   with the sound off, and no picture needs a word to be understood.
+
+5. **Build the look before any shots.** In this order: the drawing kit, the layer that makes the
    style (episode 1's `inkify`), the lettering, the cast on a character sheet, the hero
    environment, and one hero frame. A look built as a layer can still change late without
    redrawing every shot. Style studies from Codex's image generation can help you find the look
    (VIDEO.md, *How the auteur works*); draw your own.
    *Done when* the hero frame could be printed.
 
-5. **Build the shots in song order.** For each sung line, decide the one thing to read, where
-   its words live and what they're made of, and how they arrive with the voice. Hold the line to
-   remember on screen as one block. For words and crowds, mind VIDEO.md's *Pitfalls*.
+6. **Build the shots in song order.** For each sung line, draw its storyboarded picture with the
+   subject in the centre; its words sit just below, in the film's one lyric place, and arrive with
+   the voice. Hold the line to remember on screen as one block. For words and crowds, mind
+   VIDEO.md's *Pitfalls*.
    *Done when* every line has its shot, and every word has finished arriving just before it's
    sung (VIDEO.md, "Land a little ahead of the voice"), and holds across the cuts until its line
    is done.
@@ -74,7 +86,7 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    renders that part alone (episode 3's `preview.js`, `tools/`, and its video file's *How it was made*).
    Review each part at full size; the joins and the checks stay yours.
 
-6. **Watch the whole film, early and often.** A 540-wide preview renders in minutes. Look at it
+7. **Watch the whole film, early and often.** A 540-wide preview renders in minutes. Look at it
    three ways:
    - a contact sheet at one frame a second (`video/lib/strip.sh <video> <start> 20 1 <out.jpg>`
      for each 20 seconds)
@@ -83,7 +95,7 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
 
    *Done when* nothing is still that shouldn't be, and every cut lands.
 
-7. **Measure what the eye misses.** Run the checks in VIDEO.md's *The bar, as checks*:
+8. **Measure what the eye misses.** Run the checks in VIDEO.md's *The bar, as checks*:
    - **The words.** Check every sung word's size, time fully on screen, contrast, cover, tilt
      and reading order, and whether it strays into the phone apps' button strip. In the ep01
      renderer, `tools/typo-audit.mjs` records a frame every 0.1 s (run it in three parallel time
@@ -98,7 +110,7 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    Fix every flag, or write it down as deliberate.
    *Done when* every flag left is there on purpose.
 
-8. **Make a craft pass at full size and at phone size.** Render stills of every shot in song
+9. **Make a craft pass at full size and at phone size.** Render stills of every shot in song
    order at 1080 and look at a few at a time. Then tile the lyric frames at phone size, 390 px
    wide (`video/lib/sheet.sh <dir> 6 390`), and read them as a viewer would.
    *Done when* you'd post it yourself.
@@ -113,6 +125,8 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    - **The story, from the pictures alone.** Every sung line has a picture of what it says,
      animated, and a stranger with the sound off could follow each story. No stretch of the film
      is only the band.
+   - **One place to look.** In every frame, one subject in the centre and the lyric just below
+     it; no other words anywhere on screen (VIDEO.md, *One place to look*).
    - **One world.** Everything is in the film's own style; nothing is even slightly realistic,
      and nothing has the tells of generic AI illustration. Generated art is made from the
      film's own frames and style concepts, never from earlier generations alone.
@@ -121,7 +135,7 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
      viewer would pick on. Answer each point: fix it, or say why it stays. This is an audience
      check, not design by committee.
 
-9. **Render the master and verify it.** Render at 1080×1920 and 30 fps in parallel segments
+10. **Render the master and verify it.** Render at 1080×1920 and 30 fps in parallel segments
    (`video/lib/render-parallel.sh`; episode 3's `tools/render-film.sh` wraps it, with the end card's
    silence). Verify the file itself: its duration, the frame count from decoding it, and stills pulled from
    it at every fix. Make the upload copy and a thumbnail: a 3:39 hand-drawn film at 1080×1920 was 311 MB at
@@ -129,7 +143,7 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    file over a slow link. Keep the renders in `video/out/`, which git ignores, and name them in the video file.
    *Done when* stills from the master show every fix.
 
-10. **Document, land and report.** Write the liner notes in the episode's video file: how it was
+11. **Document, land and report.** Write the liner notes in the episode's video file: how it was
     made, how it was checked, and where it falls short. Keep a table for each part of the song there
     (time, line, picture, what it says), written from the built film: `video/lib/storyboard.py` turns
     it and the film into a phone storyboard PDF, and the claims in it are what Qing judges. Check what
@@ -143,7 +157,7 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
 
 Put her notes verbatim in the video file. Fix what she named, then check the whole film for the
 same kind of fault. On episode 1, one hard-to-read frame led to a check of all 400 sung words,
-and that check found much more than the one frame. Re-run the checks from step 6 on, and say in
+and that check found much more than the one frame. Re-run the checks from step 7 on, and say in
 the report what the wider check found.
 
 ## Adding to the pack

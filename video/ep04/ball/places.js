@@ -4,7 +4,7 @@
 import { W, H, TAU, clamp, lerp, rng, noise, hash, mix, rgba, beatPos } from './kit.js';
 import { C } from './palette.js';
 import { bake, wash, glaze, light, gloom, shadow, streaks, dabs, inkLine, paper, ao, path, wob, dense, box } from './bg.js';
-import { ellipse, spline, rrect, glove } from './ink.js';
+import { ellipse, spline, rrect } from './ink.js';
 
 export const FLOOR_Y = 1100;          // where every place's floor line sits on screen at rest
 
@@ -73,7 +73,7 @@ export function audience(g, F, w, o = {}) {
       if (hat < .33) { g.fillRect(x - r * .62, yy - r * 2.0, r * 1.24, r * 1.1); g.beginPath(); g.ellipse(x, yy - r * .9, r * 1.15, r * .22, 0, 0, TAU); g.fill(); }
       else if (hat < .63) { g.beginPath(); g.ellipse(x, yy - r * .78, r * .82, r * .62, 0, Math.PI, 0); g.fill(); g.beginPath(); g.ellipse(x, yy - r * .72, r * 1.12, r * .2, 0, 0, TAU); g.fill(); }
       else if (hat < .83) { g.beginPath(); g.ellipse(x - r * .5, yy - r * .9, r * .34, r * .2, -.5, 0, TAU); g.ellipse(x + r * .5, yy - r * .9, r * .34, r * .2, .5, 0, TAU); g.fill(); }
-      else if (hat < 1) { g.beginPath(); g.ellipse(x + r * .1, yy - r * .95, r * .5, r * .34, .2, 0, TAU); g.fill(); g.beginPath(); g.moveTo(x + r * .4, yy - r * 1.1); g.quadraticCurveTo(x + r * 1.1, yy - r * 2.1, x + r * .3, yy - r * 1.9); g.lineWidth = r * .12; g.strokeStyle = '#0c0504'; g.stroke(); }
+      else if (hat < 1) { g.beginPath(); g.ellipse(x + r * .1, yy - r * .95, r * .5, r * .34, .2, 0, TAU); g.fill(); g.beginPath(); g.ellipse(x + r * .58, yy - r * 1.42, r * .13, r * .5, .55, 0, TAU); g.fill(); }   // a straight plume: a curled feather read as a stray "?"
       g.restore();
       g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = Math.max(.2, .7 - dy / 2600); g.strokeStyle = rim; g.lineWidth = Math.max(2.5, r * .1);
       g.beginPath(); g.ellipse(x, yy, r * .86, r * 1.02, 0, Math.PI * 1.15, Math.PI * 1.85); g.stroke();
@@ -83,62 +83,66 @@ export function audience(g, F, w, o = {}) {
 }
 
 // The same audience drawn live, so it can be into the show: o.bop (0..1) is how much. Near 0 they sit
-// attentive with a little sway; from about .3 the front rows clap on the beat; past .55 the keenest
-// put their hands up and wave, and wave their hats. In silhouette a crowd's movement is invisible, so
-// what shows it is the rubber hose's white gloves, and a brighter rim on the front rows as they bounce.
-// Only the rows below the lyric's band (dy >= 500) clap or raise their hands. Draw it after place(), in
-// the same transform; the place must be baked without its audience (theatre({ live: true }),
+// attentive with a little sway; toward 1 they bop in their seats. In silhouette, scattered movement
+// doesn't show at phone size, so the house moves together: every head bounces on the beat, a ripple
+// running along each row, the rows swaying in turn, and the front rows' rims brighten as they get into
+// it. Past .9 a few hats pop up on the beat. No hands: raised gloves in a dark crowd looked "super
+// creepy" (Qing). Rows behind the lyric's band (dy < 500) stay quiet. Draw it after place(), in the
+// same transform; the place must be baked without its audience (theatre({ live: true }),
 // circus({ live: true })).
-// Two hands clapping on the beat: p (0..1) is how close together they are, 1 on the beat.
-export const clapAt = (bp, ph) => Math.pow(Math.abs(Math.cos((bp + ph) * Math.PI)), 3);
-// The crowd's gloves are cream, lit by the stage: they read in the dark without glaring under the lyric.
-export const CROWD_GLOVE = { col: '#ecdfc4', shade: '#a39274' };
-export function clapHands(g, x, y, r, p, seed) {
-  const sep = r * (.1 + .42 * (1 - p));
-  for (const d of [-1, 1]) glove(g, x + d * sep, y, -Math.PI / 2 - d * (.35 + .25 * (1 - p)), r * .34, 'flat', { flip: d < 0, seed: seed + d, ...CROWD_GLOVE });
-}
 export function audienceLive(g, F, w, t, o = {}) {
   const RR = rng(o.seed ?? 395), rim = o.rim || '#f6c070', x0 = o.x0 ?? -80, x1 = o.x1 ?? w + 80, hats = o.hats ?? .6;
   const rows = o.rows || [[110, 40, 30], [270, 56, 21], [480, 76, 16], [750, 100, 12], [1080, 126, 9]];
-  const bop = clamp(o.bop ?? .15), bp = beatPos(t);
-  for (const [dy, r, n] of rows) {
-    const y = F + dy;
+  const bop = clamp(o.bop ?? .15), bp = beatPos(t), pops = clamp((bop - .88) / .12);
+  rows.forEach(([dy, r, n], ri) => {
+    const y = F + dy, front = dy >= 500;
     for (let k = 0; k < n; k++) {
       const x = lerp(x0, x1, (k + .5) / n) + (RR() - .5) * r * .6, yy0 = y + (RR() - .5) * r * .3;
       const dark = RR() < .3 ? '#160a07' : '#0c0504', hat = RR() / hats;
-      // their own groove: a phase, how keen they are, and a bounce once a beat
-      const ph = hash(k + dy, 17), keen = .35 + .65 * hash(dy, k + 3);
-      const b = Math.max(0, Math.sin((bp + ph * .35) * Math.PI));
-      const front = dy >= 500;
-      const hop = bop * keen * b * r * (front ? .6 : .22), sway = Math.sin((bp * .5 + ph) * Math.PI) * r * (.05 + bop * .14);
-      const hx = x + sway, yy = yy0 - hop, sy = yy0 - hop * .55;
-      // only the front rows put their hands up or clap: further back, hands would reach the lyric's band
-      const up = bop > .55 && keen > .74 && front ? clamp((bop - .55) / .25) : 0;
-      const clap = !up && front && keen > .45 ? clamp((bop - .3) / .2) : 0;
+      const keen = .35 + .65 * hash(dy, k + 3);
+      // together: a bounce on every beat, rippling along the row; the rows sway in turn, on half-time
+      const lag = (x - x0) / (x1 - x0) * .2 + ri * .06, beat = bp - lag;
+      const b = Math.abs(Math.sin(beat * Math.PI));
+      const hop = bop * b * r * (front ? .62 : .14) * (.8 + .2 * keen);
+      const sway = (ri % 2 ? 1 : -1) * Math.sin(bp * Math.PI * .5) * r * (.04 + bop * (front ? .24 : .06));
+      const hx = x + sway, yy = yy0 - hop, sy = yy0 - hop * .55, tilt = sway / r * .3;
+      // and at the peak, every fourth beat or so, the keenest pop their hats
+      const fb = beat - Math.floor(beat), popHat = pops > 0 && keen > .72 && front && hat < .63 && ((Math.floor(beat) + k) % 4 === 0) ? Math.sin(fb * Math.PI) * pops : 0;
       g.save(); g.fillStyle = dark;
-      // hands up, waving on the beat (behind the head, in front of the row behind)
-      if (up > 0) for (const d of [-1, 1]) {
-        const wave = Math.sin((bp + ph) * Math.PI * 2) * r * .3 * d, hx2 = hx + d * r * 1.25 + wave, hy2 = yy - r * (.95 + .55 * up);
-        g.strokeStyle = dark; g.lineWidth = r * .3; g.lineCap = 'round';
-        g.beginPath(); g.moveTo(hx + d * r * 1.15, sy + r * 1.1); g.quadraticCurveTo(hx + d * r * 1.6, sy + r * .2, hx2, hy2); g.stroke();
-        glove(g, hx2, hy2 - r * .1, -Math.PI / 2 + d * .3 + Math.sin((bp + ph) * Math.PI * 2) * .35, r * .38 * up, 'open', { flip: d < 0, seed: 7900 + k + d, ...CROWD_GLOVE });
-      }
+      g.translate(hx, sy + r * 1.45); g.rotate(tilt); g.translate(-hx, -(sy + r * 1.45));
       g.beginPath(); g.ellipse(hx, sy + r * 1.45, r * 2.05, r * 1.1, 0, 0, TAU); g.fill();
       g.beginPath(); g.ellipse(hx, yy, r * .92, r * 1.08, 0, 0, TAU); g.fill();
-      // hats, and the keenest wave theirs: it lifts off the head on the beat
-      const lift = up > 0 && hat < .63 ? b * r * .7 * up : 0, hy = yy - lift;
+      // the front rows catch the stage's spill on their heads and shoulders as they get into it, so the
+      // whole head is seen to bob, not just its rim
+      if (front && bop > .05) {
+        const lit = rgba(C(o.spill || '#9a5a30'), bop * .6), none = rgba(C(o.spill || '#9a5a30'), 0);
+        for (const [ex, ey, erx, ery] of [[hx, yy, r * .92, r * 1.08], [hx, sy + r * 1.45, r * 2.05, r * 1.1]]) {
+          g.save(); g.beginPath(); g.ellipse(ex, ey, erx, ery, 0, 0, TAU); g.clip();
+          const gr = g.createLinearGradient(0, ey - ery, 0, ey + ery * .3); gr.addColorStop(0, lit); gr.addColorStop(1, none);
+          g.fillStyle = gr; g.fillRect(ex - erx, ey - ery, erx * 2, ery * 1.4); g.restore();
+        }
+        g.fillStyle = dark;
+      }
+      const lift = popHat * r * 1.3, hy = yy - lift;
+      if (lift > 0) { g.save(); g.translate(hx, hy - r * .9); g.rotate(popHat * .22 * (k % 2 ? 1 : -1)); g.translate(-hx, -(hy - r * .9)); }
       if (hat < .33) { g.fillRect(hx - r * .62, hy - r * 2.0, r * 1.24, r * 1.1); g.beginPath(); g.ellipse(hx, hy - r * .9, r * 1.15, r * .22, 0, 0, TAU); g.fill(); }
       else if (hat < .63) { g.beginPath(); g.ellipse(hx, hy - r * .78, r * .82, r * .62, 0, Math.PI, 0); g.fill(); g.beginPath(); g.ellipse(hx, hy - r * .72, r * 1.12, r * .2, 0, 0, TAU); g.fill(); }
       else if (hat < .83) { g.beginPath(); g.ellipse(hx - r * .5, yy - r * .9, r * .34, r * .2, -.5, 0, TAU); g.ellipse(hx + r * .5, yy - r * .9, r * .34, r * .2, .5, 0, TAU); g.fill(); }
-      else if (hat < 1) { g.beginPath(); g.ellipse(hx + r * .1, yy - r * .95, r * .5, r * .34, .2, 0, TAU); g.fill(); g.beginPath(); g.moveTo(hx + r * .4, yy - r * 1.1); g.quadraticCurveTo(hx + r * 1.1, yy - r * 2.1, hx + r * .3, yy - r * 1.9); g.lineWidth = r * .12; g.strokeStyle = '#0c0504'; g.stroke(); }
-      g.restore();
-      g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = Math.min(.95, Math.max(.2, .7 - dy / 2600) * (front ? 1 + bop * .6 : 1)); g.strokeStyle = rim; g.lineWidth = Math.max(2.5, r * (front ? .1 + bop * .04 : .1));
+      else if (hat < 1) { g.beginPath(); g.ellipse(hx + r * .1, yy - r * .95, r * .5, r * .34, .2, 0, TAU); g.fill(); g.beginPath(); g.ellipse(hx + r * .58, yy - r * 1.42, r * .13, r * .5, .55, 0, TAU); g.fill(); }
+      if (lift > 0) {
+        // a popped hat catches the light along its top
+        g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .6 * popHat; g.strokeStyle = rim; g.lineWidth = Math.max(2.5, r * .1);
+        g.beginPath(); g.ellipse(hx, hy - r * (hat < .33 ? 2.0 : .8), r * (hat < .33 ? .6 : .8), r * .2, 0, Math.PI, TAU); g.stroke(); g.restore();
+        g.restore();
+      }
+      // the rim of light from the stage: brighter on the front rows as they get into it
+      g.globalCompositeOperation = 'screen'; g.globalAlpha = Math.min(.95, Math.max(.2, .7 - dy / 2600) * (front ? 1 + bop * .9 : 1));
+      g.strokeStyle = rim; g.lineWidth = Math.max(2.5, r * (front ? .1 + bop * .06 : .1));
       g.beginPath(); g.ellipse(hx, yy, r * .86, r * 1.02, 0, Math.PI * 1.15, Math.PI * 1.85); g.stroke();
-      g.globalAlpha *= .5; g.beginPath(); g.ellipse(hx, sy + r * 1.45, r * 1.95, r * 1.02, 0, Math.PI * 1.2, Math.PI * 1.8); g.stroke(); g.restore();
-      // applause: two white gloves in front of the chest, meeting on the beat
-      if (clap > 0) { g.save(); g.globalAlpha *= clap; clapHands(g, hx, sy + r * .95, r, clapAt(bp, ph * .3), 7950 + k); g.restore(); }
+      g.globalAlpha *= .5; g.beginPath(); g.ellipse(hx, sy + r * 1.45, r * 1.95, r * 1.02, 0, Math.PI * 1.2, Math.PI * 1.8); g.stroke();
+      g.restore();
     }
-  }
+  });
 }
 
 // The front of the stage seen from the flies, for the overhead shots: the footlights' gold shells
@@ -163,21 +167,24 @@ function stallsFloor(g, w, h, E) {
   }
 }
 // The stalls' heads from the flies, live: o.bop (0..1) as for audienceLive. From above a bounce shows as
-// a head swelling toward the camera, and the keenest show their hands either side of their hats.
+// a head swelling toward the camera, all together on the beat with a ripple across the rows; past .9 a
+// few hats pop toward the lens.
 export function stallsAboveLive(g, w, h, E, t, o = {}) { stallsHeads(g, w, h, E, rng(o.seed ?? 511), clamp(o.bop ?? .15), beatPos(t)); }
 function stallsHeads(g, w, h, E, R, bop, bp) {
   for (let row = 0; row < Math.ceil((h - E - 120) / 170) + 1; row++) {
     const y = E + 120 + row * 170, n = Math.ceil(w / 150);
     for (let k = 0; k < n; k++) {
       const x = (k + .5) * (w / n) + (row % 2 ? 40 : -20) + (R() - .5) * 50, yy = y + (R() - .5) * 30, r0 = 52 + R() * 10, hat = R();
-      const ph = hash(k + row * 31, 23), keen = .35 + .65 * hash(row, k + 7), b = bp == null ? 0 : Math.max(0, Math.sin((bp + ph * .35) * Math.PI));
-      const r = r0 * (1 + bop * keen * b * .12);
-      // from above, applause is two white gloves either side of the head, meeting on the beat in front of
-      // it (toward the stage, up the frame)
-      const hands = bp != null && keen > .6 ? clamp((bop - .35) / .2) : 0;
+      const keen = .35 + .65 * hash(row, k + 7), beat = bp == null ? 0 : bp - (x / w) * .2 - row * .06;
+      const b = bp == null ? 0 : Math.abs(Math.sin(beat * Math.PI));
+      const r = r0 * (1 + bop * b * .2);
+      const fb = beat - Math.floor(beat), popHat = bp != null && bop > .88 && keen > .72 && ((Math.floor(beat) + k + row) % 4 === 0) ? Math.sin(fb * Math.PI) * clamp((bop - .88) / .12) : 0;
       g.fillStyle = '#0c0504'; g.beginPath(); g.ellipse(x, yy + r * .2, r * 1.7, r * .8, 0, 0, TAU); g.fill();
       g.fillStyle = R() < .3 ? '#1a0d08' : '#120806';
       let rx, ry;
+      // a popped hat leaves the head and swells toward the lens: the head shows bare beneath it
+      const hs = 1 + popHat * .6;
+      if (popHat > 0) { g.beginPath(); g.ellipse(x, yy, r * .74, r * .86, 0, 0, TAU); g.fill(); g.save(); g.translate(x, yy - popHat * r * .5); g.scale(hs, hs); g.translate(-x, -yy); }
       if (hat < .35) { // a boater: the flat brim and the crown's band
         [rx, ry] = [r * 1.15, r * 1.05]; g.beginPath(); g.ellipse(x, yy, rx, ry, 0, 0, TAU); g.fill();
         g.strokeStyle = '#2a1a0e'; g.lineWidth = 5; g.beginPath(); g.ellipse(x, yy, r * .62, r * .58, 0, 0, TAU); g.stroke();
@@ -188,9 +195,9 @@ function stallsHeads(g, w, h, E, R, bop, bp) {
         [rx, ry] = [r * .74, r * .86]; g.beginPath(); g.ellipse(x, yy, rx, ry, 0, 0, TAU); g.fill();
         g.beginPath(); g.ellipse(x - rx * .98, yy + r * .1, r * .16, r * .26, 0, 0, TAU); g.ellipse(x + rx * .98, yy + r * .1, r * .16, r * .26, 0, 0, TAU); g.fill();
       }
-      g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = Math.max(.12, .55 - row * .09) * (1 + bop * .5); g.strokeStyle = '#f6c070'; g.lineWidth = 4 + bop * 2;
+      g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = Math.min(.95, Math.max(.12, .55 - row * .09) * (1 + bop * .9)); g.strokeStyle = '#f6c070'; g.lineWidth = 4 + bop * 3;
       g.beginPath(); g.ellipse(x, yy, rx * .97, ry * .97, 0, Math.PI * 1.1, Math.PI * 1.9); g.stroke(); g.restore();
-      if (hands > 0) { g.save(); g.globalAlpha *= hands; clapHands(g, x, yy - r * 1.05, r * 1.1, clapAt(bp, ph * .3), 7980 + k + row * 13); g.restore(); }
+      if (popHat > 0) g.restore();
     }
   }
 }

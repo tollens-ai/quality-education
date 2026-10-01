@@ -15,7 +15,7 @@ import { C } from './palette.js';
 import { bake, wash, glaze, light, gloom, shadow, streaks, dabs, inkLine, paper, ao, path, wob, dense, box } from './bg.js';
 import { ellipse, spline } from './ink.js';
 import { look } from './common.js';
-import { stallsAbove, clapHands, clapAt } from './places.js';
+import { stallsAbove } from './places.js';
 
 // World of the bare stage: the floor's front edge (the lip) is the floor line; the boards run back to
 // the wall at `back`, converging on `vp`; the spotlight hangs high above the centre, off the top.
@@ -411,8 +411,7 @@ export function stageTop() {
 // (brightest near its pool), bobbing a little on the beat. Drawn live under the camera after the
 // stage's light, sliding a little faster than the stage when the camera pans. The rows that land
 // behind the lyric keep their rims faint and their heads quiet. o.lean (0..1): rapt, leaning in and
-// turned toward the spotlight; o.bop (0..1): how much they bounce on the beat (each their own keenness);
-// past .5 the front rows below the lyric break into applause, white gloves over their heads.
+// turned toward the spotlight; o.bop (0..1): how much they bounce on the beat (each their own keenness).
 // o.blur softens them for a close-up.
 const HATS = ['none', 'bowler', 'cloche', 'none', 'boater', 'bun', 'top', 'feather', 'none', 'cap', 'bowler', 'none'];
 function hat(g, kind, x, y, r, col) {
@@ -453,21 +452,14 @@ export function stalls(g, cam, sp, t, o = {}) {
     while (x < BS.w + 900) {
       const gap = R() < .08, kind = R() < .62 ? HATS[Math.floor(R() * HATS.length)] : 'none', hr = r * lerp(.82, 1.12, R()), tilt = (R() - .5) * .16;
       const ph = R() * .5, keen = .35 + .65 * R(), quiet = calm < 1 ? .3 : 1;
-      const bob = (1.5 + bop * keen * 16) * Math.max(0, Math.sin((bp + ph) * Math.PI)) * (1 + row * .25) * quiet;
+      // the house moves together: a bounce on every beat, rippling along the row
+      const bob = (1.5 + bop * (10 + keen * 8)) * Math.abs(Math.sin((bp - x / BS.w * .2 - row * .06) * Math.PI)) * (1 + row * .25) * quiet;
       const hx = x + (R() - .5) * r * .5, hy = y - bob + (R() - .5) * r * .2 - lean * hr * .14;
       // rapt, they turn a little toward the light, wherever it goes
       const turn = clamp((spx - (hx - par)) / 1700, -1, 1) * .16 * lean;
       x += step * lerp(.82, 1.2, R());
       if (gap) continue;
       g.save(); g.translate(hx, hy + hr * 1.6); g.rotate(tilt * (1 - lean * .6) + turn); g.translate(-hx, -(hy + hr * 1.6));
-      // applause, for the keen in the rows below the lyric: arms up, white gloves meeting on the beat
-      const clapK = keen > .5 && calm === 1 && sy - hr * 2.2 * z > 1490 ? clamp((bop - .5) / .3) : 0;
-      if (clapK > 0) {
-        const p = clapAt(bp, ph * .6), sep = hr * (.1 + .42 * (1 - p)), cy = hy - hr * 1.55;
-        g.strokeStyle = sil; g.lineWidth = hr * .32; g.lineCap = 'round';
-        for (const d of [-1, 1]) { g.beginPath(); g.moveTo(hx + d * hr * 1.2, hy + hr * 1.4); g.quadraticCurveTo(hx + d * hr * 1.5, hy - hr * .4, hx + d * sep, cy + hr * .3); g.stroke(); }
-        g.save(); g.globalAlpha *= clapK; clapHands(g, hx, cy, hr * 1.05, p, 4400 + row * 37); g.restore();
-      }
       // shoulders, neck, head, hat: one silhouette
       g.fillStyle = sil; g.beginPath(); g.ellipse(hx, hy + hr * 1.6, hr * lerp(1.55, 1.85, ph * 2), hr * .86, 0, 0, TAU); g.fill();
       g.fillRect(hx - hr * .34, hy + hr * .6, hr * .68, hr * .7);

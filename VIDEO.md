@@ -35,7 +35,8 @@ locked.
 | Ep. 4 (piano take), "Press, Stress & Guess" | A blank page for a piano patter remix: a 1930s rubber-hose sing-along cartoon with a bouncing ball, drawn by one hand (Opus) with no builders. Character sheets, a font specimen and a hero frame first; contact sheets after every part; a word-by-word audit; an independent viewer's reading of every second before hand-back, which caught a teaching error (a bug posed as a judgement call). Built below maximum effort by mistake | "no good": she liked "the idea and character design direction", but "the text layouts and background work ended up really sloppy" |
 | Ep. 4 (piano take) v2 | The storyboard restarted from a blank page under a new rule from an expert who had watched episode 3 ([One place to look](#one-place-to-look)). The cast refined toward *Cuphead*, every place repainted in watercolour and gouache, and close-ups in irises. The lead built the look, the kits, the lyric system and the first parts; three Opus builders drew the rest to a standing brief, each part reviewed at full size. An audit of every lettering call, a word audit, and an independent viewer before hand-back | "the animation is gorgeous though", but the picture filled only half the frame and the story jumped between apps. v3 fills the frame, uses one app and adds a clarity pass |
 | Ep. 4 (piano take) v3 | v2's drawing and staging kept. A 16:9 version was started and set aside when Qing, shown a mock of each, chose vertical with the bottom filled. Every place's foreground painted below the floor line, every close-up redrawn to fill the frame, the story put on one app, a mark of the testers' own, and a clarity pass on every line by the lead and each builder. The audits and an independent viewer again before hand-back | Two of her claim answers sent examples back: a judgement call must "genuinely be both ways", and an oracle must be one "clawd would have access to". Also: "the audience being static throughout makes them look bored", and "what's... the pink guy... meant to be? he looks a bit... rude." |
-| Ep. 4 (piano take) v4 | The tester redrawn as a detective, a live audience that builds with the show, and truer examples of a judgement call and an oracle, each by the builder of that part; the checks again before hand-back | Awaiting Qing's verdict |
+| Ep. 4 (piano take) v4 | The tester redrawn as a detective, a live audience that builds with the show, and truer examples of a judgement call and an oracle, each by the builder of that part; the checks again before hand-back | "the applauding hands look super creepy let's get rid. anything you're not sure about, you decide what to improve" |
+| Ep. 4 (piano take) v5 | The crowd's gloves out; the house moving together and lit by the stage instead; "they" redrawn as a visible trainer; the open claims decided by the lead, as Qing asked. The checks again before hand-back | Awaiting Qing's verdict |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -289,11 +290,13 @@ storyboard, before anything is drawn.
   not story, and it stays dark and quiet where the lyric sits over it: silhouettes, rim light, deep
   colour. A crowd in it is alive, though, and gets into the show as it goes. Qing (2026-10-01): "the
   audience being static throughout makes them look bored. surely by the second chorus they're bopping
-  in their seats?" Episode 4's piano film builds them from attentive, to rapt, to bopping on the beat
-  with hands up. Movement in silhouette doesn't show at phone size: an independent viewer couldn't
-  see that first bopping crowd at all. What shows is something light that moves, here the rubber
-  hose's white gloves, clapping and then waving in the rows below the lyric. A close-up fills the frame too,
-  rather than sitting in black as a disc. If a film's
+  in their seats?" Episode 4's piano film builds them from attentive, to rapt, to bopping on the beat,
+  with hats popping at the peak. Movement in silhouette doesn't show at phone size: an independent viewer
+  couldn't see the first bopping crowd at all, scattered heads moving out of step. White gloves
+  clapping and waving made it visible, but Qing (2026-10-01): "the applauding hands look super creepy
+  let's get rid". What works is the crowd moving together, every head bouncing on the beat with a
+  ripple along the rows, and the front rows catching the stage's light, so whole heads bob, not just
+  their rims. A close-up fills the frame too, rather than sitting in black as a disc. If a film's
   format ever changes, storyboard it again rather than re-crop it (Qing: "oh you might need to
   re-storyboard slightly - I don't know that you can just re-crop").
 - **Tell it as a silent film would.** Mime, staging and gesture carry the meaning: a clear

@@ -81,8 +81,10 @@ Each character is a function with poses by name (`clawd.js`, `crew.js`, `people.
   a "?!" sticker over its green flag.
 - **Things act**: phones have eyes in their top edge; the router's antennas wilt when it's unplugged;
   the comma faints; the bug is a beetle in the code, copied with it.
-- **"They"** (who trained the agent) are one shadowy silhouette who changes hats: ringmaster, teacher,
-  factory boss.
+- **"They"** (who trained the agent) are one cheerful trainer in a white lab coat, round spectacles and
+  a gold-star badge, who changes hats: ringmaster, teacher, foreman. They began as a faceless shadow,
+  meant as "the system", and Qing's question was "who?": a symbol nobody can name doesn't land, so
+  give it a face the audience can read.
 - **Mabel** is a strongwoman, built like one; the townsfolk are animal folk (a tabby cat, a puppy, a
   goose), so each reads at a glance.
 

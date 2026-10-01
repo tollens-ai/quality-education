@@ -23,6 +23,16 @@ measured the recording and timed every sung word ([listening notes](../music/ep0
 The [renderer](../video/ep04/ball/README.md) and the
 [style reference](../.claude/skills/music-video/references/style-rubber-hose.md) explain how it's built.
 
+## Qing's note on the third version (2026-10-01, verbatim)
+
+> arghhh I meant it was meant to be a question mark after second guess it
+
+Her note on the second version ("had ! rather than? ch line 1", below) meant that the film had "!"
+where she wanted "?": after "second-guess it". It was first read the other way round, and the third
+version as first delivered lettered "Did you actually test it!". It now letters "Did you actually
+test it?" (as sung, and as the take's sheet has it) and "Press it, stress it, second-guess it?", in
+all three choruses.
+
 ## Qing's notes on the second version (2026-10-01, verbatim)
 
 > oh I don't like how you've done the picture only on half the screen - it's a waste of the vertical
@@ -84,8 +94,8 @@ What changed for each:
 
   An independent viewer then read the whole cut against the same questions. Its points were fixed or
   answered (see *How it was made and checked*).
-- **Details.** Chorus line 1 ends with "!", as in the sheet the take was made from, and the lyrics are
-  credited to gpt-6.1-sol, with Qing's review and feedback.
+- **Details.** "Press it, stress it, second-guess it?" ends with a question mark (her note above), and
+  the lyrics are credited to gpt-6.1-sol, with Qing's review and feedback.
 
 ## Qing's notes on the first version (2026-10-01, verbatim)
 
@@ -312,10 +322,10 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
 
 | Seconds | The line | The picture | What it says |
 |---|---|---|---|
-| 41.0-42.7 | *Did you actually test it!* | The workshop door rattles on the piano's fill and bursts open on "Did": the crew, backlit in the doorway. In the band's stop the camera pushes in. On "test it!" we zoom into Guess's magnifying glass until his eye fills the frame. | The crew challenges the claim. |
+| 41.0-42.7 | *Did you actually test it?* | The workshop door rattles on the piano's fill and bursts open on "Did": the crew, backlit in the doorway. In the band's stop the camera pushes in. On "test it?" we zoom into Guess's magnifying glass until his eye fills the frame. | The crew challenges the claim. |
 | 42.7-43.2 | *Press it,* | Press jabs the app's screen in a blur of fingers. | Press. |
 | 43.2-43.9 | *stress it,* | Stress hugs the app until it squashes, his gauge rises and he steams. | Stress. |
-| 43.9-45.7 | *second-guess it!* | Guess circles the worried app with his glass, one brow high. | Second-guess. |
+| 43.9-45.7 | *second-guess it?* | Guess circles the worried app with his glass, one brow high. | Second-guess. |
 | 45.7-47.2 | *Find a clue? Congratulations!* | The beetle is under the glass. Guess's question-mark antenna springs into "!" and he slaps a red "?!" sticker on the app, the testers' mark for a problem found; Press and Stress cheer, throw confetti and pin a rosette on him. | Finding a problem is the success. |
 | 47.2-50.2 | *Now pursue its implications.* | Guess follows the beetle's footprints along the bench, each print magnified in his glass. At the pasted check, still waving its green flag, he lifts the same glass to its card and finds two beetles in the code. The camera pushes in on the check, and Guess reaches up and slaps the testers' "?!" sticker over its green flag; the check waves on regardless. | The copied check has the same bug, and testing contradicts its green. |
 | 50.2-54.8 | *What did you try? What did you find?* | One lamp swings in the dark over Clawd on a stool, with the crew leaning in round him. He shrugs (try?), then lifts his boater, and only a moth flies out (find?). Press and Stress sing the echoes. | A run of checks has nothing to report. |
@@ -338,8 +348,8 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
 
 | Seconds | The line | The picture | What it says |
 |---|---|---|---|
-| 78.4-79.7 | *Did you actually test it!* | Clawd raises his glass until his eye fills it, leans in and points at us. | Now Clawd asks the question. |
-| 79.7-82.7 | *Press it, stress it, second-guess it!* | Press mashes save with no signal and gets "Saved!" every time. Stress yanks the plug in and out while the router flickers. Guess squints at the tick through his monocle, and a "?" pops on the stab. | The same three moves, aimed at this bug. |
+| 78.4-79.7 | *Did you actually test it?* | Clawd raises his glass until his eye fills it, leans in and points at us. | Now Clawd asks the question. |
+| 79.7-82.7 | *Press it, stress it, second-guess it?* | Press mashes save with no signal and gets "Saved!" every time. Stress yanks the plug in and out while the router flickers. Guess squints at the tick through his monocle, and a "?" pops on the stab. | The same three moves, aimed at this bug. |
 | 82.7-84.2 | *Find a clue? Congratulations!* | On "Find a clue?" Guess slaps the testers' "?!" sticker over the app's "Saved!" tick. On "Congratulations!" Mabel hoists the whole crew and the red-flag check on her barbell in a shower of confetti. | Testing contradicts the app's "Saved!", and finding the problem is the win. |
 | 84.2-87.1 | *Now pursue its implications.* | A dissolve to a cutaway street of basement gyms. Guess's giant glass holds the centre while the street moves under it, stopping on Mabel's phone and then on two neighbours', all running the same app: each one's Wi-Fi fan is struck through and its newest row is an empty dashed outline. The near pavement runs below, under the street lamps. | The bug reaches every gym with no signal. |
 | 87.1-91.8 | *What did you try? What did you find?* | Clawd holds up the evidence like snapshots: first the pulled plug by its socket beside a barbell, then the log with the dashed row circled. | Report what you tried and what you found. |
@@ -379,8 +389,8 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
 
 | Seconds | The line | The picture | What it says |
 |---|---|---|---|
-| 147.3-150.1 | *Did you actually test it!* | The curtain flies up on the whole company, with searchlights crossing. On the top riser the checks wave their flags, two of them red, and on the drum's hits the testers' "?!" stickers slap onto three of the green. On "Did" everyone points straight out at us, frozen through the stop, and the camera punches in on the band's hit. | Everyone asks it now; green alone isn't the win. |
-| 150.1-152.5 | *Press it, stress it, second-guess it!* | Three quick cuts to the little bots at the app: the mint one jabs its screen, the gold one drops a giant kettlebell on the phone, which squashes and sweats, and the lilac one peers at it through a glass with his eye huge in it: "?" | The bot crew have learned the three moves, on the same app. |
+| 147.3-150.1 | *Did you actually test it?* | The curtain flies up on the whole company, with searchlights crossing. On the top riser the checks wave their flags, two of them red, and on the drum's hits the testers' "?!" stickers slap onto three of the green. On "Did" everyone points straight out at us, frozen through the stop, and the camera punches in on the band's hit. | Everyone asks it now; green alone isn't the win. |
+| 150.1-152.5 | *Press it, stress it, second-guess it?* | Three quick cuts to the little bots at the app: the mint one jabs its screen, the gold one drops a giant kettlebell on the phone, which squashes and sweats, and the lilac one peers at it through a glass with his eye huge in it: "?" | The bot crew have learned the three moves, on the same app. |
 | 152.5-154.6 | *Find a clue? Congratulations!* | Clawd's glass finds the beetle in the app's code. On "Congratulations!" Press and Guess hop in and slap "?!" stickers on the phone, and Mabel hoists Clawd. | Finding the clue is the celebration. |
 | 154.6-157.7 | *Now pursue its implications.* | The company congas along the footprint trail, with Guess leading with his glass. | Follow where it leads. |
 | 157.7-162.3 | *What did you try? What did you find?* | Overhead, the way the 1930s musicals did it: the company forms a magnifying glass, a ring with a handle of checks, that sweeps along the trail across the boards, with the footlights and the stalls below, and the beetle swells in its lens on "find?" as a "?!" lands beside it. | Look closely, together. |

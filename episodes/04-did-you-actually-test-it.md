@@ -37,7 +37,7 @@ Proposed tempo: 132 bpm in 4/4. Dense patter uses internal rhymes in recurring s
 **Refrain — testing crew**
 
 > Did you actually test it?  
-> Press it, stress it, second-guess it!  
+> Press it, stress it, second-guess it?  
 > Find a clue? Congratulations!  
 > Now pursue its implications.  
 > What did you try? What did you find?  
@@ -57,7 +57,7 @@ Proposed tempo: 132 bpm in 4/4. Dense patter uses internal rhymes in recurring s
 **Refrain — testing crew**
 
 > Did you actually test it?  
-> Press it, stress it, second-guess it!  
+> Press it, stress it, second-guess it?  
 > Find a clue? Congratulations!  
 > Now pursue its implications.  
 > What did you try? What did you find?  
@@ -92,7 +92,7 @@ Proposed tempo: 132 bpm in 4/4. Dense patter uses internal rhymes in recurring s
 **Refrain — all, word for word**
 
 > Did you actually test it?  
-> Press it, stress it, second-guess it!  
+> Press it, stress it, second-guess it?  
 > Find a clue? Congratulations!  
 > Now pursue its implications.  
 > What did you try? What did you find?  
@@ -184,6 +184,17 @@ On whole-song improvements and the checking/testing contrast:
 > also I still don't think anything in the song makes the... contrast between checking and testing clear, which might be doable with tweaks in the breakdown. it's just whenever we use the words "check" and "test" in the song making sure it serves our definition
 >
 > but I want to emphasise that it was very good as a song so don't make it worse. the drama thing is nbd
+
+2026-10-01, on the lettering of the piano take's film:
+
+> btw check details - had ! rather than? ch line 1. and the lyric credit is entirely Sol, I only did
+> reviewing and feedback
+
+> arghhh I meant it was meant to be a question mark after second guess it
+
+So the refrain's second line ends with a question mark: "Press it, stress it, second-guess it?". The
+swing take's film, ["The Green Room"](04-video.md), was rendered before this note and letters it
+with "!".
 
 ## Credits and post
 

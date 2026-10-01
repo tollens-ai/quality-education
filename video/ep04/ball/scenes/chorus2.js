@@ -1,7 +1,7 @@
 // Chorus 2, still in Mabel's gym: the crew's refrain, with Clawd the tester asking now.
 //  "Did you actually test it?"        Clawd, glass to his eye, leans in at us: his eye fills the lens.
 //  "Press it, stress it,              Three cuts: Press mashes save with no net (tick, tick, tick);
-//   second-guess it!"                 Stress yanks the plug in and out (the waves flicker); Guess
+//   second-guess it?"                 Stress yanks the plug in and out (the waves flicker); Guess
 //                                     squints at the "Saved!" tick through his monocle.
 //  "Find a clue? Congratulations!"    Mabel hoists the whole crew and the red-flag check overhead on
 //                                     her barbell; confetti.
@@ -104,7 +104,7 @@ export function register() {
     g.restore();
   }, { id: 'c2-stress' });
 
-  // ---- 4. second-guess it! Find a clue? (Guess squints at the "Saved!" tick through his monocle; on
+  // ---- 4. second-guess it? Find a clue? (Guess squints at the "Saved!" tick through his monocle; on
   //         "Find" he slaps the testers' "?!" sticker over it: the app said saved; testing says look)
   const c4 = T.congrats - .03, GX = PX + 200, SLAP = T.find;
   const stuck = (d) => (g2, x, y, r) => { if (d >= SLAP - .02) sticker(g2, x + r * .04, y + r * .02, r * .8, { p: ramp(d, SLAP - .02, .14), ang: -.22, since: d - SLAP - .1 }); };

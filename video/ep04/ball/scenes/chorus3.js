@@ -3,7 +3,7 @@
 //     Stress and Guess, the three new little Clawds in propeller beanies, Mabel, Pat, Sam, the goose,
 //     and a few useful checks with red and green flags.
 //  "Did you actually test it?" — in the band's stop they all freeze, pointing straight out at you.
-//  "Press it, stress it, second-guess it!" — the little Clawds, one move each on its word: one slams
+//  "Press it, stress it, second-guess it?" — the little Clawds, one move each on its word: one slams
 //     a big button, one strains at a barbell, one peers through a glass and wonders.
 //  "Find a clue? Congratulations!" — Clawd's glass finds the beetle in the gym app's code on the pink
 //     phone; the company's gloves reach in from every side and slap a burst of the crew's "?!" stickers

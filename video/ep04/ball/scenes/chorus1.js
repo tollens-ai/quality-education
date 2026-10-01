@@ -1,7 +1,7 @@
 // Chorus 1: the testing crew arrives and actually tests Clawd's app.
 //  "Did you actually test it?" — on the piano's fill the workshop door rattles, then bursts open: the
 //     crew in the doorway against a blaze of light; in the band's stop Guess's eye swells in his glass.
-//  "Press it, stress it, second-guess it!" — three cuts on the three words: Press jabs the phone,
+//  "Press it, stress it, second-guess it?" — three cuts on the three words: Press jabs the phone,
 //     Stress bear-hugs it till his gauge hits the red, Guess circles it with his glass.
 //  "Find a clue? Congratulations!" — under the glass, the beetle in the code; Guess's antenna springs
 //     to "!"; Press and Stress throw confetti and pin a rosette on him.

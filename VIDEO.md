@@ -193,13 +193,20 @@ from rounds 3 and 4:
   piano film: "btw check details - had ! rather than? ch line 1. and the lyric credit is entirely
   Sol, I only did reviewing and feedback". Before she sees a cut, check each detail against its
   source. It takes minutes, and a fix this late only needs the seconds it touches rendered again.
-  - **Every lettered line against the take.** The words are the take's, as sung ([Word timing
-    comes from the voice](#word-timing-comes-from-the-voice)). The punctuation comes from the sheet
-    the take was generated from, with only the generator's workarounds undone, such as a
-    sounded-out spelling or a comma dropped to stop a pause
-    ([performers](docs/lyrics/performers.md#generating-the-song-minimax)). The piano film lettered
-    "Did you actually test it?" from the episode's lyric sheet; its take was made from "Did you
-    actually test it!".
+  - **Every lettered line against the take, and her notes on it read literally.** The words are
+    the take's, as sung ([Word timing comes from the voice](#word-timing-comes-from-the-voice)). The
+    punctuation starts from the sheet the take was generated from, with the generator's workarounds
+    undone, such as a sounded-out spelling or a comma dropped to stop a pause
+    ([performers](docs/lyrics/performers.md#generating-the-song-minimax)). After that it follows
+    the meaning, which is hers to settle. Her brief for the piano take: "feel free to take the old
+    punctuation, whatever gets the meaning across best".
+    - Her note "had ! rather than? ch line 1" meant the film had "!" where she wanted "?": after
+      "second-guess it", though the sheet has "!" there.
+    - It was read backwards, and the third version first went out lettering "Did you actually test
+      it!", wrong twice over. Qing (2026-10-01): "arghhh I meant it was meant to be a question mark
+      after second guess it".
+    - Read a short note literally first. If two readings still fit, ask which: a one-line question
+      costs her less than another cut.
   - **Every credit against who did what,** never by the pattern of earlier episodes. Episode 4's
     lyrics are by gpt-6.1-sol, with review and feedback from Qing; the film first credited them as
     "Qing with gpt-6.1-sol", the way episodes 1 to 3 credit "Qing with Claude".

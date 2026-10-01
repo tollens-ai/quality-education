@@ -14,7 +14,8 @@ locked.
   episode 2 v1's and v2's, both since retired, are [cut paper and marker](.claude/skills/music-video/references/style-cut-paper-and-marker.md)
   and [Mirror Kei, G-pen ink and title-card type](.claude/skills/music-video/references/style-mirror-kei.md);
   episode 2 v3's is [Cut Light, ink and neon](.claude/skills/music-video/references/style-cut-light.md);
-  episode 3's is [Pencil Polka, coloured pencil and paper](.claude/skills/music-video/references/style-pencil-polka.md).
+  episode 3's is [Pencil Polka, coloured pencil and paper](.claude/skills/music-video/references/style-pencil-polka.md);
+  episode 4's piano film's is [Rubber Hose, a 1930s sing-along cartoon](.claude/skills/music-video/references/style-rubber-hose.md).
   Read them for the shape of a reference, not for a look to reuse.
 - [CRAFT.md](CRAFT.md) holds the research and the decisions behind this file. The episode-1
   renderer is the worked example: [video/ep01/pier/](video/ep01/pier/README.md).
@@ -31,6 +32,7 @@ locked.
 | Ep. 2 v3, "Cut Light" | A blank page, one condition at every stage: "do I stand behind this artistically?" Image-model style studies for the look, then a full cut reviewed at full size and redrawn where it was weak | The people were "extremely" doubtful, then "better" but showing their construction, so they and their places became generated paper cut-outs. Then: "the lettering looks amazing though! and I love the band design", but the new people were off-style ("screams ai slop"), verse 1 had lost its story, and "way too much band, way too much repetitiveness, not enough illustrating the content" |
 | Ep. 2 v3, story layer | The people and places regenerated from the film's own frames and concepts, in a style Qing chose from studies. A scene library of the four briefs in every state, and every line's story shown in lit panes and windows, progressing through the repeats; an independent model's viewing of the frames before hand-back | "OK I changed my mind, the previous is ASTONISHING. let's finish this job"; "AFAIct everything except the finale scene (where people hover against the cartoony background) is good enough for me to post". The finale was redrawn so they stand in it |
 | Ep. 3, "Pencil Polka" | A blank page for a comic patter song, drawn entirely in code as coloured pencil. Two look proofs, then a pen that draws every shape as a hand does, after Qing's notes; one hand set the look, the kit and the first parts and Sonnet builders drew the rest in parallel, each to a standing brief; a frame-exact audit of every sung word, fresh readers of contact sheets, and a phone storyboard of the claims for the expert. One day | "Honestly the style is not that bad"; after the pen was redrawn: "omg this is adorable! [...] the style is fantastic", with two notes ("slightly _too_ clumsy"; the colouring "flashing a bit too much"), both fixed; on the finished film: "OK, I like this one and I will ship it" |
+| Ep. 4 (piano take), "Press, Stress & Guess" | A blank page for a piano patter remix: a 1930s rubber-hose sing-along cartoon with a bouncing ball, drawn by one hand (Opus) with no builders. Character sheets, a font specimen and a hero frame first; contact sheets after every part; a word-by-word audit; an independent viewer's reading of every second before hand-back, which caught a teaching error (a bug posed as a judgement call) | Awaiting Qing's verdict |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -340,6 +342,11 @@ lyric video that aligns perfectly word to word".
   couldn't tell it was about four separate apps (Qing, 2026-09-28). Give each story an owner who
   keeps it (on episode 2, one band member per app, named with it in the intro), a number and a
   label ("1/4 ROSA'S BAKERY · CHECKOUT"), and visit them in the same order every time.
+- **One block leaves before the next arrives.** On episode 4's piano film the leaving couplet faded
+  while the next one sprang up in the same place, and a fresh viewer read the overlap as clutter in
+  half the transitions. Hold a block until just before the next one's first word, and let it go in a
+  tenth of a second; where the singer runs one line straight into the next, a line-final word gets
+  only 0.3 to 0.5 s, and that's the trade.
 - Lettering drawn over the shots (episode 2's backing pop-ups) needs its own writing clock, or a
   word written before a cut un-writes itself after it.
 - A texture laid over the whole frame, like episode 1's paper, wasn't liked by everyone (Qing,

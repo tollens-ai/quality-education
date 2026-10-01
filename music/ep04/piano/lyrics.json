@@ -1,0 +1,3697 @@
+[
+ {
+  "text": "Two hundred \"tests\", each one is green;",
+  "section": "Intro",
+  "start": 2.543,
+  "end": 6.85,
+  "back": false,
+  "words": [
+   {
+    "w": "Two",
+    "s": 2.543,
+    "e": 3.194,
+    "backing": false,
+    "timing_spread_ms": 27
+   },
+   {
+    "w": "hundred",
+    "s": 3.204,
+    "e": 3.717,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "\"tests\",",
+    "s": 3.727,
+    "e": 4.418,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "each",
+    "s": 4.963,
+    "e": 5.377,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "one",
+    "s": 5.387,
+    "e": 5.656,
+    "backing": false,
+    "timing_spread_ms": 62
+   },
+   {
+    "w": "is",
+    "s": 5.666,
+    "e": 5.888,
+    "backing": false,
+    "timing_spread_ms": 36
+   },
+   {
+    "w": "green;",
+    "s": 5.898,
+    "e": 6.85,
+    "backing": false,
+    "timing_spread_ms": 34
+   }
+  ],
+  "couplet": 1,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "The finest score you've ever seen!",
+  "section": "Intro",
+  "start": 7.811,
+  "end": 12.918,
+  "back": false,
+  "words": [
+   {
+    "w": "The",
+    "s": 7.811,
+    "e": 8.139,
+    "backing": false,
+    "timing_spread_ms": 121
+   },
+   {
+    "w": "finest",
+    "s": 8.149,
+    "e": 8.705,
+    "backing": false,
+    "timing_spread_ms": 34
+   },
+   {
+    "w": "score",
+    "s": 8.715,
+    "e": 9.181,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "you've",
+    "s": 9.191,
+    "e": 9.65,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "ever",
+    "s": 9.66,
+    "e": 10.577,
+    "backing": false,
+    "timing_spread_ms": 207
+   },
+   {
+    "w": "seen!",
+    "s": 10.587,
+    "e": 12.918,
+    "backing": false,
+    "timing_spread_ms": 27
+   }
+  ],
+  "couplet": 1,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "My \"tests\"? I paste app code in haste:",
+  "section": "Verse 1",
+  "start": 12.928,
+  "end": 15.367,
+  "back": false,
+  "words": [
+   {
+    "w": "My",
+    "s": 12.928,
+    "e": 13.173,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "\"tests\"?",
+    "s": 13.183,
+    "e": 13.521,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "I",
+    "s": 13.531,
+    "e": 13.754,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "paste",
+    "s": 13.764,
+    "e": 14.067,
+    "backing": false,
+    "timing_spread_ms": 24
+   },
+   {
+    "w": "app",
+    "s": 14.077,
+    "e": 14.187,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "code",
+    "s": 14.321,
+    "e": 14.584,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "in",
+    "s": 14.594,
+    "e": 14.793,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "haste:",
+    "s": 14.803,
+    "e": 15.367,
+    "backing": false,
+    "timing_spread_ms": 13
+   }
+  ],
+  "couplet": 2,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "A perfect duplication!",
+  "section": "Verse 1",
+  "start": 15.377,
+  "end": 17.16,
+  "back": false,
+  "words": [
+   {
+    "w": "A",
+    "s": 15.377,
+    "e": 15.478,
+    "backing": false,
+    "timing_spread_ms": 31
+   },
+   {
+    "w": "perfect",
+    "s": 15.488,
+    "e": 16.047,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "duplication!",
+    "s": 16.057,
+    "e": 17.16,
+    "backing": false,
+    "timing_spread_ms": 15
+   }
+  ],
+  "couplet": 2,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "The sums agree! How sweet for me!",
+  "section": "Verse 1",
+  "start": 17.403,
+  "end": 19.605,
+  "back": false,
+  "words": [
+   {
+    "w": "The",
+    "s": 17.403,
+    "e": 17.678,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "sums",
+    "s": 17.688,
+    "e": 18.02,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "agree!",
+    "s": 18.03,
+    "e": 18.345,
+    "backing": false,
+    "timing_spread_ms": 24
+   },
+   {
+    "w": "How",
+    "s": 18.355,
+    "e": 18.719,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "sweet",
+    "s": 18.729,
+    "e": 19.094,
+    "backing": false,
+    "timing_spread_ms": 0
+   },
+   {
+    "w": "for",
+    "s": 19.104,
+    "e": 19.263,
+    "backing": false,
+    "timing_spread_ms": 6
+   },
+   {
+    "w": "me!",
+    "s": 19.273,
+    "e": 19.605,
+    "backing": false,
+    "timing_spread_ms": 21
+   }
+  ],
+  "couplet": 3,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "A shared miscalculation.",
+  "section": "Verse 1",
+  "start": 19.615,
+  "end": 21.863,
+  "back": false,
+  "words": [
+   {
+    "w": "A",
+    "s": 19.615,
+    "e": 19.836,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "shared",
+    "s": 19.846,
+    "e": 20.174,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "miscalculation.",
+    "s": 20.184,
+    "e": 21.863,
+    "backing": false,
+    "timing_spread_ms": 22
+   }
+  ],
+  "couplet": 3,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "With screenshots, commas cause such dramas:",
+  "section": "Verse 1",
+  "start": 21.873,
+  "end": 24.301,
+  "back": false,
+  "words": [
+   {
+    "w": "With",
+    "s": 21.873,
+    "e": 22.052,
+    "backing": false,
+    "timing_spread_ms": 32
+   },
+   {
+    "w": "screenshots,",
+    "s": 22.062,
+    "e": 22.722,
+    "backing": false,
+    "timing_spread_ms": 7
+   },
+   {
+    "w": "commas",
+    "s": 22.732,
+    "e": 23.152,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "cause",
+    "s": 23.162,
+    "e": 23.558,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "such",
+    "s": 23.568,
+    "e": 23.802,
+    "backing": false,
+    "timing_spread_ms": 32
+   },
+   {
+    "w": "dramas:",
+    "s": 23.812,
+    "e": 24.301,
+    "backing": false,
+    "timing_spread_ms": 6
+   }
+  ],
+  "couplet": 4,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "A red notification.",
+  "section": "Verse 1",
+  "start": 24.311,
+  "end": 26.304,
+  "back": false,
+  "words": [
+   {
+    "w": "A",
+    "s": 24.311,
+    "e": 24.435,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "red",
+    "s": 24.445,
+    "e": 24.609,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "notification.",
+    "s": 24.619,
+    "e": 26.304,
+    "backing": false,
+    "timing_spread_ms": 20
+   }
+  ],
+  "couplet": 4,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "My \"test\"? Fantastic, automatic—",
+  "section": "Verse 1",
+  "start": 26.314,
+  "end": 28.706,
+  "back": false,
+  "words": [
+   {
+    "w": "My",
+    "s": 26.314,
+    "e": 26.583,
+    "backing": false,
+    "timing_spread_ms": 24
+   },
+   {
+    "w": "\"test\"?",
+    "s": 26.593,
+    "e": 26.943,
+    "backing": false,
+    "timing_spread_ms": 7
+   },
+   {
+    "w": "Fantastic,",
+    "s": 26.953,
+    "e": 27.626,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "automatic—",
+    "s": 27.777,
+    "e": 28.706,
+    "backing": false,
+    "timing_spread_ms": 49
+   }
+  ],
+  "couplet": 5,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "I change its expectation!",
+  "section": "Verse 1",
+  "start": 28.716,
+  "end": 30.867,
+  "back": false,
+  "words": [
+   {
+    "w": "I",
+    "s": 28.716,
+    "e": 28.841,
+    "backing": false,
+    "timing_spread_ms": 31
+   },
+   {
+    "w": "change",
+    "s": 28.851,
+    "e": 29.201,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "its",
+    "s": 29.211,
+    "e": 29.474,
+    "backing": false,
+    "timing_spread_ms": 29
+   },
+   {
+    "w": "expectation!",
+    "s": 29.484,
+    "e": 30.867,
+    "backing": false,
+    "timing_spread_ms": 40
+   }
+  ],
+  "couplet": 5,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "To boost my score, I cover more;",
+  "section": "Verse 1",
+  "start": 30.877,
+  "end": 33.061,
+  "back": false,
+  "words": [
+   {
+    "w": "To",
+    "s": 30.877,
+    "e": 31.018,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "boost",
+    "s": 31.028,
+    "e": 31.401,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "my",
+    "s": 31.411,
+    "e": 31.552,
+    "backing": false,
+    "timing_spread_ms": 37
+   },
+   {
+    "w": "score,",
+    "s": 31.562,
+    "e": 32.045,
+    "backing": false,
+    "timing_spread_ms": 4
+   },
+   {
+    "w": "I",
+    "s": 32.055,
+    "e": 32.243,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "cover",
+    "s": 32.253,
+    "e": 32.673,
+    "backing": false,
+    "timing_spread_ms": 40
+   },
+   {
+    "w": "more;",
+    "s": 32.683,
+    "e": 33.061,
+    "backing": false,
+    "timing_spread_ms": 29
+   }
+  ],
+  "couplet": 6,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "They've trained me just to make the grade.",
+  "section": "Verse 1",
+  "start": 33.071,
+  "end": 34.83,
+  "back": false,
+  "words": [
+   {
+    "w": "They've",
+    "s": 33.071,
+    "e": 33.299,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "trained",
+    "s": 33.309,
+    "e": 33.578,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "me",
+    "s": 33.588,
+    "e": 33.682,
+    "backing": false,
+    "timing_spread_ms": 41
+   },
+   {
+    "w": "just",
+    "s": 33.692,
+    "e": 33.827,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "to",
+    "s": 33.837,
+    "e": 33.967,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "make",
+    "s": 33.977,
+    "e": 34.158,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "the",
+    "s": 34.168,
+    "e": 34.344,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "grade.",
+    "s": 34.354,
+    "e": 34.83,
+    "backing": false,
+    "timing_spread_ms": 5
+   }
+  ],
+  "couplet": 6,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Like kids in class, I aim to pass;",
+  "section": "Verse 1",
+  "start": 35.248,
+  "end": 37.746,
+  "back": false,
+  "words": [
+   {
+    "w": "Like",
+    "s": 35.248,
+    "e": 35.563,
+    "backing": false,
+    "timing_spread_ms": 34
+   },
+   {
+    "w": "kids",
+    "s": 35.573,
+    "e": 35.9,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "in",
+    "s": 35.91,
+    "e": 36.091,
+    "backing": false,
+    "timing_spread_ms": 29
+   },
+   {
+    "w": "class,",
+    "s": 36.101,
+    "e": 36.503,
+    "backing": false,
+    "timing_spread_ms": 4
+   },
+   {
+    "w": "I",
+    "s": 36.513,
+    "e": 36.679,
+    "backing": false,
+    "timing_spread_ms": 99
+   },
+   {
+    "w": "aim",
+    "s": 36.689,
+    "e": 37.037,
+    "backing": false,
+    "timing_spread_ms": 219
+   },
+   {
+    "w": "to",
+    "s": 37.047,
+    "e": 37.177,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "pass;",
+    "s": 37.187,
+    "e": 37.746,
+    "backing": false,
+    "timing_spread_ms": 15
+   }
+  ],
+  "couplet": 7,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "The marks decide how tests get made.",
+  "section": "Verse 1",
+  "start": 37.756,
+  "end": 40.025,
+  "back": false,
+  "words": [
+   {
+    "w": "The",
+    "s": 37.756,
+    "e": 37.856,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "marks",
+    "s": 37.866,
+    "e": 38.164,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "decide",
+    "s": 38.174,
+    "e": 38.686,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "how",
+    "s": 38.696,
+    "e": 38.982,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "tests",
+    "s": 38.992,
+    "e": 39.249,
+    "backing": false,
+    "timing_spread_ms": 9
+   },
+   {
+    "w": "get",
+    "s": 39.259,
+    "e": 39.458,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "made.",
+    "s": 39.468,
+    "e": 40.025,
+    "backing": false,
+    "timing_spread_ms": 27
+   }
+  ],
+  "couplet": 7,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Did you actually test it?",
+  "section": "Chorus 1",
+  "start": 41.523,
+  "end": 42.895,
+  "back": false,
+  "words": [
+   {
+    "w": "Did",
+    "s": 41.523,
+    "e": 41.676,
+    "backing": false,
+    "timing_spread_ms": 85
+   },
+   {
+    "w": "you",
+    "s": 41.686,
+    "e": 41.78,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "actually",
+    "s": 41.79,
+    "e": 42.326,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "test",
+    "s": 42.336,
+    "e": 42.651,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "it?",
+    "s": 42.661,
+    "e": 42.895,
+    "backing": false,
+    "timing_spread_ms": 31
+   }
+  ],
+  "couplet": 8,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Press it, stress it, second-guess it!",
+  "section": "Chorus 1",
+  "start": 42.905,
+  "end": 45.134,
+  "back": false,
+  "words": [
+   {
+    "w": "Press",
+    "s": 42.905,
+    "e": 43.185,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "it,",
+    "s": 43.195,
+    "e": 43.307,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "stress",
+    "s": 43.317,
+    "e": 43.76,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "it,",
+    "s": 43.77,
+    "e": 44.027,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "second-guess",
+    "s": 44.037,
+    "e": 44.874,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "it!",
+    "s": 44.884,
+    "e": 45.134,
+    "backing": false,
+    "timing_spread_ms": 26
+   }
+  ],
+  "couplet": 8,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Find a clue? Congratulations!",
+  "section": "Chorus 1",
+  "start": 45.865,
+  "end": 47.382,
+  "back": false,
+  "words": [
+   {
+    "w": "Find",
+    "s": 45.865,
+    "e": 46.169,
+    "backing": false,
+    "timing_spread_ms": 24
+   },
+   {
+    "w": "a",
+    "s": 46.179,
+    "e": 46.25,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "clue?",
+    "s": 46.26,
+    "e": 46.43,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "Congratulations!",
+    "s": 46.44,
+    "e": 47.382,
+    "backing": false,
+    "timing_spread_ms": 13
+   }
+  ],
+  "couplet": 9,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Now pursue its implications.",
+  "section": "Chorus 1",
+  "start": 47.392,
+  "end": 49.743,
+  "back": false,
+  "words": [
+   {
+    "w": "Now",
+    "s": 47.392,
+    "e": 47.637,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "pursue",
+    "s": 47.647,
+    "e": 48.241,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "its",
+    "s": 48.251,
+    "e": 48.508,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "implications.",
+    "s": 48.518,
+    "e": 49.743,
+    "backing": false,
+    "timing_spread_ms": 29
+   }
+  ],
+  "couplet": 9,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "What did you try? What did you find?",
+  "section": "Chorus 1",
+  "start": 50.445,
+  "end": 54.917,
+  "back": false,
+  "words": [
+   {
+    "w": "What",
+    "s": 50.445,
+    "e": 50.708,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "did",
+    "s": 50.718,
+    "e": 50.882,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "you",
+    "s": 50.892,
+    "e": 51.091,
+    "backing": false,
+    "timing_spread_ms": 8
+   },
+   {
+    "w": "try?",
+    "s": 51.101,
+    "e": 52.618,
+    "backing": false,
+    "timing_spread_ms": 5
+   },
+   {
+    "w": "What",
+    "s": 52.628,
+    "e": 52.961,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "did",
+    "s": 52.971,
+    "e": 53.199,
+    "backing": false,
+    "timing_spread_ms": 29
+   },
+   {
+    "w": "you",
+    "s": 53.209,
+    "e": 53.419,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "find?",
+    "s": 53.429,
+    "e": 54.917,
+    "backing": false,
+    "timing_spread_ms": 6
+   }
+  ],
+  "couplet": 10,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What did you try?",
+  "section": "Chorus 1",
+  "start": 51.548,
+  "end": 52.814,
+  "back": true,
+  "words": [
+   {
+    "w": "What",
+    "s": 51.548,
+    "e": 51.711,
+    "backing": true,
+    "timing_spread_ms": 47
+   },
+   {
+    "w": "did",
+    "s": 51.856,
+    "e": 52.014,
+    "backing": true,
+    "timing_spread_ms": 27
+   },
+   {
+    "w": "you",
+    "s": 52.024,
+    "e": 52.183,
+    "backing": true,
+    "timing_spread_ms": 65
+   },
+   {
+    "w": "try?",
+    "s": 52.193,
+    "e": 52.814,
+    "backing": true,
+    "timing_spread_ms": 12
+   }
+  ],
+  "couplet": 10,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What did you find?",
+  "section": "Chorus 1",
+  "start": 53.754,
+  "end": 55.136,
+  "back": true,
+  "words": [
+   {
+    "w": "What",
+    "s": 53.754,
+    "e": 54.069,
+    "backing": true,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "did",
+    "s": 54.079,
+    "e": 54.255,
+    "backing": true,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "you",
+    "s": 54.265,
+    "e": 54.493,
+    "backing": true,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "find?",
+    "s": 54.503,
+    "e": 55.136,
+    "backing": true,
+    "timing_spread_ms": 25
+   }
+  ],
+  "couplet": 10,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What changed your mind?",
+  "section": "Chorus 1",
+  "start": 54.927,
+  "end": 58.729,
+  "back": false,
+  "words": [
+   {
+    "w": "What",
+    "s": 54.927,
+    "e": 55.114,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "changed",
+    "s": 55.124,
+    "e": 55.497,
+    "backing": false,
+    "timing_spread_ms": 6
+   },
+   {
+    "w": "your",
+    "s": 55.507,
+    "e": 55.793,
+    "backing": false,
+    "timing_spread_ms": 204
+   },
+   {
+    "w": "mind?",
+    "s": 55.803,
+    "e": 58.729,
+    "backing": false,
+    "timing_spread_ms": 1944
+   }
+  ],
+  "couplet": 10,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "The gym? No net. We log a set;",
+  "section": "Verse 2",
+  "start": 59.971,
+  "end": 62.33,
+  "back": false,
+  "words": [
+   {
+    "w": "The",
+    "s": 59.971,
+    "e": 60.083,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "gym?",
+    "s": 60.093,
+    "e": 60.536,
+    "backing": false,
+    "timing_spread_ms": 8
+   },
+   {
+    "w": "No",
+    "s": 60.546,
+    "e": 60.768,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "net.",
+    "s": 60.778,
+    "e": 61.082,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "We",
+    "s": 61.092,
+    "e": 61.331,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "log",
+    "s": 61.341,
+    "e": 61.552,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "a",
+    "s": 61.562,
+    "e": 61.719,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "set;",
+    "s": 61.729,
+    "e": 62.33,
+    "backing": false,
+    "timing_spread_ms": 27
+   }
+  ],
+  "couplet": 11,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "The app says \"Saved!\"—but what's in store?",
+  "section": "Verse 2",
+  "start": 62.34,
+  "end": 64.414,
+  "back": false,
+  "words": [
+   {
+    "w": "The",
+    "s": 62.34,
+    "e": 62.51,
+    "backing": false,
+    "timing_spread_ms": 32
+   },
+   {
+    "w": "app",
+    "s": 62.52,
+    "e": 62.632,
+    "backing": false,
+    "timing_spread_ms": 41
+   },
+   {
+    "w": "says",
+    "s": 62.642,
+    "e": 63.003,
+    "backing": false,
+    "timing_spread_ms": 38
+   },
+   {
+    "w": "\"Saved!\"—",
+    "s": 63.013,
+    "e": 63.398,
+    "backing": false,
+    "timing_spread_ms": 27
+   },
+   {
+    "w": "but",
+    "s": 63.408,
+    "e": 63.584,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "what's",
+    "s": 63.594,
+    "e": 63.781,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "in",
+    "s": 63.791,
+    "e": 63.965,
+    "backing": false,
+    "timing_spread_ms": 34
+   },
+   {
+    "w": "store?",
+    "s": 63.975,
+    "e": 64.414,
+    "backing": false,
+    "timing_spread_ms": 8
+   }
+  ],
+  "couplet": 11,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Reload the screen; no set is seen.",
+  "section": "Verse 2",
+  "start": 64.424,
+  "end": 66.641,
+  "back": false,
+  "words": [
+   {
+    "w": "Reload",
+    "s": 64.424,
+    "e": 64.948,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "the",
+    "s": 64.958,
+    "e": 65.065,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "screen;",
+    "s": 65.075,
+    "e": 65.575,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "no",
+    "s": 65.585,
+    "e": 65.772,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "set",
+    "s": 65.782,
+    "e": 66.033,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "is",
+    "s": 66.043,
+    "e": 66.211,
+    "backing": false,
+    "timing_spread_ms": 31
+   },
+   {
+    "w": "seen.",
+    "s": 66.221,
+    "e": 66.641,
+    "backing": false,
+    "timing_spread_ms": 13
+   }
+  ],
+  "couplet": 12,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Connect once more: still gone? Explore!",
+  "section": "Verse 2",
+  "start": 66.839,
+  "end": 68.901,
+  "back": false,
+  "words": [
+   {
+    "w": "Connect",
+    "s": 66.839,
+    "e": 67.194,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "once",
+    "s": 67.204,
+    "e": 67.467,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "more:",
+    "s": 67.477,
+    "e": 67.688,
+    "backing": false,
+    "timing_spread_ms": 8
+   },
+   {
+    "w": "still",
+    "s": 67.698,
+    "e": 68.077,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "gone?",
+    "s": 68.087,
+    "e": 68.303,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "Explore!",
+    "s": 68.313,
+    "e": 68.901,
+    "backing": false,
+    "timing_spread_ms": 11
+   }
+  ],
+  "couplet": 12,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "We chase the clue; try something new:",
+  "section": "Verse 2",
+  "start": 68.911,
+  "end": 71.059,
+  "back": false,
+  "words": [
+   {
+    "w": "We",
+    "s": 68.911,
+    "e": 69.098,
+    "backing": false,
+    "timing_spread_ms": 24
+   },
+   {
+    "w": "chase",
+    "s": 69.108,
+    "e": 69.493,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "the",
+    "s": 69.503,
+    "e": 69.592,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "clue;",
+    "s": 69.602,
+    "e": 69.894,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "try",
+    "s": 69.904,
+    "e": 70.248,
+    "backing": false,
+    "timing_spread_ms": 27
+   },
+   {
+    "w": "something",
+    "s": 70.258,
+    "e": 70.77,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "new:",
+    "s": 70.78,
+    "e": 71.059,
+    "backing": false,
+    "timing_spread_ms": 22
+   }
+  ],
+  "couplet": 13,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Connect, then save; the sets all stay.",
+  "section": "Verse 2",
+  "start": 71.314,
+  "end": 73.435,
+  "back": false,
+  "words": [
+   {
+    "w": "Connect,",
+    "s": 71.314,
+    "e": 71.67,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "then",
+    "s": 71.68,
+    "e": 71.983,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "save;",
+    "s": 71.993,
+    "e": 72.303,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "the",
+    "s": 72.313,
+    "e": 72.541,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "sets",
+    "s": 72.551,
+    "e": 72.814,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "all",
+    "s": 72.824,
+    "e": 73.043,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "stay.",
+    "s": 73.053,
+    "e": 73.435,
+    "backing": false,
+    "timing_spread_ms": 4
+   }
+  ],
+  "couplet": 13,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "We drop the net, then save a set;",
+  "section": "Verse 2",
+  "start": 73.445,
+  "end": 75.809,
+  "back": false,
+  "words": [
+   {
+    "w": "We",
+    "s": 73.445,
+    "e": 73.586,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "drop",
+    "s": 73.596,
+    "e": 73.969,
+    "backing": false,
+    "timing_spread_ms": 9
+   },
+   {
+    "w": "the",
+    "s": 73.979,
+    "e": 74.126,
+    "backing": false,
+    "timing_spread_ms": 31
+   },
+   {
+    "w": "net,",
+    "s": 74.136,
+    "e": 74.526,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "then",
+    "s": 74.536,
+    "e": 74.733,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "save",
+    "s": 74.743,
+    "e": 75.014,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "a",
+    "s": 75.024,
+    "e": 75.171,
+    "backing": false,
+    "timing_spread_ms": 29
+   },
+   {
+    "w": "set;",
+    "s": 75.181,
+    "e": 75.809,
+    "backing": false,
+    "timing_spread_ms": 27
+   }
+  ],
+  "couplet": 14,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "A new check flags what went away.",
+  "section": "Verse 2",
+  "start": 75.819,
+  "end": 78.176,
+  "back": false,
+  "words": [
+   {
+    "w": "A",
+    "s": 75.819,
+    "e": 75.902,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "new",
+    "s": 75.912,
+    "e": 76.088,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "check",
+    "s": 76.098,
+    "e": 76.343,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "flags",
+    "s": 76.353,
+    "e": 76.761,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "what",
+    "s": 76.771,
+    "e": 76.929,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "went",
+    "s": 76.939,
+    "e": 77.293,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "away.",
+    "s": 77.303,
+    "e": 78.176,
+    "backing": false,
+    "timing_spread_ms": 53
+   }
+  ],
+  "couplet": 14,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Did you actually test it?",
+  "section": "Chorus 2",
+  "start": 78.46,
+  "end": 79.82,
+  "back": false,
+  "words": [
+   {
+    "w": "Did",
+    "s": 78.46,
+    "e": 78.607,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "you",
+    "s": 78.617,
+    "e": 78.735,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "actually",
+    "s": 78.745,
+    "e": 79.28,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "test",
+    "s": 79.29,
+    "e": 79.582,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "it?",
+    "s": 79.592,
+    "e": 79.82,
+    "backing": false,
+    "timing_spread_ms": 28
+   }
+  ],
+  "couplet": 15,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Press it, stress it, second-guess it!",
+  "section": "Chorus 2",
+  "start": 79.83,
+  "end": 82.083,
+  "back": false,
+  "words": [
+   {
+    "w": "Press",
+    "s": 79.83,
+    "e": 80.145,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "it,",
+    "s": 80.155,
+    "e": 80.256,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "stress",
+    "s": 80.266,
+    "e": 80.72,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "it,",
+    "s": 80.73,
+    "e": 80.975,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "second-guess",
+    "s": 80.985,
+    "e": 81.829,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "it!",
+    "s": 81.839,
+    "e": 82.083,
+    "backing": false,
+    "timing_spread_ms": 33
+   }
+  ],
+  "couplet": 15,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Find a clue? Congratulations!",
+  "section": "Chorus 2",
+  "start": 82.802,
+  "end": 84.313,
+  "back": false,
+  "words": [
+   {
+    "w": "Find",
+    "s": 82.802,
+    "e": 83.083,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "a",
+    "s": 83.093,
+    "e": 83.199,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "clue?",
+    "s": 83.209,
+    "e": 83.379,
+    "backing": false,
+    "timing_spread_ms": 1
+   },
+   {
+    "w": "Congratulations!",
+    "s": 83.389,
+    "e": 84.313,
+    "backing": false,
+    "timing_spread_ms": 20
+   }
+  ],
+  "couplet": 16,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Now pursue its implications.",
+  "section": "Chorus 2",
+  "start": 84.323,
+  "end": 86.645,
+  "back": false,
+  "words": [
+   {
+    "w": "Now",
+    "s": 84.323,
+    "e": 84.615,
+    "backing": false,
+    "timing_spread_ms": 3
+   },
+   {
+    "w": "pursue",
+    "s": 84.625,
+    "e": 85.172,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "its",
+    "s": 85.182,
+    "e": 85.463,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "implications.",
+    "s": 85.473,
+    "e": 86.645,
+    "backing": false,
+    "timing_spread_ms": 34
+   }
+  ],
+  "couplet": 16,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "What did you try? What did you find?",
+  "section": "Chorus 2",
+  "start": 87.435,
+  "end": 91.376,
+  "back": false,
+  "words": [
+   {
+    "w": "What",
+    "s": 87.435,
+    "e": 87.663,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "did",
+    "s": 87.673,
+    "e": 87.907,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "you",
+    "s": 87.917,
+    "e": 88.057,
+    "backing": false,
+    "timing_spread_ms": 6
+   },
+   {
+    "w": "try?",
+    "s": 88.067,
+    "e": 89.602,
+    "backing": false,
+    "timing_spread_ms": 0
+   },
+   {
+    "w": "What",
+    "s": 89.612,
+    "e": 89.932,
+    "backing": false,
+    "timing_spread_ms": 49
+   },
+   {
+    "w": "did",
+    "s": 89.942,
+    "e": 90.136,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "you",
+    "s": 90.146,
+    "e": 90.385,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "find?",
+    "s": 90.395,
+    "e": 91.376,
+    "backing": false,
+    "timing_spread_ms": 15
+   }
+  ],
+  "couplet": 17,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What did you try?",
+  "section": "Chorus 2",
+  "start": 88.532,
+  "end": 89.896,
+  "back": true,
+  "words": [
+   {
+    "w": "What",
+    "s": 88.532,
+    "e": 88.665,
+    "backing": true,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "did",
+    "s": 88.961,
+    "e": 89.178,
+    "backing": true,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "you",
+    "s": 89.188,
+    "e": 89.282,
+    "backing": true,
+    "timing_spread_ms": 134
+   },
+   {
+    "w": "try?",
+    "s": 89.292,
+    "e": 89.896,
+    "backing": true,
+    "timing_spread_ms": 1153
+   }
+  ],
+  "couplet": 17,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What did you find?",
+  "section": "Chorus 2",
+  "start": 90.807,
+  "end": 92.154,
+  "back": true,
+  "words": [
+   {
+    "w": "What",
+    "s": 90.807,
+    "e": 91.076,
+    "backing": true,
+    "timing_spread_ms": 195
+   },
+   {
+    "w": "did",
+    "s": 91.086,
+    "e": 91.233,
+    "backing": true,
+    "timing_spread_ms": 130
+   },
+   {
+    "w": "you",
+    "s": 91.243,
+    "e": 91.511,
+    "backing": true,
+    "timing_spread_ms": 186
+   },
+   {
+    "w": "find?",
+    "s": 91.521,
+    "e": 92.154,
+    "backing": true,
+    "timing_spread_ms": 366
+   }
+  ],
+  "couplet": 17,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What changed your mind?",
+  "section": "Chorus 2",
+  "start": 91.905,
+  "end": 95.794,
+  "back": false,
+  "words": [
+   {
+    "w": "What",
+    "s": 91.905,
+    "e": 92.104,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "changed",
+    "s": 92.114,
+    "e": 92.475,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "your",
+    "s": 92.485,
+    "e": 92.777,
+    "backing": false,
+    "timing_spread_ms": 35
+   },
+   {
+    "w": "mind?",
+    "s": 92.787,
+    "e": 95.794,
+    "backing": false,
+    "timing_spread_ms": 4
+   }
+  ],
+  "couplet": 17,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "A fresh bot crew? Here's what to do:",
+  "section": "Bridge",
+  "start": 96.92,
+  "end": 99.193,
+  "back": false,
+  "words": [
+   {
+    "w": "A",
+    "s": 96.92,
+    "e": 97.147,
+    "backing": false,
+    "timing_spread_ms": 31
+   },
+   {
+    "w": "fresh",
+    "s": 97.157,
+    "e": 97.502,
+    "backing": false,
+    "timing_spread_ms": 36
+   },
+   {
+    "w": "bot",
+    "s": 97.512,
+    "e": 97.775,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "crew?",
+    "s": 97.785,
+    "e": 98.019,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "Here's",
+    "s": 98.029,
+    "e": 98.344,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "what",
+    "s": 98.354,
+    "e": 98.611,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "to",
+    "s": 98.621,
+    "e": 98.768,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "do:",
+    "s": 98.778,
+    "e": 99.193,
+    "backing": false,
+    "timing_spread_ms": 20
+   }
+  ],
+  "couplet": 18,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Real browsers, a playbook, and users in mind.",
+  "section": "Bridge",
+  "start": 99.203,
+  "end": 101.653,
+  "back": false,
+  "words": [
+   {
+    "w": "Real",
+    "s": 99.203,
+    "e": 99.493,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "browsers,",
+    "s": 99.503,
+    "e": 99.923,
+    "backing": false,
+    "timing_spread_ms": 3
+   },
+   {
+    "w": "a",
+    "s": 99.933,
+    "e": 100.045,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "playbook,",
+    "s": 100.055,
+    "e": 100.434,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "and",
+    "s": 100.444,
+    "e": 100.666,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "users",
+    "s": 100.676,
+    "e": 101.037,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "in",
+    "s": 101.047,
+    "e": 101.212,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "mind.",
+    "s": 101.222,
+    "e": 101.653,
+    "backing": false,
+    "timing_spread_ms": 23
+   }
+  ],
+  "couplet": 18,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "The goals you name will guide the game;",
+  "section": "Bridge",
+  "start": 101.663,
+  "end": 103.76,
+  "back": false,
+  "words": [
+   {
+    "w": "The",
+    "s": 101.663,
+    "e": 101.798,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "goals",
+    "s": 101.808,
+    "e": 102.106,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "you",
+    "s": 102.116,
+    "e": 102.21,
+    "backing": false,
+    "timing_spread_ms": 0
+   },
+   {
+    "w": "name",
+    "s": 102.22,
+    "e": 102.645,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "will",
+    "s": 102.655,
+    "e": 102.907,
+    "backing": false,
+    "timing_spread_ms": 24
+   },
+   {
+    "w": "guide",
+    "s": 102.917,
+    "e": 103.243,
+    "backing": false,
+    "timing_spread_ms": 25
+   },
+   {
+    "w": "the",
+    "s": 103.253,
+    "e": 103.371,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "game;",
+    "s": 103.381,
+    "e": 103.76,
+    "backing": false,
+    "timing_spread_ms": 30
+   }
+  ],
+  "couplet": 19,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Your oracles help them to judge what they find.",
+  "section": "Bridge",
+  "start": 103.77,
+  "end": 106.094,
+  "back": false,
+  "words": [
+   {
+    "w": "Your",
+    "s": 103.77,
+    "e": 104.05,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "oracles",
+    "s": 104.06,
+    "e": 104.619,
+    "backing": false,
+    "timing_spread_ms": 54
+   },
+   {
+    "w": "help",
+    "s": 104.629,
+    "e": 104.869,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "them",
+    "s": 104.879,
+    "e": 105.008,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "to",
+    "s": 105.018,
+    "e": 105.182,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "judge",
+    "s": 105.192,
+    "e": 105.403,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "what",
+    "s": 105.413,
+    "e": 105.571,
+    "backing": false,
+    "timing_spread_ms": 9
+   },
+   {
+    "w": "they",
+    "s": 105.581,
+    "e": 105.774,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "find.",
+    "s": 105.784,
+    "e": 106.094,
+    "backing": false,
+    "timing_spread_ms": 21
+   }
+  ],
+  "couplet": 19,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "One probes the chat—just me and Pat:",
+  "section": "Bridge",
+  "start": 106.104,
+  "end": 108.154,
+  "back": false,
+  "words": [
+   {
+    "w": "One",
+    "s": 106.104,
+    "e": 106.326,
+    "backing": false,
+    "timing_spread_ms": 38
+   },
+   {
+    "w": "probes",
+    "s": 106.336,
+    "e": 106.662,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "the",
+    "s": 106.672,
+    "e": 106.767,
+    "backing": false,
+    "timing_spread_ms": 27
+   },
+   {
+    "w": "chat—",
+    "s": 106.777,
+    "e": 107.021,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "just",
+    "s": 107.172,
+    "e": 107.429,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "me",
+    "s": 107.439,
+    "e": 107.684,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "and",
+    "s": 107.694,
+    "e": 107.899,
+    "backing": false,
+    "timing_spread_ms": 42
+   },
+   {
+    "w": "Pat:",
+    "s": 107.909,
+    "e": 108.154,
+    "backing": false,
+    "timing_spread_ms": 22
+   }
+  ],
+  "couplet": 20,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Does Sam's new account show the text Pat just sent?",
+  "section": "Bridge",
+  "start": 108.164,
+  "end": 110.633,
+  "back": false,
+  "words": [
+   {
+    "w": "Does",
+    "s": 108.164,
+    "e": 108.398,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "Sam's",
+    "s": 108.408,
+    "e": 108.688,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "new",
+    "s": 108.698,
+    "e": 108.799,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "account",
+    "s": 108.809,
+    "e": 109.118,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "show",
+    "s": 109.128,
+    "e": 109.35,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "the",
+    "s": 109.36,
+    "e": 109.46,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "text",
+    "s": 109.47,
+    "e": 109.751,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "Pat",
+    "s": 109.761,
+    "e": 110.035,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "just",
+    "s": 110.045,
+    "e": 110.275,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "sent?",
+    "s": 110.285,
+    "e": 110.633,
+    "backing": false,
+    "timing_spread_ms": 21
+   }
+  ],
+  "couplet": 20,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "One tests the cart, then hits restart:",
+  "section": "Bridge",
+  "start": 110.643,
+  "end": 112.804,
+  "back": false,
+  "words": [
+   {
+    "w": "One",
+    "s": 110.643,
+    "e": 110.871,
+    "backing": false,
+    "timing_spread_ms": 41
+   },
+   {
+    "w": "tests",
+    "s": 110.881,
+    "e": 111.19,
+    "backing": false,
+    "timing_spread_ms": 8
+   },
+   {
+    "w": "the",
+    "s": 111.2,
+    "e": 111.318,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "cart,",
+    "s": 111.328,
+    "e": 111.724,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "then",
+    "s": 111.734,
+    "e": 112.009,
+    "backing": false,
+    "timing_spread_ms": 34
+   },
+   {
+    "w": "hits",
+    "s": 112.019,
+    "e": 112.276,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "restart:",
+    "s": 112.286,
+    "e": 112.804,
+    "backing": false,
+    "timing_spread_ms": 16
+   }
+  ],
+  "couplet": 21,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Do orders still match what the customer spent?",
+  "section": "Bridge",
+  "start": 112.814,
+  "end": 115.167,
+  "back": false,
+  "words": [
+   {
+    "w": "Do",
+    "s": 112.814,
+    "e": 113.094,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "orders",
+    "s": 113.104,
+    "e": 113.385,
+    "backing": false,
+    "timing_spread_ms": 35
+   },
+   {
+    "w": "still",
+    "s": 113.395,
+    "e": 113.716,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "match",
+    "s": 113.726,
+    "e": 113.907,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "what",
+    "s": 113.917,
+    "e": 114.116,
+    "backing": false,
+    "timing_spread_ms": 36
+   },
+   {
+    "w": "the",
+    "s": 114.126,
+    "e": 114.25,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "customer",
+    "s": 114.26,
+    "e": 114.702,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "spent?",
+    "s": 114.712,
+    "e": 115.167,
+    "backing": false,
+    "timing_spread_ms": 13
+   }
+  ],
+  "couplet": 21,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "We trade the news, compare the views;",
+  "section": "Bridge",
+  "start": 115.177,
+  "end": 117.408,
+  "back": false,
+  "words": [
+   {
+    "w": "We",
+    "s": 115.177,
+    "e": 115.329,
+    "backing": false,
+    "timing_spread_ms": 5
+   },
+   {
+    "w": "trade",
+    "s": 115.339,
+    "e": 115.712,
+    "backing": false,
+    "timing_spread_ms": 3
+   },
+   {
+    "w": "the",
+    "s": 115.722,
+    "e": 115.858,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "news,",
+    "s": 115.868,
+    "e": 116.287,
+    "backing": false,
+    "timing_spread_ms": 14
+   },
+   {
+    "w": "compare",
+    "s": 116.297,
+    "e": 116.873,
+    "backing": false,
+    "timing_spread_ms": 7
+   },
+   {
+    "w": "the",
+    "s": 116.883,
+    "e": 116.961,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "views;",
+    "s": 116.971,
+    "e": 117.408,
+    "backing": false,
+    "timing_spread_ms": 7
+   }
+  ],
+  "couplet": 22,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "We share the doubts and observations.",
+  "section": "Bridge",
+  "start": 117.418,
+  "end": 119.631,
+  "back": false,
+  "words": [
+   {
+    "w": "We",
+    "s": 117.418,
+    "e": 117.535,
+    "backing": false,
+    "timing_spread_ms": 6
+   },
+   {
+    "w": "share",
+    "s": 117.545,
+    "e": 118.005,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "the",
+    "s": 118.015,
+    "e": 118.127,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "doubts",
+    "s": 118.137,
+    "e": 118.429,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "and",
+    "s": 118.439,
+    "e": 118.539,
+    "backing": false,
+    "timing_spread_ms": 36
+   },
+   {
+    "w": "observations.",
+    "s": 118.549,
+    "e": 119.631,
+    "backing": false,
+    "timing_spread_ms": 12
+   }
+  ],
+  "couplet": 22,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Some calls need you. We'll talk them through;",
+  "section": "Bridge",
+  "start": 119.641,
+  "end": 122.555,
+  "back": false,
+  "words": [
+   {
+    "w": "Some",
+    "s": 119.641,
+    "e": 119.95,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "calls",
+    "s": 119.96,
+    "e": 120.333,
+    "backing": false,
+    "timing_spread_ms": 6
+   },
+   {
+    "w": "need",
+    "s": 120.343,
+    "e": 120.531,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "you.",
+    "s": 120.541,
+    "e": 120.908,
+    "backing": false,
+    "timing_spread_ms": 49
+   },
+   {
+    "w": "We'll",
+    "s": 120.918,
+    "e": 121.204,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "talk",
+    "s": 121.214,
+    "e": 121.593,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "them",
+    "s": 121.603,
+    "e": 121.941,
+    "backing": false,
+    "timing_spread_ms": 9
+   },
+   {
+    "w": "through;",
+    "s": 121.951,
+    "e": 122.555,
+    "backing": false,
+    "timing_spread_ms": 5
+   }
+  ],
+  "couplet": 23,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "We ask for fresh interpretations.",
+  "section": "Bridge",
+  "start": 122.99,
+  "end": 127.896,
+  "back": false,
+  "words": [
+   {
+    "w": "We",
+    "s": 122.99,
+    "e": 123.325,
+    "backing": false,
+    "timing_spread_ms": 29
+   },
+   {
+    "w": "ask",
+    "s": 123.335,
+    "e": 123.601,
+    "backing": false,
+    "timing_spread_ms": 85
+   },
+   {
+    "w": "for",
+    "s": 123.611,
+    "e": 123.956,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "fresh",
+    "s": 123.966,
+    "e": 124.581,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "interpretations.",
+    "s": 125.034,
+    "e": 127.896,
+    "backing": false,
+    "timing_spread_ms": 67
+   }
+  ],
+  "couplet": 23,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "A check applies a rule we've set;",
+  "section": "Breakdown",
+  "start": 129.033,
+  "end": 131.345,
+  "back": false,
+  "words": [
+   {
+    "w": "A",
+    "s": 129.033,
+    "e": 129.236,
+    "backing": false,
+    "timing_spread_ms": 58
+   },
+   {
+    "w": "check",
+    "s": 129.596,
+    "e": 129.807,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "applies",
+    "s": 129.817,
+    "e": 130.254,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "a",
+    "s": 130.264,
+    "e": 130.527,
+    "backing": false,
+    "timing_spread_ms": 8
+   },
+   {
+    "w": "rule",
+    "s": 130.537,
+    "e": 130.8,
+    "backing": false,
+    "timing_spread_ms": 9
+   },
+   {
+    "w": "we've",
+    "s": 130.81,
+    "e": 131.049,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "set;",
+    "s": 131.059,
+    "e": 131.345,
+    "backing": false,
+    "timing_spread_ms": 5
+   }
+  ],
+  "couplet": 24,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "It tells us if that rule is met.",
+  "section": "Breakdown",
+  "start": 131.355,
+  "end": 133.574,
+  "back": false,
+  "words": [
+   {
+    "w": "It",
+    "s": 131.355,
+    "e": 131.56,
+    "backing": false,
+    "timing_spread_ms": 46
+   },
+   {
+    "w": "tells",
+    "s": 131.57,
+    "e": 131.908,
+    "backing": false,
+    "timing_spread_ms": 8
+   },
+   {
+    "w": "us",
+    "s": 131.918,
+    "e": 132.193,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "if",
+    "s": 132.203,
+    "e": 132.466,
+    "backing": false,
+    "timing_spread_ms": 35
+   },
+   {
+    "w": "that",
+    "s": 132.476,
+    "e": 132.727,
+    "backing": false,
+    "timing_spread_ms": 29
+   },
+   {
+    "w": "rule",
+    "s": 132.737,
+    "e": 133.035,
+    "backing": false,
+    "timing_spread_ms": 0
+   },
+   {
+    "w": "is",
+    "s": 133.045,
+    "e": 133.29,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "met.",
+    "s": 133.3,
+    "e": 133.574,
+    "backing": false,
+    "timing_spread_ms": 18
+   }
+  ],
+  "couplet": 24,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "To test, we ask what else—and why;",
+  "section": "Breakdown",
+  "start": 133.584,
+  "end": 135.809,
+  "back": false,
+  "words": [
+   {
+    "w": "To",
+    "s": 133.584,
+    "e": 133.83,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "test,",
+    "s": 133.84,
+    "e": 134.126,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "we",
+    "s": 134.136,
+    "e": 134.371,
+    "backing": false,
+    "timing_spread_ms": 29
+   },
+   {
+    "w": "ask",
+    "s": 134.381,
+    "e": 134.712,
+    "backing": false,
+    "timing_spread_ms": 58
+   },
+   {
+    "w": "what",
+    "s": 134.722,
+    "e": 134.968,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "else—",
+    "s": 134.978,
+    "e": 135.269,
+    "backing": false,
+    "timing_spread_ms": 46
+   },
+   {
+    "w": "and",
+    "s": 135.279,
+    "e": 135.548,
+    "backing": false,
+    "timing_spread_ms": 37
+   },
+   {
+    "w": "why;",
+    "s": 135.558,
+    "e": 135.809,
+    "backing": false,
+    "timing_spread_ms": 8
+   }
+  ],
+  "couplet": 25,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Each clue can change what next we try.",
+  "section": "Breakdown",
+  "start": 135.819,
+  "end": 138.13,
+  "back": false,
+  "words": [
+   {
+    "w": "Each",
+    "s": 135.819,
+    "e": 136.076,
+    "backing": false,
+    "timing_spread_ms": 49
+   },
+   {
+    "w": "clue",
+    "s": 136.086,
+    "e": 136.367,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "can",
+    "s": 136.377,
+    "e": 136.61,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "change",
+    "s": 136.62,
+    "e": 136.97,
+    "backing": false,
+    "timing_spread_ms": 4
+   },
+   {
+    "w": "what",
+    "s": 136.98,
+    "e": 137.232,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "next",
+    "s": 137.242,
+    "e": 137.481,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "we",
+    "s": 137.491,
+    "e": 137.702,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "try.",
+    "s": 137.712,
+    "e": 138.13,
+    "backing": false,
+    "timing_spread_ms": 10
+   }
+  ],
+  "couplet": 25,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "A check reports, \"The sums agree!\"",
+  "section": "Breakdown",
+  "start": 138.14,
+  "end": 140.297,
+  "back": false,
+  "words": [
+   {
+    "w": "A",
+    "s": 138.14,
+    "e": 138.282,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "check",
+    "s": 138.292,
+    "e": 138.625,
+    "backing": false,
+    "timing_spread_ms": 4
+   },
+   {
+    "w": "reports,",
+    "s": 138.635,
+    "e": 139.176,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "\"The",
+    "s": 139.186,
+    "e": 139.408,
+    "backing": false,
+    "timing_spread_ms": 27
+   },
+   {
+    "w": "sums",
+    "s": 139.418,
+    "e": 139.786,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "agree!\"",
+    "s": 139.796,
+    "e": 140.297,
+    "backing": false,
+    "timing_spread_ms": 17
+   }
+  ],
+  "couplet": 26,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "We test: \"Could both be wrong? Let's see!\"",
+  "section": "Breakdown",
+  "start": 140.307,
+  "end": 142.595,
+  "back": false,
+  "words": [
+   {
+    "w": "We",
+    "s": 140.307,
+    "e": 140.546,
+    "backing": false,
+    "timing_spread_ms": 35
+   },
+   {
+    "w": "test:",
+    "s": 140.556,
+    "e": 140.877,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "\"Could",
+    "s": 140.887,
+    "e": 141.173,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "both",
+    "s": 141.183,
+    "e": 141.446,
+    "backing": false,
+    "timing_spread_ms": 32
+   },
+   {
+    "w": "be",
+    "s": 141.456,
+    "e": 141.568,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "wrong?",
+    "s": 141.578,
+    "e": 141.974,
+    "backing": false,
+    "timing_spread_ms": 40
+   },
+   {
+    "w": "Let's",
+    "s": 141.984,
+    "e": 142.307,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "see!\"",
+    "s": 142.317,
+    "e": 142.595,
+    "backing": false,
+    "timing_spread_ms": 19
+   }
+  ],
+  "couplet": 26,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "The checks are part of how we test;",
+  "section": "Breakdown",
+  "start": 142.605,
+  "end": 144.865,
+  "back": false,
+  "words": [
+   {
+    "w": "The",
+    "s": 142.605,
+    "e": 142.828,
+    "backing": false,
+    "timing_spread_ms": 22
+   },
+   {
+    "w": "checks",
+    "s": 142.838,
+    "e": 143.257,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "are",
+    "s": 143.267,
+    "e": 143.391,
+    "backing": false,
+    "timing_spread_ms": 46
+   },
+   {
+    "w": "part",
+    "s": 143.401,
+    "e": 143.762,
+    "backing": false,
+    "timing_spread_ms": 12
+   },
+   {
+    "w": "of",
+    "s": 143.772,
+    "e": 144.018,
+    "backing": false,
+    "timing_spread_ms": 35
+   },
+   {
+    "w": "how",
+    "s": 144.028,
+    "e": 144.296,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "we",
+    "s": 144.306,
+    "e": 144.499,
+    "backing": false,
+    "timing_spread_ms": 6
+   },
+   {
+    "w": "test;",
+    "s": 144.509,
+    "e": 144.865,
+    "backing": false,
+    "timing_spread_ms": 22
+   }
+  ],
+  "couplet": 27,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "We judge what serves the users best.",
+  "section": "Breakdown",
+  "start": 144.875,
+  "end": 147.342,
+  "back": false,
+  "words": [
+   {
+    "w": "We",
+    "s": 144.875,
+    "e": 145.086,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "judge",
+    "s": 145.096,
+    "e": 145.399,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "what",
+    "s": 145.409,
+    "e": 145.573,
+    "backing": false,
+    "timing_spread_ms": 10
+   },
+   {
+    "w": "serves",
+    "s": 145.583,
+    "e": 146.125,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "the",
+    "s": 146.135,
+    "e": 146.34,
+    "backing": false,
+    "timing_spread_ms": 23
+   },
+   {
+    "w": "users",
+    "s": 146.35,
+    "e": 146.839,
+    "backing": false,
+    "timing_spread_ms": 58
+   },
+   {
+    "w": "best.",
+    "s": 146.849,
+    "e": 147.342,
+    "backing": false,
+    "timing_spread_ms": 20
+   }
+  ],
+  "couplet": 27,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Did you actually test it?",
+  "section": "Chorus 3",
+  "start": 148.799,
+  "end": 150.071,
+  "back": false,
+  "words": [
+   {
+    "w": "Did",
+    "s": 148.799,
+    "e": 148.969,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "you",
+    "s": 148.979,
+    "e": 149.091,
+    "backing": false,
+    "timing_spread_ms": 1
+   },
+   {
+    "w": "actually",
+    "s": 149.101,
+    "e": 149.585,
+    "backing": false,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "test",
+    "s": 149.595,
+    "e": 149.939,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "it?",
+    "s": 149.949,
+    "e": 150.071,
+    "backing": false,
+    "timing_spread_ms": 24
+   }
+  ],
+  "couplet": 28,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Press it, stress it, second-guess it!",
+  "section": "Chorus 3",
+  "start": 150.198,
+  "end": 152.445,
+  "back": false,
+  "words": [
+   {
+    "w": "Press",
+    "s": 150.198,
+    "e": 150.519,
+    "backing": false,
+    "timing_spread_ms": 9
+   },
+   {
+    "w": "it,",
+    "s": 150.529,
+    "e": 150.618,
+    "backing": false,
+    "timing_spread_ms": 34
+   },
+   {
+    "w": "stress",
+    "s": 150.628,
+    "e": 151.053,
+    "backing": false,
+    "timing_spread_ms": 4
+   },
+   {
+    "w": "it,",
+    "s": 151.063,
+    "e": 151.349,
+    "backing": false,
+    "timing_spread_ms": 50
+   },
+   {
+    "w": "second-guess",
+    "s": 151.359,
+    "e": 152.191,
+    "backing": false,
+    "timing_spread_ms": 7
+   },
+   {
+    "w": "it!",
+    "s": 152.201,
+    "e": 152.445,
+    "backing": false,
+    "timing_spread_ms": 31
+   }
+  ],
+  "couplet": 28,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "Find a clue? Congratulations!",
+  "section": "Chorus 3",
+  "start": 153.199,
+  "end": 154.71,
+  "back": false,
+  "words": [
+   {
+    "w": "Find",
+    "s": 153.199,
+    "e": 153.486,
+    "backing": false,
+    "timing_spread_ms": 41
+   },
+   {
+    "w": "a",
+    "s": 153.496,
+    "e": 153.59,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "clue?",
+    "s": 153.6,
+    "e": 153.758,
+    "backing": false,
+    "timing_spread_ms": 3
+   },
+   {
+    "w": "Congratulations!",
+    "s": 153.768,
+    "e": 154.71,
+    "backing": false,
+    "timing_spread_ms": 24
+   }
+  ],
+  "couplet": 29,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Now pursue its implications.",
+  "section": "Chorus 3",
+  "start": 154.72,
+  "end": 157.251,
+  "back": false,
+  "words": [
+   {
+    "w": "Now",
+    "s": 154.72,
+    "e": 155.006,
+    "backing": false,
+    "timing_spread_ms": 33
+   },
+   {
+    "w": "pursue",
+    "s": 155.016,
+    "e": 155.581,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "its",
+    "s": 155.591,
+    "e": 155.871,
+    "backing": false,
+    "timing_spread_ms": 18
+   },
+   {
+    "w": "implications.",
+    "s": 155.881,
+    "e": 157.251,
+    "backing": false,
+    "timing_spread_ms": 34
+   }
+  ],
+  "couplet": 29,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "What did you try? What did you find?",
+  "section": "Chorus 3",
+  "start": 157.855,
+  "end": 162.292,
+  "back": false,
+  "words": [
+   {
+    "w": "What",
+    "s": 157.855,
+    "e": 158.095,
+    "backing": false,
+    "timing_spread_ms": 26
+   },
+   {
+    "w": "did",
+    "s": 158.105,
+    "e": 158.269,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "you",
+    "s": 158.279,
+    "e": 158.484,
+    "backing": false,
+    "timing_spread_ms": 15
+   },
+   {
+    "w": "try?",
+    "s": 158.494,
+    "e": 160.064,
+    "backing": false,
+    "timing_spread_ms": 8
+   },
+   {
+    "w": "What",
+    "s": 160.074,
+    "e": 160.353,
+    "backing": false,
+    "timing_spread_ms": 17
+   },
+   {
+    "w": "did",
+    "s": 160.363,
+    "e": 160.492,
+    "backing": false,
+    "timing_spread_ms": 37
+   },
+   {
+    "w": "you",
+    "s": 160.56,
+    "e": 160.817,
+    "backing": false,
+    "timing_spread_ms": 20
+   },
+   {
+    "w": "find?",
+    "s": 160.827,
+    "e": 162.292,
+    "backing": false,
+    "timing_spread_ms": 17
+   }
+  ],
+  "couplet": 30,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What did you try?",
+  "section": "Chorus 3",
+  "start": 158.9,
+  "end": 160.392,
+  "back": true,
+  "words": [
+   {
+    "w": "What",
+    "s": 158.9,
+    "e": 159.232,
+    "backing": true,
+    "timing_spread_ms": 40
+   },
+   {
+    "w": "did",
+    "s": 159.242,
+    "e": 159.389,
+    "backing": true,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "you",
+    "s": 159.399,
+    "e": 159.598,
+    "backing": true,
+    "timing_spread_ms": 19
+   },
+   {
+    "w": "try?",
+    "s": 159.608,
+    "e": 160.392,
+    "backing": true,
+    "timing_spread_ms": 33
+   }
+  ],
+  "couplet": 30,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What did you find?",
+  "section": "Chorus 3",
+  "start": 161.17,
+  "end": 162.604,
+  "back": true,
+  "words": [
+   {
+    "w": "What",
+    "s": 161.17,
+    "e": 161.444,
+    "backing": true,
+    "timing_spread_ms": 1024
+   },
+   {
+    "w": "did",
+    "s": 161.454,
+    "e": 161.642,
+    "backing": true,
+    "timing_spread_ms": 9
+   },
+   {
+    "w": "you",
+    "s": 161.652,
+    "e": 161.92,
+    "backing": true,
+    "timing_spread_ms": 43
+   },
+   {
+    "w": "find?",
+    "s": 161.93,
+    "e": 162.604,
+    "backing": true,
+    "timing_spread_ms": 43
+   }
+  ],
+  "couplet": 30,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "What changed your mind?",
+  "section": "Chorus 3",
+  "start": 162.302,
+  "end": 166.563,
+  "back": false,
+  "words": [
+   {
+    "w": "What",
+    "s": 162.302,
+    "e": 162.53,
+    "backing": false,
+    "timing_spread_ms": 4
+   },
+   {
+    "w": "changed",
+    "s": 162.54,
+    "e": 162.907,
+    "backing": false,
+    "timing_spread_ms": 6
+   },
+   {
+    "w": "your",
+    "s": 162.917,
+    "e": 163.203,
+    "backing": false,
+    "timing_spread_ms": 21
+   },
+   {
+    "w": "mind?",
+    "s": 163.213,
+    "e": 166.563,
+    "backing": false,
+    "timing_spread_ms": 13
+   }
+  ],
+  "couplet": 30,
+  "line_in_couplet": 1
+ },
+ {
+  "text": "It loses sets without the net;",
+  "section": "Outro",
+  "start": 166.83,
+  "end": 170.353,
+  "back": false,
+  "words": [
+   {
+    "w": "It",
+    "s": 166.83,
+    "e": 167.116,
+    "backing": false,
+    "timing_spread_ms": 45
+   },
+   {
+    "w": "loses",
+    "s": 167.126,
+    "e": 167.644,
+    "backing": false,
+    "timing_spread_ms": 16
+   },
+   {
+    "w": "sets",
+    "s": 167.654,
+    "e": 168.258,
+    "backing": false,
+    "timing_spread_ms": 13
+   },
+   {
+    "w": "without",
+    "s": 169.401,
+    "e": 169.885,
+    "backing": false,
+    "timing_spread_ms": 44
+   },
+   {
+    "w": "the",
+    "s": 169.895,
+    "e": 170.14,
+    "backing": false,
+    "timing_spread_ms": 24
+   },
+   {
+    "w": "net;",
+    "s": 170.15,
+    "e": 170.353,
+    "backing": false,
+    "timing_spread_ms": 10
+   }
+  ],
+  "couplet": 31,
+  "line_in_couplet": 0
+ },
+ {
+  "text": "Who sees the logs? Not tested yet.",
+  "section": "Outro",
+  "start": 172.002,
+  "end": 176.71,
+  "back": false,
+  "words": [
+   {
+    "w": "Who",
+    "s": 172.002,
+    "e": 172.363,
+    "backing": false,
+    "timing_spread_ms": 33
+   },
+   {
+    "w": "sees",
+    "s": 172.373,
+    "e": 172.839,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "the",
+    "s": 172.849,
+    "e": 172.979,
+    "backing": false,
+    "timing_spread_ms": 28
+   },
+   {
+    "w": "logs?",
+    "s": 172.989,
+    "e": 173.807,
+    "backing": false,
+    "timing_spread_ms": 30
+   },
+   {
+    "w": "Not",
+    "s": 174.637,
+    "e": 175.078,
+    "backing": false,
+    "timing_spread_ms": 36
+   },
+   {
+    "w": "tested",
+    "s": 175.247,
+    "e": 176.353,
+    "backing": false,
+    "timing_spread_ms": 11
+   },
+   {
+    "w": "yet.",
+    "s": 176.363,
+    "e": 176.71,
+    "backing": false,
+    "timing_spread_ms": 8
+   }
+  ],
+  "couplet": 31,
+  "line_in_couplet": 1
+ }
+]

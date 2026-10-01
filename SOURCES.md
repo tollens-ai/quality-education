@@ -161,3 +161,22 @@ quality. Credit them here and on screen.
   Native Codex workers measured and aligned the recording and gave a fresh audience reading.
   The [liner notes](episodes/04-video.md) record the built storyboard, checks and limitations.
 
+## Episode 4, piano take: what went into the video ("Press, Stress & Guess")
+
+- **Song:** lyrics by Qing with Claude; performed by the Suno piano take Qing chose on 2026-10-01
+  ("brisk pattering pace, light male baritenor ... upright piano with jaunty chord stabs").
+- **Ideas:** testing and checking after James Bach and Michael Bolton; agent-led testing and the
+  briefing lesson from Yanqing Cheng. Both are credited on the end card.
+- **The look** follows the rubber-hose cartoons of about 1930 (white gloves, pie-cut eyes, hose
+  limbs, inked cels over painted backgrounds, iris joins), a shared idiom of the era; no artwork is
+  reproduced. The **bouncing ball** over the lyric follows the Fleischer studio's sing-along cartoons
+  of the 1920s and '30s, credited on the end card; it is an idea, not their artwork. Everything is
+  drawn in JavaScript, with no generated images.
+- **Clawd** is Anthropic's Claude Code mascot, drawn in this film's style. Press, Stress, Guess,
+  Mabel, Pat, Sam and the fresh bots are original. No affiliation or endorsement is implied.
+- **Fonts:** Corben (Vernon Adams), Lilita One (Juan Montoreano) and Oleo Script (Soytutype), from
+  the Google Fonts repository under the SIL Open Font License; the notices ship in
+  `video/ep04/ball/fonts/`.
+- **How it was made:** Claude (Opus) chose the world, storyboarded the song and drew every visual; a
+  helper measured the recording and aligned the words, and an independent viewer read the frames.
+  The [liner notes](episodes/04-video-piano.md) record the storyboard, the checks and the shortfalls.

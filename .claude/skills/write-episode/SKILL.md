@@ -42,14 +42,17 @@ is the worked example of the finished shape.
    [drafting method](../songwriting/references/drafting-with-parallel-drafters.md): establish
    the meaning ledger, stress grid and rhyme slots before drafting sections.
    **Examples and cast.** These decide whether the idea feels rich or trivial:
-   - *Spread the concept across scenarios.* When the idea has several facets, give each facet
-     its own example, from whichever scenario makes it most vivid, one per line as in episode 1's
-     verses. A single simple scenario makes the idea look like one thing, and the teaching
-     boring; pick scenarios where the idea is non-obvious and pays off (Qing, 2026-09-27). Several
-     scenarios also give the video a new world every few seconds.
+   - *Many facets, easy to follow.* When the idea has several facets, give each facet its own
+     example, where the idea is non-obvious and pays off: a single simple example makes the idea
+     look like one thing, and the teaching boring (Qing, 2026-09-27). Take them from several apps,
+     each with an owner the viewer can track (episode 2: one band member per app), or from the
+     parts of one app (episode 4's piano film: a gym app's log, its chat, its checkout). Either
+     way, the viewer must always know which example they're in
+     ([VIDEO.md](../../../VIDEO.md#a-story-the-viewer-can-follow)).
    - *Invent a cast.* Fictional people are free. Give each line, or each singer, its own
-     specific person, with a name and a job, so "you" stays one person talking to one person and
-     the video has someone to draw. Don't strain the premise to keep one "you" (Qing, 2026-09-27).
+     specific person in that world, with a name and a job, so "you" stays one person talking to
+     one person and the video has someone to draw. Don't strain the premise to keep one "you"
+     (Qing, 2026-09-27).
    - *Trail later ideas by their plain words.* A concept that a later episode names can appear
      earlier as the common-sense care behind it ("does it install?", "is it safe?") without its
      jargon. That grounds the example, and it sets up the later episode.
@@ -97,8 +100,10 @@ is the worked example of the finished shape.
    someone, something useful to save, novelty, something to argue about). Draft the post text; it
    is the first thing people read, above the video.
 
-7. **Review it yourself before the expert sees it.** Run independent reviewers in parallel, each
-   with one lens:
+7. **Review it yourself before the expert sees it.** Start with the clarity pass
+   ([VIDEO.md](../../../VIDEO.md#a-story-the-viewer-can-follow)): ask its questions of every line
+   and of the whole story, as a viewer meeting the song once. Then run independent reviewers in
+   parallel, each with one lens:
    - a songwriter: scansion, rhyme, singability for the synthetic voice, hooks
    - a short-form editor: the muted first frame, where viewers drop off, share moments, cringe
    - simulated target viewers, from a novice vibecoder to a sceptical senior engineer

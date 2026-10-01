@@ -9,7 +9,9 @@ d=$1 cols=${2:-3} tw=${3:-360}
 cd "$d"
 mapfile -t files < <(ls *.png | grep -v sheet | sort -t- -k2 -g)
 n=${#files[@]}
-th=$(( tw * 16 / 9 ))
+# tiles keep the stills' own shape (portrait or landscape)
+IFS=x read -r iw ih < <(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 "${files[0]}")
+th=$(( tw * ih / iw ))
 ins=(); f=""; s=""; lay=()
 for i in "${!files[@]}"; do
   ins+=(-i "${files[$i]}")

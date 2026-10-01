@@ -127,9 +127,11 @@ export function drawCornerMarks(g, font, color) {
 
 // Draw one frame: the scene, then its lyrics, then the corner marks.
 export function frame(g, canvasW, t, S, scene) {
-  const k = canvasW / W;
+  // a scene may declare its own frame, e.g. frameSize = [1920, 1080] for a horizontal film
+  const [FW, FH] = scene.frameSize || [W, H];
+  const k = canvasW / FW;
   g.setTransform(k, 0, 0, k, 0, 0);
-  g.clearRect(0, 0, W, H);
+  g.clearRect(0, 0, FW, FH);
   g.save();
   scene.draw(g, t, S);
   g.restore();
@@ -139,7 +141,7 @@ export function frame(g, canvasW, t, S, scene) {
   if (scene.debug) {
     const sec = S.section(t);
     g.save(); g.font = '24px monospace'; g.fillStyle = '#c00';
-    g.fillText(`${t.toFixed(2)}s  ${sec.name}  bar ${Math.floor(S.barPos(t)) + 1}`, 36, H - 40);
+    g.fillText(`${t.toFixed(2)}s  ${sec.name}  bar ${Math.floor(S.barPos(t)) + 1}`, 36, FH - 40);
     g.restore();
   }
 }

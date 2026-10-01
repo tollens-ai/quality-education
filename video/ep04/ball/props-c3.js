@@ -7,7 +7,8 @@ import { TAU, clamp, lerp, now, hash, noise, rng } from './kit.js';
 import { INK, WHITE, CREAM, SKIN, SKIN_SH, GOLD, GOLD_SH, RED, RED_SH, GREY, TIN, TIN_SH, SLATE, C, sh, lt } from './palette.js';
 import { shape, line, stroke, rrect, ellipse, spline, xf, dot, paint, pathOf, glove, bbox } from './ink.js';
 import { bang, qmark, pops } from './rig.js';
-import { magnifier } from './cast.js';
+import { magnifier, phone } from './cast.js';
+import { logScreen, PINK as APP_PINK } from './props-gym.js';
 import { digits } from './props.js';
 
 // ---------------------------------------------------------------- the viewer's hand
@@ -102,18 +103,59 @@ export function block(g, kind, x, y, R, o = {}) {
   return P;
 }
 
-// The crate of shapes: an open slatted box with big blocks crowding its top. (x, y) its front foot,
-// s its scale (s = 1: 230 wide). o.out lists the kinds already taken out, o.jostle shakes the rest.
+// The crate of shapes to try: an open slatted box, low, with solids poking out of it, each reading
+// by its silhouette and its light even drained to sepia: a big ball (pale, a round shine), a cube (its
+// top and side faces showing, dark), a cone (point up, mid-tone), and a small grey pebble on the far
+// rim, past them all.
+// (x, y) the box's front foot, s its scale (s = 1: 250 wide). o.out lists what's been taken out
+// ('pebble'), o.jostle shakes the rest (a hand rummaging).
+function ball3(g, x, y, r, col, seed) {
+  shape(g, ellipse(x, y, r, r, 0, 36), { fill: col, shade: sh(col, .5), lit: lt(col, .6), form: 'round', cx: .32, cy: .26, k: 1.2, w: Math.max(3, r * .1), seed, gloss: { x: .28, y: .22, w: .16, h: .12, a: 1 } });
+}
+function cube3(g, x, y, a, col, seed) {
+  const d = a * .42, f = [[x - a / 2, y - a / 2], [x + a / 2, y - a / 2], [x + a / 2, y + a / 2], [x - a / 2, y + a / 2]];
+  const top = [[x - a / 2, y - a / 2], [x - a / 2 + d, y - a / 2 - d * .8], [x + a / 2 + d, y - a / 2 - d * .8], [x + a / 2, y - a / 2]];
+  const side = [[x + a / 2, y - a / 2], [x + a / 2 + d, y - a / 2 - d * .8], [x + a / 2 + d, y + a / 2 - d * .8], [x + a / 2, y + a / 2]];
+  shape(g, side, { fill: sh(col, .55), form: false, w: Math.max(3, a * .06), seed: seed + 1 });
+  shape(g, top, { fill: lt(col, .5), form: false, w: Math.max(3, a * .06), seed: seed + 2 });
+  shape(g, f, { fill: col, shade: sh(col, .3), lit: lt(col, .2), form: 'block', w: Math.max(3, a * .07), seed: seed + 3 });
+}
+function cone3(g, x, y, r, h, col, seed) {
+  const P = []; for (let k = 0; k <= 12; k++) { const u = k / 12; P.push([x - r + 2 * r * u, y + Math.sin(u * Math.PI) * r * .32]); }
+  shape(g, [[x, y - h], ...P.reverse()].reverse(), { fill: col, shade: sh(col, .45), lit: lt(col, .4), form: 'block', w: Math.max(3, r * .1), seed });
+  shape(g, [[x, y - h], [x - r * .5, y - h * .1], [x - r * .2, y]], { fill: lt(col, .35), form: false, w: 0, seed: seed + 1 });
+}
 export function shapeCrate(g, x, y, s = 1, o = {}) {
-  const w = 230 * s, h = 150 * s, j = o.jostle ?? 0, out = o.out || [];
-  const big = [['circle', -62, -150, 54, '#e0b040'], ['square', 50, -168, 50, '#4a72a8'], ['tri', -6, -196, 52, '#8a5aa0'], ['circle', 64, -118, 40, '#c8503c']];
-  big.forEach(([k, dx, dy, R, col], i) => { if (out.includes(i)) return; block(g, k, x + dx * s + Math.sin(now() * 40 + i) * j * 4 * s, y + dy * s - Math.abs(Math.sin(now() * 30 + i * 2)) * j * 8 * s, R * s, { col, rot: [.1, -.12, .05, 0][i], seed: 9300 + i * 10 }); });
-  // the box's back rim, then its front: slats, posts, nails, a rope handle
+  const w = 250 * s, h = 92 * s, j = o.jostle ?? 0, out = o.out || [], T0 = now();
+  const jx = i => Math.sin(T0 * 40 + i) * j * 5 * s, jy = i => -Math.abs(Math.sin(T0 * 30 + i * 2)) * j * 10 * s;
+  // inside the box, behind its front: the cone at the back, the ball, the cube
+  cone3(g, x + 14 * s + jx(1), y - h - 4 * s + jy(1), 40 * s, 128 * s, '#d9573f', 9300);
+  ball3(g, x - 52 * s + jx(2), y - h - 30 * s + jy(2), 50 * s, '#f0d070', 9310);
+  cube3(g, x + 66 * s + jx(3), y - h - 26 * s + jy(3), 62 * s, '#3e6aa0', 9320);
+  // the box: its back rim's shadow, then the front: slats, posts, nails, a rope handle
   shape(g, rrect(x - w / 2, y - h, w, h, 6 * s), { fill: '#b07a48', shade: '#6a4426', lit: '#d8a46c', form: 'block', w: 6 * s, seed: 9350 });
-  for (let i = 1; i < 3; i++) stroke(g, [[x - w / 2 + 8 * s, y - h + i * h / 3], [x + w / 2 - 8 * s, y - h + i * h / 3]], { w: 3 * s, seed: 9351 + i, color: '#5a3418', taper: false });
+  stroke(g, [[x - w / 2 + 8 * s, y - h / 2], [x + w / 2 - 8 * s, y - h / 2]], { w: 3 * s, seed: 9351, color: '#5a3418', taper: false });
   for (const d of [-1, 1]) shape(g, rrect(x + d * (w / 2 - 14 * s) - 12 * s, y - h, 24 * s, h, 4 * s), { fill: '#9a6438', shade: '#5a3418', form: 'block', w: 4 * s, seed: 9355 + d });
-  for (const d of [-1, 1]) for (const yy of [.15, .5, .85]) dot(g, x + d * (w / 2 - 14 * s), y - h + h * yy, 2.6 * s, '#2a1a10');
-  stroke(g, [[x + w / 2 - 2 * s, y - h * .7], [x + w / 2 + 16 * s, y - h * .55], [x + w / 2 - 2 * s, y - h * .4]], { w: 5 * s, seed: 9360, color: '#c9a878' });
+  for (const d of [-1, 1]) for (const yy of [.2, .8]) dot(g, x + d * (w / 2 - 14 * s), y - h + h * yy, 2.6 * s, '#2a1a10');
+  stroke(g, [[x + w / 2 - 2 * s, y - h * .75], [x + w / 2 + 16 * s, y - h * .55], [x + w / 2 - 2 * s, y - h * .35]], { w: 5 * s, seed: 9360, color: '#c9a878' });
+  // the pebble, sitting on the rim
+  if (!out.includes('pebble')) block(g, 'pebble', x - 108 * s + jx(4), y - h - 8 * s + jy(4), 13 * s, { col: '#8a847a', seed: 9330 });
+}
+
+// ---------------------------------------------------------------- a kettlebell
+// A big iron kettlebell standing on (x, y): a round bell and its handle, cast iron with a dull shine.
+export function kettlebell(g, x, y, s = 1, o = {}) {
+  const r = 60 * s, cy = y - r * .92;
+  stroke(g, [[x - r * .62, cy - r * .55], [x - r * .7, cy - r * 1.3], [x, cy - r * 1.62], [x + r * .7, cy - r * 1.3], [x + r * .62, cy - r * .55]], { w: r * .34, seed: 9820, taper: false, color: INK });
+  stroke(g, [[x - r * .62, cy - r * .55], [x - r * .7, cy - r * 1.3], [x, cy - r * 1.62], [x + r * .7, cy - r * 1.3], [x + r * .62, cy - r * .55]], { w: r * .18, seed: 9821, taper: false, color: '#3a3430' });
+  shape(g, spline([[x - r, cy], [x - r * .86, cy - r * .62], [x, cy - r * .98], [x + r * .86, cy - r * .62], [x + r, cy], [x + r * .7, cy + r * .82], [x, cy + r * .94], [x - r * .7, cy + r * .82]], true, 6), { fill: '#2e2a28', shade: '#0c0a0a', lit: '#6a645c', form: 'round', cx: .3, cy: .26, w: Math.max(3, 5 * s), seed: 9822, gloss: { x: .26, y: .2, w: .12, h: .08, col: '#d8d0c4', a: .7 } });
+  shape(g, rrect(x - r * .5, cy + r * .78, r, r * .2, r * .06), { fill: '#1e1a18', w: Math.max(2, 3 * s), seed: 9823, form: false });
+}
+
+// ---------------------------------------------------------------- a gym member's phone
+// The pink phone with Mabel's gym app on it, held up: legs folded, its log of ticked sets showing.
+export function memberPhone(g, x, y, s, t, o = {}) {
+  return phone(g, x, y, s, { t, legs: false, col: APP_PINK, dance: 0, lean: o.lean ?? 0, eyes: { expr: o.happy ? 'happy' : 'open' }, screen: logScreen({ wifi: null, rows: [{}, {}, {}] }) });
 }
 
 // ---------------------------------------------------------------- a check's report

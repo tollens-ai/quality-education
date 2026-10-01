@@ -1,7 +1,7 @@
-// The breakdown: the definitions, on the bare stage in one spotlight, drained to sepia. Two voices,
-// Clawd for the check lines and Guess for the test lines, each singing in the light. One idea a line,
-// framed big: a medium shot for who's doing it, an iris insert for the detail. A check's flag is the
-// only colour on stage.
+// The breakdown: the definitions, on the bare stage in one spotlight, drained to sepia, the dark stalls
+// filling the bottom of the frame. Two voices, Clawd for the check lines and Guess for the test lines,
+// each singing in the light. One idea a line, framed big: a medium shot for who's doing it, a close-up
+// for the thing they do. A check's flag, and the testers' "?!" sticker, are the only colour on stage.
 //  "A check applies a rule we've set;" — the spotlight strikes on a lone wind-up check, and Clawd steps
 //     in to present it. Close: your hand comes in from the side with a stencil, a card with a star cut
 //     out of it, and slots it into the check's front. The rule.
@@ -12,45 +12,41 @@
 //     Guess scratches his head: "?".
 //  "Each clue can change what next we try." — "!": he reaches past the big blocks for a tiny pebble.
 //     Close: that slips through too. Green again.
-//  "A check reports, "The sums agree!"" — the copied check from verse 1 beside the app's phone: 2+2=5
-//     on the screen, 5 on the slip the check prints, its green flag up. The quote is its bubble.
+//  "A check reports, "The sums agree!"" — Mabel's gym app on its pink phone beside the check copied
+//     from its code: 2+2=5 on the app's screen, 5 on the slip the check prints, its green flag up. The
+//     quote is its bubble.
 //  "We test: "Could both be wrong? Let's see!"" — Guess, between them, points at both fives and holds
-//     up four fingers. In the band's stop, close: he lifts the check's lid, and the two beetles inside
-//     freeze, caught.
+//     up four fingers. In the band's stop, close: he lifts the check's lid on the two beetles inside,
+//     caught, and slaps the crew's "?!" sticker over the check's still-green flag.
 //  "The checks are part of how we test;" — a check marches into the crew's doctor's bag, among the
 //     glass, a playbook and a browser window, and the bag snaps shut.
-//  "We judge what serves the users best." — the spotlight swings to the users (Mabel, Pat, Sam and the
-//     goose), who step into it and smile; the colour comes back, spreading out from them.
+//  "We judge what serves the users best." — the spotlight swings to the app's users, gym members with
+//     the pink app on their phones (Mabel, Pat, Sam and the goose), who step into it and smile; the
+//     colour comes back, spreading out from them.
 import { W, H, TAU, clamp, lerp, now, wordsOf, hash, noise, easeOut, easeIn, easeInOut, backOut, mono, setMono } from '../kit.js';
 import { CREAM, GOLD, GREEN, WHITE, C } from '../palette.js';
 import { shot } from '../shots.js';
 import { BUBBLE, LEAD } from '../lyrics.js';
-import { BS, bareStage, spotBeam } from '../places-stage.js';
+import { BS, bareStage, spotBeam, stalls } from '../places-stage.js';
 import { clawd } from '../clawd.js';
 import { guess, check } from '../crew.js';
 import { mabel, critter } from '../people.js';
 import { phone, bug, magnifier } from '../cast.js';
 import { code, digits } from '../props.js';
-import { viewerHand, stencil, holeOf, block, shapeCrate, reportSlip, openCheck, doctorBag, browserWin, playbook } from '../props-c3.js';
+import { viewerHand, stencil, holeOf, block, shapeCrate, reportSlip, openCheck, doctorBag, browserWin, playbook, memberPhone } from '../props-c3.js';
+import { gymPhone, sumScreen, sticker } from '../gymapp.js';
 import { groove, qmark, pops } from '../rig.js';
-import { look, cam, floorCam, ramp, pop, ease, kick, sparkle, footShadow, burst, irisInsert } from '../common.js';
+import { look, cam, floorCam, ramp, pop, ease, kick, sparkle, footShadow, burst } from '../common.js';
 import { shape } from '../ink.js';
 
 const F = BS.floor, Y = 1730;                      // the floor line, and where the cast stand in the pool
 const fc = (x, z) => floorCam(x, z, F);
 const scr = (c, x, y) => [W / 2 + (x - c.x) * c.z, H / 2 + (y - c.y) * c.z];
 const STAR = '#efc25a', BALL = '#f0d8a0', PEBBLE = '#b4ada0';
-// Iris inserts: black all round, a circle at IC of radius IR; icam puts world (x, y) at its centre.
-const IC = [W / 2, 690], IR = 440;
-const icam = (x, y, z) => ({ x, y: y - (IC[1] - H / 2) / z, z });
-function insert(a, b, id, draw, o = {}) {
-  shot(a, b, (g, t) => {
-    // the black round the circle stays black through the drain; the picture in it is drained
-    const m = mono(); setMono(0);
-    irisInsert(g, IC[0], IC[1], IR, g2 => { setMono(m); draw(g2, t, now()); setMono(0); }, lerp(.3, 1, easeOut(ramp(t, a, o.open ?? .14), 2)), { rim: '#120c08' });
-    setMono(m);
-  }, { id });
-}
+// Close-ups fill the frame: icam puts world (x, y) at (540, 690), in the frame's upper middle, and the
+// place carries on below it, under the lyric (the stalls softened, nearer the lens).
+const icam = (x, y, z) => ({ x, y: y - (690 - H / 2) / z, z });
+function insert(a, b, id, draw) { shot(a, b, (g, t) => draw(g, t, now()), { id }); }
 
 // ---------------------------------------------------------------- where hands go
 // The shoulders as clawd.js and crew.js place them (unleaned), to aim a glove at a point.
@@ -73,7 +69,7 @@ function guessReach(x, y, s, tq, o, side, target, pose = 'open', ang) {
 function checkGeo(x, y, s, o = {}) {
   const sq = o.squash ?? 0, bw = 92 * s * (1 + sq * .5), bh = 118 * s * (1 - sq * .4), cy = y - 30 * s - bh / 2 - (o.hop ?? 0) * 40 * s;
   const cw = 78 * s, ch = 56 * s;
-  return { bw, bh, cy, top: cy - bh / 2, card: [x, cy + ch / 2, cw, ch], eyes: [x, cy - bh * .25] };
+  return { bw, bh, cy, top: cy - bh / 2, card: [x, cy + ch / 2, cw, ch], eyes: [x, cy - bh * .25], flag: [x - bw / 2 - 6 * s, cy - 93 * s] };
 }
 // The card holder's corner clips, over the card.
 function clips(g, card, s) {
@@ -105,7 +101,7 @@ export function register(S, { MONO }) {
   const [, tChecks7, , tPart7, , , , tTest7] = [0, 1, 2, 3, 4, 5, 6, 7].map(i => T(L7, i));
   const [tWe8, tJudge, , tServes, tThe8, tUsers, tBest] = [0, 1, 2, 3, 4, 5, 6].map(i => T(L8, i));
   const t0 = 128.9, tEnd = 147.34;
-  const L1b = 130.2, L2a = tIt - .05, L2b = 132.5, L3a = tTo - .05, L3b = 134.58, L3c = 135.2, L4a = tEach - .05, L4b = 137.3, L5a = tA5 - .05, L6a = tWe6 - .05, L6b = 142.0, L7a = 142.55, L8a = tWe8 - .05;
+  const L1b = 130.2, L2a = tIt - .05, L2b = 132.5, L3a = tTo - .05, L3b = 134.58, L3c = 135.2, L4a = tEach - .05, L4b = 137.3, L5a = tA5 - .05, L6a = tWe6 - .05, L6b = tLets - .06, L7a = 142.6, L8a = tWe8 - .05;
 
   // The rule's check, centre stage, and its card.
   const KX = 1000, KS = 2.3, KC = checkGeo(KX, Y, KS).card, HOLE = holeOf(KC[0], KC[1], KC[2], KC[3]);
@@ -113,8 +109,8 @@ export function register(S, { MONO }) {
   const SP = { x: 940, y: Y, rx: 300, ry: 62, k: 1 };
 
   // ---------------------------------------------------------------- lines 1 and 2: Clawd and the rule
-  const CX = 715, CS = .95;
-  const ruleScene = (g, t, tq, c, sp) => {
+  const CX = 688, CS = .95;
+  const ruleScene = (g, t, tq, c, sp, close = false) => {
     bareStage(g, c, sp);
     g.save(); look(g, c);
     footShadow(g, KX, Y, 230, .4);
@@ -123,7 +119,7 @@ export function register(S, { MONO }) {
     const cx = line2 ? CX : lerp(560, CX, easeInOut(ramp(tq, tA + .15, .5))), walking = !line2 && tq > tA + .15 && tq < tA + .65;
     footShadow(g, cx, Y, 300, .35 * ramp(cx, 600, 700));
     // the star block: produced, held high, carried to the star, slid in snug and through
-    const hi = [900, 1255], at0 = [HOLE.x - 120, HOLE.y + 10];
+    const hi = [CX + 178, Y - 205], at0 = [HOLE.x - 120, HOLE.y + 10];
     const carry = easeInOut(ramp(tq, tIf - .02, 132.78 - tIf)), slide = easeInOut(ramp(tq, 132.78, tIs + .02 - 132.78)), drop = ramp(tq, tMet - .02, .22);
     const bx = lerp(lerp(hi[0], at0[0], carry), HOLE.x, slide), by = lerp(lerp(hi[1], at0[1], carry), HOLE.y, slide) - Math.sin(carry * Math.PI) * 50;
     const inHole = tq >= tIs + .02, flag = line2 && tq >= tMet ? pop(tq, tMet, .3) : 'down';
@@ -141,7 +137,7 @@ export function register(S, { MONO }) {
       eyes: line2 ? { expr: tq > tMet + .05 ? 'happy' : 'open', lx: tq < tIf ? -.1 : .75, ly: tq < tIf ? -.3 : .2, cock: tq > tTells - .1 && tq < tIf ? .6 : 0 }
                   : { expr: tq > tSet + .05 && tq < tSet + .6 ? 'happy' : 'open', lx: tq < tCheck ? .6 : tq < tApplies + .2 ? .2 : .8, ly: tq > tApplies + .2 && tq < tSet ? .2 : 0 },
       sing: true, squash: line2 ? 0 : kick(tq, tSet + .02, .2) * .12 });
-    if (holding) block(g, 'star', bx, by, HOLE.R * .97, { col: STAR, seed: 9210 });
+    if (holding) block(g, 'star', bx, by, HOLE.R * .97, { col: STAR, seed: 9210, depth: .32 });
     if (holding && tq < tTells + .3) sparkle(g, hi[0], hi[1], 90, tq, 4, GOLD, 211);
     // your hand, from the right, with the rule: held up by the holder, then pushed home
     if (!line2 && tq > L1b - .1 && tq < tSet + .5) {
@@ -157,6 +153,7 @@ export function register(S, { MONO }) {
     if (line2 && tq > tMet) { const k = checkGeo(KX, Y, KS); sparkle(g, KX - 150, k.top - 170, 120, tq, 5, GOLD, 213); burst(g, KX - 150, k.top - 170, 120, (tq - tMet) / .45, 10, '!' + GREEN, 214); }
     g.restore();
     spotBeam(g, c, sp, t);
+    stalls(g, c, sp, t, { blur: close ? 3 : 0 });
   };
   // 1a. the light strikes on a lone check; Clawd steps in to present it
   shot(t0, L1b, (g, t) => {
@@ -165,15 +162,15 @@ export function register(S, { MONO }) {
     ruleScene(g, t, now(), c, { ...SP, k: strike });
   }, { id: 'bd-rule' });
   // 1b. close: your hand slots the rule in
-  insert(L1b, L2a, 'bd-rule-in', (g, t, tq) => ruleScene(g, t, tq, cam([[L1b, icam(1010, 1540, 2.1)], [L2a, icam(1004, 1550, 2.2)]], t), SP));
+  insert(L1b, L2a, 'bd-rule-in', (g, t, tq) => ruleScene(g, t, tq, cam([[L1b, icam(1010, 1540, 2.1)], [L2a, icam(1004, 1550, 2.2)]], t), SP, true));
   // 2a. Clawd shows us a star block
   shot(L2a, L2b, (g, t) => ruleScene(g, t, now(), cam([[L2a, fc(835, 1.6)], [L2b, fc(840, 1.64)]], t), SP), { id: 'bd-star' });
   // 2b. close: it slides into the star, and through; up goes the green flag
-  insert(L2b, L3a, 'bd-met', (g, t, tq) => ruleScene(g, t, tq, cam([[L2b, icam(960, 1470, 1.8)], [L3a, icam(950, 1450, 1.86)]], t), SP));
+  insert(L2b, L3a, 'bd-met', (g, t, tq) => ruleScene(g, t, tq, cam([[L2b, icam(960, 1470, 1.8)], [L3a, icam(950, 1450, 1.86)]], t), SP, true));
 
   // ---------------------------------------------------------------- lines 3 and 4: Guess tries what else
   const GX = 1250, GS = .88, GY = Y - 30, CRX = 1185;
-  const triesScene = (g, t, tq, c, sp) => {
+  const triesScene = (g, t, tq, c, sp, close = false) => {
     bareStage(g, c, sp);
     g.save(); look(g, c);
     footShadow(g, KX, Y, 230, .4);
@@ -194,7 +191,7 @@ export function register(S, { MONO }) {
     const o = { t: tq, dance: walking ? .2 : .45, face: -.5, walk: walking ? tq * 2.6 : null };
     const G = guessGeo(gx, GY, GS, tq, o);
     let L = 'hang', R = 'hang', held = null, bang = 0, brow = .7, eyes = { lx: -.7, ly: .1 };
-    const crate = [CRX - 20, Y - 120];
+    const crate = [CRX - 20, Y - 120], pebbleAt = [CRX - 108 * .8, Y + 22 - 92 * .8 - 8 * .8];
     if (!line4) {
       // a small ball: out of the crate, held up to look at, then into the star
       const up = easeOut(ramp(tq, tTest + .02, .3), 2), go = easeInOut(ramp(tq, tWhat - .05, tElse - tWhat + .03));
@@ -212,7 +209,7 @@ export function register(S, { MONO }) {
       if (tq > tCan - .05 && tq < tTry + .02) {
         const dig = ramp(tq, tCan - .05, .25), up = easeOut(ramp(tq, tChange + .2, .3), 2), go = easeInOut(ramp(tq, tWe2 - .05, tTry - tWe2 + .03));
         const by = [G.face[0] - 70, G.face[1] + 6];
-        let p = [lerp(gx - 60, crate[0], dig), lerp(Y - 300, crate[1], dig) + Math.sin(tq * 40) * 4 * (1 - up)];
+        let p = [lerp(gx - 60, pebbleAt[0], dig), lerp(Y - 300, pebbleAt[1], dig) + Math.sin(tq * 40) * 4 * (1 - up)];
         p = [lerp(lerp(p[0], by[0], up), HOLE.x, go), lerp(lerp(p[1], by[1], up), HOLE.y + 2, go) - Math.sin(go * Math.PI) * 40];
         held = up > .05 ? ['pebble', p, 12, PEBBLE] : null;
         L = guessReach(gx, GY, GS, tq, o, 'L', [p[0] + 14, p[1] + 14], 'grip');
@@ -221,7 +218,7 @@ export function register(S, { MONO }) {
       brow = tq > tNext - .1 && tq < tWe2 + .1 ? 1 : .7;
     }
     guess(g, gx, GY, GS, { ...o, L, R, bang, brow, eyes, sing: true });
-    shapeCrate(g, CRX, Y + 22, .8, { jostle: line4 && tq > tCan && tq < tChange + .3 ? 1 : 0 });
+    shapeCrate(g, CRX, Y + 22, .8, { jostle: line4 && tq > tCan && tq < tChange + .3 ? 1 : 0, out: line4 && tq > tChange + .2 ? ['pebble'] : [] });
     if (held) { block(g, held[0], held[1][0], held[1][1], held[2], { col: held[3], seed: 9230 }); if ((line4 && tq > tNext - .1 && tq < tWe2) || (!line4 && tq > tAsk - .1 && tq < tWhat)) sparkle(g, held[1][0], held[1][1], 46, tq, 3, WHITE, 231); }
     if (tq > (line4 ? tTry : tElse) + .05 && tq < (line4 ? tTry : tElse) + .35) pops(g, HOLE.x, HOLE.y, 100, 7, { a0: -Math.PI, span: TAU * .88, w: 6 });
     // the head-scratch's question mark (it lingers into line 4 until the antenna's "!" takes over)
@@ -231,37 +228,33 @@ export function register(S, { MONO }) {
     if (flag > .5 && tq > (line4 ? tTry : tElse)) { const k = checkGeo(KX, Y, KS); sparkle(g, KX - 150, k.top - 170, 120, tq, 5, GOLD, 241); }
     g.restore();
     spotBeam(g, c, sp, t);
+    stalls(g, c, sp, t, { blur: close ? 3 : 0 });
   };
   const SP3 = { x: 1090, y: Y, rx: 310, ry: 64, k: 1 };
   // 3a. Guess steps in and holds up a small ball
   shot(L3a, L3b, (g, t) => triesScene(g, t, now(), cam([[L3a, fc(1110, 1.68)], [L3b, fc(1116, 1.76)]], t), SP3), { id: 'bd-ball' });
   // 3b. close: it slips through the star, and the flag goes up green
-  insert(L3b, L3c, 'bd-else', (g, t, tq) => triesScene(g, t, tq, cam([[L3b, icam(990, 1470, 1.8)], [L3c, icam(985, 1460, 1.86)]], t), SP3));
+  insert(L3b, L3c, 'bd-else', (g, t, tq) => triesScene(g, t, tq, cam([[L3b, icam(990, 1470, 1.8)], [L3c, icam(985, 1460, 1.86)]], t), SP3, true));
   // 3c. Guess scratches his head: why?
   shot(L3c, L4a, (g, t) => triesScene(g, t, now(), cam([[L3c, fc(1085, 1.58)], [L4a, fc(1090, 1.62)]], t), SP3), { id: 'bd-why' });
   // 4a. "!": he reaches past the big blocks for a tiny pebble
   shot(L4a, L4b, (g, t) => triesScene(g, t, now(), cam([[L4a, fc(1095, 1.64)], [tNext, fc(1110, 1.74)], [L4b, fc(1110, 1.78)]], t), SP3), { id: 'bd-clue' });
   // 4b. close: that slips through too
-  insert(L4b, L5a, 'bd-try', (g, t, tq) => triesScene(g, t, tq, cam([[L4b, icam(990, 1470, 1.8)], [L5a, icam(985, 1460, 1.86)]], t), SP3));
+  insert(L4b, L5a, 'bd-try', (g, t, tq) => triesScene(g, t, tq, cam([[L4b, icam(990, 1470, 1.8)], [L5a, icam(985, 1460, 1.86)]], t), SP3, true));
 
   // ---------------------------------------------------------------- lines 5 and 6: the sums agree
   const PX = 790, PS = .62, QX = 1225, QS = 2.0, G6 = 1000, G6S = .84, G6Y = Y - 34;
-  const sumScreen = (tq, o = {}) => (g, sx, sy, sw, sh, s) => {
-    g.fillStyle = C('#f7f1e0'); g.fillRect(sx, sy, sw, sh);
-    digits(g, '2+2', sx + sw * .5, sy + sh * .27, 80 * s, { ow: 0 });
-    digits(g, '=5', sx + sw * .46, sy + sh * .56, 112 * s, { ow: 0 });
-    bug(g, sx + sw * .8, sy + sh * .74, .5 * s, { t: tq, dir: -1, look: o.look ?? -.6 });
-  };
+  const appSum = (tq, o = {}) => sumScreen(tq, { sum: '2+2', ans: '5', look: o.look });
   const copiedCard = tq => (g, x, y, w, h, s) => code(g, x - w * .42, y - h * .36, w * .84, { t: tq, bugScale: .9 });
   const QG = checkGeo(QX, Y, QS);
-  const sumsScene = (g, t, tq, c, sp) => {
+  const sumsScene = (g, t, tq, c, sp, close = false) => {
     bareStage(g, c, sp);
     g.save(); look(g, c);
     const line6 = tq >= L6a, stop = tq > 141.1 && tq < 142.53, dance = stop ? 0 : .4;
     footShadow(g, PX, Y, 200, .4); footShadow(g, QX, Y, 200, .4);
     const agree = tq > tAgree, lid = line6 ? easeOut(ramp(tq, L6b + .02, .2), 2) : 0, caught = lid > .5;
-    phone(g, PX, Y, PS, { t: tq, dance, eyes: { expr: caught ? 'worried' : agree && !line6 ? 'happy' : 'open', lx: !line6 ? (tq > tThe5 ? .8 : .2) : .8, ly: -.1 }, screen: sumScreen(tq, { look: caught ? .7 : -.6 }) });
-    const flag = !line6 ? (agree ? pop(tq, tAgree, .3) : 'down') : 1 - ramp(tq, L6b + .04, .12);
+    gymPhone(g, PX, Y, PS, appSum(tq, { look: caught ? .7 : -.6 }), { t: tq, dance, eyes: { expr: caught ? 'worried' : agree && !line6 ? 'happy' : 'open', lx: !line6 ? (tq > tThe5 ? .8 : .2) : .8, ly: -.1 } });
+    const flag = !line6 ? (agree ? pop(tq, tAgree, .3) : 'down') : 1;
     check(g, QX, Y, QS, { t: tq, dance, flag, flagCol: GREEN, wave: !stop && tq > tAgree + .3, look: caught ? -.2 : tq > tThe5 ? -.8 : 0, squash: line6 ? 0 : kick(tq, tAgree, .14) * .16, card: copiedCard(tq), key: stop ? 0 : tq < tReports ? 5 : 2.2 });
     if (lid <= 0) reportSlip(g, QX + 8, QG.top - 12 * QS, QS * .56, line6 ? 1 : ramp(tq, tReports - .1, .5));
     if (!line6 && agree) { sparkle(g, QX - 140, QG.top - 150, 110, tq, 5, GOLD, 251); burst(g, QX - 140, QG.top - 150, 120, (tq - tAgree) / .45, 10, '!' + GREEN, 252); }
@@ -271,14 +264,19 @@ export function register(S, { MONO }) {
       const o = { t: tq, dance };
       const both = tq > tCould - .05 && tq < tBe - .05, four = tq >= tBe - .05 && tq < L6b + .3;
       const lidAt = [lerp(QX + 10, QX + 120, lid), lerp(QG.top - 4, QG.top - 250, lid)];
-      const L = both ? guessReach(G6, G6Y, G6S, tq, o, 'L', [PX + 80, 1548], 'point', Math.PI + .1) : four ? guessReach(G6, G6Y, G6S, tq, o, 'L', [PX + 150, 1490], 'four', -Math.PI / 2) : 'hang';
+      const slap = ramp(tq, tSee - .08, .12), fl = QG.flag;
+      const L = both ? guessReach(G6, G6Y, G6S, tq, o, 'L', [PX + 80, 1548], 'point', Math.PI + .1) : four && tq < tSee - .22 ? guessReach(G6, G6Y, G6S, tq, o, 'L', [PX + 150, 1490], 'four', -Math.PI / 2)
+        : tq >= tSee - .22 && tq < tSee + .4 ? guessReach(G6, G6Y, G6S, tq, o, 'L', [lerp(fl[0] - 40, fl[0] - 6, slap), lerp(fl[1] - 70, fl[1] + 4, slap)], 'flat', .2) : 'hang';
       const R = both ? guessReach(G6, G6Y, G6S, tq, o, 'R', [QX - 110, QG.top - 120], 'point', -.4) : tq > tLets - .05 ? guessReach(G6, G6Y, G6S, tq, o, 'R', [lidAt[0] - 24, lidAt[1] + 4], 'grip') : 'hips';
       guess(g, G6, G6Y, G6S, { ...o, L, R, sing: true, brow: four ? 1 : .7, eyes: { lx: caught ? 1 : four ? -.3 : 0, ly: caught ? .5 : 0, expr: caught && tq > tSee + .1 ? 'smug' : 'open' } });
       openCheck(g, QX, Y, QS, lid, { t: tq, lidAt, lidRot: .5 * lid, look: Math.sin(tq * 3), slip: 1, slipS: QS * .56 });
       if (caught && tq < L6b + .45) pops(g, QX, QG.top - 60, 140, 8, { a0: -Math.PI, span: Math.PI, w: 7 });
+      // the crew's mark over the check's still-green flag: the check said yes; testing says look!
+      if (slap > 0) sticker(g, fl[0] + 14, fl[1] + 4, 44, { p: slap, ang: -.25, since: tq - (tSee + .04) });
     }
     g.restore();
     spotBeam(g, c, sp, t);
+    stalls(g, c, sp, t, { blur: close ? 3 : 0 });
   };
   const SP5 = { x: 1000, y: Y, rx: 340, ry: 68, k: 1 };
   const c5 = fc(1000, 1.68);
@@ -291,7 +289,7 @@ export function register(S, { MONO }) {
   BUBBLE['We test: "Could bo'] = { from: 0, to: 7, tail: [f6x - 60, f6y + 50] };   // Guess sings the whole line
   shot(L6a, L6b, (g, t) => sumsScene(g, t, now(), cam([[L6a, fc(1000, 1.64)], [tCould, c6], [L6b, fc(1005, 1.72)]], t), SP5), { id: 'bd-both' });
   // 6b. close, in the band's stop: the lid comes up on the two beetles, caught
-  insert(L6b, L7a, 'bd-caught', (g, t, tq) => sumsScene(g, t, tq, cam([[L6b, icam(1140, 1360, 1.5)], [L7a, icam(1160, 1340, 1.6)]], t), SP5), { open: .12 });
+  insert(L6b, L7a, 'bd-caught', (g, t, tq) => sumsScene(g, t, tq, cam([[L6b, icam(1130, 1350, 1.6)], [L7a, icam(1140, 1345, 1.72)]], t), SP5, true));
 
   // ---------------------------------------------------------------- line 7: into the bag
   const BX = 1000, BY = Y + 26, BSC = .95;
@@ -324,12 +322,13 @@ export function register(S, { MONO }) {
     if (snap && tq < tTest7 + .3) pops(g, BX, my - 20, 150, 8, { a0: -Math.PI, span: Math.PI, w: 7 });
     g.restore();
     spotBeam(g, c, sp, t);
+    stalls(g, c, sp, t);
   }, { id: 'bd-bag' });
 
   // ---------------------------------------------------------------- line 8: the users
   const users = [['goose', 1335, .58], ['mabel', 1490, .55], ['cat', 1650, .58], ['pup', 1795, .55]];
   const swing = t => easeInOut(ramp(t, tServes - .15, tThe8 - tServes + .1));
-  const usersScene = (g, t, tq, c, sp) => {
+  const usersScene = (g, t, tq, c, sp, close = false) => {
     bareStage(g, c, sp);
     g.save(); look(g, c);
     const step = easeOut(ramp(tq, tThe8 - .05, .35), 2), smile = tq > tUsers;
@@ -342,11 +341,13 @@ export function register(S, { MONO }) {
       footShadow(g, x, y, kind === 'mabel' ? 220 : 150, .35 * step);
       const eyes = { expr: smile ? 'happy' : 'open', lx: tq < tThe8 ? -.7 : 0, ly: tq < tThe8 ? .1 : 0 };
       const wave = smile && tq > tBest - .1;
-      if (kind === 'mabel') mabel(g, x, y, s, { t: tq, L: wave ? 'flex' : 'hips', R: wave ? 'wave' : 'hips', eyes, sing: smile ? .2 : 0 });
-      else critter(g, x, y, s, { t: tq, kind, phase: hash(x, 3) * 2, L: wave && kind !== 'pup' ? 'up' : 'hang', R: wave ? 'up' : 'hang', eyes, smile: 1 });
+      const app = (g, hx, hy, a, ss) => memberPhone(g, hx + 4, hy + 36 * ss / .56, kind === 'mabel' ? .17 : .15, tq, { happy: smile, lean: .06 });
+      if (kind === 'mabel') mabel(g, x, y, s, { t: tq, L: wave ? 'wave' : 'hips', R: 'phone', hold: { R: app }, eyes, sing: smile ? .2 : 0 });
+      else critter(g, x, y, s, { t: tq, kind, phase: hash(x, 3) * 2, L: wave && kind !== 'pup' ? 'up' : 'hang', R: 'phone', hold: { R: app }, eyes, smile: 1 });
     }
     g.restore();
     spotBeam(g, c, sp, t);
+    stalls(g, c, sp, t, { blur: close ? 3 : 0 });
   };
   // 8. the light swings to the users; they step into it, and the colour spreads back from them
   shot(L8a, tEnd, (g, t) => {

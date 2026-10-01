@@ -138,7 +138,7 @@ quality. Credit them here and on screen.
 
 ## Episode 4: what went into the video ("The Green Room")
 
-- **Song:** lyrics by Qing with gpt-6.1-sol; performed by the Suno take Qing selected on 2026-09-30,
+- **Song:** lyrics by gpt-6.1-sol, with review and feedback from Qing; performed by the Suno take Qing selected on 2026-09-30,
   “Did You Actually Test It?”. The supplied genre is a 1930s Broadway comic swing song.
 - **Ideas:** testing and checking after James Bach and Michael Bolton; oracles after William
   Howden, Elaine Weyuker, Bach and Bolton; the agent-team interpretation and briefing lesson
@@ -163,7 +163,7 @@ quality. Credit them here and on screen.
 
 ## Episode 4, piano take: what went into the video ("Press, Stress & Guess")
 
-- **Song:** lyrics by Qing with gpt-6.1-sol; performed by the Suno piano take Qing chose on
+- **Song:** lyrics by gpt-6.1-sol, with review and feedback from Qing; performed by the Suno piano take Qing chose on
   2026-10-01 ("brisk pattering pace, light male baritenor ... upright piano with jaunty chord stabs").
 - **Ideas:** testing and checking after James Bach and Michael Bolton; agent-led testing and the
   briefing lesson from Yanqing Cheng. Both are credited on the end card.

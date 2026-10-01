@@ -5,12 +5,14 @@
 //  "Did you actually test it?" — in the band's stop they all freeze, pointing straight out at you.
 //  "Press it, stress it, second-guess it!" — the little Clawds, one move each on its word: one slams
 //     a big button, one strains at a barbell, one peers through a glass and wonders.
-//  "Find a clue? Congratulations!" — Clawd's glass finds the beetle; Mabel hoists him overhead and the
-//     fireworks burst into exclamation marks.
+//  "Find a clue? Congratulations!" — Clawd's glass finds the beetle in the gym app's code on the pink
+//     phone; the company's gloves reach in from every side and slap a burst of the crew's "?!" stickers
+//     on it, and Mabel hoists Clawd overhead.
 //  "Now pursue its implications." — a conga line follows the trail of footprints across the stage.
 //  "What did you try? What did you find?" — from overhead, as the film opened with its giant tick:
 //     the company, lying on the boards, makes a giant magnifying glass that sweeps along the trail,
-//     and at "find?" it finds the beetle, magnified in the lens. Testing, not ticking.
+//     and at "find?" it finds the beetle, magnified in the lens, and a "?!" lands beside it. Testing,
+//     not ticking.
 //  "What changed your mind?" — the glass becomes a lightbulb and lights up gold, and every flag and
 //     hat turns gold with it; then the company takes its bow.
 import { W, H, TAU, clamp, lerp, now, wordsOf, hash, noise, rng, beatPos, easeOut, easeIn, easeInOut, backOut, bell, mono, setMono } from '../kit.js';
@@ -23,11 +25,13 @@ import { clawd } from '../clawd.js';
 import { guess, press, stress, check } from '../crew.js';
 import { mabel, critter } from '../people.js';
 import { bug, magnifier } from '../cast.js';
-import { buzzer, barbell, firework, footprint, youGlove } from '../props-c3.js';
+import { buzzer, barbell, firework, footprint, youGlove, kettlebell } from '../props-c3.js';
+import { mabelPhone, reach } from '../props-gym.js';
+import { gymPhone, codeScreen, sticker } from '../gymapp.js';
 import { qmark, sweat, pops, star } from '../rig.js';
 import { look, place, cam, floorCam, ramp, pop, ease, kick, shakeAt, sparkle, footShadow, burst, confetti } from '../common.js';
 import { light } from '../bg.js';
-import { shape, stroke, ellipse, spline, dot } from '../ink.js';
+import { shape, stroke, ellipse, spline, dot, hose, glove } from '../ink.js';
 
 const F = TH.floor, CX = TH.cx;
 const fc = (x, z) => floorCam(x, z, F);
@@ -45,9 +49,10 @@ function pool(g, x, y, r, a = .4, col = '#ffe6b0') {
 // ---------------------------------------------------------------- the company
 // Each member: kind, place, scale, and a little character of its own (phase, flag colour, beanie).
 const TABLEAU = [
-  // the top riser: a few useful checks, red and green
-  { k: 'check', x: 470, y: 1192, s: .54, flag: GREEN, ph: 0 }, { k: 'check', x: 600, y: 1192, s: .54, flag: RED, ph: .7 }, { k: 'check', x: 730, y: 1192, s: .54, flag: GREEN, ph: 1.4 },
-  { k: 'check', x: 970, y: 1192, s: .54, flag: GREEN, ph: 2.1 }, { k: 'check', x: 1100, y: 1192, s: .54, flag: RED, ph: 2.8 }, { k: 'check', x: 1230, y: 1192, s: .54, flag: GREEN, ph: 3.5 },
+  // the top riser: a few useful checks, red and green, and on three of the greens the testers' "?!"
+  // (slapped on as the curtain rises): green isn't the end of it
+  { k: 'check', x: 470, y: 1192, s: .58, flag: GREEN, ph: 0, st: 147.72 }, { k: 'check', x: 600, y: 1192, s: .58, flag: RED, ph: .7 }, { k: 'check', x: 730, y: 1192, s: .58, flag: GREEN, ph: 1.4 },
+  { k: 'check', x: 970, y: 1192, s: .58, flag: GREEN, ph: 2.1, st: 148.02 }, { k: 'check', x: 1100, y: 1192, s: .58, flag: RED, ph: 2.8 }, { k: 'check', x: 1230, y: 1192, s: .58, flag: GREEN, ph: 3.5, st: 148.32 },
   // the middle riser: the users
   { k: 'cat', x: 520, y: 1312, s: .5, ph: .3 }, { k: 'mabel', x: 850, y: 1312, s: .5, ph: .1 }, { k: 'pup', x: 1150, y: 1312, s: .48, ph: .6 }, { k: 'goose', x: 1290, y: 1312, s: .5, ph: .9 },
   // the front riser: the three little Clawds and the big crew
@@ -57,6 +62,14 @@ const TABLEAU = [
   { k: 'press', x: 640, y: 1630, s: .62, ph: .3 }, { k: 'clawd', x: CX, y: 1636, s: .92, ph: 0 }, { k: 'little', x: 1080, y: 1632, s: .45, hat: 'gold', ph: .6 },
 ].sort((a, b) => a.y - b.y);
 const HAT = m => m.hat ? BEANIE[m.hat] : null;
+// Where a check's flag cloth flies, as crew.js draws it (flag raised `up`, waving in time t).
+function flagCloth(x, y, s, t, phase, up = 1, hop = 0) {
+  const bw = 92 * s, bh = 118 * s, cy = y - 30 * s - bh / 2 - hop * 40 * s;
+  const hx = x - bw / 2 - 28 * s, hy = cy + 4 * s + lerp(20, -26, up) * s;
+  const sa = -Math.PI / 2 + lerp(1.5, 0, up) * .9 + Math.sin(t * 9 + phase) * .14 - .1, dxs = Math.cos(sa), dys = Math.sin(sa);
+  const sx2 = hx + dxs * 104 * s, sy2 = hy + 14 * s + dys * 104 * s;
+  return [sx2 - dys * 32 * s - dxs * 22 * s, sy2 + dxs * 32 * s - dys * 22 * s];
+}
 // Draw one member. pose: 'tada' (arms up, bouncing to the fill), 'point' (at you), 'bow', 'still'.
 // o.gold (0..1) turns flags and beanies gold; o.dance overrides the bounce.
 function member(g, m, tq, pose, o = {}) {
@@ -66,7 +79,12 @@ function member(g, m, tq, pose, o = {}) {
   const happy = pose === 'bow' || (pose === 'tada' && Math.sin(tq * 3 + m.x) > .3);
   const eyesAt = { lx: at ? (CX - m.x) / 900 : 0, ly: at ? .35 : 0, expr: happy ? 'happy' : 'open' };
   const hatCol = HAT(m) ? (gold > 0 ? GOLD : HAT(m)) : null;
-  if (m.k === 'check') return check(g, m.x, m.y, s, { t, flag: pose === 'bow' ? 1 - bow * .4 : 1, flagCol: gold > .5 ? GOLD : m.flag, wave: true, phase: m.ph * 3, hop: pose === 'tada' ? kick(tq, Math.floor(tq / .28) * .28, .1) * .3 : 0, look: (CX - m.x) / 600, seed: m.x });
+  if (m.k === 'check') {
+    const up = pose === 'bow' ? 1 - bow * .4 : 1, hop = pose === 'tada' ? kick(tq, Math.floor(tq / .28) * .28, .1) * .3 : 0;
+    const r = check(g, m.x, m.y, s, { t, flag: up, flagCol: gold > .5 ? GOLD : m.flag, wave: true, phase: m.ph * 3, hop, look: (CX - m.x) / 600, seed: m.x });
+    if (m.st != null && tq >= m.st) { const [fx, fy] = flagCloth(m.x, m.y, s, t, m.ph * 3, up, hop); sticker(g, fx + 6 * s, fy + 4 * s, 34 * s, { p: ramp(tq, m.st, .08), ang: -.3, since: tq - m.st }); }
+    return r;
+  }
   if (m.k === 'clawd' || m.k === 'little') {
     const glass = m.k === 'clawd';
     const R = at ? { to: [.18, .02], pose: 'fist' } : pose === 'tada' ? (glass ? { to: [.28, -.66], pose: 'grip' } : 'up') : pose === 'bow' ? { to: [.0, .1], pose: 'open' } : 'hips';
@@ -120,72 +138,107 @@ export function register() {
     g.restore();
   }, { id: 'c3-company' });
 
-  // ---- 2. Press it, stress it, second-guess it: the little Clawds, one move each
-  const LS = .78, LX = 820;
+  // ---- 2. Press it, stress it, second-guess it: the little Clawds, one move each, each on the app
+  const LS = .78, LX = 790, APX = 1010;
+  // Mabel's gym app on its pink phone, squashed by `sq` (0..1) under a load, wincing if `wince`
+  const app = (g, tq, x, sq = 0, o = {}) => {
+    g.save(); g.translate(x, F - 10); g.scale(1 + sq * .22, 1 - sq * .26); g.translate(-x, -(F - 10));
+    mabelPhone(g, x, F - 10, .5, { wifi: null, rows: [{}, {}, {}] }, { t: tq, dance: .3, eyes: { expr: o.wince ? 'shut' : o.eyes || 'open', lx: -.7 }, lean: o.lean ?? 0 });
+    g.restore();
+  };
   shot(c2a, c2b, (g, t) => {
     const tq = now();
-    const c = cam([[c2a, fc(860, 1.86)], [c2b, fc(866, 1.96)]], t);
-    c.y += shakeAt(t, tPress + .02, 10, .2);
+    const c = cam([[c2a, fc(890, 1.86)], [c2b, fc(896, 1.96)]], t);
+    c.y += shakeAt(t, tPress + .02, 8, .2);
     g.save(); place(g, stage(), c);
-    pool(g, 860, F - 20, 300, .5);
-    const slam = clamp(1 - Math.abs(tq - tPress - .02) / .06), down = tq > tPress;
-    footShadow(g, LX, F - 14, 220, .4); footShadow(g, 975, F - 10, 190, .4);
-    buzzer(g, 975, F - 6, .78, down ? 1 - ramp(tq, tPress + .25, .2) * .2 : 0);
-    clawd(g, LX, F - 14, LS, { t: tq, hat: 'beanie', hatCol: BEANIE.mint, dance: .6, L: 'hips', R: { to: [.62, down ? .02 : -.5], pose: down ? 'fist' : 'fist' }, squash: kick(tq, tPress, .12) * .2, eyes: { expr: down ? 'happy' : 'open', lx: .8, ly: .3 }, sing: true });
-    if (down && tq < tPress + .3) { pops(g, 975, F - 120, 120, 8, { a0: -Math.PI, span: Math.PI, w: 7 }); burst(g, 975, F - 100, 110, (tq - tPress) / .3, 10, GOLD, 911); }
+    pool(g, 890, F - 20, 320, .5);
+    const jabbing = tq > tPress - .02, jab = jabbing ? (Math.floor(tq * 12) % 2) : 0;
+    footShadow(g, LX, F - 14, 220, .4); footShadow(g, APX, F - 10, 170, .4);
+    app(g, tq, APX, 0, { wince: jabbing, lean: -jab * .04 });
+    // jab, jab, jab at the app's screen
+    const tx = APX - 30 + jab * 22, ty = F - 160 + jab * 8;
+    clawd(g, LX, F - 14, LS, { t: tq, hat: 'beanie', hatCol: BEANIE.mint, dance: .5, L: 'hips', R: { to: [(tx - (LX + 300 * LS * .52)) / (300 * LS), (ty - (F - 14 - 54 * LS - 107 * LS + 17 * LS)) / (300 * LS)], pose: 'point', ang: .1 }, eyes: { expr: jabbing ? 'happy' : 'open', lx: .8, ly: .2 }, sing: true, lean: .06 });
+    if (jabbing) pops(g, tx + 14, ty - 6, 46, 6, { a0: -Math.PI * .8, span: Math.PI * 1.2, w: 4 });
     g.restore();
   }, { id: 'c3-press' });
   shot(c2b, c2c, (g, t) => {
     const tq = now();
-    const c = cam([[c2b, fc(850, 1.9)], [c2c, fc(850, 1.98)]], t);
+    const c = cam([[c2b, fc(880, 1.86)], [c2c, fc(880, 1.94)]], t);
+    c.y += shakeAt(t, tStress + .12, 12, .25);
     g.save(); place(g, stage(), c);
-    pool(g, 850, F - 20, 300, .5);
-    const strain = ramp(tq, tStress - .05, .2), up = easeOut(ramp(tq, tStress + .25, .4), 2) * .55, shake = Math.sin(tq * 70) * 5 * strain;
-    footShadow(g, 850, F - 12, 300, .45);
-    const by = F - 150 - up * 120;
-    clawd(g, 850 + shake, F - 12, LS, { t: tq, hat: 'beanie', hatCol: BEANIE.gold, dance: .1, L: { to: [.3, (by - (F - 12 - 54 * LS - 107 * LS)) / (300 * LS)], pose: 'grip' }, R: { to: [.3, (by - (F - 12 - 54 * LS - 107 * LS)) / (300 * LS)], pose: 'grip' }, squash: .16 * strain, eyes: { expr: 'shut' }, mouth: 0, smile: -1, blush: .35 + strain * .5 });
-    barbell(g, 850 + shake, by, .95, { bend: .6 + strain * .5 + Math.sin(tq * 40) * .1 * strain });
-    if (strain > .5) { sweat(g, 850 - 140, F - 300 + Math.sin(tq * 5) * 10, 1); sweat(g, 850 + 150, F - 280, .8); }
+    pool(g, 880, F - 20, 320, .5);
+    // up goes a giant kettlebell, and down it comes on the app
+    const lift = easeOut(ramp(tq, c2b, .1), 2), drop = easeIn(ramp(tq, tStress, .13), 2), landed = tq >= tStress + .13;
+    const sq = landed ? .55 + Math.sin((tq - tStress) * 30) * .06 * Math.exp(-(tq - tStress) * 4) : 0;
+    footShadow(g, LX - 30, F - 14, 220, .4); footShadow(g, APX, F - 10, 190, .45);
+    const phoneTop = F - 10 - (40 + 560) * .5 * (1 - sq * .26);
+    const kx = lerp(LX + 40, APX, drop), ky = landed ? phoneTop + 4 : lerp(F - 330 - lift * 30, phoneTop + 4, drop);
+    app(g, tq, APX, sq, { wince: landed, eyes: landed ? 'shut' : 'open', lean: 0 });
+    if (landed) { sweat(g, APX - 110, phoneTop + 60, .9); sweat(g, APX + 100, phoneTop + 90, .8); }
+    kettlebell(g, kx, ky, 1.15);
+    const hy = ky - 60 * 1.15 * 1.55, hx = kx;
+    const reachTo = (side) => ({ to: [((hx + (side === 'L' ? -26 : 26)) - (LX - 30 + (side === 'L' ? -1 : 1) * 300 * LS * .52)) / ((side === 'L' ? -1 : 1) * 300 * LS), (hy - (F - 14 - 54 * LS - 107 * LS + 17 * LS)) / (300 * LS)], pose: 'grip' });
+    clawd(g, LX - 30, F - 14, LS, { t: tq, hat: 'beanie', hatCol: BEANIE.gold, dance: .2, L: landed ? 'cheer' : reachTo('L'), R: landed ? { to: [.5, -.1], pose: 'open' } : reachTo('R'), squash: landed ? 0 : .12, eyes: { expr: landed ? 'happy' : 'shut' }, sing: true, kick: landed ? kick(tq, tStress + .2, .3) : 0 });
+    if (tq > tStress + .1 && tq < tStress + .45) pops(g, APX, phoneTop, 130, 9, { a0: -Math.PI, span: Math.PI, w: 7 });
     g.restore();
   }, { id: 'c3-stress' });
   shot(c2c, c3, (g, t) => {
     const tq = now();
-    const c = cam([[c2c, fc(850, 1.88)], [c3, fc(850, 2.0)]], t);
+    const c = cam([[c2c, fc(880, 1.86)], [c3, fc(880, 1.98)]], t);
     g.save(); place(g, stage(), c);
-    pool(g, 850, F - 20, 300, .5);
-    footShadow(g, 850, F - 12, 240, .45);
+    pool(g, 880, F - 20, 320, .5);
+    footShadow(g, LX - 20, F - 12, 240, .45); footShadow(g, APX, F - 10, 170, .4);
     const look = tq > tIt2 ? 1 : 0;
-    clawd(g, 850, F - 12, LS, { t: tq, hat: 'beanie', hatCol: BEANIE.lilac, dance: .3, L: 'chin', R: { to: [.1, -.36], pose: 'grip' },
-      hold: { R: (g, x, y, a, s) => magnifier(g, x, y, -2.2 + look * .3, s * .8, { inside: (g, lx, ly, r) => { g.fillStyle = C('#f4efe2'); g.fillRect(lx - r, ly - r, r * 2, r * 2); shape(g, ellipse(lx + 6, ly, r * .5, r * .62), { fill: WHITE, w: 5, seed: 931, form: false }); dot(g, lx + 10 + Math.sin(tq * 4) * 6, ly + 4, r * .26); } }) },
-      eyes: { expr: 'open', lx: look ? 0 : .8, cock: .9 }, sing: true });
-    if (tq > tSecond + .1) { const q = backOut(ramp(tq, tSecond + .1, .25), 2.4); g.save(); g.translate(850 + 150, F - 360); g.scale(q, q); qmark(g, 0, 0, 120, ROSE, { seed: 941 }); g.restore(); }
+    app(g, tq, APX, 0, { eyes: 'worried', lean: -.05 });
+    if (tq > tSecond + .2) sweat(g, APX + 90, F - 330, .8);
+    clawd(g, LX - 20, F - 12, LS, { t: tq, hat: 'beanie', hatCol: BEANIE.lilac, dance: .3, L: 'chin', R: { to: [.1, -.36], pose: 'grip' }, face: .3,
+      hold: { R: (g, x, y, a, s) => magnifier(g, x, y, -2.2 + look * .3, s * .8, { inside: (g, lx, ly, r) => { g.fillStyle = C('#f4efe2'); g.fillRect(lx - r, ly - r, r * 2, r * 2); shape(g, ellipse(lx + 6, ly, r * .5, r * .62), { fill: WHITE, w: 5, seed: 931, form: false }); dot(g, lx + 18 + Math.sin(tq * 4) * 4, ly + 4, r * .26); } }) },
+      eyes: { expr: 'open', lx: look ? 0 : .9, cock: .9 }, sing: true });
+    if (tq > tSecond + .1) { const q = backOut(ramp(tq, tSecond + .1, .25), 2.4); g.save(); g.translate(LX + 120, F - 380); g.scale(q, q); qmark(g, 0, 0, 120, ROSE, { seed: 941 }); g.restore(); }
     g.restore();
   }, { id: 'c3-guess' });
 
-  // ---- 3. Find a clue? Congratulations! The glass finds the beetle; Mabel hoists Clawd; fireworks of "!"
-  const MX = 1060, MS = .64, BUGX = 1045, CLX = 700;
+  // ---- 3. Find a clue? Congratulations! The glass finds the beetle in the app; the crew slap on "?!"
+  const PHX = 960, PHS = .62, MX = 560, MS = .62, CLX = 760, PRX = 1110, PRS = .52, GSX = 1245, GSS = .6;
+  // where the beetle sits in the app's code on the pink phone (codeScreen's row 2, its last bar's end)
+  const BUG = [PHX + 38, 1406];
+  // the stickers Press and Guess slap on the find: when, where on the phone, how big, whose hand
+  const SLAPS = [[.04, [44, -84], 34, 'guess'], [.12, [52, 44], 32, 'press'], [.2, [-34, -26], 34, 'guess'], [.28, [-42, 78], 30, 'press'], [.36, [8, -146], 30, 'guess'], [.44, [30, 130], 28, 'press']];
   shot(c3, c4, (g, t) => {
     const tq = now();
-    const c = cam([[c3, fc(860, 1.12)], [tFind, fc(880, 1.18)], [tCongrats, fc(940, .94)], [c4, fc(950, .9)]], t);
+    const c = cam([[c3, fc(880, 1.12)], [tFind, fc(895, 1.2)], [tCongrats, fc(905, 1.0)], [c4, fc(905, .95)]], t);
     g.save(); place(g, stage(), c);
-    pool(g, 920, F - 20, 480, .5);
-    const hoist = easeOut(ramp(tq, tCongrats, .32), 2), found = tq > tFind;
-    footShadow(g, MX, F - 10, 260, .4);
-    // Mabel: hands down to scoop him, then up
-    mabel(g, MX, F - 10, MS, { t: tq, L: hoist > .1 ? 'lift' : 'hips', R: hoist > .1 ? 'lift' : 'hips', eyes: { expr: hoist > .5 ? 'happy' : 'open', lx: -.6, ly: .3 }, sing: true, crouch: kick(tq, tCongrats, .2) });
-    // the beetle on the boards, until Clawd's glass finds it
-    if (hoist < .3) bug(g, BUGX, F - 12, .5, { t: tq, dir: -1, look: found ? .9 : -.4, walk: found ? null : tq * 3 });
-    const cx = lerp(CLX, MX, hoist), cy = lerp(F - 12, F - 10 - 610 * MS, hoist) - Math.sin(hoist * Math.PI) * 60;
-    if (hoist <= 0) footShadow(g, cx, F - 12, 240, .4);
-    clawd(g, cx, cy, .8, { t: tq, dance: hoist > 0 ? .2 : .4, lean: hoist > 0 ? Math.sin(tq * 8) * .05 : .18, L: hoist > .5 ? 'cheer' : 'hips',
-      R: hoist > .5 ? { to: [.3, -.7], pose: 'grip' } : { to: [.5, -.06], pose: 'grip' },
-      hold: { R: (g, x, y, a, s) => magnifier(g, x, y, hoist > .5 ? -1.3 : .3, s * .7, { inside: hoist < .3 ? (g, lx, ly, r) => { g.fillStyle = C('#d9b07a'); g.fillRect(lx - r, ly - r, r * 2, r * 2); bug(g, lx, ly + 6, 1.1, { t: tq, dir: -1, look: found ? .9 : -.4 }); } : null }) },
-      eyes: { expr: hoist > .5 ? 'happy' : found ? 'wide' : 'open', lx: .6, ly: .4 }, sing: true, kick: hoist > .5 ? kick(tq, tCongrats + .3, .3) : 0 });
-    if (found && tq < tFind + .35) pops(g, BUGX + 30, F - 160, 70, 6, { a0: -Math.PI, span: Math.PI, w: 5 });
-    g.restore();
-    // fireworks over the stage: each bursts into an exclamation mark
-    g.save(); look(g, c);
-    for (const [fx, fy, ft, col, sd] of [[620, 1000, tCongrats - .05, GOLD, 1], [1180, 940, tCongrats + .12, CORAL, 2], [880, 820, tCongrats + .3, TEAL, 3], [1300, 1120, tCongrats + .5, ROSE, 4], [480, 1150, tCongrats + .62, GOLD, 5]]) firework(g, fx, fy, (tq - ft) / 1.1, 1, col, sd * 31);
+    pool(g, 900, F - 20, 520, .5);
+    const hoist = easeOut(ramp(tq, tCongrats + .06, .34), 2), found = tq > tFind;
+    footShadow(g, MX, F - 10, 250, .4); footShadow(g, PHX, F - 10, 200, .4);
+    mabel(g, MX, F - 10, MS, { t: tq, L: hoist > .05 ? 'lift' : 'hips', R: hoist > .05 ? 'lift' : 'hips', eyes: { expr: hoist > .5 ? 'happy' : 'open', lx: .6, ly: .2 }, sing: true, crouch: kick(tq, tCongrats + .06, .2) });
+    // the app on its pink phone: its code on the screen, the beetle in one row; it winces under the stickers
+    const slapped = SLAPS.filter(([d]) => tq >= tCongrats + d).length;
+    gymPhone(g, PHX, F - 10, PHS, codeScreen(tq, { look: found ? .8 : -.4 }), { t: tq, eyes: { expr: slapped ? 'shut' : found ? 'worried' : 'open', lx: -.6 }, lean: Math.sin(tq * 40) * .02 * Math.min(1, slapped) });
+    // Clawd, his glass on the screen, until Mabel scoops him up
+    const cx = lerp(CLX, MX, hoist), cy = lerp(F - 12, F - 10 - 600 * MS, hoist) - Math.sin(hoist * Math.PI) * 60;
+    if (hoist <= 0) footShadow(g, cx, F - 12, 230, .4);
+    const lens = (g, x, y, a, sc) => magnifier(g, x, y, hoist > .5 ? -1.9 : -.62, sc * .62, { inside: hoist < .3 ? (g, lx, ly, r) => { g.fillStyle = C('#fdf5f0'); g.fillRect(lx - r, ly - r, r * 2, r * 2); g.fillStyle = C('#2f8f88'); g.fillRect(lx - r, ly - 26, r * .9, 14); g.fillStyle = C('#d9a23c'); g.fillRect(lx - r, ly + 14, r * .7, 14); bug(g, lx + 6, ly + 2, 1.15, { t: tq, dir: -1, look: found ? .9 : -.4 }); } : null });
+    clawd(g, cx, cy, .8, { t: tq, dance: hoist > 0 ? .2 : .35, lean: hoist > 0 ? Math.sin(tq * 8) * .05 : .08, L: hoist > .5 ? 'cheer' : 'hips',
+      R: hoist > .5 ? { to: [.3, -.7], pose: 'grip' } : { to: [.22, -.3], pose: 'grip' }, hold: { R: lens },
+      eyes: { expr: hoist > .5 ? 'happy' : found ? 'wide' : 'open', lx: .7, ly: -.2 }, sing: true, kick: hoist > .5 ? kick(tq, tCongrats + .4, .3) : 0 });
+    if (found && tq < tFind + .35) pops(g, BUG[0] + 10, BUG[1] - 90, 70, 6, { a0: -Math.PI, span: Math.PI, w: 5 });
+    // the stickers land on the find, and Press and Guess hop in beside the app to slap them on, one after another
+    for (const [d, off, r] of SLAPS) { const tl = tCongrats + d; if (tq >= tl) sticker(g, PHX + off[0], 1430 + off[1], r, { p: ramp(tq, tl, .08), ang: (d * 7 % 1) - .5, since: tq - tl }); }
+    const inP = easeOut(ramp(tq, tCongrats - .14, .16), 2), inG = easeOut(ramp(tq, tCongrats - .08, .16), 2);
+    const slapHand = (who) => { let best = null; for (const [d, off, r, w] of SLAPS) if (w === who) { const tl = tCongrats + d; if (tq > tl - .12 && tq < tl + .12) best = { at: [PHX + off[0], 1430 + off[1]], k: tq < tl ? easeOut(ramp(tq, tl - .12, .12), 2) : 1 - ramp(tq, tl + .04, .08) }; } return best; };
+    if (inG > 0) {
+      const gx = lerp(GSX + 420, GSX, inG), o = { t: tq, dance: .5, lean: 0, jump: Math.sin(inG * Math.PI) * .6 }, h = slapHand('guess');
+      footShadow(g, gx, F - 10, 150, .35);
+      const L = h ? reach('guess', gx, F - 10, GSS, 'L', [lerp(gx - 120, h.at[0] + 10, h.k), lerp(F - 300, h.at[1] + 6, h.k)], { ...o, pose: 'flat', ang: Math.PI + .3 }) : 'cheer';
+      guess(g, gx, F - 10, GSS, { ...o, bang: 1, face: -.5, L, R: 'up', eyes: { expr: 'happy' }, sing: true });
+    }
+    if (inP > 0) {
+      const px = lerp(PRX + 440, PRX, inP), o = { t: tq, dance: .6, lean: 0, jump: Math.sin(inP * Math.PI) * .7 }, h = slapHand('press');
+      footShadow(g, px, F - 10, 120, .35);
+      const L = h ? reach('press', px, F - 10, PRS, 'L', [lerp(px - 90, h.at[0] + 10, h.k), lerp(F - 200, h.at[1] + 6, h.k)], { ...o, pose: 'flat', ang: Math.PI + .2 }) : 'up';
+      press(g, px, F - 10, PRS, { ...o, face: -.5, L, R: 'cheer', eyes: { expr: 'happy' }, sing: true, pressed: kick(tq, tCongrats + .12, .1) });
+    }
     g.restore();
     if (tq > tCongrats) confetti(g, t, tCongrats, 60, { seed: 961 });
   }, { id: 'c3-clue' });
@@ -226,7 +279,8 @@ export function register() {
   const RING = [['clawd', .42], ['cat', .36], ['little', .3, 'mint'], ['stress', .36], ['goose', .36], ['guess', .32], ['mabel', .3], ['little', .3, 'gold'], ['press', .38], ['pup', .34], ['little', .3, 'lilac'], ['check', .42]];
   const HANDLE = 5, RR = 232, OC = [W / 2, 712];
   // the trail on the floor (floor coordinates, its own pixels), and the beetle at its end
-  const TRAIL = []; for (let k = 0; k < 26; k++) TRAIL.push([950 + k * 28 + Math.sin(k * .5) * 22, 1550 - k * 19 + Math.cos(k * .7) * 16]);
+  // (level across the boards, so the stage's edge and the stalls stay just under the lyric as the glass sweeps)
+  const TRAIL = []; for (let k = 0; k < 26; k++) TRAIL.push([950 + k * 28 + Math.sin(k * .5) * 22, 1300 + Math.cos(k * .7) * 16]);
   const BEETLE = [TRAIL[TRAIL.length - 1][0] + 70, TRAIL[TRAIL.length - 1][1] - 40];
   const sweep = t => easeInOut(ramp(t, c5, tFindQ + .1 - c5));
   shot(c5, c6, (g, t) => {
@@ -242,6 +296,7 @@ export function register() {
       gg.save(); floorAt(gg, k); gg.drawImage(stageTop(), 0, 0);
       TRAIL.forEach(([x, y], i) => footprint(gg, x, y, 1.2, Math.atan2(BEETLE[1] - TRAIL[0][1], BEETLE[0] - TRAIL[0][0]), i % 2 ? 1 : -1, .9));
       bug(gg, BEETLE[0], BEETLE[1], .9, { t: tq, dir: 1, rot: -.6, look: k > 1 && sw > .9 ? -.6 : .6, walk: sw > .97 ? null : tq * 2 });
+      if (tq > tFindQ + .12) sticker(gg, BEETLE[0] + 64, BEETLE[1] - 56, 34, { p: ramp(tq, tFindQ + .12, .1), ang: .3, since: tq - tFindQ - .12 });
       gg.restore();
     };
     floorDraw(g, 1);
@@ -302,9 +357,11 @@ export function register() {
     if (lit > 0 && tq < tMind + .5) burst(g, OC[0], OC[1], RR + 80, (tq - tMind) / .5, 18, GOLD, 961);
     if (lit > 0) sparkle(g, OC[0], OC[1], RR + 200, tq, 10, GOLD, 962);
     g.restore();
-    // the boards fall into shadow below the formation, a calm apron for the lyric
-    const ap = g.createLinearGradient(0, 1090, 0, 1230); ap.addColorStop(0, 'rgba(16,9,4,0)'); ap.addColorStop(1, 'rgba(16,9,4,.82)');
-    g.fillStyle = ap; g.fillRect(-20, 1080, W + 40, H - 1060);
+    // the boards fall into shadow below the formation, a calm band for the lyric, and below it the
+    // footlights and the stalls
+    const ap = g.createLinearGradient(0, 1090, 0, 1560);
+    ap.addColorStop(0, 'rgba(16,9,4,0)'); ap.addColorStop(.3, 'rgba(16,9,4,.8)'); ap.addColorStop(.75, 'rgba(16,9,4,.8)'); ap.addColorStop(1, 'rgba(16,9,4,0)');
+    g.fillStyle = ap; g.fillRect(-20, 1080, W + 40, 490);
   }, { id: 'c3-overhead' });
 
   // ---- 6. The bow, in gold light

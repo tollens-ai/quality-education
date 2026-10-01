@@ -1,10 +1,13 @@
 // The three cutaways in verse 1, each with its own light: the circus ring under a spotlight, the
 // schoolroom in window light, and the factory in a furnace's glow. Each keeps the film's grammar: a
-// floor line that the camera puts at screen y 1100, and a dark apron below it.
+// floor line that the camera puts at screen y 1100; below it, the frame's lower band is filled with
+// what's nearest the camera (the circus crowd, the backs of the pupils' desks, the near conveyor),
+// dark and quiet under the lyric.
 import { W, H, TAU, clamp, lerp, rng, noise, hash, mix, rgba } from './kit.js';
 import { C } from './palette.js';
 import { bake, wash, glaze, light, gloom, shadow, streaks, dabs, inkLine, paper, ao, path, box } from './bg.js';
 import { ellipse, spline, rrect } from './ink.js';
+import { audience } from './places.js';
 
 // ---------------------------------------------------------------- the circus ring
 export const CIRCUS = { w: 1500, h: 2500, floor: 1500, cx: 750 };
@@ -35,7 +38,15 @@ export function circus() {
     gloom(g, w, h, cx, F - 200, 260, 1100, '#14060a', .92);
     // the apron: the ring's near side falling quickly into dark
     g.save(); g.globalCompositeOperation = 'multiply'; const ap = g.createLinearGradient(0, F + 10, 0, F + 140); ap.addColorStop(0, 'rgba(255,255,255,1)'); ap.addColorStop(1, 'rgba(40,20,22,1)'); g.fillStyle = ap; g.fillRect(0, F + 10, w, 140); g.fillStyle = 'rgb(40,20,22)'; g.fillRect(0, F + 150, w, h); g.restore();
-    wash(g, box(0, F + 150, w, h - F - 150), '#120708', { seed: 440, grad: [[0, '#1a0c0a'], [.3, '#0e0506'], [1, '#080304']], gran: .4, rim: 0, blooms: 6, amt: 0 });
+    wash(g, box(0, F + 150, w, h - F - 150), '#2a140e', { seed: 440, grad: [[0, '#4a2418'], [.35, '#2a120c'], [1, '#0e0504']], gran: .4, rim: 0, blooms: 6, amt: 0 });
+    // the crowd's front rows, heads and hats against the ring's light, and three balloons on strings
+    audience(g, F + 60, w, { seed: 445, rim: '#ffd9a0', rows: [[150, 44, 24], [330, 62, 17], [560, 84, 12], [860, 108, 9]], hats: .7 });
+    // (low in the crowd and dim, well below the lyric and out of its way)
+    for (const [bx, by, col] of [[150, F + 560, '#a8302c'], [1330, F + 520, '#2f8f88'], [1220, F + 640, '#d8a83a']]) {
+      inkLine(g, [[bx, by + 70], [bx + 14, by + 420]], { w: 2.5, col: '#0c0504', a: .9, gap: 0 });
+      wash(g, ellipse(bx, by, 52, 64, 0, 30), mix(col, '#140806', .7), { seed: 446 + bx, gran: .3, rim: .4, ink: 1.8, inkCol: '#0c0504' });
+      g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .3; g.strokeStyle = col; g.lineWidth = 5; g.beginPath(); g.ellipse(bx, by, 48, 60, 0, Math.PI * 1.1, Math.PI * 1.7); g.stroke(); g.restore();
+    }
     paper(g, w, h, .4);
   });
 }
@@ -90,6 +101,23 @@ export function schoolroom() {
     wash(g, box(0, F, w, h - F), '#5a3a20', { seed: 540, grad: [[0, '#6a4428'], [.25, '#3a2414'], [1, '#140a04']], gran: .5, rim: 0, blooms: 10, amt: 0 });
     for (let k = 0; k < 14; k++) inkLine(g, [[cx + (k - 7) * 60, F], [cx + (k - 7) * 260, h]], { w: 2, a: .25, gap: 0 });
     ao(g, 0, F, w, F, 50, .5);
+    // nearest the camera: the backs of the front row's desks and their pupils' heads (ears and all),
+    // in silhouette against the window light
+    { const kids = [[500, 'pig'], [770, 'bunny'], [1040, 'pup']];
+      for (const [x, kind] of kids) {
+        const y = F + 330, r = 72;
+        g.save(); g.fillStyle = '#140c06';
+        g.beginPath(); g.ellipse(x, y + r * 1.5, r * 2.0, r * 1.1, 0, 0, TAU); g.fill();
+        g.beginPath(); g.ellipse(x, y, r * .95, r * 1.0, 0, 0, TAU); g.fill();
+        if (kind === 'bunny') for (const d of [-1, 1]) { g.beginPath(); g.ellipse(x + d * r * .35, y - r * 1.35, r * .22, r * .7, d * .15, 0, TAU); g.fill(); }
+        if (kind === 'pup') for (const d of [-1, 1]) { g.beginPath(); g.ellipse(x + d * r * .95, y + r * .1, r * .3, r * .62, d * -.3, 0, TAU); g.fill(); }
+        if (kind === 'pig') for (const d of [-1, 1]) { g.beginPath(); g.moveTo(x + d * r * .3, y - r * .8); g.lineTo(x + d * r * .8, y - r * 1.25); g.lineTo(x + d * r * .85, y - r * .55); g.closePath(); g.fill(); }
+        g.restore();
+        g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .55; g.strokeStyle = '#f2e6b8'; g.lineWidth = 7; g.beginPath(); g.ellipse(x, y, r * .9, r * .95, 0, Math.PI * 1.1, Math.PI * 1.7); g.stroke(); g.restore();
+      }
+      // the desks' backs: lids and an inkwell's glint
+      for (const x of [500, 770, 1040]) { wash(g, box(x - 130, F + 500, 260, 80), '#4a2c16', { seed: 545 + x, gran: .5, rim: .4, ink: 2, inkCol: '#140a04', grad: [[0, '#5a3a20'], [1, '#2a1a0c']] }); wash(g, ellipse(x + 80, F + 500, 20, 9, 0, 16), '#2a3a5a', { seed: 547 + x, gran: .2, rim: .3, ink: 1.4 }); }
+    }
     paper(g, w, h, .4);
   });
 }
@@ -120,6 +148,15 @@ export function factory() {
     // the floor: iron plates; the apron below the conveyor
     wash(g, box(0, F, w, h - F), '#1c1412', { seed: 620, grad: [[0, '#2c2220'], [.3, '#140e0c'], [1, '#080505']], gran: .5, rim: 0, blooms: 8, amt: 0 });
     for (let x = 0; x < w; x += 160) inkLine(g, [[x, F], [x, h]], { w: 2, a: .25, gap: 0 });
+    // nearest the camera: a second conveyor running across the frame, its rollers and belt in the
+    // furnace's glow, carrying a file of star-shaped checks in silhouette; crates of them below
+    { const by = F + 300;
+      wash(g, box(-20, by, w + 40, 70), '#2a2220', { seed: 621, gran: .4, rim: .3, ink: 2, inkCol: '#080505', grad: [[0, '#3c3230'], [1, '#141010']] });
+      for (let x = 30; x < w; x += 120) { wash(g, ellipse(x, by + 82, 26, 26, 0, 20), '#3a3030', { seed: 622 + x, gran: .3, rim: .3, ink: 1.8, inkCol: '#080505' }); }
+      g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .4; g.strokeStyle = '#ff8a3a'; g.lineWidth = 4; g.beginPath(); g.moveTo(-20, by + 3); g.lineTo(w + 20, by + 3); g.stroke(); g.restore();
+      for (let k = 0; k < 6; k++) { const x = 120 + k * 250, y = by - 70, P = []; for (let i = 0; i < 10; i++) { const a = i / 10 * TAU - Math.PI / 2, r = i % 2 ? 26 : 62; P.push([x + Math.cos(a) * r, y + Math.sin(a) * r]); } wash(g, P, '#1a1412', { seed: 630 + k, gran: .3, rim: .2, ink: 2, inkCol: '#080505' }); g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .45; g.strokeStyle = '#ffb060'; g.lineWidth = 3.5; g.beginPath(); g.moveTo(P[0][0], P[0][1]); for (let i = 1; i < 4; i++) g.lineTo(P[i][0], P[i][1]); g.stroke(); g.restore(); }
+      for (const cx2 of [260, 1250]) { wash(g, box(cx2 - 170, by + 300, 340, 220), '#2a1c14', { seed: 640 + cx2, gran: .5, rim: .4, ink: 2, inkCol: '#080505', grad: [[0, '#3a281c'], [1, '#140c08']] }); for (const yy of [by + 370, by + 440]) inkLine(g, [[cx2 - 166, yy], [cx2 + 166, yy]], { w: 2.5, col: '#0a0605', a: .8, gap: 0 }); }
+    }
     paper(g, w, h, .35);
   });
 }

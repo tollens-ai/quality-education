@@ -13,8 +13,10 @@ alongside the rules they support; episode examples illustrate their stated scope
   examples and because they're out of context they have to make the context clear"). And each
   example has to make sense in the story: the gym log is just for me, so Mum logging a set in it
   was "weird" (Qing, 2026-09-27). Borrow a general example, then refit it to who the app is for.
-- **In a list, one example per line.** Episode 1's verses were a different app or person per
-  line. That gives the picture more to play with, and makes the pattern the point.
+- **In a list, one example per line:** a different person, app, or part of one app. That gives the
+  picture more to play with, and makes the pattern the point. Episode 1's verses gave each line a
+  different app; episode 4's piano film drew each line from one gym app
+  ([VIDEO.md](../../VIDEO.md#a-story-the-viewer-can-follow) says when each works).
 - **Keep allusions open.** When a word is there to call up something in the news ("going rogue"
   and the agents that broke out of eval environments), keep the word people use and don't narrow
   it ("running on its own" pins it to one meaning). Let the picture drop the hint.

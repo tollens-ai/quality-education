@@ -8,6 +8,7 @@ import { shape, line, stroke, rrect, ellipse, spline, xf, dot, paint, pathOf, ar
 import { qmark, bang, heart, star, blinkAt, mouth, brows } from './rig.js';
 import { clawd } from './clawd.js';
 import { critter, mabel } from './people.js';
+import { APP, appLogo } from './gymapp.js';
 
 export const BOT_COLS = ['#7fc4a8', '#ebb942', '#a990c9'];   // the fresh bots' beanies: mint, gold, lilac
 const BAR = '#3a3236';
@@ -374,6 +375,11 @@ export function board(g, cx, nearY, o = {}) {
   const riv = [[-.95, .3], [-.8, .36], [-.86, .5], [-.72, .6], [-.8, .74], [-.7, .9]].map(([u, v]) => boardPt(cx, nearY, u, v));
   stroke(g, spline(riv, false, 8), { w: 14, seed: 4003, color: '#9cc0d8', taper: true, raw: true });
   for (const [u, v] of [[.8, .5], [.86, .62], [.76, .7], [.9, .78]]) { const [px, py] = boardPt(cx, nearY, u, v); shape(g, [[px, py - 30], [px + 16, py], [px - 16, py]], { fill: '#8aa68e', w: 3, seed: 4004 + u * 10 + v, form: false }); }
+  // the far edge is the app itself: its pink header, with the barbell
+  const hb = [boardPt(cx, nearY, -.97, .86), boardPt(cx, nearY, .97, .86), boardPt(cx, nearY, .97, .97), boardPt(cx, nearY, -.97, .97)];
+  shape(g, hb, { fill: APP.header, shade: APP.rule, form: 'block', k: .5, w: 4, seed: 4005, amt: .3 });
+  const hc = boardPt(cx, nearY, 0, .915);
+  if (o.header) o.header(g, hc[0], hc[1]);
   const cols = [['#a8d4c4', '#c4e4d8'], ['#e7b860', '#f2d08a'], ['#c4b0dc', '#d8c8ea']];
   PATHS.forEach((P, pi) => P.forEach(([u, v], i) => {
     const q = [[u - .1, v - .058], [u + .1, v - .058], [u + .1, v + .058], [u - .1, v + .058]].map(([a, b]) => boardPt(cx, nearY, a, b));
@@ -391,6 +397,7 @@ export function pennant(g, x, y, s, icon, o = {}) {
   const F = spline([[x, y - 186 * s], [x + 70 * s, y - 172 * s + wv * .4], [x + 140 * s, y - 150 * s + wv], [x + 70 * s, y - 126 * s + wv * .4], [x, y - 112 * s]], true, 5);
   shape(g, F, { fill: o.col || '#fbf6e8', shade: '#d8cbb0', form: 'block', w: 5 * s, seed: 4052 });
   const ix = x + 52 * s, iy = y - 150 * s + wv * .4;
+  if (o.badge) shape(g, ellipse(ix, iy, 30 * s, 30 * s, 0, 24), { fill: APP.logo, w: 3 * s, seed: 4054, form: false });
   if (icon === 'barbell') barbellIcon(g, ix, iy, .52 * s);
   else if (icon === 'lock') padlock(g, ix, iy + 4 * s, .4 * s);
   else coin(g, ix, iy, 19 * s);
@@ -586,13 +593,42 @@ export function coins(g, x, y, s = 1, n = 6) {
   for (let i = 0; i < n; i++) { const row = Math.floor(i / 3), k = i % 3; coin(g, x + (k - 1) * 34 * s + (row % 2) * 16 * s, y - 10 * s - row * 16 * s, 20 * s, { flat: .45, seed: 5201 + i }); }
 }
 
+// ---------------------------------------------------------------- gym gear, for the app's shop
+// A cast-iron kettlebell standing on (x, y); s = 1 is about 130 tall.
+export function kettlebell(g, x, y, s = 1, o = {}) {
+  const A = spline([[x - 36 * s, y - 72 * s], [x - 40 * s, y - 118 * s], [x, y - 136 * s], [x + 40 * s, y - 118 * s], [x + 36 * s, y - 72 * s]], false, 8);
+  line(g, A, { w: 22 * s, taper: false, seed: 4700 });
+  line(g, A, { w: 11 * s, taper: false, seed: 4701, color: '#4a4442', boilAmt: .3 });
+  shape(g, spline([[x - 52 * s, y - 50 * s], [x - 40 * s, y - 88 * s], [x, y - 100 * s], [x + 40 * s, y - 88 * s], [x + 52 * s, y - 50 * s], [x + 40 * s, y - 8 * s], [x, y], [x - 40 * s, y - 8 * s]], true, 6), { fill: '#2e2a2a', lit: '#7a7270', form: 'round', cx: .32, cy: .25, w: 6 * s, seed: 4702, gloss: { x: .26, y: .2, w: .12, h: .08 } });
+  shape(g, rrect(x - 30 * s, y - 8 * s, 60 * s, 9 * s, 4 * s), { fill: '#1c1818', w: 3 * s, seed: 4703, form: false });
+}
+// A pair of dumbbells lying side by side on (x, y); s = 1 is about 150 wide.
+export function dumbbells(g, x, y, s = 1) {
+  for (const d of [0, 1]) {
+    const by = y - 18 * s - d * 30 * s, bx = x + d * 14 * s;
+    stroke(g, [[bx - 52 * s, by], [bx + 52 * s, by]], { w: 10 * s, seed: 4710 + d, taper: false, raw: true });
+    for (const e of [-1, 1]) shape(g, rrect(bx + e * 52 * s - 14 * s, by - 20 * s, 28 * s, 40 * s, 8 * s), { fill: '#3a3434', lit: '#7a7270', form: 'block', w: 4 * s, seed: 4712 + d * 2 + e });
+  }
+}
+// A skipping rope: two wooden handles and the rope looped between them, lying on (x, y).
+export function skipRope(g, x, y, s = 1) {
+  stroke(g, spline([[x - 46 * s, y - 20 * s], [x - 40 * s, y - 70 * s], [x, y - 90 * s], [x + 40 * s, y - 70 * s], [x + 46 * s, y - 20 * s]], false, 10), { w: 6 * s, seed: 4720, taper: false, color: '#6a4a8a' });
+  for (const d of [-1, 1]) shape(g, rrect(x + d * 46 * s - 8 * s, y - 24 * s, 16 * s, 26 * s, 6 * s), { fill: '#c48a54', shade: '#7a4a24', form: 'block', w: 3.5 * s, seed: 4722 + d });
+}
+// A price tag of n coin icons under a thing on a shelf, at (x, y).
+export function priceTag(g, x, y, n, s = 1) {
+  const w = (n * 26 + 14) * s;
+  shape(g, rrect(x - w / 2, y - 16 * s, w, 32 * s, 8 * s), { fill: '#fbf6e8', w: 3 * s, seed: 4730 + n, form: false });
+  for (let i = 0; i < n; i++) coin(g, x - w / 2 + 20 * s + i * 26 * s, y, 10 * s, { seed: 4731 + i });
+}
+
 // ---------------------------------------------------------------- picture cards of the finds
 export function findCard(g, x, y, s, kind, o = {}) {
   g.save(); g.translate(x, y); g.rotate(o.rot ?? 0);
   shape(g, rrect(-70 * s, -90 * s, 140 * s, 180 * s, 10 * s), { fill: '#fbf6e8', shade: '#d6c8a8', form: 'block', k: .5, w: 6 * s, seed: 5300 + (o.seed ?? 0) });
   shape(g, rrect(-56 * s, -76 * s, 112 * s, 112 * s, 6 * s), { fill: '#e8ddc4', form: false, w: 3 * s, seed: 5301 });
   if (kind === 'lock') padlock(g, 0, -12 * s, .78 * s, { open: 1 });
-  else if (kind === 'scale') { stroke(g, [[-44 * s, -36 * s], [44 * s, -36 * s]], { w: 6 * s, seed: 5302, taper: false }); stroke(g, [[0, -36 * s], [0, 22 * s]], { w: 6 * s, seed: 5303, taper: false }); for (const d of [-1, 1]) shape(g, spline([[d * 44 * s - 24 * s, -6 * s], [d * 44 * s, 4 * s], [d * 44 * s + 24 * s, -6 * s]], true, 4), { fill: '#d0a24c', w: 4 * s, seed: 5304 + d }); shape(g, rrect(-20 * s, 18 * s, 40 * s, 10 * s, 3 * s), { fill: '#d0a24c', w: 3 * s, seed: 5306 }); }
+  else if (kind === 'scale') { stroke(g, [[-44 * s, -36 * s], [44 * s, -36 * s]], { w: 6 * s, seed: 5302, taper: false }); stroke(g, [[0, -36 * s], [0, 22 * s]], { w: 6 * s, seed: 5303, taper: false }); for (const d of [-1, 1]) shape(g, spline([[d * 44 * s - 24 * s, -6 * s], [d * 44 * s, 4 * s], [d * 44 * s + 24 * s, -6 * s]], true, 4), { fill: '#d0a24c', w: 4 * s, seed: 5304 + d }); shape(g, rrect(-20 * s, 18 * s, 40 * s, 10 * s, 3 * s), { fill: '#d0a24c', w: 3 * s, seed: 5306 }); kettlebell(g, -44 * s, -12 * s, .26 * s); coin(g, 44 * s, -16 * s, 10 * s, { flat: .5 }); coin(g, 40 * s, -22 * s, 10 * s, { flat: .5 }); }
   else { g.save(); g.setLineDash([10 * s, 8 * s]); g.strokeStyle = C('#6a5a52'); g.lineWidth = 4.5 * s; pathOf(g, rrect(-44 * s, -36 * s, 88 * s, 40 * s, 8 * s), true); g.stroke(); g.restore(); barbellIcon(g, 0, -60 * s, .36 * s, { col: '#8a7e6a' }); }
   squigLines(g, -50 * s, 56 * s, 100 * s, 2, 18 * s, { w: 3 * s, amp: 2.5 * s, seed: 5310 + (o.seed ?? 0) });
   g.restore();

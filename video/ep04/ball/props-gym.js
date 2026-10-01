@@ -79,6 +79,29 @@ export function mabelLift(g, x, y, s, p, o = {}) {
   return { x, y: barY, w: barW * 600, lean, M };
 }
 
+// ---------------------------------------------------------------- the app's look
+// The app's header bar and mark live in gymapp.js, which builds on this file, so this file can't
+// import them; the scenes hand them over at registration (setAppLook), and until then the same look is
+// drawn from these colours.
+const LOOK = { header: '#c9466a', rule: '#a3304f', logo: '#fff6ee', icon: '#fff1e6', headerFn: null, logoFn: null };
+export function setAppLook(o = {}) {
+  if (o.app) for (const k of ['header', 'rule', 'logo', 'icon']) if (o.app[k]) LOOK[k] = o.app[k];
+  if (o.header) LOOK.headerFn = o.header;
+  if (o.logo) LOOK.logoFn = o.logo;
+}
+function appBar(g, sx, sy, sw, s, wifi) {
+  if (LOOK.headerFn) return LOOK.headerFn(g, sx, sy, sw, s, { wifi });
+  g.fillStyle = C(LOOK.header); g.fillRect(sx, sy, sw, 64 * s);
+  g.fillStyle = C(LOOK.rule); g.fillRect(sx, sy + 60 * s, sw, 4 * s);
+  appMark(g, sx + sw * .5, sy + 32 * s, 24 * s);
+  if (wifi != null) netFan(g, sx + sw - 38 * s, sy + 42 * s, 26 * s, wifi);
+}
+function appMark(g, x, y, r) {
+  if (LOOK.logoFn) return LOOK.logoFn(g, x, y, r);
+  shape(g, ellipse(x, y, r, r, 0, 28), { fill: LOOK.logo, w: Math.max(2, r * .12), seed: 7810, form: false, amt: .2 });
+  barbellIcon(g, x, y, r * 1.5, LOOK.header);
+}
+
 // ---------------------------------------------------------------- the gym log, on Mabel's phone
 // A small barbell icon, as the log draws one: a bar and two plates each side.
 export function barbellIcon(g, x, y, w, col = INK, o = {}) {
@@ -115,15 +138,15 @@ export function netFan(g, x, y, r, on) {
   const lit = on > .5;
   for (let i = 0; i < 3; i++) {
     const rr = r * (.36 + i * .32);
-    g.save(); g.lineCap = 'round';
-    g.strokeStyle = C(lit ? INK : '#c49aa6'); g.lineWidth = r * .2;
+    g.save(); g.lineCap = 'round'; g.globalAlpha *= lit ? 1 : .5;
+    g.strokeStyle = C(LOOK.icon); g.lineWidth = r * .2;
     g.beginPath(); g.arc(x, y, rr, -Math.PI * .76, -Math.PI * .24); g.stroke(); g.restore();
   }
-  dot(g, x, y, r * .14, lit ? INK : '#c49aa6');
+  g.save(); g.globalAlpha *= lit ? 1 : .5; dot(g, x, y, r * .14, LOOK.icon); g.restore();
   if (!lit) {
     const a0 = [x - r * .8, y - r * 1.0], a1 = [x + r * .8, y + r * .16];
-    line(g, [a0, a1], { w: r * .3, taper: false, seed: 7096, heavy: 0, boilAmt: .3 });
-    line(g, [a0, a1], { w: r * .18, taper: false, seed: 7097, heavy: 0, boilAmt: .3, color: '!' + RED });
+    line(g, [a0, a1], { w: r * .34, taper: false, seed: 7096, heavy: 0, boilAmt: .3 });
+    line(g, [a0, a1], { w: r * .2, taper: false, seed: 7097, heavy: 0, boilAmt: .3, color: '!' + RED });
   }
 }
 // A dashed empty outline where a row should be.
@@ -143,15 +166,12 @@ export function logScreen(L) {
     const t = now();
     g.fillStyle = C('#fdf5f0'); g.fillRect(sx, sy, sw, shh);
     // the header: the reload arrow, a barbell for the app, room for the Wi-Fi fan
-    g.fillStyle = C('#f6c4cf'); g.fillRect(sx, sy, sw, 64 * s);
-    g.fillStyle = C('#e2a0b0'); g.fillRect(sx, sy + 62 * s, sw, 4 * s);
+    appBar(g, sx, sy, sw, s, L.wifi);
     const sp = L.spin ?? 0, pr = L.press ?? 0;
     const rx = sx + 36 * s, ry = sy + 33 * s;
     if (pr > 0) { g.save(); g.globalAlpha *= .5 * pr; g.fillStyle = C(WHITE); g.beginPath(); g.arc(rx, ry, 24 * s, 0, TAU); g.fill(); g.restore(); }
     const isp = L.iconSpin ?? sp;
-    reloadIcon(g, rx, ry, 15 * s * (1 - pr * .15), isp * TAU * 2.2, isp > 0 && isp < 1 ? '#b0405a' : INK);
-    barbellIcon(g, sx + sw * .5, sy + 33 * s, 54 * s, '#b0405a');
-    if (L.wifi != null) netFan(g, sx + sw - 38 * s, sy + 42 * s, 26 * s, L.wifi);
+    reloadIcon(g, rx, ry, 15 * s * (1 - pr * .15), isp * TAU * 2.2, LOOK.icon);
     // the rows, spinning round the screen's middle while it reloads
     const cx = sx + sw / 2, cy = sy + shh * .48;
     g.save();
@@ -184,15 +204,15 @@ export function logScreen(L) {
       const sc = backOut(big, 2.6), bx = cx, by = sy + shh * .47, r = sw * .36;
       g.save(); g.translate(bx, by); g.scale(sc, sc); g.translate(-bx, -by);
       g.fillStyle = C('rgba(255,255,255,0.85)'); g.beginPath(); g.arc(bx, by, r * 1.02, 0, TAU); g.fill();
-      if (!bt.crack) tick(g, bx, by, r, { big: true });
-      else crackedTick(g, bx, by, r, bt.crack, 0);
+      if (!bt.crack) { tick(g, bx, by, r, { big: true }); if (L.onTick) L.onTick(g, bx, by, r); }
+      else crackedTick(g, bx, by, r, bt.crack, 0, 0, L.onTick);
       g.restore();
     }
   };
 }
 // The big tick, cracked (0..1 how far the crack has run) and splitting by `apart`; the two halves
 // can be drawn falling by the scene, outside the screen's clip.
-export function crackedTick(g, x, y, r, crack, apart = 0, which = 0) {
+export function crackedTick(g, x, y, r, crack, apart = 0, which = 0, extra = null) {
   const T = [[-.78, -.08], [-.52, -.34], [-.22, -.02], [.5, -.78], [.8, -.5], [-.22, .56]].map(([a, b]) => [x + a * r, y + b * r]);
   const cut = [[x - r * .04, y - r * .9], [x + r * .06, y - r * .3], [x - r * .1, y - r * .05], [x + r * .08, y + r * .3], [x - r * .04, y + r * .9]];
   for (const side of which ? [which] : [-1, 1]) {
@@ -200,6 +220,7 @@ export function crackedTick(g, x, y, r, crack, apart = 0, which = 0) {
     g.translate(side * apart * r * .3, apart * r * .2); g.rotate(side * apart * .25);
     g.beginPath(); g.moveTo(x + side * r * 2, y - r * 2); cut.forEach(([a, b]) => g.lineTo(a, b)); g.lineTo(x + side * r * 2, y + r * 2); g.closePath(); g.clip();
     shape(g, T, { fill: '!' + GREEN, shade: '!' + GREEN_SH, lit: '!#9ad884', form: 'block', w: Math.max(4, r * .09), seed: 7101, amt: .5, gloss: { x: .62, y: .18, w: .07, h: .05 } });
+    if (extra) extra(g, x, y, r);
     g.restore();
   }
   // the crack itself, running down as it opens
@@ -482,8 +503,10 @@ export function shelfPhone(g, x, y, s, col = '#9cc2b0') {
   for (const d of [-1, 1]) dot(g, x + d * 11 * s, top + 8 * s, 2.6 * s);
   const sx = x - w / 2 + 7 * s, sw = w - 14 * s, sy = top + 16 * s, shh = h - 26 * s;
   shape(g, rrect(sx, sy, sw, shh, 5 * s), { fill: '#fdf5f0', form: false, w: 2.6 * s, seed: 7893 });
-  g.fillStyle = C('#f6c4cf'); g.fillRect(sx + 1.5 * s, sy + 1.5 * s, sw - 3 * s, 22 * s);
-  netFan(g, x, sy + 19 * s, 11 * s, 0);
+  g.fillStyle = C(LOOK.header); g.fillRect(sx + 1.5 * s, sy + 1.5 * s, sw - 3 * s, 24 * s);
+  g.fillStyle = C(LOOK.rule); g.fillRect(sx + 1.5 * s, sy + 23.5 * s, sw - 3 * s, 2 * s);
+  appMark(g, x - 8 * s, sy + 13 * s, 9 * s);
+  netFan(g, x + 18 * s, sy + 19 * s, 9 * s, 0);
   const rw = sw - 10 * s, rh = 20 * s, x0 = sx + 5 * s;
   shape(g, rrect(x0, sy + 32 * s, rw, rh, 5 * s), { fill: WHITE, form: false, w: 2.2 * s, seed: 7894 });
   barbellIcon(g, x0 + rw * .32, sy + 32 * s + rh / 2, rw * .42, '#3a2c2c');
@@ -556,4 +579,168 @@ export function reach(who, x, y, s, side, target, o = {}) {
   const c = Math.cos(-lean), sn = Math.sin(-lean), dx = target[0] - x, dy = target[1] - y;
   const tx = x + dx * c - dy * sn, ty = y + dx * sn + dy * c;
   return { to: [(tx - sh[0]) * dir / u, (ty - sh[1]) / u], pose: o.pose || 'grip', ang: o.ang };
+}
+
+// ---------------------------------------------------------------- the band under the lyric
+// The near edge of the gym's mat, right in front of the camera: weights, a kettlebell, a towel over a
+// stack of plates, a water bottle, a coiled rope. Not story, only the room going on toward us: out of
+// focus, in shadow, rim-lit by the bulbs behind. Each piece is painted once; then they slide past a
+// little faster than the room when the camera moves (they're nearer). They sit below y 1480, so the
+// band behind the lyric stays plain dark mat.
+const FRONT = new Map();
+const FIRON = '#1c1714', RIM = '#d29a5e';
+function frontPiece(kind) {
+  let c = FRONT.get(kind);
+  if (c) return c;
+  const w = 420, h = 440, bx = w / 2, by = h - 14;
+  const raw = document.createElement('canvas'); raw.width = w; raw.height = h;
+  const g = raw.getContext('2d');
+  const rim = (P, a = .55, lw = 7) => { g.save(); g.globalAlpha = a; line(g, P, { w: lw, taper: true, seed: 7980, color: RIM, heavy: 0, boilAmt: .3 }); g.restore(); };
+  const shadowUnder = (rx) => { g.save(); g.fillStyle = 'rgba(0,0,0,.55)'; g.filter = 'blur(8px)'; g.beginPath(); g.ellipse(bx, by + 2, rx, rx * .16, 0, 0, TAU); g.fill(); g.restore(); };
+  if (kind === 'kettle') {
+    shadowUnder(130);
+    const cy = by - 112;
+    shape(g, spline([[bx - 26, cy - 98], [bx - 92, cy - 150], [bx - 70, cy - 236], [bx, cy - 262], [bx + 70, cy - 236], [bx + 92, cy - 150], [bx + 26, cy - 98], [bx + 44, cy - 150], [bx + 30, cy - 206], [bx, cy - 218], [bx - 30, cy - 206], [bx - 44, cy - 150]], true, 5), { fill: FIRON, lit: '#4a3e34', form: 'round', w: 7, seed: 7981 });
+    shape(g, ellipse(bx, cy, 122, 112, 0, 44), { fill: FIRON, lit: '#55463a', shade: '#0c0908', form: 'round', cx: .3, cy: .25, w: 8, seed: 7982 });
+    rim(spline([[bx - 112, cy + 10], [bx - 98, cy - 60], [bx - 40, cy - 106]], false, 8));
+    rim(spline([[bx - 74, cy - 150], [bx - 60, cy - 220], [bx - 6, cy - 254]], false, 8), .45, 5);
+  } else if (kind === 'bottle') {
+    shadowUnder(70);
+    const P = spline([[bx - 52, by - 4], [bx - 56, by - 200], [bx - 40, by - 250], [bx - 22, by - 290], [bx - 22, by - 336], [bx + 22, by - 336], [bx + 22, by - 290], [bx + 40, by - 250], [bx + 56, by - 200], [bx + 52, by - 4]], true, 6);
+    shape(g, P, { fill: '#1e3830', lit: '#3e6656', form: 'round', cx: .3, w: 7, seed: 7983 });
+    g.save(); pathOf(g, P, true); g.clip(); g.fillStyle = 'rgba(70,120,110,.35)'; g.fillRect(bx - 60, by - 170, 120, 170); g.restore();
+    shape(g, rrect(bx - 20, by - 366, 40, 36, 6), { fill: '#5a3e26', w: 5, seed: 7984 });
+    g.save(); g.globalAlpha = .55; line(g, [[bx - 30, by - 220], [bx - 34, by - 60]], { w: 9, taper: true, seed: 7985, color: '#cfe2da', heavy: 0 }); g.restore();
+    rim(spline([[bx - 54, by - 190], [bx - 38, by - 252], [bx - 22, by - 300]], false, 8));
+  } else if (kind === 'dumbbells') {
+    shadowUnder(170);
+    for (const [ox, oy, sc] of [[-60, -6, 1], [70, -50, .9]]) {
+      const x = bx + ox, y = by - 46 + oy;
+      line(g, [[x - 80 * sc, y], [x + 80 * sc, y]], { w: 16 * sc, taper: false, seed: 7986, heavy: .2 });
+      for (const d of [-1, 1]) shape(g, ellipse(x + d * 82 * sc, y, 40 * sc, 42 * sc, 0, 30), { fill: FIRON, lit: '#55463a', form: 'round', w: 6, seed: 7987 + d });
+      rim(spline([[x - 112 * sc, y - 10], [x - 96 * sc, y - 36 * sc], [x - 70 * sc, y - 40 * sc]], false, 6), .5, 5);
+    }
+  } else if (kind === 'plates') {
+    shadowUnder(160);
+    for (let i = 0; i < 4; i++) {
+      const y = by - 28 - i * 40;
+      shape(g, rrect(bx - 150, y - 18, 300, 36, 18), { fill: FIRON, lit: '#4a3e34', form: 'block', w: 6, seed: 7990 + i });
+      shape(g, ellipse(bx, y - 18, 150, 30, 0, 40), { fill: '#2a221c', lit: '#55463a', form: 'round', w: 5, seed: 7995 + i });
+    }
+    // a towel slung over the top, hanging down one side
+    const ty = by - 28 - 3 * 40 - 30;
+    const T = spline([[bx - 130, ty - 8], [bx + 60, ty - 22], [bx + 150, ty - 4], [bx + 168, ty + 70], [bx + 150, ty + 150], [bx + 104, ty + 156], [bx + 112, ty + 60], [bx + 40, ty + 26], [bx - 120, ty + 30]], true, 6);
+    shape(g, T, { fill: '#5a4e44', lit: '#8a7a6a', form: 'round', cx: .3, w: 6, seed: 8001 });
+    g.save(); pathOf(g, T, true); g.clip(); g.fillStyle = 'rgba(48,96,92,.75)'; for (const d of [44, 66]) g.fillRect(bx + 96, ty + d, 80, 10); g.restore();
+    rim(spline([[bx - 126, ty - 10], [bx - 20, ty - 20], [bx + 60, ty - 24]], false, 8), .6, 6);
+  } else if (kind === 'ball') {
+    shadowUnder(150);
+    const cy = by - 142;
+    shape(g, ellipse(bx, cy, 148, 142, 0, 50), { fill: '#3a2618', lit: '#6a4a30', shade: '#140c08', form: 'round', cx: .3, cy: .25, w: 8, seed: 8002 });
+    for (const a of [-.6, .4]) { g.save(); g.globalAlpha = .6; line(g, spline([[bx + Math.cos(a) * 140, cy - 130], [bx + Math.cos(a) * 60, cy], [bx + Math.cos(a) * 140, cy + 130]], false, 8), { w: 4, taper: false, seed: 8003, color: '#0c0806' }); g.restore(); }
+    rim(spline([[bx - 140, cy + 20], [bx - 120, cy - 80], [bx - 50, cy - 136]], false, 8));
+  } else if (kind === 'rope') {
+    shadowUnder(150);
+    for (let i = 0; i < 4; i++) { g.save(); g.globalAlpha = .95; line(g, ellipse(bx + i * 6 - 10, by - 40 - i * 7, 120 - i * 10, 34 - i * 3, 0, 40).concat([ellipse(bx + i * 6 - 10, by - 40 - i * 7, 120 - i * 10, 34 - i * 3, 0, 40)[0]]), { w: 9, taper: false, seed: 8004 + i, color: '#3a2a1a' }); g.restore(); }
+    for (const [hx, hy, a] of [[bx - 150, by - 30, -.3], [bx + 140, by - 70, .5]]) { g.save(); g.translate(hx, hy); g.rotate(a); shape(g, rrect(-12, -50, 24, 100, 10), { fill: '#4a3020', lit: '#7a5434', form: 'block', w: 5, seed: 8010 }); g.restore(); }
+    rim(spline([[bx - 120, by - 60], [bx - 40, by - 82], [bx + 60, by - 80]], false, 8), .4, 5);
+  }
+  c = document.createElement('canvas'); c.width = w; c.height = h;
+  const cg = c.getContext('2d'); cg.filter = 'blur(2.2px)'; cg.drawImage(raw, 0, 0);
+  FRONT.set(kind, c);
+  return c;
+}
+const FRONT_LAYOUT = [[60, 'kettle'], [290, 'ball'], [540, 'bottle'], [720, 'dumbbells'], [980, 'plates'], [1200, 'rope'], [1420, 'kettle'], [1640, 'bottle'], [1820, 'ball'], [2060, 'plates'], [2300, 'dumbbells']];
+export function gymFront(g, c, t, o = {}) {
+  if (!c) return;
+  const P = o.parallax ?? 1.45, base = 1920 + 6;
+  g.save(); g.globalAlpha *= o.a ?? 1;
+  for (const [fx, kind] of FRONT_LAYOUT) {
+    const x = 540 + (fx - c.x) * P;
+    if (x < -260 || x > 1340) continue;
+    const pc = frontPiece(kind);
+    g.drawImage(pc, x - pc.width / 2, base - pc.height);
+  }
+  g.restore();
+}
+// The near pavement on the street, between us and the cut-away basements: dark flagstones running
+// toward us from a kerb, warm pools from the street's lamps on them, a cat sitting in one and a crate
+// of milk bottles further along. Quiet and low behind the lyric; the brighter accents
+// (the lamp's pool, the bottles, the cat's rim) sit at the sides or below y 1480. Things slide by
+// at a little over the street's own speed as the camera walks along it.
+const PAVE = new Map();
+function pavePiece(kind) {
+  let c = PAVE.get(kind);
+  if (c) return c;
+  const w = 420, h = 520, bx = w / 2, by = h - 12;
+  const raw = document.createElement('canvas'); raw.width = w; raw.height = h;
+  const g = raw.getContext('2d');
+  const rimL = (P, a = .7, lw = 6) => { g.save(); g.globalAlpha = a; line(g, P, { w: lw, taper: true, seed: 7970, color: '#f0b46a', heavy: 0, boilAmt: .3 }); g.restore(); };
+  if (kind === 'crate') {
+    g.save(); g.fillStyle = 'rgba(0,0,0,.5)'; g.filter = 'blur(8px)'; g.beginPath(); g.ellipse(bx, by, 170, 26, 0, 0, TAU); g.fill(); g.restore();
+    // milk bottles first (they stand up out of the crate), then the crate's slatted front
+    for (let i = 0; i < 4; i++) {
+      const x = bx - 105 + i * 70, top = by - 250 + (i % 2) * 8;
+      shape(g, spline([[x - 24, by - 60], [x - 26, top + 80], [x - 12, top + 34], [x - 12, top + 6], [x + 12, top + 6], [x + 12, top + 34], [x + 26, top + 80], [x + 24, by - 60]], true, 5), { fill: '#d8dcd4', lit: '#ffffff', shade: '#8a948e', form: 'round', cx: .3, w: 5, seed: 7971 + i });
+      shape(g, rrect(x - 13, top - 4, 26, 14, 4), { fill: '#b8b0a0', w: 3.5, seed: 7975 + i, form: false });
+    }
+    shape(g, rrect(bx - 150, by - 130, 300, 130, 8), { fill: '#4a3424', lit: '#7a5838', form: 'block', w: 6, seed: 7979 });
+    for (let k = 1; k < 3; k++) { g.save(); g.globalAlpha = .7; line(g, [[bx - 146, by - 130 + k * 43], [bx + 146, by - 130 + k * 43]], { w: 4, taper: false, seed: 7980 + k, color: '#1c120c' }); g.restore(); }
+    rimL(spline([[bx - 150, by - 128], [bx - 40, by - 132], [bx + 60, by - 130]], false, 6), .55, 5);
+  } else if (kind === 'cat') {
+    g.save(); g.fillStyle = 'rgba(0,0,0,.5)'; g.filter = 'blur(8px)'; g.beginPath(); g.ellipse(bx, by, 120, 20, 0, 0, TAU); g.fill(); g.restore();
+    const body = spline([[bx - 70, by - 6], [bx - 84, by - 90], [bx - 60, by - 170], [bx - 30, by - 210], [bx + 30, by - 210], [bx + 58, by - 160], [bx + 80, by - 80], [bx + 72, by - 6]], true, 6);
+    shape(g, body, { fill: '#141016', lit: '#3a3238', form: 'round', w: 6, seed: 7984 });
+    const head = spline([[bx - 52, by - 236], [bx - 60, by - 300], [bx - 40, by - 286], [bx, by - 300], [bx + 40, by - 286], [bx + 60, by - 300], [bx + 52, by - 236], [bx + 30, by - 196], [bx - 30, by - 196]], true, 5);
+    shape(g, head, { fill: '#141016', lit: '#3a3238', form: 'round', w: 6, seed: 7985 });
+    for (const d of [-1, 1]) { shape(g, ellipse(bx + d * 20, by - 250, 9, 12, 0, 18), { fill: '#e8c860', w: 3, seed: 7986 + d, form: false }); dot(g, bx + d * 20, by - 250, 4); }
+    rimL(spline([[bx - 84, by - 70], [bx - 70, by - 150], [bx - 46, by - 196]], false, 6));
+    rimL(spline([[bx - 58, by - 250], [bx - 60, by - 296], [bx - 40, by - 284]], false, 5), .6, 4);
+  }
+  c = document.createElement('canvas'); c.width = w; c.height = h;
+  const cg = c.getContext('2d'); cg.filter = 'blur(1.6px)'; cg.drawImage(raw, 0, 0);
+  PAVE.set(kind, c);
+  return c;
+}
+export function streetFront(g, c, t, o = {}) {
+  if (!c) return;
+  const P = o.parallax ?? 1.12, X = fx => 540 + (fx - c.x) * P, top = 1150;
+  g.save(); g.globalAlpha *= o.a ?? 1;
+  // the flags, darkening toward us
+  const fg = g.createLinearGradient(0, top, 0, 1920);
+  fg.addColorStop(0, '#3a3a3e'); fg.addColorStop(.18, '#26262a'); fg.addColorStop(1, '#0e0e10');
+  g.fillStyle = fg; g.fillRect(-20, top, 1120, 1940 - top);
+  // the kerb's edge, catching the daylight from the street
+  g.fillStyle = 'rgba(170,176,180,.55)'; g.fillRect(-20, top - 3, 1120, 6);
+  g.fillStyle = 'rgba(0,0,0,.35)'; g.fillRect(-20, top + 3, 1120, 10);
+  // joints between the flags, running toward us and across
+  g.save(); g.strokeStyle = 'rgba(8,8,10,.55)'; g.lineWidth = 3;
+  for (const y of [1236, 1352, 1520, 1760]) { g.beginPath(); g.moveTo(-20, y); g.lineTo(1100, y); g.stroke(); }
+  for (let fx = Math.floor((c.x - 900) / 200) * 200; fx < c.x + 900; fx += 200) { const x = X(fx); g.beginPath(); g.moveTo(540 + (x - 540) * .55, top); g.lineTo(540 + (x - 540) * 1.9, 1920); g.stroke(); }
+  g.restore();
+  // the warm pools that the street's lamps (out of the picture, above us) throw on the flags
+  for (const fx of [880, 2050, 3150, 4250]) {
+    const x = X(fx);
+    if (x < -500 || x > 1580) continue;
+    g.save(); g.globalCompositeOperation = 'screen';
+    const pool = g.createRadialGradient(x, 1740, 30, x, 1740, 520); pool.addColorStop(0, 'rgba(255,190,110,.4)'); pool.addColorStop(.5, 'rgba(255,170,90,.12)'); pool.addColorStop(1, 'rgba(255,170,90,0)');
+    g.fillStyle = pool; g.beginPath(); g.ellipse(x, 1740, 520, 230, 0, 0, TAU); g.fill(); g.restore();
+  }
+  // a cat by one lamp, a crate of milk bottles further along
+  for (const [fx, kind, dx] of [[880, 'cat', 140], [2050, 'crate', -200], [3150, 'cat', -150], [4250, 'crate', 160]]) {
+    const x = X(fx) + dx, pc = pavePiece(kind);
+    if (x < -260 || x > 1340) continue;
+    g.drawImage(pc, x - pc.width / 2, 1926 - pc.height);
+  }
+  g.restore();
+}
+// Shadow falling over the bottom of a close shot, so the lyric's band stays dark: from y0 (clear) to
+// y1 (dark), then dark to the foot of the frame.
+export function shadeBottom(g, y0 = 1110, y1 = 1330, a = .78) {
+  g.save(); g.globalCompositeOperation = 'multiply';
+  const gr = g.createLinearGradient(0, y0, 0, y1);
+  gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(1, `rgba(${Math.round(255 * (1 - a))},${Math.round(250 * (1 - a))},${Math.round(245 * (1 - a))},1)`);
+  g.fillStyle = gr; g.fillRect(-20, y0, 1120, y1 - y0);
+  g.fillStyle = `rgba(${Math.round(255 * (1 - a))},${Math.round(250 * (1 - a))},${Math.round(245 * (1 - a))},1)`; g.fillRect(-20, y1, 1120, 1940 - y1);
+  g.restore();
 }

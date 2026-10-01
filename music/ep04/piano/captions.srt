@@ -56,7 +56,7 @@ The marks decide how tests get made.
 
 15
 00:00:41,523 --> 00:00:43,195
-Did you actually test it?
+Did you actually test it!
 
 16
 00:00:42,905 --> 00:00:45,434
@@ -120,7 +120,7 @@ A new check flags what went away.
 
 31
 00:01:18,460 --> 00:01:20,120
-Did you actually test it?
+Did you actually test it!
 
 32
 00:01:19,830 --> 00:01:22,383
@@ -232,7 +232,7 @@ We judge what serves the users best.
 
 59
 00:02:28,799 --> 00:02:30,371
-Did you actually test it?
+Did you actually test it!
 
 60
 00:02:30,198 --> 00:02:32,745

@@ -7,15 +7,20 @@ import { W, H, TAU, clamp, lerp, rng, noise, hash, mix, rgba, mono, setMono } fr
 import { C } from './palette.js';
 
 const CACHE = new Map();
-export function bake(key, w, h, fn) {
+// `o.ox` widens a place by that much on each side without moving its coordinates: the painter gets
+// the bounds {x0, x1} and paints the extra width at negative x and beyond w (the wide frame needs it).
+export function bake(key, w, h, fn, o = {}) {
   let c = CACHE.get(key);
   if (!c) {
-    c = document.createElement('canvas'); c.width = w; c.height = h;
+    const ox = o.ox || 0;
+    c = document.createElement('canvas'); c.width = w + 2 * ox; c.height = h;
     const g = c.getContext('2d');
+    g.translate(ox, 0);
     // a place is painted in full colour, whenever it's first needed; place() drains it when it's shown
     const m = mono(); setMono(0);
-    fn(g, w, h);
+    fn(g, w, h, { x0: -ox, x1: w + ox });
     setMono(m);
+    c.ox = ox;
     CACHE.set(key, c);
   }
   return c;

@@ -8,11 +8,13 @@ and the film's liner notes, storyboard and checks are in
 [episodes/04-video-piano.md](../../../episodes/04-video-piano.md). Only the render harness in
 `video/lib/` and the measurements in `music/ep04/piano/` are shared with other films.
 
-This is the film's second version. The first (commit fff0345) was drawn in one night; Qing liked
-its idea and characters and found its lettering and backgrounds sloppy. This version keeps the
-idea and the cast, redraws them, repaints every place and storyboards every line again from
-scratch, under one rule for the frame: one subject in the centre, the lyric just below it, and no
-words on screen that aren't sung.
+This is the film's third version. The first (commit fff0345) was drawn in one night; Qing liked its
+idea and characters and found its lettering and backgrounds sloppy. The second (commit 73930a2)
+redrew the cast, repainted every place and storyboarded every line again under one rule for the
+frame: one subject in the centre, the lyric just below it, and no words on screen that aren't sung.
+The third keeps that, fills the whole frame (each place paints its foreground below the floor line,
+and close-ups fill the frame), tells the story on one app (Mabel's gym app, `gymapp.js`), and gives
+the testers a mark of their own, the "?!" sticker.
 
 ## Render
 
@@ -53,11 +55,12 @@ out.mp4 3 30 1080`, or a stretch with `video/lib/render-range.sh` (`QUERY=part=.
 | `ink.js` | The cel: outlines as points, the boiling brush `line()`, `shape()` with its soft rounded `form()` shading and hard highlight, hose limbs, gloves, pie-cut eyes, shoes |
 | `rig.js` | Shared acting: blinks, the bounce on the beat, arms and legs, singing mouths, brows, cheeks, sweat, hearts, stars, drawn question and exclamation marks |
 | `clawd.js`, `crew.js`, `people.js`, `cast.js` | The characters: Clawd (boater, beanie for the fresh bots, pith helmet; cane); Guess, Press, Stress and the wind-up check; Mabel and the animal townsfolk; the phones with faces, the router that is "the net", the comma, the bug, the magnifying glass |
+| `gymapp.js` | The one app in the film: the pink phone (`gymPhone`), the app's header, its pages (`codeScreen`, `sumScreen`, `chatScreen`), and the testers' `sticker` ("?!") |
 | `props*.js` | Props by part: `props.js` (code as coloured bars, the pasted decal, digits for the sum), `props-workshop.js` (calculator and greeting screens, the bellows camera and its flash, the photo, the crate), and each builder's own |
 | `bg.js` | The painting kit for the places: washes with granulation and dried rims, glazes, light pools, gloom, cast shadows, brush streaks, dabs, the background's thin line, paper |
-| `places*.js` | The painted places, each baked once: `places.js` (the workshop, its door wall, the theatre and its curtain), `places-cutaways.js` (circus, schoolroom, factory), and the gym, office and bare stage in their own files |
+| `places*.js` | The painted places, each baked once, each with its foreground painted into the frame's lower band (dark under the lyric): `places.js` (the workshop, its door wall, the theatre and its curtain, and `audience()`, the silhouetted crowd the theatre and the circus share), `places-cutaways.js` (circus, schoolroom, factory), and the gym, office and bare stage in their own files (the bare stage's stalls are drawn live, to follow its spotlight) |
 | `type.js`, `lyrics.js` | Lettering; the lyric's one place (one sung line, two rows at most, just below the middle), the bouncing ball, speech bubbles for quoted lines, the backing echoes as a glow on the lead's words |
-| `film.js`, `shots.js`, `common.js` | The print's finish; shots and joins; cameras framed by a floor line, iris inserts for close-ups, an offscreen layer for backlit silhouettes, confetti, bursts and sparkles |
+| `film.js`, `shots.js`, `common.js` | The print's finish; shots and joins; cameras framed by a floor line, irises for joins and for growing out of a lens, an offscreen layer for backlit silhouettes, confetti, bursts and sparkles |
 | `scenes/` | One file per part: `intro`, `verse1`, `cutaways`, `chorus1`, `verse2`, `chorus2`, `bridge`, `breakdown`, `chorus3`, `outro`, `endcard` |
 | `tools/` | `text-audit.mjs`, `typo-audit.mjs`, `typo-report.py`, and `coverage.mjs` (every shot in order, and any gap or overlap) |
 | `fonts/` | Corben and Lilita One, with their OFL licences |

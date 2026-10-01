@@ -47,6 +47,88 @@ export function squiggles(g, x0, y0, len, n, gap, seed, col = '#5a4a40', a = .6,
   }
 }
 
+// The desk top nearest the camera, below the floor line (top), from x0 to x1: the wood running on
+// toward you in deepening shadow (dark and low in contrast where the lyric sits), a leather blotter,
+// and the detective's things in the foreground, rim-lit by the lamp: [kind, x, y, rot] with kind
+// 'hat' | 'inkwell' | 'pencil' | 'papers' | 'cup'.
+// One of the detective's things on the desk nearest the camera, at (x, y) turned by rot, scale k:
+// 'hat' | 'inkwell' | 'pencil' | 'papers' | 'cup'. Painted, so close-ups can set one in the corners too.
+export function deskThing(g, kind, x, y, rot = 0, k = 1, seed = 2700) {
+  const rim = (P, a = .5) => inkLine(g, P, { w: 3.2, a, gap: 0, col: '#e8b070', seed: seed + 9 });
+  {
+    g.save(); g.translate(x, y); g.rotate(rot); g.scale(k, k);
+    if (kind === 'hat') {
+      shadow(g, ellipse(18, 30, 250, 86, 0, 40), .55, 18);
+      wash(g, ellipse(0, 0, 240, 82, 0, 50), '#3a2a20', { seed: seed + 20, grad: [[0, '#5a4232'], [1, '#2a1c14']], gran: .4, rim: .4, blooms: 3, ink: 2, inkA: .5 });
+      wash(g, spline([[-130, -10], [-122, -84], [-40, -118], [40, -112], [124, -80], [132, -6], [0, 24]], true, 6), '#4a3628', { seed: seed + 21, grad: [[0, '#6a5040'], [1, '#2e2018']], dir: [[-130, -110], [130, 20]], gran: .4, rim: .4, blooms: 3, ink: 2, inkA: .55 });
+      wash(g, spline([[-132, -14], [0, 8], [132, -12], [130, 18], [0, 40], [-130, 14]], true, 5), '#1a120e', { seed: seed + 22, gran: .2, rim: .2, amt: .3 });
+      inkLine(g, [[-40, -112], [-6, -70], [36, -104]], { w: 3, a: .5, gap: 0, col: '#1a120e' });
+      rim([[-120, -76], [-60, -112], [10, -118], [60, -112]], .55); rim([[-230, -20], [-160, -66], [-60, -82]], .35);
+    } else if (kind === 'inkwell') {
+      shadow(g, ellipse(24, 20, 96, 30, 0, 30), .55, 12);
+      wash(g, rrect(-74, -112, 148, 120, 22), '#1a2230', { seed: seed + 30, grad: [[0, '#2e3a50'], [1, '#0e1018']], dir: [[-74, 0], [74, 0]], gran: .3, rim: .4, ink: 2, inkA: .6 });
+      wash(g, ellipse(0, -112, 44, 14, 0, 24), '#b08a40', { seed: seed + 31, grad: [[0, '#e0bc70'], [1, '#7a5a20']], gran: .2, rim: .3, ink: 1.6, inkA: .7 });
+      inkLine(g, [[-6, -116], [70, -300]], { w: 9, a: .95, gap: 0, col: '#1a1416' });
+      wash(g, [[66, -296], [82, -330], [76, -292]], '#d0a44a', { seed: seed + 32, gran: .1, rim: .2, amt: .1 });
+      rim([[-70, -100], [-60, -110], [40, -112]], .6); rim([[-62, -60], [-62, -10]], .3);
+    } else if (kind === 'pencil') {
+      shadow(g, box(-150, 14, 300, 18), .5, 8);
+      wash(g, box(-150, -12, 280, 24), '#d6a640', { seed: seed + 40, grad: [[0, '#f0c460'], [.5, '#c8962c'], [1, '#8a5e14']], dir: [[0, -12], [0, 12]], gran: .2, rim: .3, ink: 1.6, inkA: .6 });
+      wash(g, [[130, -12], [178, 0], [130, 12]], '#e8c896', { seed: seed + 41, gran: .1, rim: .2, ink: 1.4, inkA: .6 });
+      wash(g, [[166, -4], [180, 0], [166, 4]], '#3a3a3a', { seed: seed + 42, gran: 0, rim: 0, amt: 0 });
+      wash(g, box(-176, -12, 26, 24), '#b8b8b0', { seed: seed + 43, gran: .1, rim: .3, ink: 1.2, inkA: .6 });
+      wash(g, rrect(-208, -11, 34, 22, 6), '#c88a8a', { seed: seed + 44, gran: .1, rim: .3, ink: 1.2, inkA: .6 });
+      rim([[-150, -12], [130, -12]], .45);
+    } else if (kind === 'papers') {
+      for (let k = 0; k < 3; k++) {
+        g.save(); g.rotate((k - 1) * .09);
+        shadow(g, box(-150 + 10, -110 + 14, 300, 220), .45, 12);
+        wash(g, box(-150, -110, 300, 220), '#c9b994', { seed: seed + 50 + k, grad: [[0, '#d8c8a2'], [1, '#9a8a68']], dir: [[0, -110], [0, 110]], gran: .3, rim: .3, ink: 1.4, inkA: .5 });
+        if (k === 2) for (let r = 0; r < 6; r++) inkLine(g, Array.from({ length: 14 }, (_, j) => [-120 + j * 17, -80 + r * 30 + Math.sin(j * 1.7 + r) * 3]), { w: 2, a: .45, gap: 0, col: '#4a3c30', seed: seed + 60 + r });
+        g.restore();
+      }
+      inkLine(g, [[-120, -118], [-120, -88], [-104, -88], [-104, -112]], { w: 3, a: .7, gap: 0, col: '#9a9a92' });
+      rim([[-150, -110], [150, -110]], .4);
+    } else if (kind === 'cup') {
+      shadow(g, ellipse(16, 22, 120, 40, 0, 30), .5, 12);
+      wash(g, ellipse(0, 0, 118, 40, 0, 40), '#d8ccb4', { seed: seed + 70, grad: [[0, '#e8dcc4'], [1, '#8a7e6a']], gran: .2, rim: .3, ink: 1.6, inkA: .5 });
+      wash(g, spline([[-62, -70], [62, -70], [56, -6], [0, 8], [-56, -6]], true, 5), '#e4d8c0', { seed: seed + 71, grad: [[0, '#f0e6d0'], [1, '#9a8e78']], dir: [[-62, 0], [62, 0]], gran: .2, rim: .3, ink: 1.6, inkA: .55 });
+      wash(g, ellipse(0, -70, 62, 18, 0, 30), '#3a2010', { seed: seed + 72, gran: .2, rim: .3, ink: 1.4, inkA: .6 });
+      rim([[-62, -70], [0, -88], [62, -70]], .4);
+    }
+    g.restore();
+  }
+}
+
+function nearDesk(g, x0, x1, top, h, cx, items, seed) {
+  const R = rng(seed);
+  wash(g, box(x0, top - 2, x1 - x0, h - top + 2), '#4a2614', { seed, grad: [[0, '#6e3c20'], [.06, '#4e2814'], [.25, '#2e170c'], [1, '#120804']], gran: .5, rim: 0, blooms: 18, amt: 0 });
+  g.save(); g.beginPath(); g.rect(x0, top, x1 - x0, h - top); g.clip();
+  for (let i = 0; i < 380; i++) {
+    const v = R(), y = top + (h - top) * Math.pow(v, 1.7), x = lerp(x0 - 200, x1, R()), L = lerp(160, 520, R()) * (1 + v * 2);
+    g.strokeStyle = rgba(R() < .6 ? '#1a0a04' : '#8a5030', lerp(.04, .1, R())); g.lineWidth = lerp(1, 2.4, R()) * (1 + v * 1.6);
+    g.beginPath(); g.moveTo(x, y); g.bezierCurveTo(x + L * .3, y + (R() - .5) * 6, x + L * .6, y + (R() - .5) * 6, x + L, y + (R() - .5) * 4); g.stroke();
+  }
+  g.restore();
+  // the lamp's spill along the near side of the floor line, and the sun's stripes fading out
+  light(g, cx + 80, top + 10, 620, '#ffd59a', .26, 70);
+  g.save(); g.globalCompositeOperation = 'screen'; g.filter = 'blur(4px)';
+  for (let k = 0; k < 9; k++) { const sx = cx - 560 + k * 70; g.fillStyle = rgba('#ffd9a0', .07); g.beginPath(); g.moveTo(sx, top); g.lineTo(sx + 34, top); g.lineTo(sx + 120, top + 140); g.lineTo(sx + 80, top + 140); g.closePath(); g.fill(); }
+  g.restore();
+  // a leather blotter under where the lyric sits, its border tooled in faint gold
+  const bl = [cx - 540, top + 70, 1080, 640];
+  wash(g, rrect(bl[0], bl[1], bl[2], bl[3], 18), '#2a1610', { seed: seed + 1, grad: [[0, '#3a2018'], [1, '#1a0c08']], gran: .5, rim: .3, blooms: 6, amt: .5 });
+  inkLine(g, rrect(bl[0] + 22, bl[1] + 22, bl[2] - 44, bl[3] - 44, 12), { w: 2, a: .25, gap: .1, col: '#a07a3a', closed: true, seed: seed + 2 });
+  for (const [x, y, a, b] of [[bl[0], bl[1], 1, 1], [bl[0] + bl[2], bl[1], -1, 1], [bl[0], bl[1] + bl[3], 1, -1], [bl[0] + bl[2], bl[1] + bl[3], -1, -1]]) wash(g, [[x, y], [x + a * 60, y], [x, y + b * 60]], '#6a5024', { seed: seed + 3 + x, gran: .2, rim: .3, amt: .2 });
+  for (const [kind, x, y, rot] of items) deskThing(g, kind, x, y, rot, 1, seed);
+  // the nearer it is, the deeper the shadow: a calm dark band under the lyric
+  g.save(); g.globalCompositeOperation = 'multiply';
+  const dk = g.createLinearGradient(0, top, 0, h);
+  dk.addColorStop(0, 'rgba(255,255,255,1)'); dk.addColorStop(.07, 'rgba(160,150,150,1)'); dk.addColorStop(.3, 'rgba(120,112,118,1)'); dk.addColorStop(1, 'rgba(170,160,160,1)');
+  g.fillStyle = dk; g.fillRect(x0, top, x1 - x0, h - top);
+  g.restore();
+}
+
 export function office() {
   return bake('office', OFC.w, OFC.h, (g, w, h) => {
     const F = OFC.floor, top0 = OFC.top, cx = OFC.cx;
@@ -195,18 +277,9 @@ export function office() {
     g.restore();
     light(g, cx + 80, F - 30, 640, '#ffd59a', .45, 70);
     gloom(g, w, F + 20, cx, F - 40, 500, 1500, '#0e0814', .7);
-    // the bevelled front edge, catching the light
-    wash(g, box(0, F - 2, w, 22), '#b0704a', { seed: 2202, grad: [[0, '#d39466'], [1, '#6e3c22']], gran: .3, rim: .2, blooms: 2, amt: .4 });
-    light(g, cx + 60, F + 8, 560, '#ffd090', .3, 14);
-    // the front: dark mahogany panels with dim brass pulls; a plain panel in the middle, under the lyric
-    wash(g, box(0, F + 20, w, h - F - 20), '#2c160c', { seed: 2203, grad: [[0, '#3a1c0e'], [.18, '#26120a'], [1, '#100604']], gran: .5, rim: 0, blooms: 14, amt: 0 });
-    streaks(g, box(0, F + 20, w, h - F - 20), '#2c160c', { seed: 2204, ang: 0, len: 320, n: 260, a: .08, w: 2 });
-    ao(g, 0, F + 20, w, F + 20, 80, .6);
-    for (const px of [140, 1980]) {
-      wash(g, box(px, F + 110, 280, 620), '#24110a', { seed: 2210 + px, gran: .4, rim: .4, blooms: 2, amt: .4, ink: 1.6, inkA: .22 });
-      for (let i = 0; i < 3; i++) { wash(g, box(px + 24, F + 140 + i * 196, 232, 170), '#2a150b', { seed: 2220 + px + i, gran: .3, rim: .35, amt: .3, ink: 1.4, inkA: .2 }); wash(g, rrect(px + 110, F + 210 + i * 196, 60, 16, 8), '#5a4020', { seed: 2230 + px + i, gran: .2, rim: .3, amt: .2 }); }
-    }
-    wash(g, box(500, F + 110, 1400, 900), '#22100a', { seed: 2240, gran: .35, rim: .35, blooms: 4, amt: .4, ink: 1.6, inkA: .15 });
+    // ---- below the floor line, the desk top runs on toward you: dark, low in contrast under the
+    // lyric, with the detective's things nearest the camera (his hat, the inkwell, a pencil, papers)
+    nearDesk(g, 0, w, F, h, cx, [['papers', 260, F + 470, -.2], ['inkwell', 720, F + 430, 0], ['hat', 1235, F + 610, -.05], ['pencil', 1720, F + 520, -.35], ['papers', 2130, F + 450, .15], ['cup', 2330, F + 600, 0]], 2700);
 
     // ---- desk clutter at the ends, out of the way of the action
     const tx = 380, ty = top0 + 40;
@@ -272,11 +345,8 @@ export function deskInsert() {
     g.restore();
     gloom(g, w, N + 10, DI.cx, 900, 260, 1050, '#0e0814', .85);
     light(g, DI.cx, 880, 560, '#ffc884', .34, 420);
-    // the front edge and the dark front below it, the lyric's apron
-    wash(g, box(0, N - 2, w, 24), '#b0704a', { seed: 2530, grad: [[0, '#d39466'], [1, '#6e3c22']], gran: .3, rim: .2, blooms: 2, amt: .4 });
-    wash(g, box(0, N + 22, w, h - N - 22), '#24120a', { seed: 2531, grad: [[0, '#3a1c0e'], [.2, '#26120a'], [1, '#100604']], gran: .5, rim: 0, blooms: 14, amt: 0 });
-    streaks(g, box(0, N + 22, w, h - N - 22), '#2c160c', { seed: 2532, ang: 0, len: 320, n: 200, a: .08, w: 2 });
-    ao(g, 0, N + 22, w, N + 22, 80, .6);
+    // below the board's near edge the desk top runs on toward you, with his things on it
+    nearDesk(g, 0, w, N, h, DI.cx, [['pencil', 330, N + 430, -.3], ['papers', 1150, N + 470, .2], ['inkwell', 120, N + 600, 0], ['hat', 760, N + 720, .05]], 2560);
     paper(g, w, h, .45);
   });
 }

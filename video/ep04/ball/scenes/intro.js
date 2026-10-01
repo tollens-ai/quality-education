@@ -9,13 +9,16 @@ import { W, H, TAU, clamp, lerp, now, hash, beatPos, easeOut, easeInOut, backOut
 import { INK, CREAM, GOLD, GREEN, RED, WHITE, CORAL, TEAL, ROSE, OCHRE } from '../palette.js';
 import { shot } from '../shots.js';
 import { SPLIT } from '../lyrics.js';
-import { theatre, mainCurtain, TH } from '../places.js';
+import { theatre, mainCurtain, TH, stallsAbove } from '../places.js';
 import { clawd, cane } from '../clawd.js';
 import { check } from '../crew.js';
 import { at, ramp, pop, ease, kick, place, look, cam, floorCam, sparkle, footShadow, confetti, burst } from '../common.js';
 import { word, textW, DISPLAY } from '../type.js';
 import { bake, wash, light, gloom, paper, inkLine, box } from '../bg.js';
-import { stroke, shape, ellipse } from '../ink.js';
+import { stroke, shape, ellipse, rrect } from '../ink.js';
+import { mabelPhone } from '../props-gym.js';
+// Clawd's app, the gym app the whole film is about, as he shows it off
+const app = (g, x, y, s, o = {}) => mabelPhone(g, x, y, s, { rows: [{}, {}, {}] }, { legs: false, dance: 0, eyes: { expr: 'happy' }, ...o });
 import { star } from '../rig.js';
 
 const F = TH.floor, CX = TH.cx, STAGE_Y = 1600;
@@ -63,6 +66,7 @@ function topFloor() {
     // four smaller spots out in the dark, in a ring
     for (let k = 0; k < 4; k++) { const a = k / 4 * TAU + .5; light(g, cx + Math.cos(a) * 1050, cy + Math.sin(a) * 1050, 220, '#ffd8a0', .3); }
     gloom(g, w, h, cx, cy, 480, 1300, '#060302', .92);
+    stallsAbove(g, w, h, 2080);
     paper(g, w, h, .35);
   });
 }
@@ -92,7 +96,7 @@ export function register() {
     {
       const look = [.18, .45, .71, .98, 1.26].filter(x => t >= x - .1).length;
       const lx = [-.6, .4, 0, -.4, .5, 0][look], ly = -.9;
-      clawd(g, CX, F, 1.05, { t, dance: .5, L: t > tUp ? 'jazz' : 'hips', R: t > tUp ? 'jazz' : t > 1.45 ? { to: [.06, -.62], pose: 'grip' } : 'present', eyes: { expr: t > tUp ? 'happy' : t > 1.95 && t < 2.15 ? 'smug' : 'open', lx: t > tUp ? 0 : lx, ly: t > tUp ? 0 : ly }, hatTip: kick(t, 1.53, .4) * .8, smile: 1 });
+      clawd(g, CX, F, 1.05, { t, dance: .5, L: { to: [.5, -.62], pose: 'grip' }, hold: { L: (g, x, y, a, s) => app(g, x - 4, y + 22, .4) }, R: t > tUp ? 'jazz' : t > 1.45 ? { to: [.06, -.62], pose: 'grip' } : 'present', eyes: { expr: t > tUp ? 'happy' : t > 1.95 && t < 2.15 ? 'smug' : 'open', lx: t > tUp ? 0 : lx, ly: t > tUp ? 0 : ly }, hatTip: kick(t, 1.53, .4) * .8, smile: 1 });
     }
     // the title, painted on the curtain in gold: it rises with it
     if (lift < .98) titleCard(g, t, lift);
@@ -109,10 +113,16 @@ export function register() {
       const hop = kick(t, tTests + r.k * .02, .2) * .5;
       check(g, r.x, r.y, r.s, { t, flag: up, flagCol: GREEN, wave: up > .9, phase: r.k * .7 + r.tier, hop, seed: r.k });
     }
-    spot(g, CX, STAGE_Y, 300, .6);
-    footShadow(g, CX, STAGE_Y, 320, .45);
+    spot(g, CX + 30, STAGE_Y, 360, .6);
+    // the app on a gold pedestal beside him, beaming at its wall of green
+    const PX = CX + 190, PY = STAGE_Y - 4;
+    footShadow(g, PX, PY, 200, .5);
+    shape(g, rrect(PX - 80, PY - 120, 160, 120, 8), { fill: '#d9a83c', shade: '#8a5f12', lit: '#ffe39a', form: 'block', w: 6, seed: 2401, gloss: { x: .2, y: .2, w: .08, h: .06 } });
+    shape(g, rrect(PX - 96, PY - 140, 192, 26, 6), { fill: '#e6b84a', shade: '#9a6a18', form: 'block', w: 5, seed: 2402 });
+    app(g, PX, PY - 140, .5, { eyes: { expr: t > tGreen ? 'happy' : 'open', lx: -.4 } });
+    footShadow(g, CX - 120, STAGE_Y, 320, .45);
     const spin = t > tHund && t < tTests ? (t - tHund) / (tTests - tHund) : 0;
-    const k = clawd(g, CX, STAGE_Y, 1, { t, dance: .9,
+    const k = clawd(g, CX - 120, STAGE_Y, 1, { t, dance: .9, face: .3,
       L: t < tTests ? 'up' : t < tEach ? 'hips' : 'jazz', R: t < tTests ? { to: [.3, -.25], pose: 'grip' } : t < tEach ? { to: [.62, -.42], pose: 'grip' } : 'jazz',
       hold: { R: t < tEach ? (g, x, y, a, s) => cane(g, x, y, t < tTests ? 1.6 + spin * TAU : -.4, s) : null },
       eyes: { expr: t > tGreen ? 'happy' : 'open', lx: t > tTests && t < tEach ? .6 : 0, ly: t > tTests && t < tEach ? -.5 : 0 }, sing: true, kick: t > tGreen ? kick(t, tGreen, .4) : 0, hatTip: kick(t, tGreen + .2, .4) * .6 });
@@ -130,13 +140,15 @@ export function register() {
     // the checks slide in from their rows to the tick, lying on their backs
     const form = easeInOut(ramp(t, tCut + .1, tScore - tCut - .05));
     TICK.forEach((p, i) => {
-      const R = rng(700 + i), sx = lerp(80, 1000, R()), sy = lerp(260, 1240, R());
+      const R = rng(700 + i), sx = lerp(80, 1000, R()), sy = lerp(260, 1040, R());   // never from the lyric's band
       const x = lerp(sx, p.x, form), y = lerp(sy, p.y, form) - Math.sin(form * Math.PI) * 30;
       g.save(); g.globalAlpha = .45; g.fillStyle = '#000'; g.filter = 'blur(6px)'; g.beginPath(); g.ellipse(x + 10, y + 50, 40, 46, 0, 0, TAU); g.fill(); g.restore();
       check(g, x, y + 60, .52, { t, flag: 1, flagCol: GREEN, wave: true, phase: i * .5, seed: i });
     });
     // Clawd at the corner, on his back, waving up at us
-    clawd(g, 520, 1060, .62, { t, L: 'up', R: 'wave', eyes: { expr: t > tSeen ? 'happy' : 'open', ly: -.6 }, sing: true, dance: .4 });
+    // in the corner, the app lies face up, beaming; Clawd lies beside it, waving up at us
+    app(g, 560, 1010, .36, { eyes: { expr: 'happy', ly: -.6 } });
+    clawd(g, 410, 1090, .56, { t, L: 'up', R: 'wave', eyes: { expr: t > tSeen ? 'happy' : 'open', ly: -.6 }, sing: true, dance: .4 });
     g.restore();
     if (t > tScore) { const p = (t - tScore) / .5; burst(g, 520, 780, 380, p, 14, GOLD, 31); }
     if (t > tSeen) { confetti(g, t, tSeen, 70, { seed: 41 }); for (const [fx, fy, ft] of [[250, 420, tSeen + .2], [820, 330, tSeen + .7], [560, 250, tSeen + 1.2]]) { const p = (t - ft) / .9; if (p > 0 && p < 1) { burst(g, fx, fy, 120, p, 16, [GOLD, CORAL, TEAL][Math.floor(ft) % 3], 50 + ft); star(g, fx, fy, 22 * (1 - p), GOLD, { seed: 60 }); } } }

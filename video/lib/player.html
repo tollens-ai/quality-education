@@ -36,7 +36,8 @@
   })));
   const c = document.getElementById('c'), g = c.getContext('2d');
   const cw = +(q.get('w') || 540);
-  c.width = cw; c.height = Math.round(cw * H / W);
+  const [FW, FH] = scene.frameSize || [W, H];
+  c.width = cw; c.height = Math.round(cw * FH / FW);
   if (scene.init) await scene.init(S);
   window.renderAt = t => frame(g, cw, t, S, scene);
   window.duration = S.duration;

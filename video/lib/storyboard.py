@@ -59,7 +59,11 @@ def main():
         return cast(rest[rest.index(name) + 1]) if name in rest else default
 
     tw, per_sheet, pdf = opt('--tile', 270), opt('--lines', 5), opt('--pdf', None, str)
-    th = int(tw * 16 / 9)
+    # frames keep the film's shape, portrait or landscape (read from ffmpeg's own report: the dev
+    # boxes have ffmpeg but no ffprobe)
+    probe = subprocess.run(['ffmpeg', '-hide_banner', '-i', film], capture_output=True, text=True).stderr
+    fw, fh = map(int, re.search(r'Video:.*?(\d{2,5})x(\d{2,5})', probe).groups())
+    th = int(tw * fh / fw)
     frames = os.path.join(out, 'frames')
     os.makedirs(frames, exist_ok=True)
 

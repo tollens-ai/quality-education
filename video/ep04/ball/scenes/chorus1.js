@@ -23,6 +23,7 @@ import { at, ramp, pop, kick, shakeAt, place, cam, floorCam, sparkle, footShadow
 import { shape, stroke, ellipse, rrect, spline, glove, dot, line } from '../ink.js';
 import { star, pops, qmark, bang, sweat, heart } from '../rig.js';
 import { appCode } from './verse1.js';
+import { gymPhone, codeScreen, sticker } from '../gymapp.js';
 
 const F = WS.floor;
 const fc = (x, z) => floorCam(x, z, F);
@@ -65,6 +66,9 @@ export function register() {
     const knock = Math.max(shakeAt(T, 41.02, 6, .12), shakeAt(T, 41.3, 7, .12));
     g.save(); c.x -= knock; place(g, workshopDoor(), c);
     const open = easeOut(ramp(t, burst0, .14));
+    // light spilling in across the boards, and the burst of it as the door flies open: behind the crew
+    if (open > .1) { g.save(); g.beginPath(); g.rect(-500, -500, 2500, DOOR.floor + 500); g.clip(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .3 * open; g.fillStyle = '#fff2c8'; g.beginPath(); g.moveTo(DOOR.open[0], DOOR.open[1]); g.lineTo(DOOR.open[0] + DOOR.open[2], DOOR.open[1]); g.lineTo(DOOR.open[0] + DOOR.open[2] + 260, DOOR.floor); g.lineTo(DOOR.open[0] - 260, DOOR.floor); g.closePath(); g.fill(); g.restore(); }
+    if (t > burst0 && t < burst0 + .4) pops(g, 700, 700, 460, 12, { a0: 0, span: TAU * .92, w: 9, col: '#ffe9b0' });
     // the crew in the doorway, backlit
     let lens = null;
     if (open > .05) withLayer(g, (lg) => {
@@ -73,21 +77,19 @@ export function register() {
       guess(lg, 700, DOOR.floor + 10, 1.0, { t, L: 'hips', R: { to: [.25, -1.25], pose: 'grip' }, hold: { R: (g, x, y, a, s) => { lens = magnifier(g, x, y, -.4, s * 1.1, { inside: (g, lx, ly, r) => { g.fillStyle = '#f4efe2'; g.fillRect(lx - r, ly - r, r * 2, r * 2); eyeBig(g, lx, ly, r, t); } }); } }, eyes: { lx: .2 }, dance: .2 });
     }, backlit(.55));
     door(g, open, t);
-    // light spilling in and dust in it
-    if (open > .1) { g.save(); g.beginPath(); g.rect(-500, -500, 2500, DOOR.floor + 500); g.clip(); g.globalCompositeOperation = 'screen'; g.globalAlpha = .3 * open; g.fillStyle = '#fff2c8'; g.beginPath(); g.moveTo(DOOR.open[0], DOOR.open[1]); g.lineTo(DOOR.open[0] + DOOR.open[2], DOOR.open[1]); g.lineTo(DOOR.open[0] + DOOR.open[2] + 260, DOOR.floor); g.lineTo(DOOR.open[0] - 260, DOOR.floor); g.closePath(); g.fill(); g.restore(); }
-    if (t > burst0 && t < burst0 + .4) pops(g, 700, 700, 460, 12, { a0: 0, span: TAU * .92, w: 9 });
     g.restore();
     // "test it?": we zoom into his glass; the eye in it swells to fill the frame
     const swell = easeInOut(ramp(T, tTest - .18, .32));
     if (swell > 0 && lens) {
       const lx = (lens.x - c.x) * c.z + W / 2, ly = (lens.y - c.y) * c.z + H / 2, lr = lens.r * c.z;
       const cx = lerp(lx, W / 2, swell), cy = lerp(ly, 690, swell), r = lerp(lr, 470, swell);
-      irisInsert(g, cx, cy, r, (g, x, y, R) => { g.fillStyle = C('#f4efe2'); g.fillRect(x - R, y - R, R * 2, R * 2); eyeBig(g, x, y, R, t, 1); }, 1, { dark: swell, rim: '#b07f1c', rimW: lerp(14, 10, swell) });
+      irisInsert(g, cx, cy, r, (g, x, y, R) => { g.fillStyle = C('#f4efe2'); g.fillRect(x - R, y - R, R * 2, R * 2); eyeBig(g, x, y, R, t, 1); }, 1, { dark: swell * .6, rim: '#b07f1c', rimW: lerp(14, 10, swell) });
     }
   }, { id: 'c1-door' });
 
   // ---- 2. press it, stress it, second-guess it: three cuts
-  const phoneAt = (g, t, o = {}) => phone(g, 700, F, .78, { t, wifi: 1, screen: appCode(t), ...o });
+  // the app, on its pink phone, under test
+  const phoneAt = (g, t, o = {}) => gymPhone(g, 700, F, .78, o.screen || codeScreen(t), { t, ...o });
   shot(tPress - .08, tStress - .06, (g, T) => {
     const c = cam([[tPress - .08, fc(760, 1.4)], [tStress, fc(760, 1.46)]], T), t = now();
     g.save(); place(g, workshop(), c);
@@ -107,7 +109,7 @@ export function register() {
     stress(g, 700, F, 1.05, { t, sing: true, gauge: .3 + sq * .7, steam: sq > .7 ? 1 : 0, shake: sq, L: { to: [.25, .02], pose: 'open', behind: true }, R: { to: [.25, .02], pose: 'open' }, eyes: { expr: sq > .5 ? 'shut' : 'open' }, frown: 1, dance: .1 });
     // the phone squeezed in his arms
     g.save(); g.translate(700, F - 190); g.scale(1 - sq * .25, 1 + sq * .12); g.translate(-700, -(F - 190));
-    phone(g, 700, F - 60, .5, { t, legs: false, wifi: 1, screen: appCode(t), eyes: { expr: sq > .4 ? 'wide' : 'open' }, dance: 0 });
+    gymPhone(g, 700, F - 60, .5, codeScreen(t), { t, legs: false, eyes: { expr: sq > .4 ? 'wide' : 'open' }, dance: 0 });
     g.restore();
     stroke(g, [[700 - 140, F - 240], [700 + 140, F - 240]], { w: 16, seed: 4040, taper: false });
     if (sq > .6) for (const d of [-1, 1]) sweat(g, 700 + d * 120, F - 420, 1.2);
@@ -143,30 +145,55 @@ export function register() {
       confetti(g, t, tCongr, 60, { seed: 4050, burst: true, y0: F - 600, x0: 200, w: 900 });
     }
     if (t > tClue && t < tClue + .5) burst(g, 930, k.top + 20, 90, (t - tClue) / .5, 10, GOLD, 4051);
+    // the testers' mark on the app: "?!", a problem found (the app's own checks are all green)
+    const tSlap = tClue + .12;
+    sticker(g, 640, F - 300, 64, { p: ramp(t, tSlap, .16), ang: .25, since: t - (tSlap + .16) });
     g.restore();
   }, { id: 'c1-clue' });
 
   // ---- 4. now pursue its implications: the beetle has run; Guess follows its footprints along the
   //         bench with his glass, each print magnified as he passes, to the pasted check: two beetles
+  // where the check's green flag flies, found once by drawing the check into a scratch canvas
+  let FLAG = null;
+  const flagAt = () => FLAG || (FLAG = check(document.createElement('canvas').getContext('2d'), 1080, F, 1.5, { t: tImpl, flag: 1, flagCol: GREEN }).flagTip);
+  const tSlap = tImpl + .72;
   shot(tNow - .08, tWhat - .14, (g, T) => {
-    // Guess and the camera travel on every frame; his stride and everything else change on twos
+    // Guess and the camera travel on every frame; his stride and everything else change on twos. Once
+    // the glass finds the beetles, the camera pushes in on the check, and Guess slaps the testers' "?!"
+    // over its green flag; the check waves on regardless
     const t = now(), walk = ramp(T, tNow - .05, tImpl - tNow + .25);
-    const gx = lerp(470, 860, easeInOut(walk));
-    const c = cam([[tNow - .08, fc(520, 1.32)], [tImpl + .2, fc(900, 1.32)], [tWhat, fc(960, 1.4)]], T);
+    const gx = lerp(470, 800, easeInOut(walk));
+    const [fx, fy] = flagAt(), Zc = 2.0;
+    const close = { x: fx + 72, y: fy + 60 + (H / 2 - 640) / Zc, z: Zc };
+    const c = cam([[tNow - .08, fc(520, 1.32)], [tImpl + .2, fc(900, 1.32)], [tImpl + .3, fc(915, 1.34)], [tSlap - .12, close], [tWhat, { ...close, z: Zc * 1.04 }]], T);
     g.save(); place(g, workshop(), c);
     footShadow(g, 330, F, 220); footShadow(g, 1080, F, 200); footShadow(g, gx, F, 200);
-    phone(g, 330, F, .66, { t, wifi: 1, screen: appCode(t, { bug: false }), eyes: { lx: .8 } });
+    gymPhone(g, 330, F, .66, codeScreen(t, { bug: false }), { t, eyes: { lx: .8 } });
+    if (t > tFind) sticker(g, 300, F - 240, 44, { p: 1, ang: .25 });
     // the trail: little six-legged prints from the phone to the check
     for (let i = 0; i < 16; i++) { const x = 430 + i * 38, side = i % 2 ? 1 : -1; for (let k = 0; k < 3; k++) dot(g, x + k * 7, F - 16 + side * 6 + (k - 1) * 4, 3.2, '#3a2414'); }
-    check(g, 1080, F, 1.5, { t, flag: 1, flagCol: GREEN, wave: true, look: -.6, squash: kick(t, tImpl, .2) * .3, card: (g, x, y, w, h, s) => code(g, x - w * .42, y - h * .36, w * .84, { t, bugScale: .9 }) });
+    const ck = check(g, 1080, F, 1.5, { t, flag: 1, flagCol: GREEN, wave: true, look: -.6, squash: kick(t, tImpl, .2) * .3, card: (g, x, y, w, h, s) => code(g, x - w * .42, y - h * .36, w * .84, { t, bugScale: .9 }) });
     // Guess, bent to the trail, his glass close over the prints; at the check he straightens and holds
     // the same glass over its card, where it finds two beetles
     const lift = easeInOut(ramp(t, tImpl + .05, .35));
-    const tracks = (g, lx, ly, r) => { g.fillStyle = '#b98250'; g.fillRect(lx - r, ly - r, r * 2, r * 2); for (let k = 0; k < 4; k++) { const px = lx - r * .75 + k * r * .5, py = ly + (k % 2 ? 9 : -9); for (let d = 0; d < 3; d++) dot(g, px + (d - 1) * 7, py + (d === 1 ? -6 : 3), 3.6, '#3a2414'); } };
+    // in the glass, the bench top magnified: pale grain under the lens, and the beetle's prints, big
+    const tracks = (g, lx, ly, r) => {
+      g.fillStyle = '#ecd6ae'; g.fillRect(lx - r, ly - r, r * 2, r * 2);
+      g.save(); g.strokeStyle = 'rgba(150,104,62,.4)'; g.lineWidth = 2.5; for (let k = -2; k <= 2; k++) { g.beginPath(); g.moveTo(lx - r, ly + k * r * .38 + 6); g.quadraticCurveTo(lx, ly + k * r * .38 - 4, lx + r, ly + k * r * .38 + 8); g.stroke(); } g.restore();
+      for (let k = 0; k < 3; k++) { const px = lx - r * .62 + k * r * .62, py = ly + (k % 2 ? r * .2 : -r * .2); for (let d = 0; d < 3; d++) dot(g, px + (d - 1) * r * .15, py + (d === 1 ? -r * .13 : r * .05), r * .085, '#3a2414'); }
+      g.fillStyle = 'rgba(190,226,232,.18)'; g.fillRect(lx - r, ly - r, r * 2, r * 2);
+    };
     const beetles = (g, lx, ly, r) => { g.fillStyle = '#fbf6e8'; g.fillRect(lx - r, ly - r, r * 2, r * 2); bug(g, lx - r * .38, ly, .9, { t, dir: 1, look: .5 }); bug(g, lx + r * .38, ly, .9, { t, dir: -1, look: -.5 }); };
-    guess(g, gx, F, .92, { t, walk: walk > 0 && walk < 1 ? t * 4.4 : undefined, lean: lerp(.22, .08, lift), eyes: { lx: .9, ly: lerp(.8, .5, lift), expr: lift > .9 ? 'wide' : 'open' }, brow: 1.4, sing: true,
-      R: { to: [lerp(.9, .23, lift), lerp(.62, .2, lift)], pose: 'grip' }, hold: { R: (g, x, y, a, s) => magnifier(g, x, y, lerp(.1, .6, lift), s * lerp(.82, 1.05, lift), { inside: lift < .5 ? tracks : beetles }) }, L: 'out' });
+    // his free glove reaches up across himself with the sticker and pats it onto the flag, then drops
+    const reach = easeOut(ramp(t, tSlap - .2, .2)) * (1 - easeInOut(ramp(t, tSlap + .35, .3)));
+    const sx = ck.flagTip ? ck.flagTip[0] + 34 : 0, sy = ck.flagTip ? ck.flagTip[1] + 30 : 0;
+    const Lto = reach > 0 ? { to: [lerp(.2, -(sx + 10 - (gx - 67)) / 92, reach), lerp(.3, (sy + 14 - (F - 200)) / 92, reach)], pose: t < tSlap ? 'grip' : 'flat' } : 'out';
+    guess(g, gx, F, .92, { t, walk: walk > 0 && walk < 1 ? t * 4.4 : undefined, lean: lerp(.22, .08, lift), eyes: { lx: .9, ly: lerp(.8, .5, lift) - reach * .6, expr: lift > .9 ? 'wide' : 'open' }, brow: 1.4, sing: true,
+      R: { to: [lerp(.9, .23, lift), lerp(.62, .2, lift)], pose: 'grip' }, hold: { R: (g, x, y, a, s) => magnifier(g, x, y, lerp(.1, .6, lift), s * lerp(.82, 1.05, lift), { inside: lift < .5 ? tracks : beetles }), L: t < tSlap && reach > .05 ? (g, x, y) => sticker(g, x + 8, y - 10, 34, { p: 1, ang: -.2 }) : null }, L: Lto });
     if (t > tImpl + .3 && t < tImpl + .7) pops(g, 1080, F - 110, 110, 8, { a0: -Math.PI, span: TAU * .9, w: 6 });
+    // the check still waves green over two beetles; the testers' "?!" goes on, right over its flag, and
+    // rides it as it waves
+    if (ck.flagTip && t >= tSlap) sticker(g, sx, sy, 38, { p: 1, ang: -.2, since: t - tSlap });
     g.restore();
   }, { id: 'c1-pursue' });
 

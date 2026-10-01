@@ -12,7 +12,7 @@ import { workshop, WS } from '../places.js';
 import { clawd } from '../clawd.js';
 import { check } from '../crew.js';
 import { router, magnifier, wifiIcon } from '../cast.js';
-import { at, ramp, pop, kick, place, cam, floorCam, footShadow, sparkle, irisInsert } from '../common.js';
+import { at, ramp, pop, kick, place, cam, floorCam, footShadow, sparkle, lowerShade } from '../common.js';
 import { shape, stroke, ellipse, rrect, spline, glove, dot, line } from '../ink.js';
 import { qmark, sweat, arm, pops } from '../rig.js';
 
@@ -75,37 +75,40 @@ export function register() {
   // ---- 1b. "without the net": an iris close-up on the report; his glove and pencil reach in from the
   //          left and put down the arrow and the empty row, circled
   shot(tR, t1, (g, T) => {
-    const t = now(), open = easeOut(ramp(T, tR, .2)), Z = lerp(2.0, 2.16, ramp(T, tR, t1 - tR));
+    // a full-frame close-up: the report fills the picture, the bench and its drawers below it
+    const t = now(), Z = lerp(2.0, 2.16, ramp(T, tR, t1 - tR));
     const RX = 790, RY = F - 4, RW = 420, RH = 340, rowY = RY - RH * .72;
-    irisInsert(g, W / 2, 690, 440, (g) => {
-      g.save(); g.translate(W / 2, 690); g.scale(Z, Z); g.translate(-(RX + 6), -(rowY + 16));
-      g.drawImage(workshop(), 0, 0);
+    {
+      g.save(); g.translate(W / 2, 610); g.scale(Z, Z); g.translate(-(RX + 6), -(rowY + 16));
+      const wsc = workshop(); g.drawImage(wsc, -(wsc.ox || 0), 0);
       report(g, RX, RY, RW, RH, Math.min(3, prog(t)), t);
       // the pencil's tip on the newest picture (the arrow, then the empty row it points to); his arm
-      // comes in from the left below the row, so it never covers a picture
+      // comes in level from the left, under the row and well above the lyric, so it covers nothing
       const p = prog(t), wig = p < 2.99 ? 1 : 0;
       const tipX = (p < 2.5 ? RX + RW * .15 : RX + RW * .34) + Math.sin(t * 11) * 14 * wig, tipY = rowY + 24 + Math.cos(t * 9) * 6 * wig;
       const hx = tipX - 22, hy = tipY + 62;
-      arm(g, RX - 360, rowY + 230, hx, hy, { w: 12.5 * .9, gs: 25 * .9, pose: 'grip', bend: .18, seed: 17 });
+      arm(g, RX - 380, rowY + 96, hx, hy, { w: 12.5 * .9, gs: 25 * .9, pose: 'grip', bend: .08, seed: 17 });
       stroke(g, [[hx + 2, hy - 4], [tipX, tipY]], { w: 9, seed: 5050, taper: false, color: '#d9a23c' });
       dot(g, tipX, tipY, 3.2);
       g.restore();
-    }, open);
+      lowerShade(g, .5, 1040);
+    }
   }, { id: 'outro-report-in' });
 
   // ---- 2. who sees the logs? the padlocked logbook, an eye in its keyhole; then "not tested yet"
   shot(t1, tNot - .12, (g, T) => {
     // the camera creeps in on the keyhole while we wait for the eye
-    const t = now(), open = easeOut(ramp(T, t1, .2)), Z = lerp(2.9, 3.45, easeInOut(ramp(T, t1, tNot - .12 - t1))), k = Z / 3.2;
-    irisInsert(g, W / 2, 690, 440, (g) => {
+    // a full-frame close-up: the logbook on the bench fills the picture
+    const t = now(), Z = lerp(2.9, 3.45, easeInOut(ramp(T, t1, tNot - .12 - t1))), k = Z / 3.2;
+    {
       g.save(); g.translate(W / 2, 690 + 140); g.scale(Z, Z); g.translate(-960, -(F - 145));
-      g.fillStyle = C('#2a1a10'); g.fillRect(700, F - 500, 520, 600);
+      const wsc = workshop(); g.drawImage(wsc, -(wsc.ox || 0), 0);
       logbook(g, 960, F, 1, t, 0);
       g.restore();
       // the eye in the keyhole, close: it opens on "sees", glances about, blinks on "logs"
       const eo = clamp((t - tSees + .05) / .2) * (t > tLogs && t < tLogs + .14 ? .08 : 1);
       if (eo > .05) { const ex = W / 2, ey = 690 + 140 - 8 * Z, px = ex + Math.sin(t * 5) * 9 * k; g.save(); g.fillStyle = C(WHITE); g.beginPath(); g.ellipse(ex, ey, 26 * k, 22 * k * eo, 0, 0, TAU); g.fill(); dot(g, px, ey + 2 * k, 11 * k * eo); g.fillStyle = C(WHITE); g.beginPath(); g.arc(px - 4 * k, ey - 3 * k, 3.5 * k * eo, 0, TAU); g.fill(); g.restore(); }
-    }, open);
+    }
   }, { id: 'outro-keyhole' });
   shot(tNot - .12, tTag, (g, T) => {
     const look = false;
@@ -129,8 +132,8 @@ export function register() {
     const c = cam([[tTag, fc(700, 1.2)], [tEnd, fc(860, 1.35)]], T), t = now();
     g.save(); place(g, workshop(), c);
     const KX = 960, KY = F - 145, tStartle = 181.2;
-    const walk = easeInOut(ramp(T, 179.2, 1.4)), raise = easeInOut(ramp(t, 180.6, .5)), startle = t >= tStartle ? 1 : 0;
-    const tip = Math.sin(clamp((t - tTag - .3) / 1.4) * Math.PI);
+    const walk = easeInOut(ramp(T, 178.3, 1.7)), raise = easeInOut(ramp(t, 180.15, .5)), startle = t >= tStartle ? 1 : 0;
+    const tip = Math.sin(clamp((t - tTag - .1) / 1.2) * Math.PI);
     footShadow(g, KX, F, 260);
     logbook(g, KX, F, 1, t, startle || Math.sin(t * 3) > -.6 ? 1 : .1);
     const x = lerp(520, 650, walk), jolt = kick(t, tStartle, .3);
@@ -145,7 +148,7 @@ export function register() {
       dot(g, ex + look, ey + (startle ? 0 : 1.5 * m), (startle ? 2.2 : 3.6) * m);
     };
     const R = raise > 0 ? { to: [lerp(.45, .19, raise), lerp(-.42, .01, raise)], pose: 'grip' } : { to: [.45, -.42], pose: 'grip' };
-    clawd(g, x, F, .9, { t, dance: walk > 0 && walk < 1 ? .2 : startle ? .1 : .6, walk: walk > 0 && walk < 1 ? t * 2.2 : undefined, face: walk > 0 ? .7 : 0,
+    clawd(g, x, F, .9, { t, dance: walk > 0 && walk < 1 ? .45 : startle ? .1 : .8, walk: walk > 0 && walk < 1 ? t * 2.6 : undefined, face: walk > 0 ? .7 : 0,
       L: tip > .1 ? { to: [.05, -.7], pose: 'grip' } : 'hips', R, lean: -jolt * .12, jump: jolt * .25,
       hold: { R: (g, hx, hy, a, s) => magnifier(g, hx, hy, lerp(-.7, -.15, raise), s * .8, raise > .5 ? { inside: peep } : {}) },
       eyes: { expr: startle ? 'wide' : tip > .5 ? 'happy' : 'open', lx: walk > 0 ? .9 : 0 }, hatTip: tip + jolt * .5, smile: startle ? -.3 : 1 });

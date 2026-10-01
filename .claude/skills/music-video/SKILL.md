@@ -12,20 +12,20 @@ what worked and what didn't, Qing's briefs verbatim, the bar as checks, and the 
 far, for any style. Each style has a reference for drawing in it. Episode 1's is
 [ink and gouache, with the lyrics lettered in](references/style-ink-and-gouache.md).
 
-**Whose notes win.** Qing's. Keep her words verbatim in the episode's video file. Fold any lesson
-that generalises into VIDEO.md if it holds for any style, or into the style's reference if it's
-about drawing in that style. The model can't hear the song. Another model's description
-(step 2) helps, but sync and feel still need her eyes and ears.
+**Whose notes win.** Qing's. Keep her words verbatim in the episode's video file, and fold any
+lesson that generalises into the pack (*Adding to the pack*, below). The model can't hear the
+song. Another model's description (step 2) helps, but sync and feel still need her eyes and ears.
 
 ## Steps
 
-**Maximum effort, or don't start.** Before making a video Qing will judge, check that the effort
-setting is at maximum. You can't see the setting yourself, so ask her to confirm it, and don't
-begin until she has. Qing (2026-09-28): "you should refuse to do me the final video unless effort
-is set to max". Episode 1 v1 and v2 and episode 2 v1 all ran below maximum. Looks, tests and
-checks don't need it.
-
-Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
+**Maximum effort and a high bar throughout, or don't start.** Before making a video Qing will
+judge, check that the effort setting is at maximum. You can't see the setting yourself, so ask her
+to confirm it, and don't begin until she has. Qing (2026-09-28): "you should refuse to do me the
+final video unless effort is set to max". Episode 1 v1 and v2, episode 2 v1 and episode 4's first
+piano film all ran below maximum; the last was "no good". Looks, tests and checks don't need it.
+Then hold your bar from the first second to the last, and hand back nothing below it (VIDEO.md,
+*How the auteur works*). Qing (2026-10-01): "Making sure we're continuing to hold a really high
+quality bar throughout." There's no rush.
 
 1. **Orient.** Read the episode file: the teaching plan, what the song says, and the guardrails
    for the pictures. Read the lyric timings, and VIDEO.md's brief. Don't study earlier attempts
@@ -57,15 +57,18 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    sentences.
 
 4. **Storyboard every line before drawing any of it.** Read VIDEO.md's *One place to look* and
-   the [Tim Blais research](../../../research/tim-blais-craft.md) first. Then, line by line, write
-   down the one thing to look at; the action that shows the line's meaning without a word (mime: a
-   gesture, a gag, a figure of speech drawn literally, as silent films and early cartoons told
-   their stories); what the picture adds that the words don't; and, where a second thing must be
-   seen, the cut that shows it. Try several pictures for each idea and keep the clearest, not the
-   first. Give the hook the most exact picture, put the biggest idea on the climax, and make each
-   repeat move the story on.
+   *A story the viewer can follow*, and the [Tim Blais research](../../../research/tim-blais-craft.md),
+   first. Then, line by line, write down the one thing to look at; the action that shows the
+   line's meaning without a word (mime: a gesture, a gag, a figure of speech drawn literally, as
+   silent films and early cartoons told their stories); what the picture adds that the words
+   don't; what fills the frame below the lyric; and, where a second thing must be seen, the cut
+   that shows it. Try several pictures for each idea and keep the clearest, not the first. Give
+   the hook the most exact picture, put the biggest idea on the climax, and make each repeat move
+   the story on. Then make the clarity pass over the whole storyboard, line by line and for the
+   arc, and redraw what fails it.
    *Done when* every sung line has one subject in the centre and an action a stranger could follow
-   with the sound off, and no picture needs a word to be understood.
+   with the sound off, no picture needs a word to be understood, every frame is full to its foot,
+   and the clarity pass finds nothing.
 
 5. **Build the look before any shots.** In this order: the drawing kit, the layer that makes the
    style (episode 1's `inkify`), the lettering, the cast on a character sheet, the hero
@@ -81,10 +84,11 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    *Done when* every line has its shot, and every word has finished arriving just before it's
    sung (VIDEO.md, "Land a little ahead of the voice"), and holds across the cuts until its line
    is done.
-   A long film can be built in parts: fix the look, the kit and a first part yourself, then give each
-   further part to a builder subagent with a standing brief, one file of its own, and a preview that
-   renders that part alone (episode 3's `preview.js`, `tools/`, and its video file's *How it was made*).
-   Review each part at full size; the joins and the checks stay yours.
+   A long film can be built in parts: fix the look, the kit with its drawing clock, and a first part
+   yourself, then give each further part to a builder subagent with a standing brief, one file of its
+   own, and a preview that renders that part alone (episode 3's `preview.js`, `tools/`, and its video
+   file's *How it was made*). Review each part at full size; the joins and the checks stay yours.
+   What builders have taught so far is in VIDEO.md, *How the auteur works*.
 
 7. **Watch the whole film, early and often.** A 540-wide preview renders in minutes. Look at it
    three ways:
@@ -122,15 +126,19 @@ Hold the bar to the end (VIDEO.md, *How the auteur works*). There's no rush.
    - **Her notes, all of them.** Re-read every note Qing has given on this video, verbatim from
      the episode's video file, and show where the cut answers each. Nothing she praised has got
      worse, and nothing fixed has come back.
-   - **The story, from the pictures alone.** Every sung line has a picture of what it says,
-     animated, and a stranger with the sound off could follow each story. No stretch of the film
-     is only the band.
-   - **One place to look.** In every frame, one subject in the centre and the lyric just below
-     it; no other words anywhere on screen (VIDEO.md, *One place to look*).
-   - **One world.** Everything is in the film's own style; nothing is even slightly realistic,
+   - **The clarity pass, on the cut.** Ask its questions (VIDEO.md, *A story the viewer can
+     follow*) of every line and then of the whole arc, from the frames. Every sung line has a
+     picture of what it says, animated, that a stranger with the sound off could follow, and no
+     stretch of the film is only the band.
+   - **One place to look.** In every frame, one subject in the centre, the lyric just below it,
+     the frame full to its foot, and no other words anywhere on screen (VIDEO.md, *One place to
+     look*).
+   - **One style.** Everything is in the film's own style; nothing is even slightly realistic,
      and nothing has the tells of generic AI illustration. Generated art is made from the
      film's own frames and style concepts, never from earlier generations alone.
    - **Motion.** No still stretches (`video/lib/motion.py`, then watch each flagged second).
+   - **Details.** Every lettered line against the take and the sheet it was generated from, and
+     every credit against who did what (VIDEO.md, *How the auteur works*).
    - **Fresh eyes.** Give an independent model only the frames and the bar, and ask what a sharp
      viewer would pick on. Answer each point: fix it, or say why it stays. This is an audience
      check, not design by committee.
@@ -167,3 +175,7 @@ existing rules and a video that worked, and merge or replace rather than append.
 in one place:
 - VIDEO.md, if it holds for any style
 - the style's reference, if it's about drawing in that style
+- [CRAFT.md](../../../CRAFT.md), for the evidence and principles behind a whole episode, song and
+  video alike
+- the [write-episode skill](../write-episode/SKILL.md), for writing the treatment and the song
+- this skill, for the order of work

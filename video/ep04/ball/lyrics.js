@@ -12,6 +12,7 @@ import { shape, ellipse, spline, line } from './ink.js';
 
 export const LEAD = .085;      // words finish arriving this long before the voice (episode 2's measured choice)
 const POP = .12;               // how long a word takes to spring up
+const EXIT = .08, EXIT_FAST = .04, POP_FAST = .04; // a block's exit, and the quick hand-off when the singer runs straight on
 export const LYRIC_TOP = 1190; // the top of every block, in master pixels
 const BALL_CEIL = 1112;       // the ball's top never rises above this: it stays in the lyric's band, out of the picture
 // The column the lyric sits in: centred a hair left of the frame's middle, so the widest row stays
@@ -35,7 +36,7 @@ export const BUBBLE = {};
 // Lines split into two blocks where they'd otherwise need three rows: key -> word index to split at.
 export const SPLIT = {};
 // Where a two-row line should break, when the phrase wants it: key -> index of the second row's first word.
-export const BREAK = { 'Did you actually t': 3, 'Press it, stress i': 4, 'What did you try? ': 4, 'Find a clue? Congr': 3 };
+export const BREAK = { 'Did you actually t': 3, 'Press it, stress i': 4, 'What did you try? ': 4, 'Find a clue? Congr': 3, 'To test, we ask wh': 4, 'The checks are par': 5 };
 
 let BLOCKS = null, LAND = null;
 const measureCtx = () => document.createElement('canvas').getContext('2d');
@@ -113,11 +114,25 @@ export function build() {
     // a section's last line doesn't linger into the next section's first pictures
     const hold = next && next.line.section !== b.line.section ? .45 : 1.6;
     b.out = Math.max(lastS + .16, Math.min(nextIn, b.lastE + hold));
-    b.in = b.first - LEAD - POP;
+    b.exit = EXIT;
+    // where the singer runs straight into the next line, the block leaves quickly (but its last word
+    // stays fully up at least 0.12 s), in time for the next one's first word to spring up fast and
+    // still land LEAD ahead of the voice: never two blocks at once, and never a late word
+    if (next && b.out + EXIT > next.first - LEAD - POP) {
+      b.out = Math.max(Math.min(b.out, next.first - LEAD - POP_FAST - EXIT_FAST), lastS - LEAD + .12);
+      b.exit = EXIT_FAST;
+    }
   });
-  // where the singer runs one line into the next, the next block's first words wait until the last
-  // block has gone, and spring up faster to land on time
-  BLOCKS.forEach((b, i) => { b.floor = i ? BLOCKS[i - 1].out + .09 : -1e9; b.in = Math.max(b.in, Math.min(b.floor, b.first - LEAD - .04)); });
+  // the next block's words wait until the last block has gone; a first word that has to wait springs up
+  // faster and lands a little later, but still before the voice
+  BLOCKS.forEach((b, i) => {
+    b.floor = i ? BLOCKS[i - 1].out + BLOCKS[i - 1].exit : -1e9;
+    for (const w of b.words) {
+      w.land = w.s - LEAD; w.start = w.land - POP;
+      if (w.start < b.floor) { w.start = b.floor; w.land = Math.max(w.land, Math.min(w.s - .02, w.start + POP_FAST)); if (w.land < w.start + .03) w.land = w.start + .03; }
+    }
+    b.in = b.words[0].start;
+  });
   // the backing voices' echoes don't get lettering of their own (a second line to read): the lead
   // word they repeat glows rose as they sing it
   const norm = s => s.toLowerCase().replace(/[^a-z']/g, '');
@@ -132,7 +147,7 @@ export function build() {
     }
   }
   LAND = [];
-  for (const b of BLOCKS) for (const w of b.words) LAND.push({ t: w.s - LEAD, x: w.x + w.ww / 2, w, size: w.size, b });
+  for (const b of BLOCKS) for (const w of b.words) LAND.push({ t: w.land, x: w.x + w.ww / 2, w, size: w.size, b });
   return BLOCKS;
 }
 // When the singing moves to the second row, the first lifts a little, opening room for the ball.
@@ -145,15 +160,15 @@ export function blockAt(t) { for (const b of build()) if (t >= b.in && t < b.out
 export function drawLyrics(g, t, o = {}) {
   build();
   let shown = null;
-  for (const b of BLOCKS) if (t >= b.in - .02 && t < b.out + .14) { if (!shown || t < b.out) shown = b; }
+  for (const b of BLOCKS) if (t >= b.in - .02 && t < b.out + b.exit + .06) { if (!shown || t < b.out) shown = b; }
   if (typeof window !== 'undefined') window.__textTag = 'lyric';
-  for (const b of BLOCKS) if (t >= b.in - .02 && t < b.out + .09) { pool(g, b, t); drawBlock(g, b, t); }
+  for (const b of BLOCKS) if (t >= b.in - .02 && t < b.out + b.exit + .01) { pool(g, b, t); drawBlock(g, b, t); }
   if (o.ball !== false) drawBall(g, t);
   if (typeof window !== 'undefined') window.__textTag = null;
 }
 // A soft darkness behind the block, so the letters read on any picture.
 function pool(g, b, t) {
-  const a = clamp((t - b.in) / .2) * (1 - clamp((t - b.out) / .14));
+  const a = clamp((t - b.in) / .2) * (1 - clamp((t - b.out) / (b.exit + .06)));
   if (a <= 0) return;
   const top = LYRIC_TOP - 20 - lift(b, t), bottom = b.rows[b.rows.length - 1].y + b.size * .45, cx = LYRIC_X, cy = (top + bottom) / 2;
   const wmax = Math.max(...b.rows.map(r => r.w));
@@ -166,18 +181,18 @@ function pool(g, b, t) {
 }
 
 function drawBlock(g, b, t) {
-  const st = b.st, outP = clamp((t - b.out) / .08);
+  const st = b.st, outP = clamp((t - b.out) / b.exit);
   const bp = beatPos(t);
   // the speech bubble behind quoted words
   if (b.bub) bubbleBehind(g, b, t, outP);
   b.words.forEach((w, wi) => {
-    const land = w.s - LEAD, start = Math.min(land - .04, Math.max(land - POP, b.floor));
+    const land = w.land, start = w.start;
     const p = (t - start) / (land - start);
     if (p <= 0) return;
     const nextW = b.words[wi + 1];
-    const current = t >= land && t < (nextW ? nextW.s - LEAD : (w.e ?? w.s) + .1);
+    const current = t >= land && t < (nextW ? nextW.land : (w.e ?? w.s) + .1);
     const since = t - land;
-    let sc = p < 1 ? lerp(.5, 1, backOut(p, 1.35)) : 1, sy = 1, sx = 1;
+    let sc = p < 1 ? lerp(.74, 1, backOut(p, 1.35)) : 1, sy = 1, sx = 1;   // springs up, but never flashes tiny
     if (since >= 0 && since < .16) { const k = Math.sin(since / .16 * Math.PI); sy = 1 - .12 * k; sx = 1 + .05 * k; }
     const wob = Math.sin((bp + wi * .13) * Math.PI) * .016;
     const rise = (1 - clamp(p)) * w.size * .15;
@@ -204,7 +219,7 @@ function drawBlock(g, b, t) {
 // A rounded speech bubble around the quoted words, with its tail reaching toward the speaker. It grows
 // with its words, each one stretching it as it springs up, so it's never an empty slab.
 function bubbleBehind(g, b, t, outP) {
-  const ws = b.bub.words, startOf = w => { const land = w.s - LEAD; return [Math.min(land - .04, Math.max(land - POP, b.floor)), land]; };
+  const ws = b.bub.words, startOf = w => [w.start, w.land];
   let box = null;
   for (const w of ws) {
     const [st0, land] = startOf(w), p = clamp((t - st0) / (land - st0));
@@ -266,8 +281,16 @@ function drawBall(g, t) {
     // between blocks the ball waits on the last word until its block goes, then makes the carriage
     // return over the empty band: it never crosses a line still on screen, nor waits where one was
     const hopT = nxt.b !== cur.b ? Math.max(.1, Math.min(dt, nxt.t - (cur.b.out - .02))) : Math.min(dt, .44), start = nxt.t - hopT;
+    // a carriage return (to the next row, or to the next block) never travels back across the words:
+    // the ball skips off the end of the row and springs up again on the next first word
+    const wrap = nxt.b !== cur.b || nxt.w.row !== cur.w.row;
     r = lerp(R(cur), R(nxt), clamp((t - start) / hopT));
     if (t < start) { x = cur.x; y = cur.y - restBounce(t, cur); sq = landSquash(t - cur.t); }
+    else if (wrap) {
+      const u = (t - start) / hopT;
+      if (u < .5) { const v = u / .5; r = R(cur); x = cur.x + v * 120; y = cur.y - Math.sin(v * Math.PI * .6) * Math.min(28, cur.y - BALL_CEIL - r); alpha = 1 - v; }
+      else { const v = (u - .5) / .5; r = R(nxt) * lerp(.55, 1, backOut(v, 1.6)); x = nxt.x; y = nxt.y + (R(nxt) - r); alpha = clamp(v * 2.5); }
+    }
     else {
       const u = (t - start) / hopT;
       const dist = Math.hypot(nxt.x - cur.x, nxt.y - cur.y);

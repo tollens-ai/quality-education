@@ -16,7 +16,7 @@ export function place(g, canvas, cam = {}) {
   look(g, cam);
   const m = mono();
   if (m > 0) g.filter = `sepia(${m.toFixed(3)}) saturate(${(1 - m * .6).toFixed(3)})`;
-  g.drawImage(canvas, 0, 0);
+  g.drawImage(canvas, -(canvas.ox || 0), 0);
   g.filter = 'none';
 }
 // A camera that puts the world floor line `floor` at screen y `at` (FLOOR_Y), zoomed by z, centred on x.
@@ -79,6 +79,16 @@ export function speedLines(g, x, y, dir, len, n = 5, seed = 3, col = INK) {
 export function footShadow(g, x, y, w, a = .3) {
   g.save(); g.globalAlpha *= a; g.fillStyle = '#1a0c04'; g.filter = 'blur(6px)';
   g.beginPath(); g.ellipse(x, y + 4, w / 2, w * .09, 0, 0, TAU); g.fill(); g.restore();
+}
+// The lower frame falling into shade, for a close-up that would otherwise put something pale (a
+// phone's page, a sheet of paper) behind the lyric: clear above y0, `a` dark from y0 + 190 down.
+// Call it last in the shot, outside any camera transform (in the frame's own pixels); the lyric is
+// drawn over it.
+export function lowerShade(g, a = .55, y0 = 1040) {
+  g.save();
+  const gr = g.createLinearGradient(0, y0, 0, y0 + 190);
+  gr.addColorStop(0, 'rgba(20,10,5,0)'); gr.addColorStop(1, `rgba(20,10,5,${a})`);
+  g.fillStyle = gr; g.fillRect(-20, y0, W + 40, H - y0 + 20); g.restore();
 }
 
 // An iris insert, the silent film's close-up: black all round, and a circle (centre cx, cy, radius

@@ -25,14 +25,15 @@ import { W, H, TAU, clamp, lerp, now, easeOut, easeInOut, backOut, elastic } fro
 import { GOLD, RED, WHITE, C } from '../palette.js';
 import { shot } from '../shots.js';
 import { BUBBLE } from '../lyrics.js';
-import { GYM, PLUG, gymSet } from '../places-gym.js';
+import { GYM, PLUG, gymSet, lastGymCam } from '../places-gym.js';
 import { clawd, boater } from '../clawd.js';
 import { check } from '../crew.js';
 import { mabel } from '../people.js';
 import { magnifier, wifiIcon, router, socket, plug } from '../cast.js';
-import { mabelPhone, mabelLift, member, reach, barbell, barbellIcon, tick, moth, ideaBulb, footprint, phoneBack } from '../props-gym.js';
+import { mabelPhone, mabelLift, member, reach, barbell, barbellIcon, tick, moth, ideaBulb, footprint, phoneBack, gymFront, setAppLook } from '../props-gym.js';
+import { APP, appHeader, appLogo } from '../gymapp.js';
 import { heart, pops, arm } from '../rig.js';
-import { at, ramp, ease, kick, shakeAt, cam, floorCam, sparkle, footShadow, irisInsert } from '../common.js';
+import { at, ramp, ease, kick, shakeAt, cam, floorCam, sparkle, footShadow, lowerShade } from '../common.js';
 import { shape, ellipse, spline, glove, stroke, dot } from '../ink.js';
 
 const F = GYM.floor, PX = GYM.phone, MX = GYM.mabel, PS = .72, MS = .9, CS = .78;
@@ -93,26 +94,30 @@ export const ruleCard = (g, x, y, w, h, s) => {
   tick(g, x + w * .28, y + h * .1, 9 * s);
   wifiIcon(g, x + w * .3, y - h * .16, 8 * s, 0);
 };
-// The iris close-up on Mabel's log: her phone, very close, its screen filling the circle; the fan
-// (net on or off) top right, the reload arrow top left. o.poke: 0..1 Press's finger reaching in
-// from the left to the reload arrow. o.after(g, sx, sy, s): more to draw over it.
-export const IS = 2.0, ITOP = 132;               // the insert's phone scale, and its top
+// A gym shot: the room and its cast, then the near edge of the mat in front of the camera (the
+// still-life that fills the band under the lyric).
+export const gshot = (a, b, fn, o) => shot(a, b, (g, t) => { g.save(); fn(g, t); g.restore(); gymFront(g, lastGymCam(), t); }, o);
+// The close-up on Mabel's log, full frame: her phone very close, its page in the upper middle (the
+// fan, net on or off, top right; the reload arrow top left), the room behind it out of focus at the
+// same scale, and the phone going on down into shadow under the lyric. o.poke: 0..1 Press's finger
+// reaching in from the left to the reload arrow. o.after(g, sx, sy, s): more to draw over it, in
+// screen coordinates.
+export const IS = 2.0, ITOP = 110;               // the close-up's phone scale on screen, and its top: its white page ends above y 1140, so only its pink chin and the mat sit behind the lyric
 export function logInsert(g, t, a, L, o = {}) {
-  const open = o.open ?? easeOut(ramp(t, a, .12));
-  irisInsert(g, W / 2, 690, 440, (g2) => {
-    g2.fillStyle = C('#3a2216'); g2.fillRect(0, 0, W, H);
-    const top = o.top ?? ITOP, s = IS;
-    mabelPhone(g2, W / 2, top + 560 * s, s, L, { legs: false, lean: 0, dance: 0, eyes: o.eyes || {} });
-    const sx = W / 2 - 150 * s + 22 * s, sy = top + 72 * s;
-    if (o.poke > 0) {
-      const ix = sx + 36 * s, iy = sy + 33 * s, p = easeOut(o.poke);
-      arm(g2, 40, iy + 70, lerp(60, ix - 30, p), lerp(iy + 60, iy + 8, p), { w: 22, gs: 40, pose: 'point', ang: -.25, seed: 341 });
-    }
-    if (o.after) o.after(g2, sx, sy, s);
-  }, open, { rim: '#1d1612' });
+  const s = IS, top = o.top ?? ITOP, z = s / PS, feet = top + 600 * s;
+  g.save(); gymSet(g, { x: PX, y: F - (feet - H / 2) / z, z }, t, { soft: 4 }); g.restore();
+  mabelPhone(g, W / 2, feet, s, L, { lean: 0, dance: 0, eyes: o.eyes || {} });
+  const sx = W / 2 - 150 * s + 22 * s, sy = top + 72 * s;
+  if (o.after) o.after(g, sx, sy, s);
+  if (o.poke > 0) {
+    const ix = sx + 36 * s, iy = sy + 33 * s, p = easeOut(o.poke);
+    arm(g, -30, iy + 80, lerp(20, ix - 30, p), lerp(iy + 70, iy + 8, p), { w: 24, gs: 42, pose: 'point', ang: -.25, seed: 341 });
+  }
+  lowerShade(g, .5, 1110);
 }
 
 export function register() {
+  setAppLook({ app: APP, header: appHeader, logo: appLogo });
   const L1 = 'The gym? No net.', L2 = 'The app says', L3 = 'Reload the screen', L4 = 'Connect once more', L5 = 'We chase the clue', L6 = 'Connect, then save', L7 = 'We drop the net', L8 = 'A new check flags';
   Object.assign(T, {
     gym: at(L1, 'gym'), no: at(L1, 'No'), net: at(L1, 'net'), we: at(L1, 'We'), log: at(L1, 'log'), set: at(L1, 'set'),
@@ -137,7 +142,7 @@ export function register() {
 
   // ---- 1. The gym? (chorus 1's iris opens on Mabel striking poses by her phone)
   const s0 = 58.92, s1 = 59.9;
-  shot(s0, s1, (g, t) => {
+  gshot(s0, s1, (g, t) => {
     const d = now();
     gymSet(g, cam([[s0, fc(1335, .98)], [s1, fc(1325, 1.05)]], t), t);
     footShadow(g, PX, F, 200); footShadow(g, MX, F, 330);
@@ -155,7 +160,7 @@ export function register() {
   // ---- 2. gym? No net. (the router on the wall: dead, antennas wilted, its plug on the floor; on
   //         "No" it drops crooked on its one good screw; on "net" a last puff of smoke)
   const s2 = T.we - .2;
-  shot(s1, s2, (g, t) => {
+  gshot(s1, s2, (g, t) => {
     const d = now();
     const c = cam([[s1, fc(522, 1.38)], [s2, fc(514, 1.62)]], t);
     c.x += shakeAt(d, T.net, 5, .2);
@@ -177,7 +182,7 @@ export function register() {
 
   // ---- 3. We log (Mabel heaves the barbell overhead, beside her phone)
   const s3 = T.set - .06;
-  shot(s2, s3, (g, t) => {
+  gshot(s2, s3, (g, t) => {
     const d = now();
     gymSet(g, two(t, s2, s3), t);
     footShadow(g, PX, F, 200); footShadow(g, MX, F, 360);
@@ -191,12 +196,12 @@ export function register() {
   const s4 = T.app - .14;
   shot(s3, s4, (g, t) => {
     const d = now();
-    logInsert(g, t, s3, logAt(d), { open: easeOut(ramp(t, s3, .1)), after: (g2, sx, sy, s) => { if (d > T.aPop) sparkle(g2, W / 2, sy + 84 * s + 2 * 66 * s + 27 * s, 230, d, 6, GOLD, 43); } });
+    logInsert(g, t, s3, logAt(d), { eyes: { expr: d > T.aPop + .15 ? 'happy' : 'open', ly: .3 }, after: (g2, sx, sy, s) => { if (d > T.aPop) sparkle(g2, W / 2, sy + 84 * s + 2 * 66 * s + 27 * s, 230, d, 6, GOLD, 43); } });
   }, { id: 'v2-set' });
 
   // ---- 5. The app says "Saved!" (close on the phone: it puffs up; a big tick; a wink)
   const s5 = T.what - .2;
-  shot(s4, s5, (g, t) => {
+  gshot(s4, s5, (g, t) => {
     const d = now();
     gymSet(g, CU(t, s4, s5), t);
     footShadow(g, PX, F, 220);
@@ -209,7 +214,7 @@ export function register() {
 
   // ---- 6. —but what's in store? (in the stop: Guess opens the phone's back; the drawer is empty)
   const s6 = T.reload - .06, GX = PX + 215;
-  shot(s5, s6, (g, t) => {
+  gshot(s5, s6, (g, t) => {
     const d = now();
     gymSet(g, CU(t, s5, s6, 12), t);
     footShadow(g, PX, F, 220); footShadow(g, GX, F, 150);
@@ -229,7 +234,7 @@ export function register() {
 
   // ---- 7. Reload the screen; (Press jabs the arrow on the stab; the screen spins)
   const s7 = T.noSet - .1;
-  shot(s6, s7, (g, t) => {
+  gshot(s6, s7, (g, t) => {
     const d = now();
     gymSet(g, CU(t, s6, s7), t);
     footShadow(g, PX, F, 220);
@@ -241,12 +246,12 @@ export function register() {
   const s8 = T.is - .08;
   shot(s7, s8, (g, t) => {
     const d = now();
-    logInsert(g, t, s7, logAt(d), { after: (g2, sx, sy, s) => { const y = sy + 84 * s + 2 * 66 * s, k = kick(d, T.noSet, .3); if (k > .05) { g2.save(); g2.globalAlpha *= k; g2.strokeStyle = C('#c0566e'); g2.lineWidth = 7; g2.strokeRect(sx + 9 * s, y - 6 * s, 256 * s - 18 * s, 66 * s); g2.restore(); } } });
+    logInsert(g, t, s7, logAt(d), { eyes: { expr: 'worried', ly: .4 }, after: (g2, sx, sy, s) => { const y = sy + 84 * s + 2 * 66 * s, k = kick(d, T.noSet, .3); if (k > .05) { g2.save(); g2.globalAlpha *= k; g2.strokeStyle = C('#c0566e'); g2.lineWidth = 7; g2.strokeRect(sx + 9 * s, y - 6 * s, 256 * s - 18 * s, 66 * s); g2.restore(); } } });
   }, { id: 'v2-noset' });
 
   // ---- 9. is seen. (Mabel's lip trembles; her eyes fill; a tear)
   const s9 = T.connect - .04;
-  shot(s8, s9, (g, t) => {
+  gshot(s8, s9, (g, t) => {
     const d = now();
     gymSet(g, cam([[s8, fc(MX, 1.34)], [s9, fc(MX, 1.46)]], t), t);
     barbell(g, MX + 40, F - 120, .92, { r: .92 });
@@ -259,7 +264,7 @@ export function register() {
 
   // ---- 10. Connect once (Stress jams the plug in; the router springs up; waves)
   const s10 = T.more - .06, SX = 745;
-  shot(s9, s10, (g, t) => {
+  gshot(s9, s10, (g, t) => {
     const d = now();
     const j = ease(d, T.plug1 - .1, .1), done = d >= T.plug1;
     const hold = [lerp(735, PLUG.in[0], j), lerp(1215, PLUG.in[1], j)];
@@ -271,7 +276,7 @@ export function register() {
 
   // ---- 11. more: still (the fan lit now; Press reloads)
   const s11 = T.still + .1;
-  shot(s10, s11, (g, t) => {
+  gshot(s10, s11, (g, t) => {
     const d = now();
     gymSet(g, CU(t, s10, s11), t);
     footShadow(g, PX, F, 220);
@@ -283,12 +288,12 @@ export function register() {
   const s12 = T.explore - .02;
   shot(s11, s12, (g, t) => {
     const d = now();
-    logInsert(g, t, s11, logAt(d), { open: 1, poke: 1 - ramp(d, T.r2 + .12, .15) });
+    logInsert(g, t, s11, logAt(d), { poke: 1 - ramp(d, T.r2 + .12, .15), eyes: { expr: d > T.gone - .05 ? 'worried' : 'open', ly: .3 } });
   }, { id: 'v2-gone' });
 
   // ---- 13. Explore! (in the stop: pith helmets clap on, Guess points onward)
   const s13 = T.chase - .2, X4 = { guess: MX - 258, press: MX - 95, stress: MX + 72, clawd: MX + 236 };
-  shot(s12, s13, (g, t) => {
+  gshot(s12, s13, (g, t) => {
     const d = now();
     gymSet(g, cam([[s12, fc(MX - 18, 1.24)], [s13, fc(MX - 20, 1.27)]], t), t);
     for (const k in X4) footShadow(g, X4[k], F, k === 'stress' ? 230 : 170);
@@ -305,7 +310,7 @@ export function register() {
   //         follows them bent double with his glass, Clawd tiptoeing after him, glass down too)
   const s13b = at(L5, 'the') - .1, s14 = T.try - .06;
   T.ghostOut = s13;
-  shot(s13, s13b, (g, t) => {
+  gshot(s13, s13b, (g, t) => {
     const d = now();
     gymSet(g, cam([[s13, fc(PX - 150, 1.55)], [s13b, fc(PX - 190, 1.6)]], t), t);
     footShadow(g, PX, F, 200);
@@ -317,7 +322,7 @@ export function register() {
   }, { id: 'v2-trail' });
   // ---- 15. the clue; (the trail ends at the plug: Guess's glass finds it, his antenna springs to
   //         "!", and Clawd bumps into his back)
-  shot(s13b, s14, (g, t) => {
+  gshot(s13b, s14, (g, t) => {
     const d = now();
     gymSet(g, cam([[s13b, fc(640, 1.45)], [s14, fc(636, 1.5)]], t), t, { net: 1, plug: 'in' });
     for (let i = 0; i < 6; i++) footprint(g, 930 - i * 50, F - 18 + (i % 2 ? 12 : 0), .95, -1, i % 2 ? 1 : -1, 1);
@@ -331,7 +336,7 @@ export function register() {
 
   // ---- 16. try something new: (Guess pulls the plug and holds it up; a bulb lights over his head)
   const s15 = T.connect2 - .1, GX2 = 710;
-  shot(s14, s15, (g, t) => {
+  gshot(s14, s15, (g, t) => {
     const d = now();
     const pulled = d >= T.pull2, y2 = ease(d, T.pull2, .16);
     const top = [GX2 - 170, F - 330];
@@ -346,7 +351,7 @@ export function register() {
 
   // ---- 16. Connect, then (Guess plugs it in first: the router springs up; he points to Mabel)
   const s16 = T.save2 - .14;
-  shot(s15, s16, (g, t) => {
+  gshot(s15, s16, (g, t) => {
     const d = now();
     const j = ease(d, T.plug2 - .1, .1), done = d >= T.plug2;
     const hold = [lerp(GX2 - 162, PLUG.in[0], j), lerp(F - 318, PLUG.in[1], j)];
@@ -358,7 +363,7 @@ export function register() {
 
   // ---- 17. save; the sets (Mabel lifts; the row pops in; Press reloads)
   const PRX = PX - 172, s17 = T.r3 + .06;
-  shot(s16, s17, (g, t) => {
+  gshot(s16, s17, (g, t) => {
     const d = now();
     gymSet(g, two(t, s16, s17), t);
     footShadow(g, PX, F, 200); footShadow(g, MX, F, 360);
@@ -371,10 +376,10 @@ export function register() {
   const s18 = T.stay + .02;
   shot(s17, s18, (g, t) => {
     const d = now();
-    logInsert(g, t, s17, logAt(d), { open: 1, poke: 1 - ramp(d, T.r3 + .12, .15), eyes: { expr: d > T.all ? 'happy' : 'open' } });
+    logInsert(g, t, s17, logAt(d), { poke: 1 - ramp(d, T.r3 + .12, .15), eyes: { expr: d > T.all ? 'happy' : 'open' } });
   }, { id: 'v2-allstay' });
   const s19 = T.drop - .1;
-  shot(s18, s19, (g, t) => {
+  gshot(s18, s19, (g, t) => {
     const d = now();
     gymSet(g, two(t, s18, s19), t);
     footShadow(g, PX, F, 200); footShadow(g, MX, F, 360); footShadow(g, PRX, F, 120);
@@ -385,7 +390,7 @@ export function register() {
 
   // ---- 19. We drop the net, (Stress yanks the plug; the router wilts; a knowing look)
   const s20 = T.save3 - .08;
-  shot(s19, s20, (g, t) => {
+  gshot(s19, s20, (g, t) => {
     const d = now();
     const out = d >= T.drop + .02, y2 = ease(d, T.drop, .14);
     const top = [SX - 40, F - 330];
@@ -400,7 +405,7 @@ export function register() {
 
   // ---- 20. then save a set; (Mabel lifts; the row pops in, ticked: "Saved!" again)
   const s21 = T.r4 + .02;
-  shot(s20, s21, (g, t) => {
+  gshot(s20, s21, (g, t) => {
     const d = now();
     gymSet(g, two(t, s20, s21), t);
     footShadow(g, PX, F, 200); footShadow(g, MX, F, 360);
@@ -412,12 +417,12 @@ export function register() {
   const s22 = T.check - .06;
   shot(s21, s22, (g, t) => {
     const d = now();
-    logInsert(g, t, s21, logAt(d), { open: 1, poke: 1 - ramp(d, T.r4 + .1, .15), eyes: { expr: d > T.r4 + RL[3] * .6 ? 'worried' : 'open' } });
+    logInsert(g, t, s21, logAt(d), { poke: 1 - ramp(d, T.r4 + .1, .15), eyes: { expr: d > T.r4 + RL[3] * .6 ? 'worried' : 'open' } });
   }, { id: 'v2-gone2' });
 
   // ---- 22. check flags what went (Clawd sets down a brand-new check and winds it: its red flag)
   const s23 = T.away - .1, KX = PX + 205, CX = PX + 410;
-  shot(s22, s23, (g, t) => {
+  gshot(s22, s23, (g, t) => {
     const d = now();
     gymSet(g, cam([[s22, fc(PX + 228, 1.4)], [s23, fc(PX + 232, 1.47)]], t), t);
     footShadow(g, PX, F, 200); footShadow(g, KX, F, 150); footShadow(g, CX, F, 240);
@@ -431,7 +436,7 @@ export function register() {
   }, { id: 'v2-check' });
 
   // ---- 23. away. (Mabel scoops up the check and hugs it, red flag and all)
-  shot(s23, end, (g, t) => {
+  gshot(s23, end, (g, t) => {
     const d = now();
     gymSet(g, cam([[s23, fc(MX - 20, 1.3)], [end, fc(MX - 20, 1.4)]], t), t);
     footShadow(g, MX, F, 330);

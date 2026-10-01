@@ -118,7 +118,7 @@ oracles; let it follow clues; ask for evidence, doubts and limits.
   were drawn through Codex by OpenAI’s image generation, from the film’s own frames, then cut
   out and animated as paper. Episode 4’s cast, scenery and movement are original JavaScript
   drawings, with type from three openly licensed fonts.
-- **The songs** have lyrics by Qing with Claude, and episode 4's by Qing with gpt-6.1-sol. The music and the singing come from AI music
+- **The songs** have lyrics by Qing with Claude, and episode 4's by gpt-6.1-sol, with Qing's review and feedback. The music and the singing come from AI music
   generators, in takes Qing chose: MiniMax for episode 1, Suno for episodes 2 to 4. The repo also
   has a band and a singing voice made entirely in code, which episode 1 tried before switching to a
   generator.

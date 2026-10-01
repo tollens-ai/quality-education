@@ -1,10 +1,12 @@
-// Verse 1, in Clawd's workshop: how his "tests" are made.
+// Verse 1, in Clawd's workshop: how his "tests" are made, and the three mistakes in making them.
+// Every phone runs Mabel's gym app (gymapp.js), the one app the whole film is about.
 //  "My "tests"? I paste app code in haste:" — he peels a copy of the code off the phone's screen
 //     (a beetle sits in one row of it) and slaps it on a blank wind-up check with a paste brush.
 //  "A perfect duplication!" — close: the screen and the check's card, row for row the same, and the
 //     two beetles wave in step.
 import { W, H, TAU, clamp, lerp, now, when, wordsOf, hash, beatPos, easeOut, easeInOut, backOut, smooth } from '../kit.js';
-import { INK, CREAM, GOLD, GOLD_SH, GREEN, RED, WHITE, C } from '../palette.js';
+import { INK, CREAM, GOLD, GOLD_SH, GREEN, RED, WHITE, ROSE, C } from '../palette.js';
+import { gymPhone, appHeader, codeScreen, sumScreen, chatScreen, HEADER, APP } from '../gymapp.js';
 import { shot } from '../shots.js';
 import { workshop, WS } from '../places.js';
 import { clawd } from '../clawd.js';
@@ -17,20 +19,39 @@ import { comma } from '../cast.js';
 import { heart, star, qmark } from '../rig.js';
 import { sweat, pops } from '../rig.js';
 import { confetti, burst } from '../common.js';
-import { at, ramp, pop, ease, kick, shakeAt, place, cam, floorCam, sparkle, speedLines, footShadow, irisInsert } from '../common.js';
+import { at, ramp, pop, ease, kick, shakeAt, place, cam, floorCam, sparkle, speedLines, footShadow, lowerShade } from '../common.js';
 import { rng } from '../kit.js';
 import { rrect } from '../ink.js';
 import { spline } from '../ink.js';
-import { stroke, shape, ellipse, glove, dot } from '../ink.js';
+import { stroke, shape, ellipse, glove, dot, hose } from '../ink.js';
 import { magnifier } from '../cast.js';
+import { arm } from '../rig.js';
 
 const F = WS.floor;
 const fc = (x, z) => floorCam(x, z, F);
-// The app's screen: its code at the top, the rest blank.
-export const appCode = (t, o = {}) => (g, sx, sy, sw, sh, s) => {
-  g.fillStyle = '#efe9da'; g.fillRect(sx, sy, sw, 40 * s);
-  code(g, sx + sw * .1, sy + 70 * s, sw * .8, { t, bugAt: o.bug === false ? -1 : 2, look: o.look, bugScale: o.bugScale });
-};
+// The app's code page (chorus 1 shows it too).
+export const appCode = (t, o = {}) => codeScreen(t, o);
+// The app's chat as a picture: a white print (or the inside of a gilt frame) of the app's page,
+// header and all, with Pat's message, comma or no comma. (x, y) is the picture's centre.
+function chatPic(g, x, y, w, h, o = {}) {
+  const s = w / 300;
+  g.save(); g.translate(x, y); g.rotate(o.ang ?? 0);
+  if (o.print) shape(g, rrect(-w / 2 - 14 * s, -h / 2 - 14 * s, w + 28 * s, h + 42 * s, 6 * s), { fill: '#fdfaf0', form: false, w: 4 * s, seed: 2060 });
+  g.fillStyle = C(APP.paper); g.fillRect(-w / 2, -h / 2, w, h);
+  appHeader(g, -w / 2, -h / 2, w, s * .8);
+  const r = greeting(g, -w / 2 + w * .04, -h / 2 + (HEADER * .8 + 22) * s, w * .92, s * .9, { comma: o.comma, gap: o.gap });
+  g.restore();
+  // where its comma sits (or would), in the caller's coordinates
+  const a = o.ang ?? 0, [lx, ly] = r.comma;
+  return { comma: [x + Math.cos(a) * lx - Math.sin(a) * ly, y + Math.sin(a) * lx + Math.cos(a) * ly] };
+}
+// A ring drawn round something by hand, as a teacher circles a mistake; p (0..1) draws it.
+function ringMark(g, x, y, r, col, p) {
+  if (p <= 0) return;
+  const P = [], n = 44, a0 = -2.3, span = TAU * 1.1 * clamp(p);
+  for (let i = 0; i <= n; i++) { const a = a0 + span * i / n, rr = r * (1 + .07 * Math.sin(a * 3 + 1)); P.push([x + Math.cos(a) * rr * 1.2, y + Math.sin(a) * rr]); }
+  stroke(g, P, { w: 7, seed: 2380 + r, color: col, taper: false });
+}
 
 export function register() {
   const A = 'My "tests"? I paste', B = 'A perfect duplication';
@@ -49,7 +70,7 @@ export function register() {
     const peeled = t > tApp, flying = t > tCode && t < tIn, stuck = t >= tIn;
     // the phone: it flinches as the copy is pulled off its face
     const ouch = kick(t, tApp, .3);
-    phone(g, PX, F, .74, { t, wifi: 1, lean: -ouch * .08, eyes: { expr: ouch > .4 ? 'shut' : 'open', lx: t > tPaste - .3 ? .7 : .2 }, screen: appCode(t) });
+    gymPhone(g, PX, F, .74, codeScreen(t), { t, lean: -ouch * .08, eyes: { expr: ouch > .4 ? 'shut' : 'open', lx: t > tPaste - .3 ? .7 : .2 } });
     // the check: blank, then jolted as the copy lands and is slapped flat
     const jolt = kick(t, tIn, .2) + kick(t, tHaste, .2);
     check(g, KX, F, 1.6, { t, flag: 'down', squash: jolt, card: stuck ? (g, x, y, w, h, s) => code(g, x - w * .42, y - h * .36, w * .84, { t, bugScale: .9 }) : null, look: t < tIn ? -.6 : 0 });
@@ -83,7 +104,7 @@ export function register() {
     footShadow(g, 590, F, 230); footShadow(g, 860, F, 230);
     const wave = Math.max(0, Math.sin((t - tDup) * 12)) * (t > tDup ? 1 : 0);
     const twin = ramp(t, tPerf, .25), kickB = t > tDup ? Math.max(0, Math.sin((t - tDup) * 14)) : 0;
-    phone(g, 590, F, .7, { t, wifi: 1, eyes: { expr: t > tDup + .4 ? 'happy' : 'open', lx: twin * .9 }, lean: twin * .05, screen: (g, sx, sy, sw, sh, s) => { g.fillStyle = '#efe9da'; g.fillRect(sx, sy, sw, 40 * s); code(g, sx + sw * .1, sy + 70 * s, sw * .8, { t, look: .8, kick: kickB }); } });
+    gymPhone(g, 590, F, .7, codeScreen(t, { look: .8, kick: kickB }), { t, eyes: { expr: t > tDup + .4 ? 'happy' : 'open', lx: twin * .9 }, lean: twin * .05 });
     check(g, 868, F, 2.15, { t, flag: 'down', look: -twin, card: (g, x, y, w, h, s) => code(g, x - w * .42, y - h * .36, w * .84, { t, bugScale: .9, look: -.8, kick: kickB }) });
     // the two copies turn to look at each other, and the beetles wave in step
     if (t > tDup) sparkle(g, 722, F - 300, 300, t, 8, GOLD, 81);
@@ -102,7 +123,7 @@ export function register() {
     // both work out 2+2: 4, until each one's beetle kicks it over to 5, at the same moment
     const flip = ramp(t, tKick + .05, .14), kickB = kick(t, tKick, .18);
     const sum = '2+2', ans = t > tSums - .12 ? '4' : '';
-    phone(g, 590, F, .7, { t, wifi: 1, eyes: { expr: 'open', lx: t > tAgree ? .9 : .2, ly: .4 }, screen: calcScreen(t, { sum, ans, ans2: '5', flip, kick: kickB }) });
+    gymPhone(g, 590, F, .7, sumScreen(t, { sum, ans, ans2: '5', flip, kick: kickB }), { t, eyes: { expr: 'open', lx: t > tAgree ? .9 : .2, ly: .4 } });
     const up = pop(t, tAgree, .25);
     check(g, 868, F, 2.15, { t, flag: clamp(up), flagCol: GREEN, wave: t > tAgree + .3, look: t < tAgree ? -.4 : -.8, squash: kick(t, tAgree, .2) * .3, card: (g, x, y, w, h, s) => {
       digits(g, sum, x - w * .14, y - h * .14, 20 * s, { col: INK, ow: 0 });
@@ -116,8 +137,11 @@ export function register() {
   const D4 = 'A shared miscalculation', tA4 = at(D4, 'A'), tShared = at(D4, 'shared'), tMis = at(D4, 'miscalculation');
   const t4 = tA4 - .06;
   shot(t3, t4, (g, T) => {
-    const c = cam([[t3, fc(745, 1.9)], [t4, fc(745, 2.05)]], T), t = now();
+    const c = cam([[t3, fc(800, 1.6)], [t4, fc(795, 1.7)]], T), t = now();
     g.save(); place(g, workshop(), c);
+    // the check behind him, its green flag still waving: the agreement he's so pleased with
+    footShadow(g, 1000, F, 190);
+    check(g, 1000, F, 1.5, { t, flag: 1, flagCol: GREEN, wave: true, look: -.6 });
     footShadow(g, 745, F, 330);
     const rub = t < tSweet + .2 ? Math.sin((t - t3) * 26) : 0, blow = ramp(t, tSweet + .2, .2);
     clawd(g, 745, F, 1, { t, dance: .4, L: 'hips', R: blow > 0 ? { to: [-.05, -.42], pose: 'open', ang: -Math.PI / 2 - .4 } : { to: [-.12 + rub * .05, .05], pose: 'fist' }, eyes: { expr: 'smug', lx: -.2 }, sing: true, blush: .7, lean: -.06, smile: 1.4 });
@@ -130,23 +154,47 @@ export function register() {
   const E6 = 'With screenshots', tWith = at(E6, 'With'), tShots = at(E6, 'screenshots'), tCommas = at(E6, 'commas'), tCause = at(E6, 'cause'), tSuch = at(E6, 'such'), tDramas = at(E6, 'dramas');
   const t5 = tWith - .1;
   shot(t4, t5, (g, T) => {
-    const t = now(), open = easeOut(ramp(T, t4, .2)), five = (x, y, k) => {
-      g.fillStyle = C('#fbf6e8'); g.beginPath(); g.roundRect(x - 150, y - 170, 300, 340, 26); g.fill();
-      g.strokeStyle = C(k ? '#7f9795' : '#cfc3a8'); g.lineWidth = 14; g.stroke();
-      digits(g, '5', x, y, 230, { col: INK, ow: 0 });
+    const t = now();
+    // full frame, close on the bench top under the lamp
+    const bgr = g.createRadialGradient(W / 2, 640, 80, W / 2, 760, 1250);
+    bgr.addColorStop(0, C('#c8925c')); bgr.addColorStop(.5, C('#8a5630')); bgr.addColorStop(1, C('#24140a'));
+    g.fillStyle = bgr; g.fillRect(0, 0, W, H);
+    for (let i = 0; i < 16; i++) stroke(g, [[-20, 200 + i * 110 + Math.sin(i) * 14], [W + 20, 230 + i * 110 + Math.cos(i) * 14]], { w: 2, seed: 2310 + i, color: '#6a3c1e' });
+    const y = 690, lx = W / 2 - 200, rx = W / 2 + 200;
+    const five = (x, k) => {
+      shape(g, rrect(x - 175, y - 205, 350, 410, 28), { fill: '#fbf6e8', form: 'block', k: .4, w: 8, seed: 2320 + k });
+      g.save(); g.strokeStyle = C(k ? '#7f9795' : APP.pink); g.lineWidth = 15; g.beginPath(); g.roundRect(x - 158, y - 188, 316, 376, 20); g.stroke(); g.restore();
+      digits(g, '5', x, y + 20, 280, { col: INK, ow: 0 });
     };
-    irisInsert(g, W / 2, 690, 440, (g) => {
-      g.fillStyle = C('#3a2414'); g.fillRect(0, 0, W, H);
-      const lx = W / 2 - 170, rx = W / 2 + 170, y = 700;
-      five(lx, y, 0); five(rx, y, 1);
-      // the beetles: one on each five, reaching across for a high five
-      const hi = ramp(t, tShared - .05, .25), slap = kick(t, tShared + .2, .2);
-      bug(g, lerp(lx + 90, W / 2 - 50, hi), y - 120, 1.7, { t, dir: 1, look: 1, kick: slap });
-      bug(g, lerp(rx - 90, W / 2 + 50, hi), y - 120, 1.7, { t, dir: -1, look: -1, kick: slap });
-      if (t > tShared + .15 && t < tShared + .6) pops(g, W / 2, y - 140, 40, 6, { a0: -Math.PI, span: Math.PI, w: 6, col: GOLD });
-      // struck out, both: the same mistake
-      for (const [x, d] of [[lx, 0], [rx, .12]]) { const u = ramp(t, tMis + d, .2); if (u > 0) { g.save(); g.strokeStyle = C(RED); g.lineWidth = 22; g.lineCap = 'round'; g.beginPath(); g.moveTo(x - 110, y - 120); g.lineTo(x - 110 + 220 * u, y - 120 + 240 * u); g.stroke(); if (u >= 1) { const v = ramp(t, tMis + d + .12, .18); g.beginPath(); g.moveTo(x + 110, y - 120); g.lineTo(x + 110 - 220 * v, y - 120 + 240 * v); g.stroke(); } g.restore(); } }
-    }, open);
+    five(lx, 0); five(rx, 1);
+    // the beetles: one on each five, reaching across for a high five
+    const hi = ramp(t, tShared - .05, .25), slap = kick(t, tShared + .2, .2);
+    bug(g, lerp(lx + 100, W / 2 - 55, hi), y - 140, 2.0, { t, dir: 1, look: 1, kick: slap });
+    bug(g, lerp(rx - 100, W / 2 + 55, hi), y - 140, 2.0, { t, dir: -1, look: -1, kick: slap });
+    if (t > tShared + .15 && t < tShared + .6) pops(g, W / 2, y - 170, 46, 6, { a0: -Math.PI, span: Math.PI, w: 7, col: GOLD });
+    // the crew's first appearance: Guess leans in at the edge, his antenna springs to "!", and his rose
+    // arm stretches across with a red pencil to strike out both fives: the same mistake twice. He's
+    // seen what Clawd can't; the crew arrive in the chorus
+    const strokes = d => [ramp(t, tMis + d, .18), ramp(t, tMis + d + .14, .18)];
+    for (const [x, d] of [[lx, 0], [rx, .32]]) { const [u, v] = strokes(d); g.save(); g.strokeStyle = C(RED); g.lineWidth = 24; g.lineCap = 'round'; if (u > 0) { g.beginPath(); g.moveTo(x - 130, y - 150); g.lineTo(x - 130 + 260 * u, y - 150 + 300 * u); g.stroke(); } if (v > 0) { g.beginPath(); g.moveTo(x + 130, y - 150); g.lineTo(x + 130 - 260 * v, y - 150 + 300 * v); g.stroke(); } g.restore(); }
+    const come = easeOut(ramp(t, tMis - .55, .35)), leave = easeInOut(ramp(t, tMis + .8, .35));
+    if (come > 0 && leave < 1) {
+      const gx = lerp(1330, 1040, come) + leave * 320, s0x = gx - 110, s0y = 787;
+      const second = t >= tMis + .32, x = second ? rx : lx, [u, v] = strokes(second ? .32 : 0);
+      let px = x - 130 + 260 * u, py = y - 150 + 300 * u;
+      if (u >= 1) { px = x + 130 - 260 * v; py = y - 150 + 300 * v; }
+      // the glove holds the pencil with its point at (px, py) while it works; it reaches out and back
+      const reach = clamp(ramp(t, tMis - .25, .2)) * (1 - ramp(t, tMis + .7, .2));
+      const hx = lerp(s0x - 60, px + 70, reach), hy = lerp(s0y + 90, py + 84, reach);
+      guess(g, gx, 1114, 1.5, { t, dance: 0, bang: t > tMis - .2 ? 1 : 0, brow: 1.4, eyes: { lx: -.9, ly: -.25, expr: t > tMis + .62 ? 'happy' : 'open' },
+        L: { to: [-.3, .2], pose: 'open', behind: true }, R: 'hips' });
+      // his reaching arm, drawn here so it can stretch the rubber-hose way: a gentle curve to the near
+      // five, and a low swing under the near card (above the lyric) up to the far one, so it never
+      // slashes across a card
+      const bend = lerp(.2, -.85, clamp((960 - hx) / 220));
+      arm(g, s0x, s0y, hx, hy, { w: 18, gs: 36, pose: 'grip', bend, flip: true, seed: 2334 });
+      stroke(g, [[hx - 18, hy - 26], [hx - 70, hy - 84]], { w: 15, seed: 2332, color: '#c8402e', taper: false });
+    }
   }, { id: 'v1-aside' });
 
   // ---- 6. with screenshots: Clawd stooped under the black cloth of a bellows camera, aimed at the
@@ -156,7 +204,7 @@ export function register() {
     const c = cam([[t5, fc(720, 1.2)], [t6, fc(730, 1.25)]], T), t = now();
     g.save(); place(g, workshop(), c);
     footShadow(g, 960, F, 230); footShadow(g, 620, F, 300); footShadow(g, 470, F, 260);
-    phone(g, 960, F, .7, { t, wifi: 1, eyes: { expr: t > tShots && t < tShots + .5 ? 'shut' : 'open', lx: -.6 }, screen: greetScreen(t) });
+    gymPhone(g, 960, F, .7, chatScreen(t, { comma: true }), { t, eyes: { expr: t > tShots && t < tShots + .5 ? 'shut' : 'open', lx: -.6 } });
     const lift = 1 - ramp(t, tShots + .45, .3);
     // Clawd behind the camera, bent to the viewfinder: legs and a hand show, the rest is under the cloth
     clawd(g, 470, F, .84, { t, dance: .15, lean: .22, L: { to: [-.1, -1.2 - lift * .05], pose: 'grip' }, R: 'hang', hat: 'none', eyes: { expr: 'shut' } });
@@ -171,7 +219,7 @@ export function register() {
     const ty = F - 620 - lift * 10;
     shape(g, rrect(300, ty, 140, 22, 6), { fill: '#b8b8b0', w: 4, seed: 2511, form: 'block' });
     if (t < tShots) shape(g, ellipse(370, ty - 8, 40, 10), { fill: '#e8e0c8', w: 3, seed: 2513, form: false });
-    if (t > tShots + .1) { const u = easeOut(ramp(t, tShots + .1, .4)); photo(g, lens[0] + 40, lens[1] + 50 + u * 70, 130, .1 + u * .15, 1, { comma: false }); }
+    if (t > tShots + .1) { const u = easeOut(ramp(t, tShots + .1, .4)); chatPic(g, lens[0] + 50, lens[1] + 60 + u * 70, 140, 160, { print: true, comma: false, ang: .1 + u * .15 }); }
     g.restore();
     const sxF = 370 * c.z + (W / 2 - c.x * c.z), syF = (ty - 10) * c.z + (H / 2 - c.y * c.z);
     flash(g, sxF, syF, (t - tShots) / .6, W, H);
@@ -184,33 +232,33 @@ export function register() {
   // where the comma sits on the phone's screen, found once by drawing the phone into a scratch canvas
   let COMMA_AT = null;
   const commaAt = () => {
-    if (!COMMA_AT) phone(document.createElement('canvas').getContext('2d'), 960, F, .7, { t: 0, dance: 0, wifi: 1, screen: (g, sx, sy, sw, sh, s) => { COMMA_AT = greeting(g, sx + sw * .04, sy + 80 * s, sw * .92, s, { comma: false }).comma; } });
+    if (!COMMA_AT) gymPhone(document.createElement('canvas').getContext('2d'), 960, F, .7, chatScreen(0, { comma: false, at: p => { COMMA_AT = p; } }), { t: 0, dance: 0 });
     return COMMA_AT;
   };
   shot(t6, t7, (g, T) => {
-    const t = now(), fall = ramp(t, tSuch, .45), open = easeOut(ramp(T, t6, .18));
+    const t = now(), fall = ramp(t, tSuch, .45);
     // the camera pushes in on the comma as it wakes, so it reads as a character, then pulls back to
     // watch it fall
     const CX0 = 975, CY0 = F - 290, [ax, ay] = commaAt();
     const pin = easeInOut(ramp(T, tCommas + .02, .35)), pout = easeInOut(ramp(T, tSuch - .05, .5));
-    const Z = lerp(lerp(3.4, 6.2, pin), 3.9, pout);
+    const Z = lerp(lerp(3.0, 5.8, pin), 3.4, pout);
     const vx = lerp(lerp(CX0, ax, pin), ax - 6, pout), vy = lerp(lerp(CY0, ay, pin), (ay + CY0 + 105) / 2, pout);
-    irisInsert(g, W / 2, 690, 440, (g) => {
-      g.save(); g.translate(W / 2, 690); g.scale(Z, Z); g.translate(-vx, -vy);
-      g.fillStyle = C('#4a2c18'); g.fillRect(CX0 - 200, CY0 - 200, 400, 400);
-      let at2 = null;
-      phone(g, 960, F, .7, { t, dance: 0, wifi: 1, eyes: { expr: fall > .5 ? 'worried' : 'open', lx: -.3, ly: .9 }, screen: (g, sx, sy, sw, sh, s) => { g.fillStyle = '#efe9da'; g.fillRect(sx, sy, sw, 40 * s); at2 = greeting(g, sx + sw * .04, sy + 80 * s, sw * .92, s, { comma: false }).comma; } });
-      const [cx0, cy0] = at2;
-      const alive = ramp(t, tCommas + .1, .18);
-      if (alive < .05) commaGlyph(g, cx0, cy0, 21);
-      else {
-        const pose = t < tCause ? 'tremble' : fall < 1 ? 'swoon' : 'faint';
-        const x = lerp(cx0, cx0 - 12, fall), y = lerp(cy0 - 3, CY0 + 105, fall * fall) - Math.sin(fall * Math.PI) * 10;
-        comma(g, x, y, lerp(18, 30, alive), { t, pose, p: ramp(t, tCause, .35) });
-        if (fall >= 1) pops(g, x + 4, y - 8, 12, 5, { a0: -Math.PI * .9, span: Math.PI * .8, w: 1.6 });
-      }
-      g.restore();
-    }, open);
+    // full frame: the phone's chat fills the picture, the workshop behind it
+    g.save(); g.translate(W / 2, 690); g.scale(Z, Z); g.translate(-vx, -vy);
+    const wsc = workshop(); g.drawImage(wsc, -(wsc.ox || 0), 0);
+    let at2 = null;
+    gymPhone(g, 960, F, .7, chatScreen(t, { comma: false, at: p => { at2 = p; } }), { t, dance: 0, eyes: { expr: fall > .5 ? 'worried' : 'open', lx: -.3, ly: .9 } });
+    const [cx0, cy0] = at2;
+    const alive = ramp(t, tCommas + .1, .18);
+    if (alive < .05) commaGlyph(g, cx0, cy0, 21);
+    else {
+      const pose = t < tCause ? 'tremble' : fall < 1 ? 'swoon' : 'faint';
+      const x = lerp(cx0, cx0 - 12, fall), y = lerp(cy0 - 3, CY0 + 105, fall * fall) - Math.sin(fall * Math.PI) * 10;
+      comma(g, x, y, lerp(18, 30, alive), { t, pose, p: ramp(t, tCause, .35) });
+      if (fall >= 1) pops(g, x + 4, y - 8, 12, 5, { a0: -Math.PI * .9, span: Math.PI * .8, w: 1.6 });
+    }
+    g.restore();
+    lowerShade(g, .62, 1000);
   }, { id: 'v1-comma' });
 
   // ---- 8. a red notification: the screenshot check (an alarm clock's bells on its head) stands by the
@@ -223,16 +271,22 @@ export function register() {
     // the gilt frame with what's expected (comma and all), and the new photo pinned up beside it
     const fx = 560, fy = F - 300;
     shape(g, rrect(fx - 190, fy - 150, 230, 210, 8), { fill: GOLD, shade: GOLD_SH, lit: '#ffe9a8', form: 'block', w: 6, seed: 2700 });
-    g.fillStyle = C('#efe6d0'); g.fillRect(fx - 172, fy - 132, 194, 174);
-    greeting(g, fx - 168, fy - 128, 186, .62, { comma: o.framed !== 'new', gap: o.framed === 'new' ? false : undefined });
-    if (o.photo !== false) { photo(g, o.px ?? fx + 150, o.py ?? fy - 40, 200, o.pang ?? .06, 1, { comma: false, gap: o.gap }); dot(g, (o.px ?? fx + 150), (o.py ?? fy - 40) - 112, 7, RED); }
+    const A = chatPic(g, fx - 75, fy - 45, 194, 174, { comma: o.framed !== 'new' });
+    let B = null;
+    if (o.photo !== false) { B = chatPic(g, o.px ?? fx + 150, o.py ?? fy - 40, 186, 166, { print: true, comma: false, gap: o.gap, ang: o.pang ?? .06 }); dot(g, (o.px ?? fx + 150), (o.py ?? fy - 40) - 100, 7, RED); }
+    return { framed: A.comma, photo: B && B.comma };
   };
   shot(t7, t8, (g, T) => {
-    const c = cam([[t7, fc(640, 1.5)], [tNotif, fc(640, 1.5)], [t8, fc(650, 1.42)]], T), t = now();
+    // close on the two pictures first: the comma in the expected one ringed in gold, the gap in the new
+    // one ringed in red; then the camera pulls back as the check's bells ring and its red flag shoots up
+    const Zc = 2.3, close = { x: 592, y: F - 345 + (H / 2 - 690) / Zc, z: Zc };
+    const c = cam([[t7, close], [tNotif - .22, { ...close, z: Zc * 1.04, y: F - 345 + (H / 2 - 690) / (Zc * 1.04) }], [tNotif + .12, fc(640, 1.5)], [t8, fc(650, 1.42)]], T), t = now();
     g.save(); place(g, workshop(), c);
     footShadow(g, 600, F, 260); footShadow(g, 860, F, 200);
     const ring = t > tNotif - .02 ? 1 : 0;
-    pictures(g, t, { gap: t > tRed - .05 && Math.floor((t - tRed) * 7) % 2 === 0 });
+    const P = pictures(g, t, {});
+    ringMark(g, P.framed[0], P.framed[1] + 2, 26, GOLD_SH, ramp(t, tA7 + .02, .28));
+    ringMark(g, P.photo[0], P.photo[1] + 2, 28, RED, ramp(t, tRed - .08, .28));
     const up = pop(t, tNotif, .22);
     check(g, 860, F, 1.5, { t, bells: ring, flag: clamp(up), flagCol: RED, wave: t > tNotif + .2, look: -.7, squash: kick(t, tNotif, .2) * .4 });
     if (t > tNotif) burst(g, 860, F - 330, 110, (t - tNotif) / .45, 12, RED, 77);
@@ -252,8 +306,9 @@ export function register() {
     // the paste on the picture, spreading as he brushes
     const spread = ramp(t, tAuto - .05, .5);
     if (spread > 0) { g.save(); g.globalAlpha = .75 * spread; g.fillStyle = C('#f4f7e6'); for (let i = 0; i < 6; i++) { g.beginPath(); g.ellipse(560 - 70 + (i % 3) * 70 + Math.sin(i * 3) * 10, F - 330 + Math.floor(i / 3) * 70, 40 * spread, 26 * spread, .3, 0, TAU); g.fill(); } g.restore(); }
-    check(g, 1020, F, 1.3, { t, bells: 1, flag: 1, flagCol: RED, wave: true, look: -.7 });
     clawd(g, 820, F, .95, { t, dance: .5, face: -.6, L: t < tAuto ? (flourish > 0 ? 'jazz' : 'hips') : { to: [.62, -.34 + blur * .06], pose: 'grip' }, R: t < tAuto ? 'jazz' : 'hips', hold: { L: t > tAuto ? (g, x, y, a, s) => brush(g, x, y, Math.PI + .5 + blur * .25, .9 * s, { wet: true }) : null }, eyes: { expr: t < tAuto ? 'happy' : 'open', lx: -.8 }, sing: true });
+    // the check stands a step nearer us than Clawd, so its flag is never behind his hat
+    check(g, 1020, F, 1.3, { t, bells: 1, flag: 1, flagCol: RED, wave: true, look: -.7 });
     if (t > tAuto) speedLines(g, 640, F - 330, -1, 90, 4, 2750);
     comma(g, 430, F - 30, 56, { t, pose: 'faint', tear: true });
     g.restore();
@@ -271,14 +326,16 @@ export function register() {
     const fx = 560, fy = F - 300;
     // the frame; the photo travels from Clawd's glove onto it
     shape(g, rrect(fx - 190, fy - 150, 230, 210, 8), { fill: GOLD, shade: GOLD_SH, lit: '#ffe9a8', form: 'block', w: 6, seed: 2700, squash: 0 });
-    g.fillStyle = C('#efe6d0'); g.fillRect(fx - 172, fy - 132, 194, 174);
-    greeting(g, fx - 168, fy - 128, 186, .62, { comma: !done });
-    if (!done) photo(g, lerp(790, fx - 75, easeInOut(slap)), lerp(F - 420, fy - 45, easeInOut(slap)), lerp(200, 196, slap), lerp(-.2, 0, slap), 1, { comma: false });
+    chatPic(g, fx - 75, fy - 45, 194, 174, { comma: !done });
+    if (!done) chatPic(g, lerp(790, fx - 75, easeInOut(slap)), lerp(F - 420, fy - 45, easeInOut(slap)), lerp(186, 190, slap), lerp(166, 170, slap), { print: true, comma: false, ang: lerp(-.2, 0, slap) });
     else { g.save(); g.globalAlpha = .5; g.fillStyle = C('#f4f7e6'); g.fillRect(fx - 176, fy - 136, 202, 182); g.restore(); }
     if (t > tExp && t < tExp + .35) pops(g, fx - 75, fy - 40, 150, 10, { a0: 0, span: TAU * .9, w: 7 });
+    // done, he dusts off his gloves, nose in the air, with his back to the crying comma
+    const dust = done ? Math.sin((t - tExp) * 22) : 0;
+    clawd(g, 830, F, .95, { t, dance: .5, face: done ? .7 : -.6, L: done ? { to: [.1 + dust * .05, -.2], pose: 'flat' } : { to: [lerp(.62, 1.0, slap), lerp(-.34, -.42, slap)], pose: 'grip' }, R: done ? { to: [.12 - dust * .05, -.2], pose: 'flat' } : 'hips', eyes: { expr: done ? 'smug' : 'open', lx: done ? .9 : -.8, ly: done ? -.4 : 0 }, sing: true, smile: done ? 1.3 : 1 });
+    // the check a step nearer us than Clawd, so its flag's swing from red to green is in plain sight
     check(g, 1020, F, 1.3, { t, bells: done ? 0 : 1, flag: 1, flagCol: done ? GREEN : RED, wave: true, look: -.7, squash: kick(t, tExp, .2) * .4 });
     if (done) burst(g, 1020, F - 300, 100, (t - tExp) / .45, 10, GOLD, 78);
-    clawd(g, 830, F, .95, { t, dance: .5, face: -.6, L: { to: [lerp(.62, 1.0, slap), lerp(-.34, -.42, slap)], pose: done ? 'flat' : 'grip' }, R: done ? 'jazz' : 'hips', eyes: { expr: done ? 'happy' : 'open', lx: -.8 }, sing: true });
     comma(g, 430, F - 34, 64, { t, pose: done ? 'sniff' : 'faint', tear: true, lx: .8 });
     g.restore();
   }, { id: 'v1-expect' });
@@ -290,7 +347,7 @@ export function register() {
     g.save(); place(g, workshop(), c);
     footShadow(g, 720, F, 300);
     const pour = ramp(t, tBoost - .1, tMore - tBoost + .25);
-    phone(g, 720, F, .7, { t, wifi: 1, eyes: { expr: pour > .5 ? 'worried' : 'open', lx: .5, ly: -.6 }, screen: calcScreen(t, { sum: '2+2', ans: '5', bug: true }) });
+    gymPhone(g, 720, F, .7, sumScreen(t, { sum: '2+2', ans: '5', bug: true }), { t, eyes: { expr: pour > .5 ? 'worried' : 'open', lx: .5, ly: -.6 } });
     const R = rng(2700), N = 30;
     for (let i = 0; i < N; i++) {
       const u = clamp((pour * (N + 3) - i) / 3); if (u <= 0) continue;

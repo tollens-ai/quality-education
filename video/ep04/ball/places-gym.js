@@ -458,7 +458,11 @@ export function street() {
 // breathing glow, and the net: the socket, the router (o.net 0..1) and its plug (o.plug: 'in',
 // 'floor', or {at: [x, y], ang} when someone holds it). o.spark: 0..1 a burst at the socket.
 export const PLUG = { s: .9, in: [626, 1268], floor: [712, 1420] };
+// The camera of the gym shot drawn last, for the foreground that's drawn over it (props-gym gymFront).
+let LASTCAM = null;
+export const lastGymCam = () => LASTCAM;
 export function gymSet(g, cam, t, o = {}) {
+  LASTCAM = cam;
   // o.soft: a little depth of field on the painted room for very close shots (in master pixels)
   if (o.soft) g.filter = 'blur(' + (o.soft * g.canvas.width / W).toFixed(2) + 'px)';
   place(g, gym(), cam);

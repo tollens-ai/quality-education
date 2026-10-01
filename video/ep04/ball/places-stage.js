@@ -5,15 +5,17 @@
 // to a sooty brick wall, the fly rail's ropes and sandbags on the left, scenery flats turned to the
 // wall on the right, a ladder, a trunk, a chair, the black void of the flies with its battens and
 // lanterns, black masking legs at the sides, the stage's lip and its dead footlights, and the pit
-// below for the lyric. It is painted twice, as the work lights would show it and in the dark. A frame
+// below, and nearest the camera the stalls: rows of the audience in silhouette, rim-lit by the
+// spotlight, filling the bottom of the frame under the lyric. The stage is painted twice, as the work lights would show it and in the dark. A frame
 // lays the dark painting down and lets the lit one through where the spotlight's pool falls; after the
 // cast are drawn, whatever stands outside the beam sinks into the dark, and the beam's haze and dust
 // are breathed in over everything.
-import { W, H, TAU, clamp, lerp, rng, noise, hash, mix, rgba, now, mono, setMono } from './kit.js';
+import { W, H, TAU, clamp, lerp, rng, noise, hash, mix, rgba, now, mono, setMono, beatPos } from './kit.js';
 import { C } from './palette.js';
 import { bake, wash, glaze, light, gloom, shadow, streaks, dabs, inkLine, paper, ao, path, wob, dense, box } from './bg.js';
 import { ellipse, spline } from './ink.js';
 import { look } from './common.js';
+import { stallsAbove } from './places.js';
 
 // World of the bare stage: the floor's front edge (the lip) is the floor line; the boards run back to
 // the wall at `back`, converging on `vp`; the spotlight hangs high above the centre, off the top.
@@ -373,25 +375,102 @@ export function spotBeam(g, cam, sp, t, o = {}) {
 }
 
 // ---------------------------------------------------------------- the floor from the flies
-// The boards straight down, a warm pool of light in the middle, dark gathering to the edges. 2600
-// square; the frame's centre is its centre.
-export const TOP = { w: 2600, h: 2600 };
+// The boards straight down, a warm pool of light in the middle at (1300, 1300), dark gathering to the
+// edges; downstage, nearest the camera, the footlights and the stalls, as the film's opening overhead
+// has them, so the frame is full below the lyric. The boards' first 2600 square is v2's.
+export const TOP = { w: 2600, h: 2900, edge: 2230 };
 export function stageTop() {
   const m = mono(); setMono(0);
   const c = bake('c3StageTop', TOP.w, TOP.h, (g, w, h) => {
-    const R = rng(4000), BW = 96;
+    const R = rng(4000), BW = 96, H0 = 2600;
     for (let i = 0, x = 0; x < w; i++, x += BW) {
       const base = mix(mix('#b07c4c', R() < .5 ? '#8e5e36' : '#c4925e', R() * .6), R() < .5 ? '#3a2414' : '#f0c890', R() * .12);
-      wash(g, box(x, 0, BW, h), base, { seed: 4001 + i, gran: .6, rim: .12, blooms: 14, amt: .3, bloom: 1.2 });
-      streaks(g, box(x, 0, BW, h), base, { seed: 4100 + i, ang: Math.PI / 2, len: 300, n: 180, a: .13, w: 1.5 });
-      for (let y = R() * 500; y < h; y += lerp(380, 820, R())) { inkLine(g, [[x, y], [x + BW, y + 1]], { w: 2, col: '#1a0c05', a: .5, gap: 0 }); for (const [dx, dy] of [[12, -9], [BW - 12, -9], [12, 9], [BW - 12, 9]]) { g.fillStyle = rgba('#120804', .55); g.beginPath(); g.arc(x + dx, y + dy, 3, 0, TAU); g.fill(); } }
-      inkLine(g, [[x, 0], [x, h]], { w: 2.6, col: '#140904', a: .6, gap: 0, seed: 4200 + i });
+      wash(g, box(x, 0, BW, H0), base, { seed: 4001 + i, gran: .6, rim: .12, blooms: 14, amt: .3, bloom: 1.2 });
+      streaks(g, box(x, 0, BW, H0), base, { seed: 4100 + i, ang: Math.PI / 2, len: 300, n: 180, a: .13, w: 1.5 });
+      for (let y = R() * 500; y < H0; y += lerp(380, 820, R())) { inkLine(g, [[x, y], [x + BW, y + 1]], { w: 2, col: '#1a0c05', a: .5, gap: 0 }); for (const [dx, dy] of [[12, -9], [BW - 12, -9], [12, 9], [BW - 12, 9]]) { g.fillStyle = rgba('#120804', .55); g.beginPath(); g.arc(x + dx, y + dy, 3, 0, TAU); g.fill(); } }
+      inkLine(g, [[x, 0], [x, H0]], { w: 2.6, col: '#140904', a: .6, gap: 0, seed: 4200 + i });
     }
-    for (let i = 0; i < 90; i++) { const x = R() * w, y = R() * h, L = lerp(12, 40, R()), a = R() * TAU; g.strokeStyle = rgba('#1a0c05', lerp(.1, .26, R())); g.lineWidth = lerp(1.5, 3.5, R()); g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + Math.cos(a + .4) * L * .5, y + Math.sin(a + .4) * L * .5, x + Math.cos(a) * L, y + Math.sin(a) * L); g.stroke(); }
-    light(g, w / 2, h / 2, 900, '#ffe2a8', .42);
-    gloom(g, w, h, w / 2, h / 2, 420, 1300, '#140a06', .9);
+    for (let i = 0; i < 90; i++) { const x = R() * w, y = R() * H0, L = lerp(12, 40, R()), a = R() * TAU; g.strokeStyle = rgba('#1a0c05', lerp(.1, .26, R())); g.lineWidth = lerp(1.5, 3.5, R()); g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + Math.cos(a + .4) * L * .5, y + Math.sin(a + .4) * L * .5, x + Math.cos(a) * L, y + Math.sin(a) * L); g.stroke(); }
+    light(g, 1300, 1300, 900, '#ffe2a8', .42);
+    gloom(g, w, h, 1300, 1300, 420, 1300, '#140a06', .9);
+    // downstage the boards fall into shadow, then the footlights' edge and the stalls
+    g.save(); g.globalCompositeOperation = 'multiply';
+    const ds = g.createLinearGradient(0, TOP.edge - 520, 0, TOP.edge);
+    ds.addColorStop(0, 'rgba(255,255,255,1)'); ds.addColorStop(1, rgba(mix('#ffffff', '#140a06', .7), 1));
+    g.fillStyle = ds; g.fillRect(0, TOP.edge - 520, w, 520); g.restore();
+    stallsAbove(g, w, h, TOP.edge, { seed: 4300 });
     paper(g, w, h, .4);
   });
   setMono(m);
   return c;
+}
+
+// ---------------------------------------------------------------- the stalls
+// The front of the house, nearest the camera, filling the bottom of the frame: rows of the audience
+// seen from behind, heads and hats in silhouette against the stage's spill, rim-lit by the spotlight
+// (brightest near its pool), bobbing a little on the beat. Drawn live under the camera after the
+// stage's light, sliding a little faster than the stage when the camera pans. The rows that land
+// behind the lyric keep their rims faint. o.blur softens them for a close-up.
+const HATS = ['none', 'bowler', 'cloche', 'none', 'boater', 'bun', 'top', 'feather', 'none', 'cap', 'bowler', 'none'];
+function hat(g, kind, x, y, r, col) {
+  g.fillStyle = col; g.beginPath();
+  if (kind === 'bowler') { g.ellipse(x, y - r * .55, r * 1.18, r * .2, 0, 0, TAU); g.moveTo(x - r * .82, y - r * .55); g.ellipse(x, y - r * .6, r * .82, r * .7, 0, Math.PI, TAU); }
+  else if (kind === 'top') { g.ellipse(x, y - r * .62, r * 1.2, r * .2, 0, 0, TAU); g.rect(x - r * .62, y - r * 1.95, r * 1.24, r * 1.36); }
+  else if (kind === 'boater') { g.ellipse(x, y - r * .62, r * 1.3, r * .22, 0, 0, TAU); g.rect(x - r * .7, y - r * 1.12, r * 1.4, r * .52); }
+  else if (kind === 'cloche' || kind === 'feather') { g.moveTo(x - r * 1.1, y - r * .05); g.quadraticCurveTo(x - r * 1.05, y - r * 1.25, x, y - r * 1.22); g.quadraticCurveTo(x + r * 1.05, y - r * 1.25, x + r * 1.1, y - r * .05); g.closePath(); }
+  else if (kind === 'bun') { g.ellipse(x + r * .1, y - r * 1.08, r * .42, r * .36, 0, 0, TAU); }
+  else if (kind === 'cap') { g.ellipse(x, y - r * .5, r * .95, r * .62, 0, Math.PI, TAU); g.ellipse(x + r * .7, y - r * .48, r * .65, r * .14, .1, 0, TAU); }
+  g.fill();
+  if (kind === 'feather') { g.strokeStyle = col; g.lineWidth = r * .16; g.lineCap = 'round'; g.beginPath(); g.moveTo(x + r * .6, y - r * .9); g.bezierCurveTo(x + r * 1.1, y - r * 1.6, x + r * .6, y - r * 2.1, x + r * 1.3, y - r * 2.4); g.stroke(); }
+}
+// The rim of light along a silhouette's top, from the stage beyond: a soft wide glow and a fine bright
+// edge inside it.
+function rimArc(g, x, y, rx, ry, a0, a1, w, a) {
+  g.lineCap = 'round';
+  g.strokeStyle = `rgba(255,214,160,${(a * .35).toFixed(3)})`; g.lineWidth = w * 3; g.beginPath(); g.ellipse(x, y, rx, ry, 0, a0, a1); g.stroke();
+  g.strokeStyle = `rgba(255,236,200,${a.toFixed(3)})`; g.lineWidth = w; g.beginPath(); g.ellipse(x, y, rx * .99, ry * .99, 0, a0 + .12, a1 - .12); g.stroke();
+}
+export function stalls(g, cam, sp, t, o = {}) {
+  const z = cam.z ?? 1, par = ((cam.x ?? CX) - CX) * (o.parallax ?? .3), k = clamp(sp?.k ?? 1), bp = beatPos(t);
+  const sil = C('#100906'), seatTop = C('#2c1810'), seatDark = C('#0b0604');
+  g.save(); look(g, cam); g.translate(-par, 0);
+  if (o.blur) g.filter = `blur(${o.blur}px)`;
+  for (let row = 0; row < 8; row++) {
+    const y = F + 200 + row * 112 + row * row * 7, r = 28 + row * 7.5, step = r * 2.7;
+    const sy = H / 2 + (y - cam.y) * z;
+    if (sy - r * 2.6 * z > H + 60 || sy + r * 3 * z < -60) continue;
+    const calm = sy > 1120 && sy < 1500 ? .35 : 1;
+    // the seat backs of the row in front: dark velvet, a little warm spill on their tops
+    const top = y + r * 1.3, gr = g.createLinearGradient(0, top - r * .3, 0, top + r * 1.2);
+    gr.addColorStop(0, seatTop); gr.addColorStop(.35, seatDark); gr.addColorStop(1, seatDark);
+    g.fillStyle = gr; g.fillRect(-900, top - r * .25, BS.w + 1800, r * 2.6);
+    const R = rng(4300 + row);
+    let x = -900 + (row % 2) * step * .5 + R() * step * .4;
+    while (x < BS.w + 900) {
+      const gap = R() < .08, kind = R() < .62 ? HATS[Math.floor(R() * HATS.length)] : 'none', hr = r * lerp(.82, 1.12, R()), lean = (R() - .5) * .16;
+      const ph = R() * .5, bob = Math.sin((bp + ph) * Math.PI) * 2 * (1 + row * .25), hx = x + (R() - .5) * r * .5, hy = y - bob + (R() - .5) * r * .2;
+      x += step * lerp(.82, 1.2, R());
+      if (gap) continue;
+      g.save(); g.translate(hx, hy); g.rotate(lean); g.translate(-hx, -hy);
+      // shoulders, neck, head, hat: one silhouette
+      g.fillStyle = sil; g.beginPath(); g.ellipse(hx, hy + hr * 1.6, hr * lerp(1.55, 1.85, ph * 2), hr * .86, 0, 0, TAU); g.fill();
+      g.fillRect(hx - hr * .34, hy + hr * .6, hr * .68, hr * .7);
+      g.beginPath(); g.ellipse(hx, hy, hr * .9, hr * 1.04, 0, 0, TAU); g.fill();
+      if (kind !== 'none') hat(g, kind, hx, hy, hr, sil);
+      // the rim, brightest for those nearest the spotlight's pool
+      const near = Math.exp(-Math.pow((hx - par - (sp?.x ?? CX)) / 640, 2)), a = (.1 + .42 * near) * k * calm;
+      if (a > .02) {
+        const lw = Math.max(1.2, hr * .06);
+        if (kind === 'top' || kind === 'boater') { const yy = hy - (kind === 'top' ? hr * 1.95 : hr * 1.12), hw = hr * (kind === 'top' ? .62 : .7); g.strokeStyle = `rgba(255,236,200,${a.toFixed(3)})`; g.lineWidth = lw; g.beginPath(); g.moveTo(hx - hw, yy + 1); g.lineTo(hx + hw, yy + 1); g.stroke(); rimArc(g, hx, hy - hr * .6, hr * 1.2, hr * .2, -Math.PI * .95, -Math.PI * .05, lw * .8, a * .7); }
+        else if (kind === 'bowler') rimArc(g, hx, hy - hr * .6, hr * .82, hr * .7, -Math.PI * .92, -Math.PI * .08, lw, a);
+        else if (kind === 'cloche' || kind === 'feather') rimArc(g, hx, hy - hr * .1, hr * 1.06, hr * 1.12, -Math.PI * .9, -Math.PI * .1, lw, a);
+        else if (kind === 'cap') rimArc(g, hx, hy - hr * .5, hr * .95, hr * .62, -Math.PI * .95, -Math.PI * .05, lw, a);
+        else rimArc(g, hx, hy, hr * .9, hr * 1.04, -Math.PI * .88, -Math.PI * .12, lw, a);
+        rimArc(g, hx, hy + hr * 1.6, hr * 1.7, hr * .86, -Math.PI * .96, -Math.PI * .74, lw * .8, a * .8);
+        rimArc(g, hx, hy + hr * 1.6, hr * 1.7, hr * .86, -Math.PI * .26, -Math.PI * .04, lw * .8, a * .8);
+      }
+      g.restore();
+    }
+  }
+  g.restore();
 }

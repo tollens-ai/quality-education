@@ -6,10 +6,14 @@ come from marketers and are weak.
 ## Principles
 1. **Misconception first, then refute it.** Muller (Veritasium PhD): clear explanations raised
    confidence but not learning; stating then refuting the wrong belief produced learning.
-2. **Concrete before abstract, and lots of concrete** (Sanderson/3B1B; Qing 2026-09-24: "every
-   concept illustrated with lots of concrete examples so that people can ground on recognisable
-   reality"). Use several everyday cases per concept, taken from what vibecoders actually build,
-   not a single tidy example.
+2. **Concrete before abstract, and lots of concrete, easy to follow** (Sanderson/3B1B; Qing
+   2026-09-24: "every concept illustrated with lots of concrete examples so that people can ground
+   on recognisable reality"). Use several everyday cases per concept, taken from what vibecoders
+   actually build, not a single tidy example: one simple app "makes the software quality angle
+   feel boring" (Qing, 2026-09-27). However many worlds the cases come from, the viewer must always
+   know which one they're in. Several apps can work if each is kept distinct, and one app with many
+   parts can work too ([VIDEO.md](VIDEO.md#a-story-the-viewer-can-follow) has both of Qing's
+   notes).
 3. **Sound-off first.** X autoplays muted; captions are the primary track. Captions = narration;
    other on-screen text limited to highlighted keywords (resolves Mayer's redundancy principle).
    In the music videos the lyric is the caption, and the rule is now stricter: no words on screen
@@ -21,12 +25,14 @@ come from marketers and are weak.
    second idea needs its own hook: a new open loop before the first one closes.
 6. **Fixed internal structure** per episode: misconception → concrete failure → concept named →
    what you'd say to your agent.
-7. **Fixed visual vocabulary:** one glyph/colour per concept, stable across the series.
+7. **Fixed visual vocabulary:** one glyph/colour per concept, stable across the series, and within
+   a film one meaning per glyph ([VIDEO.md](VIDEO.md#a-story-the-viewer-can-follow)).
 8. **Standalone episodes, continuity via running app + recurring characters.**
 9. **In-group texture:** real-looking agent screens ("✅ All tests pass", "I've fixed the issue!").
 10. **Design for replies:** close on a debatable question; author replies (X ranking weighted replies
     far above watch time in the 2023 release; current weights are learned and unpublished).
-11. **Format:** master 9:16, responsive layouts so 16:9 and 1:1 render from the same source; keep
+11. **Format:** master 9:16 for the phone, with the whole frame used; another shape means
+    storyboarding again, not just re-cropping ([VIDEO.md](VIDEO.md#one-place-to-look)). Keep
     bottom ~400px and right ~140px clear of UI. Clean per-platform exports, no platform watermarks; the only mark is a tiny static Tollens logo (Qing, 2026-09-24).
 
 12. **Music as a hook** (Qing 2026-09-24: Opus-made animated music videos, songs and raps are

@@ -14,7 +14,7 @@ import { magnifier } from '../cast.js';
 
 const END = 182.61, CARD = 8;
 export const CREDITS = [
-  'Lyrics: Yanqing Cheng with gpt-6.1-sol',
+  'Lyrics: gpt-6.1-sol',
   'Music and voice: Suno',
   'Drawn and animated in JavaScript by Claude',
   'Testing vs checking, after James Bach & Michael Bolton',

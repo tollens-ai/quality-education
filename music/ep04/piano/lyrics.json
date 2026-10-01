@@ -721,7 +721,7 @@
   "line_in_couplet": 1
  },
  {
-  "text": "Did you actually test it?",
+  "text": "Did you actually test it!",
   "section": "Chorus 1",
   "start": 41.523,
   "end": 42.895,
@@ -756,7 +756,7 @@
     "timing_spread_ms": 15
    },
    {
-    "w": "it?",
+    "w": "it!",
     "s": 42.661,
     "e": 42.895,
     "backing": false,
@@ -1576,7 +1576,7 @@
   "line_in_couplet": 1
  },
  {
-  "text": "Did you actually test it?",
+  "text": "Did you actually test it!",
   "section": "Chorus 2",
   "start": 78.46,
   "end": 79.82,
@@ -1611,7 +1611,7 @@
     "timing_spread_ms": 22
    },
    {
-    "w": "it?",
+    "w": "it!",
     "s": 79.592,
     "e": 79.82,
     "backing": false,
@@ -3221,7 +3221,7 @@
   "line_in_couplet": 1
  },
  {
-  "text": "Did you actually test it?",
+  "text": "Did you actually test it!",
   "section": "Chorus 3",
   "start": 148.799,
   "end": 150.071,
@@ -3256,7 +3256,7 @@
     "timing_spread_ms": 16
    },
    {
-    "w": "it?",
+    "w": "it!",
     "s": 149.949,
     "e": 150.071,
     "backing": false,

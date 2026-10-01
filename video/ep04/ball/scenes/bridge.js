@@ -1,6 +1,6 @@
 // The bridge, in the crew's office: the practical brief, sung to you. You (the viewer, who briefs the
-// crew) are the camera: the crew point at you and present the comma to you, and your own hand reaches
-// in from the side to equip the fresh bots and, at the end, to carry the comma.
+// crew) are the camera: the crew point at you and bring you their questions, and your own hand reaches
+// in from the side to equip the fresh bots and, at the end, to take the call.
 //  "A fresh bot crew? Here's what to do:"  a crate thuds down and bursts; three little Clawds in
 //     propeller beanies spring out on springs; Guess turns and points at you.
 //  "Real browsers, a playbook, and users in mind."  three quick cuts: your hand gives bot 1 a browser
@@ -8,9 +8,10 @@
 //     bot 3's head.
 //  "The goals you name will guide the game;"  a board game on the desk: your finger plants three flags
 //     (a padlock, a coin, a barbell) and the bots hop up their lanes toward them.
-//  "Your oracles help them to judge what they find."  you hand bot 3 Mabel's own notebook; close, full
-//     frame: her four pencilled barbells against the app's log of three, row by row; at the gap,
-//     on "judge", the gavel.
+//  "Your oracles help them to judge what they find."  you hand bot 3 a card with an answer it already
+//     knows: log four sets, expect four rows. Close: the card beside the app's log; the bot taps in
+//     four sets, three rows appear, the net drops before the fourth and it leaves a gap; on "judge"
+//     the gavel comes down on the gap.
 //  "One probes the chat—just me and Pat:"  bot 1, a little safecracker hovering on its propeller,
 //     listens at the padlock of a chat between itself and Pat; Pat sends a pink heart.
 //  "Does Sam's new account show the text Pat just sent?"  Sam unwraps a new phone and Pat's heart is
@@ -23,32 +24,33 @@
 //     their screens up side by side.
 //  "We share the doubts and observations."  question marks and eyes rise from the bots and pin
 //     themselves to the corkboard, joined by red string.
-//  "Some calls need you. We'll talk them through;"  the candlestick telephone rings on the desk;
-//     Guess lifts the receiver to his ear and points at you; Clawd skips in with a thumbs-up.
-//  "We ask for fresh interpretations."  piano alone: Press presents the fainted comma from verse 1 on
-//     a velvet cushion; close, full frame: the app's chat with a comma-shaped hole in Pat's line; the
-//     comma wakes, looks up at its empty place, turns to you: "?"; your palm comes in from the side,
-//     it hops on, and the iris closes on it.
-import { W, H, TAU, clamp, lerp, hash, now, easeOut, easeIn, easeInOut, backOut, beatPos } from '../kit.js';
-import { INK, WHITE, GOLD, GOLD_SH, C } from '../palette.js';
+//  "Some calls need you. We'll talk them through;"  a set logged with no signal: keep it and send it
+//     later, or say at once it isn't saved? Two bots hold up a card each, the same set on both; on
+//     "you" they thrust them at you. Closer: on "talk" one card puts the set in the phone's drawer
+//     with a clock and an arrow up to the Wi-Fi fan; on "through" the other dashes the row and drops
+//     a red warning sign on it.
+//  "We ask for fresh interpretations."  piano alone: they look from one card to the other; a "?"; on
+//     "interpretations" your hand comes in palm up, they lay both cards in it, and the iris closes on
+//     the two answers: the call is yours.
+import { W, H, TAU, clamp, lerp, hash, now, easeOut, easeIn, easeInOut, backOut } from '../kit.js';
+import { INK, WHITE, GOLD, C } from '../palette.js';
 import { shot, irisJoin } from '../shots.js';
 import { iris } from '../film.js';
 import { office, OFC, deskInsert, DI, deskThing } from '../places-office.js';
-import { guess, press, stress } from '../crew.js';
+import { guess } from '../crew.js';
 import { clawd } from '../clawd.js';
 import { mabel, critter } from '../people.js';
-import { phone, comma, magnifier } from '../cast.js';
-import { greeting } from '../props-workshop.js';
+import { phone, magnifier } from '../cast.js';
 import { gymPhone, appHeader, appLogo, APP, sticker, HEADER } from '../gymapp.js';
-import { logScreen as appLog, mabelPhone, notebook as mabelNotebook, barbellIcon as appBarbell, ROWY } from '../props-gym.js';
-import { qmark, bang, sweat, pops, heart } from '../rig.js';
+import { logScreen as appLog, ROWY, dust } from '../props-gym.js';
+import { qmark, sweat, pops, heart } from '../rig.js';
 import { at, ramp, pop, ease, kick, shakeAt, place, cam, floorCam, sparkle, speedLines, footShadow, burst } from '../common.js';
-import { shape, stroke, ellipse, rrect, spline, dot, line, hose, glove, pathOf } from '../ink.js';
+import { shape, stroke, ellipse, rrect, dot, hose, glove } from '../ink.js';
 import {
-  bot, BOT_COLS, yourHand, pointAtYou, crate, spring, browserWin, globe, playbook, thought, padlock, coin, tick,
+  bot, BOT_COLS, yourHand, pointAtYou, crate, spring, browserWin, playbook, thought, padlock, coin, tick,
   spinner, eyeMark, pin, redString, board, boardPt, PATHS, GOAL_AT, GOAL_ICON, pennant, pawnBase, gavel,
-  avatar, chatBubble, stethoscope, gift, bow, cart, till, lever, balance, coins, findCard, candlestick, receiver, ringMarks,
-  cushion, yourPalm, kettlebell, dumbbells, skipRope, priceTag,
+  avatar, chatBubble, stethoscope, gift, bow, cart, till, lever, balance, coins, findCard, answerCard, optionCard,
+  yourPalm, kettlebell, dumbbells, skipRope, priceTag,
 } from '../props-office.js';
 
 const F = OFC.floor;
@@ -107,7 +109,7 @@ const withHeader = (draw, boost = 1.45) => (g, cx, cy, cw, ch, k) => {
 const logScr = (rows, wifi = 1) => (g, sx, sy, sw, sh, s) => { appLog({ rows, wifi })(g, sx, sy, sw, sh, s); g.fillStyle = C(APP.rule); g.fillRect(sx, sy + 60 * s, sw, 7 * s); appHeader(g, sx, sy, sw, s, { wifi }); };
 const logPage = (rows) => (g, cx, cy, cw, ch) => logScr(rows)(g, cx, cy, cw, ch, Math.min(cw / 256, ch / (90 + 66 * rows.length)));
 // Mabel's pink phone with the app's log on it
-const logPhone = (g, x, y, s, rows, o = {}) => phone(g, x, y, s, { col: APP.pink, ...o, wifi: null, screen: logScr(rows) });
+const logPhone = (g, x, y, s, rows, o = {}) => phone(g, x, y, s, { col: APP.pink, ...o, wifi: null, screen: logScr(rows, o.net ?? 1) });
 // The app's chat, just bot 1 ("me") and Pat. o: m1/m2 (when the messages pop in), meAt/patAt (their
 // faces bounce), sam (0..1: Sam's face pushing in), seal (0..1, the "?!" slapped on), sealSince.
 function chatPage(t, o = {}) {
@@ -173,16 +175,16 @@ export function register() {
   const tOrders = at(L8, 'orders'), tStill = at(L8, 'still'), tCustomer = at(L8, 'customer'), tSpent = at(L8, 'spent');
   const tTrade = at(L9, 'trade'), tNews = at(L9, 'news'), tCompare = at(L9, 'compare'), tViews = at(L9, 'views');
   const tShare = at(L10, 'share'), tDoubts = at(L10, 'doubts'), tObs = at(L10, 'observations');
-  const tCalls = at(L11, 'calls'), tNeed = at(L11, 'need'), tYou = at(L11, 'you'), tWell = at(L11, 'We'), tThrough = at(L11, 'through');
+  const tSome = at(L11, 'Some'), tCalls = at(L11, 'calls'), tNeed = at(L11, 'need'), tYou = at(L11, 'you'), tTalk = at(L11, 'talk'), tThrough = at(L11, 'through');
   const tAsk = at(L12, 'ask'), tFresh2 = at(L12, 'fresh'), tInterp = at(L12, 'interpretations');
 
   // the cuts
   const T0 = 96.4, C1 = 99.06, C2 = 99.86, C3 = 100.52, C4 = 101.52, C5 = 103.6, C5b = 104.12, C6 = 105.95, C7 = 108.0, C8 = 109.55,
-    C9 = 110.48, C10 = 111.85, C11 = 112.66, C12 = 115.02, C13 = 117.26, C14 = 119.46, C15 = 122.7, C15b = 123.62, END = 128.9;
+    C9 = 110.48, C10 = 111.85, C11 = 112.66, C12 = 115.02, C13 = 117.26, C14 = 119.46, C14b = 120.84, C15 = 122.7, END = 128.9;
 
   // ---- 1. a fresh bot crew? A crate thuds down and bursts; three little bots spring out; Guess
   //      turns and points at you: here's what to do.
-  irisJoin(T0, { close: .3, open: .45, x: 250, y: 450, x2: W / 2, y2: 940 });
+  irisJoin(T0, { close: .3, open: .45, x: 805, y: 510, x2: W / 2, y2: 940 });
   const tLand = 97.27, CX = 1110, GX = 1420, KX = 930;
   shot(T0, C1, (g, T) => { const t = now();
     const c = { ...cam([[T0, fc(1110, 1.1)], [tLand, fc(1120, 1.12)], [tCrew + .15, fc(1140, 1.16)], [tHere + .3, fc(1222, 1.28)], [C1, fc(1226, 1.3)]], T), sy: shakeAt(T, tLand, 16, .28) };
@@ -209,9 +211,9 @@ export function register() {
         L: 'hips', R: { to: [lerp(.3, .62, peer), lerp(-.3, -.1, peer)], pose: 'grip' }, hold: { R: (g, x, y, a, s) => magnifier(g, x, y, lerp(-1.1, -.2, peer) - blown * .6, s * .8) } });
     }
     const turned = t > tHere - .05, hop = kick(t, tLand, .16) * .6;
-    const R = turned ? { to: [-.1, lerp(.2, -.42, ease(t, tHere, .2))], pose: 'fist' } : 'hips';
+    const R = turned ? { to: [-.06, lerp(.2, -.16, ease(t, tHere, .2))], pose: 'fist' } : 'hips';
     const thrust = kick(t, tWhat, .2) + kick(t, tDo, .2) * .6;
-    guess(g, GX, F, .95, { t, jump: hop, face: turned ? 0 : -.6, eyes: { expr: t > tLand && t < tCrew + .5 ? 'wide' : 'open', lx: turned ? 0 : -.8, ly: t < tLand ? -.9 : 0 }, brow: turned ? 1 : .5, lean: turned ? -.04 : -hop * .1, sing: turned ? true : 0, smile: turned ? .8 : .4, L: 'hips', R, hold: turned ? { R: (g, x, y, a, s) => { if (t > tWhat - .12) pointAtYou(g, x, y, s * (1.25 + thrust * .18), { from: .9 }); } } : {} });
+    guess(g, GX, F, .95, { t, jump: hop, face: turned ? 0 : -.6, eyes: { expr: t > tLand && t < tCrew + .5 ? 'wide' : 'open', lx: turned ? 0 : -.8, ly: t < tLand ? -.9 : 0 }, brow: turned ? 1 : .5, lean: turned ? -.04 : -hop * .1, sing: turned ? true : 0, smile: turned ? .8 : .4, L: 'hips', R, hold: turned ? { R: (g, x, y, a, s) => { if (t > tWhat - .12) pointAtYou(g, x, y, s * (1.12 + thrust * .16), { from: .9 }); } } : {} });
     g.restore();
   }, { id: 'br-crate' });
 
@@ -302,59 +304,88 @@ export function register() {
     g.restore();
   }, { id: 'br-game' });
 
-  // ---- 4a. your oracles: your hand, in from the left, gives bot 3 Mabel's own notebook, beside the
-  //      app's log on her pink phone
-  const LOGROWS = [{}, {}, {}, { ghost: true }];
+  // ---- 4a. your oracles: your hand, in from the left, gives bot 3 a card with an answer it already
+  //      knows: log four sets, expect four rows. Its phone stands by, the app's log still empty
+  const ACS = .8;
   shot(C5, C5b, (g, T) => { const t = now();
     const c = cam([[C5, fc(1214, 1.42)], [C5b, fc(1220, 1.46)]], T);
     g.save(); room(g, c, t);
-    const BX = 1240, s = .85, PX = 1460, NBX = 985, NBY = F - 190, got = t > tOracles;
+    const BX = 1240, s = .85, PX = 1490, NBX = 990, NBY = F - 190, got = t > tOracles, half = 110 * ACS;
     footShadow(g, BX, F, 250); footShadow(g, PX, F, 160);
-    logPhone(g, PX, F, .5, LOGROWS, { t, eyes: { expr: 'open', lx: -.6 } });
+    logPhone(g, PX, F, .5, [], { t, eyes: { expr: 'open', lx: -.6 } });
     const dx = slideIn(t, C5 - .04, tOracles, -1, .26);
-    mabelNotebook(g, NBX + dx, NBY, 1.1, 4);
-    bot(g, BX, F, s, 2, { t, dance: 0, eyes: { expr: 'wide', lx: t < tOracles + .2 ? -.8 : .85, ly: .15 }, L: got ? { to: clawdTo(BX, F, s, 'L', NBX + 94, NBY), pose: 'grip' } : { to: [.4, -.25], pose: 'open' }, R: { to: [.3, -.5], pose: 'grip' }, sing: true,
-      hold: { R: (g, x, y, a, s2) => gavel(g, x, y, -1.7, .75 * s2) } });
-    if (t < tOracles + .3) { const [hx, hy] = gripAt(NBX - 94 + dx, NBY, 0, 1); yourHand(g, hx + slideOut(t, tOracles, -1), hy, 0, 1, 'hold'); }
+    answerCard(g, NBX + dx, NBY, ACS, { rot: got ? .04 : -.03 });
+    bot(g, BX, F, s, 2, { t, dance: 0, eyes: { expr: 'wide', lx: t < tOracles + .2 ? -.8 : .85, ly: .15 }, L: got ? { to: clawdTo(BX, F, s, 'L', NBX + half - 6, NBY + 10), pose: 'grip' } : { to: [.4, -.25], pose: 'open' }, R: { to: [-.3, -.42], pose: 'grip' }, sing: true,
+      hold: { R: (g, x, y, a, s2) => { gavel(g, x, y, -2.05, .72 * s2); glove(g, x, y, -2.05, 25 * s2, 'grip', { seed: 6502 }); } } });
+    if (t < tOracles + .3) { const [hx, hy] = gripAt(NBX - half + 4 + dx, NBY, 0, 1); yourHand(g, hx + slideOut(t, tOracles, -1), hy, 0, 1, 'hold'); }
     g.restore();
   }, { id: 'br-oracle-give' });
 
-  // ---- 4b. help them to judge what they find: close, filling the frame: her four pencilled sets
-  //      beside the app's three, joined row by row; the fourth finds a gap; on "judge" the gavel comes
-  //      down on it and leaves the testers' "?!" seal
+  // ---- 4b. help them to judge what they find: close: the card, clipped up, its rows level with the
+  //      app's log on the bot's phone, and the bot itself hovering on its propeller between them. It
+  //      taps in four sets with its near hand; three rows pop into the log and the card ticks each
+  //      off; the net drops before the fourth, which leaves only a puff and a gap, and the card's
+  //      fourth row lights. On "to" the bot glances at that row, its gavel up; on "judge" it brings the
+  //      gavel down on the gap, and the testers' "?!" seal stays on it
   shot(C5b, C6, (g, T) => { const t = now();
-    const z = lerp(2.46, 2.54, ramp(T, C5b, C6 - C5b));
-    const c = { ...fc(1226, z), sy: shakeAt(T, tJudge, 9, .2) };
+    const PS = .75, NS = 49.5 / 54, GAP = 170, BS = .5;
+    const NX = 1040, PX = NX + 110 * NS + GAP + 150 * PS, BX = NX + 110 * NS + GAP / 2, mid = (NX - 110 * NS + PX + 150 * PS) / 2;
+    const z = lerp(1.7, 1.75, ramp(T, C5b, C6 - C5b));
+    const c = { ...fc(mid, z), sy: shakeAt(T, tJudge, 9, .2) };
     g.save(); room(g, c, t);
-    const NX = 1132, NY2 = F - 128, NS = 1.15, PX = 1336, PS = .5, hit = kick(t, tJudge, .25);
-    footShadow(g, PX, F, 160); footShadow(g, NX, F, 220);
-    mabelNotebook(g, NX, NY2, NS, 4);
-    const ph = logPhone(g, PX, F, PS, LOGROWS, { t, dance: 0, lean: hit * .06, eyes: { expr: t > tJudge ? 'worried' : 'open', lx: -.7 } });
-    if (t > tJudge + .15) sweat(g, PX + 80, F - 300, .7);
-    // row by row, a pencil line joins each of her sets to the app's; the fourth finds a gap
-    const nh = 190 * NS, nRow = i => NY2 - nh / 2 + (i + .62) * nh / 7 + 6 * NS;
-    const [sx, sy] = ph.screen, rowY = i => sy + ROWY(PS, i) + 27 * PS, rowX = sx + 15 * PS;
-    const pairT = [tHelp - .05, tThem - .05, tTo - .12, tJudge - .12];
+    const hit = kick(t, tJudge, .25);
+    const TAPS = [C5b + .08, C5b + .25, tHelp, tThem], made = TAPS.filter(tt => t > tt).length;
+    const rows = [0, 1, 2].map(i => ({ pop: ramp(t, TAPS[i], .12), tick: ramp(t, TAPS[i] + .08, .1) }));
+    if (made >= 4) rows.push({ ghost: true, ghostA: .55 + .45 * Math.sin(Math.max(0, t - TAPS[3]) * 18) * (t < tJudge ? 1 : 0) });
+    // the phone's rows: where the card's rows line up
+    const top = F - 40 * PS - 560 * PS, scrY = top + 72 * PS, rowY = i => scrY + ROWY(PS, i) + 27 * PS;
+    const NY2 = rowY(0) + (135 - 64) * NS, cardBot = NY2 + 135 * NS;
+    footShadow(g, PX, F, 200); footShadow(g, NX, F, 120);
+    // the card's clip stand: a round foot, a wire, and a clip on the card's edge
+    shape(g, ellipse(NX, F - 8, 58, 13), { fill: '#6e4426', shade: '#3e2414', form: 'round', w: 5, seed: 6560 });
+    stroke(g, [[NX, F - 12], [NX + 3, (F + cardBot) / 2], [NX, cardBot - 6]], { w: 7, seed: 6561, taper: false, color: '#8a7e6a' });
+    const ends = answerCard(g, NX, NY2, NS, { ticks: [0, 1, 2].filter(i => t > TAPS[i] + .08).length, miss: made >= 4 ? ramp(t, TAPS[3] + .05, .14) : 0 });
+    shape(g, rrect(NX - 22, cardBot - 16, 44, 26, 6), { fill: '#a8a294', shade: '#6a665c', form: 'block', w: 5, seed: 6562 });
+    // the net drops just before the fourth set: the fan in the header is struck through
+    const ph = logPhone(g, PX, F, PS, rows, { t, dance: 0, lean: hit * .04, net: t > TAPS[3] - .14 ? 0 : 1, eyes: { expr: t > tJudge ? 'worried' : 'open', lx: -.7 } });
+    if (t > tJudge + .15) sweat(g, PX + 100, F - 360, .8);
+    const [sx, sy0] = ph.screen, rY = i => sy0 + ROWY(PS, i) + 27 * PS, rowL = sx + 15 * PS;
+    // a dashed line joins each of the card's rows to the app's; the fourth, gold, finds the gap
     for (let i = 0; i < 4; i++) {
-      const p = ramp(t, pairT[i], .14); if (p <= 0) continue;
-      const a = [NX + 150 * NS * .5, nRow(i)], b = [rowX - 2, rowY(i)];
-      const e = [lerp(a[0], b[0], p), lerp(a[1], b[1], p)];
-      g.save(); g.setLineDash([7, 6]); g.strokeStyle = C(i < 3 ? '#6a5a52' : '#d08a1c'); g.lineWidth = 2.6; g.beginPath(); g.moveTo(a[0], a[1]); g.lineTo(e[0], e[1]); g.stroke(); g.restore();
-      if (i < 3 && p >= 1) dot(g, b[0], b[1], 3, '#6a5a52');
+      const p = ramp(t, TAPS[i] + .04, .12); if (p <= 0) continue;
+      const a = ends[i], b = [rowL - 4, rY(i)], e = [lerp(a[0], b[0], p), lerp(a[1], b[1], p)];
+      g.save(); g.setLineDash([8, 7]); g.strokeStyle = C(i < 3 ? '#6a5a52' : '#d08a1c'); g.lineWidth = i < 3 ? 3 : 4.5; g.beginPath(); g.moveTo(a[0], a[1]); g.lineTo(e[0], e[1]); g.stroke(); g.restore();
     }
-    // the gavel: the bot's arm swings it in from the right and down on the empty row
-    const gap = [rowX + 110 * PS, rowY(3)], H0 = [gap[0] + 120, gap[1] - 24];
-    const up = ease(t, tTo - .12, .2), slam = ease(t, tJudge - .07, .07) - ease(t, tJudge + .2, .22) * .6;
-    const angDown = Math.atan2(gap[1] - H0[1], gap[0] - H0[0]) - TAU, ang = slam > 0 ? lerp(-1.75, angDown, slam) : lerp(-1.2, -1.75, up);
-    if (t > tJudge) sticker(g, gap[0] - 4, gap[1] - 2, 21, { p: ramp(t, tJudge, .1), ang: -.22, since: t - tJudge - .1 });
-    if (t > tHelp - .1) {
-      const inn = easeOut(ramp(t, tHelp - .1, .2), 3), hx = H0[0] + (1 - inn) * 260, hy = H0[1];
-      hose(g, [hx + 300, hy + 30], [hx, hy], { w: 7, bend: .12, seed: 6500 });
-      gavel(g, hx, hy, ang, .64);
-      glove(g, hx, hy, ang, 13, 'grip', { seed: 6501 });
+    const gap = [rowL + 70 * PS, rY(3)];
+    dust(g, gap[0] - 10, gap[1], 66, ramp(t, TAPS[3] + .02, .4), 6580);
+    if (t > tJudge) sticker(g, gap[0] - 4, gap[1] - 2, 24, { p: ramp(t, tJudge, .1), ang: -.22, since: t - tJudge - .1 });
+    // the bot, hovering between the card and the phone
+    const BY = F - 118 + Math.sin(t * 4.1) * 5, sh = [BX + 78 * BS / .5, BY - 72 * BS / .5];
+    footShadow(g, BX, F, 110, .22);
+    // its near hand taps each row's place in turn, its finger pressing in on each tap
+    let R = 'hips';
+    if (t < TAPS[3] + .12) {
+      const next = Math.min(3, made), ty = made >= 4 ? rY(3) : lerp(rY(Math.max(0, next - 1)), rY(next), clamp((t - (TAPS[next] - .12)) / .1));
+      const tip = [rowL + 34, ty], d0 = Math.hypot(tip[0] - sh[0], tip[1] - sh[1]), u = [(tip[0] - sh[0]) / d0, (tip[1] - sh[1]) / d0];
+      const tapIn = Math.max(...TAPS.map(tt => kick(t, tt, .1))), back = 30 + (1 - tapIn) * 14;
+      R = { to: clawdTo(BX, BY, BS, 'R', tip[0] - u[0] * back, tip[1] - u[1] * back), pose: 'point', ang: Math.atan2(u[1], u[0]) };
+      for (const tt of TAPS) if (t > tt && t < tt + .25) { const v = (t - tt) / .25; g.save(); g.globalAlpha *= 1 - v; g.strokeStyle = C('#b0405a'); g.lineWidth = 3; g.beginPath(); g.ellipse(tip[0], tip[1], 10 + v * 30, 6 + v * 18, 0, 0, TAU); g.stroke(); g.restore(); }
     }
-    if (t > tJudge && t < tJudge + .3) burst(g, gap[0], gap[1], 56, (t - tJudge) / .3, 10, INK, 6030);
-    // the near desk, close: a pencil and the inkwell in the corners below the lyric
+    // its other hand holds the gavel up at its side; on "judge" it swings over and down on the gap
+    // (and after a beat it swings it back up, leaving the seal on the gap)
+    const swing = ease(t, tJudge - .07, .07) - ease(t, tJudge + .22, .26), sw = clamp(swing);
+    const hUp = [BX - 70, BY - 172], hDown = [BX + 100, gap[1] - 70], gs = Math.hypot(gap[0] - hDown[0], gap[1] - hDown[1]) / 157;
+    const angDown = Math.atan2(gap[1] - hDown[1], gap[0] - hDown[0]);
+    const h = [lerp(hUp[0], hDown[0], sw), lerp(hUp[1], hDown[1], sw) - Math.sin(sw * Math.PI) * 60];
+    const gAng = sw > 0 ? lerp(-Math.PI / 2, angDown, sw) : -Math.PI / 2 + Math.sin(t * 3) * .05;
+    const L = { to: clawdTo(BX, BY, BS, 'L', h[0], h[1]), pose: 'grip', behind: sw > .5 };
+    const glance = t > tTo - .05 && t < tJudge - .07;
+    const eyes = glance ? { expr: 'wide', lx: -.9, ly: .4 } : made >= 4 ? { expr: 'wide', lx: .85, ly: .4 } : { expr: 'open', lx: .85, ly: clamp((rY(Math.min(3, made)) - (BY - 92)) / 70, -1, 1) };
+    const k = bot(g, BX, BY, BS, 2, { t, dance: 0, face: glance ? -.5 : .5, eyes, L, R, sing: true,
+      hold: { L: (g, x, y, a, s2) => { gavel(g, x, y, gAng, gs); glove(g, x, y, gAng, 25 * s2, 'grip', { flip: true, seed: 6501 }); } } });
+    speedLines(g, BX, k.top - 52, 1, 26, 3, 6590, '#8a7e6a');
+    if (t > tJudge && t < tJudge + .3) burst(g, gap[0], gap[1], 60, (t - tJudge) / .3, 10, INK, 6030);
+    // the near desk, close: a pencil and the inkwell low in the corners
     deskThing(g, 'pencil', 1080, F + 250, -.25, .5, 2900); deskThing(g, 'inkwell', 1400, F + 300, 0, .42, 2910);
     g.restore();
   }, { id: 'br-oracle-judge' });
@@ -538,148 +569,99 @@ export function register() {
     g.restore();
   }, { id: 'br-cork' });
 
-  // ---- 11. some calls need you; we'll talk them through: the candlestick telephone rings on the desk;
-  //      Guess lifts the receiver off its hook to his ear, listens, then turns and points at you: it's
-  //      for you. Clawd leans in with a thumbs-up: we'll talk them through
-  shot(C14, C15, (g, T) => { const t = now();
-    const c = cam([[C14, fc(1360, 1.3)], [tYou + .1, fc(1380, 1.4)], [C15, fc(1390, 1.46)]], T);
+  // ---- 11. some calls need you. A set logged with no signal: should the app keep it on the phone and
+  //      send it when the net's back, or tell her straight away it isn't saved? Kind or honest, each
+  //      has a cost; it's a product decision, not a bug, so the crew bring it to you. Two bots whip up
+  //      a card each, the app's page with the set on it and no tick; on "need" they look from one to
+  //      the other and shrug; on "you" they thrust both cards out at you.
+  shot(C14, C14b, (g, T) => { const t = now();
+    const c = cam([[C14, fc(JX, 1.32)], [tYou - .06, fc(JX, 1.34)], [tYou + .14, fc(JX, 1.43)], [C14b, fc(JX, 1.45)]], T);
     g.save(); room(g, c, t);
-    const PX = 1180, GX2 = 1400, KX2 = 1580, gs = .92, ps = .64;
-    const ringing = t < tNeed + .05 ? 1 : 0, lean = ease(t, tWell - .1, .5);
-    const up = t > tNeed - .05, toYou = t > tYou - .05, thrust = kick(t, tYou, .2);
-    const reach = ease(t, tCalls, .3), lift = ease(t, tNeed - .05, .24);
-    // Clawd skips in from the right edge on "We'll" and leans in with a thumbs-up
-    const kIn = slideIn(t, tWell - .24, tWell + .2, 1, .34, 620), kX = KX2 + kIn;
-    if (t > tWell - .24) {
-      footShadow(g, kX, F, 230);
-      clawd(g, kX, F, .76, { t, walk: kIn > 2 ? t * 4 : undefined, face: -.2, lean: -lean * .08, eyes: { expr: t > tThrough ? 'happy' : 'open', lx: -.3, ly: 0 }, L: 'hips', R: lean > .5 ? { to: [.05, -.75], pose: 'thumb' } : 'hips', sing: lean > .5 ? true : 0 });
+    const shrug = kick(t, tNeed, .32), point = t > tYou - .06, thrust = backOut(ramp(t, tYou - .06, .2), 2.2);
+    for (const k of [0, 1]) {
+      const tUp = k ? tCalls : tSome, up = clamp((t - tUp) / .26), x = JX + (k ? JD : -JD), d = k ? -1 : 1;
+      footShadow(g, x, F, 200);
+      const look = point ? { expr: 'wide', lx: 0, ly: 0 } : t > tNeed - .05 ? { expr: 'open', lx: d * .9, ly: -.8 } : up > 0 ? { expr: 'open', lx: d * .2, ly: -1 } : { expr: 'open', lx: d * .5, ly: 0 };
+      if (up <= 0) { bot(g, x, F, JS, k, { t, dance: 0, eyes: look, L: 'hang', R: 'hang', sing: 0 }); continue; }
+      const e = backOut(up, 1.8);
+      holdUp(g, k, t, { p: 0, k: lerp(.3, 1, e) + thrust * .1, lift: lerp(-200, 0, e) + thrust * 16, rot: -d * shrug * .08, eyes: look, sing: point ? true : 0, squash: shrug * .12 });
     }
-    footShadow(g, PX, F, 200);
-    const stand = candlestick(g, PX, F, ps, { t, ring: ringing, off: up });
-    if (ringing) ringMarks(g, PX, F - 330, 96, t, 1);
-    footShadow(g, GX2, F, 210);
-    // Guess's left hand: to the hook, then the receiver up to his ear; his right points at you on "you"
-    const hookTo = [1.12, -.4], ear = [-.05, -.9], pointing = toYou && t < tWell - .02;
-    const Lh = up ? { to: [lerp(hookTo[0], ear[0], lift), lerp(hookTo[1], ear[1], lift)], pose: 'grip' } : (reach > 0 ? { to: [lerp(.45, hookTo[0], reach), lerp(.35, hookTo[1], reach)], pose: 'open' } : 'hips');
-    const Rh = pointing ? { to: [-.1, lerp(.2, -.3, ease(t, tYou - .05, .2))], pose: 'fist' } : 'hips';
-    const hold = {};
-    if (up) hold.L = (g, x, y, a, s) => {
-      const k = ps * lerp(1, 1.15, lift), ang = lerp(Math.PI / 2 - .08, -1.24, lift);
-      const end = [x - Math.cos(ang) * 74 * k, y - Math.sin(ang) * 74 * k];
-      stroke(g, spline([end, [(end[0] + stand.cord[0]) / 2 - 10, Math.max(end[1], stand.cord[1]) + 30], stand.cord], false, 10), { w: 6, seed: 6451, taper: false, raw: true });
-      receiver(g, x, y, ang, k); glove(g, x, y, a, 24 * s, 'grip', { flip: true, seed: 6450 });
-    };
-    if (pointing) hold.R = (g, x, y, a, s) => pointAtYou(g, x, y, s * (1.08 + thrust * .16), { from: .9 });
-    guess(g, GX2, F, gs, { t, face: toYou ? 0 : -.5, lean: toYou ? -lean * .04 : 0, eyes: { expr: toYou ? 'wide' : 'open', lx: toYou ? 0 : -.7, ly: toYou ? 0 : (up ? -.1 : .3) }, brow: toYou ? 1 : .6, L: Lh, R: Rh, sing: toYou ? true : 0, smile: .7, hold });
-    if (toYou) sparkle(g, GX2, F - 420, 160, t, 5, GOLD, 6460);
     g.restore();
   }, { id: 'br-call' });
 
-  // ---- 12. we ask for fresh interpretations: Press brings up the fainted comma on a velvet cushion
-  shot(C15, C15b, (g, T) => { const t = now();
-    const c = cam([[C15, fc(920, 1.4)], [C15b, fc(920, 1.56)]], T);
+  // ---- 11b. we'll talk them through: closer on the two cards. On "talk" the left one answers: the
+  //      phone's store drawer slides out, the set drops in, a clock and a dashed arrow up to the Wi-Fi
+  //      fan: kept, sent when the net's back. On "through" the right one: the row goes dashed and a
+  //      red warning sign lands on it: not saved, and she's told at once
+  shot(C14b, C15, (g, T) => { const t = now();
+    const c = cam([[C14b, fc(JX, 1.66)], [C15, fc(JX, 1.72)]], T);
     g.save(); room(g, c, t);
-    const PX = 920, s = 1.1, raise = ease(t, tAsk - .1, .4);
-    footShadow(g, PX, F, 260);
-    const hand = { to: [lerp(-.1, -.2, raise), lerp(-.55, -1.5, raise)], pose: 'open' };
-    const info = press(g, PX, F, s, { t, dance: .3, eyes: { expr: 'open', lx: 0, ly: lerp(.3, -.4, raise) }, L: hand, R: hand, sing: true, smile: .9 });
-    const hx = (info.hands.L.x + info.hands.R.x) / 2, hy = Math.min(info.hands.L.y, info.hands.R.y) - 10;
-    cushion(g, hx, hy, 300);
-    drawComma(g, hx + 40, hy - 96, 124, t, false);
-    g.restore();
-  }, { id: 'br-comma-wide' });
-
-  //      close, filling the frame: on the wall, the new screenshot of the app's chat, big: Pat's message,
-  //      and in its line of words the comma's empty place, a comma-shaped hole. Below it, on the cushion,
-  //      the comma itself wakes, sits up, looks up at its place and throws up its arms; then turns to
-  //      you: "?". On "interpretations" your hand comes in from the side, palm up; the comma hops onto
-  //      it, looks up at you, and the iris closes on it. Whether that change matters is your call.
-  const tSit = tFresh2 + .12, tLook = tSit + .18, tArms = tLook + .3, tToUs = tArms + .3;
-  const tHop = tInterp + .85, tLand2 = tHop + .32, tShut = END - 1.1;
-  shot(C15b, END, (g, T) => { const t = now();
-    const shut = easeInOut(ramp(T, tShut, END - tShut));
-    // the place behind, close: the striped wall, the desk top at the floor line, the near desk below
-    g.save(); place(g, office(), { ...fc(930 + (T - C15b) * 3, 2.2) }); g.restore();
-    const CU = [540, 1052], HC = 168;
-    const palmIn = easeOut(ramp(t, tInterp, .38), 3), cradle = Math.sin(clamp((t - tLand2) / .35) * Math.PI) * 10;
-    const PALM = [lerp(1500, 860, palmIn), 1004 + cradle];
-    // the screenshot, pinned up, with the comma's place glowing while the comma looks at it
-    const looking = t > tLook && t < tToUs + .2, glow = looking ? .5 + .5 * Math.sin((t - tLook) * 14) : 0;
-    const gap = chatCloseUp(g, 540, 578, t, { glow });
-    pin(g, 110, 344, 1.5); pin(g, 972, 340, 1.5);
-    // the cushion on the desk, and the comma
-    const bob = Math.sin(beatPos(t) * Math.PI) * 4;
-    footShadow(g, CU[0], 1104, 420, .4);
-    cushion(g, CU[0], CU[1] + bob, 410);
-    const onPalm = t > tLand2, hopping = t > tHop && !onPalm;
-    const seat = [CU[0] + 8, CU[1] + bob - 204], perch = [PALM[0] + 26, PALM[1] - 150];
-    let head = seat;
-    if (t < tSit) drawComma(g, CU[0] + 62, CU[1] + bob - 134, HC, t, t > tFresh2);
-    else {
-      let pose = 'stand', lx = 0, sq = 0, ly = 0;
-      if (t < tLook) { const u = clamp((t - tSit) / .18); sq = Math.sin(u * Math.PI) * .25; }
-      else if (t < tToUs) { lx = .4; ly = -1; pose = t > tArms ? 'up' : 'stand'; sq = kick(t, tArms, .12) * .2; }
-      else if (t < tHop) { lx = t > tInterp + .4 ? 1 : 0; }
-      if (hopping) { const u = (t - tHop) / (tLand2 - tHop); head = [lerp(seat[0], perch[0], u), lerp(seat[1], perch[1], u) - Math.sin(u * Math.PI) * 150]; pose = 'up'; }
-      if (onPalm) { head = perch; pose = t < tLand2 + .45 ? 'up' : 'stand'; sq = kick(t, tLand2, .12) * .3; const back = t > tLand2 + .8 && t < tLand2 + 1.15; lx = back ? -.5 : 0; ly = back ? -1 : 0; }
-      g.save(); g.translate(head[0], head[1] + 84 * HC / 100); g.scale(1 + sq * .5, 1 - sq); g.translate(-head[0], -(head[1] + 84 * HC / 100));
-      comma(g, head[0], head[1], HC, { t, pose, lx });
-      g.restore();
-      // its gaze up to its place: a dotted line from its eyes to the hole while it looks
-      if (looking) { const p = ramp(t, tLook, .15); g.save(); g.setLineDash([6, 10]); g.strokeStyle = C(GOLD); g.lineWidth = 4; g.globalAlpha *= .8; g.beginPath(); g.moveTo(head[0] + 6, head[1] - 46); g.lineTo(lerp(head[0] + 6, gap[0], p), lerp(head[1] - 46, gap[1] + 40, p)); g.stroke(); g.restore(); }
+    const pA = clamp((t - tTalk) / .5), pB = clamp((t - tThrough) / .45);
+    for (const k of [0, 1]) {
+      const x = JX + (k ? JD : -JD), d = k ? -1 : 1, mine = k ? tThrough : tTalk, other = k ? tTalk : tThrough;
+      footShadow(g, x, F, 200);
+      const watching = t > other - .05 && t < other + .45, proud = t > mine - .05 && t < mine + .5;
+      const eyes = proud ? { expr: 'happy', lx: 0, ly: -.2 } : watching ? { expr: 'open', lx: d * .9, ly: -.9 } : { expr: 'open', lx: 0, ly: 0 };
+      holdUp(g, k, t, { p: k ? pB : pA, lift: kick(t, mine, .5) * 22, rot: Math.sin(t * 3.1 + k * 1.7) * .018, eyes, sing: true });
     }
-    if (t > tToUs) { const p = pop(t, tToUs, .35), qb = Math.sin((t - tToUs) * 2.4) * 8; g.save(); g.translate(head[0] + (onPalm || hopping ? -126 : 120), head[1] - (onPalm || hopping ? 60 : 70) + qb); g.scale(p, p); qmark(g, 0, 0, 104, GOLD); g.restore(); }
-    // your hand, palm up, in from the right at the cushion's height
-    if (t > tInterp) yourPalm(g, PALM[0], PALM[1], 1.2, 1, { cup: onPalm ? .5 : 0 });
-    // the near desk under the lyric: the inkwell and a pencil low in the corners
-    deskThing(g, 'inkwell', 120, 1760, 0, .7, 2920); deskThing(g, 'pencil', 900, 1820, -.3, .75, 2930);
-    // the iris closes on the comma in your hand, into the breakdown
-    if (shut > 0) iris(g, lerp(W / 2, PALM[0] + 10, shut), lerp(1000, PALM[1] - 120, shut), Math.hypot(W, H) * .62 * (1 - shut));
-  }, { id: 'br-comma' });
+    g.restore();
+  }, { id: 'br-talk' });
+
+  // ---- 12. we ask for fresh interpretations: the two look from one card to the other and back; on
+  //      "fresh" a "?" pops up between them and they turn to you. On "interpretations" your hand comes
+  //      in from the right, palm up, and they lay both cards in it, then look up at you. The iris
+  //      closes on the two answers in your hand: which one is your call.
+  const tWe2 = at(L12, 'We'), tFor = at(L12, 'for'), tShut = END - 1.1;
+  shot(C15, END, (g, T) => { const t = now();
+    const c = cam([[C15, fc(JX, 1.56)], [tInterp, fc(JX + 10, 1.6)], [END, fc(JX + 10, 1.66)]], T);
+    const shut = easeInOut(ramp(T, tShut, END - tShut));
+    g.save(); room(g, c, t);
+    const palmIn = easeOut(ramp(t, tInterp, .36), 3), cradle = Math.sin(clamp((t - tInterp - 1.05) / .4) * Math.PI) * 8;
+    const PALM = [lerp(JX + 760, JX + 34, palmIn), F - 250 + cradle];
+    const give = [easeInOut(ramp(t, tInterp + .4, .3)), easeInOut(ramp(t, tInterp + .72, .3))];
+    const KON = 1.1, onPalm = [[PALM[0] - 96, PALM[1] - 6 - 133 * CS * KON, -.1], [PALM[0] + 92, PALM[1] - 2 - 133 * CS * KON, .12]];
+    const across = (t > tWe2 - .05 && t < tAsk - .05) || (t > tFor - .05 && t < tFresh2 - .05), atYou = t > tFresh2 - .05;
+    const placed = [];
+    for (const k of [0, 1]) {
+      const x = JX + (k ? JD : -JD), d = k ? -1 : 1, gv = give[k];
+      footShadow(g, x, F, 200);
+      const thanks = t > tInterp + 1.05;
+      const eyes = thanks ? { expr: 'happy', lx: 0, ly: -.35 } : atYou ? { expr: 'wide', lx: 0, ly: 0 } : across ? { expr: 'open', lx: d * .9, ly: -.9 } : { expr: 'open', lx: -d * .2, ly: -1 };
+      const shrug = kick(t, tFresh2, .35), duck = k ? kick(t, tInterp + .08, .3) : 0;
+      if (gv < 1) {
+        // held up, the card swaying a little, and tipped toward the other one while they compare
+        const [cx0, cy0] = cardAt(k), [cx1, cy1, r1] = onPalm[k];
+        const tip = (across ? d * .06 : 0) - d * shrug * .08 + Math.sin(t * 3.1 + k * 1.7) * .018;
+        holdUp(g, k, t, { p: 1, dx: lerp(0, cx1 - cx0, gv), lift: lerp(0, cy0 - cy1, gv), rot: lerp(tip, r1, gv), k: lerp(1, KON, gv), eyes, sing: true, squash: duck * .22 });
+      } else {
+        bot(g, x, F, JS, k, { t, dance: .55, jump: kick(t, tInterp + (k ? 1.02 : .7), .28) * .5, eyes, L: 'hang', R: 'hang', sing: true });
+        placed.push(k);
+      }
+    }
+    // laid in your palm, fanned: the warning behind, the kept set in front
+    placed.slice().sort((a, b) => b - a).forEach(k => optionCard(g, onPalm[k][0], onPalm[k][1], CS, k ? 'warn' : 'keep', { t, p: 1, rot: onPalm[k][2], k: KON }));
+    if (t > tInterp) yourPalm(g, PALM[0], PALM[1], 1.15, 1, { cup: placed.length ? .4 : 0 });
+    // the "?" between them, on "fresh"
+    if (t > tFresh2 && t < tInterp + .4) { const p = pop(t, tFresh2, .35) * (1 - ramp(t, tInterp + .15, .25)), qb = Math.sin((t - tFresh2) * 2.4) * 8; g.save(); g.translate(JX, CY0 - 210 + qb); g.scale(p, p); qmark(g, 0, 0, 120, GOLD); g.restore(); }
+    // the near desk under the lyric
+    g.restore();
+    // the iris closes on the two answers in your hand
+    if (shut > 0) { const [ix, iy] = scr(c, PALM[0] - 4, PALM[1] - 150); iris(g, lerp(W / 2, ix, shut), lerp(1000, iy, shut), Math.hypot(W, H) * .62 * (1 - shut)); }
+  }, { id: 'br-call-yours' });
 }
 
-// The new screenshot of the app's chat, seen close: a photo pinned up, the app's pink header across
-// its top, Pat's face, and Pat's message in a bubble, big. In its line of words, where the comma was,
-// the comma's empty place: a comma-shaped hole, dashed round, glowing gold by `glow`. Returns the hole's
-// middle.
-function chatCloseUp(g, x, y, t, o = {}) {
-  const w = 960, h = 500, rot = -.015;
-  g.save(); g.translate(x, y); g.rotate(rot);
-  g.save(); g.globalAlpha *= .4; g.fillStyle = '#1a0c06'; g.filter = 'blur(12px)'; g.fillRect(-w / 2 + 16, -h / 2 + 22, w, h); g.restore();
-  shape(g, rrect(-w / 2, -h / 2, w, h, 8), { fill: '#fbf6ea', shade: '#d8ccb4', form: 'block', k: .4, w: 6, seed: 7720 });
-  const px = -w / 2 + 32, py = -h / 2 + 32, pw = w - 64, ph = h - 92;
-  g.fillStyle = C('#fdf5f0'); g.fillRect(px, py, pw, ph);
-  appHeader(g, px, py, pw, 1.8);
-  const top = py + 64 * 1.8;
-  avatar(g, px + 76, top + 112, 52, 'cat', { t });
-  // the bubble
-  const bx = px + 150, by = top + 22, bw = pw - 176, bh = ph - 64 * 1.8 - 40;
-  shape(g, [[bx + 10, by + 70], [bx - 34, by + 92], [bx + 12, by + 112]], { fill: '#dff0e8', w: 5, seed: 7721, form: false });
-  shape(g, rrect(bx, by, bw, bh, 40), { fill: '#dff0e8', shade: '#bcd8cc', form: 'block', k: .4, w: 6, seed: 7722 });
-  // the words, as squiggles, and the comma's place between the first two
-  const ly = by + bh * .38, word = (x0, x1, yy, seed) => { const P = []; for (let i = 0; i <= 26; i++) { const u = i / 26; P.push([lerp(x0, x1, u), yy + Math.sin(u * (x1 - x0) / 26 + seed) * 11 - (i % 7 === 3 ? 12 : 0)]); } stroke(g, P, { w: 13, seed, taper: true, tipMin: .5, raw: true }); };
-  word(bx + 46, bx + 300, ly, 7730);
-  const gx = bx + 352, gy = ly + 4, k = 3.3;
-  word(bx + 412, bx + bw - 46, ly, 7731);
-  word(bx + 46, bx + bw * .62, ly + bh * .36, 7732);
-  // the hole: a comma's shape, empty, dashed round
-  const dotP = ellipse(gx, gy - 3 * k, 7.5 * k, 7.5 * k, 0, 30);
-  const tailP = spline([[gx + 3 * k, gy - 2 * k], [gx + 7 * k, gy + 4 * k], [gx + 3 * k, gy + 13 * k], [gx - 5 * k, gy + 20 * k], [gx - 1 * k, gy + 11 * k], [gx - 2 * k, gy + 3 * k]], true, 6);
-  const glow = clamp(o.glow ?? 0);
-  if (glow > 0) { g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha *= .55 * glow; g.fillStyle = C('#ffd46a'); g.filter = 'blur(10px)'; g.beginPath(); g.arc(gx, gy + 10 * k, 15 * k, 0, TAU); g.fill(); g.restore(); }
-  for (const P of [dotP, tailP]) { g.save(); g.fillStyle = C(glow > .5 ? '#f6e3a8' : '#c8e0d6'); pathOf(g, P, true); g.fill(); g.setLineDash([9, 7]); g.lineWidth = 5; g.strokeStyle = C(glow > .5 ? GOLD_SH : '#4a6a5e'); g.stroke(); g.restore(); }
-  g.restore();
-  const c = Math.cos(rot), sn = Math.sin(rot);
-  return [x + gx * c - gy * sn, y + gx * sn + gy * c];
-}
-
-// The fainted comma from verse 1, big enough to read as a comma with a face: its round head up and to
-// the right, its tail curling down to the left, reclining on the cushion as if swooned. `hope` opens
-// one eye.
-function drawComma(g, x, y, h, t, hope) {
-  g.save(); g.translate(x, y);
-  if (hope) { g.rotate(.62); comma(g, 0, 0, h, { t, pose: 'hope', lx: -.5 }); }
-  else { g.rotate(.85 + 1.1); comma(g, 0, 0, h, { t, pose: 'swoon', p: 1 }); }
-  g.restore();
+// The judgement call's two bots, side by side at the desk, each holding up its card.
+const JX = 1245, JD = 152, JS = .62, CS = .95, CY0 = F - 361;
+const cardAt = k => [JX + (k ? JD : -JD), CY0];
+const scr = (c, x, y) => [(x - c.x) * c.z + W / 2, (y - c.y) * c.z + H / 2];
+// One of them holding its card up overhead: the card first, then the bot, its gloves on the card's
+// lower corners. k 0 is the left one (mint, 'keep'), 1 the right (gold, 'warn'). o: p (the card's
+// answer, 0..1), dx, lift, rot, k (the card's scale), eyes, sing, squash.
+function holdUp(g, k, t, o = {}) {
+  const x = JX + (k ? JD : -JD), cx = x + (o.dx ?? 0), cy = CY0 - (o.lift ?? 0), rot = o.rot ?? 0, kk = o.k ?? 1;
+  optionCard(g, cx, cy, CS, k ? 'warn' : 'keep', { t, p: o.p ?? 1, rot, k: kk });
+  const hb = 133 * CS * kk + 4, corner = d => { const lx = d * 92 * kk; return [cx + lx * Math.cos(rot) - hb * Math.sin(rot), cy + lx * Math.sin(rot) + hb * Math.cos(rot)]; };
+  const hand = side => { const [hx, hy] = corner(side === 'L' ? -1 : 1); return { to: clawdTo(x, F, JS, side, hx, hy), pose: 'grip' }; };
+  bot(g, x, F, JS, k, { t, dance: 0, squash: o.squash, eyes: o.eyes, L: hand('L'), R: hand('R'), sing: o.sing ?? true });
 }
 

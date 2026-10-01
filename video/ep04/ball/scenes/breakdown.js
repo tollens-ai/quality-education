@@ -101,6 +101,8 @@ export function register(S, { MONO }) {
   const [, tChecks7, , tPart7, , , , tTest7] = [0, 1, 2, 3, 4, 5, 6, 7].map(i => T(L7, i));
   const [tWe8, tJudge, , tServes, tThe8, tUsers, tBest] = [0, 1, 2, 3, 4, 5, 6].map(i => T(L8, i));
   const t0 = 128.9, tEnd = 147.34;
+  // the house: rapt through the definitions, leaning in; bouncing as the colour comes back on "the users best"
+  const rapt = t => ({ lean: 1, bop: lerp(.06, .95, ramp(t, tUsers - .05, .55)) });
   const L1b = 130.2, L2a = tIt - .05, L2b = 132.5, L3a = tTo - .05, L3b = 134.58, L3c = 135.2, L4a = tEach - .05, L4b = 137.3, L5a = tA5 - .05, L6a = tWe6 - .05, L6b = tLets - .06, L7a = 142.6, L8a = tWe8 - .05;
 
   // The rule's check, centre stage, and its card.
@@ -153,7 +155,7 @@ export function register(S, { MONO }) {
     if (line2 && tq > tMet) { const k = checkGeo(KX, Y, KS); sparkle(g, KX - 150, k.top - 170, 120, tq, 5, GOLD, 213); burst(g, KX - 150, k.top - 170, 120, (tq - tMet) / .45, 10, '!' + GREEN, 214); }
     g.restore();
     spotBeam(g, c, sp, t);
-    stalls(g, c, sp, t, { blur: close ? 3 : 0 });
+    stalls(g, c, sp, t, { ...rapt(t), blur: close ? 3 : 0 });
   };
   // 1a. the light strikes on a lone check; Clawd steps in to present it
   shot(t0, L1b, (g, t) => {
@@ -228,7 +230,7 @@ export function register(S, { MONO }) {
     if (flag > .5 && tq > (line4 ? tTry : tElse)) { const k = checkGeo(KX, Y, KS); sparkle(g, KX - 150, k.top - 170, 120, tq, 5, GOLD, 241); }
     g.restore();
     spotBeam(g, c, sp, t);
-    stalls(g, c, sp, t, { blur: close ? 3 : 0 });
+    stalls(g, c, sp, t, { ...rapt(t), blur: close ? 3 : 0 });
   };
   const SP3 = { x: 1090, y: Y, rx: 310, ry: 64, k: 1 };
   // 3a. Guess steps in and holds up a small ball
@@ -276,7 +278,7 @@ export function register(S, { MONO }) {
     }
     g.restore();
     spotBeam(g, c, sp, t);
-    stalls(g, c, sp, t, { blur: close ? 3 : 0 });
+    stalls(g, c, sp, t, { ...rapt(t), blur: close ? 3 : 0 });
   };
   const SP5 = { x: 1000, y: Y, rx: 340, ry: 68, k: 1 };
   const c5 = fc(1000, 1.68);
@@ -322,7 +324,7 @@ export function register(S, { MONO }) {
     if (snap && tq < tTest7 + .3) pops(g, BX, my - 20, 150, 8, { a0: -Math.PI, span: Math.PI, w: 7 });
     g.restore();
     spotBeam(g, c, sp, t);
-    stalls(g, c, sp, t);
+    stalls(g, c, sp, t, rapt(t));
   }, { id: 'bd-bag' });
 
   // ---------------------------------------------------------------- line 8: the users
@@ -347,7 +349,7 @@ export function register(S, { MONO }) {
     }
     g.restore();
     spotBeam(g, c, sp, t);
-    stalls(g, c, sp, t, { blur: close ? 3 : 0 });
+    stalls(g, c, sp, t, { ...rapt(t), blur: close ? 3 : 0 });
   };
   // 8. the light swings to the users; they step into it, and the colour spreads back from them
   shot(L8a, tEnd, (g, t) => {

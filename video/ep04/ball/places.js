@@ -1,10 +1,10 @@
 // The painted places. Each is built around a lit centre, where the action stands, and a dark, calm
 // apron below the floor line, where the lyric sits. World coordinates are the place canvas's own;
 // a scene's camera puts the floor line at screen y FLOOR_Y.
-import { W, H, TAU, clamp, lerp, rng, noise, hash, mix, rgba } from './kit.js';
+import { W, H, TAU, clamp, lerp, rng, noise, hash, mix, rgba, beatPos } from './kit.js';
 import { C } from './palette.js';
 import { bake, wash, glaze, light, gloom, shadow, streaks, dabs, inkLine, paper, ao, path, wob, dense, box } from './bg.js';
-import { ellipse, spline, rrect } from './ink.js';
+import { ellipse, spline, rrect, glove } from './ink.js';
 
 export const FLOOR_Y = 1100;          // where every place's floor line sits on screen at rest
 
@@ -82,12 +82,76 @@ export function audience(g, F, w, o = {}) {
   }
 }
 
+// The same audience drawn live, so it can be into the show: o.bop (0..1) is how much. Near 0 they sit
+// attentive with a little sway; from about .3 the front rows clap on the beat; past .55 the keenest
+// put their hands up and wave, and wave their hats. In silhouette a crowd's movement is invisible, so
+// what shows it is the rubber hose's white gloves, and a brighter rim on the front rows as they bounce.
+// Only the rows below the lyric's band (dy >= 500) clap or raise their hands. Draw it after place(), in
+// the same transform; the place must be baked without its audience (theatre({ live: true }),
+// circus({ live: true })).
+// Two hands clapping on the beat: p (0..1) is how close together they are, 1 on the beat.
+export const clapAt = (bp, ph) => Math.pow(Math.abs(Math.cos((bp + ph) * Math.PI)), 3);
+// The crowd's gloves are cream, lit by the stage: they read in the dark without glaring under the lyric.
+export const CROWD_GLOVE = { col: '#ecdfc4', shade: '#a39274' };
+export function clapHands(g, x, y, r, p, seed) {
+  const sep = r * (.1 + .42 * (1 - p));
+  for (const d of [-1, 1]) glove(g, x + d * sep, y, -Math.PI / 2 - d * (.35 + .25 * (1 - p)), r * .34, 'flat', { flip: d < 0, seed: seed + d, ...CROWD_GLOVE });
+}
+export function audienceLive(g, F, w, t, o = {}) {
+  const RR = rng(o.seed ?? 395), rim = o.rim || '#f6c070', x0 = o.x0 ?? -80, x1 = o.x1 ?? w + 80, hats = o.hats ?? .6;
+  const rows = o.rows || [[110, 40, 30], [270, 56, 21], [480, 76, 16], [750, 100, 12], [1080, 126, 9]];
+  const bop = clamp(o.bop ?? .15), bp = beatPos(t);
+  for (const [dy, r, n] of rows) {
+    const y = F + dy;
+    for (let k = 0; k < n; k++) {
+      const x = lerp(x0, x1, (k + .5) / n) + (RR() - .5) * r * .6, yy0 = y + (RR() - .5) * r * .3;
+      const dark = RR() < .3 ? '#160a07' : '#0c0504', hat = RR() / hats;
+      // their own groove: a phase, how keen they are, and a bounce once a beat
+      const ph = hash(k + dy, 17), keen = .35 + .65 * hash(dy, k + 3);
+      const b = Math.max(0, Math.sin((bp + ph * .35) * Math.PI));
+      const front = dy >= 500;
+      const hop = bop * keen * b * r * (front ? .6 : .22), sway = Math.sin((bp * .5 + ph) * Math.PI) * r * (.05 + bop * .14);
+      const hx = x + sway, yy = yy0 - hop, sy = yy0 - hop * .55;
+      // only the front rows put their hands up or clap: further back, hands would reach the lyric's band
+      const up = bop > .55 && keen > .74 && front ? clamp((bop - .55) / .25) : 0;
+      const clap = !up && front && keen > .45 ? clamp((bop - .3) / .2) : 0;
+      g.save(); g.fillStyle = dark;
+      // hands up, waving on the beat (behind the head, in front of the row behind)
+      if (up > 0) for (const d of [-1, 1]) {
+        const wave = Math.sin((bp + ph) * Math.PI * 2) * r * .3 * d, hx2 = hx + d * r * 1.25 + wave, hy2 = yy - r * (.95 + .55 * up);
+        g.strokeStyle = dark; g.lineWidth = r * .3; g.lineCap = 'round';
+        g.beginPath(); g.moveTo(hx + d * r * 1.15, sy + r * 1.1); g.quadraticCurveTo(hx + d * r * 1.6, sy + r * .2, hx2, hy2); g.stroke();
+        glove(g, hx2, hy2 - r * .1, -Math.PI / 2 + d * .3 + Math.sin((bp + ph) * Math.PI * 2) * .35, r * .38 * up, 'open', { flip: d < 0, seed: 7900 + k + d, ...CROWD_GLOVE });
+      }
+      g.beginPath(); g.ellipse(hx, sy + r * 1.45, r * 2.05, r * 1.1, 0, 0, TAU); g.fill();
+      g.beginPath(); g.ellipse(hx, yy, r * .92, r * 1.08, 0, 0, TAU); g.fill();
+      // hats, and the keenest wave theirs: it lifts off the head on the beat
+      const lift = up > 0 && hat < .63 ? b * r * .7 * up : 0, hy = yy - lift;
+      if (hat < .33) { g.fillRect(hx - r * .62, hy - r * 2.0, r * 1.24, r * 1.1); g.beginPath(); g.ellipse(hx, hy - r * .9, r * 1.15, r * .22, 0, 0, TAU); g.fill(); }
+      else if (hat < .63) { g.beginPath(); g.ellipse(hx, hy - r * .78, r * .82, r * .62, 0, Math.PI, 0); g.fill(); g.beginPath(); g.ellipse(hx, hy - r * .72, r * 1.12, r * .2, 0, 0, TAU); g.fill(); }
+      else if (hat < .83) { g.beginPath(); g.ellipse(hx - r * .5, yy - r * .9, r * .34, r * .2, -.5, 0, TAU); g.ellipse(hx + r * .5, yy - r * .9, r * .34, r * .2, .5, 0, TAU); g.fill(); }
+      else if (hat < 1) { g.beginPath(); g.ellipse(hx + r * .1, yy - r * .95, r * .5, r * .34, .2, 0, TAU); g.fill(); g.beginPath(); g.moveTo(hx + r * .4, yy - r * 1.1); g.quadraticCurveTo(hx + r * 1.1, yy - r * 2.1, hx + r * .3, yy - r * 1.9); g.lineWidth = r * .12; g.strokeStyle = '#0c0504'; g.stroke(); }
+      g.restore();
+      g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = Math.min(.95, Math.max(.2, .7 - dy / 2600) * (front ? 1 + bop * .6 : 1)); g.strokeStyle = rim; g.lineWidth = Math.max(2.5, r * (front ? .1 + bop * .04 : .1));
+      g.beginPath(); g.ellipse(hx, yy, r * .86, r * 1.02, 0, Math.PI * 1.15, Math.PI * 1.85); g.stroke();
+      g.globalAlpha *= .5; g.beginPath(); g.ellipse(hx, sy + r * 1.45, r * 1.95, r * 1.02, 0, Math.PI * 1.2, Math.PI * 1.8); g.stroke(); g.restore();
+      // applause: two white gloves in front of the chest, meeting on the beat
+      if (clap > 0) { g.save(); g.globalAlpha *= clap; clapHands(g, hx, sy + r * .95, r, clapAt(bp, ph * .3), 7950 + k); g.restore(); }
+    }
+  }
+}
+
 // The front of the stage seen from the flies, for the overhead shots: the footlights' gold shells
 // along its edge (floor y E), throwing light back onto the boards, and beyond them the tops of the
 // front stalls' heads and hats, the footlights catching their stage side. Atmosphere under the
 // lyric: dark and quiet.
 export function stallsAbove(g, w, h, E, o = {}) {
-  const R = rng(o.seed ?? 511), step = 190;
+  stallsFloor(g, w, h, E);
+  if (o.heads !== false) stallsHeads(g, w, h, E, rng(o.seed ?? 511), 0, null);   // heads: false, and the scene draws them live
+}
+// The edge, the footlights and the dark pit, without the heads (for a scene that draws them live).
+function stallsFloor(g, w, h, E) {
+  const step = 190;
   for (let x = 96; x < w; x += step) light(g, x, E - 24, 150, '#ffd88a', .2, 70);
   wash(g, box(0, E + 14, w, h - E - 14), '#1a0c07', { seed: 512, grad: [[0, '#3a1c10'], [.25, '#1e0e08'], [1, '#0c0504']], gran: .5, rim: 0, blooms: 6, amt: 0 });
   ao(g, 0, E + 14, w, E + 14, 50, .5);
@@ -97,10 +161,20 @@ export function stallsAbove(g, w, h, E, o = {}) {
     wash(g, P, '#d9a83c', { seed: 514 + x, gran: .3, rim: .4, ink: 2, inkCol: '#5a3a0c', radial: [x, E + 2, 4, 40, [[0, '#ffe7a0'], [1, '#a8741a']]] });
     light(g, x, E - 2, 44, '#fff2c0', .5, 14);
   }
+}
+// The stalls' heads from the flies, live: o.bop (0..1) as for audienceLive. From above a bounce shows as
+// a head swelling toward the camera, and the keenest show their hands either side of their hats.
+export function stallsAboveLive(g, w, h, E, t, o = {}) { stallsHeads(g, w, h, E, rng(o.seed ?? 511), clamp(o.bop ?? .15), beatPos(t)); }
+function stallsHeads(g, w, h, E, R, bop, bp) {
   for (let row = 0; row < Math.ceil((h - E - 120) / 170) + 1; row++) {
     const y = E + 120 + row * 170, n = Math.ceil(w / 150);
     for (let k = 0; k < n; k++) {
-      const x = (k + .5) * (w / n) + (row % 2 ? 40 : -20) + (R() - .5) * 50, yy = y + (R() - .5) * 30, r = 52 + R() * 10, hat = R();
+      const x = (k + .5) * (w / n) + (row % 2 ? 40 : -20) + (R() - .5) * 50, yy = y + (R() - .5) * 30, r0 = 52 + R() * 10, hat = R();
+      const ph = hash(k + row * 31, 23), keen = .35 + .65 * hash(row, k + 7), b = bp == null ? 0 : Math.max(0, Math.sin((bp + ph * .35) * Math.PI));
+      const r = r0 * (1 + bop * keen * b * .12);
+      // from above, applause is two white gloves either side of the head, meeting on the beat in front of
+      // it (toward the stage, up the frame)
+      const hands = bp != null && keen > .6 ? clamp((bop - .35) / .2) : 0;
       g.fillStyle = '#0c0504'; g.beginPath(); g.ellipse(x, yy + r * .2, r * 1.7, r * .8, 0, 0, TAU); g.fill();
       g.fillStyle = R() < .3 ? '#1a0d08' : '#120806';
       let rx, ry;
@@ -114,8 +188,9 @@ export function stallsAbove(g, w, h, E, o = {}) {
         [rx, ry] = [r * .74, r * .86]; g.beginPath(); g.ellipse(x, yy, rx, ry, 0, 0, TAU); g.fill();
         g.beginPath(); g.ellipse(x - rx * .98, yy + r * .1, r * .16, r * .26, 0, 0, TAU); g.ellipse(x + rx * .98, yy + r * .1, r * .16, r * .26, 0, 0, TAU); g.fill();
       }
-      g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = Math.max(.12, .55 - row * .09); g.strokeStyle = '#f6c070'; g.lineWidth = 4;
+      g.save(); g.globalCompositeOperation = 'screen'; g.globalAlpha = Math.max(.12, .55 - row * .09) * (1 + bop * .5); g.strokeStyle = '#f6c070'; g.lineWidth = 4 + bop * 2;
       g.beginPath(); g.ellipse(x, yy, rx * .97, ry * .97, 0, Math.PI * 1.1, Math.PI * 1.9); g.stroke(); g.restore();
+      if (hands > 0) { g.save(); g.globalAlpha *= hands; clapHands(g, x, yy - r * 1.05, r * 1.1, clapAt(bp, ph * .3), 7980 + k + row * 13); g.restore(); }
     }
   }
 }
@@ -308,7 +383,7 @@ function goldFrame(g, P, seed) {
   wash(g, P, '#c9962e', { seed, gran: .45, rim: .5, blooms: 6, amt: .3, ink: 2.4, inkCol: '#5a3a0c', grad: [[0, '#f0cf6a'], [.5, '#c9962e'], [1, '#8a5f12']] });
 }
 export function theatre(o = {}) {
-  return bake('theatre' + (o.closed ? 'c' : ''), TH.w, TH.h, (g, w, h) => {
+  return bake('theatre' + (o.closed ? 'c' : '') + (o.live ? 'L' : ''), TH.w, TH.h, (g, w, h) => {
     const F = TH.floor, cx = TH.cx, [ox0, ox1, oy] = TH.open;
     // the backdrop: a sunburst over painted clouds
     g.save(); g.beginPath(); g.rect(ox0, oy, ox1 - ox0, F - oy); g.clip();
@@ -376,7 +451,7 @@ export function theatre(o = {}) {
     wash(g, box(0, F + 20, w, h - F - 20), '#3a1c10', { seed: 390, grad: [[0, '#8a4a26'], [.22, '#5a2c18'], [.6, '#2a140c'], [1, '#140905']], gran: .5, rim: 0, blooms: 10, amt: 0 });
     light(g, cx, F + 60, 900, '#ffb870', .35, 300);
     ao(g, 0, F + 20, w, F + 20, 60, .45);
-    audience(g, F, w, { seed: 395 });
+    if (!o.live) audience(g, F, w, { seed: 395 });   // live: the scene draws audienceLive() over it
     paper(g, w, h, .4);
   });
 }

@@ -1,6 +1,8 @@
 // The testing crew, a vaudeville trio billed as Press, Stress & Guess, and the wind-up checks.
-//  Guess: tall, rose, a monocle and a waxed moustache, and a question mark for an antenna that
-//    springs straight into "!" on a clue. The one who second-guesses; carries the magnifying glass.
+//  Guess: tall, a tin detective in a violet Inverness coat and a tweed deerstalker, a monocle and a
+//    waxed moustache, and a question mark for an antenna that springs straight into "!" on a clue.
+//    The one who second-guesses; carries the magnifying glass. (He was a rose tin with a domed
+//    head until Qing saw what that silhouette looked like.)
 //  Press: small, round, teal, a push-button on his head and a finger always ready. Presses things.
 //  Stress: a big brass boiler with a pressure gauge on his belly and a whistle on top. Loads, shakes
 //    and squeezes things till they show what they're made of.
@@ -8,7 +10,9 @@
 //    wonder.
 import { TAU, clamp, lerp, now, hash, noise } from './kit.js';
 import { INK, WHITE, CREAM, TEAL, TEAL_SH, ROSE, ROSE_SH, PLUM, OCHRE, OCHRE_SH, GOLD, GOLD_SH, RED, RED_SH, GREEN, GREEN_SH, GREY, SLATE, TIN, TIN_SH, C, sh, lt } from './palette.js';
-import { shape, line, stroke, rrect, ellipse, spline, xf, eye, dot, hose, glove, shoe, paint, bbox } from './ink.js';
+import { shape, line, stroke, rrect, ellipse, spline, xf, eye, dot, hose, glove, shoe, paint, bbox, pathOf } from './ink.js';
+// Guess's colours: the coat, its cape's tweed, the tin of his face, the deerstalker
+export const GUESS = '#7a58a8', GUESS_FACE = '#d8cbe6', TWEED = '#9a7a4e';
 import { blinkAt, arm, leg, mouth, mouthAt, groove, brows, cheeks, pops } from './rig.js';
 
 const POSES = {
@@ -61,35 +65,65 @@ export function guess(g, x, y, s = 1, o = {}) {
   const bang = clamp(o.bang ?? 0), ax = x + bw * .04, ay = cy - bh * .5 + 4 * s;
   const qm = [[ax, ay], [ax, ay - 28 * s], [ax + 30 * s, ay - 52 * s], [ax + 30 * s, ay - 88 * s], [ax, ay - 106 * s], [ax - 28 * s, ay - 92 * s]];
   const ex = [[ax, ay], [ax, ay - 30 * s], [ax, ay - 56 * s], [ax, ay - 82 * s], [ax, ay - 108 * s], [ax, ay - 130 * s]];
+  // (with his cap on, the wire comes up through its button)
+  if (o.hat !== 'none') for (const P of [qm, ex]) for (const p of P) p[1] -= 30 * s;
   const wob = Math.sin(t * 9) * (1 - bang) * 4 * s;
   const A = qm.map((p, i) => [lerp(p[0], ex[i][0], bang) + wob * i / 5, lerp(p[1], ex[i][1], bang)]);
   stroke(g, A, { w: 7 * s, seed: 210, taper: false });
   const tip = A[A.length - 1];
-  const bulbY = bang > .5 ? cy - bh * .5 - 156 * s : tip[1];
+  const bulbY = bang > .5 ? cy - bh * .5 - 156 * s - (o.hat !== 'none' ? 30 * s : 0) : tip[1];
   shape(g, ellipse(bang > .5 ? ax : tip[0], bang > .5 ? bulbY : tip[1] + 6 * s, 14 * s, 14 * s), { fill: bang > .5 ? GOLD : '#f2a0b2', w: 5 * s, seed: 211, gloss: { x: .3, y: .25, w: .14, h: .12, dot: false } });
   if (bang > .5) for (let i = 0; i < 6; i++) { const a = i / 6 * TAU + t; stroke(g, [[ax + Math.cos(a) * 24 * s, bulbY + Math.sin(a) * 24 * s], [ax + Math.cos(a) * 36 * s, bulbY + Math.sin(a) * 36 * s]], { w: 4 * s, seed: 212 + i, color: GOLD_SH }); }
-  // body: a tall tin, a little bell-shaped; then a neck ring; then the domed head
-  const col = o.col || ROSE;
-  const headB = cy - bh * .06, headT = cy - bh * .52;
-  const body = spline([[x - bw * .43, headB + 8 * s], [x + bw * .43, headB + 8 * s], [x + bw * .47, cy + bh * .2], [x + bw * .52, cy + bh * .45], [x, cy + bh * .52], [x - bw * .52, cy + bh * .45], [x - bw * .47, cy + bh * .2]], true, 6);
+  // body: a tin detective. A violet Inverness coat, its cape broad over the shoulders; a pale tin face,
+  // flat-topped; a tweed deerstalker, its ear flaps down. Broad at the top: a detective's silhouette.
+  const col = o.col || GUESS, fc = o.faceCol || GUESS_FACE;
+  const headB = cy - bh * .06, headT = cy - bh * .5;
+  const body = spline([[x - bw * .43, headB + 8 * s], [x + bw * .43, headB + 8 * s], [x + bw * .47, cy + bh * .2], [x + bw * .54, cy + bh * .45], [x, cy + bh * .52], [x - bw * .54, cy + bh * .45], [x - bw * .47, cy + bh * .2]], true, 6);
   shape(g, body, { fill: col, shade: sh(col, .38), lit: lt(col, .3), form: 'block', w: 8 * s, seed: 220, gloss: { x: .18, y: .12, w: .07, h: .05 } });
-  // two rows of rivets down the front, like a tin toy's seam
-  for (let i = 0; i < 3; i++) dot(g, x, cy + bh * (.12 + i * .12), 3.6 * s);
-  const head = spline([[x - bw * .5, headB], [x - bw * .5, cy - bh * .3], [x - bw * .34, headT + 10 * s], [x, headT], [x + bw * .34, headT + 10 * s], [x + bw * .5, cy - bh * .3], [x + bw * .5, headB]], true, 6);
-  shape(g, head, { fill: col, shade: sh(col, .34), lit: lt(col, .4), form: 'round', cx: .32, cy: .25, w: 8 * s, seed: 221, gloss: { x: .24, y: .14, w: .1, h: .06 } });
-  // the neck ring between them
-  shape(g, rrect(x - bw * .47, headB - 6 * s, bw * .94, 20 * s, 9 * s), { fill: sh(col, .3), form: 'block', w: 5 * s, seed: 222 });
-  for (let i = -2; i <= 2; i++) dot(g, x + i * bw * .17, headB + 4 * s, 3.2 * s, lt(col, .5));
-  // a bow tie at the neck
-  const bt = headB + 26 * s;
-  for (const d of [-1, 1]) shape(g, spline([[x, bt], [x + d * 36 * s, bt - 20 * s], [x + d * 40 * s, bt], [x + d * 36 * s, bt + 20 * s]], true, 4), { fill: PLUM, w: 4.5 * s, seed: 223 + d });
-  shape(g, ellipse(x, bt, 10 * s, 12 * s), { fill: PLUM, w: 4 * s, seed: 225 });
+  // the coat's brass buttons, and the line where it closes
+  stroke(g, [[x + 2 * s, cy + bh * .16], [x, cy + bh * .5]], { w: 3 * s, seed: 219, color: sh(col, .5), taper: false });
+  for (let i = 0; i < 3; i++) dot(g, x + 9 * s, cy + bh * (.22 + i * .09), 4.2 * s, GOLD_SH);
+  // the cape over the shoulders, wider than the coat, its hem in two soft swags, in a faint tweed check
+  const cw = bw * .66, hemY = cy + bh * .15;
+  const cape = spline([[x - bw * .3, headB + 2 * s], [x + bw * .3, headB + 2 * s], [x + cw * .9, cy + bh * .0], [x + cw, hemY], [x + cw * .5, hemY + 12 * s], [x, hemY + 2 * s], [x - cw * .5, hemY + 12 * s], [x - cw, hemY], [x - cw * .9, cy + bh * .0]], true, 6);
+  shape(g, cape, { fill: sh(col, .1), shade: sh(col, .45), lit: lt(col, .22), form: 'block', w: 7 * s, seed: 226 });
+  g.save(); pathOf(g, cape, true); g.clip(); g.globalAlpha *= .22; g.strokeStyle = C(lt(col, .55)); g.lineWidth = 2 * s;
+  for (let k = -6; k <= 6; k++) { g.beginPath(); g.moveTo(x + k * 18 * s, headB - 10 * s); g.lineTo(x + k * 18 * s, hemY + 20 * s); g.stroke(); }
+  for (let k = 0; k < 6; k++) { g.beginPath(); g.moveTo(x - cw, headB + k * 16 * s); g.lineTo(x + cw, headB + k * 16 * s); g.stroke(); }
+  g.restore();
+  // the face: a tin can, flat-topped, under the cap
+  const head = spline([[x - bw * .46, headB], [x - bw * .48, cy - bh * .3], [x - bw * .44, headT + 6 * s], [x, headT], [x + bw * .44, headT + 6 * s], [x + bw * .48, cy - bh * .3], [x + bw * .46, headB]], true, 6);
+  shape(g, head, { fill: fc, shade: sh(fc, .3), lit: lt(fc, .4), form: 'round', cx: .32, cy: .3, w: 8 * s, seed: 221, gloss: { x: .24, y: .3, w: .1, h: .06 } });
+  // the collar between them
+  shape(g, rrect(x - bw * .4, headB - 6 * s, bw * .8, 18 * s, 8 * s), { fill: sh(col, .3), form: 'block', w: 5 * s, seed: 222 });
+  // a bow tie at the neck, mustard
+  const bt = headB + 24 * s;
+  for (const d of [-1, 1]) shape(g, spline([[x, bt], [x + d * 34 * s, bt - 18 * s], [x + d * 38 * s, bt], [x + d * 34 * s, bt + 18 * s]], true, 4), { fill: '#d9a83c', shade: GOLD_SH, w: 4.5 * s, seed: 223 + d });
+  shape(g, ellipse(x, bt, 10 * s, 12 * s), { fill: '#c08a24', w: 4 * s, seed: 225 });
+  // the deerstalker: a tweed crown wider than it's tall, a peak over the brow, and its ear flaps down;
+  // the antenna comes up through its button
+  if (o.hat !== 'none') {
+    const capB = headT + 18 * s, capT = headT - 36 * s, cwid = bw * .54;
+    // the ear flaps, down: rounded, hanging over where ears would be
+    for (const d of [-1, 1]) shape(g, spline([[x + d * cwid * .74, capB - 18 * s], [x + d * cwid * 1.04, capB - 12 * s], [x + d * cwid * 1.08, capB + 22 * s], [x + d * cwid * .96, capB + 44 * s], [x + d * cwid * .8, capB + 30 * s]], true, 5), { fill: sh(TWEED, .08), shade: sh(TWEED, .4), form: 'block', w: 5 * s, seed: 260 + d });
+    const crown = spline([[x - cwid, capB], [x - cwid * .96, capB - 30 * s], [x - cwid * .6, capT + 6 * s], [x, capT], [x + cwid * .6, capT + 6 * s], [x + cwid * .96, capB - 30 * s], [x + cwid, capB]], true, 6);
+    shape(g, crown, { fill: TWEED, shade: sh(TWEED, .38), lit: lt(TWEED, .3), form: 'round', cx: .35, cy: .3, w: 7 * s, seed: 262 });
+    g.save(); pathOf(g, crown, true); g.clip(); g.globalAlpha *= .3; g.strokeStyle = C(sh(TWEED, .5)); g.lineWidth = 2.2 * s;
+    for (let k = -5; k <= 5; k++) { g.beginPath(); g.moveTo(x + k * 15 * s, capT - 4 * s); g.lineTo(x + k * 15 * s, capB + 4 * s); g.stroke(); }
+    for (let k = 0; k < 4; k++) { g.beginPath(); g.moveTo(x - cwid, capT + 10 * s + k * 14 * s); g.lineTo(x + cwid, capT + 10 * s + k * 14 * s); g.stroke(); }
+    g.restore();
+    // the seams to the button, and the peak over the brow
+    for (const d of [-1, 0, 1]) stroke(g, [[x + d * cwid * .62, capB - 4 * s], [x + d * cwid * .3, capT + 10 * s], [x, capT + 2 * s]], { w: 2.4 * s, seed: 263 + d, color: sh(TWEED, .5) });
+    shape(g, spline([[x - cwid * .82, capB - 4 * s], [x, capB - 10 * s], [x + cwid * .82, capB - 4 * s], [x + cwid * .6, capB + 12 * s], [x, capB + 16 * s], [x - cwid * .6, capB + 12 * s]], true, 5), { fill: sh(TWEED, .12), shade: sh(TWEED, .42), form: 'block', w: 5 * s, seed: 266 });
+    dot(g, x, capT + 2 * s, 7 * s, sh(TWEED, .3));
+
+  }
   // face: two big eyes in whites; the right behind a gold monocle; brows; a waxed moustache
   const e = o.eyes || {}, bl = blinkAt(t, 3), fy = cy - bh * .31, expr = e.expr || 'open';
   for (const d of [-1, 1]) {
     const X = x + d * bw * .19 + fx;
     if (expr === 'happy') { stroke(g, [[X - 17 * s, fy + 5 * s], [X, fy - 13 * s], [X + 17 * s, fy + 5 * s]], { w: 6 * s, seed: 230 + d }); continue; }
-    eye(g, X, fy, 10 * s, 17 * s, { white: 1.75, lx: e.lx ?? 0, ly: e.ly ?? 0, blink: expr === 'wide' ? 0 : bl, lw: 4 * s, seed: 232 + d, lid: expr === 'smug' ? .4 : 0, col: o.col || ROSE });
+    eye(g, X, fy, 10 * s, 17 * s, { white: 1.75, lx: e.lx ?? 0, ly: e.ly ?? 0, blink: expr === 'wide' ? 0 : bl, lw: 4 * s, seed: 232 + d, lid: expr === 'smug' ? .4 : 0, col: o.col || GUESS_FACE });
   }
   const mx = x + bw * .19 + fx;
   shape(g, ellipse(mx, fy, 29 * s, 29 * s, 0, 40), { fill: null, w: 5 * s, seed: 236, line: GOLD_SH });

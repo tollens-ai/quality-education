@@ -30,7 +30,7 @@ import { clawd, boater } from '../clawd.js';
 import { check } from '../crew.js';
 import { mabel } from '../people.js';
 import { magnifier, wifiIcon, router, socket, plug } from '../cast.js';
-import { mabelPhone, mabelLift, member, reach, barbell, barbellIcon, tick, moth, ideaBulb, footprint, phoneBack, gymFront, setAppLook } from '../props-gym.js';
+import { mabelPhone, mabelLift, member, reach, barbell, barbellIcon, tick, moth, ideaBulb, footprint, phoneBack, gymFront, setAppLook, deerstalker } from '../props-gym.js';
 import { APP, appHeader, appLogo } from '../gymapp.js';
 import { heart, pops, arm } from '../rig.js';
 import { at, ramp, ease, kick, shakeAt, cam, floorCam, sparkle, footShadow, lowerShade } from '../common.js';
@@ -225,7 +225,7 @@ export function register() {
     const reachTo = d < T.what + .1 ? [hx + 66, hy - 10] : d < T.in - .05 ? [hx + 40, hy + 60] : [hx + 10, hy + 92 + pull * 36];
     const go = { t: d, face: -.5 }, after = d > T.store - .05;
     const hand = d > T.store + .12 ? 'hips' : reach('guess', GX, F, CS, 'L', reachTo, go);
-    member(g, 'guess', GX, F, CS, { t: d, L: hand, R: { to: [.3, -.95], pose: 'grip' }, hold: { R: (g2, x, y, a, s) => magnifier(g2, x, y, -2.3, s * .72) }, eyes: { lx: after ? .2 : -.9, ly: after ? -1 : .4, expr: after ? 'wide' : 'open' }, brow: after ? 1.4 : .7, face: -.5, smile: after ? -.6 : .4 });
+    member(g, 'guess', GX, F, CS, { t: d, L: hand, R: { to: [-.1, -.15], pose: 'grip' }, hold: { R: (g2, x, y, a, s) => magnifier(g2, x, y, Math.PI * .9, s * .7) }, eyes: { lx: after ? .2 : -.9, ly: after ? -1 : .4, expr: after ? 'wide' : 'open' }, brow: after ? 1.4 : .7, face: -.5, smile: after ? -.6 : .4 });
     if (d > T.store - .1) {
       const u = (d - T.store + .1) / 1.3, [mx, my] = hb.inside || [hx, hy + 96];
       moth(g, mx + Math.sin(u * 8) * 40 + u * 150, my - u * 520, .9, d, { rot: Math.sin(u * 6) * .3, trail: [Math.cos(u * 8) * .6 + .4, -1] });
@@ -304,6 +304,7 @@ export function register() {
     const ch = hd(3);
     clawd(g, X4.clawd, F, CS, { t: d, hat: ch > 0 ? 'helmet' : 'boater', hatTip: ch > 0 ? (1 - easeOut(ch, 3)) * 6 : 0, hatRot: ch > 0 ? (1 - easeOut(ch, 3)) * 3 : 0, L: 'hips', R: { to: [.04, .32], pose: 'open' }, eyes: { lx: pt ? -1 : 0 }, sing: true });
     if (ch > 0 && ch < 1) { const u = ch; g.save(); g.translate(X4.clawd + 20 + u * 260, F - 215 - u * 400); g.rotate(u * 4); boater(g, 0, 0, CS); g.restore(); }
+    { const u = hd(0); if (u > 0 && u < 1) deerstalker(g, X4.guess - 30 - u * 240, F - 300 * CS - 86 * CS - u * 420, CS, -u * 3.5); }
   }, { id: 'v2-explore' });
 
   // ---- 14. We chase (low on the floor: chalk footprints lead away from the phone's shoes; Guess

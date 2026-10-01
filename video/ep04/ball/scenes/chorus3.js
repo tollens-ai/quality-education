@@ -19,7 +19,7 @@ import { W, H, TAU, clamp, lerp, now, wordsOf, hash, noise, rng, beatPos, easeOu
 import { INK, CREAM, GOLD, GOLD_SH, GREEN, RED, WHITE, CORAL, TEAL, ROSE, OCHRE, C } from '../palette.js';
 import { shot } from '../shots.js';
 import { LEAD } from '../lyrics.js';
-import { theatre, mainCurtain, TH } from '../places.js';
+import { theatre, mainCurtain, TH, audienceLive, stallsAboveLive } from '../places.js';
 import { stageTop, TOP } from '../places-stage.js';
 import { clawd } from '../clawd.js';
 import { guess, press, stress, check } from '../crew.js';
@@ -37,7 +37,7 @@ const F = TH.floor, CX = TH.cx;
 const fc = (x, z) => floorCam(x, z, F);
 const BEANIE = { mint: '#7fc4a8', gold: '#ebb942', lilac: '#a990c9' };
 // The theatre, baked with its colour on whenever it's first asked for.
-const stage = () => { const m = mono(); setMono(0); const c = theatre(); setMono(m); return c; };
+const stage = () => { const m = mono(); setMono(0); const c = theatre({ live: true }); setMono(m); return c; };   // the house is drawn live
 // A warm pool of stage light on the boards and up the air above them.
 function pool(g, x, y, r, a = .4, col = '#ffe6b0') {
   light(g, x, y - r * .2, r * 1.2, col, a * .5, r * .7);
@@ -111,6 +111,11 @@ export function register() {
   const [tWhatC, tChanged, , tMind] = [0, 1, 2, 3].map(i => T(WC, i));
   const t0 = 147.34, tUp = 147.42, c2a = tPress - .05, c2b = tStress - .05, c2c = tSecond - .08, c3 = 152.5, c4 = tNow - .05, c5 = tWhat - .05, c6 = 164.9, tEnd = 166.7;
   const STOP = [148.87, 149.63];
+  // The house: the stalls, live, in front of the stage, bopping in their seats on the beat as the chorus
+  // builds; held still through the band's stop; the keenest with hands up and hats waved from
+  // "Congratulations!" to the bow.
+  const bopAt = t => t < STOP[0] ? lerp(.45, .72, ramp(t, t0, STOP[0] - t0)) : t < STOP[1] + .05 ? .05 : t < tCongrats ? lerp(.72, .86, ramp(t, STOP[1], tCongrats - STOP[1])) : 1;
+  const house = (g, t) => audienceLive(g, TH.floor, TH.w, now(), { seed: 395, bop: bopAt(t) });
 
   // ---- 1. the curtain flies up on the whole company; in the band's stop, they point at you
   shot(t0, c2a, (g, t) => {
@@ -135,6 +140,7 @@ export function register() {
     // the curtain, flying up on the fill
     mainCurtain(g, easeInOut(ramp(t, tUp, .72)), t);
     if (tq > tDid && tq < tDid + .3) for (const m of TABLEAU) if (m.k !== 'check') pops(g, m.x, m.y - 200 * m.s / .5, 40 * m.s / .5, 5, { a0: -Math.PI * .85, span: Math.PI * .7, w: 4 });
+    house(g, t);
     g.restore();
   }, { id: 'c3-company' });
 
@@ -159,6 +165,7 @@ export function register() {
     const tx = APX - 30 + jab * 22, ty = F - 160 + jab * 8;
     clawd(g, LX, F - 14, LS, { t: tq, hat: 'beanie', hatCol: BEANIE.mint, dance: .5, L: 'hips', R: { to: [(tx - (LX + 300 * LS * .52)) / (300 * LS), (ty - (F - 14 - 54 * LS - 107 * LS + 17 * LS)) / (300 * LS)], pose: 'point', ang: .1 }, eyes: { expr: jabbing ? 'happy' : 'open', lx: .8, ly: .2 }, sing: true, lean: .06 });
     if (jabbing) pops(g, tx + 14, ty - 6, 46, 6, { a0: -Math.PI * .8, span: Math.PI * 1.2, w: 4 });
+    house(g, t);
     g.restore();
   }, { id: 'c3-press' });
   shot(c2b, c2c, (g, t) => {
@@ -180,6 +187,7 @@ export function register() {
     const reachTo = (side) => ({ to: [((hx + (side === 'L' ? -26 : 26)) - (LX - 30 + (side === 'L' ? -1 : 1) * 300 * LS * .52)) / ((side === 'L' ? -1 : 1) * 300 * LS), (hy - (F - 14 - 54 * LS - 107 * LS + 17 * LS)) / (300 * LS)], pose: 'grip' });
     clawd(g, LX - 30, F - 14, LS, { t: tq, hat: 'beanie', hatCol: BEANIE.gold, dance: .2, L: landed ? 'cheer' : reachTo('L'), R: landed ? { to: [.5, -.1], pose: 'open' } : reachTo('R'), squash: landed ? 0 : .12, eyes: { expr: landed ? 'happy' : 'shut' }, sing: true, kick: landed ? kick(tq, tStress + .2, .3) : 0 });
     if (tq > tStress + .1 && tq < tStress + .45) pops(g, APX, phoneTop, 130, 9, { a0: -Math.PI, span: Math.PI, w: 7 });
+    house(g, t);
     g.restore();
   }, { id: 'c3-stress' });
   shot(c2c, c3, (g, t) => {
@@ -195,6 +203,7 @@ export function register() {
       hold: { R: (g, x, y, a, s) => magnifier(g, x, y, -2.2 + look * .3, s * .8, { inside: (g, lx, ly, r) => { g.fillStyle = C('#f4efe2'); g.fillRect(lx - r, ly - r, r * 2, r * 2); shape(g, ellipse(lx + 6, ly, r * .5, r * .62), { fill: WHITE, w: 5, seed: 931, form: false }); dot(g, lx + 18 + Math.sin(tq * 4) * 4, ly + 4, r * .26); } }) },
       eyes: { expr: 'open', lx: look ? 0 : .9, cock: .9 }, sing: true });
     if (tq > tSecond + .1) { const q = backOut(ramp(tq, tSecond + .1, .25), 2.4); g.save(); g.translate(LX + 120, F - 380); g.scale(q, q); qmark(g, 0, 0, 120, ROSE, { seed: 941 }); g.restore(); }
+    house(g, t);
     g.restore();
   }, { id: 'c3-guess' });
 
@@ -239,6 +248,7 @@ export function register() {
       const L = h ? reach('press', px, F - 10, PRS, 'L', [lerp(px - 90, h.at[0] + 10, h.k), lerp(F - 200, h.at[1] + 6, h.k)], { ...o, pose: 'flat', ang: Math.PI + .2 }) : 'up';
       press(g, px, F - 10, PRS, { ...o, face: -.5, L, R: 'cheer', eyes: { expr: 'happy' }, sing: true, pressed: kick(tq, tCongrats + .12, .1) });
     }
+    house(g, t);
     g.restore();
     if (tq > tCongrats) confetti(g, t, tCongrats, 60, { seed: 961 });
   }, { id: 'c3-clue' });
@@ -271,6 +281,7 @@ export function register() {
       else if (m.k === 'check') check(g, m.x, m.y, m.s, { t: tq, march: true, flag: 1, flagCol: m.i % 2 ? GREEN : RED, wave: true, phase: m.i, look: .8 });
       else critter(g, m.x, m.y, m.s, { t: tq, kind: m.k, walk, R: { to: [.8, -.2], pose: 'open' }, L: 'hang', eyes, sing: true });
     }
+    house(g, t);
     g.restore();
   }, { id: 'c3-conga' });
 
@@ -294,6 +305,7 @@ export function register() {
     const floorAt = (gg, k = 1) => { gg.translate(OC[0], OC[1]); gg.scale(zoom * k, zoom * k); gg.rotate(rot); gg.translate(-u, -v); };
     const floorDraw = (gg, k) => {
       gg.save(); floorAt(gg, k); gg.drawImage(stageTop(), 0, 0);
+      stallsAboveLive(gg, TOP.w, TOP.h, TOP.edge, tq, { seed: 4300, bop: 1 });
       TRAIL.forEach(([x, y], i) => footprint(gg, x, y, 1.2, Math.atan2(BEETLE[1] - TRAIL[0][1], BEETLE[0] - TRAIL[0][0]), i % 2 ? 1 : -1, .9));
       bug(gg, BEETLE[0], BEETLE[1], .9, { t: tq, dir: 1, rot: -.6, look: k > 1 && sw > .9 ? -.6 : .6, walk: sw > .97 ? null : tq * 2 });
       if (tq > tFindQ + .12) sticker(gg, BEETLE[0] + 64, BEETLE[1] - 56, 34, { p: ramp(tq, tFindQ + .12, .1), ang: .3, since: tq - tFindQ - .12 });
@@ -372,6 +384,7 @@ export function register() {
     pool(g, CX, F - 20, 720, .55, '#ffd27a');
     const bow = easeInOut(ramp(tq, 165.45, .3)) * (1 - easeInOut(ramp(tq, 166.1, .35)) * .6);
     for (const m of TABLEAU) { footShadow(g, m.x, m.y, m.k === 'mabel' ? 160 : m.k === 'check' ? 70 : 110 * m.s / .5, .3); member(g, m, tq, 'bow', { bow, gold: 1, dance: .25 }); }
+    house(g, t);
     g.restore();
     // gold light washing over the stage, and a little glitter
     g.save(); g.globalCompositeOperation = 'screen'; g.fillStyle = 'rgba(255,190,80,.16)'; g.fillRect(0, 0, W, 1100); g.restore();

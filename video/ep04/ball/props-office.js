@@ -1,14 +1,15 @@
 // Props for the bridge, in the crew's office. Every one is drawn, never lettered: a browser is tabs
-// and an address bar of squiggles round a picture; a playbook is X's, O's and arrows; Mabel's notes
-// are pencil barbells; the phone call is a candlestick telephone. Also YOUR hand (the viewer who
-// briefs the crew): a human hand in a white shirt cuff and a dark sleeve, reaching in from below.
+// and an address bar of squiggles round a picture; a playbook is X's, O's and arrows; the known answer
+// is an index card of barbells and rows; the judgement call is two of the app's own pages. Also YOUR
+// hand (the viewer who briefs the crew): a human hand in a white shirt cuff and a dark sleeve.
 import { TAU, clamp, lerp, now, hash, noise, rng, easeOut, backOut, smooth } from './kit.js';
 import { INK, WHITE, CREAM, PAPER, CLAWD, TEAL, ROSE, PLUM, OCHRE, GOLD, GOLD_SH, GREEN, GREEN_SH, RED, WOOD, WOOD_SH, BROWN, SLATE, GREY, TIN, LILAC, SKIN, SKIN_SH, C, sh, lt } from './palette.js';
 import { shape, line, stroke, rrect, ellipse, spline, xf, dot, paint, pathOf, arc, bez, glove, eye, hose, bbox } from './ink.js';
-import { qmark, bang, heart, star, blinkAt, mouth, brows } from './rig.js';
+import { qmark, bang, heart, star, blinkAt, mouth, brows, pops } from './rig.js';
 import { clawd } from './clawd.js';
 import { critter, mabel } from './people.js';
-import { APP, appLogo } from './gymapp.js';
+import { APP, appLogo, appHeader } from './gymapp.js';
+import { barbellIcon as logBarbell, tick as logTick, ghostRow, drawers, pulledDrawer, netFan } from './props-gym.js';
 
 export const BOT_COLS = ['#7fc4a8', '#ebb942', '#a990c9'];   // the fresh bots' beanies: mint, gold, lilac
 const BAR = '#3a3236';
@@ -634,49 +635,127 @@ export function findCard(g, x, y, s, kind, o = {}) {
   g.restore();
 }
 
-// ---------------------------------------------------------------- the candlestick telephone
-// Standing on (x, y). o.ring 0..1 (shakes and hops), o.off (the receiver's off its hook).
-export function candlestick(g, x, y, s = 1, o = {}) {
-  const t = o.t ?? now(), ring = clamp(o.ring ?? 0);
-  const hop = ring * Math.abs(Math.sin(t * 38)) * 16 * s, wob = ring * Math.sin(t * 61) * .06;
-  g.save(); g.translate(x, y - hop); g.rotate(wob); g.translate(-x, -(y - hop));
-  const Y = y - hop;
-  shape(g, spline([[x - 92 * s, Y], [x - 84 * s, Y - 34 * s], [x - 30 * s, Y - 56 * s], [x + 30 * s, Y - 56 * s], [x + 84 * s, Y - 34 * s], [x + 92 * s, Y]], true, 6), { fill: '#2a2426', lit: '#6a5e60', form: 'round', w: 7 * s, seed: 5400, gloss: { x: .25, y: .2, w: .1, h: .1 } });
-  shape(g, rrect(x - 17 * s, Y - 420 * s, 34 * s, 370 * s, 14 * s), { fill: '#2a2426', lit: '#6a5e60', form: 'block', w: 7 * s, seed: 5401, gloss: { x: .2, y: .05, w: .2, h: .02 } });
-  for (const yy of [Y - 120 * s, Y - 300 * s]) shape(g, rrect(x - 22 * s, yy, 44 * s, 18 * s, 6 * s), { fill: GOLD, shade: GOLD_SH, form: 'block', w: 4 * s, seed: 5402 + yy });
-  // the mouthpiece: a flared horn facing us at the top
-  shape(g, rrect(x - 26 * s, Y - 470 * s, 52 * s, 60 * s, 12 * s), { fill: '#2a2426', form: 'block', w: 6 * s, seed: 5404 });
-  shape(g, ellipse(x, Y - 498 * s, 60 * s, 46 * s), { fill: '#2a2426', lit: '#6a5e60', form: 'round', w: 7 * s, seed: 5405 });
-  shape(g, ellipse(x, Y - 498 * s, 38 * s, 28 * s), { fill: '#141012', w: 4 * s, seed: 5406, form: false });
-  for (let i = 0; i < 5; i++) dot(g, x - 16 * s + i * 8 * s, Y - 498 * s, 3 * s, '#4a4044');
-  // the hook on the right, with the receiver hanging on it unless it's off
-  const hx = x + 30 * s, hy = Y - 380 * s;
-  stroke(g, [[x + 16 * s, hy + 40 * s], [hx + 34 * s, hy + 30 * s], [hx + 46 * s, hy]], { w: 10 * s, seed: 5407, taper: false });
-  if (!o.off) receiver(g, hx + 46 * s, hy + 10 * s, Math.PI / 2 - .08 + wob * 3, s);
+// ---------------------------------------------------------------- the known answer: an oracle
+// The card you hand a bot: an answer it already knows, to judge the app by. Four lines, each a barbell
+// (log a set), an arrow, and the row the log should then show: log four sets, expect four rows. An
+// index card, cream with a red rule, so it reads as yours and not the app's. (x, y) its middle; s = 1
+// is 220 wide by 270 tall. o.ticks (0..4) ticks the rows the app has matched; o.miss (0..1) lights the
+// fourth, the one it hasn't. Returns each row's right end (for lines to the app's rows).
+export function answerCard(g, x, y, s = 1, o = {}) {
+  const w = 220 * s, h = 270 * s, rot = o.rot ?? 0, ends = [];
+  g.save(); g.translate(x, y); g.rotate(rot);
+  g.save(); g.globalAlpha *= .3; g.fillStyle = '#1a0c06'; g.filter = `blur(${Math.max(1, Math.round(8 * s))}px)`; g.fillRect(-w / 2 + 8 * s, -h / 2 + 12 * s, w, h); g.restore();
+  shape(g, rrect(-w / 2, -h / 2, w, h, 10 * s), { fill: '#fbf6e8', shade: '#d6c8a8', form: 'block', k: .5, w: 5 * s, seed: 5600 });
+  stroke(g, [[-w / 2 + 14 * s, -h / 2 + 30 * s], [w / 2 - 14 * s, -h / 2 + 30 * s]], { w: 3.4 * s, seed: 5601, color: '#d0605a', taper: false, raw: true });
+  for (let i = 0; i < 4; i++) {
+    const ry = -h / 2 + 64 * s + i * 54 * s, miss = i === 3 ? clamp(o.miss ?? 0) : 0;
+    if (miss > 0) { g.save(); g.globalAlpha *= miss * .9; g.fillStyle = C('#ffd46a'); g.filter = `blur(${Math.max(1, Math.round(6 * s))}px)`; g.beginPath(); g.ellipse(0, ry, w * .5, 26 * s, 0, 0, TAU); g.fill(); g.restore(); }
+    barbellIcon(g, -w / 2 + 46 * s, ry, .4 * s);
+    stroke(g, [[-w / 2 + 80 * s, ry], [-w / 2 + 102 * s, ry]], { w: 4.5 * s, seed: 5610 + i, color: '#6a5a52', taper: false, raw: true });
+    shape(g, [[-w / 2 + 112 * s, ry], [-w / 2 + 99 * s, ry - 9 * s], [-w / 2 + 99 * s, ry + 9 * s]], { fill: '#6a5a52', w: 0, form: false, seed: 5615 + i });
+    const rx = -w / 2 + 118 * s, rw = 88 * s, rh = 36 * s;
+    shape(g, rrect(rx, ry - rh / 2, rw, rh, 10 * s), { fill: miss > .5 ? '#fff1c4' : WHITE, shade: '#e0d0c8', form: 'block', k: .5, w: 3.4 * s, seed: 5620 + i });
+    logBarbell(g, rx + rw * .34, ry, rw * .44, '#3a2c2c');
+    if (i < (o.ticks ?? 0)) logTick(g, rx + rw * .8, ry, 12 * s, { seed: 5630 + i });
+    const lx = rx + rw + 4 * s;
+    ends.push([x + lx * Math.cos(rot) - ry * Math.sin(rot), y + lx * Math.sin(rot) + ry * Math.cos(rot)]);
+  }
   g.restore();
-  return { cord: [x + 60 * s, Y - 20 * s], hook: [hx + 46 * s, hy + 10 * s] };
-}
-// The receiver (the earpiece), held at (x, y) by its middle, pointing its cup along ang.
-export function receiver(g, x, y, ang, s = 1) {
-  g.save(); g.translate(x, y); g.rotate(ang);
-  shape(g, rrect(-80 * s, -15 * s, 130 * s, 30 * s, 13 * s), { fill: '#2a2426', lit: '#6a5e60', form: 'block', w: 6 * s, seed: 5420 });
-  shape(g, spline([[40 * s, -18 * s], [70 * s, -44 * s], [96 * s, -48 * s], [96 * s, 48 * s], [70 * s, 44 * s], [40 * s, 18 * s]], true, 5), { fill: '#2a2426', lit: '#6a5e60', form: 'round', w: 6 * s, seed: 5421, gloss: { x: .4, y: .2, w: .1, h: .1, dot: false } });
-  shape(g, ellipse(96 * s, 0, 14 * s, 46 * s), { fill: '#141012', w: 4 * s, seed: 5422, form: false });
-  shape(g, rrect(-90 * s, -10 * s, 14 * s, 20 * s, 4 * s), { fill: GOLD, w: 3 * s, seed: 5423, form: false });
-  g.restore();
-}
-// Ring marks round something ringing: little arcs flicking out on each side.
-export function ringMarks(g, x, y, r, t, k = 1) {
-  if (k <= 0) return;
-  const ph = (t * 6) % 1;
-  for (const d of [-1, 1]) for (let i = 0; i < 3; i++) { const rr = r * (1 + i * .22 + ph * .2), a0 = d > 0 ? -.5 : Math.PI - .5; g.save(); g.globalAlpha *= k * (1 - ph * .5); stroke(g, Array.from({ length: 7 }, (_, j) => { const a = a0 + j / 6 * 1; return [x + Math.cos(a) * rr, y + Math.sin(a) * rr]; }), { w: 7, seed: 5430 + i + d, taper: true }); g.restore(); }
+  return ends;
 }
 
-// ---------------------------------------------------------------- the velvet cushion
-export function cushion(g, x, y, w, o = {}) {
-  const h = w * .36, col = o.col || '#6e3b6c';
-  const P = spline([[x - w / 2, y - h * .1], [x - w * .3, y - h * .5], [x, y - h * .56], [x + w * .3, y - h * .5], [x + w / 2, y - h * .1], [x + w * .3, y + h * .42], [x, y + h * .48], [x - w * .3, y + h * .42]], true, 7);
-  shape(g, P, { fill: col, shade: sh(col, .45), lit: lt(col, .35), form: 'round', cx: .4, cy: .3, w: 6, seed: 5500, gloss: { x: .3, y: .2, w: .1, h: .06, a: .5 } });
-  stroke(g, spline([[x - w * .46, y - h * .08], [x - w * .28, y - h * .4], [x, y - h * .44], [x + w * .28, y - h * .4], [x + w * .46, y - h * .08]], false, 6), { w: 4, seed: 5501, color: GOLD, taper: false });
-  for (const d of [-1, 1]) { const tx = x + d * w / 2, ty = y - h * .1; stroke(g, [[tx, ty], [tx + d * 8, ty + 20]], { w: 4, seed: 5502 + d, color: GOLD_SH }); shape(g, spline([[tx + d * 8 - 9, ty + 18], [tx + d * 8 + 9, ty + 18], [tx + d * 8 + 12, ty + 50], [tx + d * 8 - 12, ty + 50]], true, 3), { fill: GOLD, shade: GOLD_SH, form: 'block', w: 3.5, seed: 5504 + d }); }
+// ---------------------------------------------------------------- the judgement call: two answers
+// A set logged with no signal: what should the app do with it? Each card is one answer, on the app's
+// own page: its header, with the Wi-Fi fan struck through (no net). At p 0 the two show the same thing,
+// the set's row with no tick. As p runs to 1, 'keep' pulls out the phone's store drawer (verse 2's),
+// drops the set into it, and sets a clock and a dashed arrow up to the fan: it's kept, and sent when
+// the net's back. 'warn' turns the row dashed and drops a red warning sign on it: it isn't saved, and
+// she's told at once. (x, y) its middle; s = 1 is 300 by 280; o.t runs the clock's hand, the arrow's
+// dashes and the sign's flicker; o.k scales it about its middle.
+export function optionCard(g, x, y, s, kind, o = {}) {
+  const t = o.t ?? now(), p = clamp(o.p ?? 1), w = 300 * s, h = 280 * s, k = o.k ?? 1;
+  const seg = (a, b) => clamp((p - a) / (b - a));
+  g.save(); g.translate(x, y); g.rotate(o.rot ?? 0); g.scale(k, k);
+  g.save(); g.globalAlpha *= .32; g.fillStyle = '#1a0c06'; g.filter = `blur(${Math.max(1, Math.round(9 * s))}px)`; g.fillRect(-w / 2 + 10 * s, -h / 2 + 14 * s, w, h); g.restore();
+  const card = rrect(-w / 2, -h / 2, w, h, 14 * s);
+  g.save(); pathOf(g, card, true); g.clip();
+  g.fillStyle = C(APP.paper); g.fillRect(-w / 2, -h / 2, w, h);
+  const hs = .9 * s, hh = 64 * hs;
+  appHeader(g, -w / 2, -h / 2, w, hs);
+  netFan(g, w / 2 - 44 * s, -h / 2 + 46 * s, 30 * s, 0);
+  const row = (cx, cy, rw, rh, a = 1) => {
+    if (a <= 0) return;
+    g.save(); g.globalAlpha *= a;
+    shape(g, rrect(cx - rw / 2, cy - rh / 2, rw, rh, rh * .3), { fill: WHITE, shade: '#e0d0c8', form: 'block', k: .5, w: Math.max(2, 3.6 * s * rw / (200 * s)), seed: 5710, amt: .3 });
+    logBarbell(g, cx - rw * .2, cy, rw * .36, '#3a2c2c');
+    g.restore();
+  };
+  const R0 = [0, -14 * s], RW = 210 * s, RH = 54 * s;
+  if (kind === 'keep') {
+    const chest = backOut(seg(0, .15), 2), pull = easeOut(seg(.1, .35), 2), drop = seg(.25, .6), clk = backOut(seg(.55, .75), 2), arr = seg(.65, 1);
+    const CX = -56 * s, CY = 50 * s;
+    let floor = [CX, CY];
+    if (chest > 0) {
+      g.save(); g.translate(CX, CY + 48 * s); g.scale(chest, chest); g.translate(-CX, -(CY + 48 * s));
+      const slot = drawers(g, CX, CY, 136 * s, 96 * s, pull, s, { leaveOut: true }).slot;
+      if (pull > 0) floor = pulledDrawer(g, slot[0], slot[1], slot[2], slot[3], pull, s, {});
+      g.restore();
+    }
+    // the set, from the middle down into the drawer
+    const e = drop * drop * (3 - 2 * drop), kk = lerp(1, .55, e);
+    g.save(); g.translate(lerp(R0[0], floor[0], e), lerp(R0[1], floor[1] - 2 * s, e) - Math.sin(e * Math.PI) * 26 * s); g.scale(1, lerp(1, .62, e));
+    row(0, 0, RW * kk, RH * kk);
+    g.restore();
+    // the clock: an alarm clock, its minute hand going round
+    if (clk > 0) {
+      const kx = 84 * s, ky = 50 * s, r = 32 * s * clk;
+      for (const d of [-1, 1]) shape(g, ellipse(kx + d * r * .62, ky - r * .9, r * .36, r * .3, d * .5), { fill: GOLD, shade: GOLD_SH, form: 'round', w: 3 * s, seed: 5720 + d });
+      for (const d of [-1, 1]) stroke(g, [[kx + d * r * .5, ky + r * .8], [kx + d * r * .78, ky + r * 1.12]], { w: 4 * s, seed: 5723 + d, taper: false });
+      shape(g, ellipse(kx, ky, r, r), { fill: CREAM, shade: '#d8ccb4', form: 'round', w: 4.5 * s, seed: 5725, gloss: { x: .3, y: .25, w: .14, h: .1, dot: false } });
+      for (let i = 0; i < 4; i++) { const a = i / 4 * TAU; stroke(g, [[kx + Math.cos(a) * r * .72, ky + Math.sin(a) * r * .72], [kx + Math.cos(a) * r * .86, ky + Math.sin(a) * r * .86]], { w: 3 * s, seed: 5726 + i, taper: false, raw: true }); }
+      const mh = t * 2.4 - Math.PI / 2, hr = -2.2;
+      stroke(g, [[kx, ky], [kx + Math.cos(hr) * r * .42, ky + Math.sin(hr) * r * .42]], { w: 4.5 * s, seed: 5730, taper: false, raw: true });
+      stroke(g, [[kx, ky], [kx + Math.cos(mh) * r * .7, ky + Math.sin(mh) * r * .7]], { w: 3 * s, seed: 5731, taper: false, raw: true, color: '#b0405a' });
+      dot(g, kx, ky, 3.4 * s, INK);
+    }
+    // the arrow: dashed, from the drawer up to the fan, its dashes running up it
+    if (arr > 0) {
+      const P0 = [floor[0] + 30 * s, floor[1] - 26 * s], P1 = [floor[0] + 30 * s, -80 * s], P2 = [70 * s, -44 * s];
+      const end = [w / 2 - 38 * hs - 6 * s, -h / 2 + hh + 12 * s], n = 26, pts = [];
+      for (let i = 0; i <= n * arr; i++) { const u = i / n, v = 1 - u; pts.push([v * v * v * P0[0] + 3 * v * v * u * P1[0] + 3 * v * u * u * P2[0] + u * u * u * end[0], v * v * v * P0[1] + 3 * v * v * u * P1[1] + 3 * v * u * u * P2[1] + u * u * u * end[1]]); }
+      g.save(); g.setLineDash([12 * s, 9 * s]); g.lineDashOffset = -t * 40 * s; g.lineCap = 'round'; g.strokeStyle = C(APP.ink); g.lineWidth = 6 * s;
+      g.beginPath(); pts.forEach(([px, py], i) => i ? g.lineTo(px, py) : g.moveTo(px, py)); g.stroke(); g.restore();
+      if (arr >= 1) { const a = Math.atan2(end[1] - P2[1], end[0] - P2[0]), hx = end[0], hy = end[1]; shape(g, [[hx + Math.cos(a) * 14 * s, hy + Math.sin(a) * 14 * s], [hx + Math.cos(a + 2.4) * 16 * s, hy + Math.sin(a + 2.4) * 16 * s], [hx + Math.cos(a - 2.4) * 16 * s, hy + Math.sin(a - 2.4) * 16 * s]], { fill: APP.ink, w: 2.5 * s, seed: 5740, form: false }); }
+    }
+  } else {
+    const fade = seg(0, .3), drop = seg(.2, .62), alert = seg(.6, 1);
+    const RY = 6 * s;
+    row(R0[0], lerp(R0[1], RY, fade), RW, RH, 1 - fade);
+    if (fade > 0) { g.save(); g.globalAlpha *= fade; ghostRow(g, -RW / 2, RY - RH / 2, RW, RH, s * 1.05); logBarbell(g, -RW * .2, RY, RW * .36, '#c99aa6'); g.restore(); }
+    if (drop > 0) {
+      const land = backOut(drop, 2.2), pulse = alert >= 1 ? 1 + Math.sin(t * 9) * .04 : 1;
+      const wy = lerp(-h * .9, RY - 8 * s, land), wx = 54 * s;
+      g.save(); g.translate(wx, wy); g.scale(pulse, pulse); warnSign(g, 0, 0, 64 * s); g.restore();
+      const fl = alert > 0 && alert < 1 ? 1 : (alert >= 1 && (t * 1.4) % 1 < .3 ? 1 : 0);
+      if (fl) pops(g, wx, wy - 4 * s, 84 * s, 7, { a0: -Math.PI * .95, span: Math.PI * .9, w: 5 * s, col: '#d8432c' });
+    }
+  }
+  g.restore();
+  shape(g, card, { fill: null, line: INK, w: 5 * s, seed: 5750 });
+  g.restore();
+}
+// A red warning sign: a rounded triangle with a cream rim inside it and a cream "!", drawn as shapes.
+// (x, y) its middle; r its size.
+export function warnSign(g, x, y, r, o = {}) {
+  const corners = [[x, y - r], [x + r * 1.02, y + r * .78], [x - r * 1.02, y + r * .78]], P = [];
+  corners.forEach((c, i) => {
+    const prev = corners[(i + 2) % 3], next = corners[(i + 1) % 3], rr = r * .2;
+    const toP = [prev[0] - c[0], prev[1] - c[1]], toN = [next[0] - c[0], next[1] - c[1]], lp = Math.hypot(...toP), ln = Math.hypot(...toN);
+    const a = [c[0] + toP[0] / lp * rr, c[1] + toP[1] / lp * rr], b = [c[0] + toN[0] / ln * rr, c[1] + toN[1] / ln * rr];
+    for (let j = 0; j <= 4; j++) { const u = j / 4, v = 1 - u; P.push([v * v * a[0] + 2 * v * u * c[0] + u * u * b[0], v * v * a[1] + 2 * v * u * c[1] + u * u * b[1]]); }
+  });
+  shape(g, P, { fill: '!#d8432c', shade: '!#8d2216', lit: '!#ee7a5a', form: 'block', w: Math.max(3, r * .085), seed: o.seed ?? 5760, gloss: { x: .38, y: .3, w: .1, h: .06, dot: false } });
+  const cx = x, cy = y + r * .2, I = P.map(([px, py]) => [cx + (px - cx) * .76, cy + (py - cy) * .76]);
+  g.save(); g.strokeStyle = C('!#f8e6c6'); g.lineWidth = Math.max(2, r * .06); g.lineJoin = 'round'; pathOf(g, I, true); g.stroke(); g.restore();
+  bang(g, x, y + r * .1, r * .9, '!#fbf0da', { seed: 5765, w: r * .06 });
 }

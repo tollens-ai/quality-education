@@ -34,7 +34,8 @@ locked.
 | Ep. 3, "Pencil Polka" | A blank page for a comic patter song, drawn entirely in code as coloured pencil. Two look proofs, then a pen that draws every shape as a hand does, after Qing's notes; one hand set the look, the kit and the first parts and Sonnet builders drew the rest in parallel, each to a standing brief; a frame-exact audit of every sung word, fresh readers of contact sheets, and a phone storyboard of the claims for the expert. One day | "Honestly the style is not that bad"; after the pen was redrawn: "omg this is adorable! [...] the style is fantastic", with two notes ("slightly _too_ clumsy"; the colouring "flashing a bit too much"), both fixed; on the finished film: "OK, I like this one and I will ship it" |
 | Ep. 4 (piano take), "Press, Stress & Guess" | A blank page for a piano patter remix: a 1930s rubber-hose sing-along cartoon with a bouncing ball, drawn by one hand (Opus) with no builders. Character sheets, a font specimen and a hero frame first; contact sheets after every part; a word-by-word audit; an independent viewer's reading of every second before hand-back, which caught a teaching error (a bug posed as a judgement call). Built below maximum effort by mistake | "no good": she liked "the idea and character design direction", but "the text layouts and background work ended up really sloppy" |
 | Ep. 4 (piano take) v2 | The storyboard restarted from a blank page under a new rule from an expert who had watched episode 3 ([One place to look](#one-place-to-look)). The cast refined toward *Cuphead*, every place repainted in watercolour and gouache, and close-ups in irises. The lead built the look, the kits, the lyric system and the first parts; three Opus builders drew the rest to a standing brief, each part reviewed at full size. An audit of every lettering call, a word audit, and an independent viewer before hand-back | "the animation is gorgeous though", but the picture filled only half the frame and the story jumped between apps. v3 fills the frame, uses one app and adds a clarity pass |
-| Ep. 4 (piano take) v3 | v2's drawing and staging kept. A 16:9 version was started and set aside when Qing, shown a mock of each, chose vertical with the bottom filled. Every place's foreground painted below the floor line, every close-up redrawn to fill the frame, the story put on one app, a mark of the testers' own, and a clarity pass on every line by the lead and each builder. The audits and an independent viewer again before hand-back | Awaiting Qing's verdict |
+| Ep. 4 (piano take) v3 | v2's drawing and staging kept. A 16:9 version was started and set aside when Qing, shown a mock of each, chose vertical with the bottom filled. Every place's foreground painted below the floor line, every close-up redrawn to fill the frame, the story put on one app, a mark of the testers' own, and a clarity pass on every line by the lead and each builder. The audits and an independent viewer again before hand-back | Two of her claim answers sent examples back: a judgement call must "genuinely be both ways", and an oracle must be one "clawd would have access to". Also: "the audience being static throughout makes them look bored", and "what's... the pink guy... meant to be? he looks a bit... rude." |
+| Ep. 4 (piano take) v4 | The tester redrawn as a detective, a live audience that builds with the show, and truer examples of a judgement call and an oracle, each by the builder of that part; the checks again before hand-back | Awaiting Qing's verdict |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -286,7 +287,13 @@ storyboard, before anything is drawn.
   frame as its own foreground: the audience's heads in a theatre's stalls, a crowd's front row,
   weights on a gym mat, the top of a desk, the clutter in front of a workbench. It is atmosphere,
   not story, and it stays dark and quiet where the lyric sits over it: silhouettes, rim light, deep
-  colour. A close-up fills the frame too, rather than sitting in black as a disc. If a film's
+  colour. A crowd in it is alive, though, and gets into the show as it goes. Qing (2026-10-01): "the
+  audience being static throughout makes them look bored. surely by the second chorus they're bopping
+  in their seats?" Episode 4's piano film builds them from attentive, to rapt, to bopping on the beat
+  with hands up. Movement in silhouette doesn't show at phone size: an independent viewer couldn't
+  see that first bopping crowd at all. What shows is something light that moves, here the rubber
+  hose's white gloves, clapping and then waving in the rows below the lyric. A close-up fills the frame too,
+  rather than sitting in black as a disc. If a film's
   format ever changes, storyboard it again rather than re-crop it (Qing: "oh you might need to
   re-storyboard slightly - I don't know that you can just re-crop").
 - **Tell it as a silent film would.** Mime, staging and gesture carry the meaning: a clear
@@ -408,6 +415,11 @@ in [its reference](.claude/skills/music-video/references/style-ink-and-gouache.m
   v4's first Kubernetes frame climbed SCALING UP a letter at a time and put YOUR BLOG on a tiny
   tag, and Qing found it hard to read. Stack a line's words in the order they're sung, at sizes a
   phone can read.
+- **Look at every character alone, as a silhouette, before drawing shots with it.** Does it read as
+  what it is, and as nothing else? Episode 4's piano film had Guess, its second-guessing tester, as a
+  tall pink tin with a domed head. Qing (2026-10-01): "what's... the pink guy... meant to be? he looks
+  a bit... rude." A tweed deerstalker and a caped violet coat made him a detective: his job, at a
+  glance.
 - People drawn from the waist up float unless something in front cuts them off. In a crowd,
   draw whole people from the back row forward; episode 1's bridge drew the front row first, and
   the back row's bodies covered the front row's faces.

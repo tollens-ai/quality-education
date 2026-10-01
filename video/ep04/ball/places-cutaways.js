@@ -11,8 +11,10 @@ import { audience } from './places.js';
 
 // ---------------------------------------------------------------- the circus ring
 export const CIRCUS = { w: 1500, h: 2500, floor: 1500, cx: 750 };
-export function circus() {
-  return bake('circus', CIRCUS.w, CIRCUS.h, (g, w, h) => {
+// the crowd round the ring: drawn by the bake, or live by the scene
+export const CIRCUS_CROWD = { seed: 445, rim: '#ffd9a0', rows: [[150, 44, 24], [330, 62, 17], [560, 84, 12], [860, 108, 9]], hats: .7 };
+export function circus(o = {}) {
+  return bake('circus' + (o.live ? 'L' : ''), CIRCUS.w, CIRCUS.h, (g, w, h) => {
     const F = CIRCUS.floor, cx = CIRCUS.cx;
     // the big top's canvas: red and cream panels converging on the king pole above the frame
     const apex = [cx, -500];
@@ -40,7 +42,7 @@ export function circus() {
     g.save(); g.globalCompositeOperation = 'multiply'; const ap = g.createLinearGradient(0, F + 10, 0, F + 140); ap.addColorStop(0, 'rgba(255,255,255,1)'); ap.addColorStop(1, 'rgba(40,20,22,1)'); g.fillStyle = ap; g.fillRect(0, F + 10, w, 140); g.fillStyle = 'rgb(40,20,22)'; g.fillRect(0, F + 150, w, h); g.restore();
     wash(g, box(0, F + 150, w, h - F - 150), '#2a140e', { seed: 440, grad: [[0, '#4a2418'], [.35, '#2a120c'], [1, '#0e0504']], gran: .4, rim: 0, blooms: 6, amt: 0 });
     // the crowd's front rows, heads and hats against the ring's light, and three balloons on strings
-    audience(g, F + 60, w, { seed: 445, rim: '#ffd9a0', rows: [[150, 44, 24], [330, 62, 17], [560, 84, 12], [860, 108, 9]], hats: .7 });
+    if (!o.live) audience(g, F + 60, w, CIRCUS_CROWD);   // live: the scene draws audienceLive() over it
     // (low in the crowd and dim, well below the lyric and out of its way)
     for (const [bx, by, col] of [[150, F + 560, '#a8302c'], [1330, F + 520, '#2f8f88'], [1220, F + 640, '#d8a83a']]) {
       inkLine(g, [[bx, by + 70], [bx + 14, by + 420]], { w: 2.5, col: '#0c0504', a: .9, gap: 0 });

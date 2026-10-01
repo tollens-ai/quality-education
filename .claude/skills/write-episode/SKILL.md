@@ -49,6 +49,13 @@ is the worked example of the finished shape.
      parts of one app (episode 4's piano film: a gym app's log, its chat, its checkout). Either
      way, the viewer must always know which example they're in
      ([VIDEO.md](../../../VIDEO.md#a-story-the-viewer-can-follow)).
+   - *True to the concept.* Each example must really be an instance of what it illustrates. Qing
+     on episode 4's piano film (2026-10-01):
+     - A judgement call handed to a person must genuinely go both ways. On a changed screenshot:
+       "it should be obvious what a screencap should do right? we need to think of something where
+       the requirement might genuinely be both ways".
+     - An agent's oracle must be one the agent can reach. On a user's private notebook: "it's not
+       an oracle that clawd would have access to... we might need a better example".
    - *Invent a cast.* Fictional people are free. Give each line, or each singer, its own
      specific person in that world, with a name and a job, so "you" stays one person talking to
      one person and the video has someone to draw. Don't strain the premise to keep one "you"

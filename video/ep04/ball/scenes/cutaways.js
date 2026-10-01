@@ -10,7 +10,8 @@
 import { W, H, TAU, clamp, lerp, now, hash, rng, easeOut, easeInOut, backOut, smooth } from '../kit.js';
 import { INK, CREAM, GOLD, GOLD_SH, GREEN, RED, WHITE, TIN, SLATE, C, sh, lt } from '../palette.js';
 import { shot } from '../shots.js';
-import { circus, ringSpot, CIRCUS, schoolroom, SCHOOL, factory, FACTORY } from '../places-cutaways.js';
+import { circus, ringSpot, CIRCUS, CIRCUS_CROWD, schoolroom, SCHOOL, factory, FACTORY } from '../places-cutaways.js';
+import { audienceLive } from '../places.js';
 import { clawd } from '../clawd.js';
 import { critter } from '../people.js';
 import { at, ramp, pop, kick, place, cam, floorCam, sparkle, footShadow, burst, speedLines } from '../common.js';
@@ -62,7 +63,9 @@ export function register() {
     const F = CIRCUS.floor, t = now();
     const u0 = easeInOut(ramp(T, tTrained - .05, tMake - tTrained + .1));
     const c = { ...floorCam(lerp(600, 860, u0), 1.08, F) };
-    g.save(); place(g, circus(), c);
+    g.save(); place(g, circus({ live: true }), c);
+    // the crowd, keen from the start, on its feet for the leap
+    audienceLive(g, F + 60, CIRCUS.w, t, { ...CIRCUS_CROWD, bop: .45 + .5 * Math.sin(clamp(ramp(t, tTrained - .1, tGrade - tTrained + .3)) * Math.PI) });
     ringSpot(g, 740, F - 10, 420, .6);
     // two pedestals; the hoop between, held out by the ringmaster's long arm
     for (const [px, col] of [[470, '#2f8f88'], [980, '#c24a3a']]) { shape(g, spline([[px - 80, F], [px - 60, F - 150], [px + 60, F - 150], [px + 80, F]], true, 3), { fill: col, form: 'block', w: 6, seed: 3100 + px, gloss: { x: .2, y: .2, w: .06, h: .05 } }); shape(g, ellipse(px, F - 150, 64, 16), { fill: '#e2b84c', w: 5, seed: 3102 + px, form: false }); }

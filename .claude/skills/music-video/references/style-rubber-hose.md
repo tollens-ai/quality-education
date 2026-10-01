@@ -56,7 +56,7 @@ mark.
 - **Backlit figures** in a doorway are drawn into an offscreen layer and darkened together
   (`withLayer`, `backlit`).
 - **Two-colour warmth with meaning kept apart:** each star has a colour of his own (Clawd terracotta,
-  Press teal, Stress brass, Guess rose); green and red are kept for the checks' flags.
+  Press teal, Stress brass, Guess violet); green and red are kept for the checks' flags.
 - **The finish of a print** (`film.js`): a little gate weave on twos, a breathing light, a vignette.
   Joins are cuts on the beat, irises between parts.
 
@@ -69,9 +69,12 @@ Each character is a function with poses by name (`clawd.js`, `crew.js`, `people.
   and a cane, swapped for a magnifying glass once he learns to test. Fresh bots are little Clawds in
   propeller beanies.
 - **The crew, Press, Stress & Guess**: Press (small, round, teal, a red push-button on his head),
-  Stress (a brass boiler with a pressure gauge, a whistle and a walrus moustache), Guess (a tall rose
-  tin with a domed head, a monocle, a waxed moustache and a question-mark antenna that springs into
-  "!" on a clue). One verb each, told apart by colour and silhouette.
+  Stress (a brass boiler with a pressure gauge, a whistle and a walrus moustache), Guess (a tall tin
+  detective in a violet Inverness coat and a tweed deerstalker, with a monocle, a waxed moustache and a
+  question-mark antenna that comes up through his cap and springs into "!" on a clue). One verb each,
+  told apart by colour and silhouette. Guess began as a tall rose tin with a domed head, and Qing saw
+  what that silhouette looked like: "what's... the pink guy... meant to be? he looks a bit... rude."
+  The cap and the cape broke the shape and said "detective" at a glance.
 - **Checks** are tin wind-up toys: a card on the chest, one flag, a turning key, dot eyes and no
   brows. They can't wonder; that is the point. The flag means only the check's rule: green when it's
   met, red when it isn't. Testing has its own mark: when the crew find what a check missed, they slap
@@ -96,7 +99,7 @@ Each character is a function with poses by name (`clawd.js`, `crew.js`, `people.
 - The ball (`lyrics.js`) lands on each word 85 ms before it's sung; the word springs up to meet it
   and squashes on the impact; the word being sung is gold. A soft dark pool sits behind each block.
 - Quoted speech is a white speech bubble pointing at the speaker (`BUBBLE`), lettered dark. Clawd's
-  scare quotes ("tests") are in the crew's rose, as if they'd pencilled them in.
+  scare quotes ("tests") are in rose, as if the crew had pencilled them in with a red pencil.
 - The backing voices' echoes ("What did you try?") aren't lettered: the matching words in the lead
   line glow rose while the echo is sung, so the eye stays on one line.
 - Nothing else is lettered while the song plays: `tools/text-audit.mjs` checks every `fillText`.

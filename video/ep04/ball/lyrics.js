@@ -4,7 +4,7 @@
 // sing-along cartoons of the 1920s and '30s, hops along and lands on it. The line holds as one
 // block across the cuts until the next line is about to arrive, then drops away.
 // Quoted speech ("Saved!") sits in a speech bubble pointing at whoever says it; the scare quotes on
-// Clawd's "tests" are in the crew's rose, as if they'd pencilled them in.
+// Clawd's "tests" are in rose, as if the crew had pencilled them in.
 import { W, H, clamp, lerp, easeOut, backOut, smooth, bell, REC, beatPos, noise, hash, TAU } from './kit.js';
 import { INK, CREAM, GOLD, RED, RED_SH, WHITE, ROSE, C } from './palette.js';
 import { word, textW, DISPLAY, PATTER } from './type.js';

@@ -551,7 +551,7 @@ export function crewLean(who, t, o = {}) {
 export function member(g, who, x, y, s, o = {}) {
   const t = o.t ?? now(), lean = crewLean(who, t, o);
   const fn = who === 'guess' ? guess : who === 'press' ? press : stress;
-  const r = fn(g, x, y, s, { ...o, t, lean });
+  const r = fn(g, x, y, s, { ...o, t, lean, hat: who === 'guess' && o.helmet != null && o.helmet > 0 ? 'none' : o.hat });   // the helmet replaces Guess's deerstalker
   if (o.helmet != null && o.helmet > 0) crewHelmet(g, who, x, y, s, r, { t, lean, drop: o.helmet, face: o.face });
   return r;
 }
@@ -742,5 +742,19 @@ export function shadeBottom(g, y0 = 1110, y1 = 1330, a = .78) {
   gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(1, `rgba(${Math.round(255 * (1 - a))},${Math.round(250 * (1 - a))},${Math.round(245 * (1 - a))},1)`);
   g.fillStyle = gr; g.fillRect(-20, y0, 1120, y1 - y0);
   g.fillStyle = `rgba(${Math.round(255 * (1 - a))},${Math.round(250 * (1 - a))},${Math.round(245 * (1 - a))},1)`; g.fillRect(-20, y1, 1120, 1940 - y1);
+  g.restore();
+}
+
+// Guess's tweed deerstalker on its own, at (x, y) its brim's middle, s his scale: for when the pith
+// helmet knocks it off. (His drawing in crew.js wears it; this is the one that flies.)
+export function deerstalker(g, x, y, s, rot = 0) {
+  const TW = '#9a7a4e', cwid = 156 * s * .54, capB = 0, capT = -54 * s;
+  g.save(); g.translate(x, y); g.rotate(rot); g.translate(-x, -y);
+  for (const d of [-1, 1]) shape(g, spline([[x + d * cwid * .74, y - 18 * s], [x + d * cwid * 1.04, y - 12 * s], [x + d * cwid * 1.08, y + 22 * s], [x + d * cwid * .96, y + 44 * s], [x + d * cwid * .8, y + 30 * s]], true, 5), { fill: sh(TW, .08), shade: sh(TW, .4), form: 'block', w: 5 * s, seed: 8160 + d });
+  const crown = spline([[x - cwid, y + capB], [x - cwid * .96, y - 30 * s], [x - cwid * .6, y + capT + 6 * s], [x, y + capT], [x + cwid * .6, y + capT + 6 * s], [x + cwid * .96, y - 30 * s], [x + cwid, y + capB]], true, 6);
+  shape(g, crown, { fill: TW, shade: sh(TW, .38), lit: lt(TW, .3), form: 'round', cx: .35, cy: .3, w: 7 * s, seed: 8162 });
+  for (const d of [-1, 0, 1]) stroke(g, [[x + d * cwid * .62, y - 4 * s], [x + d * cwid * .3, y + capT + 10 * s], [x, y + capT + 2 * s]], { w: 2.4 * s, seed: 8163 + d, color: sh(TW, .5) });
+  shape(g, spline([[x - cwid * .82, y - 4 * s], [x, y - 10 * s], [x + cwid * .82, y - 4 * s], [x + cwid * .6, y + 12 * s], [x, y + 16 * s], [x - cwid * .6, y + 12 * s]], true, 5), { fill: sh(TW, .12), shade: sh(TW, .42), form: 'block', w: 5 * s, seed: 8166 });
+  dot(g, x, y + capT + 2 * s, 7 * s, sh(TW, .3));
   g.restore();
 }

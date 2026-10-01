@@ -9,7 +9,7 @@ import { W, H, TAU, clamp, lerp, now, hash, beatPos, easeOut, easeInOut, backOut
 import { INK, CREAM, GOLD, GREEN, RED, WHITE, CORAL, TEAL, ROSE, OCHRE } from '../palette.js';
 import { shot } from '../shots.js';
 import { SPLIT } from '../lyrics.js';
-import { theatre, mainCurtain, TH, stallsAbove } from '../places.js';
+import { theatre, mainCurtain, TH, stallsAbove, audienceLive, stallsAboveLive } from '../places.js';
 import { clawd, cane } from '../clawd.js';
 import { check } from '../crew.js';
 import { at, ramp, pop, ease, kick, place, look, cam, floorCam, sparkle, footShadow, confetti, burst } from '../common.js';
@@ -66,7 +66,7 @@ function topFloor() {
     // four smaller spots out in the dark, in a ring
     for (let k = 0; k < 4; k++) { const a = k / 4 * TAU + .5; light(g, cx + Math.cos(a) * 1050, cy + Math.sin(a) * 1050, 220, '#ffd8a0', .3); }
     gloom(g, w, h, cx, cy, 480, 1300, '#060302', .92);
-    stallsAbove(g, w, h, 2080);
+    stallsAbove(g, w, h, 2080, { heads: false });   // the heads are drawn live in the shot
     paper(g, w, h, .35);
   });
 }
@@ -87,7 +87,9 @@ export function register() {
   // ---- the title on the curtain, and Clawd peeking through
   shot(0, tUp + .6, (g, T) => {
     const c = cam([[0, fc(CX, .86, 1180)], [tUp, fc(CX, .9, 1180)], [tUp + .6, fc(CX, 1.3, 1100)]], T), t = now();
-    g.save(); place(g, theatre(), c);
+    g.save(); place(g, theatre({ live: true }), c);
+    // the house waits, attentive; a stir as the curtain goes up
+    audienceLive(g, F, TH.w, t, { seed: 395, bop: .12 + ramp(t, tUp, .5) * .16 });
     spot(g, CX, STAGE_Y, 300, ramp(t, tUp, .3) * .6);
     const lift = easeInOut(ramp(t, tUp, .36));
     mainCurtain(g, lift, t);
@@ -106,7 +108,9 @@ export function register() {
   // ---- Two hundred "tests", each one is green
   shot(tUp + .6, tCut, (g, T) => {
     const c = cam([[tUp + .6, fc(CX, 1.3, 1100)], [tHund, fc(CX, 1.18, 1100)], [tTests + .35, fc(CX, .8, 1100)], [tCut, fc(CX, .76, 1100)]], T), t = now();
-    g.save(); place(g, theatre(), c);
+    g.save(); place(g, theatre({ live: true }), c);
+    // impressed by all that green: they sway, and warm up as the flags go up
+    audienceLive(g, F, TH.w, t, { seed: 395, bop: .28 + ramp(t, tGreen - .4, .6) * .22 });
     for (const r of RISERS) {
       const d = Math.abs(r.x - CX) / 700 + (2 - r.tier) * .08;
       const up = clamp((t - (tEach + d * (tGreen - tEach + .1))) / .18);
@@ -137,6 +141,8 @@ export function register() {
     const z = lerp(1.06, .94, ramp(T, tCut, tEnd - tCut)), t = now();
     g.save(); g.translate(W / 2, 780); g.rotate(rot); g.scale(z, z); g.translate(-W / 2, -780);
     g.drawImage(topFloor(), W / 2 - 1400 + 50, 720 - 1280);
+    // the stalls from above, cheering the tick on, hands up for "seen!"
+    g.save(); g.translate(W / 2 - 1400 + 50, 720 - 1280); stallsAboveLive(g, 2800, 3000, 2080, t, { seed: 511, bop: .45 + ramp(t, tSeen - .3, .5) * .4 }); g.restore();
     // the checks slide in from their rows to the tick, lying on their backs
     const form = easeInOut(ramp(t, tCut + .1, tScore - tCut - .05));
     TICK.forEach((p, i) => {

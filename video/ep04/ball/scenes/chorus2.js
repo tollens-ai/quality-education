@@ -23,7 +23,7 @@ import { mabel } from '../people.js';
 import { magnifier, socket, plug, router } from '../cast.js';
 import { mabelPhone, mabelLift, member, reach, barbell, barbellIcon, tick, crackedTick, snapshot, notebook, pencil, ghostRow, shelfPhone, lifter, moth, PINK, gymFront, streetFront, setAppLook } from '../props-gym.js';
 import { sticker, APP, appHeader, appLogo } from '../gymapp.js';
-import { pops, qmark, sweat } from '../rig.js';
+import { pops, qmark, sweat, bang } from '../rig.js';
 import { at, ramp, ease, kick, cam, floorCam, sparkle, footShadow, confetti, place, look } from '../common.js';
 import { shape, ellipse, eye, stroke, rrect, glove, line } from '../ink.js';
 import { logInsert, ruleCard, gshot } from './verse2.js';
@@ -261,49 +261,28 @@ export function register() {
       } });
   }, { id: 'c2-crack' });
 
-  // ---- 10. mind? (Mabel keeps using her phone, but now she keeps her own record too: she glances at
-  //         its struck-through fan, jots her sets in her own notebook, and holds the notebook up
-  //         beside the phone's log, the one record against the other)
+  // ---- 10. mind? (whose mind changed, and about what: Mabel leans in trusting to the phone, sees the
+  //         empty drawer where "Saved!" was, and goes "oh!"; then she pats the new red-flag check,
+  //         which will catch it next time, and gives us a knowing nod: "Saved!" offline isn't saved)
   gshot(c9, end, (g, t) => {
     const d = now();
-    g.save(); gymSet(g, cam([[c9, fc(1186, 1.3)], [end, fc(1180, 1.38)]], t), t);
-    barbell(g, MX + 40, F - 120, .92, { r: .92 });
-    footShadow(g, PX, F, 220); footShadow(g, MX, F, 330);
-    const out = ease(d, c9, .2), pen = ease(d, c9 + .08, .2);
-    const jot = [94.2, 94.48, 94.76, 95.05].map(x => x - .08), show = ease(d, 95.25, .3);
-    const n = jot.filter(x => d >= x).length, last = n ? clamp((d - jot[n - 1]) / .22) : 0;
-    const writing = d > jot[0] - .1 && d < jot[3] + .25, lick = d > 93.82 && d < 94.1;
-    const glance = writing && (Math.floor((d - jot[0]) / .28) % 2 === 0);
-    // her phone, still her app: its screen cracked where "Saved!" fell away, its log showing the empty row
-    const ph = mabelPhone(g, PX, F, PS, { rows: FINAL, wifi: 0 }, { eyes: { expr: 'worried', lx: .9, ly: show > .5 ? .2 : -.2 } });
-    const [qx, qy, qw, qh] = ph.screen, ox = qx + qw * .56, oy = qy + qh * .3;
-    for (const [a, L] of [[-2.6, 70], [-1.4, 58], [-.4, 80], [.5, 64], [1.4, 90], [2.4, 60]]) {
-      const P = [[ox, oy]]; let x = ox, y = oy;
-      for (let k = 1; k <= 3; k++) { x += Math.cos(a + (k % 2 ? .25 : -.2)) * L / 3; y += Math.sin(a + (k % 2 ? .25 : -.2)) * L / 3; P.push([x, y]); }
-      stroke(g, P, { w: 2.4, seed: 8100 + a, raw: true, color: '#3a2c2c' });
-      g.save(); g.globalAlpha = .6; stroke(g, P.map(([u, v]) => [u + 1.5, v + 1.5]), { w: 1.1, seed: 8110 + a, raw: true, color: '#ffffff' }); g.restore();
-    }
-    const nbTo = [lerp(-.2, lerp(-.15, .58, show), out), lerp(.85, lerp(.05, .3, show), out)];
-    const scribble = writing ? Math.sin(d * 40) * .05 : 0;
-    const penTo = lick ? [-.2, -.62] : writing ? [-.5 + scribble, -.12 + n * .06] : show > 0 ? [.12, .45] : [lerp(.1, -.2, pen), lerp(-1.1, -.4, pen)];
-    let page = null;
-    mabel(g, MX, F, MS, { t: d, dance: .3,
-      L: { to: nbTo, pose: 'grip' }, R: { to: penTo, pose: show > .5 ? 'fist' : 'grip' },
-      hold: {
-        L: (g2, x, y, a, s) => {
-          if (out <= .05) return;
-          const ns = lerp(.62, .92, show) * out, nx = x + 46 - 20 * show, ny = y - 30 - 30 * show;
-          notebook(g2, nx, ny, ns, n, last, { rot: lerp(-.12, 0, show) });
-          glove(g2, x, y, a, 28 * s, 'grip', { flip: true, seed: 613 });
-          page = [nx, ny - 190 * ns * .5 + (n + .3) * 190 * ns / 7];
-        },
-        R: (g2, x, y, a, s) => {
-          if (pen <= .05 || show >= .5) return;
-          const target = lick ? [MX, F - 376] : page || [x - 100, y];
-          pencil(g2, x + 6, y - 4, Math.atan2(target[1] - y, target[0] - x), s * .9);
-        },
-      },
-      eyes: { expr: 'open', lx: show > .5 ? 0 : glance ? -1 : -.4, ly: show > .5 ? 0 : glance ? -.1 : .6 }, smile: show > .5 ? 1.25 : 1, sing: lick ? .5 : 0, lean: show > .5 ? Math.sin(Math.max(0, d - 95.5) * 7) * .03 : undefined });
+    g.save(); gymSet(g, cam([[c9, fc(1176, 1.34)], [end, fc(1170, 1.42)]], t), t);
+    const KX = 1166;
+    barbell(g, MX + 60, F - 120, .92, { r: .92 });
+    footShadow(g, PX, F, 220); footShadow(g, KX, F, 150); footShadow(g, MX, F, 330);
+    const oh = d > 94.15, pat = d > 94.62, nod = d > 95.3;
+    // her phone: the hole where "Saved!" fell away, and the empty drawer in it
+    const ph = mabelPhone(g, PX, F, PS, { rows: FINAL, wifi: 0, hole: 1 }, { eyes: { expr: 'worried', lx: .9, ly: .2 } });
+    // the new check, its red flag up, its eyes on the phone; it bobs when she pats it
+    const tap = pat ? Math.max(0, Math.sin((d - 94.62) * 11)) * (d < 95.4 ? 1 : 0) : 0;
+    check(g, KX, F, 1.35, { t: d, flag: 1, flagCol: RED, wave: true, look: pat ? .5 : -1, card: ruleCard, squash: tap * .18 });
+    const lidY = F - 30 * 1.35 - 118 * 1.35 * (1 - tap * .07) - 13 * 1.35;
+    const L = pat ? { to: [(MX - 121 - (KX + 6)) / 135, (lidY - 8 - tap * 10 - (F - 294)) / 135], pose: 'open', ang: Math.PI * .55 } : oh ? 'cry' : { to: [.3, .55], pose: 'open' };
+    const M = mabel(g, MX, F, MS, { t: d, dance: .25, lean: nod ? -.04 + Math.sin((d - 95.3) * 9) * .03 : pat ? -.05 : oh ? .04 : -.07,
+      L, R: oh && !pat ? 'cry' : 'hips',
+      eyes: { expr: 'open', lx: nod ? 0 : pat ? -.6 : -1, ly: nod ? 0 : pat ? .5 : .4 },
+      smile: oh && !pat ? 0 : nod ? 1.35 : 1, sing: oh && !pat ? .75 : 0 });
+    if (oh && !pat) { const p = backOut(ramp(d, 94.15, .2), 2.4); g.save(); g.translate(M.head[0] + 120, M.head[1] - 150); g.scale(p, p); bang(g, 0, 0, 120, GOLD); g.restore(); pops(g, M.head[0], M.head[1] - 20, 150, 6, { a0: -Math.PI * .95, span: Math.PI * .9, w: 5 }); }
     g.restore();
   }, { id: 'c2-notebook' });
 }

@@ -1,6 +1,6 @@
 # Episode 4 video, piano take: "Press, Stress & Guess"
 
-**Status (2026-10-01): third version, for Qing to watch.** The film for the piano remix of "Did
+**Status (2026-10-01): fourth version, for Qing to watch.** The film for the piano remix of "Did
 You Actually Test It?". The take is 182.6 seconds; the film is 190.6 seconds at 1080×1920 and 30
 fps, with eight seconds of end card after the music. The song and its expert notes are in
 [the episode sheet](04-did-you-actually-test-it.md); Sol's film of the earlier swing take is
@@ -14,6 +14,8 @@ lyric just below it, and no words on screen that aren't sung. Qing found its ani
 but the picture used only half the frame and the story jumped between apps. This third version
 fills the whole frame, tells the story on one gym app from start to finish, gives the testing crew
 their own mark (a "?!" sticker) against the checks' green flags, and was put through a clarity pass.
+The fourth answers her notes on the third: Guess redrawn as a detective, a live audience, and truer
+examples of a judgement call and an oracle.
 
 Claude made the film: the storyboard, the world, the cast, the drawing and painting kits, the lyric
 system, and the parts from the title to chorus 1 and the outro by hand, in JavaScript. Three Claude
@@ -23,15 +25,51 @@ measured the recording and timed every sung word ([listening notes](../music/ep0
 The [renderer](../video/ep04/ball/README.md) and the
 [style reference](../.claude/skills/music-video/references/style-rubber-hose.md) explain how it's built.
 
-## Qing's note on the third version (2026-10-01, verbatim)
+## Qing's notes on the third version (2026-10-01, verbatim)
 
 > arghhh I meant it was meant to be a question mark after second guess it
+
+Her answers to the seven questions on the third version's claims (numbered as they were asked), and
+two more notes:
+
+> 1. probably not? it should be obvious what a screencap should do right? we need to think of
+> something where the requirement might genuinely be both ways
+> 2. sorry which bit do you mean?
+> 3. it's not an oracle that clawd would have access to... we might need a better example.
+> 4. who?
+> 5. it's meant to say the rule is wrong. which is great because the point is clawd writes bad
+> checks all the time.
+> 6. yeah
+> 7. oh everyone knows what clawd looks like.
+>
+> other things:
+> - the audience being static throughout makes them look bored. surely by the second chorus
+> they're bopping in their seats?
+> - what's... the pink guy... meant to be? he looks a bit... rude.
 
 Her note on the second version ("had ! rather than? ch line 1", below) meant that the film had "!"
 where she wanted "?": after "second-guess it". It was first read the other way round, and the third
 version as first delivered lettered "Did you actually test it!". It now letters "Did you actually
 test it?" (as sung, and as the take's sheet has it) and "Press it, stress it, second-guess it?", in
 all three choruses.
+
+What changed for each, in the fourth version:
+- **The punctuation.** "Did you actually test it?" as sung, and "Press it, stress it, second-guess
+  it?", in all three choruses.
+- **The judgement call** (question 1) is now the app's offline behaviour, a product decision that
+  goes both ways: keep the set on the phone and send it later, or warn her at once that it isn't
+  saved. The bots lay both options in your hand. The comma stays in verse 1 only.
+- **The oracle** (question 3) is now a known answer you give the bots: log four sets, expect four
+  rows. Mabel's notebook is gone, from the bridge and from chorus 2. There Mabel now goes "oh!" at the
+  empty drawer and pats the new check that will catch it next time.
+- **The sticker** (question 5) says the check's rule is wrong; the claims say so.
+- **The pink guy** is Guess, the crew's second-guesser, redrawn as a tin detective in a tweed
+  deerstalker and a violet caped coat. The domed pink tin is gone.
+- **The audience** is alive and gets into the show, and its white gloves make that visible at
+  phone size. The front rows applaud the green flags in the intro and cheer the hoop jump at the
+  circus. They lean in, rapt, through the breakdown, and break into applause as the colour comes
+  back. By chorus 3 they're bopping in their seats, gloves in the air for the find and the bow.
+  Every clapping or raised hand stays below the lyric.
 
 ## Qing's notes on the second version (2026-10-01, verbatim)
 
@@ -191,14 +229,16 @@ Clawd is a song-and-dance man in a straw boater, proud of two hundred wind-up "t
 green flags. Every check is a tin toy with one card on its chest and one flag: it applies its rule
 and can't wonder. The testing crew is a vaudeville trio billed **Press, Stress & Guess**, one verb
 each: Press (a round teal bot with a push-button head), Stress (a brass boiler with a pressure gauge)
-and Guess (tall, rose, monocled, with a question-mark antenna that springs into "!" when he finds a
-clue). Mabel, a strongwoman, is the user whose workout goes missing.
+and Guess (a tall tin detective in a violet caped coat and a tweed deerstalker, with a monocle and
+a question-mark antenna that springs into "!" when he finds a clue). Mabel, a strongwoman, is the user
+whose workout goes missing.
 
 The story follows the lesson, and it all happens to one app: Mabel's gym app, on a pink phone. Clawd
 shows it off with its two hundred green "tests". In his workshop he copies the app's code into a
 check, pastes over a changed screenshot of the app's chat, and buries the app in more checks; a
 shadowy figure in three hats turns out to have trained him for gold stars. The crew arrives and
-actually tests, and Clawd changes his mind: he drops his cane and takes up the glass. In Mabel's basement gym, with the router unplugged, the crew follow a clue to a real bug
+actually tests, and Clawd changes his mind: he drops his cane and takes up the glass. In Mabel's
+basement gym, with the router unplugged, the crew follow a clue to a real bug
 and make a new check for it. In a detective's office a fresh crew of bots is briefed. They probe a
 chat and a shop, and hand the hard call to you. The definitions play on a bare stage in sepia, where
 only the flags keep their colour, until the users step into the light and the colour returns for the
@@ -213,7 +253,9 @@ The film tells each idea in pictures, with no words but the lyric, so its pictur
   red when it isn't. It has dot eyes and no brows, because it can't wonder. **Testing** is the crew
   (Press presses, Stress loads and shakes, Guess asks "?" and finds "!") and the magnifying glass.
   When testing finds a problem a check missed, a tester slaps a red **"?!" sticker** over the check's
-  green flag (or the app's "Saved!" tick): the check said yes, testing says look.
+  green flag (or the app's "Saved!" tick). The sticker says the check's rule is wrong. Qing
+  (2026-10-01): "it's meant to say the rule is wrong. which is great because the point is clawd writes
+  bad checks all the time".
 - **One app.** Every example in the film happens in Mabel's gym app: its sets, its chat, its shop.
 - **The copied sum.** Clawd pastes a copy of the app's code onto a check, beetle and all. Both add up
   today's sets, 2+2, as 4 until their beetles kick it to 5 at the same moment. The answers match, so the check's
@@ -232,13 +274,16 @@ The film tells each idea in pictures, with no words but the lyric, so its pictur
   lost set shows as a dashed outline in the log until the next trial begins. That is the film's
   marker, not something the app would display. Only the third drawer is shown empty, so the film doesn't claim older sets are lost,
   and the street of gyms claims only that every gym without a signal is exposed.
-- **Mabel's notebook** is her own record. In the bridge it's the oracle a bot checks the app's log
-  against: her four sets against the app's three and a gap.
+- **A known answer** is the bots' oracle in the bridge: an answer you give them in advance, four sets
+  logged means four rows. A bot logs four, the signal drops before the fourth, the app shows three and
+  a gap, and the gavel lands on the gap. (It replaced Mabel's notebook, which an agent couldn't
+  read.)
 - **The bot crew** get real browsers, a playbook and the users in mind, and you name the goals (a
   padlock for privacy, a coin for payment, a barbell for the gym's sets). One probes privacy: Pat's
   message reaching Sam's new account is a leak. Another tests payment across a restart: the order must
-  match what the goose paid. They share their finds and doubts, and hand the judgement calls to you,
-  with the fainted comma from verse 1 as the example.
+  match what the goose paid. They share their finds and doubts, and hand the judgement calls to you.
+  The example is the app's offline behaviour, a product decision rather than a bug: keep the set on the
+  phone and send it when the signal's back, or tell her at once that it isn't saved?
 - **The breakdown's shape sorter.** A check is a toy that knows one shape. You choose the star, a star
   block fits, and the flag goes green. Testing tries other things: a ball and then a pebble slip
   through the star hole too, and the check, which can't tell, stays green. Then the sums again: the
@@ -255,27 +300,27 @@ The film tells each idea in pictures, with no words but the lyric, so its pictur
 
 Questions where Qing's answer could change what the film teaches:
 
-1. **The comma as the call that needs you.** At the end of the bridge ("We ask for fresh
-   interpretations") the crew bring you the fainted comma from verse 1 on a cushion: whether that
-   change matters is your call. Is that a fair example of a judgement the crew should hand to a human?
-   (The first version used the gym's "save for later, or warn?" decision instead.)
-2. **The shape sorter.** The breakdown pictures a check as a toy that knows one shape: a star block
-   fits its star-shaped hole and the flag goes green. Testing tries other shapes; a ball and then a
-   pebble slip through the star hole too, and the check, which can't tell, stays green. Is that a fair
-   picture of "what else, and why", and of a clue changing the next try?
-3. **Mabel's notebook as the oracle.** In chorus 2 Mabel stops trusting "Saved!" and keeps her own
-   notes, which the bridge then uses as the oracle a bot checks the app's log against. Is her notebook
-   a fair picture of an oracle for this audience?
-4. **"They" who trained the agent** are a faceless figure in three hats, meant as the system of
-   rewards, not a villain. Does that land as intended?
-5. **The "?!" sticker.** The testers' own mark, slapped over a check's green flag when testing finds
-   what the check missed. Does it say "testing contradicts the check's pass" without overclaiming
-   (the check isn't wrong about its rule; it just can't see the problem)?
-6. **The exceptions to "no words but the lyric":** the two corner marks (your 2026-09-25 decision),
-   the title on the opening curtain (it's the hook, a sung line), the digits of the 2+2 sum, and the
-   end card's credits after the music. Is each acceptable?
-7. **Clawd as the agent.** The film now opens on Clawd showing off his app, but nothing on screen says
-   he's an AI agent unless you know him from the series. Should it?
+1. **The offline call.** At the end of the bridge the bots hold up two cards for when there's no
+   signal: keep the set on the phone and send it later (the store drawer, an alarm clock), or warn her
+   at once that it isn't saved (a red warning sign). Is that a call that genuinely goes both ways? It
+   replaces the comma, after her note: "we need to think of something where the requirement might
+   genuinely be both ways".
+2. **The shape sorter** (the breakdown, 2:09–2:18). The check is a shape-sorter toy with a
+   star-shaped hole. A star block drops through and the flag goes green, then a ball and a pebble get
+   through too, and the flag stays green: the rule (the hole) is wrong. Is that a fair picture of
+   "what else, and why", and of a clue changing the next try?
+3. **A known answer as the oracle.** In the bridge your hand gives a bot an answer it knows in
+   advance (log four sets, expect four rows), and the app's three and a gap are judged against it.
+   Is that a fair picture of an oracle an agent can use? It replaces Mabel's notebook.
+4. **"They"** (0:33–0:41): "They've trained me just to make the grade" is drawn as one faceless
+   figure changing hats (ringmaster, teacher, factory boss), meant as training that rewards passing
+   marks. Asked whether it lands, Qing asked "who?". The proposal: whoever trained the agent, drawn
+   as one visible character, a cheerful trainer handing out gold stars, rather than a faceless
+   shadow, in the same three scenes. Is that who "they" are?
+
+Settled by Qing's answers (2026-10-01): the sticker says the check's rule is wrong (above); the
+exceptions to "no words but the lyric" stand ("yeah"); and nothing more is needed to say Clawd is the
+agent ("oh everyone knows what clawd looks like").
 
 ## The built storyboard
 
@@ -285,14 +330,14 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
 
 | Seconds | The line | The picture | What it says |
 |---|---|---|---|
-| 0.0-2.9 | (piano) | The red curtain, with the title (the hook, which is sung) painted on it in gold; each word bounces on one of the piano's notes. Below it Clawd stands out front, holding up his app, a pink phone with a barbell on its screen, like a prize. He tips his boater and winks, and the curtain flies up on the last note before the voice. The audience fills the stalls below. | This is Clawd, and this is his gym app. |
+| 0.0-2.9 | (piano) | The red curtain, with the title (the hook, which is sung) painted on it in gold; each word bounces on one of the piano's notes. Below it Clawd stands out front, holding up his app, a pink phone with a barbell on its screen, like a prize. He tips his boater and winks, and the curtain flies up on the last note before the voice. The audience in the stalls below waits, and stirs as it rises. | This is Clawd, and this is his gym app. |
 
 ### Intro (2.9-12.7 s): the stage
 
 | Seconds | The line | The picture | What it says |
 |---|---|---|---|
-| 2.9-7.6 | *Two hundred "tests", each one is green;* | The app stands on a gold pedestal centre stage, beaming; Clawd twirls his cane beside it in the spotlight. The camera pulls back on three tiers of identical tin wind-up checks around them, and on "each one is green" their flags flip up green in a ripple from the centre out. The scare quotes are in the crew's rose. | His "tests" are for this app; they're many and alike, and all of them are green. |
-| 7.6-12.7 | *The finest score you've ever seen!* | From overhead, the way 1930s musicals shot their numbers: the checks lie on their backs on a dark polished floor and form a giant green tick, with the app and Clawd at its corner waving up at us. Below, the footlights line the stage's edge, and beyond them the front stalls' hats. On the held "seen!" the tick turns under confetti and fireworks. | A perfect score, and how proud he is of it. |
+| 2.9-7.6 | *Two hundred "tests", each one is green;* | The app stands on a gold pedestal centre stage, beaming; Clawd twirls his cane beside it in the spotlight. The camera pulls back on three tiers of identical tin wind-up checks around them, and on "each one is green" their flags flip up green in a ripple from the centre out, and in the front rows below, white gloves applaud. The scare quotes are in rose. | His "tests" are for this app; they're many and alike, and all of them are green. |
+| 7.6-12.7 | *The finest score you've ever seen!* | From overhead, the way 1930s musicals shot their numbers: the checks lie on their backs on a dark polished floor and form a giant green tick, with the app and Clawd at its corner waving up at us. Below, the footlights line the stage's edge, and beyond them the stalls applaud, white gloves round their hats. On the held "seen!" the tick turns under confetti and fireworks. | A perfect score, and how proud he is of it. |
 
 ### Verse 1 (12.7-32.9 s): the workshop
 
@@ -314,7 +359,7 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
 
 | Seconds | The line | The picture | What it says |
 |---|---|---|---|
-| 32.9-35.0 | *They've trained me just to make the grade.* | A circus ring. A shadowy ringmaster presents a hoop on a striped pole; Clawd leaps through it and catches a gold star in his mouth, like a performing seal. "They" are one shadowy figure who keeps changing hats. | He was rewarded for passing. |
+| 32.9-35.0 | *They've trained me just to make the grade.* | A circus ring. A shadowy ringmaster presents a hoop on a striped pole; Clawd leaps through it and catches a gold star in his mouth, like a performing seal, and the crowd round the ring cheers, gloves in the air. "They" are one shadowy figure who keeps changing hats. | He was rewarded for passing. |
 | 35.0-37.6 | *Like kids in class, I aim to pass;* | A schoolroom. Clawd is squeezed into a little desk between a bunny and a piglet. The same shadow, in a mortarboard, holds up a gold star, and Clawd's eyes turn to stars as he holds up a page of red ticks. | He's aiming at the reward, not the work. |
 | 37.6-41.0 | *The marks decide how tests get made.* | A factory. The gold star is now the die of a press, worked by the shadow in a bowler. It stamps tin into star-shaped checks that hop off the belt waving green flags. In the band's stop the press rises slowly; on the big piano stab it spills out a heap of them. | The reward shapes the checks. |
 
@@ -338,7 +383,7 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
 | 58.9-62.3 | *The gym? No net. We log a set;* | Mabel, a strongwoman in a striped costume, strikes poses on the beats beside her phone. Cut to the dead router, antennas wilted and its plug on the floor: it drops crooked on "No" and puffs smoke on "net". She heaves the barbell overhead on "log". Close-up, the phone's page filling the frame: a third row pops into the log with the Wi-Fi fan struck through, and the phone smiles. | A gym with no signal, and a set logged without one. |
 | 62.3-64.3 | *The app says "Saved!"—but what's in store?* | The phone puffs up, a big green tick stamps on, and it winks; "Saved!" is its speech bubble. Guess opens a hatch in its side and pulls out the bottom drawer: bare wood, and a moth flies out. | What the app says and what it stored are different things. |
 | 64.3-66.7 | *Reload the screen; no set is seen.* | Press leaps and jabs the reload arrow on the piano's stab, and the screen spins. Close-up: where the set was, a dashed empty outline, and the phone looks worried. Mabel's lip trembles and a tear rolls. | Reloading shows the set is gone. |
-| 66.7-68.8 | *Connect once more: still gone? Explore!* | Stress jams the plug in, the router springs up and its waves ripple, and Press reloads. Close-up: the fan is lit, but the outline is still empty. Pith helmets clap on in a ripple (Clawd's boater flies off) and Guess points onward. | Fixing the connection doesn't bring the set back, so they investigate. |
+| 66.7-68.8 | *Connect once more: still gone? Explore!* | Stress jams the plug in, the router springs up and its waves ripple, and Press reloads. Close-up: the fan is lit, but the outline is still empty. Pith helmets clap on in a ripple (Clawd's boater and Guess's deerstalker fly off) and Guess points onward. | Fixing the connection doesn't bring the set back, so they investigate. |
 | 68.8-71.1 | *We chase the clue; try something new:* | Guess follows chalk footprints away from the phone. They end at the plug; his antenna springs to "!" and Clawd bumps into him. Guess pulls the plug and holds it up, and a bulb lights over his head. | The clue points to the connection, so they try a new experiment. |
 | 71.1-73.4 | *Connect, then save; the sets all stay.* | He plugs it in first. Mabel lifts, a row pops in and Press reloads; in the close-up the page blinks and settles on solid ticked rows, which bounce on "all" and "stay". Mabel flexes, delighted. | With the signal on before saving, the sets stay. |
 | 73.4-75.5 | *We drop the net, then save a set;* | Stress yanks the plug and gives a knowing look in the band's stop. Mabel lifts; the row pops in, ticked, and the phone winks. | The reverse experiment: no signal, then save. |
@@ -353,7 +398,7 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
 | 82.7-84.2 | *Find a clue? Congratulations!* | On "Find a clue?" Guess slaps the testers' "?!" sticker over the app's "Saved!" tick. On "Congratulations!" Mabel hoists the whole crew and the red-flag check on her barbell in a shower of confetti. | Testing contradicts the app's "Saved!", and finding the problem is the win. |
 | 84.2-87.1 | *Now pursue its implications.* | A dissolve to a cutaway street of basement gyms. Guess's giant glass holds the centre while the street moves under it, stopping on Mabel's phone and then on two neighbours', all running the same app: each one's Wi-Fi fan is struck through and its newest row is an empty dashed outline. The near pavement runs below, under the street lamps. | The bug reaches every gym with no signal. |
 | 87.1-91.8 | *What did you try? What did you find?* | Clawd holds up the evidence like snapshots: first the pulled plug by its socket beside a barbell, then the log with the dashed row circled. | Report what you tried and what you found. |
-| 91.8-96.4 | *What changed your mind?* | Close-up: the "Saved!" tick, the sticker still on it, cracks and falls away, showing the empty drawer and a moth. Mabel, her cracked phone beside her still showing the empty row, licks her pencil and jots her sets in her own notebook, then holds it up beside the phone's log with a knowing nod. The iris closes on the notebook. | "Saved!" can't be trusted offline, so she keeps her own record beside the app's. |
+| 91.8-96.4 | *What changed your mind?* | Close-up: the "Saved!" tick, the sticker still on it, cracks and falls away, showing the empty drawer and a moth. Mabel leans in to her phone, trusting; she sees the empty drawer and goes "oh!", pats the new red-flag check that will catch it next time, and nods knowingly at us. The iris closes on her. | "Saved!" offline isn't saved, and now a check watches for it. |
 
 ### Bridge (96.4-128.9 s): the detective's office
 
@@ -362,39 +407,39 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
 | 96.4-99.1 | *A fresh bot crew? Here's what to do:* | An iris opens on a 1930s detective's office. A crate's shadow grows and the crate lands on "fresh". Clawd peers at it with his glass and is blown back when it bursts on "crew?", and three little bots spring up on springs and blink. On "Here's" Guess turns and points straight at us. | You're about to set up a crew of testing agents. |
 | 99.1-101.5 | *Real browsers, a playbook, and users in mind.* | Your hand, from the edge, gives the first bot a browser open on the gym app's log and the second a playbook that flips open to X's, O's and arrows. It sets a thought bubble of the app's gym members (Mabel flexing, Pat with dumbbells, the goose with a skipping rope) over the third, which taps its temple on "mind". | Give them real browsers, a plan, and the people who use the app. |
 | 101.5-103.6 | *The goals you name will guide the game;* | A board game seen from above, the app's pink header along its far edge. Your finger taps three spots and pink flags spring up: a padlock for the app's chat, a coin for its shop, a barbell for its log. The bots hop up their lanes. | You set the goals, and they play toward them. |
-| 103.6-106.0 | *Your oracles help them to judge what they find.* | Your hand gives the third bot Mabel's notebook beside her phone, open on the app's log. Full-frame close-up: a pencilled line joins each of her four barbells to the app's rows, one per word. The fourth reaches the empty row, a gavel lands on it on "judge", and the testers' "?!" sticker stays on it. | An oracle, like her own record, tells them what's right. |
+| 103.6-106.0 | *Your oracles help them to judge what they find.* | Your hand gives the third bot a card with an answer it already knows: four barbells, each with an arrow to a row of the app's log. Close-up: the card clipped up beside the app's log, rows level, and the bot hovering on its propeller between them, a gavel in its other hand. It taps in four sets; three rows pop in and the card ticks each off. The Wi-Fi fan is struck through before the fourth, which leaves only a dashed gap, and the card's fourth row lights up. On "to" the bot glances at that row; on "judge" it brings its gavel down on the gap, leaving the testers' "?!" sticker. | An oracle is an answer you already know, which the bots can check the app against. |
 | 106.0-108.0 | *One probes the chat—just me and Pat:* | The first bot hovers on its propeller like a safecracker, a stethoscope on the padlock of the app's chat: just the bot and Pat. | One bot tests privacy. |
 | 108.0-110.5 | *Does Sam's new account show the text Pat just sent?* | Sam unwraps a new phone, the gym app's pink phone with a bow, and Pat's heart is on its screen; a question mark rises over Sam. The padlock springs open, Sam's face pushes into the chat, the bot's eyes pop, and it slaps a "?!" sticker on the chat. | A private message showing up in someone else's account is a leak. |
 | 110.5-112.7 | *One tests the cart, then hits restart:* | In the second bot's browser, the gym app's shop: a kettlebell and dumbbells hop into the cart and the goose pays in coins. The bot hangs on a power lever, the page goes black and a spinner turns. | Another tests payment across a restart. |
 | 112.7-115.0 | *Do orders still match what the customer spent?* | A balance: the goose's order (the kettlebell and dumbbells) against her coins teeters through the band's stop and comes level on "customer". A gold tick pops and the goose beams. | The order must match what was paid. |
 | 115.0-117.3 | *We trade the news, compare the views;* | The bots swap picture cards of their finds, then hold up the app's three pages side by side: its chat, its shop and its log. | They share what they found. |
 | 117.3-119.5 | *We share the doubts and observations.* | Question marks and eyes rise from the bots and pin themselves to the corkboard, and red string zips between them. | Doubts are evidence too. |
-| 119.5-122.7 | *Some calls need you. We'll talk them through;* | The candlestick telephone rings on the desk. On "need" Guess lifts the receiver to his ear, its cord running back to the stand; on "you" he points straight out at us, and on "We'll" Clawd skips in with a thumbs-up. | Some decisions belong to a person: you. |
-| 122.7-128.9 | *We ask for fresh interpretations.* | Press presents a velvet cushion carrying the fainted comma from verse 1. Then, full frame, the app's chat: Pat's line has a dashed, comma-shaped hole in it. The comma wakes and looks up at its empty place while the hole glows, throws up its arms and turns to us with a "?". On "interpretations" your hand comes in palm up, and the comma hops onto it. | Whether that change matters is your call. |
+| 119.5-122.7 | *Some calls need you. We'll talk them through;* | Two bots whip up a card each: the app's page with its Wi-Fi fan struck through, showing the same new set with no tick. On "need" they look from one card to the other; on "you" they thrust both at us. Then the left card pulls out the phone's store drawer, drops the set in and adds an alarm clock and a dashed arrow up to the fan, while the right card's row turns dashed and a red warning sign lands on it. | With no signal, the app could keep the set and send it later, or tell her at once it isn't saved. Both are defensible: a product decision, not a bug. |
+| 122.7-128.9 | *We ask for fresh interpretations.* | The bots look from one card to the other and back. On "fresh" a "?" pops up between them and they turn to us. On "interpretations" your hand comes in, palm up, and they lay both cards in it, fanned, then look up at you, beaming. The iris closes on the two answers in your hand. | The bots lay out the options; the call is yours. |
 
 ### Breakdown (128.9-147.3 s): the bare stage, in sepia
 
 | Seconds | The line | The picture | What it says |
 |---|---|---|---|
-| 128.9-131.2 | *A check applies a rule we've set;* | Sepia, one spotlight, the stalls' heads in silhouette below, and the flags are the only colour. The spotlight strikes on a lone check and Clawd presents it. Close-up: your hand slots a star stencil into it on "set". | A check holds one rule, and you choose it. |
+| 128.9-131.2 | *A check applies a rule we've set;* | Sepia, one spotlight, the stalls in silhouette below, leaning in, rapt, and the flags are the only colour. The spotlight strikes on a lone check and Clawd presents it. Close-up: your hand slots a star stencil into it on "set". | A check holds one rule, and you choose it. |
 | 131.2-133.5 | *It tells us if that rule is met.* | Clawd holds a star block beside the stencil's star, the same shape. Close-up: the star slides in snug and drops through, and the flag goes green on "met". | It says only whether that rule passed. |
 | 133.5-135.7 | *To test, we ask what else—and why;* | Guess walks in with a crate of other shapes (a ball, a cone, a cube, a pebble on the rim) and holds up the ball. Close-up: the ball slips through the star hole too, and the flag goes green. Guess scratches his head: "?" | Testing asks what else might pass, and why. |
 | 135.7-138.0 | *Each clue can change what next we try.* | His antenna springs to "!" and he reaches past the ball, the cone and the cube for the tiny pebble. Close-up: the pebble slips through, and the flag is green again. | One clue suggests the next try. |
 | 138.0-140.2 | *A check reports, "The sums agree!"* | Mabel's pink phone shows the app's sum, 2+2 = 5, and the copied check prints a "5" slip. Its green flag goes up, and the speech bubble points at it. | A check reports agreement. |
 | 140.2-142.6 | *We test: "Could both be wrong? Let's see!"* | Guess, between them, points at both fives and holds up four fingers, frozen through the band's stop; the bubble points at him. Close-up: he lifts the check's lid on two caught beetles, and on "see!" slaps the "?!" sticker over its still-green flag. | Testing asks whether both could be wrong, and finds they are. |
 | 142.6-144.7 | *The checks are part of how we test;* | The star-stencil check marches into a doctor's bag beside the glass, a playbook and a browser window, and the bag snaps shut on "test". | Checks are one tool in the kit. |
-| 144.7-147.3 | *We judge what serves the users best.* | The spotlight swings to the users (the goose, Mabel, Pat and Sam), each holding the app's pink phone, who step in and smile, and colour spreads back out from Mabel. | The measure is what's good for the people who use it. |
+| 144.7-147.3 | *We judge what serves the users best.* | The spotlight swings to the users (the goose, Mabel, Pat and Sam), each holding the app's pink phone, who step in and smile; colour spreads back out from Mabel, and the front rows break into applause. | The measure is what's good for the people who use it. |
 
 ### Chorus 3 (147.3-166.7 s): the company
 
 | Seconds | The line | The picture | What it says |
 |---|---|---|---|
-| 147.3-150.1 | *Did you actually test it?* | The curtain flies up on the whole company, with searchlights crossing. On the top riser the checks wave their flags, two of them red, and on the drum's hits the testers' "?!" stickers slap onto three of the green. On "Did" everyone points straight out at us, frozen through the stop, and the camera punches in on the band's hit. | Everyone asks it now; green alone isn't the win. |
+| 147.3-150.1 | *Did you actually test it?* | The curtain flies up on the whole company, with searchlights crossing. On the top riser the checks wave their flags, two of them red, and on the drum's hits the testers' "?!" stickers slap onto three of the green. On "Did" everyone points straight out at us, frozen through the stop, and the camera punches in on the band's hit. Below, the house bops in its seats. | Everyone asks it now; green alone isn't the win. |
 | 150.1-152.5 | *Press it, stress it, second-guess it?* | Three quick cuts to the little bots at the app: the mint one jabs its screen, the gold one drops a giant kettlebell on the phone, which squashes and sweats, and the lilac one peers at it through a glass with his eye huge in it: "?" | The bot crew have learned the three moves, on the same app. |
-| 152.5-154.6 | *Find a clue? Congratulations!* | Clawd's glass finds the beetle in the app's code. On "Congratulations!" Press and Guess hop in and slap "?!" stickers on the phone, and Mabel hoists Clawd. | Finding the clue is the celebration. |
+| 152.5-154.6 | *Find a clue? Congratulations!* | Clawd's glass finds the beetle in the app's code. On "Congratulations!" Press and Guess hop in and slap "?!" stickers on the phone, Mabel hoists Clawd, and the house has its hands up and its hats waving. | Finding the clue is the celebration. |
 | 154.6-157.7 | *Now pursue its implications.* | The company congas along the footprint trail, with Guess leading with his glass. | Follow where it leads. |
 | 157.7-162.3 | *What did you try? What did you find?* | Overhead, the way the 1930s musicals did it: the company forms a magnifying glass, a ring with a handle of checks, that sweeps along the trail across the boards, with the footlights and the stalls below, and the beetle swells in its lens on "find?" as a "?!" lands beside it. | Look closely, together. |
-| 162.3-166.7 | *What changed your mind?* | The handle re-forms as a bulb's base and the bulb lights gold, and the flags and beanies turn gold. Then the company bows in the gold light. | Looking closely is what changes minds. |
+| 162.3-166.7 | *What changed your mind?* | The handle re-forms as a bulb's base and the bulb lights gold, and the flags and beanies turn gold. Then the company bows in the gold light to a house on its feet, hands up. | Looking closely is what changes minds. |
 
 ### Outro (166.7-182.6 s): the report
 
@@ -495,7 +540,8 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
   one who sees what Clawd can't.
 
   What stayed, and why:
-  - That nothing says Clawd is an AI agent, which the viewer ranked first, is Qing's question 7.
+  - Nothing says Clawd is an AI agent, which the viewer ranked first. Qing: "oh everyone knows what
+    clawd looks like".
   - The last word of a run-on line still leaves fast: that's the trade, above.
   - "They" as one figure in three hats is question 4.
   - The opening stays the title card: it's the hook, a question to the viewer, and the curtain
@@ -504,6 +550,18 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
     questions as friendly evidence, so the repeat moves on.
   - The rose glow on echoed words stays; it's the backing voices.
   - So do the pith helmets: they're the gym verse's costume for "Explore!".
+- **The fourth version.** Qing's answers and notes on the third were each taken up by whoever drew
+  that part: Guess redrawn in the shared cast file, and each builder checking him in their own shots;
+  the live audience in the shared painting kit, used by the lead and the finale's builder; the new
+  oracle and judgement call by the bridge's builder; chorus 2's new ending by the gym's. Then the same
+  checks ran on the whole film: the lettering audit (no stray lettering), the word audit, contact
+  sheets at one frame a second, and the same independent viewer, given the five changes to judge.
+  The viewer found that four of the five read with the sound off: the detective, the oracle, the
+  keep-or-warn call and chorus 2's new ending. The fifth didn't: the audience's bopping was
+  silhouettes moving on a near-black band, invisible at phone size. White gloves fixed it: applause in
+  the front rows, then hands in the air, all below the lyric. The viewer also caught the phone itself
+  swinging the gavel in the oracle shot, so that the app seemed to judge itself. The bot swings it
+  now.
 
 ## Where it falls short
 
@@ -513,19 +571,16 @@ One row per sung line, written from the built film. `video/lib/storyboard.py` tu
   replaces it (the hook's "it!" among them). Holding it longer would put two lines on screen at once.
 - Some small things read best at full size: the chalk footprints in the gym's chase, the board game's
   flag emblems, the pebble in the breakdown, and the characters in chorus 3's overhead formation.
-- Mabel's notebook shows four sets against the app's three and a gap. Counting the sets she lifts on
-  screen, she'd have five.
 - The bridge is still a fast list, about fifteen pictures in 25 seconds, as its lyric is.
-- Nothing on screen says the straw-boater box is the AI agent unless you know Clawd from the series
-  (question 7).
+
 
 ## Files and credits
 
 - Renderer: [video/ep04/ball/](../video/ep04/ball/README.md); timings:
   [music/ep04/piano/](../music/ep04/piano/listening-notes.md).
-- Not in git: `video/out/ep04-piano-v3/press-stress-guess-master.mp4` (1080×1920, 30 fps), the
+- Not in git: `video/out/ep04-piano-v4/press-stress-guess-master.mp4` (1080×1920, 30 fps), the
   upload copy `press-stress-guess-upload.mp4`, the thumbnail and `press-stress-guess-storyboard.pdf`.
-  The earlier versions' files stay in `video/out/ep04-piano/` and `video/out/ep04-piano-v2/`.
+  The earlier versions' files stay in `video/out/ep04-piano/`, `-v2/` and `-v3/`.
 
 Lyrics: gpt-6.1-sol, with review and feedback from Qing. Music and voice: Suno, in the take Qing
 chose. Drawings and animation: Claude, in JavaScript, with no generated images in the film. The

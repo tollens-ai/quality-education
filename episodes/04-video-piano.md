@@ -1,6 +1,6 @@
 # Episode 4 video, piano take: "Press, Stress & Guess"
 
-**Status (2026-10-01): finished, and posted by Qing that day: "it's great! I've posted it."** The film
+**Status (2026-10-01): finished, and posted by Qing that day ([on X](https://x.com/YanqingCheng/status/2105756056550830229)): "it's great! I've posted it."** The film
 for the piano take of "Did You Actually Test It?". The take is 182.6 seconds; the film is 190.6
 seconds at 1080×1920 and 30 fps, with eight seconds of end card after the music. The song and its
 expert notes are in [the episode sheet](04-did-you-actually-test-it.md); Sol's film of the earlier

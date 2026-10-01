@@ -89,6 +89,8 @@ More on episode 3:
 
 ## Episode 4: "Did You Actually Test It?"
 
+[Watch it on X](https://x.com/YanqingCheng/status/2105756056550830229).
+
 Your agent says all two hundred of its tests pass. In a 1930s rubber-hose sing-along cartoon,
 bouncing ball and all, Clawd shows off a gym app whose "tests" copy its own code, agree with its
 mistakes and get rewritten whenever they complain. Then a testing crew, the vaudeville trio Press,

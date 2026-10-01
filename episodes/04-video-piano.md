@@ -1,22 +1,25 @@
 # Episode 4 video, piano take: "Press, Stress & Guess"
 
-**Status (2026-10-01): fifth version, for Qing to watch.** The film for the piano remix of "Did
-You Actually Test It?". The take is 182.6 seconds; the film is 190.6 seconds at 1080×1920 and 30
-fps, with eight seconds of end card after the music. The song and its expert notes are in
-[the episode sheet](04-did-you-actually-test-it.md); Sol's film of the earlier swing take is
-["The Green Room"](04-video.md).
+**Status (2026-10-01): finished, and posted by Qing that day: "it's great! I've posted it."** The film
+for the piano take of "Did You Actually Test It?". The take is 182.6 seconds; the film is 190.6
+seconds at 1080×1920 and 30 fps, with eight seconds of end card after the music. The song and its
+expert notes are in [the episode sheet](04-did-you-actually-test-it.md); Sol's film of the earlier
+swing take, ["The Green Room"](04-video.md), wasn't posted.
 
-The first version, drawn in one night, was "no good" in Qing's words: she had liked its idea and its
-characters, and found its lettering and backgrounds sloppy. The second kept the idea and the cast,
-redrew the cast with more polish, repainted every place, and storyboarded every line again under a
-new rule for the frame from an expert who had watched episode 3: one subject in the centre, the
-lyric just below it, and no words on screen that aren't sung. Qing found its animation "gorgeous",
-but the picture used only half the frame and the story jumped between apps. This third version
-fills the whole frame, tells the story on one gym app from start to finish, gives the testing crew
-their own mark (a "?!" sticker) against the checks' green flags, and was put through a clarity pass.
-The fourth answers her notes on the third: Guess redrawn as a detective, a live audience, and truer
-examples of a judgement call and an oracle. The fifth takes out the crowd's gloves, which she found
-creepy, and redraws "they" as a visible trainer.
+The film went through five versions, the last four on 2026-10-01, each answering Qing's notes on
+the one before; her notes are below, verbatim, newest first.
+
+1. Drawn in one night, the first was "no good": she liked its idea and its characters, and found its
+   lettering and backgrounds sloppy.
+2. The second redrew the cast and every place, and storyboarded every line again under a new rule
+   for the frame from an expert who had watched episode 3: one subject in the centre, the lyric just
+   below it, and no words on screen that aren't sung. Its animation was "gorgeous", but the picture
+   used only half the frame and the story jumped between apps.
+3. The third filled the frame, told the story on one gym app, gave the testing crew their own mark
+   (a "?!" sticker) against the checks' green flags, and went through a clarity pass.
+4. The fourth answered her notes on the third's claims: truer examples of an oracle and a judgement
+   call, Guess redrawn as a detective, and a live audience.
+5. The fifth took out the crowd's waving gloves, which she found creepy, and gave "they" a face.
 
 Claude made the film: the storyboard, the world, the cast, the drawing and painting kits, the lyric
 system, and the parts from the title to chorus 1 and the outro by hand, in JavaScript. Three Claude
@@ -26,12 +29,12 @@ measured the recording and timed every sung word ([listening notes](../music/ep0
 The [renderer](../video/ep04/ball/README.md) and the
 [style reference](../.claude/skills/music-video/references/style-rubber-hose.md) explain how it's built.
 
-## Qing's note on the fourth version (2026-10-01, verbatim)
+## Qing's notes on the fourth version (2026-10-01, verbatim)
 
 > the applauding hands look super creepy let's get rid. anything you're not sure about, you decide
 > what to improve
 
-What changed, in the fifth version:
+What changed in the fifth version:
 - **The hands are gone.** The audience still has to look into the show, and scattered silhouettes
   moving out of step don't show at phone size. So the house moves together: every head bounces on
   the beat with a ripple along the rows, and the rows sway in turn. The front rows catch the stage's
@@ -71,7 +74,7 @@ version as first delivered lettered "Did you actually test it!". It now letters 
 test it?" (as sung, and as the take's sheet has it) and "Press it, stress it, second-guess it?", in
 all three choruses.
 
-What changed for each, in the fourth version:
+What changed in the fourth version:
 - **The punctuation.** "Did you actually test it?" as sung, and "Press it, stress it, second-guess
   it?", in all three choruses.
 - **The judgement call** (question 1) is now the app's offline behaviour, a product decision that
@@ -125,7 +128,7 @@ What changed for each, in the fourth version:
 
 > Making sure we're continuing to hold a really high quality bar throughout.
 
-What changed for each:
+What changed in the third version:
 - **The frame.** A 16:9 version was started and set aside: Qing chose, after seeing a mock of each,
   to stay vertical and fill the bottom. Below the floor line every place now paints what's nearest
   the camera, as atmosphere rather than story, kept dark where the lyric sits over it. The theatre
@@ -227,62 +230,60 @@ piano with jaunty chord stabs and nimble runs leading the arrangement."
 ## The look and the story
 
 An upright piano, comic patter and a one-room mono sound are the soundtrack of a cartoon from about
-1930, so the film is one: a rubber-hose cartoon whose cast is drawn the way *Cuphead* redrew that era
-(pie-cut eyes, white gloves, hose limbs, a brush line that swells and boils, a soft shade and a hard
-gloss on every cel), over backgrounds painted in watercolour and gouache. The drawings change twelve
-times a second, on twos, as the old studios' did, and the camera moves on every frame. Scenes join
-with irises, and close-ups of small, important things fill the frame.
+1930, so the film is one: a rubber-hose cartoon whose cast is drawn the way *Cuphead* redrew that
+era (pie-cut eyes, white gloves, hose limbs, a brush line that swells and boils, a soft shade and a
+hard gloss on every cel), over backgrounds painted in watercolour and gouache. The drawings change
+twelve times a second, on twos, as the old studios' did, and the camera moves on every frame. Scenes
+join with irises, and close-ups of small, important things fill the frame.
 
 Every frame follows one rule: one thing to look at, in the middle, and the sung line just below it,
 with no other words on screen. The whole frame is picture: below the floor line each place paints
 what's nearest the camera (the audience in the theatre's stalls, the circus crowd, the workshop's
 drawers and its sleeping cat, the weights on the gym mat, the detective's desk top), dark and quiet
-where the lyric sits over it. Each line is told the way a silent
-film would tell it, in mime, with a figure of speech drawn literally where that helps: "paste app
-code" is a paste brush, and "commas cause such dramas" is a comma that faints. Quoted speech is a
-speech bubble pointing at whoever says it, and a bouncing ball rides the words, after the Fleischers'
-sing-alongs.
+where the lyric sits over it. Each line is told the way a silent film would tell it, in mime, with a
+figure of speech drawn literally where that helps: "paste app code" is a paste brush, and "commas
+cause such dramas" is a comma that faints. Quoted speech is a speech bubble pointing at whoever says
+it, and a bouncing ball rides the words, after the Fleischers' sing-alongs.
 
 Clawd is a song-and-dance man in a straw boater, proud of two hundred wind-up "tests" that all fly
 green flags. Every check is a tin toy with one card on its chest and one flag: it applies its rule
 and can't wonder. The testing crew is a vaudeville trio billed **Press, Stress & Guess**, one verb
-each: Press (a round teal bot with a push-button head), Stress (a brass boiler with a pressure gauge)
-and Guess (a tall tin detective in a violet caped coat and a tweed deerstalker, with a monocle and
-a question-mark antenna that springs into "!" when he finds a clue). Mabel, a strongwoman, is the user
-whose workout goes missing.
+each: Press (a round teal bot with a push-button head), Stress (a brass boiler with a pressure
+gauge) and Guess (a tall tin detective in a violet caped coat and a tweed deerstalker, with a
+monocle and a question-mark antenna that springs into "!" when he finds a clue). Mabel, a
+strongwoman, is the user whose workout goes missing.
 
 The story follows the lesson, and it all happens to one app: Mabel's gym app, on a pink phone. Clawd
 shows it off with its two hundred green "tests". In his workshop he copies the app's code into a
 check, pastes over a changed screenshot of the app's chat, and buries the app in more checks; a
 cheerful trainer in a lab coat turns out to have trained him with gold stars. The crew arrives and
 actually tests, and Clawd changes his mind: he drops his cane and takes up the glass. In Mabel's
-basement gym, with the router unplugged, the crew follow a clue to a real bug
-and make a new check for it. In a detective's office a fresh crew of bots is briefed. They probe a
-chat and a shop, and hand the hard call to you. The definitions play on a bare stage in sepia, where
-only the flags keep their colour, until the users step into the light and the colour returns for the
-company's finale. In the outro Clawd draws an honest report: one thing found, one thing not tested
-yet.
+basement gym, with the router unplugged, the crew follow a clue to a real bug and make a new check
+for it. In a detective's office a fresh crew of bots is briefed. They probe a chat and a shop, and
+hand the hard call to you. The definitions play on a bare stage in sepia, where only the flags keep
+their colour, until the users step into the light and the colour returns for the company's finale.
+In the outro Clawd draws an honest report: one thing found, one thing not tested yet.
 
-## What the pictures claim, and questions for Qing
+## What the pictures claim, and the decisions behind them
 
 The film tells each idea in pictures, with no words but the lyric, so its pictures are its claims:
 
-- **A check** is a tin wind-up toy with a card on its chest and one flag: green when its rule is met,
-  red when it isn't. It has dot eyes and no brows, because it can't wonder. **Testing** is the crew
-  (Press presses, Stress loads and shakes, Guess asks "?" and finds "!") and the magnifying glass.
-  When testing finds a problem a check missed, a tester slaps a red **"?!" sticker** over the check's
-  green flag (or the app's "Saved!" tick). The sticker says the check's rule is wrong. Qing
-  (2026-10-01): "it's meant to say the rule is wrong. which is great because the point is clawd writes
-  bad checks all the time".
+- **A check** is a tin wind-up toy with a card on its chest and one flag: green when its rule is
+  met, red when it isn't. It has dot eyes and no brows, because it can't wonder. **Testing** is the
+  crew (Press presses, Stress loads and shakes, Guess asks "?" and finds "!") and the magnifying
+  glass. When testing finds a problem a check missed, a tester slaps a red **"?!" sticker** over the
+  check's green flag (or the app's "Saved!" tick). The sticker says the check's rule is wrong. Qing
+  (2026-10-01): "it's meant to say the rule is wrong. which is great because the point is clawd
+  writes bad checks all the time".
 - **One app.** Every example in the film happens in Mabel's gym app: its sets, its chat, its shop.
-- **The copied sum.** Clawd pastes a copy of the app's code onto a check, beetle and all. Both add up
-  today's sets, 2+2, as 4 until their beetles kick it to 5 at the same moment. The answers match, so the check's
-  flag goes green, and the close-up strikes out both fives: the same mistake twice.
-- **The screenshot.** A screenshot check stands by the framed picture it expects, the app's chat. The
-  new picture has lost a comma (which faints): a gold ring circles the comma in the one, a red ring
-  the gap in the other, and the check rings and raises its red flag. Clawd pastes the new picture
-  over the old, and the flag goes green with nobody asking why the comma went. The film doesn't say
-  the change was a bug, only that nobody looked into it.
+- **The copied sum.** Clawd pastes a copy of the app's code onto a check, beetle and all. Both add
+  up today's sets, 2+2, as 4 until their beetles kick it to 5 at the same moment. The answers match,
+  so the check's flag goes green, and the close-up strikes out both fives: the same mistake twice.
+- **The screenshot.** A screenshot check stands by the framed picture it expects, the app's chat.
+  The new picture has lost a comma (which faints): a gold ring circles the comma in the one, a red
+  ring the gap in the other, and the check rings and raises its red flag. Clawd pastes the new
+  picture over the old, and the flag goes green with nobody asking why the comma went. The film
+  doesn't say the change was a bug, only that nobody looked into it.
 - **Coverage and reward.** A crate of checks buries the phone, all green. "They" (one cheerful
   trainer in a lab coat, in three hats: ringmaster, teacher, foreman) trained the agent with gold
   stars: well-meaning, but rewarding the score. And the star becomes the die that stamps out the
@@ -291,39 +292,39 @@ The film tells each idea in pictures, with no words but the lyric, so its pictur
   reloading and by restoring the signal (the set stays gone). Then they follow the clue to the plug:
   connect first and the sets stay; drop the signal and a set vanishes again; a new check flags it. A
   lost set shows as a dashed outline in the log until the next trial begins. That is the film's
-  marker, not something the app would display. Only the third drawer is shown empty, so the film doesn't claim older sets are lost,
-  and the street of gyms claims only that every gym without a signal is exposed.
-- **A known answer** is the bots' oracle in the bridge: an answer you give them in advance, four sets
-  logged means four rows. A bot logs four, the signal drops before the fourth, the app shows three and
-  a gap, and the gavel lands on the gap. (It replaced Mabel's notebook, which an agent couldn't
-  read.)
+  marker, not something the app would display. Only the third drawer is shown empty, so the film
+  doesn't claim older sets are lost, and the street of gyms claims only that every gym without a
+  signal is exposed.
+- **A known answer** is the bots' oracle in the bridge: an answer you give them in advance, four
+  sets logged means four rows. A bot logs four, the signal drops before the fourth, the app shows
+  three and a gap, and the gavel lands on the gap. (It replaced Mabel's notebook, which an agent
+  couldn't read.)
 - **The bot crew** get real browsers, a playbook and the users in mind, and you name the goals (a
   padlock for privacy, a coin for payment, a barbell for the gym's sets). One probes privacy: Pat's
-  message reaching Sam's new account is a leak. Another tests payment across a restart: the order must
-  match what the goose paid. They share their finds and doubts, and hand the judgement calls to you.
-  The example is the app's offline behaviour, a product decision rather than a bug: keep the set on the
-  phone and send it when the signal's back, or tell her at once that it isn't saved?
-- **The breakdown's shape sorter.** A check is a toy that knows one shape. You choose the star, a star
-  block fits, and the flag goes green. Testing tries other things: a ball and then a pebble slip
-  through the star hole too, and the check, which can't tell, stays green. Then the sums again: the
-  check reports agreement, and testing asks whether both could be wrong: two beetles are caught
-  inside, and a "?!" sticker goes over the check's green flag.
-  The checks go into the testing kit, one tool beside the glass, the playbook and the browser, and the
-  users are the measure.
+  message reaching Sam's new account is a leak. Another tests payment across a restart: the order
+  must match what the goose paid. They share their finds and doubts, and hand the judgement calls to
+  you. The example is the app's offline behaviour, a product decision rather than a bug: keep the
+  set on the phone and send it when the signal's back, or tell her at once that it isn't saved?
+- **The breakdown's shape sorter.** A check is a toy that knows one shape. You choose the star, a
+  star block fits, and the flag goes green. Testing tries other things: a ball and then a pebble
+  slip through the star hole too, and the check, which can't tell, stays green. Then the sums again:
+  the check reports agreement, and testing asks whether both could be wrong: two beetles are caught
+  inside, and a "?!" sticker goes over the check's green flag. The checks go into the testing kit,
+  one tool beside the glass, the playbook and the browser, and the users are the measure.
 - **Chorus 3** has the bot crew press, stress and second-guess the app itself: one jabs its screen,
   one drops a kettlebell on the phone, one peers at it through a glass. On "Find a clue?
   Congratulations!" the company slaps "?!" stickers on it.
-- **The outro.** Clawd's report in pictures: the router without waves, a barbell, and the missing row
-  circled. Then a padlocked logbook (an eye in its keyhole) and an empty box with a question mark: not
-  tested yet.
+- **The outro.** Clawd's report in pictures: the router without waves, a barbell, and the missing
+  row circled. Then a padlocked logbook (an eye in its keyhole) and an empty box with a question
+  mark: not tested yet.
 
 Decisions on the open questions. Qing (2026-10-01): "anything you're not sure about, you decide what
-to improve". These four were the lead's calls; any of them is hers to overrule.
+to improve". These four were the lead's calls, in the fifth version, which she approved and posted.
 
 1. **The offline call stays.** Keeping the set and sending it later, or warning her at once that it
    isn't saved, genuinely goes both ways. One risks losing a set if the phone dies before the signal
-   comes back; the other means she can't log anything in a basement gym. The independent viewer
-   read both options with the sound off.
+   comes back; the other means she can't log anything in a basement gym. The independent viewer read
+   both options with the sound off.
 2. **The shape sorter stays** (the breakdown, 2:09–2:18). The hole is the check's rule: a star block
    fits, and so do a ball and a pebble, so the rule is wrong. That's what Qing said the "?!" sticker
    says. The crate's other shapes were redrawn earlier so they read in sepia.
@@ -335,8 +336,8 @@ to improve". These four were the lead's calls; any of them is hers to overrule.
    scenes and the same three hats: whoever trained the agent, well-meaning, rewarding the score.
 
 Settled by Qing's answers (2026-10-01): the sticker says the check's rule is wrong (above); the
-exceptions to "no words but the lyric" stand ("yeah"); and nothing more is needed to say Clawd is the
-agent ("oh everyone knows what clawd looks like").
+exceptions to "no words but the lyric" stand ("yeah"); and nothing more is needed to say Clawd is
+the agent ("oh everyone knows what clawd looks like").
 
 ## The built storyboard
 

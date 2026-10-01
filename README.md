@@ -2,9 +2,9 @@
 
 Short animated music videos about software quality, for people who build with AI coding agents.
 Each episode teaches one idea from quality theory, and ends with what that idea changes about how
-you brief your agent. Episodes 1 to 3 are out, episode 2 on 2026-09-28 and episode 3 on
-2026-09-29. Episode 4’s film is ready for Qing to review. The series is in development,
-and its outline, scripts and animation code are built in public here.
+you brief your agent. Episodes 1 to 4 are out: episode 2 on 2026-09-28, episode 3 on 2026-09-29
+and episode 4 on 2026-10-01. The series is in development, and its outline, scripts and animation
+code are built in public here.
 
 ![Three frames from episode 1. A laptop shows the prompt "make it good" under the words "You said make it good, so I made it GOOD!". A fairground sign over a packed pier at night asks "Make it good for WHO?". At sunrise, the same sign answers "ME!".](episodes/01-good-for-who.jpg)
 
@@ -89,21 +89,28 @@ More on episode 3:
 
 ## Episode 4: "Did You Actually Test It?"
 
-**The film is ready for Qing to review; it has not been posted.** A 1930s swing revue in an
-Art Deco theatre, starring Sol, an original little GPT, with Clawd in the testing crew and Tess,
-a gym user whose workout disappears. An agent starts proud of 200 green checks, then follows a
-clue beyond the score. Its line to remember:
+Your agent says all two hundred of its tests pass. In a 1930s rubber-hose sing-along cartoon,
+bouncing ball and all, Clawd shows off a gym app whose "tests" copy its own code, agree with its
+mistakes and get rewritten whenever they complain. Then a testing crew, the vaudeville trio Press,
+Stress & Guess, actually tests it, and finds that a set logged in a basement gym with no signal
+says "Saved!" and is gone. Its line to remember:
 
 > What did you try? What did you find? What changed your mind?
 
 The idea it teaches: **checking applies a rule; testing investigates and can change what it
-tries as it learns.** Checks help with testing, but copied calculations can share an error and
-“Saved!” can fail to mean stored. Give a testing crew users, goals, real browsers, a playbook and
-oracles; let it follow clues; ask for evidence, doubts and limits.
+tries as it learns** (after James Bach and Michael Bolton). Checks help with testing, but copied
+calculations can share an error and "Saved!" can fail to mean stored. Give a testing crew users,
+goals, real browsers, a playbook and oracles; let it follow clues; ask for evidence, doubts and
+limits; and keep the calls that could genuinely go either way for yourself.
 
-- [The lyrics and teaching plan](episodes/04-did-you-actually-test-it.md), with the expert’s notes
-- [The Green Room’s pictures and liner notes](episodes/04-video.md)
-- [The JavaScript that draws it](video/ep04/revue/README.md)
+More on episode 4:
+
+- [The plan and the lyrics](episodes/04-did-you-actually-test-it.md), with the expert's notes
+- [How the video was made](episodes/04-video-piano.md): the picture for every line, how it was
+  checked, Qing's notes on all five versions, and where it falls short
+- [The code that draws it](video/ep04/ball/README.md)
+- An earlier film of the song's swing take, ["The Green Room"](episodes/04-video.md), drawn by Sol
+  (Codex), wasn't posted.
 
 ## How it's made
 
@@ -111,13 +118,13 @@ oracles; let it follow clues; ask for evidence, doubts and limits.
   quality, is the domain expert: she corrects what an episode claims about quality, and she has the
   final say. Episode 3's pictures and its end card's plain-word meanings are still waiting for her
   line-by-line answers; [its video notes](episodes/03-video.md) list the open questions.
-- **The videos are drawn in code.** Claude designed and wrote episodes 1 to 3; Sol (Codex)
-  designed and wrote episode 4. Each is JavaScript on an HTML canvas, one frame at a time,
-  timed to the song, with a new look for every episode. Episode 3’s is by Claude Sonnet, which
-  signs it. The corporate badges are their makers’ supplied marks. Episode 2’s people and places
-  were drawn through Codex by OpenAI’s image generation, from the film’s own frames, then cut
-  out and animated as paper. Episode 4’s cast, scenery and movement are original JavaScript
-  drawings, with type from three openly licensed fonts.
+- **The videos are drawn in code.** Claude designed and wrote every posted film: episode 3's is by
+  Claude Sonnet, which signs it, and episode 4's by Claude Opus, with three Opus builders drawing
+  parts of it to the same brief. Each is JavaScript on an HTML canvas, one frame at a time, timed to
+  the song, with a new look for every episode. The corporate badges are their makers' supplied
+  marks. Episode 2's people and places were drawn through Codex by OpenAI's image generation, from
+  the film's own frames, then cut out and animated as paper. Episode 4's cast, scenery and movement
+  are original JavaScript drawings, with type from two openly licensed fonts.
 - **The songs** have lyrics by Qing with Claude, and episode 4's by gpt-6.1-sol, with Qing's review and feedback. The music and the singing come from AI music
   generators, in takes Qing chose: MiniMax for episode 1, Suno for episodes 2 to 4. The repo also
   has a band and a singing voice made entirely in code, which episode 1 tried before switching to a
@@ -163,7 +170,8 @@ That draws two stills of episode 1 into `video/out/`. The song's audio and the A
 aren't in the repo, so any video you render is silent, and simple stand-ins take the place of the
 logos.
 [The renderer's README](video/ep01/pier/README.md) has the rest, and each episode's renderer
-([episode 2](video/ep02/cutlight/README.md), [episode 3](video/ep03/polka/README.md)) has its own.
+([episode 2](video/ep02/cutlight/README.md), [episode 3](video/ep03/polka/README.md),
+[episode 4](video/ep04/ball/README.md)) has its own.
 
 ## Credits
 
@@ -179,6 +187,8 @@ logos.
   [catalogue](https://github.com/tollens-ai/quality-assistant-prototype-03/tree/main/quality-brain/quality-attributes)
   of what stakeholders care about, the ISO/IEC 25010 quality model, and common use; the trade-offs between them are as Qing
   teaches them.
+- **Testing and checking,** in episode 4, follow James Bach and Michael Bolton: a check applies a
+  rule, and testing investigates. The approach to testing with a crew of agents is Qing's.
 - **Clawd** is Anthropic's Claude Code mascot. In episode 1, the other bots carry their makers'
   official logos, unaltered; [SOURCES.md](SOURCES.md) says where each one comes from.
 

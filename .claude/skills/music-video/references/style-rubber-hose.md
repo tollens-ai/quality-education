@@ -1,7 +1,8 @@
 # Style: Rubber Hose, a 1930s sing-along cartoon, polished
 
-Episode 4's second film (the piano take): a rubber-hose cartoon of about 1930, drawn entirely in
-JavaScript, with the character design polished the way modern games and films in that style do it.
+Episode 4's posted film (the piano take, "Press, Stress & Guess"): a rubber-hose cartoon of about
+1930, drawn entirely in JavaScript, with the character design polished the way modern games and
+films in that style do it.
 Characters are inked cels: a warm black brush line, thick where a shape turns away from the light
 and thin where it faces it, over flat paint with one soft rounded shade and a hard highlight. Arms
 and legs are rubber hoses ending in white four-finger gloves and big round shoes; eyes are pie-cut,
@@ -18,7 +19,8 @@ terms of character design". What changed is written down below as the look, so i
 Of the second version, the same day, she said "the animation is gorgeous though": keep it. Her notes
 on that version were about the frame, the story and two details, not the drawing; VIDEO.md has the
 general rules, and here they changed the band below the floor line, the close-ups and the testers'
-mark.
+mark. Two more rounds that day redrew a character whose silhouette read wrong, brought the audience
+to life without hands, and gave "they" a face. Of the fifth version: "it's great! I've posted it."
 
 ## When it suits
 

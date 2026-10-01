@@ -141,7 +141,10 @@ quality bar throughout." There's no rush.
      every credit against who did what (VIDEO.md, *How the auteur works*).
    - **Fresh eyes.** Give an independent model only the frames and the bar, and ask what a sharp
      viewer would pick on. Answer each point: fix it, or say why it stays. This is an audience
-     check, not design by committee.
+     check, not design by committee. After a revision, give the same viewer the new cut and its own
+     list, and ask for each point: fixed, better, or unchanged, plus anything new or worse. On
+     episode 4's piano film that loop caught a new muddle each round, and it judged what stills
+     can't show, such as whether a crowd's movement reads at phone size.
 
 10. **Render the master and verify it.** Render at 1080×1920 and 30 fps in parallel segments
    (`video/lib/render-parallel.sh`; episode 3's `tools/render-film.sh` wraps it, with the end card's
@@ -167,6 +170,12 @@ Put her notes verbatim in the video file. Fix what she named, then check the who
 same kind of fault. On episode 1, one hard-to-read frame led to a check of all 400 sung words,
 and that check found much more than the one frame. Re-run the checks from step 7 on, and say in
 the report what the wider check found.
+
+Some of her answers will be questions back ("sorry which bit do you mean?", "who?"). Answer them
+with frames, and treat "who?" as a verdict: the picture didn't land. When she hands the open calls
+back to you (Qing, 2026-10-01: "anything you're not sure about, you decide what to improve"),
+decide them. Write each decision and its reason in the video file, where she can overrule it, and
+don't ask the same questions again.
 
 ## Adding to the pack
 

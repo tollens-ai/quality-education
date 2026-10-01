@@ -36,7 +36,7 @@ locked.
 | Ep. 4 (piano take) v2 | The storyboard restarted from a blank page under a new rule from an expert who had watched episode 3 ([One place to look](#one-place-to-look)). The cast refined toward *Cuphead*, every place repainted in watercolour and gouache, and close-ups in irises. The lead built the look, the kits, the lyric system and the first parts; three Opus builders drew the rest to a standing brief, each part reviewed at full size. An audit of every lettering call, a word audit, and an independent viewer before hand-back | "the animation is gorgeous though", but the picture filled only half the frame and the story jumped between apps. v3 fills the frame, uses one app and adds a clarity pass |
 | Ep. 4 (piano take) v3 | v2's drawing and staging kept. A 16:9 version was started and set aside when Qing, shown a mock of each, chose vertical with the bottom filled. Every place's foreground painted below the floor line, every close-up redrawn to fill the frame, the story put on one app, a mark of the testers' own, and a clarity pass on every line by the lead and each builder. The audits and an independent viewer again before hand-back | Two of her claim answers sent examples back: a judgement call must "genuinely be both ways", and an oracle must be one "clawd would have access to". Also: "the audience being static throughout makes them look bored", and "what's... the pink guy... meant to be? he looks a bit... rude." |
 | Ep. 4 (piano take) v4 | The tester redrawn as a detective, a live audience that builds with the show, and truer examples of a judgement call and an oracle, each by the builder of that part; the checks again before hand-back | "the applauding hands look super creepy let's get rid. anything you're not sure about, you decide what to improve" |
-| Ep. 4 (piano take) v5 | The crowd's gloves out; the house moving together and lit by the stage instead; "they" redrawn as a visible trainer; the open claims decided by the lead, as Qing asked. The checks again before hand-back | Awaiting Qing's verdict |
+| Ep. 4 (piano take) v5 | The crowd's gloves out; the house moving together and lit by the stage instead; "they" redrawn as a visible trainer; the open claims decided by the lead, as Qing asked. The checks again before hand-back | "it's great! I've posted it." |
 
 The lesson (Qing, 2026-09-26): "we can really reuse most of that process just with a slightly
 more detailed prompt".
@@ -354,6 +354,11 @@ following what's happening in the story and what mistakes are being made?""
   the viewer sees them disagree. The piano film kept its flags for the checks (green: rule met;
   red: rule failed) and gave the testers a mark of their own: a "?!" sticker, slapped over a green
   flag when testing finds what the check missed.
+- **Every actor is someone the viewer can name.** Episode 4's piano film drew "they" ("They've
+  trained me just to make the grade") as a faceless shadow in three hats, meant as the system of
+  rewards. Asked whether it landed, Qing replied "who?". A symbol nobody can name doesn't land. Give
+  it a role the viewer recognises at a glance (there, a cheerful trainer in a lab coat handing out
+  gold stars), keep the same face in every scene, and have it in shot when the lyric names it.
 - **Each turn of the story in view, not only sung.** If two verses look alike, the change between
   them is invisible. Episode 2 v3's verse 2 first looked like verse 1 though it sings the answer
   to it; an oracle became a window cut where the reflection was.

@@ -43,4 +43,11 @@ correction here applies to every episode.
   that wrote the code. Green tests that miss what you care about are "checking the
   wrong things". An oracle is a source of judgement (who or what can tell), not a
   requirement: "if your gym log lost your best" is "not an oracle it's just a requirement".
-  (2026-09-27)
+  (2026-09-27) An agent's oracle has to be one the agent can reach. A user's private notebook is
+  "not an oracle that clawd would have access to"; a known answer you give it is. (2026-10-01)
+- **Agents write bad checks all the time.** When testing finds a problem a check missed, the check's
+  rule is often wrong, not just incomplete: "it's meant to say the rule is wrong. which is great
+  because the point is clawd writes bad checks all the time." (2026-10-01)
+- **The calls an agent should hand to a person are the ones that could genuinely go either way.** A
+  changed screenshot isn't one: "it should be obvious what a screencap should do right? we need to
+  think of something where the requirement might genuinely be both ways". (2026-10-01)

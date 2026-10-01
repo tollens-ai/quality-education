@@ -136,7 +136,35 @@ quality. Credit them here and on screen.
   Sonnet subagents to a shared brief and reviewed by the same one (the video file's *How it was made*).
   Its end card is signed "doodled by Sonnet", with Qing's permission.
 
-## Episode 4: what went into the video ("The Green Room")
+## Episode 4: what went into the video ("Press, Stress & Guess", the piano take)
+
+- **Song:** lyrics by gpt-6.1-sol, with review and feedback from Qing; performed by the Suno piano take Qing chose on
+  2026-10-01 ("brisk pattering pace, light male baritenor ... upright piano with jaunty chord stabs").
+- **Ideas:** testing and checking after James Bach and Michael Bolton; agent-led testing and the
+  briefing lesson from Yanqing Cheng. Both are credited on the end card.
+- **The look** follows the rubber-hose cartoons of about 1930 (white gloves, pie-cut eyes, hose
+  limbs, inked cels over painted backgrounds, iris joins), a shared idiom of the
+  era; no artwork is reproduced. Qing asked for the character design to take inspiration from the
+  game *Cuphead* (Studio MDHR), which revived that idiom with a modern finish; nothing from it is
+  copied, and it is credited on the end card. The **bouncing ball** over the lyric follows the Fleischer studio's sing-along cartoons of
+  the 1920s and '30s, credited on the end card; it is an idea, not their artwork. The overhead
+  formations (a giant tick, a magnifying glass) follow the kaleidoscope numbers Busby Berkeley staged
+  for the musicals of the 1930s, also credited on the end card. Everything is drawn in JavaScript, with no generated images; Codex's
+  image model made a few private style studies of the places, which only guided the painting.
+- **The layout rule** (one subject in the centre, the lyric just below it, no words on screen that
+  aren't sung) comes from an expert who watched episode 3, relayed by Qing; see
+  [VIDEO.md](VIDEO.md#one-place-to-look).
+- **Clawd** is Anthropic's Claude Code mascot, drawn in this film's style. Press, Stress, Guess,
+  Mabel, Pat, Sam, the goose, the trainer in the lab coat and the fresh bots are original. No affiliation or endorsement is implied.
+- **Fonts:** Corben (Vernon Adams) and Lilita One (Juan Montoreano), from the Google Fonts
+  repository under the SIL Open Font License; the notices ship in `video/ep04/ball/fonts/`.
+- **How it was made:** Claude (Opus) storyboarded the song, built the look, the kits and the lyric
+  system, and drew the title, intro, verse 1, chorus 1 and the outro; three Claude (Opus) builders drew
+  verse 2 with chorus 2, the bridge, and the breakdown with chorus 3 to the same kit and brief; a
+  helper measured the recording and aligned the words, and an independent viewer read the frames.
+  The [liner notes](episodes/04-video-piano.md) record the storyboard, the checks and the shortfalls.
+
+## Episode 4, an earlier film of the swing take ("The Green Room", not posted)
 
 - **Song:** lyrics by gpt-6.1-sol, with review and feedback from Qing; performed by the Suno take Qing selected on 2026-09-30,
   “Did You Actually Test It?”. The supplied genre is a 1930s Broadway comic swing song.
@@ -160,31 +188,3 @@ quality. Credit them here and on screen.
 - **How it was made:** Sol (Codex) chose the world, storyboarded the song and wrote every visual.
   Native Codex workers measured and aligned the recording and gave a fresh audience reading.
   The [liner notes](episodes/04-video.md) record the built storyboard, checks and limitations.
-
-## Episode 4, piano take: what went into the video ("Press, Stress & Guess")
-
-- **Song:** lyrics by gpt-6.1-sol, with review and feedback from Qing; performed by the Suno piano take Qing chose on
-  2026-10-01 ("brisk pattering pace, light male baritenor ... upright piano with jaunty chord stabs").
-- **Ideas:** testing and checking after James Bach and Michael Bolton; agent-led testing and the
-  briefing lesson from Yanqing Cheng. Both are credited on the end card.
-- **The look** follows the rubber-hose cartoons of about 1930 (white gloves, pie-cut eyes, hose
-  limbs, inked cels over painted backgrounds, iris joins and iris close-ups), a shared idiom of the
-  era; no artwork is reproduced. Qing asked for the character design to take inspiration from the
-  game *Cuphead* (Studio MDHR), which revived that idiom with a modern finish; nothing from it is
-  copied, and it is credited on the end card. The **bouncing ball** over the lyric follows the Fleischer studio's sing-along cartoons of
-  the 1920s and '30s, credited on the end card; it is an idea, not their artwork. The overhead
-  formations (a giant tick, a magnifying glass) follow the kaleidoscope numbers Busby Berkeley staged
-  for the musicals of the 1930s, also credited on the end card. Everything is drawn in JavaScript, with no generated images; Codex's
-  image model made a few private style studies of the places, which only guided the painting.
-- **The layout rule** (one subject in the centre, the lyric just below it, no words on screen that
-  aren't sung) comes from an expert who watched episode 3, relayed by Qing; see
-  [VIDEO.md](VIDEO.md#one-place-to-look).
-- **Clawd** is Anthropic's Claude Code mascot, drawn in this film's style. Press, Stress, Guess,
-  Mabel, Pat, Sam, the goose and the fresh bots are original. No affiliation or endorsement is implied.
-- **Fonts:** Corben (Vernon Adams) and Lilita One (Juan Montoreano), from the Google Fonts
-  repository under the SIL Open Font License; the notices ship in `video/ep04/ball/fonts/`.
-- **How it was made:** Claude (Opus) storyboarded the song, built the look, the kits and the lyric
-  system, and drew the title, intro, verse 1, chorus 1 and the outro; three Claude (Opus) builders drew
-  verse 2 with chorus 2, the bridge, and the breakdown with chorus 3 to the same kit and brief; a
-  helper measured the recording and aligned the words, and an independent viewer read the frames.
-  The [liner notes](episodes/04-video-piano.md) record the storyboard, the checks and the shortfalls.

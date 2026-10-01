@@ -8,13 +8,16 @@ and the film's liner notes, storyboard and checks are in
 [episodes/04-video-piano.md](../../../episodes/04-video-piano.md). Only the render harness in
 `video/lib/` and the measurements in `music/ep04/piano/` are shared with other films.
 
-This is the film's third version. The first (commit fff0345) was drawn in one night; Qing liked its
-idea and characters and found its lettering and backgrounds sloppy. The second (commit 73930a2)
-redrew the cast, repainted every place and storyboarded every line again under one rule for the
-frame: one subject in the centre, the lyric just below it, and no words on screen that aren't sung.
-The third keeps that, fills the whole frame (each place paints its foreground below the floor line,
-and close-ups fill the frame), tells the story on one app (Mabel's gym app, `gymapp.js`), and gives
-the testers a mark of their own, the "?!" sticker.
+This draws the film Qing posted on 2026-10-01, its fifth version. The first (commit fff0345) was
+drawn in one night; Qing liked its idea and characters and found its lettering and backgrounds
+sloppy. The second (commit 73930a2) redrew the cast, repainted every place and storyboarded every
+line again under one rule for the frame: one subject in the centre, the lyric just below it, and no
+words on screen that aren't sung. The third filled the whole frame (each place paints its foreground
+below the floor line, and close-ups fill the frame), told the story on one app (Mabel's gym app,
+`gymapp.js`), and gave the testers a mark of their own, the "?!" sticker. The fourth redrew Guess as a
+detective, brought the audience to life and found truer examples of an oracle and a judgement call.
+The fifth made the crowd move together instead of waving gloves, and gave "they" a face: a cheerful
+trainer in a lab coat.
 
 ## Render
 

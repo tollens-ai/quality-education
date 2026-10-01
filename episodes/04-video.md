@@ -1,8 +1,9 @@
 # Episode 4 video: “Did You Actually Test It?”, “The Green Room”
 
-**Status (2026-09-30): finished film, for Qing to watch.** The selected Suno recording is
-185.232 seconds; the rendered film is 193.200 seconds at 1080×1920 and 30 fps, including the
-practical end card. Posting on Qing's social accounts is her next move. The song and expert
+**Status: finished 2026-09-30; not posted.** Episode 4 went out on 2026-10-01 as the film of a
+later piano take of the song, ["Press, Stress & Guess"](04-video-piano.md), whose notes record why
+Qing wanted a new film. The selected Suno recording here is 185.232 seconds; the rendered film is
+193.200 seconds at 1080×1920 and 30 fps, including the practical end card. The song and expert
 notes are in [the episode sheet](04-did-you-actually-test-it.md).
 
 ![The Green Room poster: an ivory GPT in a top hat holds a magnifying glass beneath the title “Did You Actually Test It?”, beside a 200-green score and a curious Clawd.](04-did-you-actually-test-it.jpg)

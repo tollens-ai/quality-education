@@ -19,15 +19,29 @@ flag as a verdict. Record deliberate bends and check them in the generated take.
 
 Within a recurring pattern, answering phrases share syllable positions, stresses, pickups and
 rhyme slots. Check joins between breathing phrases too. Different sections can have different
-patterns. Suno managed verse-melody reuse with an exact grid match in episode 3; MiniMax’s
-episode 1 workaround is recorded in the [performer guidance](../../../../docs/lyrics/performers.md).
+patterns; see [performer guidance](../../../../docs/lyrics/performers.md) for how Suno and MiniMax
+handle repeated verse melodies.
+
+## Check pacing and runtime from the bar count
+
+Don't judge song length or pacing by feel. In 4/4, `bars × (240 / bpm)` gives duration for any
+span — count the bars each phrase actually occupies (whether full-time or half-time), plus any
+planned instrumental passages. Check three landmarks before polishing lines:
+
+- **When the first hook lands:** if a long intro, verse and pre-chorus push the first chorus too
+  far back, listeners leave before hearing what the song is about.
+- **The gap between hooks:** a long bridge stacked directly onto a breakdown can keep the song
+  away from its chorus for too long.
+- **Total duration:** a plausible overall runtime can hide both pacing problems above; cut
+  examples or merge sections early when the shape drags.
 
 ## Choose the section jobs
 
-Pick the form for the genre and the lesson: each verse develops something, a refrain can
-reinforce the point, and a contrast can make a definition or payoff audible. Episode 1’s
-pop-punk sequence is an example, not a required section list. A patter song can use a recurring
-closing couplet instead of a separate chorus.
+Pick the leanest form that carries the genre and the lesson: each verse develops a distinct angle
+and escalates on its own, a refrain reinforces the point, and a contrast makes a definition or
+payoff audible. Episode 1’s pop-punk sequence is one worked example, not a checklist of sections to
+stack into every song; a patter song can drop the chorus and intro, and a groove song can drop the
+pre-chorus or merge bridge and breakdown.
 
 Leave breathing space where the thought needs it. Budget the words against the phrase’s available
 time; outside patter, the series uses about 3–4 sung syllables a second as a starting point.

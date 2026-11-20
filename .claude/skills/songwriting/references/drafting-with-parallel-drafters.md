@@ -1,5 +1,9 @@
 # Drafting a patter song with parallel drafters
 
+Use this for dense multi-item patter lists (like episode 3) where independent sections split
+cleanly from one locked grid and ledger. For groove or narrative songs, one writer drafting from a
+locked grid usually keeps voice, escalation and callbacks tighter.
+
 How episode 3's lyric got from a parked first pass to a checked, expert-corrected sheet in about a
 day (2026-09-28 to 2026-09-29). Qing on the result (2026-09-29): "it worked astonishingly well".
 This is the loop that produced it, what made it work, and what went wrong on the way. The rules
@@ -118,17 +122,12 @@ line to them. Qing’s guidance (2026-09-28) is in the [patter reference](../../
 
 ## Applying the method to generated swing patter
 
-Suno reused a verse melody under changed lyrics in episode 3 when the beat grid matched exactly
-(Qing, 2026-09-30). Read the [performer guidance](../../../../docs/lyrics/performers.md) when deciding whether
-verses share a melody: MiniMax’s episode 1 workaround does not constrain Suno’s form.
-
 Episode 4’s Suno trial (2026-09-30) exposed an unreliable join from the screenshot line to
-“notification”, despite takes that sometimes managed it. Read the [performer guidance](../../../../docs/lyrics/performers.md) before setting the grid: a conversational genre still needs precise syllable and
-stress matches for the generator. Mark phrase joins on the grid and compare repeated shapes;
-use a generated take to hear uncertain joins before locking the lyric. Checker agreement
-establishes the chosen text pattern; the take and the expert ear establish how it phrases.
-The current [episode 4 draft](../../../../episodes/04-did-you-actually-test-it.md) remains
-provisional, so its phrasing is evidence for a repair, not a validated template.
+“notification”, despite takes that sometimes managed it. Read the [performer guidance](../../../../docs/lyrics/performers.md)
+before setting the grid: a conversational genre still needs precise syllable and stress matches
+for the generator. Mark phrase joins on the grid and compare repeated shapes; use a generated take
+to hear uncertain joins before locking the lyric. Checker agreement establishes the chosen text
+pattern; the take and the expert ear establish how it phrases.
 
 ## Recipe
 

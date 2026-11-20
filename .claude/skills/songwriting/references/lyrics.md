@@ -21,11 +21,10 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   "if the lyric is too sparse, it's dull". After one hearing, listeners transcribed 72% of lyrics
   across twelve genres (Condit-Schultz & Huron); a quarter of unaccompanied sung words were
   misheard (Collister & Huron).
-- **Less is more, which doesn't mean fewer ideas.** This is a tension with the house rule "pack in
-  as much information as possible". The house rule wins, and the two fit together: cut filler,
-  recap and padding (Sondheim's "less"), but keep each line to one idea, so that a dense song is
-  still easy to follow. Episode 1 gives one app per line and one tradeoff per phrase.
-  (house: *Pack in as much information*, *One example per line*.)
+- **Less is more, which doesn't mean fewer ideas.** Cut filler, recap and padding (Sondheim's
+  "less"), keep each developmental line moving the song forward, and leave room for groove,
+  anticipation and repetition. Episode 1 gives one app per line and one tradeoff per phrase.
+  (house: *Make each developmental line move the song forward*, *One example per line*.)
 - **God is in the details.** A specific detail does more work than a general one. Pattison: "the
   more specific you get, the more sense-bound you get, the more effective it is." "2FA on your gym
   log" teaches over-engineering faster than "too much security". (house: *Name concrete constraints,
@@ -43,7 +42,7 @@ theory and a house rule disagree, the note says so, and the house rule wins.
   (chorus, final line). Episode 1's pre-chorus is six bars and starts on the "&" of 1, and it hands
   over to the chorus on a band stop.
 - **Stressed syllables go on strong beats.** Prosody at the level of the syllable; see
-  [LYRICS.md](../../../../LYRICS.md#rhythm). (house: *Rhythm*, including when a bent stress is fine.)
+  [rhythm guidance](../../../../docs/lyrics/rhythm-and-rhyme.md#rhythm). (house: *Rhythm*, including when a bent stress is fine.)
 - **Leave space after the big line.** Pattison: "put your most important lines in places that have
   a little space after them." "I'm only reading your prompt" is followed by a band stop. (house:
   *The payoff phrase goes last, once*.)
